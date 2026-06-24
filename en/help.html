@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ShiftAlarm user guide</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #64748b;
+  --accent: #2563eb;
+  --soft: #e8eef8;
+  --border: #dbe4f0;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.58;
+  margin: 0;
+  padding: 18px;
+  color: var(--text);
+  background: var(--bg);
+}
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+h1 { margin: 0 0 8px; font-size: 28px; line-height: 1.2; }
+h2 { margin: 32px 0 10px; font-size: 21px; line-height: 1.25; }
+h3 { margin: 22px 0 8px; font-size: 17px; }
+p, li { font-size: 16px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul, ol { padding-left: 22px; }
+.notice, .tip, .warning {
+  padding: 14px 16px;
+  border-radius: 16px;
+  margin: 14px 0;
+  border: 1px solid var(--border);
+}
+.notice { background: var(--soft); }
+.tip { background: #ecfdf5; }
+.warning { background: #fff7ed; }
+.small { color: var(--muted); font-size: 14px; }
+.toc {
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 16px;
+  margin: 18px 0 24px;
+}
+.toc ol { margin: 8px 0 0; }
+.step-list li { margin-bottom: 8px; }
+.footer {
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --card: #111827;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --accent: #93c5fd;
+    --soft: #1f2937;
+    --border: #334155;
+  }
+  main { box-shadow: none; }
+  .toc { background: #172033; }
+  .tip { background: #10251f; }
+  .warning { background: #2a1d10; }
+}
+</style>
+</head>
+<body>
+<main>
+<h1>ShiftAlarm user guide</h1>
+<p class="small">Version 1. Date: 2026-06-24.</p>
+<div class="notice">This page is a learning guide for ShiftAlarm. It explains what each main feature does, where to find it, what to tap and what to check if something does not work as expected.</div>
+<nav class="toc">
+<strong>Contents</strong>
+<ol><li><a href="#start">1. First launch</a></li><li><a href="#permissions">2. Permissions and reliability</a></li><li><a href="#main">3. Main screen</a></li><li><a href="#shifts">4. Shift schedules</a></li><li><a href="#alarms">5. Alarms</a></li><li><a href="#geo">6. Geo-alarms</a></li><li><a href="#notes">7. Notes, events and reminders</a></li><li><a href="#clock">8. Clock, timer and stopwatch</a></li><li><a href="#widgets">9. Widgets</a></li><li><a href="#salary">10. Salary</a></li><li><a href="#backup">11. Backup and restore</a></li><li><a href="#diagnostics">12. Diagnostics and errors</a></li><li><a href="#faq">13. FAQ</a></li></ol>
+</nav>
+<h2 id="start">1. First launch</h2>
+
+<p>On first launch, ShiftAlarm shows a short setup window. The main screen is already available behind it, but it is better to complete the basic setup first.</p>
+<ol class="step-list">
+<li>Read the welcome message and tap “Continue”.</li>
+<li>On the documents step, open the documents or accept the required documents when you are ready.</li>
+<li>On the permissions step, open the permissions screen and check notifications, exact alarms, location and battery restrictions.</li>
+<li>Tap “Finish setup”.</li>
+</ol>
+<p class="tip">You can return to permissions later from Settings → Permissions and reliability.</p>
+
+<h2 id="permissions">2. Permissions and reliability</h2>
+
+<p>Alarms, reminders and geo-alarms depend on Android and device vendor settings.</p>
+<ul>
+<li><strong>Notifications</strong> are needed for alarms, reminders, timer and service notifications.</li>
+<li><strong>Exact alarms</strong> help signals start at the planned time.</li>
+<li><strong>Location</strong> is needed for geo-alarms.</li>
+<li><strong>Background location</strong> is needed for geo-alarms when the app is closed.</li>
+<li><strong>Battery / background activity</strong> may affect reliability on Xiaomi/Redmi and some other devices.</li>
+</ul>
+<p class="warning">Android does not always guarantee instant delivery of notifications, exact alarms and geofences. For important signals, check every item on the permissions screen.</p>
+
+<h2 id="main">3. Main screen</h2>
+
+<p>The main screen is the day panel. It provides quick access to clock, alarms, shift schedules, notes, geo-alarms and settings.</p>
+<ul>
+<li>Tap the clock card to open clock, timer and stopwatch.</li>
+<li>Tap alarms to open regular and shift-linked alarms.</li>
+<li>Tap schedule to open the calendar and shift schedules.</li>
+<li>Tap notes to open notes, events and reminders.</li>
+<li>Tap geo-alarm to open the geo-alarm map.</li>
+</ul>
+
+<h2 id="shifts">4. Shift schedules</h2>
+
+<p>A shift schedule is used by the calendar, shift-linked alarms, salary calculation and calendar widgets.</p>
+<ol class="step-list">
+<li>Open “Schedule”.</li>
+<li>Create a new schedule or edit an existing one.</li>
+<li>Set the schedule type, work days, shifts and colors.</li>
+<li>Make the required schedule active.</li>
+</ol>
+<p>If a day differs from the regular pattern, use a calendar override: day off, sick leave, vacation, replacement or custom shift.</p>
+
+<h2 id="alarms">5. Alarms</h2>
+
+<p>ShiftAlarm supports regular alarms, weekday alarms, date alarms and shift-linked alarms.</p>
+<ol class="step-list">
+<li>Open “Alarms”.</li>
+<li>Tap add alarm.</li>
+<li>Choose time, repeat mode, sound, vibration, duration, snooze and fade-in.</li>
+<li>For a shift-linked alarm, choose the shift mode and active schedule.</li>
+<li>Save the alarm.</li>
+</ol>
+<p class="tip">For important alarms, check the permissions screen and avoid battery restrictions for the app.</p>
+
+<h2 id="geo">6. Geo-alarms</h2>
+
+<p>A geo-alarm starts a signal when you enter a selected area, leave it, or do either action depending on the selected mode.</p>
+<ol class="step-list">
+<li>Open “Geo alarm”.</li>
+<li>Long-press the required point on the map.</li>
+<li>Choose a radius. 800–1000 m is recommended for better reliability.</li>
+<li>Choose the trigger mode: enter, exit, or enter/exit.</li>
+<li>Configure sound, vibration, schedule and save.</li>
+</ol>
+<p class="warning">On some devices, geofence delivery may be delayed because of battery saving, location accuracy or Android restrictions.</p>
+
+<h2 id="notes">7. Notes, events and reminders</h2>
+
+<p>Notes help you store tasks, events, checklists, audio and reminders.</p>
+<ul>
+<li><strong>Note</strong> is a regular text note or structured blocks.</li>
+<li><strong>Event</strong> is a date-based item.</li>
+<li><strong>Reminder</strong> is an item with a notification at a selected time.</li>
+<li><strong>Audio</strong> is a voice recording inside notes.</li>
+<li><strong>Transcript</strong> converts audio to text when a model or system engine is available.</li>
+</ul>
+
+<h2 id="clock">8. Clock, timer and stopwatch</h2>
+
+<p>The clock section contains world clocks, timer and stopwatch.</p>
+<ul>
+<li>Add required cities and time zones in world clocks.</li>
+<li>The timer can run in the background and show a notification.</li>
+<li>The stopwatch can save sessions and laps.</li>
+</ul>
+<p>If a timer or stopwatch is active, the main screen and widgets can show its state.</p>
+
+<h2 id="widgets">9. Widgets</h2>
+
+<p>ShiftAlarm supports Android home screen widgets.</p>
+<ul>
+<li><strong>Today 4×2</strong> is a compact panel with two configurable blocks.</li>
+<li><strong>Today 4×3</strong> has a clock block on top and two blocks below.</li>
+<li><strong>Calendar 4×4</strong> widgets show shift calendar information.</li>
+</ul>
+<p>Add a widget from the Android launcher widget menu.</p>
+
+<h2 id="salary">10. Salary</h2>
+
+<p>The salary section helps estimate income from shifts, bonuses, sales and deductions.</p>
+<ul>
+<li>Configure base rates and calculation settings.</li>
+<li>Add constant deductions if they repeat every month.</li>
+<li>Add variable deductions if they only apply to the current month.</li>
+<li>For sales, use a common percentage or categories with different percentages.</li>
+</ul>
+<p class="warning">Salary calculation is an auxiliary tool. Always compare the result with employer rules and official payroll documents before using it as final data.</p>
+
+<h2 id="backup">11. Backup and restore</h2>
+
+<p>Backup stores user settings and app data.</p>
+<ol class="step-list">
+<li>Open Settings → Backup.</li>
+<li>Tap “Save” / “Download” to save the file to the phone.</li>
+<li>Tap “Share” / “Send” to send the file through the system share sheet.</li>
+<li>To restore, select a backup file.</li>
+</ol>
+<p>Keep a backup in a safe place, especially before reinstalling the app or changing phones.</p>
+
+<h2 id="diagnostics">12. Diagnostics and errors</h2>
+
+<p>The app includes diagnostic logs for separate features. They help understand why something did not work.</p>
+<ol class="step-list">
+<li>Open Settings → Diagnostics.</li>
+<li>Choose the required section: alarms, clock, shifts, notes, geo-alarm and others.</li>
+<li>Copy the log and send it to the developer together with a description of the problem.</li>
+</ol>
+<p>The more precise the description and time of the problem are, the easier it is to find the cause.</p>
+
+<h2 id="faq">13. FAQ</h2>
+
+<h3>An alarm did not ring on time</h3>
+<p>Check notifications, exact alarms, background activity and battery restrictions.</p>
+<h3>A geo-alarm was delayed</h3>
+<p>Increase radius to 800–1000 m, enable precise and background location, and check battery settings.</p>
+<h3>A widget did not update immediately</h3>
+<p>Open the app or tap the refresh button on the widget. Android may limit frequent widget updates.</p>
+<h3>I changed the language, but the document or guide is not updated yet</h3>
+<p>Check internet connection and wait for download. If the remote version is unavailable, the app uses the bundled fallback.</p>
+
+<div class="footer small">This guide may be updated through GitHub. If the remote version is unavailable, the app uses the bundled offline version.</div>
+</main>
+</body>
+</html>
