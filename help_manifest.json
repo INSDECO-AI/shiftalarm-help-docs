@@ -1,0 +1,43 @@
+{
+  "manifest_version": 1,
+  "min_supported_app_version": 1,
+  "guide": {
+    "id": "shiftalarm_help",
+    "title": "ShiftAlarm Help",
+    "fallback_language": "en",
+    "bundled_languages": [
+      "en",
+      "ru"
+    ]
+  },
+  "pages": [
+    {
+      "language": "en",
+      "version": "2",
+      "url": "en/help.html",
+      "sha256": "4431766CCA766AEC846C238D5C07D164E216EAEE661F0F354963E5A0E6918516"
+    },
+    {
+      "language": "ru",
+      "version": "2",
+      "url": "ru/help.html",
+      "sha256": "2534BD8FD8F86FA4DCA254AA34E1E9EAE5B170BA8FA74450F6E51A4DD92EEAC8"
+    },
+    {
+      "language": "pl",
+      "version": "2",
+      "url": "pl/help.html",
+      "sha256": "3D250687941A947A3061EBF59C19BCD30D263D18FC4E982A1DD19E9A1F53CC9D"
+    }
+  ],
+  "assets": [
+    {
+      "id": "main_screen_overview",
+      "version": "1",
+      "url": "shared/images/main_screen_overview.png",
+      "sha256": "21096C0CC7BA6B7A72BE8B6D92A6E9FB99DDAAB9ED6389B6EBE672DD5263D0C6",
+      "size_bytes": 498258,
+      "mime_type": "image/png"
+    }
+  ]
+}
