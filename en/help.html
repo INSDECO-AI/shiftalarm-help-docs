@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ShiftAlarm User Guide</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #64748b;
+  --accent: #2563eb;
+  --soft: #e8eef8;
+  --border: #dbe4f0;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.58;
+  margin: 0;
+  padding: 18px;
+  color: var(--text);
+  background: var(--bg);
+}
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+h1 { margin: 0 0 8px; font-size: 28px; line-height: 1.2; }
+h2 { margin: 32px 0 10px; font-size: 21px; line-height: 1.25; }
+h3 { margin: 22px 0 8px; font-size: 17px; }
+p, li { font-size: 16px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul, ol { padding-left: 22px; }
+.notice, .tip, .warning {
+  padding: 14px 16px;
+  border-radius: 16px;
+  margin: 14px 0;
+  border: 1px solid var(--border);
+}
+.notice { background: var(--soft); }
+.tip { background: #ecfdf5; }
+.warning { background: #fff7ed; }
+.small { color: var(--muted); font-size: 14px; }
+.toc {
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 16px;
+  margin: 18px 0 24px;
+}
+.toc ol { margin: 8px 0 0; }
+.step-list li { margin-bottom: 8px; }
+.guide-figure {
+  margin: 18px 0;
+}
+.guide-image {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+}
+.callout-list li {
+  margin-bottom: 10px;
+}
+.guide-caption {
+  max-width: 520px;
+  margin: 10px auto 0;
+  color: var(--text);
+  font-size: 15px;
+}
+.guide-caption strong {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.footer {
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --card: #111827;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --accent: #93c5fd;
+    --soft: #1f2937;
+    --border: #334155;
+  }
+  main { box-shadow: none; }
+  .toc { background: #172033; }
+  .tip { background: #10251f; }
+  .warning { background: #2a1d10; }
+}
+</style>
+</head>
+<body>
+<main>
+<h1>ShiftAlarm User Guide</h1>
+<p class="small">Version 14. Date: 2 August 2026.</p>
+<div class="notice">This page is a practical guide to ShiftAlarm. It explains what each main feature does, where to find it, what to tap, and what to check if a feature does not work as expected.</div>
+<nav class="toc">
+<strong>Contents</strong>
+<ol><li><a href="#start">1. First launch</a></li><li><a href="#permissions">2. Permissions and reliability</a></li><li><a href="#main">3. Main screen</a></li><li><a href="#shifts">4. Shift schedules</a></li><li><a href="#statistics">5. Schedule statistics</a></li><li><a href="#alarms">6. Alarms</a></li><li><a href="#geo">7. Geo Alarms</a></li><li><a href="#notes">8. Notes, events, and reminders</a></li><li><a href="#clock">9. Clock, timer, and stopwatch</a></li><li><a href="#widgets">10. Widgets</a></li><li><a href="#salary">11. Salary calculation</a></li><li><a href="#settings">12. Settings</a></li><li><a href="#backup">13. Backup and restore</a></li><li><a href="#diagnostics">14. Diagnostics and troubleshooting</a></li><li><a href="#faq">15. Frequently asked questions</a></li></ol>
+</nav>
+<h2 id="start">1. First launch</h2>
+
+<p>When ShiftAlarm starts for the first time, it displays a short setup flow. The main screen is already available in the background, but it is best to complete the basic setup first.</p>
+<ol class="step-list">
+<li>Read the introductory information and tap “Continue.”</li>
+<li>On the documents step, open the documents or accept the required documents when you are ready to proceed.</li>
+<li>On the permissions step, open the permissions screen and check notifications, exact alarms, location access, and battery restrictions.</li>
+<li>Tap “Finish setup.”</li>
+</ol>
+<p class="tip">You can configure permissions later under “Settings → Permissions and reliability.”</p>
+
+<h2 id="permissions">2. Permissions and reliability</h2>
+
+<p>Alarms, reminders, and Geo Alarms depend on Android settings and the device manufacturer's software.</p>
+<ul>
+<li><strong>Notifications</strong> — required for alarms, reminders, the timer, and service notifications.</li>
+<li><strong>Exact alarms</strong> — help the alarm start at the required time.</li>
+<li><strong>Location</strong> — required for Geo Alarms.</li>
+<li><strong>Background location</strong> — required for a Geo Alarm to work while the app is closed.</li>
+<li><strong>Battery and background activity</strong> — may affect trigger reliability on Xiaomi/Redmi and some other devices.</li>
+</ul>
+<p class="warning">Android does not always guarantee immediate delivery of notifications, exact alarms, or geofence events. For important alerts, check every item on the permissions screen.</p>
+
+<h2 id="main">3. Main screen</h2>
+
+<p>The main screen is your daily dashboard. It provides direct access to the calendar, clock, Geo Alarms, regular alarms, shift schedules, notes, and settings.</p>
+
+<h3 id="main-overview">3.1. Main screen elements</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_screen_overview.png" alt="ShiftAlarm main screen with numbered controls">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Back arrow</strong> — moves the calendar to the previous month.</li>
+<li><strong>Month and year</strong> — shows the open month. Tap this area to use the <a href="#main-date-picker">step-by-step month and year picker</a>.</li>
+<li><strong>Forward arrow</strong> — moves the calendar to the next month.</li>
+<li><strong>Calendar</strong> — the main month area. You can swipe the calendar. Each day can show the date, reminders, events, scheduled shift, and day changes. A regular tap selects a date; a long press opens <a href="#main-day-actions">information and actions for the selected day</a>.</li>
+<li><strong>Today</strong> — returns the calendar to the current day.</li>
+<li><strong>Clock</strong> — opens the <a href="#clock">world clock, stopwatch, and timer</a>.</li>
+<li><strong>Geo Alarm</strong> — opens the <a href="#geo">map, saved places, and Geo Alarm settings</a>. An alert can trigger when you enter the selected area, leave it, or do either.</li>
+<li><strong>Alarm</strong> — opens <a href="#alarms">regular, repeating, and shift-linked alarms</a>.</li>
+<li><strong>Schedule</strong> — opens <a href="#shifts">shift schedules, their creation and editing, and statistics</a>.</li>
+<li><strong>Notes</strong> — opens <a href="#notes">notes, events, reminders, audio notes, and speech-to-text</a>.</li>
+<li><strong>Settings</strong> — opens <a href="#settings">permissions, language, theme, offline speech models, backup, diagnostics, documents, and training</a>.</li>
+</ol>
+
+
+<h3 id="main-date-picker">3.2. Selecting a month and year</h3>
+
+<p>Tap the month and year at the top of the main screen to open the required calendar period quickly. Selection proceeds in stages: <strong>century → decade → year → month</strong>.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_century.webp" alt="Step 1: selecting a century in the ShiftAlarm calendar">
+<figcaption class="guide-caption"><strong>1. Select a century.</strong> Tap the period that contains the year you need. The example selects the 2000s.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_decade.webp" alt="Step 2: selecting a decade in the ShiftAlarm calendar">
+<figcaption class="guide-caption"><strong>2. Select a decade.</strong> Tap the range that contains the required year. For 2026, select “2020–2029.”</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_year.webp" alt="Step 3: selecting a year in the ShiftAlarm calendar">
+<figcaption class="guide-caption"><strong>3. Select a year.</strong> Tap the required year. The example selects 2026.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_month.webp" alt="Step 4: selecting a month in the ShiftAlarm calendar">
+<figcaption class="guide-caption"><strong>4. Select a month.</strong> Tap the required month. The example selects July.</figcaption>
+</figure>
+
+<div class="tip">After you select a month, the panel closes and the main calendar opens at the selected month and year.</div>
+<div class="notice">The “Back” button returns to the previous stage. On the century screen, it closes the date picker.</div>
+
+<h3 id="main-day-actions">3.3. Information and actions for a selected day</h3>
+
+<p>Touch and hold the required day in the calendar. A panel with information and actions for that date will open. Drag the panel upward to see all available actions.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_day_actions.webp" alt="ShiftAlarm information and actions panel for a selected calendar day">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Date</strong> — shows the day of the week and selected date. Drag the handle at the top upward or downward to expand or close the panel.</li>
+<li><strong>Shift</strong> — shows the calculated shift or a day change such as a day off, time off, vacation, sick leave, or another exception.</li>
+<li><strong>Alarms for this date</strong> — shows alarms assigned to the selected day or reports that none exist.</li>
+<li><strong>Events and reminders</strong> — shows entries linked to the selected date.</li>
+<li><strong>Add alarm</strong> — opens the creation of a one-time alarm for the selected date.</li>
+<li><strong>Change shift</strong> — creates an exception for one day or a date range in the active schedule.</li>
+<li><strong>Add note</strong> — lets you choose an event or reminder to create for the selected date.</li>
+</ol>
+
+<div class="notice">The “Change shift” action is available for adjusting days in the active shift schedule.</div>
+
+<h4 id="main-shift-override">Changing one day or a date range</h4>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_types.webp" alt="Selecting a date range and shift change type in ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Start date</strong> — the first day of the change. It initially uses the date selected in the calendar.</li>
+<li><strong>End date</strong> — the final day of the change. To change only one day, leave the same date selected.</li>
+<li><strong>Time off</strong> — replaces the calculated shift with time off.</li>
+<li><strong>Vacation</strong> — marks the selected day or range as vacation.</li>
+<li><strong>Sick leave</strong> — marks the selected day or range as sick leave.</li>
+<li><strong>Save change</strong> — applies the selected exception to the calendar.</li>
+</ol>
+
+<h4 id="main-shift-time-adjustment">Adjusting working time</h4>
+
+<p>Scroll down the list of change types and select “Edit shift” to change the duration of the calculated work shift.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_time_adjustment.webp" alt="Adjusting shift working time in ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Edit shift</strong> — enables working-time adjustment for the selected shift.</li>
+<li><strong>+ time</strong> — adds hours or minutes to the standard shift duration.</li>
+<li><strong>− time</strong> — reduces the shift duration, for example when work ended early.</li>
+<li><strong>Count this time as overtime</strong> — treats the added time as overtime. If the option is off, it is counted as regular working time.</li>
+<li><strong>Save change</strong> — applies the adjustment to the selected day or range.</li>
+</ol>
+
+<div class="tip">A day change does not modify the original schedule template. It is stored as a separate exception and is included in the calendar, statistics, salary calculation, and reports.</div>
+
+<h2 id="shifts">4. Shift schedules</h2>
+
+<p>A shift schedule defines a repeating work cycle and provides the basis for other ShiftAlarm features. The app uses it to fill the calendar, link alarms to shifts, count working time, generate statistics, estimate salary, and prepare reports.</p>
+
+<div class="notice"><strong>Basic principle.</strong> First create the base repeating schedule. Add vacation, sick leave, time off, a one-time replacement shift, or a working-time adjustment as an exception for specific dates through the <a href="#main-day-actions">selected-day actions</a>. This keeps the original cycle unchanged.</div>
+
+<h3 id="shifts-list">4.1. Schedule list and controls</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedules_overview.webp" alt="ShiftAlarm schedule screen with an active schedule card and numbered controls">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Schedule details</strong> — the name, start date, cycle length, and a short sequence of days. In the example, “D · D · O · O” means two day shifts followed by two days off.</li>
+<li><strong>Switch</strong> — temporarily disables the schedule without deleting it. When you enable it again, the saved settings continue to apply.</li>
+<li><strong>Schedule status</strong> — indicates which schedule is currently active.</li>
+<li><strong>Edit</strong> — opens the parameters that can be changed. After initial setup, part of the schedule basis is locked to prevent accidental recalculation of calendar data that has already been created.</li>
+<li><strong>Delete</strong> — deletes the schedule after confirmation. Before deleting it, check any shift-linked alarms and calculations.</li>
+<li><strong>Open statistics</strong> — opens this schedule's <a href="#statistics">working-time, period, salary, and report statistics</a>.</li>
+<li><strong>Create schedule</strong> — lets you select a ready-made template or create a custom cycle.</li>
+</ol>
+
+<h3 id="shifts-create">4.2. Starting schedule creation</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_create.webp" alt="Schedule creation panel with a name, start date, templates, and custom schedule">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Schedule name</strong> — enter a clear name such as “Main 2/2,” “Night shift,” or the name of your workplace.</li>
+<li><strong>Start date</strong> — the date that corresponds to the <strong>first day of the repeating cycle</strong>. You may select a past or future date; the app calculates the schedule forward and backward from it.</li>
+<li><strong>Templates</strong> — ready-made common shift sequences. The example uses the “2/2 day” template.</li>
+<li><strong>Custom schedule</strong> — creates your own sequence of workdays and days off.</li>
+<li><strong>Create schedule</strong> — opens the detailed editor for the selected option.</li>
+</ol>
+
+<div class="tip">For the “D · D · O · O” template, the start date is normally the first of the two workdays. In a custom cycle, day 1 may also be a day off; the important point is that the selected date exactly matches day 1 of the sequence you created.</div>
+
+<h3 id="shifts-template">4.3. Creating a schedule from a template</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_template.webp" alt="Template schedule editor with a name, sequence, start date, and shift time">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Schedule name</strong> — keep the suggested name or replace it with your own.</li>
+<li><strong>Template</strong> — shows the letter sequence and its meaning. In the example, “D · D · O · O” means day shift, day shift, day off, day off.</li>
+<li><strong>Start date</strong> — select the date of the first day in the displayed sequence.</li>
+<li><strong>Shift time</strong> — specify the start and end time for each work-shift type. The app displays the calculated duration.</li>
+<li><strong>Cancel</strong> — closes the editor without saving.</li>
+<li><strong>Save</strong> — saves the schedule and starts calculating shifts in the calendar.</li>
+</ol>
+
+<div class="warning"><strong>After the first save.</strong> The start date and cycle structure are locked to protect calendar data that has already been calculated. You can still edit the name and some work parameters. If you need a different base cycle or reference date, it is safer to create a new schedule.</div>
+
+<h3 id="shifts-custom">4.4. Creating a custom cycle</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_custom.webp" alt="Custom schedule editor with cycle length, day controls, start date, and settings for each day">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Schedule name</strong> — give your custom sequence a name.</li>
+<li><strong>Cycle length</strong> — shows how many days are included in the repeating sequence.</li>
+<li><strong>Remove day</strong> — shortens the cycle by one day.</li>
+<li><strong>Add day</strong> — adds another configurable day to the end of the cycle.</li>
+<li><strong>Start date</strong> — the date that corresponds to day 1 of the custom cycle.</li>
+<li><strong>Day settings</strong> — tap the “Shift type” card and select a day off or the required work type: day, night, morning, evening, 24-hour, or custom shift. For a workday, specify the start and end time. Configure the remaining days of the cycle in the same way farther down the screen.</li>
+<li><strong>Cancel</strong> — closes the editor without saving.</li>
+<li><strong>Save</strong> — saves the custom cycle and calculates it in the calendar.</li>
+</ol>
+
+<div class="notice"><strong>What is a cycle?</strong> A cycle is the number of days after which the sequence starts again. For example, a four-day cycle may be “2 workdays + 2 days off,” while a six-day cycle may be “3 workdays + 3 days off.” After the final day, the app returns to day 1.</div>
+
+<div class="tip">Do not change the base cycle for a one-time schedule exception. Long-press a calendar date and create a day off, vacation, sick leave, replacement shift, or time adjustment.</div>
+
+
+
+<span id="shift-statistics"></span>
+<h2 id="statistics">5. Schedule statistics</h2>
+
+<p>Open “Statistics” from a schedule card using the <strong>“Open statistics”</strong> button. This section combines information about workdays and days off, schedule changes, planned and actual working time, estimated salary, and reports.</p>
+
+<div class="notice"><strong>Important:</strong> statistics are calculated only for the selected shift schedule. The selected period applies to all working-time, salary, and reporting values below it.</div>
+
+<h3 id="statistics-period">5.1. Schedule, period, and day summary</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_period_overview.webp" alt="Statistics screen with schedule information, period selection, and day totals">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Schedule information</strong> — shows the selected schedule's name, the first cycle's start date, and the length of the repeating cycle. The statistics on this screen apply only to this schedule.</li>
+<li><strong>Selected period card</strong> — shows the period in use. Tap it or the arrow on the right to select the current, previous, or next month, the current year, or a custom date range.</li>
+<li><strong>Day summary</strong> — shows the number of days in the period, work shifts, days off, completed and upcoming shifts, and changed days. Changed days are exceptions to the base cycle: vacation, sick leave, time off, a replacement or moved shift, a working-time adjustment, and other changes.</li>
+</ol>
+
+<div class="warning"><strong>Future periods are forecasts.</strong> For a future month, the app uses the created schedule and data already entered, but it cannot know future sick leave, vacation, time off, overtime, bonuses, or deductions. When you select the current year, totals may combine actual data for past dates with a forecast for the rest of the year.</div>
+
+<h3 id="statistics-work">5.2. Working time, salary, and reports</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_work_salary_reports.webp" alt="Statistics screen with working time, progress, salary, and report access">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Working time</strong> — a summary card for hours and progress. Tap it to open the <a href="#statistics-break">break-time settings</a>.</li>
+<li><strong>Planned hours</strong> — the total duration of scheduled shifts and changes during the selected period.</li>
+<li><strong>Hours worked</strong> — the time in shifts that are considered completed as of the current date, with break settings applied.</li>
+<li><strong>Progress</strong> — shows how many work shifts have been completed out of the total and what percentage of the selected period is complete.</li>
+<li><strong>Salary</strong> — opens the <a href="#salary">salary calculation settings</a>. The card shows an estimate for the selected schedule and period.</li>
+<li><strong>Total</strong> — the estimated amount earned so far, including the selected pay method, bonuses, overtime, and deductions.</li>
+<li><strong>Rate or salary</strong> — the contents of this card depend on the selected calculation method: pay per hour, per shift, or per month. It displays the value entered in salary settings.</li>
+<li><strong>Calculation details</strong> — paid time, overtime hours, bonuses, and deductions for the selected period.</li>
+<li><strong>Reports</strong> — opens <a href="#reports">detailed reports for periods, working time, and salary</a>.</li>
+</ol>
+
+<div class="tip">All values in the working-time and salary sections are recalculated when you change the period in the top card.</div>
+
+<h3 id="statistics-break">5.3. Accounting for breaks in working time</h3>
+
+<p>Tap the “Working time” card to specify whether a meal break or another break should count as part of actual worked and paid time.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_break_settings.webp" alt="Break accounting and duration settings panel">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Current totals</strong> — shows planned and worked hours for the selected period before the new settings are applied.</li>
+<li><strong>Count break as working time</strong> — leave this option on if the break is paid and included in the shift duration. Turn it off if the specified time must be excluded from worked and paid time.</li>
+<li><strong>Break duration</strong> — select the hours and minutes for one break. This setting is used when recalculating applicable work shifts.</li>
+<li><strong>Total break</strong> — shows the selected duration before saving.</li>
+<li><strong>Save</strong> — applies the setting and recalculates working time and related values.</li>
+</ol>
+
+<div class="notice">A break may represent a meal break, shift handover, or another unpaid interval within a shift. Enter the duration that matches the rules at your workplace.</div>
+
+<h3 id="reports">5.4. Reports: period, status, and summary</h3>
+
+<p>Open “Reports” from the lower card on the statistics screen. This section provides more detailed information for the selected period: working time, shifts and absences, calendar adjustments, salary, bonuses, deductions, period comparison, day-by-day details, and export.</p>
+
+<div class="warning"><strong>Reports are provided for informational purposes only.</strong> Calculations are based on the selected schedule, salary settings, break accounting, and calendar shift changes. Your employer's actual figures may differ because of a different timekeeping system, rounding, taxes, allowances, or internal rules. If you find an error or an unsupported calculation method, contact the developers at the address shown in the app and include the input data and expected result.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_period_salary.webp" alt="Reports screen with period selection, status, summary, and detailed salary breakdown">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Report period</strong> — tap the card to select the current, previous, or next month, a preset range, or custom dates. All information below applies to the selected period.</li>
+<li><strong>Period status</strong> — shows whether the period is complete, currently active, or has not yet started. A completed period is calculated from saved actual data. An active period combines data already worked with the current plan, while a future period is a forecast.</li>
+<li><strong>Summary</strong> — a text summary of actual worked time, the calculated amount, and overtime.</li>
+<li><strong>Salary</strong> — a detailed breakdown of base pay, overtime pay, bonuses, deductions, and the final estimate. Values depend on the <a href="#salary">salary settings</a> and selected period.</li>
+</ol>
+
+<h3 id="reports-work">5.5. Working time, absences, and days</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_work_absences.webp" alt="Reports screen with working time, breaks, completed shifts, and absences">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Working time</strong> — shows planned and actual worked hours, planned and actual hours before break deduction, the number of completed shifts, average shift duration, and the total break deducted. Configure breaks in the <a href="#statistics-break">working-time section</a>.</li>
+<li><strong>Absences and days</strong> — shows the number of days off, vacation days, sick-leave days, time-off days, and changed days during the selected period.</li>
+</ol>
+
+<h3 id="reports-charts">5.6. Adjustments and charts</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_corrections_charts.webp" alt="Reports screen with adjustments, salary composition, and working-time values">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Adjustments</strong> — shows overtime hours, the total change in shift duration, and the number of days changed from the base schedule.</li>
+<li><strong>Charts</strong> — visualizes salary and working-time composition: base pay, overtime, bonuses, deductions, total, and planned, worked, and paid hours.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_charts_days.webp" alt="Additional report charts with hours and a day-type pie chart">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Hours</strong> — continues the visual comparison of planned, worked, paid, and overtime hours. The “Actual working time” row shows the result after settings and adjustments are applied.</li>
+<li><strong>Day types</strong> — a pie chart that distributes days in the selected period by type. The legend depends on the schedule and actual changes: day, night, or other shifts, days off, vacation, sick leave, time off, and other states.</li>
+</ol>
+
+<h3 id="reports-comparison">5.7. Comparing periods</h3>
+
+<p>The comparison section helps you compare salary, time, shifts, and absences across several periods. The number of available periods depends on the saved data.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_chart.webp" alt="Period comparison screen with range selection, salary chart, and the start of a comparison table">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Compare periods</strong> — tap the card to choose how many periods to compare and their range.</li>
+<li><strong>Chart and period list</strong> — shows salary for each period and lists the intervals included in the comparison together with their status.</li>
+<li><strong>Comparison table</strong> — contains detailed values for each period. Swipe the table horizontally to the left or right to view the remaining columns.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_table.webp" alt="Continuation of the comparison table and differences between adjacent periods">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Period values</strong> — total salary, worked and paid hours, overtime, bonuses, deductions, completed shifts, absences, and changed days.</li>
+<li><strong>Difference between periods</strong> — shows how each period differs from the previous one. Positive and negative values indicate an increase or decrease in the corresponding metric. Color alone does not always mean a benefit or a problem; for example, an increase in deductions means a larger amount is withheld.</li>
+</ol>
+
+<h3 id="reports-details-export">5.8. Daily details and export</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_details_export.webp" alt="Report cards for daily details and export to PDF, HTML, JSON, or CSV">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Daily details</strong> — opens a list of every day in the selected period. You can check the shift type, planned and actual time, hour adjustments, absences, and other changes for a specific day.</li>
+<li><strong>Export</strong> — saves the report as PDF, HTML, JSON, or CSV. Select the report period before exporting; you can then print, save, or share the file through the Android system menu.</li>
+</ol>
+
+<div class="tip">Before comparing or exporting, check the selected period, schedule, shift changes, breaks, and salary settings. An error in the source data will affect every report total.</div>
+
+<h2 id="alarms">6. Alarms</h2>
+
+<p>ShiftAlarm lets you create one-time alarms, repeat them on selected days of the week, or link their time to a shift schedule.</p>
+
+<h3 id="alarms-list">6.1. Alarm list</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarms_overview.webp" alt="ShiftAlarm alarm screen with the next alert, sorting, an alarm card, and the add button">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Next alarm</strong> — shows the date and time of the next active alert.</li>
+<li><strong>Alarm sorting</strong> — changes the order of alarm cards, for example by showing enabled alarms first.</li>
+<li><strong>Alarm card</strong> — contains the time, date or repeat mode, schedule type, and time remaining. Tap the card to edit it.</li>
+<li><strong>Switch</strong> — temporarily enables or disables the alarm without deleting its settings.</li>
+<li><strong>Delete</strong> — deletes the selected alarm.</li>
+<li><strong>Add alarm</strong> — opens the screen for creating a new alarm.</li>
+</ol>
+
+<h3 id="alarms-create">6.2. Creating and editing an alarm</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_time_schedule.webp" alt="Top of the ShiftAlarm alarm editor: time, schedule type, snooze, and save controls">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Time</strong> — scroll the hour and minute wheels to set the alert time.</li>
+<li><strong>Schedule type</strong> — select one of these modes:
+<ul>
+<li><strong>Once</strong> — the alarm triggers once on the selected date;</li>
+<li><strong>By days</strong> — repeats on selected days of the week;</li>
+<li><strong>By shifts</strong> — links the alarm to a selected schedule and shift type.</li>
+</ul>
+</li>
+<li><strong>Snooze</strong> — sets how many minutes the alert is postponed when you tap the snooze button on the ringing screen.</li>
+<li><strong>Cancel and Save</strong> — these buttons are fixed at the bottom of the screen and remain available while you scroll through the editor.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_behavior.webp" alt="ShiftAlarm settings for alarm duration, repeat alert, gradual volume increase, and vibration">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Alarm duration</strong> — determines how long the alert sounds if the user does not stop it.</li>
+<li><strong>Repeat if alarm is ignored</strong> — enables another alert when the alarm was neither dismissed nor snoozed. Set the interval before the repeat alert below it.</li>
+<li><strong>Gradual volume increase</strong> — starts with quieter audio and gradually raises the volume over the selected time.</li>
+<li><strong>Vibration</strong> — enables or disables vibration during the alert.</li>
+<li><strong>Cancel and Save</strong> — fixed controls for the editor.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_sound_name.webp" alt="Bottom of the ShiftAlarm alarm editor: vibration, sound, name, and save controls">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Vibration</strong> — enables or disables the vibration alert.</li>
+<li><strong>Sound</strong> — lets you select a built-in, system, or user-added sound. You can add up to five custom sounds to the app.</li>
+<li><strong>Name</strong> — an optional label that helps you distinguish alarms.</li>
+<li><strong>Cancel and Save</strong> — discard changes or save the alarm.</li>
+</ol>
+
+<div class="notice">After saving, the alarm appears in the main list. Before an important alert, make sure the alarm is enabled, the app has notification and exact-alarm permissions, and the system is not restricting its background activity.</div>
+
+<div class="tip">To create a shift-linked alarm, first create an appropriate shift schedule. In the editor, choose a fixed trigger time or an offset relative to the start of the shift.</div>
+
+<h2 id="geo">7. Geo Alarms</h2>
+
+<p>A Geo Alarm monitors when the device enters or leaves a selected area. The area is defined by a point on the map and a radius around that point. For example, use a Geo Alarm to receive an alert when approaching work, home, a bus stop, a station, or another place.</p>
+
+<h3 id="geo-overview">7.1. Map and controls</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_overview.webp" alt="ShiftAlarm Geo Alarm main screen with a map and numbered controls">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Zoom in</strong> — enlarges the map.</li>
+<li><strong>Zoom out</strong> — reduces the map scale.</li>
+<li><strong>My location</strong> — moves the map to the device's current location. The app needs location access for this feature.</li>
+<li><strong>Saved places</strong> — opens the list of saved Geo Alarms and location points.</li>
+<li><strong>Back</strong> — returns to the previous app screen.</li>
+<li><strong>Geo Alarm count</strong> — shows how many Geo Alarms have been created.</li>
+<li><strong>Geo Alarm list</strong> — opens a separate list of created Geo Alarms.</li>
+</ol>
+
+<div class="tip">You can also zoom with gestures. Touch the map with two fingers and spread them apart to zoom in, or pinch them together to zoom out.</div>
+<div class="notice">The side controls may appear on the opposite side in right-to-left languages. Their functions remain the same.</div>
+
+<h3 id="geo-saved-places">7.2. Saved alarms and location points</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_saved_places.webp" alt="Saved places window with Geo Alarm and location-point tabs">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Alarms</strong> — shows Geo Alarms added to saved places.</li>
+<li><strong>Location points</strong> — shows saved coordinates without an active Geo Alarm.</li>
+<li><strong>Saved places list</strong> — tap a card to move to that place on the map.</li>
+<li><strong>Close</strong> — closes the window and returns to the map.</li>
+</ol>
+
+<div class="notice">If you delete a bookmarked Geo Alarm, its coordinates are automatically retained in the “Location points” tab. You can use the point again later to create another Geo Alarm.</div>
+
+<h3 id="geo-select-point">7.3. Selecting a point and radius</h3>
+
+<p>Touch and hold the required place on the map. The app places a marker and opens the selected-point panel.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_selected_point.webp" alt="Selected map point with address, radius, bookmark, and Geo Alarm creation button">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Selected-point marker</strong> — the center of the future geofence. The map also displays a circle for the selected radius.</li>
+<li><strong>Address and coordinates</strong> — let you verify that the correct place is selected.</li>
+<li><strong>Save location point</strong> — adds the selected coordinates to saved places without creating an alarm.</li>
+<li><strong>Radius</strong> — sets the size of the area around the point. Move the slider until you select an appropriate distance.</li>
+<li><strong>Cancel</strong> — cancels point selection.</li>
+<li><strong>Create here</strong> — opens the new Geo Alarm editor for the selected point.</li>
+</ol>
+
+<div class="warning"><strong>How to choose a radius.</strong> A phone does not track its coordinates continuously. Android, the device manufacturer, battery-saving mode, GPS, mobile-network and Wi‑Fi signal quality, and movement speed all affect when the boundary is detected. The alert may therefore trigger away from the drawn line. For example, with an 800 m radius, entry may be detected after the device is already inside the area—perhaps 700, 600, or 500 m from the point.</div>
+
+<ul>
+<li><strong>In a city</strong>, a radius of <strong>1,300–1,500 m</strong> is generally recommended.</li>
+<li><strong>Outside a city</strong>, where location updates may be less frequent, <strong>4,000–5,000 m</strong> is recommended.</li>
+<li><strong>The exact radius</strong> should be chosen based on your route, speed, and device behavior.</li>
+</ul>
+
+<div class="notice">The system detects when the device crosses the area's virtual boundary. In “On entry” mode, a larger radius usually gives the phone more time to detect your approach. In “On exit” mode, the boundary is instead placed farther from the selected point.</div>
+
+<h3 id="geo-create">7.4. Creating a Geo Alarm</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_location_schedule.webp" alt="Top of the Geo Alarm editor: readiness, location, and schedule type">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Geo Alarm readiness</strong> — shows whether the required permissions are configured and whether the app can register the geofence.</li>
+<li><strong>Location</strong> — contains the selected address and coordinates. You can edit the address as a label, but the actual point is selected on the map.</li>
+<li><strong>Schedule type</strong> — determines the days and conditions under which the Geo Alarm is active.</li>
+<li><strong>Always</strong> — the Geo Alarm is active every day while it is enabled.</li>
+<li><strong>Once</strong> — used for the next one-time trigger when the selected condition is met.</li>
+<li><strong>By days</strong> — works only on selected days of the week.</li>
+<li><strong>By shifts</strong> — links the Geo Alarm to the active shift schedule.</li>
+</ol>
+
+<div class="notice"><strong>“By shifts” schedule.</strong> Choose whether it works on the shift day, only before the shift, or only after it, and specify the required shift type: day, night, morning, evening, 24-hour, custom, or any work shift.</div>
+<div class="tip">If a calendar date is marked as a day off, vacation, sick leave, or time off instead of a work shift, a shift-linked Geo Alarm will not be active that day.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_trigger_settings.webp" alt="Bottom of the Geo Alarm editor: entry or exit condition, radius, and alert settings">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Trigger condition</strong> — determines which boundary crossing starts the alert.</li>
+<li><strong>On entry</strong> — starts the alert when the device enters the selected radius, for example when approaching work or the required stop.</li>
+<li><strong>On exit</strong> — starts the alert when the device leaves the selected radius, for example after leaving work or a station so that you do not miss the next part of a route.</li>
+<li><strong>On entry or exit</strong> — starts the alert whenever the boundary is crossed in either direction.</li>
+<li><strong>Radius</strong> — the size of the geofence around the selected point.</li>
+<li><strong>Alarm duration</strong> — determines how long the alert sounds.</li>
+<li><strong>Gradual volume increase</strong> — sets a smooth rise in volume after the alert starts.</li>
+<li><strong>Cancel and Save</strong> — discard changes or save the Geo Alarm.</li>
+</ol>
+
+<div class="tip">The remaining options below are similar to a regular alarm: sound, vibration, alert duration, gradual volume increase, and name.</div>
+
+<h3 id="geo-existing">7.5. A Geo Alarm on the map and its controls</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_marker_radius.webp" alt="Created Geo Alarm marker and its trigger-radius circle on the map">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Geo Alarm marker</strong> — shows the selected point.</li>
+<li><strong>Radius boundary</strong> — shows the area whose entry or exit is monitored by the app.</li>
+</ol>
+
+<p>Tap the Geo Alarm marker. A small information window appears first. Tap that window to open the detailed card.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_alarm_card.webp" alt="Detailed Geo Alarm card with information, bookmark, switch, and controls">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Name and address</strong> — identify the selected Geo Alarm.</li>
+<li><strong>Bookmark</strong> — adds the alarm to saved places or removes it from them.</li>
+<li><strong>Switch</strong> — enables or temporarily disables the Geo Alarm without deleting its settings.</li>
+<li><strong>Settings and status</strong> — show the radius, entry or exit condition, schedule, geofence readiness, and information about previous activations.</li>
+<li><strong>Edit</strong> — opens the Geo Alarm settings.</li>
+<li><strong>Close</strong> — closes the card and returns to the map.</li>
+<li><strong>Delete</strong> — deletes the Geo Alarm after confirmation.</li>
+</ol>
+
+<div class="warning">For reliable operation, allow precise and background location, remove strict battery restrictions for ShiftAlarm, and check autostart settings if your device provides them. Even with correct settings, Android does not guarantee boundary detection accurate to within a few meters.</div>
+
+<h2 id="notes">8. Notes, events, and reminders</h2>
+
+<p>The “Notes” section stores plain text, lists, checklists, audio recordings, speech-to-text notes, reminders, and events.</p>
+
+<h3 id="notes-create">8.1. Adding a note</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_type_picker.webp" alt="Selecting a new note type in ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Panel handle</strong> — drag it upward to reveal the full list of note types, or downward to close the panel.</li>
+<li><strong>Note type</strong> — select the appropriate option:
+<ul>
+<li><strong>Text note</strong> — plain text;</li>
+<li><strong>Checklist</strong> — a list of items with completion checkboxes;</li>
+<li><strong>List</strong> — a bulleted or numbered list;</li>
+<li><strong>Audio note</strong> — a voice recording;</li>
+<li><strong>Speech to text</strong> — creates a note using speech recognition;</li>
+<li><strong>Reminder</strong> — an entry with a notification at a specified time;</li>
+<li><strong>Event</strong> — an entry linked to a date and time.</li>
+</ul>
+</li>
+<li><strong>Cancel</strong> — closes the picker without creating a note.</li>
+</ol>
+
+<div class="tip">After you select a type, the appropriate editor opens. Complete the required fields and save the entry.</div>
+
+<h3 id="notes-list">8.2. Note list and controls</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_overview.webp" alt="ShiftAlarm notes screen with sorting, active and archived notes, search, and card actions">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Sort</strong> — changes the order of notes in the list.</li>
+<li><strong>Active</strong> — shows regular and scheduled notes that have not been moved to the archive.</li>
+<li><strong>Archive</strong> — opens the list of archived notes.</li>
+<li><strong>Search</strong> — finds matches in note titles and contents.</li>
+<li><strong>Note card</strong> — shows the title, type, status, and additional information. Tap the card to open the note.</li>
+<li><strong>Pin</strong> — pins the note to the top of the list.</li>
+<li><strong>Archive</strong> — removes the note from the active list and moves it to the archive.</li>
+<li><strong>Delete</strong> — deletes the note after confirmation.</li>
+<li><strong>Add note</strong> — opens the new-note type picker.</li>
+</ol>
+
+<div class="notice">Use the archive for entries that are no longer needed in the main list but should remain saved. Delete a note only when it is no longer needed at all.</div>
+
+<h2 id="clock">9. Clock, stopwatch, and timer</h2>
+
+<p>This section combines local and world time, a stopwatch, and a timer. Open it with the <strong>“Clock”</strong> button on the main screen.</p>
+
+<div class="notice">Three tabs appear at the bottom of the screen: “Clock,” “Stopwatch,” and “Timer.” Tap a tab to switch modes.</div>
+
+<h3 id="clock-world">9.1. Clock and world clock</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_overview.webp" alt="ShiftAlarm clock screen with local time, world clocks, add button, and bottom tabs">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Local time</strong> — shows the current time, date, and device system time zone.</li>
+<li><strong>World clocks</strong> — displays added cities and time zones. While the list is empty, the app shows a hint.</li>
+<li><strong>Plus button</strong> — opens the world-clock picker.</li>
+<li><strong>Section tabs</strong> — switch between the “Clock,” “Stopwatch,” and “Timer” screens.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_add_timezone.webp" alt="Adding a city or time zone to the ShiftAlarm world clock">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Search</strong> — enter a city or time-zone name to filter the list.</li>
+<li><strong>City and time-zone list</strong> — tap the required option to add it to the world-clock screen.</li>
+</ol>
+
+<div class="tip">The local time zone is always shown first. You can remove added world clocks from the list, but local time cannot be removed.</div>
+
+<h3 id="clock-stopwatch">9.2. Stopwatch</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_start.webp" alt="ShiftAlarm stopwatch before it starts">
+</figure>
+
+<ol class="callout-list">
+<li><strong>History</strong> — opens saved stopwatch sessions.</li>
+<li><strong>Start</strong> — starts timing.</li>
+<li><strong>Reset</strong> — unavailable before the stopwatch starts. After stopping, it returns the stopwatch to zero and removes the current laps.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_running.webp" alt="Running ShiftAlarm stopwatch with history, save, lap, and pause controls">
+</figure>
+
+<ol class="callout-list">
+<li><strong>History</strong> — shows previously saved sessions.</li>
+<li><strong>Save</strong> — prompts for a name and saves the current stopwatch session.</li>
+<li><strong>Lap</strong> — records an intermediate result without stopping the total timer.</li>
+<li><strong>Pause</strong> — pauses the stopwatch. After pausing, you can resume or reset it.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_laps.webp" alt="ShiftAlarm stopwatch laps and their sorting options">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Original, fastest, and slowest</strong> — change the lap display order: original order, fastest first, or slowest first.</li>
+<li><strong>Laps</strong> — each lap shows the total time at which it was recorded and the individual lap time.</li>
+</ol>
+
+<div class="notice">When you tap Save, enter a session name and confirm. You can open the saved session later from History.</div>
+
+<h3 id="clock-timer">9.3. Timer</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_setup.webp" alt="Setting a ShiftAlarm timer with hour, minute, and second wheels">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Hours</strong> — scroll the wheel and select the number of hours.</li>
+<li><strong>Minutes</strong> — scroll the wheel and select the number of minutes.</li>
+<li><strong>Seconds</strong> — scroll the wheel and select the number of seconds.</li>
+<li><strong>Start</strong> — starts the timer with the selected duration.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_running.webp" alt="Running ShiftAlarm timer with time remaining, pause, add-minute, and stop controls">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Time remaining</strong> — shows how much time remains before the alert.</li>
+<li><strong>Finish time</strong> — shows the approximate time at which the timer will finish.</li>
+<li><strong>Recent timers</strong> — saved recent durations; tap one to reuse it quickly.</li>
+<li><strong>Pause</strong> — temporarily stops the countdown. You can resume it afterward.</li>
+<li><strong>+1 min</strong> — adds one minute to the time remaining.</li>
+<li><strong>Stop</strong> — stops the timer completely.</li>
+</ol>
+
+<div class="tip">The timer and stopwatch continue running in the background. Their status may appear in a notification, on the main screen, and in widgets.</div>
+
+<h2 id="widgets">10. Widgets</h2>
+
+<p>ShiftAlarm provides widgets for the phone's Home screen.</p>
+<ul>
+<li><strong>Today 4×2</strong> — a compact panel with two configurable sections.</li>
+<li><strong>Today 4×3</strong> — a panel with a clock at the top and two sections below.</li>
+<li><strong>Calendar 4×4</strong> — calendar widgets with the shift schedule.</li>
+</ul>
+<p>Add a widget through the Android widget menu on the phone's Home screen.</p>
+
+<h2 id="salary">11. Salary calculation</h2>
+
+<p>Open “Salary calculation” from the salary card in the <a href="#statistics-work">selected schedule's statistics</a>. Here you can set the pay method, rate or monthly salary, overtime rules, bonuses, and deductions. The app uses these settings together with the selected period, shift schedule, calendar changes, and break accounting.</p>
+
+<div class="warning"><strong>The calculation is provided for informational purposes only.</strong> Actual pay may differ if your employer uses another system for timekeeping, rounding, allowances, taxes, bonuses, deductions, or payment for particular shift types. Do not use the result as an official payroll document; compare it with your employer's payslip. If you find a calculation method that the app does not handle accurately, email the developers at the address shown in the app. Describe the rules, provide sample input data, and state the expected result. The method can then be considered for a future update.</div>
+
+<h3 id="salary-settings">11.1. Rate, overtime, and bonuses</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_settings_overview.webp" alt="Salary calculation screen with selected schedule, rate type, overtime, and bonuses">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Selected schedule</strong> — shows which shift schedule is being used. Salary is calculated from this schedule and the period selected in statistics.</li>
+<li><strong>Rate type and pay amount</strong> — select payment <strong>per hour</strong>, <strong>per shift</strong>, or <strong>per month</strong>, then enter the corresponding amount. The field name changes with the selected rate type.</li>
+<li><strong>Overtime</strong> — enable this section if extra hours are paid differently from regular working time. Then specify the overtime pay multiplier. Add extra hours to the calendar through <a href="#main-shift-time-adjustment">“Change shift” → “+ time”</a>; enable “Count this time as overtime” so that the hours are treated as overtime.</li>
+<li><strong>Bonuses</strong> — shows the current calculation method and totals. Tap the card to open the <a href="#salary-bonuses">bonus settings</a>.</li>
+</ol>
+
+<div class="notice">The “Save” button applies the settings to the selected schedule. After saving, totals in statistics and reports are recalculated using the entered data.</div>
+
+<h3 id="salary-summary">11.2. Deductions and calculation total</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions_total.webp" alt="Salary calculation screen with deductions and a final breakdown">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Deductions</strong> — shows the total amount and number of configured deductions. Tap the card to open the <a href="#salary-deductions">deduction list</a>.</li>
+<li><strong>Total</strong> — a summary breakdown: paid time, hours worked, overtime, base pay, overtime pay, bonuses, deductions, and the final result.</li>
+</ol>
+
+<div class="tip">The result depends not only on this screen's settings, but also on the selected statistics period, completed shifts, day changes, overtime, and unpaid-break settings.</div>
+
+<h3 id="salary-bonuses">11.3. Bonuses</h3>
+
+<p>Tap the “Bonuses” card on the salary calculation screen. You can enter a bonus manually or calculate it as a percentage if that matches your pay system.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_bonuses.webp" alt="Bonus settings screen with calculation and amount-entry options">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Summary information</strong> — shows the calculated bonus total and the base amount used for the calculation.</li>
+<li><strong>Bonus calculation</strong> — select manual entry or a percentage calculation, such as a percentage of sales, if that method is used at your workplace.</li>
+<li><strong>Entry method</strong> — “Total amount” is suitable for a single final bonus. Separate rows are useful when there are several bonuses that must be counted independently.</li>
+<li><strong>Amount or percentage</strong> — enter the value required by the selected calculation method.</li>
+<li><strong>Cancel and Save</strong> — discard the changes or apply them to the salary calculation.</li>
+</ol>
+
+<h3 id="salary-deductions">11.4. Deduction list</h3>
+
+<p>Tap the “Deductions” card on the main calculation screen. This section lets you store several deductions and manage each one separately.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions.webp" alt="Deduction list screen with total amount, deduction rows, and add button">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Summary information</strong> — shows the amount and number of all enabled deductions.</li>
+<li><strong>Deduction row</strong> — shows the name, value, and type. Tap the row to open the <a href="#salary-deduction-editor">deduction settings</a>. The trash icon deletes the row.</li>
+<li><strong>Add deduction</strong> — the “+” button creates a new deduction row.</li>
+<li><strong>Cancel and Save</strong> — discard changes or save the entire list.</li>
+</ol>
+
+<h3 id="salary-deduction-editor">11.5. Configuring an individual deduction</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deduction_editor.webp" alt="Individual deduction panel with name, value, type, and deduction base">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Deduction name</strong> — enter a clear name such as “Tax,” “Child support,” or “Penalty.”</li>
+<li><strong>Value</strong> — enter an amount or percentage, depending on the value type selected below.</li>
+<li><strong>Value type</strong> — select a fixed amount or percentage.</li>
+<li><strong>Deduction type</strong> — a <strong>variable</strong> deduction applies to a specific calculation period; a <strong>recurring</strong> deduction is applied regularly while it remains enabled.</li>
+<li><strong>Deduct from</strong> — select the calculation base: total salary, base pay, bonuses, or another available option.</li>
+<li><strong>Enabled</strong> — temporarily disables the deduction without deleting its settings.</li>
+<li><strong>Cancel and Save</strong> — close the panel without changes or save the deduction.</li>
+</ol>
+
+<div class="notice">For a percentage deduction, it is especially important to select the correct “Deduct from” base: the same percentage of total salary, base pay, and bonuses produces different results.</div>
+
+<h2 id="settings">12. Settings</h2>
+
+<p>Open “Settings” with the button at the bottom of the <a href="#main-overview">main screen</a>. This section contains system permissions, appearance and app language, offline speech recognition, documents and the user guide, backup, diagnostics, and developer contact options.</p>
+
+<h3 id="settings-overview">12.1. Main settings sections</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_permissions_language.webp" alt="Top of ShiftAlarm settings: permissions, theme, app language, and offline speech models">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Permissions</strong> — opens alarm permissions and reliability settings. Check notifications, exact alarms, background activity, and battery restrictions. <a href="#geo">Geo Alarms</a> also require location access; background or “Allow all the time” location access is needed to trigger while the app is closed. Item names and paths vary by Android version and device manufacturer.</li>
+<li><strong>Theme</strong> — lets you select light, dark, or system appearance, choose an interface color variant, and enable or disable haptic feedback for actions in the app. The system theme follows the phone's current appearance.</li>
+<li><strong>App language</strong> — lets you use a language different from the phone's system language. The ShiftAlarm catalog contains 108 languages: find the required language with search, download the language pack, and apply it.</li>
+<li><strong>Offline speech models</strong> — installs a module for <a href="#notes-create">speech-to-text notes</a>. Offline recognition is currently being tested and is available for approximately 20 languages. Its quality may be lower than online recognition and depends on the language, microphone, phone performance, and recording conditions.</li>
+</ol>
+
+<div class="warning"><strong>Android permissions differ across devices.</strong> On some phones, you must also allow autostart, select “Unrestricted” or a similar battery mode, and permit background activity. These settings reduce the chance that the system will stop ShiftAlarm, but their exact names are determined by the device manufacturer.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_help_backup_diagnostics.webp" alt="Bottom of ShiftAlarm settings: documents, user guide, backup, diagnostics, and developer contact">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Documents and help</strong> — opens the app's legal documents: Terms of Use, Privacy Policy, Disclaimer, and the brief help page.</li>
+<li><strong>Training and user guide</strong> — opens this complete illustrated guide with detailed descriptions of ShiftAlarm features.</li>
+<li><strong>Backup and restore</strong> — creates a file containing supported app settings and data, or restores them from an earlier backup. This is useful before reinstalling the app, resetting the phone, or transferring data to another device. See <a href="#backup">“Backup and restore”</a> for detailed instructions.</li>
+<li><strong>Diagnostic log</strong> — opens separate logs for app features. They record technical stages such as alert scheduling and recovery, event processing, permission state, and other service information. A log helps identify the stage at which an error occurred. You can copy entries or prepare them for emailing to the developers. See <a href="#diagnostics">“Diagnostics and troubleshooting”</a> for details.</li>
+<li><strong>Contact developers</strong> — opens the email app and creates a message addressed to support. Use it to report a problem, send feedback or a suggestion, or ask a question. For a technical issue, include the phone model, Android version, time of the problem, steps performed, and the relevant diagnostic log if possible.</li>
+</ol>
+
+<div class="notice">Diagnostic logs are not sent to the developers automatically. You must copy the required information or tap “Send to developers,” choose an email app, review the prepared message, and confirm sending it.</div>
+
+<h2 id="backup">13. Backup and restore</h2>
+
+<p>A backup saves supported ShiftAlarm settings and user data in a separate file. It helps restore data after reinstalling the app, resetting the phone, or moving to another device.</p>
+<ol class="step-list">
+<li>Open “Settings → Backup and restore.”</li>
+<li>Create a backup and save the resulting file on the phone or share it through the system menu.</li>
+<li>To restore, open the same section and select a previously created backup file.</li>
+<li>After restoring, check important alarms, schedules, and Android permissions. Some system security permissions may need to be granted again on a new device or after reinstallation.</li>
+</ol>
+<p class="tip">Keep a current copy in a safe place that remains accessible if the phone is lost, damaged, or reset. A backup file does not replace Android system permissions and cannot automatically include data that the app is not allowed to access.</p>
+
+<h2 id="diagnostics">14. Diagnostics and troubleshooting</h2>
+
+<p>ShiftAlarm provides separate diagnostic logs for different features. They preserve a sequence of technical events and help determine whether an alert was scheduled, restored after a restart, passed for processing, or stopped because of a system setting.</p>
+
+<h3 id="diagnostics-control">14.1. Controlling diagnostic collection</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_sections.webp" alt="ShiftAlarm diagnostic log screen with the master switch and an individual alarm log">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Collect diagnostics</strong> — the master switch for every diagnostic section in the app. Turn it off to stop adding new events to all logs at once. Collection of new events resumes after you enable it again.</li>
+<li><strong>Individual feature log</strong> — each module has its own switch and “Open” button. For example, you can leave global diagnostics enabled while disabling only the alarm, clock, or another feature log. The screenshot shows the alarm log, which records delivery, scheduling, recovery, guard-protection, and alarm-screen events.</li>
+</ol>
+
+<div class="notice">The switches control only the recording of technical events. Disabling an alarm, clock, or another feature log does not disable the feature itself. Delete previously saved entries separately with the “Clear” button inside the corresponding log.</div>
+
+<h3 id="diagnostics-log">14.2. Individual feature log</h3>
+
+<p>Tap “Open” in the required diagnostic section. The example below shows the alarm log; logs for other features work in a similar way.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_alarm_log.webp" alt="ShiftAlarm alarm diagnostic log with event count, actions, and technical entries">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Events saved</strong> — shows the number of entries currently stored in the selected log.</li>
+<li><strong>Log actions</strong>:
+<ul>
+<li><strong>Copy</strong> — copies all data from the current log to the clipboard. You can paste it into an email or another app.</li>
+<li><strong>Clear</strong> — deletes the saved entries in this log. After clearing, only events recorded later while diagnostics are enabled will appear.</li>
+<li><strong>Send to developers</strong> — opens the app picker for sending an email. Choose an email app; the developer address and diagnostic data are inserted automatically. Before sending, add a description of the problem, review the message, and then confirm sending it.</li>
+</ul>
+</li>
+<li><strong>App events</strong> — the log entries themselves. An entry normally contains a date and time, a technical event name, and additional parameters such as an identifier, state, or reason. Technical names may appear in English; do not edit or translate them before sending.</li>
+</ol>
+
+<div class="warning">Before clearing a log, copy or send any required entries. Deleted diagnostic events cannot be recovered.</div>
+
+<div class="tip">If the problem can be reproduced, first enable global diagnostic collection and the relevant feature log, then repeat the actions that caused the issue. In your message, provide the exact time of the problem, phone model, Android version, expected result, and actual result. This helps match your description to log events.</div>
+
+<h2 id="faq">15. Frequently asked questions</h2>
+
+<h3>The alarm did not trigger on time</h3>
+<p>Check notifications, exact-alarm permission, background activity, and battery restrictions.</p>
+<h3>The Geo Alarm triggered late</h3>
+<p>Check precise and background location, battery restrictions, and app autostart. Try a radius of 1,300–1,500 m in a city and 4,000–5,000 m outside a city. The actual trigger may not occur exactly on the radius line.</p>
+<h3>The widget did not update immediately</h3>
+<p>Open the app or tap the refresh button on the widget. Android may restrict frequent widget updates.</p>
+<h3>I changed the language, but a document or the guide has not updated yet</h3>
+<p>Check your internet connection and allow time for the download. If the remote version is unavailable, the app uses its built-in fallback.</p>
+
+<div class="footer small">The guide can be updated through GitHub. If the remote version is unavailable, the app uses its built-in offline version.</div>
+</main>
+</body>
+</html>
