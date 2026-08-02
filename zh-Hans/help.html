@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ShiftAlarm 用户指南</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #64748b;
+  --accent: #2563eb;
+  --soft: #e8eef8;
+  --border: #dbe4f0;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.58;
+  margin: 0;
+  padding: 18px;
+  color: var(--text);
+  background: var(--bg);
+}
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+h1 { margin: 0 0 8px; font-size: 28px; line-height: 1.2; }
+h2 { margin: 32px 0 10px; font-size: 21px; line-height: 1.25; }
+h3 { margin: 22px 0 8px; font-size: 17px; }
+p, li { font-size: 16px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul, ol { padding-left: 22px; }
+.notice, .tip, .warning {
+  padding: 14px 16px;
+  border-radius: 16px;
+  margin: 14px 0;
+  border: 1px solid var(--border);
+}
+.notice { background: var(--soft); }
+.tip { background: #ecfdf5; }
+.warning { background: #fff7ed; }
+.small { color: var(--muted); font-size: 14px; }
+.toc {
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 16px;
+  margin: 18px 0 24px;
+}
+.toc ol { margin: 8px 0 0; }
+.step-list li { margin-bottom: 8px; }
+.guide-figure {
+  margin: 18px 0;
+}
+.guide-image {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+}
+.callout-list li {
+  margin-bottom: 10px;
+}
+.guide-caption {
+  max-width: 520px;
+  margin: 10px auto 0;
+  color: var(--text);
+  font-size: 15px;
+}
+.guide-caption strong {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.footer {
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --card: #111827;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --accent: #93c5fd;
+    --soft: #1f2937;
+    --border: #334155;
+  }
+  main { box-shadow: none; }
+  .toc { background: #172033; }
+  .tip { background: #10251f; }
+  .warning { background: #2a1d10; }
+}
+</style>
+</head>
+<body>
+<main>
+<h1>ShiftAlarm 用户指南</h1>
+<p class="small">版本 14。日期：2026 年 8 月 2 日。</p>
+<div class="notice">本页面是 ShiftAlarm 的实用指南。它会说明各项主要功能的作用、在哪里可以找到、需要点按什么，以及功能未按预期工作时应检查哪些项目。</div>
+<nav class="toc">
+<strong>目录</strong>
+<ol><li><a href="#start">1. 首次启动</a></li><li><a href="#permissions">2. 权限与可靠性</a></li><li><a href="#main">3. 主屏幕</a></li><li><a href="#shifts">4. 轮班表</a></li><li><a href="#statistics">5. 排班统计</a></li><li><a href="#alarms">6. 闹钟</a></li><li><a href="#geo">7. 地理位置闹钟</a></li><li><a href="#notes">8. 笔记、事件和提醒</a></li><li><a href="#clock">9. 时钟、计时器和秒表</a></li><li><a href="#widgets">10. 小组件</a></li><li><a href="#salary">11. 工资计算</a></li><li><a href="#settings">12. 设置</a></li><li><a href="#backup">13. 备份与恢复</a></li><li><a href="#diagnostics">14. 诊断与问题排查</a></li><li><a href="#faq">15. 常见问题</a></li></ol>
+</nav>
+<h2 id="start">1. 首次启动</h2>
+
+<p>ShiftAlarm 首次启动时会显示一个简短的设置流程。主屏幕已在后台可用，但建议先完成基本设置。</p>
+<ol class="step-list">
+<li>阅读介绍信息，然后点按“继续”。</li>
+<li>在文档步骤中，准备好继续操作后，请打开文档或接受所需文档。</li>
+<li>在权限步骤中，打开权限屏幕，检查通知、精确闹钟、位置信息访问权限和电池限制。</li>
+<li>点按“完成设置”。</li>
+</ol>
+<p class="tip">稍后可在“设置 → 权限与可靠性”中配置权限。</p>
+
+<h2 id="permissions">2. 权限与可靠性</h2>
+
+<p>闹钟、提醒和地理位置闹钟能否正常工作，取决于 Android 设置和设备制造商的软件。</p>
+<ul>
+<li><strong>通知</strong> — 闹钟、提醒、计时器和服务通知需要此权限。</li>
+<li><strong>精确闹钟</strong> — 有助于闹钟在所需时间启动。</li>
+<li><strong>位置信息</strong> — 地理位置闹钟需要此权限。</li>
+<li><strong>后台位置信息</strong> — 应用关闭时，地理位置闹钟需要此权限才能工作。</li>
+<li><strong>电池和后台活动</strong> — 可能影响小米/Redmi 及部分其他设备上的触发可靠性。</li>
+</ul>
+<p class="warning">Android 并不总能保证立即送达通知、精确闹钟或地理围栏事件。对于重要提醒，请检查权限屏幕上的每个项目。</p>
+
+<h2 id="main">3. 主屏幕</h2>
+
+<p>主屏幕是您的日常信息面板，可直接访问日历、时钟、地理位置闹钟、普通闹钟、轮班表、笔记和设置。</p>
+
+<h3 id="main-overview">3.1. 主屏幕元素</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_screen_overview.png" alt="带有编号控件的 ShiftAlarm 主屏幕">
+</figure>
+
+<ol class="callout-list">
+<li><strong>后退箭头</strong> — 将日历移到上一个月。</li>
+<li><strong>月份和年份</strong> — 显示当前打开的月份。点按此区域可使用<a href="#main-date-picker">分步月份和年份选择器</a>。</li>
+<li><strong>前进箭头</strong> — 将日历移到下一个月。</li>
+<li><strong>日历</strong> — 主要的月份区域。您可以滑动日历。每天可显示日期、提醒、事件、计划的班次和日期变更。普通点按可选择日期；长按会打开<a href="#main-day-actions">所选日期的信息和操作</a>。</li>
+<li><strong>今天</strong> — 让日历返回当前日期。</li>
+<li><strong>时钟</strong> — 打开<a href="#clock">世界时钟、秒表和计时器</a>。</li>
+<li><strong>地理位置闹钟</strong> — 打开<a href="#geo">地图、已保存地点和地理位置闹钟设置</a>。进入所选区域、离开该区域或发生其中任一种情况时均可触发提醒。</li>
+<li><strong>闹钟</strong> — 打开<a href="#alarms">普通闹钟、重复闹钟和班次关联闹钟</a>。</li>
+<li><strong>排班</strong> — 打开<a href="#shifts">轮班表、创建和编辑功能以及统计信息</a>。</li>
+<li><strong>笔记</strong> — 打开<a href="#notes">笔记、事件、提醒、音频笔记和语音转文字</a>。</li>
+<li><strong>设置</strong> — 打开<a href="#settings">权限、语言、主题、离线语音模型、备份、诊断、文档和培训</a>。</li>
+</ol>
+
+
+<h3 id="main-date-picker">3.2. 选择月份和年份</h3>
+
+<p>点按主屏幕顶部的月份和年份，即可快速打开所需的日历时间段。选择过程分为以下阶段：<strong>世纪 → 十年 → 年份 → 月份</strong>。</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_century.webp" alt="第 1 步：在 ShiftAlarm 日历中选择世纪">
+<figcaption class="guide-caption"><strong>1. 选择世纪。</strong>点按包含所需年份的时期。示例选择的是 2000 年代。</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_decade.webp" alt="第 2 步：在 ShiftAlarm 日历中选择十年区间">
+<figcaption class="guide-caption"><strong>2. 选择十年区间。</strong>点按包含所需年份的范围。若要选择 2026 年，请选择“2020–2029”。</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_year.webp" alt="第 3 步：在 ShiftAlarm 日历中选择年份">
+<figcaption class="guide-caption"><strong>3. 选择年份。</strong>点按所需年份。示例选择的是 2026 年。</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_month.webp" alt="第 4 步：在 ShiftAlarm 日历中选择月份">
+<figcaption class="guide-caption"><strong>4. 选择月份。</strong>点按所需月份。示例选择的是 7 月。</figcaption>
+</figure>
+
+<div class="tip">选择月份后，面板会关闭，主日历会打开到所选月份和年份。</div>
+<div class="notice">“返回”按钮会回到上一阶段。在世纪屏幕上，它会关闭日期选择器。</div>
+
+<h3 id="main-day-actions">3.3. 所选日期的信息和操作</h3>
+
+<p>在日历中长按所需日期。系统会打开一个包含该日期信息和操作的面板。向上拖动面板可查看所有可用操作。</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_day_actions.webp" alt="ShiftAlarm 中所选日历日期的信息和操作面板">
+</figure>
+
+<ol class="callout-list">
+<li><strong>日期</strong> — 显示星期几和所选日期。向上或向下拖动顶部手柄可展开或关闭面板。</li>
+<li><strong>班次</strong> — 显示计算出的班次或日期变更，例如休息日、请假、休假、病假或其他例外情况。</li>
+<li><strong>此日期的闹钟</strong> — 显示分配到所选日期的闹钟，或提示没有闹钟。</li>
+<li><strong>事件和提醒</strong> — 显示与所选日期关联的条目。</li>
+<li><strong>添加闹钟</strong> — 打开为所选日期创建一次性闹钟的页面。</li>
+<li><strong>更改班次</strong> — 在当前排班中为一天或一个日期范围创建例外情况。</li>
+<li><strong>添加笔记</strong> — 可选择为所选日期创建事件或提醒。</li>
+</ol>
+
+<div class="notice">“更改班次”操作可用于调整当前轮班表中的日期。</div>
+
+<h4 id="main-shift-override">更改一天或一个日期范围</h4>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_types.webp" alt="在 ShiftAlarm 中选择日期范围和班次变更类型">
+</figure>
+
+<ol class="callout-list">
+<li><strong>开始日期</strong> — 变更的第一天。最初使用日历中选定的日期。</li>
+<li><strong>结束日期</strong> — 变更的最后一天。若只更改一天，请保留相同的所选日期。</li>
+<li><strong>请假</strong> — 用请假替换计算出的班次。</li>
+<li><strong>休假</strong> — 将所选日期或范围标记为休假。</li>
+<li><strong>病假</strong> — 将所选日期或范围标记为病假。</li>
+<li><strong>保存变更</strong> — 将所选例外情况应用到日历。</li>
+</ol>
+
+<h4 id="main-shift-time-adjustment">调整工作时间</h4>
+
+<p>向下滚动变更类型列表，选择“编辑班次”，即可更改计算出的工作班次时长。</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_time_adjustment.webp" alt="在 ShiftAlarm 中调整班次工作时间">
+</figure>
+
+<ol class="callout-list">
+<li><strong>编辑班次</strong> — 为所选班次启用工作时间调整。</li>
+<li><strong>+ 时间</strong> — 在标准班次时长上增加小时或分钟。</li>
+<li><strong>− 时间</strong> — 减少班次时长，例如提前下班时。</li>
+<li><strong>将此时间计为加班</strong> — 将增加的时间视为加班。若关闭此选项，则计为正常工作时间。</li>
+<li><strong>保存变更</strong> — 将调整应用到所选日期或范围。</li>
+</ol>
+
+<div class="tip">日期变更不会修改原始排班模板。它会作为单独的例外情况保存，并计入日历、统计、工资计算和报告。</div>
+
+<h2 id="shifts">4. 轮班表</h2>
+
+<p>轮班表定义重复的工作周期，也是 ShiftAlarm 其他功能的基础。应用使用它填充日历、将闹钟关联到班次、统计工作时间、生成统计信息、估算工资并准备报告。</p>
+
+<div class="notice"><strong>基本原则。</strong>先创建基础重复排班。然后通过<a href="#main-day-actions">所选日期的操作</a>，将休假、病假、请假、一次性替班或工作时间调整作为特定日期的例外情况添加。这样可保持原始周期不变。</div>
+
+<h3 id="shifts-list">4.1. 排班列表和控件</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedules_overview.webp" alt="带有当前排班卡片和编号控件的 ShiftAlarm 排班屏幕">
+</figure>
+
+<ol class="callout-list">
+<li><strong>排班详情</strong> — 名称、开始日期、周期长度和简短的日期序列。在示例中，“D · D · O · O”表示两个白班，随后是两个休息日。</li>
+<li><strong>开关</strong> — 临时停用排班，但不删除它。再次启用后，保存的设置会继续生效。</li>
+<li><strong>排班状态</strong> — 指明当前启用的是哪个排班。</li>
+<li><strong>编辑</strong> — 打开可更改的参数。完成初始设置后，部分排班基础会被锁定，以防意外重新计算已经生成的日历数据。</li>
+<li><strong>删除</strong> — 确认后删除排班。删除前，请检查所有班次关联闹钟和计算。</li>
+<li><strong>打开统计</strong> — 打开此排班的<a href="#statistics">工作时间、期间、工资和报告统计</a>。</li>
+<li><strong>创建排班</strong> — 可选择现成模板或创建自定义周期。</li>
+</ol>
+
+<h3 id="shifts-create">4.2. 开始创建排班</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_create.webp" alt="包含名称、开始日期、模板和自定义排班的排班创建面板">
+</figure>
+
+<ol class="callout-list">
+<li><strong>排班名称</strong> — 输入清楚的名称，例如“主要 2/2”“夜班”或工作地点名称。</li>
+<li><strong>开始日期</strong> — 与<strong>重复周期第一天</strong>对应的日期。可选择过去或未来的日期；应用会以此日期为基准向前和向后计算排班。</li>
+<li><strong>模板</strong> — 现成的常用班次序列。示例使用“2/2 白班”模板。</li>
+<li><strong>自定义排班</strong> — 创建您自己的工作日和休息日序列。</li>
+<li><strong>创建排班</strong> — 打开所选选项的详细编辑器。</li>
+</ol>
+
+<div class="tip">对于“D · D · O · O”模板，开始日期通常是两个工作日中的第一天。在自定义周期中，第 1 天也可以是休息日；关键是所选日期必须与您创建的序列第 1 天完全对应。</div>
+
+<h3 id="shifts-template">4.3. 使用模板创建排班</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_template.webp" alt="包含名称、序列、开始日期和班次时间的模板排班编辑器">
+</figure>
+
+<ol class="callout-list">
+<li><strong>排班名称</strong> — 保留建议的名称，或替换为自己的名称。</li>
+<li><strong>模板</strong> — 显示字母序列及其含义。在示例中，“D · D · O · O”表示白班、白班、休息日、休息日。</li>
+<li><strong>开始日期</strong> — 选择所显示序列第一天的日期。</li>
+<li><strong>班次时间</strong> — 指定每种工作班次类型的开始和结束时间。应用会显示计算出的时长。</li>
+<li><strong>取消</strong> — 关闭编辑器而不保存。</li>
+<li><strong>保存</strong> — 保存排班并开始在日历中计算班次。</li>
+</ol>
+
+<div class="warning"><strong>首次保存后。</strong>开始日期和周期结构会被锁定，以保护已经计算的日历数据。您仍可编辑名称和部分工作参数。如果需要不同的基础周期或参考日期，创建新排班会更安全。</div>
+
+<h3 id="shifts-custom">4.4. 创建自定义周期</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_custom.webp" alt="包含周期长度、日期控件、开始日期和每日设置的自定义排班编辑器">
+</figure>
+
+<ol class="callout-list">
+<li><strong>排班名称</strong> — 为自定义序列命名。</li>
+<li><strong>周期长度</strong> — 显示重复序列中包含的天数。</li>
+<li><strong>移除一天</strong> — 将周期缩短一天。</li>
+<li><strong>添加一天</strong> — 在周期末尾添加另一个可配置的日期。</li>
+<li><strong>开始日期</strong> — 与自定义周期第 1 天对应的日期。</li>
+<li><strong>日期设置</strong> — 点按“班次类型”卡片，然后选择休息日或所需工作类型：白班、夜班、早班、晚班、24 小时班次或自定义班次。对于工作日，请指定开始和结束时间。在屏幕下方以同样方式配置周期中的其余日期。</li>
+<li><strong>取消</strong> — 关闭编辑器而不保存。</li>
+<li><strong>保存</strong> — 保存自定义周期并在日历中计算。</li>
+</ol>
+
+<div class="notice"><strong>什么是周期？</strong>周期是序列重新开始前所经过的天数。例如，四天周期可以是“2 个工作日 + 2 个休息日”，六天周期可以是“3 个工作日 + 3 个休息日”。最后一天结束后，应用会返回第 1 天。</div>
+
+<div class="tip">不要为一次性排班例外更改基础周期。长按日历日期，然后创建休息日、休假、病假、替班或时间调整。</div>
+
+
+
+<span id="shift-statistics"></span>
+<h2 id="statistics">5. 排班统计</h2>
+
+<p>使用排班卡片上的<strong>“打开统计”</strong>按钮打开“统计”。本部分汇总工作日和休息日、排班变更、计划和实际工作时间、估算工资及报告信息。</p>
+
+<div class="notice"><strong>重要：</strong>统计仅针对所选轮班表计算。所选期间适用于下方所有工作时间、工资和报告数值。</div>
+
+<h3 id="statistics-period">5.1. 排班、期间和日期摘要</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_period_overview.webp" alt="包含排班信息、期间选择和日期总数的统计屏幕">
+</figure>
+
+<ol class="callout-list">
+<li><strong>排班信息</strong> — 显示所选排班的名称、首个周期的开始日期和重复周期长度。此屏幕上的统计仅适用于该排班。</li>
+<li><strong>所选期间卡片</strong> — 显示当前使用的期间。点按卡片或右侧箭头，可选择当前、上一个或下一个月、当前年份或自定义日期范围。</li>
+<li><strong>日期摘要</strong> — 显示期间内的天数、工作班次、休息日、已完成和即将到来的班次以及已变更日期。已变更日期是基础周期的例外情况，包括休假、病假、请假、替班或调班、工作时间调整及其他变更。</li>
+</ol>
+
+<div class="warning"><strong>未来期间为预测。</strong>对于未来月份，应用会使用已创建的排班和已输入的数据，但无法预知未来的病假、休假、请假、加班、奖金或扣款。选择当前年份时，总计可能会将过去日期的实际数据与本年度剩余时间的预测结合起来。</div>
+
+<h3 id="statistics-work">5.2. 工作时间、工资和报告</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_work_salary_reports.webp" alt="包含工作时间、进度、工资和报告入口的统计屏幕">
+</figure>
+
+<ol class="callout-list">
+<li><strong>工作时间</strong> — 小时数和进度的摘要卡片。点按它可打开<a href="#statistics-break">休息时间设置</a>。</li>
+<li><strong>计划小时数</strong> — 所选期间内计划班次和变更的总时长。</li>
+<li><strong>已工作小时数</strong> — 截至当前日期视为已完成的班次时间，并已应用休息设置。</li>
+<li><strong>进度</strong> — 显示已完成工作班次占总数的数量，以及所选期间已完成的百分比。</li>
+<li><strong>工资</strong> — 打开<a href="#salary">工资计算设置</a>。卡片显示所选排班和期间的估算值。</li>
+<li><strong>总计</strong> — 截至目前的估算收入，包括所选计薪方式、奖金、加班和扣款。</li>
+<li><strong>工资率或工资</strong> — 此卡片内容取决于所选计算方式：按小时、按班次或按月支付。它会显示工资设置中输入的数值。</li>
+<li><strong>计算详情</strong> — 所选期间的计薪时间、加班小时数、奖金和扣款。</li>
+<li><strong>报告</strong> — 打开<a href="#reports">期间、工作时间和工资的详细报告</a>。</li>
+</ol>
+
+<div class="tip">更改顶部卡片中的期间后，工作时间和工资部分的所有数值都会重新计算。</div>
+
+<h3 id="statistics-break">5.3. 在工作时间中核算休息</h3>
+
+<p>点按“工作时间”卡片，指定用餐休息或其他休息是否应计入实际工作时间和计薪时间。</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_break_settings.webp" alt="休息核算和时长设置面板">
+</figure>
+
+<ol class="callout-list">
+<li><strong>当前总计</strong> — 显示应用新设置前所选期间的计划和已工作小时数。</li>
+<li><strong>将休息计为工作时间</strong> — 如果休息带薪且包含在班次时长中，请保持启用。若指定时间必须从已工作和计薪时间中扣除，请关闭此选项。</li>
+<li><strong>休息时长</strong> — 选择一次休息的小时和分钟数。重新计算适用的工作班次时会使用此设置。</li>
+<li><strong>休息总时长</strong> — 保存前显示所选时长。</li>
+<li><strong>保存</strong> — 应用设置并重新计算工作时间及相关数值。</li>
+</ol>
+
+<div class="notice">休息可以表示用餐休息、交接班或班次内其他不计薪的时间段。请输入符合您工作场所规定的时长。</div>
+
+<h3 id="reports">5.4. 报告：期间、状态和摘要</h3>
+
+<p>从统计屏幕下方的卡片打开“报告”。本部分提供所选期间的更多详细信息：工作时间、班次和缺勤、日历调整、工资、奖金、扣款、期间比较、每日详情和导出。</p>
+
+<div class="warning"><strong>报告仅供参考。</strong>计算基于所选排班、工资设置、休息核算和日历中的班次变更。由于计时系统、舍入方式、税费、津贴或内部规定不同，雇主的实际数据可能有所差异。如果发现错误或不受支持的计算方式，请通过应用中显示的地址联系开发者，并提供输入数据和预期结果。</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_period_salary.webp" alt="包含期间选择、状态、摘要和详细工资明细的报告屏幕">
+</figure>
+
+<ol class="callout-list">
+<li><strong>报告期间</strong> — 点按卡片可选择当前、上一个或下一个月、预设范围或自定义日期。下方所有信息均适用于所选期间。</li>
+<li><strong>期间状态</strong> — 显示期间是否已完成、当前正在进行或尚未开始。已完成期间根据保存的实际数据计算。当前期间结合已完成的工作数据和当前计划，未来期间则为预测。</li>
+<li><strong>摘要</strong> — 实际工作时间、计算金额和加班的文字摘要。</li>
+<li><strong>工资</strong> — 基本工资、加班工资、奖金、扣款和最终估算的详细明细。数值取决于<a href="#salary">工资设置</a>和所选期间。</li>
+</ol>
+
+<h3 id="reports-work">5.5. 工作时间、缺勤和日期</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_work_absences.webp" alt="包含工作时间、休息、已完成班次和缺勤的报告屏幕">
+</figure>
+
+<ol class="callout-list">
+<li><strong>工作时间</strong> — 显示计划和实际工作小时数、扣除休息前的计划和实际小时数、已完成班次数、平均班次时长以及扣除的休息总时长。请在<a href="#statistics-break">工作时间部分</a>配置休息。</li>
+<li><strong>缺勤和日期</strong> — 显示所选期间内的休息日、休假日、病假日、请假日和已变更日期数。</li>
+</ol>
+
+<h3 id="reports-charts">5.6. 调整和图表</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_corrections_charts.webp" alt="包含调整、工资构成和工作时间数值的报告屏幕">
+</figure>
+
+<ol class="callout-list">
+<li><strong>调整</strong> — 显示加班小时数、班次时长总变更量，以及相对于基础排班发生变更的日期数。</li>
+<li><strong>图表</strong> — 直观展示工资和工作时间构成：基本工资、加班、奖金、扣款、总计，以及计划、已工作和计薪小时数。</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_charts_days.webp" alt="包含小时数和日期类型饼图的其他报告图表">
+</figure>
+
+<ol class="callout-list">
+<li><strong>小时数</strong> — 继续直观比较计划、已工作、计薪和加班小时数。“实际工作时间”一行显示应用设置和调整后的结果。</li>
+<li><strong>日期类型</strong> — 按类型划分所选期间日期的饼图。图例取决于排班和实际变更：白班、夜班或其他班次、休息日、休假、病假、请假及其他状态。</li>
+</ol>
+
+<h3 id="reports-comparison">5.7. 比较期间</h3>
+
+<p>比较部分可帮助您比较多个期间的工资、时间、班次和缺勤。可用期间数取决于保存的数据。</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_chart.webp" alt="包含范围选择、工资图表和比较表开头的期间比较屏幕">
+</figure>
+
+<ol class="callout-list">
+<li><strong>比较期间</strong> — 点按卡片，选择要比较的期间数量及其范围。</li>
+<li><strong>图表和期间列表</strong> — 显示各期间的工资，并列出纳入比较的时间段及其状态。</li>
+<li><strong>比较表</strong> — 包含每个期间的详细数值。向左或向右水平滑动表格可查看其余列。</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_table.webp" alt="比较表的后续内容及相邻期间之间的差异">
+</figure>
+
+<ol class="callout-list">
+<li><strong>期间数值</strong> — 工资总额、已工作和计薪小时数、加班、奖金、扣款、已完成班次、缺勤和已变更日期。</li>
+<li><strong>期间差异</strong> — 显示每个期间与上一期间的差异。正值和负值表示相应指标增加或减少。仅凭颜色并不总能判断是有利还是有问题；例如，扣款增加表示被扣除的金额更多。</li>
+</ol>
+
+<h3 id="reports-details-export">5.8. 每日详情和导出</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_details_export.webp" alt="每日详情以及导出为 PDF、HTML、JSON 或 CSV 的报告卡片">
+</figure>
+
+<ol class="callout-list">
+<li><strong>每日详情</strong> — 打开所选期间内每天的列表。您可以查看特定日期的班次类型、计划和实际时间、小时调整、缺勤及其他变更。</li>
+<li><strong>导出</strong> — 将报告保存为 PDF、HTML、JSON 或 CSV。导出前请选择报告期间；随后可通过 Android 系统菜单打印、保存或分享文件。</li>
+</ol>
+
+<div class="tip">比较或导出前，请检查所选期间、排班、班次变更、休息和工资设置。源数据中的错误会影响报告中的所有总计。</div>
+
+<h2 id="alarms">6. 闹钟</h2>
+
+<p>ShiftAlarm 可创建一次性闹钟、在选定的星期几重复闹钟，或将闹钟时间关联到轮班表。</p>
+
+<h3 id="alarms-list">6.1. 闹钟列表</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarms_overview.webp" alt="包含下次提醒、排序、闹钟卡片和添加按钮的 ShiftAlarm 闹钟屏幕">
+</figure>
+
+<ol class="callout-list">
+<li><strong>下一个闹钟</strong> — 显示下一个已启用提醒的日期和时间。</li>
+<li><strong>闹钟排序</strong> — 更改闹钟卡片顺序，例如优先显示已启用的闹钟。</li>
+<li><strong>闹钟卡片</strong> — 包含时间、日期或重复模式、排班类型和剩余时间。点按卡片可进行编辑。</li>
+<li><strong>开关</strong> — 临时启用或停用闹钟，但不删除其设置。</li>
+<li><strong>删除</strong> — 删除所选闹钟。</li>
+<li><strong>添加闹钟</strong> — 打开创建新闹钟的屏幕。</li>
+</ol>
+
+<h3 id="alarms-create">6.2. 创建和编辑闹钟</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_time_schedule.webp" alt="ShiftAlarm 闹钟编辑器顶部：时间、排班类型、稍后提醒和保存控件">
+</figure>
+
+<ol class="callout-list">
+<li><strong>时间</strong> — 滚动小时和分钟滚轮以设置提醒时间。</li>
+<li><strong>排班类型</strong> — 选择以下模式之一：
+<ul>
+<li><strong>一次</strong> — 闹钟在所选日期触发一次；</li>
+<li><strong>按星期</strong> — 在选定的星期几重复；</li>
+<li><strong>按班次</strong> — 将闹钟关联到所选排班和班次类型。</li>
+</ul>
+</li>
+<li><strong>稍后提醒</strong> — 设置在响铃屏幕上点按稍后提醒按钮后，提醒推迟的分钟数。</li>
+<li><strong>取消和保存</strong> — 这些按钮固定在屏幕底部，滚动编辑器时仍可使用。</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_behavior.webp" alt="ShiftAlarm 的闹钟时长、重复提醒、音量渐强和振动设置">
+</figure>
+
+<ol class="callout-list">
+<li><strong>闹钟时长</strong> — 决定用户未停止提醒时，提醒响铃多长时间。</li>
+<li><strong>忽略闹钟时重复</strong> — 如果闹钟既未关闭也未稍后提醒，则启用另一次提醒。在下方设置重复提醒前的间隔。</li>
+<li><strong>音量渐强</strong> — 以较低音量开始，并在所选时间内逐渐增大音量。</li>
+<li><strong>振动</strong> — 启用或停用提醒期间的振动。</li>
+<li><strong>取消和保存</strong> — 编辑器的固定控件。</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_sound_name.webp" alt="ShiftAlarm 闹钟编辑器底部：振动、声音、名称和保存控件">
+</figure>
+
+<ol class="callout-list">
+<li><strong>振动</strong> — 启用或停用振动提醒。</li>
+<li><strong>声音</strong> — 可选择内置、系统或用户添加的声音。最多可向应用添加五个自定义声音。</li>
+<li><strong>名称</strong> — 帮助区分闹钟的可选标签。</li>
+<li><strong>取消和保存</strong> — 放弃更改或保存闹钟。</li>
+</ol>
+
+<div class="notice">保存后，闹钟会出现在主列表中。重要提醒前，请确认闹钟已启用、应用具有通知和精确闹钟权限，并且系统未限制其后台活动。</div>
+
+<div class="tip">若要创建班次关联闹钟，请先创建合适的轮班表。在编辑器中，选择固定触发时间或相对于班次开始时间的偏移量。</div>
+
+<h2 id="geo">7. 地理位置闹钟</h2>
+
+<p>地理位置闹钟会监测设备何时进入或离开所选区域。该区域由地图上的一个点及该点周围的半径确定。例如，可使用地理位置闹钟在接近工作地点、家、公交车站、火车站或其他地点时接收提醒。</p>
+
+<h3 id="geo-overview">7.1. 地图和控件</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_overview.webp" alt="带有地图和编号控件的 ShiftAlarm 地理位置闹钟主屏幕">
+</figure>
+
+<ol class="callout-list">
+<li><strong>放大</strong> — 放大地图。</li>
+<li><strong>缩小</strong> — 缩小地图比例。</li>
+<li><strong>我的位置</strong> — 将地图移动到设备当前位置。应用需要位置信息访问权限才能使用此功能。</li>
+<li><strong>已保存地点</strong> — 打开已保存的地理位置闹钟和地点列表。</li>
+<li><strong>返回</strong> — 返回应用的上一屏幕。</li>
+<li><strong>地理位置闹钟数量</strong> — 显示已创建的地理位置闹钟数量。</li>
+<li><strong>地理位置闹钟列表</strong> — 打开已创建地理位置闹钟的单独列表。</li>
+</ol>
+
+<div class="tip">也可以使用手势缩放。用两根手指触摸地图并向外张开可放大，向内捏合可缩小。</div>
+<div class="notice">在从右向左书写的语言中，侧边控件可能出现在相反一侧。它们的功能保持不变。</div>
+
+<h3 id="geo-saved-places">7.2. 已保存闹钟和地点</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_saved_places.webp" alt="包含地理位置闹钟和地点标签页的已保存地点窗口">
+</figure>
+
+<ol class="callout-list">
+<li><strong>闹钟</strong> — 显示已添加到已保存地点的地理位置闹钟。</li>
+<li><strong>地点</strong> — 显示未启用地理位置闹钟的已保存坐标。</li>
+<li><strong>已保存地点列表</strong> — 点按卡片可在地图上移动到该地点。</li>
+<li><strong>关闭</strong> — 关闭窗口并返回地图。</li>
+</ol>
+
+<div class="notice">如果删除已加入书签的地理位置闹钟，其坐标会自动保留在“地点”标签页中。稍后可再次使用该点创建另一个地理位置闹钟。</div>
+
+<h3 id="geo-select-point">7.3. 选择地点和半径</h3>
+
+<p>长按地图上的所需地点。应用会放置一个标记，并打开所选地点面板。</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_selected_point.webp" alt="包含地址、半径、书签和地理位置闹钟创建按钮的所选地图地点">
+</figure>
+
+<ol class="callout-list">
+<li><strong>所选地点标记</strong> — 未来地理围栏的中心。地图还会显示代表所选半径的圆圈。</li>
+<li><strong>地址和坐标</strong> — 用于确认选择了正确的地点。</li>
+<li><strong>保存地点</strong> — 将所选坐标添加到已保存地点，但不创建闹钟。</li>
+<li><strong>半径</strong> — 设置地点周围区域的大小。移动滑块，直到选择合适的距离。</li>
+<li><strong>取消</strong> — 取消地点选择。</li>
+<li><strong>在此创建</strong> — 为所选地点打开新的地理位置闹钟编辑器。</li>
+</ol>
+
+<div class="warning"><strong>如何选择半径。</strong>手机不会持续跟踪自身坐标。Android、设备制造商、电池省电模式、GPS、移动网络和 Wi‑Fi 信号质量以及移动速度都会影响边界的检测时机。因此，提醒可能不会在绘制的边界线上触发。例如，半径为 800 米时，可能在设备已经进入区域后才检测到进入——此时设备与中心点的距离可能为 700、600 或 500 米。</div>
+
+<ul>
+<li><strong>在城市中</strong>，通常建议使用 <strong>1,300–1,500 米</strong>的半径。</li>
+<li><strong>在城市之外</strong>，位置信息更新可能不那么频繁，建议使用 <strong>4,000–5,000 米</strong>的半径。</li>
+<li><strong>具体半径</strong>应根据您的路线、速度和设备表现选择。</li>
+</ul>
+
+<div class="notice">系统会检测设备何时越过区域的虚拟边界。在“进入时”模式下，较大的半径通常能让手机有更多时间检测到您正在接近。在“离开时”模式下，边界则会距离所选地点更远。</div>
+
+<h3 id="geo-create">7.4. 创建地理位置闹钟</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_location_schedule.webp" alt="地理位置闹钟编辑器顶部：就绪状态、位置和排班类型">
+</figure>
+
+<ol class="callout-list">
+<li><strong>地理位置闹钟就绪状态</strong> — 显示所需权限是否已配置，以及应用能否注册地理围栏。</li>
+<li><strong>位置</strong> — 包含所选地址和坐标。可编辑地址作为标签，但实际地点需要在地图上选择。</li>
+<li><strong>排班类型</strong> — 决定地理位置闹钟在哪些日期和条件下启用。</li>
+<li><strong>始终</strong> — 启用后，地理位置闹钟每天都有效。</li>
+<li><strong>一次</strong> — 在满足所选条件时用于下一次一次性触发。</li>
+<li><strong>按星期</strong> — 仅在选定的星期几工作。</li>
+<li><strong>按班次</strong> — 将地理位置闹钟关联到当前轮班表。</li>
+</ol>
+
+<div class="notice"><strong>“按班次”排班。</strong>选择它在班次当天、仅班次前还是仅班次后生效，并指定所需班次类型：白班、夜班、早班、晚班、24 小时班次、自定义班次或任意工作班次。</div>
+<div class="tip">如果日历日期被标记为休息日、休假、病假或请假，而不是工作班次，则班次关联地理位置闹钟在当天不会启用。</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_trigger_settings.webp" alt="地理位置闹钟编辑器底部：进入或离开条件、半径和提醒设置">
+</figure>
+
+<ol class="callout-list">
+<li><strong>触发条件</strong> — 决定哪种边界穿越会启动提醒。</li>
+<li><strong>进入时</strong> — 设备进入所选半径时启动提醒，例如接近工作地点或所需车站时。</li>
+<li><strong>离开时</strong> — 设备离开所选半径时启动提醒，例如离开工作地点或车站后，以免错过路线的下一段。</li>
+<li><strong>进入或离开时</strong> — 每当沿任一方向越过边界时启动提醒。</li>
+<li><strong>半径</strong> — 所选地点周围地理围栏的大小。</li>
+<li><strong>闹钟时长</strong> — 决定提醒响铃多长时间。</li>
+<li><strong>音量渐强</strong> — 设置提醒启动后音量平缓上升。</li>
+<li><strong>取消和保存</strong> — 放弃更改或保存地理位置闹钟。</li>
+</ol>
+
+<div class="tip">下方其余选项与普通闹钟类似：声音、振动、提醒时长、音量渐强和名称。</div>
+
+<h3 id="geo-existing">7.5. 地图上的地理位置闹钟及其控件</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_marker_radius.webp" alt="地图上已创建的地理位置闹钟标记及其触发半径圆圈">
+</figure>
+
+<ol class="callout-list">
+<li><strong>地理位置闹钟标记</strong> — 显示所选地点。</li>
+<li><strong>半径边界</strong> — 显示应用监测进入或离开的区域。</li>
+</ol>
+
+<p>点按地理位置闹钟标记。首先会显示一个小型信息窗口。点按该窗口可打开详细卡片。</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_alarm_card.webp" alt="包含信息、书签、开关和控件的详细地理位置闹钟卡片">
+</figure>
+
+<ol class="callout-list">
+<li><strong>名称和地址</strong> — 标识所选地理位置闹钟。</li>
+<li><strong>书签</strong> — 将闹钟添加到已保存地点，或从中移除。</li>
+<li><strong>开关</strong> — 启用或临时停用地理位置闹钟，但不删除其设置。</li>
+<li><strong>设置和状态</strong> — 显示半径、进入或离开条件、排班、地理围栏就绪状态以及先前触发的信息。</li>
+<li><strong>编辑</strong> — 打开地理位置闹钟设置。</li>
+<li><strong>关闭</strong> — 关闭卡片并返回地图。</li>
+<li><strong>删除</strong> — 确认后删除地理位置闹钟。</li>
+</ol>
+
+<div class="warning">为确保可靠运行，请允许精确位置和后台位置信息，为 ShiftAlarm 取消严格的电池限制，并在设备提供相关设置时检查自启动。即使设置正确，Android 也无法保证边界检测精确到几米以内。</div>
+
+<h2 id="notes">8. 笔记、事件和提醒</h2>
+
+<p>“笔记”部分可存储纯文本、列表、清单、录音、语音转文字笔记、提醒和事件。</p>
+
+<h3 id="notes-create">8.1. 添加笔记</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_type_picker.webp" alt="在 ShiftAlarm 中选择新笔记类型">
+</figure>
+
+<ol class="callout-list">
+<li><strong>面板手柄</strong> — 向上拖动可显示完整的笔记类型列表，向下拖动可关闭面板。</li>
+<li><strong>笔记类型</strong> — 选择合适的选项：
+<ul>
+<li><strong>文本笔记</strong> — 纯文本；</li>
+<li><strong>清单</strong> — 带有完成复选框的项目列表；</li>
+<li><strong>列表</strong> — 项目符号列表或编号列表；</li>
+<li><strong>音频笔记</strong> — 语音录音；</li>
+<li><strong>语音转文字</strong> — 使用语音识别创建笔记；</li>
+<li><strong>提醒</strong> — 在指定时间发出通知的条目；</li>
+<li><strong>事件</strong> — 与日期和时间关联的条目。</li>
+</ul>
+</li>
+<li><strong>取消</strong> — 关闭选择器而不创建笔记。</li>
+</ol>
+
+<div class="tip">选择类型后，会打开相应的编辑器。填写必填字段并保存条目。</div>
+
+<h3 id="notes-list">8.2. 笔记列表和控件</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_overview.webp" alt="包含排序、当前和已归档笔记、搜索及卡片操作的 ShiftAlarm 笔记屏幕">
+</figure>
+
+<ol class="callout-list">
+<li><strong>排序</strong> — 更改列表中的笔记顺序。</li>
+<li><strong>当前</strong> — 显示尚未移到归档的普通和计划笔记。</li>
+<li><strong>归档</strong> — 打开已归档笔记列表。</li>
+<li><strong>搜索</strong> — 在笔记标题和内容中查找匹配项。</li>
+<li><strong>笔记卡片</strong> — 显示标题、类型、状态和其他信息。点按卡片可打开笔记。</li>
+<li><strong>置顶</strong> — 将笔记固定在列表顶部。</li>
+<li><strong>归档</strong> — 从当前列表中移除笔记并将其移到归档。</li>
+<li><strong>删除</strong> — 确认后删除笔记。</li>
+<li><strong>添加笔记</strong> — 打开新笔记类型选择器。</li>
+</ol>
+
+<div class="notice">对于主列表中不再需要但仍应保留的条目，请使用归档。只有完全不再需要笔记时才将其删除。</div>
+
+<h2 id="clock">9. 时钟、秒表和计时器</h2>
+
+<p>本部分包含本地时间和世界时间、秒表及计时器。使用主屏幕上的<strong>“时钟”</strong>按钮打开。</p>
+
+<div class="notice">屏幕底部显示三个标签页：“时钟”“秒表”和“计时器”。点按标签页可切换模式。</div>
+
+<h3 id="clock-world">9.1. 时钟和世界时钟</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_overview.webp" alt="包含本地时间、世界时钟、添加按钮和底部标签页的 ShiftAlarm 时钟屏幕">
+</figure>
+
+<ol class="callout-list">
+<li><strong>本地时间</strong> — 显示当前时间、日期和设备系统时区。</li>
+<li><strong>世界时钟</strong> — 显示已添加的城市和时区。列表为空时，应用会显示提示。</li>
+<li><strong>加号按钮</strong> — 打开世界时钟选择器。</li>
+<li><strong>部分标签页</strong> — 在“时钟”“秒表”和“计时器”屏幕之间切换。</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_add_timezone.webp" alt="向 ShiftAlarm 世界时钟添加城市或时区">
+</figure>
+
+<ol class="callout-list">
+<li><strong>搜索</strong> — 输入城市或时区名称以筛选列表。</li>
+<li><strong>城市和时区列表</strong> — 点按所需选项，将其添加到世界时钟屏幕。</li>
+</ol>
+
+<div class="tip">本地时区始终显示在最前面。可从列表中移除已添加的世界时钟，但不能移除本地时间。</div>
+
+<h3 id="clock-stopwatch">9.2. 秒表</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_start.webp" alt="启动前的 ShiftAlarm 秒表">
+</figure>
+
+<ol class="callout-list">
+<li><strong>历史记录</strong> — 打开已保存的秒表会话。</li>
+<li><strong>开始</strong> — 开始计时。</li>
+<li><strong>重置</strong> — 秒表启动前不可用。停止后，它会将秒表归零并移除当前计次。</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_running.webp" alt="运行中的 ShiftAlarm 秒表，带有历史记录、保存、计次和暂停控件">
+</figure>
+
+<ol class="callout-list">
+<li><strong>历史记录</strong> — 显示之前保存的会话。</li>
+<li><strong>保存</strong> — 提示输入名称，并保存当前秒表会话。</li>
+<li><strong>计次</strong> — 记录中间结果，但不停止总计时。</li>
+<li><strong>暂停</strong> — 暂停秒表。暂停后可继续或重置。</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_laps.webp" alt="ShiftAlarm 秒表计次及其排序选项">
+</figure>
+
+<ol class="callout-list">
+<li><strong>原始、最快和最慢</strong> — 更改计次显示顺序：原始顺序、最快优先或最慢优先。</li>
+<li><strong>计次</strong> — 每次计次都会显示记录时的总时间和单次用时。</li>
+</ol>
+
+<div class="notice">点按“保存”后，请输入会话名称并确认。稍后可从“历史记录”中打开已保存的会话。</div>
+
+<h3 id="clock-timer">9.3. 计时器</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_setup.webp" alt="使用小时、分钟和秒滚轮设置 ShiftAlarm 计时器">
+</figure>
+
+<ol class="callout-list">
+<li><strong>小时</strong> — 滚动滚轮并选择小时数。</li>
+<li><strong>分钟</strong> — 滚动滚轮并选择分钟数。</li>
+<li><strong>秒</strong> — 滚动滚轮并选择秒数。</li>
+<li><strong>开始</strong> — 按所选时长启动计时器。</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_running.webp" alt="运行中的 ShiftAlarm 计时器，带有剩余时间、暂停、增加一分钟和停止控件">
+</figure>
+
+<ol class="callout-list">
+<li><strong>剩余时间</strong> — 显示提醒前还剩多少时间。</li>
+<li><strong>结束时间</strong> — 显示计时器预计结束的时间。</li>
+<li><strong>最近的计时器</strong> — 已保存的最近时长；点按即可快速重复使用。</li>
+<li><strong>暂停</strong> — 暂时停止倒计时。之后可继续。</li>
+<li><strong>+1 分钟</strong> — 将剩余时间增加一分钟。</li>
+<li><strong>停止</strong> — 完全停止计时器。</li>
+</ol>
+
+<div class="tip">计时器和秒表会在后台继续运行。它们的状态可能显示在通知、主屏幕和小组件中。</div>
+
+<h2 id="widgets">10. 小组件</h2>
+
+<p>ShiftAlarm 为手机主屏幕提供小组件。</p>
+<ul>
+<li><strong>今天 4×2</strong> — 包含两个可配置部分的紧凑面板。</li>
+<li><strong>今天 4×3</strong> — 顶部有时钟、下方有两个部分的面板。</li>
+<li><strong>日历 4×4</strong> — 带有轮班表的日历小组件。</li>
+</ul>
+<p>通过手机主屏幕上的 Android 小组件菜单添加小组件。</p>
+
+<h2 id="salary">11. 工资计算</h2>
+
+<p>从<a href="#statistics-work">所选排班的统计</a>中的工资卡片打开“工资计算”。您可在此设置计薪方式、工资率或月薪、加班规则、奖金和扣款。应用会将这些设置与所选期间、轮班表、日历变更和休息核算结合使用。</p>
+
+<div class="warning"><strong>计算结果仅供参考。</strong>如果雇主采用其他计时、舍入、津贴、税费、奖金、扣款或特定班次计薪制度，实际工资可能有所不同。请勿将结果用作正式工资单；请与雇主提供的工资单核对。如果发现应用无法准确处理的计算方式，请向应用中显示的开发者地址发送电子邮件。请说明规则，提供示例输入数据并写明预期结果。随后可考虑在未来更新中支持该方式。</div>
+
+<h3 id="salary-settings">11.1. 工资率、加班和奖金</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_settings_overview.webp" alt="包含所选排班、工资率类型、加班和奖金的工资计算屏幕">
+</figure>
+
+<ol class="callout-list">
+<li><strong>所选排班</strong> — 显示正在使用哪个轮班表。工资根据此排班和统计中选择的期间计算。</li>
+<li><strong>工资率类型和金额</strong> — 选择<strong>按小时</strong>、<strong>按班次</strong>或<strong>按月</strong>支付，然后输入相应金额。字段名称会随所选工资率类型变化。</li>
+<li><strong>加班</strong> — 如果额外小时的计薪方式与正常工作时间不同，请启用此部分。然后指定加班工资倍数。通过<a href="#main-shift-time-adjustment">“更改班次”→“+ 时间”</a>在日历中添加额外小时；启用“将此时间计为加班”，使这些小时按加班处理。</li>
+<li><strong>奖金</strong> — 显示当前计算方式和总计。点按卡片打开<a href="#salary-bonuses">奖金设置</a>。</li>
+</ol>
+
+<div class="notice">“保存”按钮会将设置应用到所选排班。保存后，统计和报告中的总计会使用输入的数据重新计算。</div>
+
+<h3 id="salary-summary">11.2. 扣款和计算总计</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions_total.webp" alt="包含扣款和最终明细的工资计算屏幕">
+</figure>
+
+<ol class="callout-list">
+<li><strong>扣款</strong> — 显示已配置扣款的总金额和数量。点按卡片打开<a href="#salary-deductions">扣款列表</a>。</li>
+<li><strong>总计</strong> — 摘要明细：计薪时间、已工作小时数、加班、基本工资、加班工资、奖金、扣款和最终结果。</li>
+</ol>
+
+<div class="tip">结果不仅取决于此屏幕的设置，还取决于所选统计期间、已完成班次、日期变更、加班和无薪休息设置。</div>
+
+<h3 id="salary-bonuses">11.3. 奖金</h3>
+
+<p>点按工资计算屏幕上的“奖金”卡片。如果符合您的计薪制度，可手动输入奖金或按百分比计算。</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_bonuses.webp" alt="包含计算和金额输入选项的奖金设置屏幕">
+</figure>
+
+<ol class="callout-list">
+<li><strong>摘要信息</strong> — 显示计算出的奖金总额和用于计算的基础金额。</li>
+<li><strong>奖金计算</strong> — 如果工作场所采用相应方式，可选择手动输入或百分比计算，例如按销售额百分比计算。</li>
+<li><strong>输入方式</strong> — “总金额”适合单笔最终奖金。如果有多笔必须分别计算的奖金，使用单独行更合适。</li>
+<li><strong>金额或百分比</strong> — 输入所选计算方式要求的数值。</li>
+<li><strong>取消和保存</strong> — 放弃更改或将其应用到工资计算。</li>
+</ol>
+
+<h3 id="salary-deductions">11.4. 扣款列表</h3>
+
+<p>点按主计算屏幕上的“扣款”卡片。本部分可保存多笔扣款并分别管理。</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions.webp" alt="包含总金额、扣款行和添加按钮的扣款列表屏幕">
+</figure>
+
+<ol class="callout-list">
+<li><strong>摘要信息</strong> — 显示所有已启用扣款的金额和数量。</li>
+<li><strong>扣款行</strong> — 显示名称、数值和类型。点按该行打开<a href="#salary-deduction-editor">扣款设置</a>。垃圾桶图标可删除该行。</li>
+<li><strong>添加扣款</strong> — “+”按钮可创建新的扣款行。</li>
+<li><strong>取消和保存</strong> — 放弃更改或保存整个列表。</li>
+</ol>
+
+<h3 id="salary-deduction-editor">11.5. 配置单笔扣款</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deduction_editor.webp" alt="包含名称、数值、类型和扣款基数的单笔扣款面板">
+</figure>
+
+<ol class="callout-list">
+<li><strong>扣款名称</strong> — 输入清楚的名称，例如“税款”“子女抚养费”或“罚款”。</li>
+<li><strong>数值</strong> — 根据下方选择的数值类型输入金额或百分比。</li>
+<li><strong>数值类型</strong> — 选择固定金额或百分比。</li>
+<li><strong>扣款类型</strong> — <strong>可变</strong>扣款适用于特定计算期间；<strong>定期</strong>扣款在保持启用时会定期应用。</li>
+<li><strong>扣款基数</strong> — 选择计算基数：工资总额、基本工资、奖金或其他可用选项。</li>
+<li><strong>已启用</strong> — 临时停用扣款，但不删除其设置。</li>
+<li><strong>取消和保存</strong> — 关闭面板而不更改，或保存扣款。</li>
+</ol>
+
+<div class="notice">对于百分比扣款，选择正确的“扣款基数”尤为重要：工资总额、基本工资和奖金的相同百分比会产生不同结果。</div>
+
+<h2 id="settings">12. 设置</h2>
+
+<p>使用<a href="#main-overview">主屏幕</a>底部的按钮打开“设置”。本部分包含系统权限、外观和应用语言、离线语音识别、文档和用户指南、备份、诊断以及联系开发者选项。</p>
+
+<h3 id="settings-overview">12.1. 主要设置部分</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_permissions_language.webp" alt="ShiftAlarm 设置顶部：权限、主题、应用语言和离线语音模型">
+</figure>
+
+<ol class="callout-list">
+<li><strong>权限</strong> — 打开闹钟权限和可靠性设置。检查通知、精确闹钟、后台活动和电池限制。<a href="#geo">地理位置闹钟</a>还需要位置信息访问权限；应用关闭时若要触发，需要后台位置信息或“始终允许”位置权限。项目名称和路径因 Android 版本和设备制造商而异。</li>
+<li><strong>主题</strong> — 可选择浅色、深色或系统外观，选择界面颜色方案，并为应用内操作启用或停用触觉反馈。系统主题会跟随手机当前外观。</li>
+<li><strong>应用语言</strong> — 可使用不同于手机系统语言的语言。ShiftAlarm 目录包含 108 种语言：通过搜索找到所需语言，下载语言包并应用。</li>
+<li><strong>离线语音模型</strong> — 为<a href="#notes-create">语音转文字笔记</a>安装模块。离线识别目前正在测试，支持约 20 种语言。其质量可能低于在线识别，并取决于语言、麦克风、手机性能和录音条件。</li>
+</ol>
+
+<div class="warning"><strong>不同设备的 Android 权限有所不同。</strong>在部分手机上，还必须允许自启动、选择“不受限制”或类似的电池模式，并允许后台活动。这些设置可降低系统停止 ShiftAlarm 的可能性，但具体名称由设备制造商决定。</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_help_backup_diagnostics.webp" alt="ShiftAlarm 设置底部：文档、用户指南、备份、诊断和联系开发者">
+</figure>
+
+<ol class="callout-list">
+<li><strong>文档和帮助</strong> — 打开应用的法律文档：使用条款、隐私政策、免责声明和简要帮助页面。</li>
+<li><strong>培训和用户指南</strong> — 打开这份完整的图文指南，其中包含 ShiftAlarm 功能的详细说明。</li>
+<li><strong>备份与恢复</strong> — 创建包含受支持应用设置和数据的文件，或从较早的备份中恢复。此功能适合在重新安装应用、重置手机或向其他设备传输数据前使用。详细说明请参阅<a href="#backup">“备份与恢复”</a>。</li>
+<li><strong>诊断日志</strong> — 打开各项应用功能的单独日志。它们会记录提醒调度和恢复、事件处理、权限状态及其他服务信息等技术阶段。日志有助于确定错误发生在哪个阶段。您可以复制条目，或准备通过电子邮件发送给开发者。详情请参阅<a href="#diagnostics">“诊断与问题排查”</a>。</li>
+<li><strong>联系开发者</strong> — 打开电子邮件应用并创建一封发送给支持团队的邮件。可用于报告问题、发送反馈或建议，或提出问题。对于技术问题，请尽可能提供手机型号、Android 版本、问题发生时间、执行的步骤以及相关诊断日志。</li>
+</ol>
+
+<div class="notice">诊断日志不会自动发送给开发者。您必须复制所需信息或点按“发送给开发者”，选择电子邮件应用，检查准备好的邮件并确认发送。</div>
+
+<h2 id="backup">13. 备份与恢复</h2>
+
+<p>备份会将受支持的 ShiftAlarm 设置和用户数据保存到单独文件中。它有助于在重新安装应用、重置手机或迁移到其他设备后恢复数据。</p>
+<ol class="step-list">
+<li>打开“设置 → 备份与恢复”。</li>
+<li>创建备份，并将生成的文件保存在手机上，或通过系统菜单分享。</li>
+<li>若要恢复，请打开同一部分并选择之前创建的备份文件。</li>
+<li>恢复后，请检查重要闹钟、排班和 Android 权限。在新设备上或重新安装后，部分系统安全权限可能需要重新授予。</li>
+</ol>
+<p class="tip">请将最新副本保存在安全位置，确保手机丢失、损坏或重置后仍能访问。备份文件不能替代 Android 系统权限，也无法自动包含应用无权访问的数据。</p>
+
+<h2 id="diagnostics">14. 诊断与问题排查</h2>
+
+<p>ShiftAlarm 为不同功能提供单独的诊断日志。它们会保存技术事件序列，并帮助确定提醒是否已调度、是否在重启后恢复、是否已交由处理，或是否因系统设置而停止。</p>
+
+<h3 id="diagnostics-control">14.1. 控制诊断信息收集</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_sections.webp" alt="包含总开关和单独闹钟日志的 ShiftAlarm 诊断日志屏幕">
+</figure>
+
+<ol class="callout-list">
+<li><strong>收集诊断信息</strong> — 应用中所有诊断部分的总开关。将其关闭可同时停止向所有日志添加新事件。再次启用后会恢复收集新事件。</li>
+<li><strong>单项功能日志</strong> — 每个模块都有自己的开关和“打开”按钮。例如，可保持全局诊断启用，同时仅停用闹钟、时钟或其他功能日志。截图显示的是闹钟日志，它会记录送达、调度、恢复、防护机制和闹钟屏幕事件。</li>
+</ol>
+
+<div class="notice">这些开关仅控制技术事件的记录。停用闹钟、时钟或其他功能日志并不会停用功能本身。请使用相应日志内的“清除”按钮单独删除之前保存的条目。</div>
+
+<h3 id="diagnostics-log">14.2. 单项功能日志</h3>
+
+<p>在所需诊断部分点按“打开”。下方示例显示闹钟日志；其他功能的日志使用方式类似。</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_alarm_log.webp" alt="包含事件数、操作和技术条目的 ShiftAlarm 闹钟诊断日志">
+</figure>
+
+<ol class="callout-list">
+<li><strong>已保存事件</strong> — 显示当前存储在所选日志中的条目数。</li>
+<li><strong>日志操作</strong>：
+<ul>
+<li><strong>复制</strong> — 将当前日志中的所有数据复制到剪贴板。可粘贴到电子邮件或其他应用中。</li>
+<li><strong>清除</strong> — 删除此日志中保存的条目。清除后，只会显示之后在诊断启用期间记录的事件。</li>
+<li><strong>发送给开发者</strong> — 打开用于发送电子邮件的应用选择器。选择电子邮件应用；开发者地址和诊断数据会自动插入。发送前，请添加问题说明，检查邮件，然后确认发送。</li>
+</ul>
+</li>
+<li><strong>应用事件</strong> — 日志条目本身。条目通常包含日期和时间、技术事件名称，以及标识符、状态或原因等其他参数。技术名称可能以英文显示；发送前请勿编辑或翻译。</li>
+</ol>
+
+<div class="warning">清除日志前，请复制或发送所有需要的条目。已删除的诊断事件无法恢复。</div>
+
+<div class="tip">如果问题可以重现，请先启用全局诊断信息收集和相关功能日志，然后重复导致问题的操作。在邮件中提供问题发生的准确时间、手机型号、Android 版本、预期结果和实际结果。这有助于将您的说明与日志事件对应起来。</div>
+
+<h2 id="faq">15. 常见问题</h2>
+
+<h3>闹钟未按时触发</h3>
+<p>检查通知、精确闹钟权限、后台活动和电池限制。</p>
+<h3>地理位置闹钟触发较晚</h3>
+<p>检查精确位置、后台位置信息、电池限制和应用自启动。城市内可尝试 1,300–1,500 米的半径，城市外可尝试 4,000–5,000 米。实际触发位置可能并不恰好位于半径边界线上。</p>
+<h3>小组件未立即更新</h3>
+<p>打开应用或点按小组件上的刷新按钮。Android 可能会限制小组件频繁更新。</p>
+<h3>我更改了语言，但文档或指南尚未更新</h3>
+<p>请检查互联网连接，并留出下载时间。如果远程版本不可用，应用会使用内置的后备版本。</p>
+
+<div class="footer small">本指南可通过 GitHub 更新。如果远程版本不可用，应用会使用内置离线版本。</div>
+</main>
+</body>
+</html>
