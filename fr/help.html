@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guide de l’utilisateur de ShiftAlarm</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #64748b;
+  --accent: #2563eb;
+  --soft: #e8eef8;
+  --border: #dbe4f0;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.58;
+  margin: 0;
+  padding: 18px;
+  color: var(--text);
+  background: var(--bg);
+}
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+h1 { margin: 0 0 8px; font-size: 28px; line-height: 1.2; }
+h2 { margin: 32px 0 10px; font-size: 21px; line-height: 1.25; }
+h3 { margin: 22px 0 8px; font-size: 17px; }
+p, li { font-size: 16px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul, ol { padding-left: 22px; }
+.notice, .tip, .warning {
+  padding: 14px 16px;
+  border-radius: 16px;
+  margin: 14px 0;
+  border: 1px solid var(--border);
+}
+.notice { background: var(--soft); }
+.tip { background: #ecfdf5; }
+.warning { background: #fff7ed; }
+.small { color: var(--muted); font-size: 14px; }
+.toc {
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 16px;
+  margin: 18px 0 24px;
+}
+.toc ol { margin: 8px 0 0; }
+.step-list li { margin-bottom: 8px; }
+.guide-figure {
+  margin: 18px 0;
+}
+.guide-image {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+}
+.callout-list li {
+  margin-bottom: 10px;
+}
+.guide-caption {
+  max-width: 520px;
+  margin: 10px auto 0;
+  color: var(--text);
+  font-size: 15px;
+}
+.guide-caption strong {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.footer {
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --card: #111827;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --accent: #93c5fd;
+    --soft: #1f2937;
+    --border: #334155;
+  }
+  main { box-shadow: none; }
+  .toc { background: #172033; }
+  .tip { background: #10251f; }
+  .warning { background: #2a1d10; }
+}
+</style>
+</head>
+<body>
+<main>
+<h1>Guide de l’utilisateur de ShiftAlarm</h1>
+<p class="small">Version 14. Date : 02.08.2026.</p>
+<div class="notice">Cette page est un guide pratique de ShiftAlarm. Elle explique le rôle de chaque fonction principale, où la trouver, sur quoi appuyer et quels éléments vérifier si une fonction ne marche pas comme prévu.</div>
+<nav class="toc">
+<strong>Sommaire</strong>
+<ol><li><a href="#start">1. Premier démarrage</a></li><li><a href="#permissions">2. Autorisations et fiabilité</a></li><li><a href="#main">3. Écran principal</a></li><li><a href="#shifts">4. Plannings de travail</a></li><li><a href="#statistics">5. Statistiques du planning</a></li><li><a href="#alarms">6. Alarmes</a></li><li><a href="#geo">7. Alarmes géolocalisées</a></li><li><a href="#notes">8. Notes, événements et rappels</a></li><li><a href="#clock">9. Horloge, minuteur et chronomètre</a></li><li><a href="#widgets">10. Widgets</a></li><li><a href="#salary">11. Calcul du salaire</a></li><li><a href="#settings">12. Paramètres</a></li><li><a href="#backup">13. Sauvegarde et restauration</a></li><li><a href="#diagnostics">14. Diagnostic et dépannage</a></li><li><a href="#faq">15. Questions fréquentes</a></li></ol>
+</nav>
+<h2 id="start">1. Premier démarrage</h2>
+
+<p>Lors du premier démarrage, ShiftAlarm affiche une courte procédure de configuration. L’écran principal est déjà accessible en arrière-plan, mais il est préférable de terminer d’abord la configuration de base.</p>
+<ol class="step-list">
+<li>Lisez les informations d’introduction et appuyez sur « Continuer ».</li>
+<li>À l’étape des documents, ouvrez-les ou acceptez les documents requis lorsque vous êtes prêt à continuer.</li>
+<li>À l’étape des autorisations, ouvrez l’écran correspondant et vérifiez les notifications, les alarmes exactes, l’accès à la position et les restrictions de batterie.</li>
+<li>Appuyez sur « Terminer la configuration ».</li>
+</ol>
+<p class="tip">Vous pourrez configurer les autorisations plus tard dans « Paramètres → Autorisations et fiabilité ».</p>
+
+<h2 id="permissions">2. Autorisations et fiabilité</h2>
+
+<p>Les alarmes, rappels et alarmes géolocalisées dépendent des paramètres Android et du logiciel du fabricant de l’appareil.</p>
+<ul>
+<li><strong>Notifications</strong> — nécessaires pour les alarmes, les rappels, le minuteur et les notifications de service.</li>
+<li><strong>Alarmes exactes</strong> — aident l’alarme à se déclencher à l’heure prévue.</li>
+<li><strong>Position</strong> — nécessaire pour les alarmes géolocalisées.</li>
+<li><strong>Position en arrière-plan</strong> — nécessaire pour qu’une alarme géolocalisée fonctionne lorsque l’application est fermée.</li>
+<li><strong>Batterie et activité en arrière-plan</strong> — peuvent affecter la fiabilité du déclenchement sur les appareils Xiaomi/Redmi et certains autres appareils.</li>
+</ul>
+<p class="warning">Android ne garantit pas toujours la transmission immédiate des notifications, des alarmes exactes ou des événements de zone géographique. Pour les alertes importantes, vérifiez chaque élément de l’écran des autorisations.</p>
+
+<h2 id="main">3. Écran principal</h2>
+
+<p>L’écran principal est votre tableau de bord quotidien. Il donne un accès direct au calendrier, à l’horloge, aux alarmes géolocalisées, aux alarmes normales, aux plannings de travail, aux notes et aux paramètres.</p>
+
+<h3 id="main-overview">3.1. Éléments de l’écran principal</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_screen_overview.png" alt="Écran principal de ShiftAlarm avec commandes numérotées">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Flèche de retour</strong> — déplace le calendrier vers le mois précédent.</li>
+<li><strong>Mois et année</strong> — indique le mois ouvert. Appuyez sur cette zone pour utiliser le <a href="#main-date-picker">sélecteur progressif du mois et de l’année</a>.</li>
+<li><strong>Flèche d’avance</strong> — déplace le calendrier vers le mois suivant.</li>
+<li><strong>Calendrier</strong> — la zone principale du mois. Vous pouvez faire défiler le calendrier. Chaque jour peut afficher la date, les rappels, les événements, le poste planifié et les modifications de la journée. Un appui simple sélectionne une date ; un appui long ouvre les <a href="#main-day-actions">informations et actions du jour sélectionné</a>.</li>
+<li><strong>Aujourd’hui</strong> — ramène le calendrier au jour actuel.</li>
+<li><strong>Horloge</strong> — ouvre <a href="#clock">l’horloge mondiale, le chronomètre et le minuteur</a>.</li>
+<li><strong>Alarme géolocalisée</strong> — ouvre la <a href="#geo">carte, les lieux enregistrés et les paramètres des alarmes géolocalisées</a>. Une alerte peut se déclencher quand vous entrez dans la zone sélectionnée, quand vous en sortez ou dans les deux cas.</li>
+<li><strong>Alarme</strong> — ouvre les <a href="#alarms">alarmes uniques, répétées et liées aux postes</a>.</li>
+<li><strong>Planning</strong> — ouvre les <a href="#shifts">plannings de travail, leur création et leur modification, ainsi que les statistiques</a>.</li>
+<li><strong>Notes</strong> — ouvre les <a href="#notes">notes, événements, rappels, notes audio et la conversion de la parole en texte</a>.</li>
+<li><strong>Paramètres</strong> — ouvre les <a href="#settings">autorisations, la langue, le thème, les modèles vocaux hors ligne, la sauvegarde, le diagnostic, les documents et la formation</a>.</li>
+</ol>
+
+
+<h3 id="main-date-picker">3.2. Sélectionner un mois et une année</h3>
+
+<p>Appuyez sur le mois et l’année en haut de l’écran principal pour ouvrir rapidement la période de calendrier souhaitée. La sélection s’effectue par étapes : <strong>siècle → décennie → année → mois</strong>.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_century.webp" alt="Étape 1 : sélection d’un siècle dans le calendrier ShiftAlarm">
+<figcaption class="guide-caption"><strong>1. Sélectionnez un siècle.</strong> Appuyez sur la période contenant l’année voulue. Dans l’exemple, les années 2000 sont sélectionnées.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_decade.webp" alt="Étape 2 : sélection d’une décennie dans le calendrier ShiftAlarm">
+<figcaption class="guide-caption"><strong>2. Sélectionnez une décennie.</strong> Appuyez sur la plage contenant l’année voulue. Pour 2026, sélectionnez « 2020–2029 ».</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_year.webp" alt="Étape 3 : sélection d’une année dans le calendrier ShiftAlarm">
+<figcaption class="guide-caption"><strong>3. Sélectionnez une année.</strong> Appuyez sur l’année voulue. Dans l’exemple, 2026 est sélectionnée.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_month.webp" alt="Étape 4 : sélection d’un mois dans le calendrier ShiftAlarm">
+<figcaption class="guide-caption"><strong>4. Sélectionnez un mois.</strong> Appuyez sur le mois voulu. Dans l’exemple, juillet est sélectionné.</figcaption>
+</figure>
+
+<div class="tip">Après la sélection d’un mois, le panneau se ferme et le calendrier principal s’ouvre au mois et à l’année choisis.</div>
+<div class="notice">Le bouton « Retour » revient à l’étape précédente. Sur l’écran des siècles, il ferme le sélecteur de date.</div>
+
+<h3 id="main-day-actions">3.3. Informations et actions pour un jour sélectionné</h3>
+
+<p>Appuyez longuement sur le jour voulu dans le calendrier. Un panneau contenant des informations et des actions pour cette date s’ouvre. Faites-le glisser vers le haut pour afficher toutes les actions disponibles.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_day_actions.webp" alt="Panneau ShiftAlarm d’informations et d’actions pour un jour du calendrier sélectionné">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Date</strong> — affiche le jour de la semaine et la date sélectionnée. Faites glisser la poignée supérieure vers le haut ou le bas pour développer ou fermer le panneau.</li>
+<li><strong>Poste</strong> — affiche le poste calculé ou une modification du jour, par exemple un jour de repos, un congé compensatoire, des vacances, un congé maladie ou une autre exception.</li>
+<li><strong>Alarmes pour cette date</strong> — affiche les alarmes attribuées au jour sélectionné ou indique qu’il n’y en a aucune.</li>
+<li><strong>Événements et rappels</strong> — affiche les entrées associées à la date sélectionnée.</li>
+<li><strong>Ajouter une alarme</strong> — ouvre la création d’une alarme unique pour la date sélectionnée.</li>
+<li><strong>Modifier le poste</strong> — crée une exception pour un jour ou une plage de dates dans le planning actif.</li>
+<li><strong>Ajouter une note</strong> — permet de choisir un événement ou un rappel à créer pour la date sélectionnée.</li>
+</ol>
+
+<div class="notice">L’action « Modifier le poste » permet d’ajuster des jours dans le planning de travail actif.</div>
+
+<h4 id="main-shift-override">Modifier un jour ou une plage de dates</h4>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_types.webp" alt="Sélection d’une plage de dates et du type de modification du poste dans ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Date de début</strong> — premier jour de la modification. Elle utilise initialement la date sélectionnée dans le calendrier.</li>
+<li><strong>Date de fin</strong> — dernier jour de la modification. Pour ne modifier qu’un seul jour, conservez la même date.</li>
+<li><strong>Congé compensatoire</strong> — remplace le poste calculé par un congé compensatoire.</li>
+<li><strong>Vacances</strong> — marque le jour ou la plage sélectionnée comme vacances.</li>
+<li><strong>Congé maladie</strong> — marque le jour ou la plage sélectionnée comme congé maladie.</li>
+<li><strong>Enregistrer la modification</strong> — applique l’exception sélectionnée au calendrier.</li>
+</ol>
+
+<h4 id="main-shift-time-adjustment">Ajuster le temps de travail</h4>
+
+<p>Faites défiler la liste des types de modification et sélectionnez « Modifier le poste » pour changer la durée du poste calculé.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_time_adjustment.webp" alt="Ajustement du temps de travail d’un poste dans ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Modifier le poste</strong> — active l’ajustement du temps de travail pour le poste sélectionné.</li>
+<li><strong>+ temps</strong> — ajoute des heures ou des minutes à la durée normale du poste.</li>
+<li><strong>− temps</strong> — réduit la durée du poste, par exemple si le travail s’est terminé plus tôt.</li>
+<li><strong>Compter ce temps comme heures supplémentaires</strong> — considère le temps ajouté comme des heures supplémentaires. Si l’option est désactivée, il est compté comme temps de travail normal.</li>
+<li><strong>Enregistrer la modification</strong> — applique l’ajustement au jour ou à la plage sélectionnée.</li>
+</ol>
+
+<div class="tip">La modification d’un jour ne change pas le modèle de planning d’origine. Elle est enregistrée comme une exception distincte et prise en compte dans le calendrier, les statistiques, le calcul du salaire et les rapports.</div>
+
+<h2 id="shifts">4. Plannings de travail</h2>
+
+<p>Un planning de travail définit un cycle de travail répétitif et sert de base aux autres fonctions de ShiftAlarm. L’application l’utilise pour remplir le calendrier, associer des alarmes aux postes, compter le temps de travail, produire des statistiques, estimer le salaire et préparer des rapports.</p>
+
+<div class="notice"><strong>Principe de base.</strong> Créez d’abord le planning répétitif de base. Ajoutez des vacances, un congé maladie, un congé compensatoire, un poste de remplacement unique ou un ajustement du temps de travail comme exception pour certaines dates à l’aide des <a href="#main-day-actions">actions du jour sélectionné</a>. Le cycle d’origine reste ainsi inchangé.</div>
+
+<h3 id="shifts-list">4.1. Liste et commandes des plannings</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedules_overview.webp" alt="Écran des plannings ShiftAlarm avec carte du planning actif et commandes numérotées">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Détails du planning</strong> — nom, date de début, durée du cycle et courte séquence de jours. Dans l’exemple, « D · D · O · O » signifie deux postes de jour suivis de deux jours de repos.</li>
+<li><strong>Interrupteur</strong> — désactive temporairement le planning sans le supprimer. Lorsque vous le réactivez, les paramètres enregistrés continuent de s’appliquer.</li>
+<li><strong>État du planning</strong> — indique le planning actuellement actif.</li>
+<li><strong>Modifier</strong> — ouvre les paramètres modifiables. Après la configuration initiale, une partie de la base du planning est verrouillée afin d’éviter de recalculer accidentellement les données de calendrier déjà créées.</li>
+<li><strong>Supprimer</strong> — supprime le planning après confirmation. Vérifiez auparavant les alarmes liées aux postes et les calculs.</li>
+<li><strong>Ouvrir les statistiques</strong> — ouvre les <a href="#statistics">statistiques de temps de travail, de période, de salaire et de rapports</a>de ce planning.</li>
+<li><strong>Créer un planning</strong> — permet de choisir un modèle prêt à l’emploi ou de créer un cycle personnalisé.</li>
+</ol>
+
+<h3 id="shifts-create">4.2. Démarrer la création d’un planning</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_create.webp" alt="Panneau de création d’un planning avec nom, date de début, modèles et planning personnalisé">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Nom du planning</strong> — saisissez un nom clair, par exemple « Principal 2/2 », « Poste de nuit » ou le nom de votre lieu de travail.</li>
+<li><strong>Date de début</strong> — date correspondant au <strong>premier jour du cycle répétitif</strong>. Vous pouvez choisir une date passée ou future ; l’application calcule le planning en avant et en arrière à partir de celle-ci.</li>
+<li><strong>Modèles</strong> — séquences de postes courantes prêtes à l’emploi. L’exemple utilise le modèle « 2/2 jour ».</li>
+<li><strong>Planning personnalisé</strong> — crée votre propre séquence de jours de travail et de repos.</li>
+<li><strong>Créer un planning</strong> — ouvre l’éditeur détaillé de l’option sélectionnée.</li>
+</ol>
+
+<div class="tip">Pour le modèle « D · D · O · O », la date de début est normalement le premier des deux jours de travail. Dans un cycle personnalisé, le jour 1 peut aussi être un jour de repos ; l’essentiel est que la date sélectionnée corresponde exactement au jour 1 de la séquence créée.</div>
+
+<h3 id="shifts-template">4.3. Créer un planning à partir d’un modèle</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_template.webp" alt="Éditeur de planning modèle avec nom, séquence, date de début et horaires du poste">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Nom du planning</strong> — conservez le nom proposé ou remplacez-le par le vôtre.</li>
+<li><strong>Modèle</strong> — affiche la séquence de lettres et sa signification. Dans l’exemple, « D · D · O · O » signifie poste de jour, poste de jour, jour de repos, jour de repos.</li>
+<li><strong>Date de début</strong> — sélectionnez la date du premier jour de la séquence affichée.</li>
+<li><strong>Horaires du poste</strong> — indiquez l’heure de début et de fin de chaque type de poste. L’application affiche la durée calculée.</li>
+<li><strong>Annuler</strong> — ferme l’éditeur sans enregistrer.</li>
+<li><strong>Enregistrer</strong> — enregistre le planning et commence à calculer les postes dans le calendrier.</li>
+</ol>
+
+<div class="warning"><strong>Après le premier enregistrement.</strong> La date de début et la structure du cycle sont verrouillées afin de protéger les données de calendrier déjà calculées. Vous pouvez toujours modifier le nom et certains paramètres de travail. Si vous avez besoin d’un autre cycle de base ou d’une autre date de référence, il est plus sûr de créer un nouveau planning.</div>
+
+<h3 id="shifts-custom">4.4. Créer un cycle personnalisé</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_custom.webp" alt="Éditeur de planning personnalisé avec durée du cycle, commandes des jours, date de début et paramètres de chaque jour">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Nom du planning</strong> — donnez un nom à votre séquence personnalisée.</li>
+<li><strong>Durée du cycle</strong> — indique le nombre de jours inclus dans la séquence répétitive.</li>
+<li><strong>Supprimer un jour</strong> — raccourcit le cycle d’un jour.</li>
+<li><strong>Ajouter un jour</strong> — ajoute un autre jour configurable à la fin du cycle.</li>
+<li><strong>Date de début</strong> — date correspondant au jour 1 du cycle personnalisé.</li>
+<li><strong>Paramètres du jour</strong> — appuyez sur la carte « Type de poste » et sélectionnez un jour de repos ou le type de travail voulu : jour, nuit, matin, soir, 24 heures ou poste personnalisé. Pour un jour de travail, indiquez l’heure de début et de fin. Configurez de la même manière les autres jours du cycle plus bas sur l’écran.</li>
+<li><strong>Annuler</strong> — ferme l’éditeur sans enregistrer.</li>
+<li><strong>Enregistrer</strong> — enregistre le cycle personnalisé et le calcule dans le calendrier.</li>
+</ol>
+
+<div class="notice"><strong>Qu’est-ce qu’un cycle ?</strong> Un cycle correspond au nombre de jours après lequel la séquence recommence. Par exemple, un cycle de quatre jours peut être « 2 jours de travail + 2 jours de repos », tandis qu’un cycle de six jours peut être « 3 jours de travail + 3 jours de repos ». Après le dernier jour, l’application revient au jour 1.</div>
+
+<div class="tip">Ne modifiez pas le cycle de base pour une exception ponctuelle au planning. Appuyez longuement sur une date du calendrier et créez un jour de repos, des vacances, un congé maladie, un poste de remplacement ou un ajustement du temps.</div>
+
+
+
+<span id="shift-statistics"></span>
+<h2 id="statistics">5. Statistiques du planning</h2>
+
+<p>Ouvrez « Statistiques » depuis la carte d’un planning à l’aide du bouton <strong>« Ouvrir les statistiques »</strong> . Cette section rassemble les informations sur les jours de travail et de repos, les modifications du planning, le temps de travail prévu et réel, l’estimation du salaire et les rapports.</p>
+
+<div class="notice"><strong>Important :</strong> les statistiques sont calculées uniquement pour le planning de travail sélectionné. La période choisie s’applique à toutes les valeurs de temps de travail, de salaire et de rapports affichées en dessous.</div>
+
+<h3 id="statistics-period">5.1. Planning, période et récapitulatif des jours</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_period_overview.webp" alt="Écran des statistiques avec informations sur le planning, sélection de la période et totaux des jours">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Informations sur le planning</strong> — affichent le nom du planning sélectionné, la date de début du premier cycle et la durée du cycle répétitif. Les statistiques de cet écran ne concernent que ce planning.</li>
+<li><strong>Carte de la période sélectionnée</strong> — affiche la période utilisée. Appuyez dessus ou sur la flèche à droite pour sélectionner le mois actuel, précédent ou suivant, l’année en cours ou une plage de dates personnalisée.</li>
+<li><strong>Récapitulatif des jours</strong> — indique le nombre de jours de la période, les postes de travail, les jours de repos, les postes terminés et à venir ainsi que les jours modifiés. Les jours modifiés sont des exceptions au cycle de base : vacances, congé maladie, congé compensatoire, poste de remplacement ou déplacé, ajustement du temps de travail et autres changements.</li>
+</ol>
+
+<div class="warning"><strong>Les périodes futures sont des prévisions.</strong> Pour un mois futur, l’application utilise le planning créé et les données déjà saisies, mais elle ne peut pas connaître à l’avance les congés maladie, vacances, congés compensatoires, heures supplémentaires, primes ou retenues. Lorsque vous sélectionnez l’année en cours, les totaux peuvent associer les données réelles des dates passées à une prévision pour le reste de l’année.</div>
+
+<h3 id="statistics-work">5.2. Temps de travail, salaire et rapports</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_work_salary_reports.webp" alt="Écran des statistiques avec temps de travail, progression, salaire et accès aux rapports">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Temps de travail</strong> — carte récapitulative des heures et de la progression. Appuyez dessus pour ouvrir les <a href="#statistics-break">paramètres du temps de pause</a>.</li>
+<li><strong>Heures prévues</strong> — durée totale des postes et modifications planifiés pendant la période sélectionnée.</li>
+<li><strong>Heures travaillées</strong> — temps des postes considérés comme terminés à la date actuelle, après application des paramètres de pause.</li>
+<li><strong>Progression</strong> — indique le nombre de postes terminés sur le total et le pourcentage accompli de la période sélectionnée.</li>
+<li><strong>Salaire</strong> — ouvre les <a href="#salary">paramètres de calcul du salaire</a>. La carte affiche une estimation pour le planning et la période sélectionnés.</li>
+<li><strong>Total</strong> — montant estimé gagné jusqu’à présent, incluant le mode de rémunération choisi, les primes, les heures supplémentaires et les retenues.</li>
+<li><strong>Taux ou salaire</strong> — le contenu de cette carte dépend de la méthode de calcul sélectionnée : paiement à l’heure, au poste ou au mois. Elle affiche la valeur saisie dans les paramètres du salaire.</li>
+<li><strong>Détails du calcul</strong> — temps rémunéré, heures supplémentaires, primes et retenues pour la période sélectionnée.</li>
+<li><strong>Rapports</strong> — ouvre les <a href="#reports">rapports détaillés sur les périodes, le temps de travail et le salaire</a>.</li>
+</ol>
+
+<div class="tip">Toutes les valeurs des sections du temps de travail et du salaire sont recalculées lorsque vous changez la période dans la carte supérieure.</div>
+
+<h3 id="statistics-break">5.3. Prendre en compte les pauses dans le temps de travail</h3>
+
+<p>Appuyez sur la carte « Temps de travail » pour indiquer si une pause repas ou une autre pause doit faire partie du temps réellement travaillé et rémunéré.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_break_settings.webp" alt="Panneau des paramètres de prise en compte et de durée des pauses">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Totaux actuels</strong> — affichent les heures prévues et travaillées pour la période sélectionnée avant l’application des nouveaux paramètres.</li>
+<li><strong>Compter la pause comme temps de travail</strong> — laissez cette option activée si la pause est rémunérée et comprise dans la durée du poste. Désactivez-la si le temps indiqué doit être déduit du temps travaillé et rémunéré.</li>
+<li><strong>Durée de la pause</strong> — sélectionnez le nombre d’heures et de minutes d’une pause. Ce paramètre est utilisé lors du recalcul des postes concernés.</li>
+<li><strong>Pause totale</strong> — affiche la durée sélectionnée avant l’enregistrement.</li>
+<li><strong>Enregistrer</strong> — applique le paramètre et recalcule le temps de travail et les valeurs associées.</li>
+</ol>
+
+<div class="notice">Une pause peut correspondre à une pause repas, à une relève de poste ou à un autre intervalle non rémunéré au sein d’un poste. Saisissez la durée conforme aux règles de votre lieu de travail.</div>
+
+<h3 id="reports">5.4. Rapports : période, état et résumé</h3>
+
+<p>Ouvrez « Rapports » depuis la carte inférieure de l’écran des statistiques. Cette section fournit des informations plus détaillées pour la période sélectionnée : temps de travail, postes et absences, ajustements du calendrier, salaire, primes, retenues, comparaison de périodes, détails jour par jour et exportation.</p>
+
+<div class="warning"><strong>Les rapports sont fournis uniquement à titre indicatif.</strong> Les calculs reposent sur le planning sélectionné, les paramètres du salaire, la prise en compte des pauses et les modifications de postes dans le calendrier. Les chiffres réels de votre employeur peuvent être différents en raison d’un autre système de suivi du temps, des arrondis, impôts, indemnités ou règles internes. Si vous constatez une erreur ou une méthode de calcul non prise en charge, contactez les développeurs à l’adresse indiquée dans l’application et joignez les données d’entrée ainsi que le résultat attendu.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_period_salary.webp" alt="Écran des rapports avec sélection de la période, état, résumé et détail du salaire">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Période du rapport</strong> — appuyez sur la carte pour sélectionner le mois actuel, précédent ou suivant, une plage prédéfinie ou des dates personnalisées. Toutes les informations ci-dessous concernent la période sélectionnée.</li>
+<li><strong>État de la période</strong> — indique si la période est terminée, actuellement active ou pas encore commencée. Une période terminée est calculée à partir des données réelles enregistrées. Une période active associe les données déjà travaillées au planning actuel, tandis qu’une période future constitue une prévision.</li>
+<li><strong>Résumé</strong> — résumé textuel du temps réellement travaillé, du montant calculé et des heures supplémentaires.</li>
+<li><strong>Salaire</strong> — détail du salaire de base, de la rémunération des heures supplémentaires, des primes, des retenues et de l’estimation finale. Les valeurs dépendent des <a href="#salary">paramètres du salaire</a> et de la période sélectionnée.</li>
+</ol>
+
+<h3 id="reports-work">5.5. Temps de travail, absences et jours</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_work_absences.webp" alt="Écran des rapports avec temps de travail, pauses, postes terminés et absences">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Temps de travail</strong> — affiche les heures prévues et réellement travaillées, les heures prévues et réelles avant déduction des pauses, le nombre de postes terminés, la durée moyenne d’un poste et le total des pauses déduites. Configurez les pauses dans la <a href="#statistics-break">section du temps de travail</a>.</li>
+<li><strong>Absences et jours</strong> — indique le nombre de jours de repos, de vacances, de congé maladie, de congé compensatoire et de jours modifiés pendant la période sélectionnée.</li>
+</ol>
+
+<h3 id="reports-charts">5.6. Ajustements et graphiques</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_corrections_charts.webp" alt="Écran des rapports avec ajustements, composition du salaire et valeurs du temps de travail">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ajustements</strong> — affichent les heures supplémentaires, la modification totale de la durée des postes et le nombre de jours modifiés par rapport au planning de base.</li>
+<li><strong>Graphiques</strong> — représentent la composition du salaire et du temps de travail : salaire de base, heures supplémentaires, primes, retenues, total ainsi que les heures prévues, travaillées et rémunérées.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_charts_days.webp" alt="Graphiques supplémentaires du rapport avec les heures et un graphique circulaire des types de jours">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Heures</strong> — poursuivent la comparaison visuelle des heures prévues, travaillées, rémunérées et supplémentaires. La ligne « Temps de travail réel » indique le résultat après application des paramètres et ajustements.</li>
+<li><strong>Types de jours</strong> — graphique circulaire qui répartit les jours de la période sélectionnée par type. La légende dépend du planning et des modifications réelles : postes de jour, de nuit ou autres, jours de repos, vacances, congé maladie, congé compensatoire et autres états.</li>
+</ol>
+
+<h3 id="reports-comparison">5.7. Comparer les périodes</h3>
+
+<p>La section de comparaison vous aide à comparer le salaire, le temps, les postes et les absences sur plusieurs périodes. Le nombre de périodes disponibles dépend des données enregistrées.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_chart.webp" alt="Écran de comparaison des périodes avec sélection de la plage, graphique du salaire et début d’un tableau comparatif">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Comparer les périodes</strong> — appuyez sur la carte pour choisir le nombre de périodes à comparer et leur plage.</li>
+<li><strong>Graphique et liste des périodes</strong> — affichent le salaire de chaque période et répertorient les intervalles inclus dans la comparaison avec leur état.</li>
+<li><strong>Tableau comparatif</strong> — contient les valeurs détaillées de chaque période. Faites glisser le tableau horizontalement vers la gauche ou la droite pour afficher les autres colonnes.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_table.webp" alt="Suite du tableau comparatif et différences entre périodes adjacentes">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Valeurs des périodes</strong> — salaire total, heures travaillées et rémunérées, heures supplémentaires, primes, retenues, postes terminés, absences et jours modifiés.</li>
+<li><strong>Différence entre les périodes</strong> — indique la différence entre chaque période et la précédente. Les valeurs positives et négatives signalent une hausse ou une baisse de la mesure correspondante. La couleur seule ne signifie pas toujours un avantage ou un problème ; par exemple, une hausse des retenues signifie qu’un montant plus important est prélevé.</li>
+</ol>
+
+<h3 id="reports-details-export">5.8. Détails quotidiens et exportation</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_details_export.webp" alt="Cartes du rapport pour les détails quotidiens et l’exportation en PDF, HTML, JSON ou CSV">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Détails quotidiens</strong> — ouvrent la liste de chaque jour de la période sélectionnée. Pour un jour précis, vous pouvez vérifier le type de poste, le temps prévu et réel, les ajustements d’heures, les absences et les autres modifications.</li>
+<li><strong>Exporter</strong> — enregistre le rapport au format PDF, HTML, JSON ou CSV. Sélectionnez la période du rapport avant l’exportation ; vous pourrez ensuite imprimer, enregistrer ou partager le fichier à l’aide du menu système d’Android.</li>
+</ol>
+
+<div class="tip">Avant de comparer ou d’exporter, vérifiez la période sélectionnée, le planning, les modifications de postes, les pauses et les paramètres du salaire. Une erreur dans les données source affectera tous les totaux du rapport.</div>
+
+<h2 id="alarms">6. Alarmes</h2>
+
+<p>ShiftAlarm permet de créer des alarmes uniques, de les répéter certains jours de la semaine ou de lier leur heure à un planning de travail.</p>
+
+<h3 id="alarms-list">6.1. Liste des alarmes</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarms_overview.webp" alt="Écran des alarmes ShiftAlarm avec prochaine alerte, tri, carte d’alarme et bouton d’ajout">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Prochaine alarme</strong> — affiche la date et l’heure de la prochaine alerte active.</li>
+<li><strong>Tri des alarmes</strong> — modifie l’ordre des cartes d’alarme, par exemple en affichant d’abord les alarmes activées.</li>
+<li><strong>Carte d’alarme</strong> — contient l’heure, la date ou le mode de répétition, le type de planning et le temps restant. Appuyez sur la carte pour la modifier.</li>
+<li><strong>Interrupteur</strong> — active ou désactive temporairement l’alarme sans supprimer ses paramètres.</li>
+<li><strong>Supprimer</strong> — supprime l’alarme sélectionnée.</li>
+<li><strong>Ajouter une alarme</strong> — ouvre l’écran de création d’une nouvelle alarme.</li>
+</ol>
+
+<h3 id="alarms-create">6.2. Créer et modifier une alarme</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_time_schedule.webp" alt="Partie supérieure de l’éditeur d’alarme ShiftAlarm : heure, type de planning, répétition et commandes d’enregistrement">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Heure</strong> — faites défiler les roues des heures et des minutes pour régler l’heure de l’alerte.</li>
+<li><strong>Type de planning</strong> — sélectionnez l’un des modes suivants :
+<ul>
+<li><strong>Une fois</strong> — l’alarme se déclenche une fois à la date sélectionnée ;</li>
+<li><strong>Par jours</strong> — se répète certains jours de la semaine ;</li>
+<li><strong>Par postes</strong> — associe l’alarme à un planning et à un type de poste sélectionnés.</li>
+</ul>
+</li>
+<li><strong>Répéter plus tard</strong> — définit le nombre de minutes de report de l’alerte lorsque vous appuyez sur le bouton de répétition de l’écran de sonnerie.</li>
+<li><strong>Annuler et Enregistrer</strong> — ces boutons restent fixés en bas de l’écran et accessibles pendant le défilement de l’éditeur.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_behavior.webp" alt="Paramètres ShiftAlarm de durée de l’alarme, répétition de l’alerte, augmentation progressive du volume et vibration">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Durée de l’alarme</strong> — détermine combien de temps l’alerte sonne si l’utilisateur ne l’arrête pas.</li>
+<li><strong>Répéter si l’alarme est ignorée</strong> — active une autre alerte si l’alarme n’a été ni arrêtée ni reportée. Réglez en dessous l’intervalle avant la nouvelle alerte.</li>
+<li><strong>Augmentation progressive du volume</strong> — commence avec un son plus faible et augmente progressivement le volume pendant la durée choisie.</li>
+<li><strong>Vibration</strong> — active ou désactive la vibration pendant l’alerte.</li>
+<li><strong>Annuler et Enregistrer</strong> — commandes fixes de l’éditeur.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_sound_name.webp" alt="Partie inférieure de l’éditeur d’alarme ShiftAlarm : vibration, son, nom et commandes d’enregistrement">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Vibration</strong> — active ou désactive l’alerte par vibration.</li>
+<li><strong>Son</strong> — permet de sélectionner un son intégré, système ou ajouté par l’utilisateur. Vous pouvez ajouter jusqu’à cinq sons personnalisés dans l’application.</li>
+<li><strong>Nom</strong> — libellé facultatif qui aide à distinguer les alarmes.</li>
+<li><strong>Annuler et Enregistrer</strong> — annule les modifications ou enregistre l’alarme.</li>
+</ol>
+
+<div class="notice">Après l’enregistrement, l’alarme apparaît dans la liste principale. Avant une alerte importante, vérifiez qu’elle est activée, que l’application possède les autorisations de notification et d’alarme exacte et que le système ne limite pas son activité en arrière-plan.</div>
+
+<div class="tip">Pour créer une alarme liée à un poste, commencez par créer un planning de travail approprié. Dans l’éditeur, choisissez une heure de déclenchement fixe ou un décalage par rapport au début du poste.</div>
+
+<h2 id="geo">7. Alarmes géolocalisées</h2>
+
+<p>Une alarme géolocalisée surveille le moment où l’appareil entre dans une zone sélectionnée ou en sort. La zone est définie par un point sur la carte et un rayon autour de ce point. Utilisez par exemple une alarme géolocalisée pour recevoir une alerte à l’approche du travail, de votre domicile, d’un arrêt de bus, d’une gare ou d’un autre lieu.</p>
+
+<h3 id="geo-overview">7.1. Carte et commandes</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_overview.webp" alt="Écran principal des alarmes géolocalisées ShiftAlarm avec carte et commandes numérotées">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Zoom avant</strong> — agrandit la carte.</li>
+<li><strong>Zoom arrière</strong> — réduit l’échelle de la carte.</li>
+<li><strong>Ma position</strong> — déplace la carte vers la position actuelle de l’appareil. L’application a besoin de l’accès à la position pour cette fonction.</li>
+<li><strong>Lieux enregistrés</strong> — ouvre la liste des alarmes géolocalisées et des points de position enregistrés.</li>
+<li><strong>Retour</strong> — revient à l’écran précédent de l’application.</li>
+<li><strong>Nombre d’alarmes géolocalisées</strong> — indique le nombre d’alarmes géolocalisées créées.</li>
+<li><strong>Liste des alarmes géolocalisées</strong> — ouvre une liste distincte des alarmes géolocalisées créées.</li>
+</ol>
+
+<div class="tip">Vous pouvez également zoomer avec des gestes. Touchez la carte avec deux doigts et écartez-les pour faire un zoom avant, ou rapprochez-les pour faire un zoom arrière.</div>
+<div class="notice">Dans les langues écrites de droite à gauche, les commandes latérales peuvent apparaître du côté opposé. Leurs fonctions restent les mêmes.</div>
+
+<h3 id="geo-saved-places">7.2. Alarmes et points de position enregistrés</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_saved_places.webp" alt="Fenêtre des lieux enregistrés avec onglets des alarmes géolocalisées et des points de position">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Alarmes</strong> — affiche les alarmes géolocalisées ajoutées aux lieux enregistrés.</li>
+<li><strong>Points de position</strong> — affiche les coordonnées enregistrées sans alarme géolocalisée active.</li>
+<li><strong>Liste des lieux enregistrés</strong> — appuyez sur une carte pour vous déplacer vers ce lieu sur la carte.</li>
+<li><strong>Fermer</strong> — ferme la fenêtre et revient à la carte.</li>
+</ol>
+
+<div class="notice">Si vous supprimez une alarme géolocalisée enregistrée dans les favoris, ses coordonnées sont automatiquement conservées dans l’onglet « Points de position ». Vous pourrez réutiliser ce point plus tard pour créer une autre alarme géolocalisée.</div>
+
+<h3 id="geo-select-point">7.3. Sélectionner un point et un rayon</h3>
+
+<p>Appuyez longuement sur l’endroit voulu de la carte. L’application place un repère et ouvre le panneau du point sélectionné.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_selected_point.webp" alt="Point sélectionné sur la carte avec adresse, rayon, favori et bouton de création d’une alarme géolocalisée">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Repère du point sélectionné</strong> — centre de la future zone géographique. La carte affiche également un cercle correspondant au rayon sélectionné.</li>
+<li><strong>Adresse et coordonnées</strong> — permettent de vérifier que le bon endroit est sélectionné.</li>
+<li><strong>Enregistrer le point de position</strong> — ajoute les coordonnées sélectionnées aux lieux enregistrés sans créer d’alarme.</li>
+<li><strong>Rayon</strong> — définit la taille de la zone autour du point. Déplacez le curseur jusqu’à obtenir une distance adaptée.</li>
+<li><strong>Annuler</strong> — annule la sélection du point.</li>
+<li><strong>Créer ici</strong> — ouvre l’éditeur d’une nouvelle alarme géolocalisée pour le point sélectionné.</li>
+</ol>
+
+<div class="warning"><strong>Comment choisir un rayon.</strong> Un téléphone ne suit pas ses coordonnées en continu. Android, le fabricant de l’appareil, le mode économie d’énergie, le GPS, la qualité des signaux du réseau mobile et du Wi-Fi ainsi que la vitesse de déplacement influencent tous le moment où la limite est détectée. L’alerte peut donc se déclencher loin de la ligne dessinée. Par exemple, avec un rayon de 800 m, l’entrée peut être détectée alors que l’appareil se trouve déjà dans la zone, peut-être à 700, 600 ou 500 m du point.</div>
+
+<ul>
+<li><strong>En ville</strong>, un rayon de <strong>1 300 à 1 500 m</strong> est généralement recommandé.</li>
+<li><strong>En dehors d’une ville</strong>, où les mises à jour de la position peuvent être moins fréquentes, un rayon de <strong>4 000 à 5 000 m</strong> est recommandé.</li>
+<li><strong>Le rayon exact</strong> doit être choisi en fonction de votre trajet, de votre vitesse et du comportement de votre appareil.</li>
+</ul>
+
+<div class="notice">Le système détecte le franchissement de la limite virtuelle de la zone par l’appareil. En mode « À l’entrée », un rayon plus grand donne généralement au téléphone davantage de temps pour détecter votre approche. En mode « À la sortie », la limite est au contraire placée plus loin du point sélectionné.</div>
+
+<h3 id="geo-create">7.4. Créer une alarme géolocalisée</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_location_schedule.webp" alt="Partie supérieure de l’éditeur d’alarme géolocalisée : disponibilité, position et type de planning">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Disponibilité de l’alarme géolocalisée</strong> — indique si les autorisations requises sont configurées et si l’application peut enregistrer la zone géographique.</li>
+<li><strong>Position</strong> — contient l’adresse et les coordonnées sélectionnées. Vous pouvez modifier l’adresse comme libellé, mais le point réel est sélectionné sur la carte.</li>
+<li><strong>Type de planning</strong> — détermine les jours et les conditions d’activation de l’alarme géolocalisée.</li>
+<li><strong>Toujours</strong> — l’alarme géolocalisée est active tous les jours tant qu’elle est activée.</li>
+<li><strong>Une fois</strong> — utilisé pour le prochain déclenchement unique lorsque la condition choisie est remplie.</li>
+<li><strong>Par jours</strong> — fonctionne uniquement certains jours de la semaine.</li>
+<li><strong>Par postes</strong> — associe l’alarme géolocalisée au planning de travail actif.</li>
+</ol>
+
+<div class="notice"><strong>Planning « Par postes ».</strong> Choisissez s’il fonctionne le jour du poste, uniquement avant le poste ou uniquement après, puis indiquez le type de poste voulu : jour, nuit, matin, soir, 24 heures, personnalisé ou tout poste de travail.</div>
+<div class="tip">Si une date du calendrier est marquée comme jour de repos, vacances, congé maladie ou congé compensatoire au lieu d’un poste de travail, une alarme géolocalisée liée au poste ne sera pas active ce jour-là.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_trigger_settings.webp" alt="Partie inférieure de l’éditeur d’alarme géolocalisée : condition d’entrée ou de sortie, rayon et paramètres d’alerte">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Condition de déclenchement</strong> — détermine quel franchissement de limite déclenche l’alerte.</li>
+<li><strong>À l’entrée</strong> — déclenche l’alerte lorsque l’appareil entre dans le rayon sélectionné, par exemple à l’approche du travail ou de l’arrêt voulu.</li>
+<li><strong>À la sortie</strong> — déclenche l’alerte lorsque l’appareil quitte le rayon sélectionné, par exemple après avoir quitté le travail ou une gare, afin de ne pas manquer la suite d’un trajet.</li>
+<li><strong>À l’entrée ou à la sortie</strong> — déclenche l’alerte chaque fois que la limite est franchie dans un sens ou dans l’autre.</li>
+<li><strong>Rayon</strong> — taille de la zone géographique autour du point sélectionné.</li>
+<li><strong>Durée de l’alarme</strong> — détermine combien de temps l’alerte sonne.</li>
+<li><strong>Augmentation progressive du volume</strong> — règle une hausse progressive du volume après le déclenchement de l’alerte.</li>
+<li><strong>Annuler et Enregistrer</strong> — annule les modifications ou enregistre l’alarme géolocalisée.</li>
+</ol>
+
+<div class="tip">Les autres options situées en dessous sont semblables à celles d’une alarme normale : son, vibration, durée de l’alerte, augmentation progressive du volume et nom.</div>
+
+<h3 id="geo-existing">7.5. Une alarme géolocalisée sur la carte et ses commandes</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_marker_radius.webp" alt="Repère d’alarme géolocalisée créé et cercle de son rayon de déclenchement sur la carte">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Repère de l’alarme géolocalisée</strong> — affiche le point sélectionné.</li>
+<li><strong>Limite du rayon</strong> — indique la zone dont l’entrée ou la sortie est surveillée par l’application.</li>
+</ol>
+
+<p>Appuyez sur le repère de l’alarme géolocalisée. Une petite fenêtre d’information apparaît d’abord. Appuyez dessus pour ouvrir la carte détaillée.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_alarm_card.webp" alt="Carte détaillée d’une alarme géolocalisée avec informations, favori, interrupteur et commandes">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Nom et adresse</strong> — identifient l’alarme géolocalisée sélectionnée.</li>
+<li><strong>Favori</strong> — ajoute l’alarme aux lieux enregistrés ou l’en retire.</li>
+<li><strong>Interrupteur</strong> — active ou désactive temporairement l’alarme géolocalisée sans supprimer ses paramètres.</li>
+<li><strong>Paramètres et état</strong> — indiquent le rayon, la condition d’entrée ou de sortie, le planning, la disponibilité de la zone géographique et les informations sur les déclenchements précédents.</li>
+<li><strong>Modifier</strong> — ouvre les paramètres de l’alarme géolocalisée.</li>
+<li><strong>Fermer</strong> — ferme la carte et revient à la carte principale.</li>
+<li><strong>Supprimer</strong> — supprime l’alarme géolocalisée après confirmation.</li>
+</ol>
+
+<div class="warning">Pour un fonctionnement fiable, autorisez la position précise et en arrière-plan, retirez les restrictions strictes de batterie pour ShiftAlarm et vérifiez les paramètres de démarrage automatique si votre appareil en propose. Même avec des paramètres corrects, Android ne garantit pas une détection de la limite précise à quelques mètres près.</div>
+
+<h2 id="notes">8. Notes, événements et rappels</h2>
+
+<p>La section « Notes » conserve le texte simple, les listes, les listes de contrôle, les enregistrements audio, les notes créées par conversion de la parole en texte, les rappels et les événements.</p>
+
+<h3 id="notes-create">8.1. Ajouter une note</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_type_picker.webp" alt="Sélection d’un nouveau type de note dans ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Poignée du panneau</strong> — faites-la glisser vers le haut pour afficher la liste complète des types de notes, ou vers le bas pour fermer le panneau.</li>
+<li><strong>Type de note</strong> — sélectionnez l’option appropriée :
+<ul>
+<li><strong>Note textuelle</strong> — texte simple ;</li>
+<li><strong>Liste de contrôle</strong> — liste d’éléments avec cases à cocher ;</li>
+<li><strong>Liste</strong> — liste à puces ou numérotée ;</li>
+<li><strong>Note audio</strong> — enregistrement vocal ;</li>
+<li><strong>Parole en texte</strong> — crée une note à l’aide de la reconnaissance vocale ;</li>
+<li><strong>Rappel</strong> — entrée accompagnée d’une notification à une heure donnée ;</li>
+<li><strong>Événement</strong> — entrée associée à une date et une heure.</li>
+</ul>
+</li>
+<li><strong>Annuler</strong> — ferme le sélecteur sans créer de note.</li>
+</ol>
+
+<div class="tip">Après la sélection d’un type, l’éditeur approprié s’ouvre. Remplissez les champs requis et enregistrez l’entrée.</div>
+
+<h3 id="notes-list">8.2. Liste et commandes des notes</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_overview.webp" alt="Écran des notes ShiftAlarm avec tri, notes actives et archivées, recherche et actions des cartes">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Trier</strong> — modifie l’ordre des notes dans la liste.</li>
+<li><strong>Actives</strong> — affiche les notes normales et planifiées qui n’ont pas été déplacées vers les archives.</li>
+<li><strong>Archives</strong> — ouvre la liste des notes archivées.</li>
+<li><strong>Rechercher</strong> — trouve des correspondances dans les titres et le contenu des notes.</li>
+<li><strong>Carte de note</strong> — affiche le titre, le type, l’état et des informations supplémentaires. Appuyez sur la carte pour ouvrir la note.</li>
+<li><strong>Épingler</strong> — épingle la note en haut de la liste.</li>
+<li><strong>Archiver</strong> — retire la note de la liste active et la déplace vers les archives.</li>
+<li><strong>Supprimer</strong> — supprime la note après confirmation.</li>
+<li><strong>Ajouter une note</strong> — ouvre le sélecteur du type de nouvelle note.</li>
+</ol>
+
+<div class="notice">Utilisez les archives pour les entrées qui ne sont plus nécessaires dans la liste principale mais doivent rester enregistrées. Ne supprimez une note que lorsqu’elle n’est plus nécessaire du tout.</div>
+
+<h2 id="clock">9. Horloge, chronomètre et minuteur</h2>
+
+<p>Cette section réunit l’heure locale et mondiale, un chronomètre et un minuteur. Ouvrez-la avec le bouton <strong>« Horloge »</strong> de l’écran principal.</p>
+
+<div class="notice">Trois onglets apparaissent en bas de l’écran : « Horloge », « Chronomètre » et « Minuteur ». Appuyez sur un onglet pour changer de mode.</div>
+
+<h3 id="clock-world">9.1. Horloge et horloge mondiale</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_overview.webp" alt="Écran de l’horloge ShiftAlarm avec heure locale, horloges mondiales, bouton d’ajout et onglets inférieurs">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Heure locale</strong> — affiche l’heure actuelle, la date et le fuseau horaire système de l’appareil.</li>
+<li><strong>Horloges mondiales</strong> — affichent les villes et fuseaux horaires ajoutés. Tant que la liste est vide, l’application affiche une indication.</li>
+<li><strong>Bouton Plus</strong> — ouvre le sélecteur de l’horloge mondiale.</li>
+<li><strong>Onglets de section</strong> — permettent de passer entre les écrans « Horloge », « Chronomètre » et « Minuteur ».</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_add_timezone.webp" alt="Ajout d’une ville ou d’un fuseau horaire à l’horloge mondiale ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Rechercher</strong> — saisissez le nom d’une ville ou d’un fuseau horaire pour filtrer la liste.</li>
+<li><strong>Liste des villes et fuseaux horaires</strong> — appuyez sur l’option voulue pour l’ajouter à l’écran de l’horloge mondiale.</li>
+</ol>
+
+<div class="tip">Le fuseau horaire local est toujours affiché en premier. Vous pouvez retirer de la liste les horloges mondiales ajoutées, mais pas l’heure locale.</div>
+
+<h3 id="clock-stopwatch">9.2. Chronomètre</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_start.webp" alt="Chronomètre ShiftAlarm avant son démarrage">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Historique</strong> — ouvre les sessions de chronomètre enregistrées.</li>
+<li><strong>Démarrer</strong> — lance le chronométrage.</li>
+<li><strong>Réinitialiser</strong> — indisponible avant le démarrage du chronomètre. Après l’arrêt, cette commande remet le chronomètre à zéro et supprime les tours actuels.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_running.webp" alt="Chronomètre ShiftAlarm en marche avec commandes d’historique, d’enregistrement, de tour et de pause">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Historique</strong> — affiche les sessions enregistrées précédemment.</li>
+<li><strong>Enregistrer</strong> — demande un nom et enregistre la session actuelle du chronomètre.</li>
+<li><strong>Tour</strong> — enregistre un résultat intermédiaire sans arrêter le chronométrage total.</li>
+<li><strong>Pause</strong> — met le chronomètre en pause. Vous pouvez ensuite le reprendre ou le réinitialiser.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_laps.webp" alt="Tours du chronomètre ShiftAlarm et options de tri">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ordre d’origine, plus rapides et plus lents</strong> — modifient l’ordre d’affichage des tours : ordre d’origine, plus rapides d’abord ou plus lents d’abord.</li>
+<li><strong>Tours</strong> — chaque tour indique le temps total au moment de son enregistrement et le temps individuel du tour.</li>
+</ol>
+
+<div class="notice">Lorsque vous appuyez sur Enregistrer, saisissez un nom de session et confirmez. Vous pourrez ouvrir plus tard la session enregistrée depuis l’Historique.</div>
+
+<h3 id="clock-timer">9.3. Minuteur</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_setup.webp" alt="Réglage d’un minuteur ShiftAlarm avec roues des heures, minutes et secondes">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Heures</strong> — faites défiler la roue et sélectionnez le nombre d’heures.</li>
+<li><strong>Minutes</strong> — faites défiler la roue et sélectionnez le nombre de minutes.</li>
+<li><strong>Secondes</strong> — faites défiler la roue et sélectionnez le nombre de secondes.</li>
+<li><strong>Démarrer</strong> — lance le minuteur avec la durée sélectionnée.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_running.webp" alt="Minuteur ShiftAlarm en marche avec temps restant et commandes de pause, d’ajout d’une minute et d’arrêt">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Temps restant</strong> — indique le temps restant avant l’alerte.</li>
+<li><strong>Heure de fin</strong> — indique l’heure approximative à laquelle le minuteur se terminera.</li>
+<li><strong>Minuteurs récents</strong> — durées récentes enregistrées ; appuyez sur l’une d’elles pour la réutiliser rapidement.</li>
+<li><strong>Pause</strong> — arrête temporairement le compte à rebours. Vous pouvez le reprendre ensuite.</li>
+<li><strong>+1 min</strong> — ajoute une minute au temps restant.</li>
+<li><strong>Arrêter</strong> — arrête complètement le minuteur.</li>
+</ol>
+
+<div class="tip">Le minuteur et le chronomètre continuent de fonctionner en arrière-plan. Leur état peut apparaître dans une notification, sur l’écran principal et dans les widgets.</div>
+
+<h2 id="widgets">10. Widgets</h2>
+
+<p>ShiftAlarm fournit des widgets pour l’écran d’accueil du téléphone.</p>
+<ul>
+<li><strong>Aujourd’hui 4×2</strong> — panneau compact avec deux sections configurables.</li>
+<li><strong>Aujourd’hui 4×3</strong> — panneau avec une horloge en haut et deux sections en dessous.</li>
+<li><strong>Calendrier 4×4</strong> — widgets de calendrier avec le planning de travail.</li>
+</ul>
+<p>Ajoutez un widget à l’aide du menu des widgets Android sur l’écran d’accueil du téléphone.</p>
+
+<h2 id="salary">11. Calcul du salaire</h2>
+
+<p>Ouvrez « Calcul du salaire » depuis la carte du salaire dans les <a href="#statistics-work">statistiques du planning sélectionné</a>. Vous pouvez y définir le mode de rémunération, le taux ou le salaire mensuel, les règles d’heures supplémentaires, les primes et les retenues. L’application utilise ces paramètres avec la période sélectionnée, le planning de travail, les modifications du calendrier et la prise en compte des pauses.</p>
+
+<div class="warning"><strong>Le calcul est fourni uniquement à titre indicatif.</strong> Le salaire réel peut être différent si votre employeur utilise un autre système de suivi du temps, d’arrondi, d’indemnités, d’impôts, de primes, de retenues ou de rémunération de certains types de postes. N’utilisez pas le résultat comme document officiel de paie ; comparez-le au bulletin de salaire de votre employeur. Si vous trouvez une méthode de calcul que l’application ne traite pas correctement, envoyez un e-mail aux développeurs à l’adresse indiquée dans l’application. Décrivez les règles, fournissez des exemples de données d’entrée et indiquez le résultat attendu. La méthode pourra alors être envisagée pour une future mise à jour.</div>
+
+<h3 id="salary-settings">11.1. Taux, heures supplémentaires et primes</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_settings_overview.webp" alt="Écran de calcul du salaire avec planning sélectionné, type de taux, heures supplémentaires et primes">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Planning sélectionné</strong> — affiche le planning de travail utilisé. Le salaire est calculé à partir de ce planning et de la période choisie dans les statistiques.</li>
+<li><strong>Type de taux et montant de la rémunération</strong> — sélectionnez un paiement <strong>à l’heure</strong>, <strong>au poste</strong>ou <strong>au mois</strong>, puis saisissez le montant correspondant. Le nom du champ change selon le type de taux sélectionné.</li>
+<li><strong>Heures supplémentaires</strong> — activez cette section si les heures supplémentaires sont rémunérées différemment du temps de travail normal. Indiquez ensuite le coefficient de rémunération des heures supplémentaires. Ajoutez les heures supplémentaires au calendrier à l’aide de <a href="#main-shift-time-adjustment">« Modifier le poste » → « + temps »</a>; activez « Compter ce temps comme heures supplémentaires » afin qu’elles soient traitées comme telles.</li>
+<li><strong>Primes</strong> — affiche la méthode de calcul actuelle et les totaux. Appuyez sur la carte pour ouvrir les <a href="#salary-bonuses">paramètres des primes</a>.</li>
+</ol>
+
+<div class="notice">Le bouton « Enregistrer » applique les paramètres au planning sélectionné. Après l’enregistrement, les totaux des statistiques et des rapports sont recalculés à partir des données saisies.</div>
+
+<h3 id="salary-summary">11.2. Retenues et total du calcul</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions_total.webp" alt="Écran de calcul du salaire avec retenues et détail final">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Retenues</strong> — affiche le montant total et le nombre de retenues configurées. Appuyez sur la carte pour ouvrir la <a href="#salary-deductions">liste des retenues</a>.</li>
+<li><strong>Total</strong> — détail récapitulatif : temps rémunéré, heures travaillées, heures supplémentaires, salaire de base, rémunération des heures supplémentaires, primes, retenues et résultat final.</li>
+</ol>
+
+<div class="tip">Le résultat dépend non seulement des paramètres de cet écran, mais aussi de la période statistique sélectionnée, des postes terminés, des modifications des jours, des heures supplémentaires et des paramètres des pauses non rémunérées.</div>
+
+<h3 id="salary-bonuses">11.3. Primes</h3>
+
+<p>Appuyez sur la carte « Primes » de l’écran de calcul du salaire. Vous pouvez saisir une prime manuellement ou la calculer en pourcentage si cela correspond à votre système de rémunération.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_bonuses.webp" alt="Écran des paramètres des primes avec options de calcul et de saisie du montant">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Informations récapitulatives</strong> — affichent le total calculé des primes et le montant de base utilisé pour le calcul.</li>
+<li><strong>Calcul des primes</strong> — sélectionnez une saisie manuelle ou un calcul en pourcentage, par exemple un pourcentage des ventes, si cette méthode est utilisée sur votre lieu de travail.</li>
+<li><strong>Mode de saisie</strong> — « Montant total » convient à une seule prime finale. Des lignes séparées sont utiles lorsque plusieurs primes doivent être comptées indépendamment.</li>
+<li><strong>Montant ou pourcentage</strong> — saisissez la valeur requise par la méthode de calcul sélectionnée.</li>
+<li><strong>Annuler et Enregistrer</strong> — annule les modifications ou les applique au calcul du salaire.</li>
+</ol>
+
+<h3 id="salary-deductions">11.4. Liste des retenues</h3>
+
+<p>Appuyez sur la carte « Retenues » de l’écran principal du calcul. Cette section permet d’enregistrer plusieurs retenues et de gérer chacune séparément.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions.webp" alt="Écran de la liste des retenues avec montant total, lignes de retenue et bouton d’ajout">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Informations récapitulatives</strong> — affichent le montant et le nombre de toutes les retenues activées.</li>
+<li><strong>Ligne de retenue</strong> — affiche le nom, la valeur et le type. Appuyez sur la ligne pour ouvrir les <a href="#salary-deduction-editor">paramètres de la retenue</a>. L’icône de corbeille supprime la ligne.</li>
+<li><strong>Ajouter une retenue</strong> — le bouton « + » crée une nouvelle ligne de retenue.</li>
+<li><strong>Annuler et Enregistrer</strong> — annule les modifications ou enregistre toute la liste.</li>
+</ol>
+
+<h3 id="salary-deduction-editor">11.5. Configurer une retenue individuelle</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deduction_editor.webp" alt="Panneau d’une retenue individuelle avec nom, valeur, type et base de la retenue">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Nom de la retenue</strong> — saisissez un nom clair, par exemple « Impôt », « Pension alimentaire » ou « Pénalité ».</li>
+<li><strong>Valeur</strong> — saisissez un montant ou un pourcentage selon le type de valeur sélectionné ci-dessous.</li>
+<li><strong>Type de valeur</strong> — sélectionnez un montant fixe ou un pourcentage.</li>
+<li><strong>Type de retenue</strong> — une retenue <strong>variable</strong> s’applique à une période de calcul précise ; une retenue <strong>récurrente</strong> est appliquée régulièrement tant qu’elle reste activée.</li>
+<li><strong>Déduire de</strong> — sélectionnez la base de calcul : salaire total, salaire de base, primes ou une autre option disponible.</li>
+<li><strong>Activée</strong> — désactive temporairement la retenue sans supprimer ses paramètres.</li>
+<li><strong>Annuler et Enregistrer</strong> — ferme le panneau sans modification ou enregistre la retenue.</li>
+</ol>
+
+<div class="notice">Pour une retenue en pourcentage, il est particulièrement important de sélectionner la bonne base dans « Déduire de » : le même pourcentage du salaire total, du salaire de base et des primes produit des résultats différents.</div>
+
+<h2 id="settings">12. Paramètres</h2>
+
+<p>Ouvrez « Paramètres » avec le bouton situé en bas de <a href="#main-overview">l’écran principal</a>. Cette section contient les autorisations système, l’apparence et la langue de l’application, la reconnaissance vocale hors ligne, les documents et le guide de l’utilisateur, la sauvegarde, le diagnostic et les options de contact des développeurs.</p>
+
+<h3 id="settings-overview">12.1. Principales sections des paramètres</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_permissions_language.webp" alt="Partie supérieure des paramètres ShiftAlarm : autorisations, thème, langue de l’application et modèles vocaux hors ligne">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Autorisations</strong> — ouvre les autorisations des alarmes et les paramètres de fiabilité. Vérifiez les notifications, les alarmes exactes, l’activité en arrière-plan et les restrictions de batterie. <a href="#geo">Les alarmes géolocalisées</a> nécessitent également l’accès à la position ; l’accès à la position en arrière-plan ou « Toujours autoriser » est nécessaire pour un déclenchement quand l’application est fermée. Les noms des éléments et les chemins varient selon la version d’Android et le fabricant de l’appareil.</li>
+<li><strong>Thème</strong> — permet de sélectionner une apparence claire, sombre ou système, de choisir une variante de couleur de l’interface et d’activer ou désactiver le retour haptique pour les actions dans l’application. Le thème système suit l’apparence actuelle du téléphone.</li>
+<li><strong>Langue de l’application</strong> — permet d’utiliser une langue différente de la langue système du téléphone. Le catalogue ShiftAlarm contient 108 langues : recherchez la langue voulue, téléchargez son pack et appliquez-le.</li>
+<li><strong>Modèles vocaux hors ligne</strong> — installent un module pour les <a href="#notes-create">notes créées par conversion de la parole en texte</a>. La reconnaissance hors ligne est actuellement en phase de test et disponible pour environ 20 langues. Sa qualité peut être inférieure à celle de la reconnaissance en ligne et dépend de la langue, du microphone, des performances du téléphone et des conditions d’enregistrement.</li>
+</ol>
+
+<div class="warning"><strong>Les autorisations Android diffèrent selon les appareils.</strong> Sur certains téléphones, vous devez aussi autoriser le démarrage automatique, sélectionner « Sans restriction » ou un mode de batterie similaire et permettre l’activité en arrière-plan. Ces paramètres réduisent le risque que le système arrête ShiftAlarm, mais leurs noms exacts sont définis par le fabricant de l’appareil.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_help_backup_diagnostics.webp" alt="Partie inférieure des paramètres ShiftAlarm : documents, guide de l’utilisateur, sauvegarde, diagnostic et contact des développeurs">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Documents et aide</strong> — ouvre les documents juridiques de l’application : Conditions d’utilisation, Politique de confidentialité, Clause de non-responsabilité et brève page d’aide.</li>
+<li><strong>Formation et guide de l’utilisateur</strong> — ouvre ce guide illustré complet contenant des descriptions détaillées des fonctions de ShiftAlarm.</li>
+<li><strong>Sauvegarde et restauration</strong> — crée un fichier contenant les paramètres et données de l’application pris en charge, ou les restaure depuis une sauvegarde antérieure. Cette fonction est utile avant de réinstaller l’application, de réinitialiser le téléphone ou de transférer les données vers un autre appareil. Consultez <a href="#backup">« Sauvegarde et restauration »</a> pour des instructions détaillées.</li>
+<li><strong>Journal de diagnostic</strong> — ouvre des journaux distincts pour les fonctions de l’application. Ils enregistrent des étapes techniques telles que la planification et la restauration des alertes, le traitement des événements, l’état des autorisations et d’autres informations de service. Un journal permet d’identifier l’étape où une erreur s’est produite. Vous pouvez copier les entrées ou les préparer pour les envoyer par e-mail aux développeurs. Consultez <a href="#diagnostics">« Diagnostic et dépannage »</a> pour plus de détails.</li>
+<li><strong>Contacter les développeurs</strong> — ouvre l’application de messagerie et crée un message destiné à l’assistance. Utilisez-la pour signaler un problème, envoyer un commentaire ou une suggestion, ou poser une question. Pour un problème technique, indiquez si possible le modèle du téléphone, la version d’Android, l’heure du problème, les étapes effectuées et le journal de diagnostic concerné.</li>
+</ol>
+
+<div class="notice">Les journaux de diagnostic ne sont pas envoyés automatiquement aux développeurs. Vous devez copier les informations nécessaires ou appuyer sur « Envoyer aux développeurs », choisir une application de messagerie, vérifier le message préparé et confirmer son envoi.</div>
+
+<h2 id="backup">13. Sauvegarde et restauration</h2>
+
+<p>Une sauvegarde enregistre les paramètres et données utilisateur ShiftAlarm pris en charge dans un fichier distinct. Elle aide à restaurer les données après la réinstallation de l’application, la réinitialisation du téléphone ou le passage à un autre appareil.</p>
+<ol class="step-list">
+<li>Ouvrez « Paramètres → Sauvegarde et restauration ».</li>
+<li>Créez une sauvegarde et enregistrez le fichier obtenu sur le téléphone ou partagez-le à l’aide du menu système.</li>
+<li>Pour restaurer, ouvrez la même section et sélectionnez un fichier de sauvegarde créé précédemment.</li>
+<li>Après la restauration, vérifiez les alarmes importantes, les plannings et les autorisations Android. Certaines autorisations de sécurité du système devront peut-être être accordées de nouveau sur un nouvel appareil ou après une réinstallation.</li>
+</ol>
+<p class="tip">Conservez une copie récente dans un endroit sûr, qui restera accessible en cas de perte, de détérioration ou de réinitialisation du téléphone. Un fichier de sauvegarde ne remplace pas les autorisations système Android et ne peut pas inclure automatiquement des données auxquelles l’application n’est pas autorisée à accéder.</p>
+
+<h2 id="diagnostics">14. Diagnostic et dépannage</h2>
+
+<p>ShiftAlarm propose des journaux de diagnostic distincts pour différentes fonctions. Ils conservent une séquence d’événements techniques et aident à déterminer si une alerte a été planifiée, restaurée après un redémarrage, transmise au traitement ou arrêtée en raison d’un paramètre système.</p>
+
+<h3 id="diagnostics-control">14.1. Contrôler la collecte des diagnostics</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_sections.webp" alt="Écran du journal de diagnostic ShiftAlarm avec interrupteur principal et journal individuel des alarmes">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Collecter les diagnostics</strong> — interrupteur principal de toutes les sections de diagnostic de l’application. Désactivez-le pour arrêter l’ajout de nouveaux événements à tous les journaux en même temps. La collecte reprend lorsque vous le réactivez.</li>
+<li><strong>Journal d’une fonction individuelle</strong> — chaque module possède son propre interrupteur et son bouton « Ouvrir ». Vous pouvez par exemple laisser les diagnostics globaux activés tout en désactivant uniquement le journal des alarmes, de l’horloge ou d’une autre fonction. La capture montre le journal des alarmes, qui enregistre les événements de transmission, de planification, de restauration, de protection et de l’écran d’alarme.</li>
+</ol>
+
+<div class="notice">Les interrupteurs commandent uniquement l’enregistrement des événements techniques. La désactivation du journal d’une alarme, de l’horloge ou d’une autre fonction ne désactive pas la fonction elle-même. Supprimez séparément les entrées déjà enregistrées avec le bouton « Effacer » du journal concerné.</div>
+
+<h3 id="diagnostics-log">14.2. Journal d’une fonction individuelle</h3>
+
+<p>Appuyez sur « Ouvrir » dans la section de diagnostic voulue. L’exemple ci-dessous montre le journal des alarmes ; les journaux des autres fonctions opèrent de façon similaire.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_alarm_log.webp" alt="Journal de diagnostic des alarmes ShiftAlarm avec nombre d’événements, actions et entrées techniques">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Événements enregistrés</strong> — indique le nombre d’entrées actuellement conservées dans le journal sélectionné.</li>
+<li><strong>Actions du journal</strong>:
+<ul>
+<li><strong>Copier</strong> — copie toutes les données du journal actuel dans le presse-papiers. Vous pouvez les coller dans un e-mail ou une autre application.</li>
+<li><strong>Effacer</strong> — supprime les entrées enregistrées dans ce journal. Après l’effacement, seuls les événements enregistrés ultérieurement lorsque les diagnostics sont activés apparaîtront.</li>
+<li><strong>Envoyer aux développeurs</strong> — ouvre le sélecteur d’applications pour envoyer un e-mail. Choisissez une application de messagerie ; l’adresse des développeurs et les données de diagnostic sont insérées automatiquement. Avant l’envoi, ajoutez une description du problème, vérifiez le message, puis confirmez son envoi.</li>
+</ul>
+</li>
+<li><strong>Événements de l’application</strong> — les entrées du journal elles-mêmes. Une entrée contient normalement une date et une heure, le nom technique d’un événement et des paramètres supplémentaires comme un identifiant, un état ou un motif. Des noms techniques peuvent apparaître en anglais ; ne les modifiez pas et ne les traduisez pas avant l’envoi.</li>
+</ol>
+
+<div class="warning">Avant d’effacer un journal, copiez ou envoyez toutes les entrées nécessaires. Les événements de diagnostic supprimés ne peuvent pas être récupérés.</div>
+
+<div class="tip">Si le problème peut être reproduit, activez d’abord la collecte globale des diagnostics et le journal de la fonction concernée, puis répétez les actions ayant provoqué le problème. Dans votre message, indiquez l’heure exacte du problème, le modèle du téléphone, la version d’Android, le résultat attendu et le résultat réel. Cela permet d’associer votre description aux événements du journal.</div>
+
+<h2 id="faq">15. Questions fréquentes</h2>
+
+<h3>L’alarme ne s’est pas déclenchée à l’heure</h3>
+<p>Vérifiez les notifications, l’autorisation des alarmes exactes, l’activité en arrière-plan et les restrictions de batterie.</p>
+<h3>L’alarme géolocalisée s’est déclenchée en retard</h3>
+<p>Vérifiez la position précise et en arrière-plan, les restrictions de batterie et le démarrage automatique de l’application. Essayez un rayon de 1 300 à 1 500 m en ville et de 4 000 à 5 000 m en dehors d’une ville. Le déclenchement réel peut ne pas se produire exactement sur la ligne du rayon.</p>
+<h3>Le widget ne s’est pas actualisé immédiatement</h3>
+<p>Ouvrez l’application ou appuyez sur le bouton d’actualisation du widget. Android peut limiter les actualisations fréquentes des widgets.</p>
+<h3>J’ai changé de langue, mais un document ou le guide n’a pas encore été actualisé</h3>
+<p>Vérifiez votre connexion Internet et laissez le temps au téléchargement de se terminer. Si la version distante n’est pas disponible, l’application utilise sa version de secours intégrée.</p>
+
+<div class="footer small">Le guide peut être mis à jour via GitHub. Si la version distante n’est pas disponible, l’application utilise sa version hors ligne intégrée.</div>
+</main>
+</body>
+</html>

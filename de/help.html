@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ShiftAlarm-Benutzerhandbuch</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #64748b;
+  --accent: #2563eb;
+  --soft: #e8eef8;
+  --border: #dbe4f0;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.58;
+  margin: 0;
+  padding: 18px;
+  color: var(--text);
+  background: var(--bg);
+}
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+h1 { margin: 0 0 8px; font-size: 28px; line-height: 1.2; }
+h2 { margin: 32px 0 10px; font-size: 21px; line-height: 1.25; }
+h3 { margin: 22px 0 8px; font-size: 17px; }
+p, li { font-size: 16px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul, ol { padding-left: 22px; }
+.notice, .tip, .warning {
+  padding: 14px 16px;
+  border-radius: 16px;
+  margin: 14px 0;
+  border: 1px solid var(--border);
+}
+.notice { background: var(--soft); }
+.tip { background: #ecfdf5; }
+.warning { background: #fff7ed; }
+.small { color: var(--muted); font-size: 14px; }
+.toc {
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 16px;
+  margin: 18px 0 24px;
+}
+.toc ol { margin: 8px 0 0; }
+.step-list li { margin-bottom: 8px; }
+.guide-figure {
+  margin: 18px 0;
+}
+.guide-image {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+}
+.callout-list li {
+  margin-bottom: 10px;
+}
+.guide-caption {
+  max-width: 520px;
+  margin: 10px auto 0;
+  color: var(--text);
+  font-size: 15px;
+}
+.guide-caption strong {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.footer {
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --card: #111827;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --accent: #93c5fd;
+    --soft: #1f2937;
+    --border: #334155;
+  }
+  main { box-shadow: none; }
+  .toc { background: #172033; }
+  .tip { background: #10251f; }
+  .warning { background: #2a1d10; }
+}
+</style>
+</head>
+<body>
+<main>
+<h1>ShiftAlarm-Benutzerhandbuch</h1>
+<p class="small">Version 14. Datum: 02.08.2026.</p>
+<div class="notice">Diese Seite ist ein praktischer Leitfaden für ShiftAlarm. Sie erklärt, was die einzelnen Hauptfunktionen tun, wo sie zu finden sind, worauf Sie tippen müssen und was Sie prüfen sollten, wenn eine Funktion nicht wie erwartet arbeitet.</div>
+<nav class="toc">
+<strong>Inhalt</strong>
+<ol><li><a href="#start">1. Erster Start</a></li><li><a href="#permissions">2. Berechtigungen und Zuverlässigkeit</a></li><li><a href="#main">3. Hauptbildschirm</a></li><li><a href="#shifts">4. Schichtpläne</a></li><li><a href="#statistics">5. Planstatistik</a></li><li><a href="#alarms">6. Wecker</a></li><li><a href="#geo">7. Geo-Wecker</a></li><li><a href="#notes">8. Notizen, Ereignisse und Erinnerungen</a></li><li><a href="#clock">9. Uhr, Timer und Stoppuhr</a></li><li><a href="#widgets">10. Widgets</a></li><li><a href="#salary">11. Gehaltsberechnung</a></li><li><a href="#settings">12. Einstellungen</a></li><li><a href="#backup">13. Sicherung und Wiederherstellung</a></li><li><a href="#diagnostics">14. Diagnose und Fehlerbehebung</a></li><li><a href="#faq">15. Häufig gestellte Fragen</a></li></ol>
+</nav>
+<h2 id="start">1. Erster Start</h2>
+
+<p>Beim ersten Start zeigt ShiftAlarm einen kurzen Einrichtungsablauf an. Der Hauptbildschirm ist im Hintergrund bereits verfügbar, es empfiehlt sich jedoch, zuerst die Grundeinrichtung abzuschließen.</p>
+<ol class="step-list">
+<li>Lesen Sie die Einführung und tippen Sie auf „Weiter“.</li>
+<li>Öffnen Sie im Schritt „Dokumente“ die Dokumente oder akzeptieren Sie die erforderlichen Dokumente, sobald Sie fortfahren möchten.</li>
+<li>Öffnen Sie im Schritt „Berechtigungen“ den Berechtigungsbildschirm und prüfen Sie Benachrichtigungen, exakte Alarme, Standortzugriff und Akkueinschränkungen.</li>
+<li>Tippen Sie auf „Einrichtung abschließen“.</li>
+</ol>
+<p class="tip">Sie können die Berechtigungen später unter „Einstellungen → Berechtigungen und Zuverlässigkeit“ konfigurieren.</p>
+
+<h2 id="permissions">2. Berechtigungen und Zuverlässigkeit</h2>
+
+<p>Wecker, Erinnerungen und Geo-Wecker sind von den Android-Einstellungen und der Software des Geräteherstellers abhängig.</p>
+<ul>
+<li><strong>Benachrichtigungen</strong> — erforderlich für Wecker, Erinnerungen, den Timer und Dienstbenachrichtigungen.</li>
+<li><strong>Exakte Alarme</strong> — helfen dabei, den Wecker zur vorgesehenen Zeit auszulösen.</li>
+<li><strong>Standort</strong> — erforderlich für Geo-Wecker.</li>
+<li><strong>Standort im Hintergrund</strong> — erforderlich, damit ein Geo-Wecker funktioniert, während die App geschlossen ist.</li>
+<li><strong>Akku und Hintergrundaktivität</strong> — können die Zuverlässigkeit der Auslösung auf Xiaomi-/Redmi-Geräten und einigen anderen Geräten beeinflussen.</li>
+</ul>
+<p class="warning">Android garantiert nicht immer die sofortige Zustellung von Benachrichtigungen, exakten Alarmen oder Geofence-Ereignissen. Prüfen Sie bei wichtigen Warnungen jeden Punkt auf dem Berechtigungsbildschirm.</p>
+
+<h2 id="main">3. Hauptbildschirm</h2>
+
+<p>Der Hauptbildschirm ist Ihre tägliche Übersicht. Von hier aus gelangen Sie direkt zu Kalender, Uhr, Geo-Weckern, normalen Weckern, Schichtplänen, Notizen und Einstellungen.</p>
+
+<h3 id="main-overview">3.1. Elemente des Hauptbildschirms</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_screen_overview.png" alt="ShiftAlarm-Hauptbildschirm mit nummerierten Bedienelementen">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Zurück-Pfeil</strong> — wechselt im Kalender zum vorherigen Monat.</li>
+<li><strong>Monat und Jahr</strong> — zeigt den geöffneten Monat an. Tippen Sie auf diesen Bereich, um die <a href="#main-date-picker">schrittweise Auswahl von Monat und Jahr</a>zu verwenden.</li>
+<li><strong>Vorwärts-Pfeil</strong> — wechselt im Kalender zum nächsten Monat.</li>
+<li><strong>Kalender</strong> — der zentrale Monatsbereich. Sie können durch den Kalender wischen. Jeder Tag kann Datum, Erinnerungen, Ereignisse, geplante Schicht und Tagesänderungen anzeigen. Ein kurzes Tippen wählt ein Datum aus; langes Drücken öffnet <a href="#main-day-actions">Informationen und Aktionen für den ausgewählten Tag</a>.</li>
+<li><strong>Heute</strong> — bringt den Kalender zum aktuellen Tag zurück.</li>
+<li><strong>Uhr</strong> — öffnet <a href="#clock">Weltuhr, Stoppuhr und Timer</a>.</li>
+<li><strong>Geo-Wecker</strong> — öffnet <a href="#geo">Karte, gespeicherte Orte und Geo-Wecker-Einstellungen</a>. Eine Warnung kann beim Betreten des ausgewählten Bereichs, beim Verlassen oder in beiden Fällen ausgelöst werden.</li>
+<li><strong>Wecker</strong> — öffnet <a href="#alarms">einmalige, wiederholte und schichtgebundene Wecker</a>.</li>
+<li><strong>Plan</strong> — öffnet <a href="#shifts">Schichtpläne, deren Erstellung und Bearbeitung sowie Statistiken</a>.</li>
+<li><strong>Notizen</strong> — öffnet <a href="#notes">Notizen, Ereignisse, Erinnerungen, Audionotizen und Sprache-zu-Text</a>.</li>
+<li><strong>Einstellungen</strong> — öffnet <a href="#settings">Berechtigungen, Sprache, Design, Offline-Sprachmodelle, Sicherung, Diagnose, Dokumente und Einführung</a>.</li>
+</ol>
+
+
+<h3 id="main-date-picker">3.2. Monat und Jahr auswählen</h3>
+
+<p>Tippen Sie oben auf dem Hauptbildschirm auf Monat und Jahr, um den gewünschten Kalenderzeitraum schnell zu öffnen. Die Auswahl erfolgt schrittweise: <strong>Jahrhundert → Jahrzehnt → Jahr → Monat</strong>.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_century.webp" alt="Schritt 1: Jahrhundert im ShiftAlarm-Kalender auswählen">
+<figcaption class="guide-caption"><strong>1. Jahrhundert auswählen.</strong> Tippen Sie auf den Zeitraum, der das gewünschte Jahr enthält. Im Beispiel werden die 2000er-Jahre ausgewählt.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_decade.webp" alt="Schritt 2: Jahrzehnt im ShiftAlarm-Kalender auswählen">
+<figcaption class="guide-caption"><strong>2. Jahrzehnt auswählen.</strong> Tippen Sie auf den Bereich, der das gewünschte Jahr enthält. Wählen Sie für 2026 „2020–2029“.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_year.webp" alt="Schritt 3: Jahr im ShiftAlarm-Kalender auswählen">
+<figcaption class="guide-caption"><strong>3. Jahr auswählen.</strong> Tippen Sie auf das gewünschte Jahr. Im Beispiel wird 2026 ausgewählt.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_month.webp" alt="Schritt 4: Monat im ShiftAlarm-Kalender auswählen">
+<figcaption class="guide-caption"><strong>4. Monat auswählen.</strong> Tippen Sie auf den gewünschten Monat. Im Beispiel wird Juli ausgewählt.</figcaption>
+</figure>
+
+<div class="tip">Nach der Auswahl eines Monats wird das Fenster geschlossen und der Hauptkalender beim ausgewählten Monat und Jahr geöffnet.</div>
+<div class="notice">Die Schaltfläche „Zurück“ führt zur vorherigen Stufe. Auf dem Jahrhundertbildschirm schließt sie die Datumsauswahl.</div>
+
+<h3 id="main-day-actions">3.3. Informationen und Aktionen für einen ausgewählten Tag</h3>
+
+<p>Berühren und halten Sie den gewünschten Tag im Kalender. Ein Fenster mit Informationen und Aktionen für dieses Datum wird geöffnet. Ziehen Sie das Fenster nach oben, um alle verfügbaren Aktionen zu sehen.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_day_actions.webp" alt="ShiftAlarm-Fenster mit Informationen und Aktionen für einen ausgewählten Kalendertag">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Datum</strong> — zeigt den Wochentag und das ausgewählte Datum. Ziehen Sie den Griff oben nach oben oder unten, um das Fenster zu erweitern oder zu schließen.</li>
+<li><strong>Schicht</strong> — zeigt die berechnete Schicht oder eine Tagesänderung wie einen freien Tag, Freizeitausgleich, Urlaub, Krankheit oder eine andere Ausnahme.</li>
+<li><strong>Wecker für dieses Datum</strong> — zeigt dem ausgewählten Tag zugeordnete Wecker an oder meldet, dass keine vorhanden sind.</li>
+<li><strong>Ereignisse und Erinnerungen</strong> — zeigt Einträge an, die mit dem ausgewählten Datum verknüpft sind.</li>
+<li><strong>Wecker hinzufügen</strong> — öffnet die Erstellung eines einmaligen Weckers für das ausgewählte Datum.</li>
+<li><strong>Schicht ändern</strong> — erstellt im aktiven Plan eine Ausnahme für einen Tag oder einen Datumsbereich.</li>
+<li><strong>Notiz hinzufügen</strong> — ermöglicht die Auswahl eines Ereignisses oder einer Erinnerung, das bzw. die für das ausgewählte Datum erstellt werden soll.</li>
+</ol>
+
+<div class="notice">Die Aktion „Schicht ändern“ dient zum Anpassen von Tagen im aktiven Schichtplan.</div>
+
+<h4 id="main-shift-override">Einen Tag oder einen Datumsbereich ändern</h4>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_types.webp" alt="Datumsbereich und Art der Schichtänderung in ShiftAlarm auswählen">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Startdatum</strong> — der erste Tag der Änderung. Zunächst wird das im Kalender ausgewählte Datum verwendet.</li>
+<li><strong>Enddatum</strong> — der letzte Tag der Änderung. Um nur einen Tag zu ändern, lassen Sie dasselbe Datum ausgewählt.</li>
+<li><strong>Freizeitausgleich</strong> — ersetzt die berechnete Schicht durch Freizeitausgleich.</li>
+<li><strong>Urlaub</strong> — kennzeichnet den ausgewählten Tag oder Bereich als Urlaub.</li>
+<li><strong>Krankheit</strong> — kennzeichnet den ausgewählten Tag oder Bereich als Krankheit.</li>
+<li><strong>Änderung speichern</strong> — übernimmt die ausgewählte Ausnahme in den Kalender.</li>
+</ol>
+
+<h4 id="main-shift-time-adjustment">Arbeitszeit anpassen</h4>
+
+<p>Scrollen Sie in der Liste der Änderungsarten nach unten und wählen Sie „Schicht bearbeiten“, um die Dauer der berechneten Arbeitsschicht zu ändern.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_time_adjustment.webp" alt="Arbeitszeit einer Schicht in ShiftAlarm anpassen">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Schicht bearbeiten</strong> — aktiviert die Arbeitszeitanpassung für die ausgewählte Schicht.</li>
+<li><strong>+ Zeit</strong> — fügt der üblichen Schichtdauer Stunden oder Minuten hinzu.</li>
+<li><strong>− Zeit</strong> — verkürzt die Schichtdauer, zum Beispiel wenn die Arbeit früher beendet wurde.</li>
+<li><strong>Diese Zeit als Überstunden zählen</strong> — behandelt die hinzugefügte Zeit als Überstunden. Ist die Option deaktiviert, wird sie als normale Arbeitszeit gezählt.</li>
+<li><strong>Änderung speichern</strong> — übernimmt die Anpassung für den ausgewählten Tag oder Bereich.</li>
+</ol>
+
+<div class="tip">Eine Tagesänderung verändert nicht die ursprüngliche Planvorlage. Sie wird als separate Ausnahme gespeichert und im Kalender, in der Statistik, in der Gehaltsberechnung und in Berichten berücksichtigt.</div>
+
+<h2 id="shifts">4. Schichtpläne</h2>
+
+<p>Ein Schichtplan definiert einen sich wiederholenden Arbeitszyklus und bildet die Grundlage für weitere ShiftAlarm-Funktionen. Die App verwendet ihn, um den Kalender auszufüllen, Wecker mit Schichten zu verknüpfen, Arbeitszeit zu erfassen, Statistiken zu erstellen, das Gehalt zu schätzen und Berichte vorzubereiten.</p>
+
+<div class="notice"><strong>Grundprinzip.</strong> Erstellen Sie zuerst den sich wiederholenden Basisplan. Fügen Sie Urlaub, Krankheit, Freizeitausgleich, eine einmalige Ersatzschicht oder eine Arbeitszeitanpassung als Ausnahme für bestimmte Daten über die <a href="#main-day-actions">Aktionen für den ausgewählten Tag</a>hinzu. Dadurch bleibt der ursprüngliche Zyklus unverändert.</div>
+
+<h3 id="shifts-list">4.1. Planliste und Bedienelemente</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedules_overview.webp" alt="ShiftAlarm-Planbildschirm mit einer aktiven Plankarte und nummerierten Bedienelementen">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Plandetails</strong> — Name, Startdatum, Zykluslänge und eine kurze Tagesfolge. Im Beispiel bedeutet „D · D · O · O“ zwei Tagschichten, gefolgt von zwei freien Tagen.</li>
+<li><strong>Schalter</strong> — deaktiviert den Plan vorübergehend, ohne ihn zu löschen. Wenn Sie ihn wieder aktivieren, gelten die gespeicherten Einstellungen weiter.</li>
+<li><strong>Planstatus</strong> — zeigt an, welcher Plan derzeit aktiv ist.</li>
+<li><strong>Bearbeiten</strong> — öffnet die änderbaren Parameter. Nach der Ersteinrichtung wird ein Teil der Plangrundlage gesperrt, damit bereits erstellte Kalenderdaten nicht versehentlich neu berechnet werden.</li>
+<li><strong>Löschen</strong> — löscht den Plan nach Bestätigung. Prüfen Sie zuvor alle schichtgebundenen Wecker und Berechnungen.</li>
+<li><strong>Statistik öffnen</strong> — öffnet für diesen Plan die <a href="#statistics">Statistik zu Arbeitszeit, Zeitraum, Gehalt und Berichten</a>.</li>
+<li><strong>Plan erstellen</strong> — ermöglicht die Auswahl einer fertigen Vorlage oder die Erstellung eines eigenen Zyklus.</li>
+</ol>
+
+<h3 id="shifts-create">4.2. Planerstellung starten</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_create.webp" alt="Fenster zur Planerstellung mit Name, Startdatum, Vorlagen und eigenem Plan">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Planname</strong> — geben Sie einen eindeutigen Namen wie „Hauptplan 2/2“, „Nachtschicht“ oder den Namen Ihres Arbeitsplatzes ein.</li>
+<li><strong>Startdatum</strong> — das Datum, das dem <strong>ersten Tag des sich wiederholenden Zyklus</strong>entspricht. Sie können ein vergangenes oder zukünftiges Datum auswählen; die App berechnet den Plan von dort aus vorwärts und rückwärts.</li>
+<li><strong>Vorlagen</strong> — vorgefertigte, häufig verwendete Schichtfolgen. Im Beispiel wird die Vorlage „2/2 Tag“ verwendet.</li>
+<li><strong>Eigener Plan</strong> — erstellt Ihre eigene Folge von Arbeitstagen und freien Tagen.</li>
+<li><strong>Plan erstellen</strong> — öffnet den Detail-Editor für die ausgewählte Option.</li>
+</ol>
+
+<div class="tip">Bei der Vorlage „D · D · O · O“ ist das Startdatum normalerweise der erste der beiden Arbeitstage. In einem eigenen Zyklus kann Tag 1 auch ein freier Tag sein; entscheidend ist, dass das ausgewählte Datum genau mit Tag 1 der von Ihnen erstellten Folge übereinstimmt.</div>
+
+<h3 id="shifts-template">4.3. Einen Plan aus einer Vorlage erstellen</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_template.webp" alt="Vorlageneditor für einen Plan mit Name, Folge, Startdatum und Schichtzeit">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Planname</strong> — behalten Sie den vorgeschlagenen Namen bei oder ersetzen Sie ihn durch einen eigenen.</li>
+<li><strong>Vorlage</strong> — zeigt die Buchstabenfolge und ihre Bedeutung. Im Beispiel bedeutet „D · D · O · O“ Tagschicht, Tagschicht, freier Tag, freier Tag.</li>
+<li><strong>Startdatum</strong> — wählen Sie das Datum des ersten Tages der angezeigten Folge.</li>
+<li><strong>Schichtzeit</strong> — geben Sie für jede Arbeitsschichtart die Start- und Endzeit an. Die App zeigt die berechnete Dauer an.</li>
+<li><strong>Abbrechen</strong> — schließt den Editor, ohne zu speichern.</li>
+<li><strong>Speichern</strong> — speichert den Plan und beginnt mit der Berechnung der Schichten im Kalender.</li>
+</ol>
+
+<div class="warning"><strong>Nach dem ersten Speichern.</strong> Startdatum und Zyklusstruktur werden gesperrt, um bereits berechnete Kalenderdaten zu schützen. Den Namen und einige Arbeitsparameter können Sie weiterhin bearbeiten. Wenn Sie einen anderen Basiszyklus oder ein anderes Bezugsdatum benötigen, ist es sicherer, einen neuen Plan zu erstellen.</div>
+
+<h3 id="shifts-custom">4.4. Einen eigenen Zyklus erstellen</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_custom.webp" alt="Editor für einen eigenen Plan mit Zykluslänge, Tagessteuerung, Startdatum und Einstellungen für jeden Tag">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Planname</strong> — geben Sie Ihrer eigenen Folge einen Namen.</li>
+<li><strong>Zykluslänge</strong> — zeigt, wie viele Tage die sich wiederholende Folge umfasst.</li>
+<li><strong>Tag entfernen</strong> — verkürzt den Zyklus um einen Tag.</li>
+<li><strong>Tag hinzufügen</strong> — fügt am Ende des Zyklus einen weiteren konfigurierbaren Tag hinzu.</li>
+<li><strong>Startdatum</strong> — das Datum, das Tag 1 des eigenen Zyklus entspricht.</li>
+<li><strong>Tageseinstellungen</strong> — tippen Sie auf die Karte „Schichtart“ und wählen Sie einen freien Tag oder die gewünschte Arbeitsart: Tag, Nacht, Morgen, Abend, 24 Stunden oder eigene Schicht. Geben Sie für einen Arbeitstag Start- und Endzeit an. Konfigurieren Sie die übrigen Zyklustage weiter unten auf dieselbe Weise.</li>
+<li><strong>Abbrechen</strong> — schließt den Editor, ohne zu speichern.</li>
+<li><strong>Speichern</strong> — speichert den eigenen Zyklus und berechnet ihn im Kalender.</li>
+</ol>
+
+<div class="notice"><strong>Was ist ein Zyklus?</strong> Ein Zyklus ist die Anzahl der Tage, nach denen die Folge erneut beginnt. Ein viertägiger Zyklus kann zum Beispiel „2 Arbeitstage + 2 freie Tage“ sein, ein sechstägiger Zyklus „3 Arbeitstage + 3 freie Tage“. Nach dem letzten Tag kehrt die App zu Tag 1 zurück.</div>
+
+<div class="tip">Ändern Sie den Basiszyklus nicht wegen einer einmaligen Planausnahme. Drücken Sie lange auf ein Kalenderdatum und erstellen Sie einen freien Tag, Urlaub, Krankheit, eine Ersatzschicht oder eine Zeitanpassung.</div>
+
+
+
+<span id="shift-statistics"></span>
+<h2 id="statistics">5. Planstatistik</h2>
+
+<p>Öffnen Sie „Statistik“ über die Schaltfläche <strong>„Statistik öffnen“</strong> auf einer Plankarte. Dieser Abschnitt fasst Informationen über Arbeits- und freie Tage, Planänderungen, geplante und tatsächliche Arbeitszeit, geschätztes Gehalt und Berichte zusammen.</p>
+
+<div class="notice"><strong>Wichtig:</strong> Die Statistik wird nur für den ausgewählten Schichtplan berechnet. Der ausgewählte Zeitraum gilt für alle darunter aufgeführten Werte zu Arbeitszeit, Gehalt und Berichten.</div>
+
+<h3 id="statistics-period">5.1. Plan, Zeitraum und Tagesübersicht</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_period_overview.webp" alt="Statistikbildschirm mit Planinformationen, Zeitraumsauswahl und Tagessummen">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Planinformationen</strong> — zeigen den Namen des ausgewählten Plans, das Startdatum des ersten Zyklus und die Länge des sich wiederholenden Zyklus. Die Statistik auf diesem Bildschirm gilt nur für diesen Plan.</li>
+<li><strong>Karte „Ausgewählter Zeitraum“</strong> — zeigt den verwendeten Zeitraum. Tippen Sie darauf oder auf den Pfeil rechts, um den aktuellen, vorherigen oder nächsten Monat, das aktuelle Jahr oder einen eigenen Datumsbereich auszuwählen.</li>
+<li><strong>Tagesübersicht</strong> — zeigt die Anzahl der Tage im Zeitraum, Arbeitsschichten, freie Tage, abgeschlossene und bevorstehende Schichten sowie geänderte Tage. Geänderte Tage sind Ausnahmen vom Basiszyklus: Urlaub, Krankheit, Freizeitausgleich, eine Ersatz- oder verschobene Schicht, eine Arbeitszeitanpassung und weitere Änderungen.</li>
+</ol>
+
+<div class="warning"><strong>Zukünftige Zeiträume sind Prognosen.</strong> Für einen zukünftigen Monat verwendet die App den erstellten Plan und bereits eingegebene Daten, kann jedoch zukünftige Krankheit, Urlaub, Freizeitausgleich, Überstunden, Boni oder Abzüge nicht kennen. Bei Auswahl des aktuellen Jahres können die Summen tatsächliche Daten vergangener Daten mit einer Prognose für den Rest des Jahres kombinieren.</div>
+
+<h3 id="statistics-work">5.2. Arbeitszeit, Gehalt und Berichte</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_work_salary_reports.webp" alt="Statistikbildschirm mit Arbeitszeit, Fortschritt, Gehalt und Berichtszugriff">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Arbeitszeit</strong> — eine Übersichtskarte für Stunden und Fortschritt. Tippen Sie darauf, um die <a href="#statistics-break">Pausenzeiteinstellungen</a>zu öffnen.</li>
+<li><strong>Geplante Stunden</strong> — die Gesamtdauer der geplanten Schichten und Änderungen im ausgewählten Zeitraum.</li>
+<li><strong>Geleistete Stunden</strong> — die Zeit in Schichten, die zum aktuellen Datum als abgeschlossen gelten, unter Berücksichtigung der Pauseneinstellungen.</li>
+<li><strong>Fortschritt</strong> — zeigt, wie viele Arbeitsschichten von der Gesamtzahl abgeschlossen wurden und wie viel Prozent des ausgewählten Zeitraums abgeschlossen sind.</li>
+<li><strong>Gehalt</strong> — öffnet die <a href="#salary">Einstellungen der Gehaltsberechnung</a>. Die Karte zeigt eine Schätzung für den ausgewählten Plan und Zeitraum.</li>
+<li><strong>Gesamt</strong> — der bisher geschätzte Verdienst einschließlich ausgewählter Vergütungsmethode, Boni, Überstunden und Abzüge.</li>
+<li><strong>Satz oder Gehalt</strong> — der Inhalt dieser Karte hängt von der gewählten Berechnungsmethode ab: Bezahlung pro Stunde, pro Schicht oder pro Monat. Angezeigt wird der in den Gehaltseinstellungen eingegebene Wert.</li>
+<li><strong>Berechnungsdetails</strong> — bezahlte Zeit, Überstunden, Boni und Abzüge für den ausgewählten Zeitraum.</li>
+<li><strong>Berichte</strong> — öffnet <a href="#reports">detaillierte Berichte zu Zeiträumen, Arbeitszeit und Gehalt</a>.</li>
+</ol>
+
+<div class="tip">Alle Werte in den Bereichen Arbeitszeit und Gehalt werden neu berechnet, wenn Sie den Zeitraum in der oberen Karte ändern.</div>
+
+<h3 id="statistics-break">5.3. Pausen in der Arbeitszeit berücksichtigen</h3>
+
+<p>Tippen Sie auf die Karte „Arbeitszeit“, um festzulegen, ob eine Essenspause oder eine andere Pause zur tatsächlich geleisteten und bezahlten Zeit zählen soll.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_break_settings.webp" alt="Fenster mit Einstellungen für Pausenberücksichtigung und -dauer">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Aktuelle Summen</strong> — zeigen geplante und geleistete Stunden für den ausgewählten Zeitraum, bevor die neuen Einstellungen angewendet werden.</li>
+<li><strong>Pause als Arbeitszeit zählen</strong> — lassen Sie diese Option aktiviert, wenn die Pause bezahlt wird und in der Schichtdauer enthalten ist. Deaktivieren Sie sie, wenn die angegebene Zeit von der geleisteten und bezahlten Zeit abgezogen werden muss.</li>
+<li><strong>Pausendauer</strong> — wählen Sie Stunden und Minuten für eine Pause. Diese Einstellung wird bei der Neuberechnung der betreffenden Arbeitsschichten verwendet.</li>
+<li><strong>Gesamtpause</strong> — zeigt vor dem Speichern die ausgewählte Dauer.</li>
+<li><strong>Speichern</strong> — übernimmt die Einstellung und berechnet Arbeitszeit und zugehörige Werte neu.</li>
+</ol>
+
+<div class="notice">Eine Pause kann eine Essenspause, eine Schichtübergabe oder ein anderes unbezahltes Intervall innerhalb einer Schicht darstellen. Geben Sie die Dauer ein, die den Regeln an Ihrem Arbeitsplatz entspricht.</div>
+
+<h3 id="reports">5.4. Berichte: Zeitraum, Status und Übersicht</h3>
+
+<p>Öffnen Sie „Berichte“ über die untere Karte auf dem Statistikbildschirm. Dieser Abschnitt bietet ausführlichere Informationen für den ausgewählten Zeitraum: Arbeitszeit, Schichten und Abwesenheiten, Kalenderanpassungen, Gehalt, Boni, Abzüge, Zeitraumvergleich, Tagesdetails und Export.</p>
+
+<div class="warning"><strong>Berichte dienen nur zu Informationszwecken.</strong> Die Berechnungen basieren auf dem ausgewählten Plan, den Gehaltseinstellungen, der Pausenberücksichtigung und den Schichtänderungen im Kalender. Die tatsächlichen Zahlen Ihres Arbeitgebers können aufgrund eines anderen Zeiterfassungssystems, anderer Rundungen, Steuern, Zulagen oder interner Regeln abweichen. Wenn Sie einen Fehler oder eine nicht unterstützte Berechnungsmethode feststellen, wenden Sie sich über die in der App angezeigte Adresse an die Entwickler und geben Sie Eingabedaten und erwartetes Ergebnis an.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_period_salary.webp" alt="Berichtsbildschirm mit Zeitraumsauswahl, Status, Übersicht und detaillierter Gehaltsaufschlüsselung">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Berichtszeitraum</strong> — tippen Sie auf die Karte, um den aktuellen, vorherigen oder nächsten Monat, einen voreingestellten Bereich oder eigene Daten auszuwählen. Alle darunter stehenden Informationen gelten für den ausgewählten Zeitraum.</li>
+<li><strong>Zeitraumstatus</strong> — zeigt an, ob der Zeitraum abgeschlossen, derzeit aktiv oder noch nicht begonnen ist. Ein abgeschlossener Zeitraum wird aus gespeicherten Ist-Daten berechnet. Ein aktiver Zeitraum kombiniert bereits geleistete Daten mit dem aktuellen Plan, während ein zukünftiger Zeitraum eine Prognose ist.</li>
+<li><strong>Übersicht</strong> — eine Textzusammenfassung der tatsächlich geleisteten Zeit, des berechneten Betrags und der Überstunden.</li>
+<li><strong>Gehalt</strong> — eine detaillierte Aufschlüsselung von Grundvergütung, Überstundenvergütung, Boni, Abzügen und der abschließenden Schätzung. Die Werte hängen von den <a href="#salary">Gehaltseinstellungen</a> und dem ausgewählten Zeitraum ab.</li>
+</ol>
+
+<h3 id="reports-work">5.5. Arbeitszeit, Abwesenheiten und Tage</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_work_absences.webp" alt="Berichtsbildschirm mit Arbeitszeit, Pausen, abgeschlossenen Schichten und Abwesenheiten">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Arbeitszeit</strong> — zeigt geplante und tatsächliche Arbeitsstunden, geplante und tatsächliche Stunden vor Pausenabzug, Anzahl abgeschlossener Schichten, durchschnittliche Schichtdauer und die insgesamt abgezogene Pause. Konfigurieren Sie Pausen im <a href="#statistics-break">Arbeitszeitbereich</a>.</li>
+<li><strong>Abwesenheiten und Tage</strong> — zeigt die Anzahl freier Tage, Urlaubstage, Krankheitstage, Tage mit Freizeitausgleich und geänderter Tage im ausgewählten Zeitraum.</li>
+</ol>
+
+<h3 id="reports-charts">5.6. Anpassungen und Diagramme</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_corrections_charts.webp" alt="Berichtsbildschirm mit Anpassungen, Gehaltszusammensetzung und Arbeitszeitwerten">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Anpassungen</strong> — zeigen Überstunden, die gesamte Änderung der Schichtdauer und die Anzahl der gegenüber dem Basisplan geänderten Tage.</li>
+<li><strong>Diagramme</strong> — stellen die Zusammensetzung von Gehalt und Arbeitszeit dar: Grundvergütung, Überstunden, Boni, Abzüge, Gesamtbetrag sowie geplante, geleistete und bezahlte Stunden.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_charts_days.webp" alt="Weitere Berichtsdiagramme mit Stunden und einem Kreisdiagramm der Tagestypen">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Stunden</strong> — setzt den visuellen Vergleich von geplanten, geleisteten, bezahlten und Überstunden fort. Die Zeile „Tatsächliche Arbeitszeit“ zeigt das Ergebnis nach Anwendung von Einstellungen und Anpassungen.</li>
+<li><strong>Tagestypen</strong> — ein Kreisdiagramm, das die Tage im ausgewählten Zeitraum nach Typ verteilt. Die Legende hängt vom Plan und den tatsächlichen Änderungen ab: Tag-, Nacht- oder andere Schichten, freie Tage, Urlaub, Krankheit, Freizeitausgleich und andere Zustände.</li>
+</ol>
+
+<h3 id="reports-comparison">5.7. Zeiträume vergleichen</h3>
+
+<p>Der Vergleichsbereich hilft Ihnen, Gehalt, Zeit, Schichten und Abwesenheiten über mehrere Zeiträume hinweg zu vergleichen. Die Anzahl der verfügbaren Zeiträume hängt von den gespeicherten Daten ab.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_chart.webp" alt="Zeitraumvergleich mit Bereichsauswahl, Gehaltsdiagramm und Beginn einer Vergleichstabelle">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Zeiträume vergleichen</strong> — tippen Sie auf die Karte, um Anzahl und Bereich der zu vergleichenden Zeiträume auszuwählen.</li>
+<li><strong>Diagramm und Zeitraumliste</strong> — zeigen das Gehalt für jeden Zeitraum und listen die in den Vergleich einbezogenen Intervalle mit ihrem Status auf.</li>
+<li><strong>Vergleichstabelle</strong> — enthält detaillierte Werte für jeden Zeitraum. Wischen Sie horizontal nach links oder rechts über die Tabelle, um die übrigen Spalten anzuzeigen.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_table.webp" alt="Fortsetzung der Vergleichstabelle und Unterschiede zwischen benachbarten Zeiträumen">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Zeitraumwerte</strong> — Gesamtgehalt, geleistete und bezahlte Stunden, Überstunden, Boni, Abzüge, abgeschlossene Schichten, Abwesenheiten und geänderte Tage.</li>
+<li><strong>Unterschied zwischen Zeiträumen</strong> — zeigt, wie sich jeder Zeitraum vom vorherigen unterscheidet. Positive und negative Werte stehen für eine Zunahme oder Abnahme der jeweiligen Kennzahl. Die Farbe allein bedeutet nicht immer einen Vorteil oder ein Problem; eine Zunahme der Abzüge bedeutet beispielsweise, dass ein höherer Betrag einbehalten wird.</li>
+</ol>
+
+<h3 id="reports-details-export">5.8. Tagesdetails und Export</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_details_export.webp" alt="Berichtskarten für Tagesdetails und Export nach PDF, HTML, JSON oder CSV">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tagesdetails</strong> — öffnen eine Liste jedes Tages im ausgewählten Zeitraum. Für einen bestimmten Tag können Sie Schichtart, geplante und tatsächliche Zeit, Stundenanpassungen, Abwesenheiten und weitere Änderungen prüfen.</li>
+<li><strong>Export</strong> — speichert den Bericht als PDF, HTML, JSON oder CSV. Wählen Sie vor dem Export den Berichtszeitraum aus; anschließend können Sie die Datei über das Android-Systemmenü drucken, speichern oder teilen.</li>
+</ol>
+
+<div class="tip">Prüfen Sie vor einem Vergleich oder Export den ausgewählten Zeitraum, den Plan, Schichtänderungen, Pausen und Gehaltseinstellungen. Ein Fehler in den Quelldaten wirkt sich auf jede Berichtssumme aus.</div>
+
+<h2 id="alarms">6. Wecker</h2>
+
+<p>Mit ShiftAlarm können Sie einmalige Wecker erstellen, sie an ausgewählten Wochentagen wiederholen oder ihre Zeit mit einem Schichtplan verknüpfen.</p>
+
+<h3 id="alarms-list">6.1. Weckerliste</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarms_overview.webp" alt="ShiftAlarm-Weckerbildschirm mit nächster Warnung, Sortierung, Weckerkarte und Schaltfläche zum Hinzufügen">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Nächster Wecker</strong> — zeigt Datum und Uhrzeit der nächsten aktiven Warnung.</li>
+<li><strong>Weckersortierung</strong> — ändert die Reihenfolge der Weckerkarten, zum Beispiel indem aktivierte Wecker zuerst angezeigt werden.</li>
+<li><strong>Weckerkarte</strong> — enthält Uhrzeit, Datum oder Wiederholungsmodus, Plantyp und verbleibende Zeit. Tippen Sie zum Bearbeiten auf die Karte.</li>
+<li><strong>Schalter</strong> — aktiviert oder deaktiviert den Wecker vorübergehend, ohne seine Einstellungen zu löschen.</li>
+<li><strong>Löschen</strong> — löscht den ausgewählten Wecker.</li>
+<li><strong>Wecker hinzufügen</strong> — öffnet den Bildschirm zum Erstellen eines neuen Weckers.</li>
+</ol>
+
+<h3 id="alarms-create">6.2. Einen Wecker erstellen und bearbeiten</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_time_schedule.webp" alt="Oberer Bereich des ShiftAlarm-Weckereditors: Uhrzeit, Plantyp, Schlummerfunktion und Speichersteuerung">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Uhrzeit</strong> — drehen Sie die Stunden- und Minutenräder, um die Warnzeit einzustellen.</li>
+<li><strong>Plantyp</strong> — wählen Sie einen der folgenden Modi:
+<ul>
+<li><strong>Einmal</strong> — der Wecker wird am ausgewählten Datum einmal ausgelöst;</li>
+<li><strong>Nach Tagen</strong> — wird an ausgewählten Wochentagen wiederholt;</li>
+<li><strong>Nach Schichten</strong> — verknüpft den Wecker mit einem ausgewählten Plan und einer Schichtart.</li>
+</ul>
+</li>
+<li><strong>Schlummern</strong> — legt fest, um wie viele Minuten die Warnung verschoben wird, wenn Sie auf dem klingelnden Bildschirm auf die Schlummertaste tippen.</li>
+<li><strong>Abbrechen und Speichern</strong> — diese Schaltflächen sind unten auf dem Bildschirm fixiert und bleiben beim Scrollen durch den Editor verfügbar.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_behavior.webp" alt="ShiftAlarm-Einstellungen für Weckdauer, Warnwiederholung, allmähliche Lautstärkeerhöhung und Vibration">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Weckdauer</strong> — bestimmt, wie lange die Warnung ertönt, wenn sie nicht gestoppt wird.</li>
+<li><strong>Wiederholen, wenn der Wecker ignoriert wird</strong> — aktiviert eine weitere Warnung, wenn der Wecker weder ausgeschaltet noch in den Schlummermodus versetzt wurde. Stellen Sie darunter das Intervall bis zur erneuten Warnung ein.</li>
+<li><strong>Allmähliche Lautstärkeerhöhung</strong> — beginnt mit leiserem Ton und erhöht die Lautstärke über den ausgewählten Zeitraum schrittweise.</li>
+<li><strong>Vibration</strong> — aktiviert oder deaktiviert die Vibration während der Warnung.</li>
+<li><strong>Abbrechen und Speichern</strong> — feststehende Steuerelemente des Editors.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_sound_name.webp" alt="Unterer Bereich des ShiftAlarm-Weckereditors: Vibration, Ton, Name und Speichersteuerung">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Vibration</strong> — aktiviert oder deaktiviert den Vibrationsalarm.</li>
+<li><strong>Ton</strong> — ermöglicht die Auswahl eines integrierten, systemeigenen oder vom Benutzer hinzugefügten Tons. Sie können der App bis zu fünf eigene Töne hinzufügen.</li>
+<li><strong>Name</strong> — eine optionale Bezeichnung, mit der Sie Wecker unterscheiden können.</li>
+<li><strong>Abbrechen und Speichern</strong> — verwirft Änderungen oder speichert den Wecker.</li>
+</ol>
+
+<div class="notice">Nach dem Speichern erscheint der Wecker in der Hauptliste. Vergewissern Sie sich vor einer wichtigen Warnung, dass der Wecker aktiviert ist, die App Berechtigungen für Benachrichtigungen und exakte Alarme besitzt und das System ihre Hintergrundaktivität nicht einschränkt.</div>
+
+<div class="tip">Erstellen Sie zuerst einen passenden Schichtplan, um einen schichtgebundenen Wecker einzurichten. Wählen Sie im Editor eine feste Auslösezeit oder einen Zeitversatz relativ zum Schichtbeginn.</div>
+
+<h2 id="geo">7. Geo-Wecker</h2>
+
+<p>Ein Geo-Wecker überwacht, wann das Gerät einen ausgewählten Bereich betritt oder verlässt. Der Bereich wird durch einen Punkt auf der Karte und einen Radius um diesen Punkt definiert. Verwenden Sie einen Geo-Wecker zum Beispiel, um beim Annähern an Arbeit, Zuhause, eine Bushaltestelle, einen Bahnhof oder einen anderen Ort gewarnt zu werden.</p>
+
+<h3 id="geo-overview">7.1. Karte und Bedienelemente</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_overview.webp" alt="ShiftAlarm-Hauptbildschirm für Geo-Wecker mit Karte und nummerierten Bedienelementen">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Vergrößern</strong> — vergrößert die Karte.</li>
+<li><strong>Verkleinern</strong> — verkleinert den Kartenmaßstab.</li>
+<li><strong>Mein Standort</strong> — verschiebt die Karte zum aktuellen Standort des Geräts. Für diese Funktion benötigt die App Standortzugriff.</li>
+<li><strong>Gespeicherte Orte</strong> — öffnet die Liste gespeicherter Geo-Wecker und Standortpunkte.</li>
+<li><strong>Zurück</strong> — kehrt zum vorherigen App-Bildschirm zurück.</li>
+<li><strong>Anzahl der Geo-Wecker</strong> — zeigt, wie viele Geo-Wecker erstellt wurden.</li>
+<li><strong>Geo-Weckerliste</strong> — öffnet eine separate Liste der erstellten Geo-Wecker.</li>
+</ol>
+
+<div class="tip">Sie können auch mit Gesten zoomen. Berühren Sie die Karte mit zwei Fingern und spreizen Sie sie zum Vergrößern oder führen Sie sie zum Verkleinern zusammen.</div>
+<div class="notice">In Sprachen mit Schreibrichtung von rechts nach links können die seitlichen Bedienelemente auf der gegenüberliegenden Seite erscheinen. Ihre Funktionen bleiben gleich.</div>
+
+<h3 id="geo-saved-places">7.2. Gespeicherte Wecker und Standortpunkte</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_saved_places.webp" alt="Fenster „Gespeicherte Orte“ mit Registerkarten für Geo-Wecker und Standortpunkte">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Wecker</strong> — zeigt Geo-Wecker an, die zu den gespeicherten Orten hinzugefügt wurden.</li>
+<li><strong>Standortpunkte</strong> — zeigt gespeicherte Koordinaten ohne aktiven Geo-Wecker.</li>
+<li><strong>Liste gespeicherter Orte</strong> — tippen Sie auf eine Karte, um auf der Karte zu diesem Ort zu wechseln.</li>
+<li><strong>Schließen</strong> — schließt das Fenster und kehrt zur Karte zurück.</li>
+</ol>
+
+<div class="notice">Wenn Sie einen als Lesezeichen gespeicherten Geo-Wecker löschen, bleiben seine Koordinaten automatisch auf der Registerkarte „Standortpunkte“ erhalten. Sie können den Punkt später erneut verwenden, um einen weiteren Geo-Wecker zu erstellen.</div>
+
+<h3 id="geo-select-point">7.3. Punkt und Radius auswählen</h3>
+
+<p>Berühren und halten Sie die gewünschte Stelle auf der Karte. Die App setzt eine Markierung und öffnet das Fenster für den ausgewählten Punkt.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_selected_point.webp" alt="Ausgewählter Kartenpunkt mit Adresse, Radius, Lesezeichen und Schaltfläche zum Erstellen eines Geo-Weckers">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Markierung des ausgewählten Punkts</strong> — der Mittelpunkt des zukünftigen Geofence. Auf der Karte wird außerdem ein Kreis für den ausgewählten Radius angezeigt.</li>
+<li><strong>Adresse und Koordinaten</strong> — ermöglichen die Prüfung, ob der richtige Ort ausgewählt ist.</li>
+<li><strong>Standortpunkt speichern</strong> — fügt die ausgewählten Koordinaten zu den gespeicherten Orten hinzu, ohne einen Wecker zu erstellen.</li>
+<li><strong>Radius</strong> — legt die Größe des Bereichs um den Punkt fest. Bewegen Sie den Schieberegler, bis Sie eine geeignete Entfernung ausgewählt haben.</li>
+<li><strong>Abbrechen</strong> — bricht die Punktauswahl ab.</li>
+<li><strong>Hier erstellen</strong> — öffnet den Editor für einen neuen Geo-Wecker am ausgewählten Punkt.</li>
+</ol>
+
+<div class="warning"><strong>So wählen Sie einen Radius aus.</strong> Ein Telefon erfasst seine Koordinaten nicht ununterbrochen. Android, der Gerätehersteller, der Energiesparmodus, GPS, die Signalqualität von Mobilfunk und WLAN sowie die Bewegungsgeschwindigkeit beeinflussen, wann die Grenze erkannt wird. Die Warnung kann deshalb abseits der eingezeichneten Linie ausgelöst werden. Bei einem Radius von 800 m kann der Eintritt beispielsweise erst erkannt werden, wenn sich das Gerät bereits im Bereich befindet – vielleicht 700, 600 oder 500 m vom Punkt entfernt.</div>
+
+<ul>
+<li><strong>In einer Stadt</strong>wird im Allgemeinen ein Radius von <strong>1.300–1.500 m</strong> empfohlen.</li>
+<li><strong>Außerhalb einer Stadt</strong>, wo Standortaktualisierungen seltener erfolgen können, werden <strong>4.000–5.000 m</strong> empfohlen.</li>
+<li><strong>Der genaue Radius</strong> sollte anhand Ihrer Route, Geschwindigkeit und des Geräteverhaltens gewählt werden.</li>
+</ul>
+
+<div class="notice">Das System erkennt, wenn das Gerät die virtuelle Bereichsgrenze überquert. Im Modus „Beim Betreten“ gibt ein größerer Radius dem Telefon normalerweise mehr Zeit, Ihre Annäherung zu erkennen. Im Modus „Beim Verlassen“ liegt die Grenze dagegen weiter vom ausgewählten Punkt entfernt.</div>
+
+<h3 id="geo-create">7.4. Einen Geo-Wecker erstellen</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_location_schedule.webp" alt="Oberer Bereich des Geo-Weckereditors: Bereitschaft, Standort und Plantyp">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Bereitschaft des Geo-Weckers</strong> — zeigt, ob die erforderlichen Berechtigungen eingerichtet sind und die App den Geofence registrieren kann.</li>
+<li><strong>Standort</strong> — enthält die ausgewählte Adresse und die Koordinaten. Sie können die Adresse als Bezeichnung bearbeiten, der tatsächliche Punkt wird jedoch auf der Karte ausgewählt.</li>
+<li><strong>Plantyp</strong> — bestimmt die Tage und Bedingungen, an bzw. unter denen der Geo-Wecker aktiv ist.</li>
+<li><strong>Immer</strong> — der Geo-Wecker ist bei Aktivierung täglich aktiv.</li>
+<li><strong>Einmal</strong> — wird für die nächste einmalige Auslösung verwendet, sobald die ausgewählte Bedingung erfüllt ist.</li>
+<li><strong>Nach Tagen</strong> — funktioniert nur an ausgewählten Wochentagen.</li>
+<li><strong>Nach Schichten</strong> — verknüpft den Geo-Wecker mit dem aktiven Schichtplan.</li>
+</ol>
+
+<div class="notice"><strong>Plan „Nach Schichten“.</strong> Legen Sie fest, ob der Geo-Wecker am Schichttag, nur vor oder nur nach der Schicht funktioniert, und geben Sie die gewünschte Schichtart an: Tag, Nacht, Morgen, Abend, 24 Stunden, eigene oder beliebige Arbeitsschicht.</div>
+<div class="tip">Ist ein Kalenderdatum anstelle einer Arbeitsschicht als freier Tag, Urlaub, Krankheit oder Freizeitausgleich gekennzeichnet, ist ein schichtgebundener Geo-Wecker an diesem Tag nicht aktiv.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_trigger_settings.webp" alt="Unterer Bereich des Geo-Weckereditors: Bedingung „Betreten“ oder „Verlassen“, Radius und Warneinstellungen">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Auslösebedingung</strong> — bestimmt, welche Grenzüberquerung die Warnung auslöst.</li>
+<li><strong>Beim Betreten</strong> — löst die Warnung aus, wenn das Gerät den ausgewählten Radius betritt, zum Beispiel bei der Annäherung an die Arbeit oder die gewünschte Haltestelle.</li>
+<li><strong>Beim Verlassen</strong> — löst die Warnung aus, wenn das Gerät den ausgewählten Radius verlässt, zum Beispiel nach dem Verlassen der Arbeit oder eines Bahnhofs, damit Sie den nächsten Abschnitt einer Route nicht verpassen.</li>
+<li><strong>Beim Betreten oder Verlassen</strong> — löst die Warnung bei jeder Grenzüberquerung in eine der beiden Richtungen aus.</li>
+<li><strong>Radius</strong> — die Größe des Geofence um den ausgewählten Punkt.</li>
+<li><strong>Weckdauer</strong> — bestimmt, wie lange die Warnung ertönt.</li>
+<li><strong>Allmähliche Lautstärkeerhöhung</strong> — stellt einen sanften Lautstärkeanstieg nach Beginn der Warnung ein.</li>
+<li><strong>Abbrechen und Speichern</strong> — verwirft Änderungen oder speichert den Geo-Wecker.</li>
+</ol>
+
+<div class="tip">Die übrigen Optionen darunter entsprechen einem normalen Wecker: Ton, Vibration, Warndauer, allmähliche Lautstärkeerhöhung und Name.</div>
+
+<h3 id="geo-existing">7.5. Ein Geo-Wecker auf der Karte und seine Bedienelemente</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_marker_radius.webp" alt="Erstellte Geo-Weckermarkierung und Kreis für den Auslöseradius auf der Karte">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Geo-Weckermarkierung</strong> — zeigt den ausgewählten Punkt.</li>
+<li><strong>Radiusgrenze</strong> — zeigt den Bereich, dessen Betreten oder Verlassen von der App überwacht wird.</li>
+</ol>
+
+<p>Tippen Sie auf die Geo-Weckermarkierung. Zunächst erscheint ein kleines Informationsfenster. Tippen Sie darauf, um die Detailkarte zu öffnen.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_alarm_card.webp" alt="Detaillierte Geo-Weckerkarte mit Informationen, Lesezeichen, Schalter und Bedienelementen">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Name und Adresse</strong> — kennzeichnen den ausgewählten Geo-Wecker.</li>
+<li><strong>Lesezeichen</strong> — fügt den Wecker zu gespeicherten Orten hinzu oder entfernt ihn daraus.</li>
+<li><strong>Schalter</strong> — aktiviert oder deaktiviert den Geo-Wecker vorübergehend, ohne seine Einstellungen zu löschen.</li>
+<li><strong>Einstellungen und Status</strong> — zeigen Radius, Bedingung „Betreten“ oder „Verlassen“, Plan, Geofence-Bereitschaft und Informationen zu früheren Auslösungen.</li>
+<li><strong>Bearbeiten</strong> — öffnet die Einstellungen des Geo-Weckers.</li>
+<li><strong>Schließen</strong> — schließt die Karte und kehrt zur Übersichtskarte zurück.</li>
+<li><strong>Löschen</strong> — löscht den Geo-Wecker nach Bestätigung.</li>
+</ol>
+
+<div class="warning">Erlauben Sie für einen zuverlässigen Betrieb den genauen Standort und den Standortzugriff im Hintergrund, entfernen Sie strenge Akkueinschränkungen für ShiftAlarm und prüfen Sie, sofern auf Ihrem Gerät vorhanden, die Autostart-Einstellungen. Selbst bei korrekten Einstellungen garantiert Android keine auf wenige Meter genaue Grenzerkennung.</div>
+
+<h2 id="notes">8. Notizen, Ereignisse und Erinnerungen</h2>
+
+<p>Im Bereich „Notizen“ werden Klartext, Listen, Checklisten, Audioaufnahmen, Sprache-zu-Text-Notizen, Erinnerungen und Ereignisse gespeichert.</p>
+
+<h3 id="notes-create">8.1. Eine Notiz hinzufügen</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_type_picker.webp" alt="Auswahl eines neuen Notiztyps in ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Fenstergriff</strong> — ziehen Sie ihn nach oben, um die vollständige Liste der Notiztypen anzuzeigen, oder nach unten, um das Fenster zu schließen.</li>
+<li><strong>Notiztyp</strong> — wählen Sie die passende Option:
+<ul>
+<li><strong>Textnotiz</strong> — Klartext;</li>
+<li><strong>Checkliste</strong> — eine Liste von Elementen mit Kontrollkästchen zum Abhaken;</li>
+<li><strong>Liste</strong> — eine Aufzählung oder nummerierte Liste;</li>
+<li><strong>Audionotiz</strong> — eine Sprachaufnahme;</li>
+<li><strong>Sprache zu Text</strong> — erstellt eine Notiz mittels Spracherkennung;</li>
+<li><strong>Erinnerung</strong> — ein Eintrag mit einer Benachrichtigung zu einer bestimmten Zeit;</li>
+<li><strong>Ereignis</strong> — ein mit Datum und Uhrzeit verknüpfter Eintrag.</li>
+</ul>
+</li>
+<li><strong>Abbrechen</strong> — schließt die Auswahl, ohne eine Notiz zu erstellen.</li>
+</ol>
+
+<div class="tip">Nach Auswahl eines Typs wird der passende Editor geöffnet. Füllen Sie die erforderlichen Felder aus und speichern Sie den Eintrag.</div>
+
+<h3 id="notes-list">8.2. Notizliste und Bedienelemente</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_overview.webp" alt="ShiftAlarm-Notizbildschirm mit Sortierung, aktiven und archivierten Notizen, Suche und Kartenaktionen">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Sortieren</strong> — ändert die Reihenfolge der Notizen in der Liste.</li>
+<li><strong>Aktiv</strong> — zeigt normale und geplante Notizen, die nicht ins Archiv verschoben wurden.</li>
+<li><strong>Archiv</strong> — öffnet die Liste archivierter Notizen.</li>
+<li><strong>Suche</strong> — findet Übereinstimmungen in Titeln und Inhalten von Notizen.</li>
+<li><strong>Notizkarte</strong> — zeigt Titel, Typ, Status und zusätzliche Informationen. Tippen Sie auf die Karte, um die Notiz zu öffnen.</li>
+<li><strong>Anheften</strong> — heftet die Notiz oben in der Liste an.</li>
+<li><strong>Archivieren</strong> — entfernt die Notiz aus der aktiven Liste und verschiebt sie ins Archiv.</li>
+<li><strong>Löschen</strong> — löscht die Notiz nach Bestätigung.</li>
+<li><strong>Notiz hinzufügen</strong> — öffnet die Auswahl des neuen Notiztyps.</li>
+</ol>
+
+<div class="notice">Verwenden Sie das Archiv für Einträge, die in der Hauptliste nicht mehr benötigt werden, aber gespeichert bleiben sollen. Löschen Sie eine Notiz nur, wenn sie überhaupt nicht mehr benötigt wird.</div>
+
+<h2 id="clock">9. Uhr, Stoppuhr und Timer</h2>
+
+<p>Dieser Bereich vereint Orts- und Weltzeit, eine Stoppuhr und einen Timer. Öffnen Sie ihn mit der Schaltfläche <strong>„Uhr“</strong> auf dem Hauptbildschirm.</p>
+
+<div class="notice">Unten auf dem Bildschirm werden drei Registerkarten angezeigt: „Uhr“, „Stoppuhr“ und „Timer“. Tippen Sie auf eine Registerkarte, um den Modus zu wechseln.</div>
+
+<h3 id="clock-world">9.1. Uhr und Weltuhr</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_overview.webp" alt="ShiftAlarm-Uhrbildschirm mit Ortszeit, Weltuhren, Schaltfläche zum Hinzufügen und unteren Registerkarten">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ortszeit</strong> — zeigt die aktuelle Uhrzeit, das Datum und die Systemzeitzone des Geräts.</li>
+<li><strong>Weltuhren</strong> — zeigen hinzugefügte Städte und Zeitzonen. Solange die Liste leer ist, zeigt die App einen Hinweis.</li>
+<li><strong>Plus-Schaltfläche</strong> — öffnet die Auswahl der Weltuhr.</li>
+<li><strong>Bereichsregisterkarten</strong> — wechseln zwischen den Bildschirmen „Uhr“, „Stoppuhr“ und „Timer“.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_add_timezone.webp" alt="Stadt oder Zeitzone zur ShiftAlarm-Weltuhr hinzufügen">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Suche</strong> — geben Sie einen Stadt- oder Zeitzonennamen ein, um die Liste zu filtern.</li>
+<li><strong>Liste der Städte und Zeitzonen</strong> — tippen Sie auf die gewünschte Option, um sie zum Weltuhrbildschirm hinzuzufügen.</li>
+</ol>
+
+<div class="tip">Die lokale Zeitzone wird immer zuerst angezeigt. Hinzugefügte Weltuhren können Sie aus der Liste entfernen, die Ortszeit jedoch nicht.</div>
+
+<h3 id="clock-stopwatch">9.2. Stoppuhr</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_start.webp" alt="ShiftAlarm-Stoppuhr vor dem Start">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Verlauf</strong> — öffnet gespeicherte Stoppuhrsitzungen.</li>
+<li><strong>Start</strong> — startet die Zeitmessung.</li>
+<li><strong>Zurücksetzen</strong> — ist vor dem Start der Stoppuhr nicht verfügbar. Nach dem Anhalten setzt diese Funktion die Stoppuhr auf null zurück und entfernt die aktuellen Runden.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_running.webp" alt="Laufende ShiftAlarm-Stoppuhr mit Verlauf, Speichern, Runde und Pause">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Verlauf</strong> — zeigt zuvor gespeicherte Sitzungen.</li>
+<li><strong>Speichern</strong> — fordert zur Eingabe eines Namens auf und speichert die aktuelle Stoppuhrsitzung.</li>
+<li><strong>Runde</strong> — zeichnet ein Zwischenergebnis auf, ohne die Gesamtzeitmessung zu stoppen.</li>
+<li><strong>Pause</strong> — pausiert die Stoppuhr. Danach können Sie sie fortsetzen oder zurücksetzen.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_laps.webp" alt="Runden der ShiftAlarm-Stoppuhr und ihre Sortieroptionen">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Original, schnellste und langsamste</strong> — ändern die Anzeigereihenfolge der Runden: ursprüngliche Reihenfolge, schnellste zuerst oder langsamste zuerst.</li>
+<li><strong>Runden</strong> — jede Runde zeigt die Gesamtzeit bei ihrer Aufzeichnung und die jeweilige Rundenzeit.</li>
+</ol>
+
+<div class="notice">Wenn Sie auf „Speichern“ tippen, geben Sie einen Sitzungsnamen ein und bestätigen Sie. Sie können die gespeicherte Sitzung später über den Verlauf öffnen.</div>
+
+<h3 id="clock-timer">9.3. Timer</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_setup.webp" alt="ShiftAlarm-Timer mit Rädern für Stunden, Minuten und Sekunden einstellen">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Stunden</strong> — drehen Sie das Rad und wählen Sie die Anzahl der Stunden.</li>
+<li><strong>Minuten</strong> — drehen Sie das Rad und wählen Sie die Anzahl der Minuten.</li>
+<li><strong>Sekunden</strong> — drehen Sie das Rad und wählen Sie die Anzahl der Sekunden.</li>
+<li><strong>Start</strong> — startet den Timer mit der ausgewählten Dauer.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_running.webp" alt="Laufender ShiftAlarm-Timer mit verbleibender Zeit sowie Steuerelementen für Pause, Minute hinzufügen und Stopp">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Verbleibende Zeit</strong> — zeigt, wie viel Zeit bis zur Warnung verbleibt.</li>
+<li><strong>Endzeit</strong> — zeigt die ungefähre Uhrzeit, zu der der Timer endet.</li>
+<li><strong>Zuletzt verwendete Timer</strong> — gespeicherte, kürzlich verwendete Dauern; tippen Sie auf eine, um sie schnell wiederzuverwenden.</li>
+<li><strong>Pause</strong> — hält den Countdown vorübergehend an. Sie können ihn anschließend fortsetzen.</li>
+<li><strong>+1 Min.</strong> — fügt der verbleibenden Zeit eine Minute hinzu.</li>
+<li><strong>Stopp</strong> — beendet den Timer vollständig.</li>
+</ol>
+
+<div class="tip">Timer und Stoppuhr laufen im Hintergrund weiter. Ihr Status kann in einer Benachrichtigung, auf dem Hauptbildschirm und in Widgets erscheinen.</div>
+
+<h2 id="widgets">10. Widgets</h2>
+
+<p>ShiftAlarm bietet Widgets für den Startbildschirm des Telefons.</p>
+<ul>
+<li><strong>Heute 4×2</strong> — ein kompaktes Fenster mit zwei konfigurierbaren Bereichen.</li>
+<li><strong>Heute 4×3</strong> — ein Fenster mit einer Uhr oben und zwei Bereichen darunter.</li>
+<li><strong>Kalender 4×4</strong> — Kalender-Widgets mit dem Schichtplan.</li>
+</ul>
+<p>Fügen Sie ein Widget über das Android-Widget-Menü auf dem Startbildschirm des Telefons hinzu.</p>
+
+<h2 id="salary">11. Gehaltsberechnung</h2>
+
+<p>Öffnen Sie „Gehaltsberechnung“ über die Gehaltskarte in der <a href="#statistics-work">Statistik des ausgewählten Plans</a>. Hier können Sie Vergütungsmethode, Satz oder Monatsgehalt, Überstundenregeln, Boni und Abzüge festlegen. Die App verwendet diese Einstellungen zusammen mit dem ausgewählten Zeitraum, dem Schichtplan, Kalenderänderungen und der Pausenberücksichtigung.</p>
+
+<div class="warning"><strong>Die Berechnung dient nur zu Informationszwecken.</strong> Die tatsächliche Vergütung kann abweichen, wenn Ihr Arbeitgeber ein anderes System für Zeiterfassung, Rundung, Zulagen, Steuern, Boni, Abzüge oder die Bezahlung bestimmter Schichtarten verwendet. Verwenden Sie das Ergebnis nicht als offizielles Abrechnungsdokument, sondern vergleichen Sie es mit der Lohnabrechnung Ihres Arbeitgebers. Wenn Sie eine Berechnungsmethode finden, die die App nicht korrekt verarbeitet, senden Sie den Entwicklern eine E-Mail an die in der App angezeigte Adresse. Beschreiben Sie die Regeln, geben Sie Beispieleingabedaten an und nennen Sie das erwartete Ergebnis. Die Methode kann dann für eine zukünftige Aktualisierung berücksichtigt werden.</div>
+
+<h3 id="salary-settings">11.1. Satz, Überstunden und Boni</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_settings_overview.webp" alt="Bildschirm zur Gehaltsberechnung mit ausgewähltem Plan, Satzart, Überstunden und Boni">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ausgewählter Plan</strong> — zeigt, welcher Schichtplan verwendet wird. Das Gehalt wird aus diesem Plan und dem in der Statistik ausgewählten Zeitraum berechnet.</li>
+<li><strong>Satzart und Vergütungsbetrag</strong> — wählen Sie die Bezahlung <strong>pro Stunde</strong>, <strong>pro Schicht</strong>oder <strong>pro Monat</strong>und geben Sie anschließend den entsprechenden Betrag ein. Der Feldname ändert sich mit der ausgewählten Satzart.</li>
+<li><strong>Überstunden</strong> — aktivieren Sie diesen Bereich, wenn zusätzliche Stunden anders als normale Arbeitszeit bezahlt werden. Geben Sie anschließend den Multiplikator für die Überstundenvergütung an. Fügen Sie zusätzliche Stunden über <a href="#main-shift-time-adjustment">„Schicht ändern“ → „+ Zeit“</a>zum Kalender hinzu; aktivieren Sie „Diese Zeit als Überstunden zählen“, damit die Stunden als Überstunden behandelt werden.</li>
+<li><strong>Boni</strong> — zeigt die aktuelle Berechnungsmethode und Summen. Tippen Sie auf die Karte, um die <a href="#salary-bonuses">Bonuseinstellungen</a>zu öffnen.</li>
+</ol>
+
+<div class="notice">Die Schaltfläche „Speichern“ übernimmt die Einstellungen für den ausgewählten Plan. Danach werden die Summen in Statistik und Berichten anhand der eingegebenen Daten neu berechnet.</div>
+
+<h3 id="salary-summary">11.2. Abzüge und Berechnungssumme</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions_total.webp" alt="Bildschirm zur Gehaltsberechnung mit Abzügen und abschließender Aufschlüsselung">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Abzüge</strong> — zeigt Gesamtbetrag und Anzahl der konfigurierten Abzüge. Tippen Sie auf die Karte, um die <a href="#salary-deductions">Abzugsliste</a>zu öffnen.</li>
+<li><strong>Gesamt</strong> — eine zusammenfassende Aufschlüsselung: bezahlte Zeit, geleistete Stunden, Überstunden, Grundvergütung, Überstundenvergütung, Boni, Abzüge und Endergebnis.</li>
+</ol>
+
+<div class="tip">Das Ergebnis hängt nicht nur von den Einstellungen dieses Bildschirms ab, sondern auch vom ausgewählten Statistikzeitraum, abgeschlossenen Schichten, Tagesänderungen, Überstunden und Einstellungen für unbezahlte Pausen.</div>
+
+<h3 id="salary-bonuses">11.3. Boni</h3>
+
+<p>Tippen Sie auf dem Bildschirm zur Gehaltsberechnung auf die Karte „Boni“. Sie können einen Bonus manuell eingeben oder prozentual berechnen, wenn dies Ihrem Vergütungssystem entspricht.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_bonuses.webp" alt="Bildschirm mit Bonuseinstellungen für Berechnung und Betragseingabe">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Übersichtsinformationen</strong> — zeigen den berechneten Gesamtbonus und den für die Berechnung verwendeten Grundbetrag.</li>
+<li><strong>Bonusberechnung</strong> — wählen Sie manuelle Eingabe oder eine prozentuale Berechnung, beispielsweise einen Umsatzanteil, wenn diese Methode an Ihrem Arbeitsplatz verwendet wird.</li>
+<li><strong>Eingabemethode</strong> — „Gesamtbetrag“ eignet sich für einen einzigen endgültigen Bonus. Separate Zeilen sind sinnvoll, wenn mehrere Boni unabhängig voneinander berücksichtigt werden müssen.</li>
+<li><strong>Betrag oder Prozentsatz</strong> — geben Sie den von der ausgewählten Berechnungsmethode benötigten Wert ein.</li>
+<li><strong>Abbrechen und Speichern</strong> — verwirft die Änderungen oder übernimmt sie in die Gehaltsberechnung.</li>
+</ol>
+
+<h3 id="salary-deductions">11.4. Abzugsliste</h3>
+
+<p>Tippen Sie auf dem Hauptbildschirm der Berechnung auf die Karte „Abzüge“. In diesem Bereich können Sie mehrere Abzüge speichern und einzeln verwalten.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions.webp" alt="Bildschirm mit Abzugsliste, Gesamtbetrag, Abzugszeilen und Schaltfläche zum Hinzufügen">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Übersichtsinformationen</strong> — zeigen Betrag und Anzahl aller aktivierten Abzüge.</li>
+<li><strong>Abzugszeile</strong> — zeigt Name, Wert und Typ. Tippen Sie auf die Zeile, um die <a href="#salary-deduction-editor">Abzugseinstellungen</a>zu öffnen. Das Papierkorbsymbol löscht die Zeile.</li>
+<li><strong>Abzug hinzufügen</strong> — die Schaltfläche „+“ erstellt eine neue Abzugszeile.</li>
+<li><strong>Abbrechen und Speichern</strong> — verwirft Änderungen oder speichert die gesamte Liste.</li>
+</ol>
+
+<h3 id="salary-deduction-editor">11.5. Einen einzelnen Abzug konfigurieren</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deduction_editor.webp" alt="Fenster für einen einzelnen Abzug mit Name, Wert, Typ und Abzugsgrundlage">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Name des Abzugs</strong> — geben Sie einen eindeutigen Namen wie „Steuer“, „Unterhalt“ oder „Strafe“ ein.</li>
+<li><strong>Wert</strong> — geben Sie abhängig vom unten ausgewählten Werttyp einen Betrag oder Prozentsatz ein.</li>
+<li><strong>Werttyp</strong> — wählen Sie einen festen Betrag oder Prozentsatz.</li>
+<li><strong>Abzugstyp</strong> — ein <strong>variabler</strong> Abzug gilt für einen bestimmten Berechnungszeitraum; ein <strong>wiederkehrender</strong> Abzug wird regelmäßig angewendet, solange er aktiviert bleibt.</li>
+<li><strong>Abziehen von</strong> — wählen Sie die Berechnungsgrundlage: Gesamtgehalt, Grundvergütung, Boni oder eine andere verfügbare Option.</li>
+<li><strong>Aktiviert</strong> — deaktiviert den Abzug vorübergehend, ohne seine Einstellungen zu löschen.</li>
+<li><strong>Abbrechen und Speichern</strong> — schließt das Fenster ohne Änderungen oder speichert den Abzug.</li>
+</ol>
+
+<div class="notice">Bei einem prozentualen Abzug ist die richtige Grundlage unter „Abziehen von“ besonders wichtig: Derselbe Prozentsatz von Gesamtgehalt, Grundvergütung und Boni führt zu unterschiedlichen Ergebnissen.</div>
+
+<h2 id="settings">12. Einstellungen</h2>
+
+<p>Öffnen Sie „Einstellungen“ über die Schaltfläche unten auf dem <a href="#main-overview">Hauptbildschirm</a>. Dieser Bereich enthält Systemberechtigungen, Erscheinungsbild und App-Sprache, Offline-Spracherkennung, Dokumente und Benutzerhandbuch, Sicherung, Diagnose sowie Kontaktmöglichkeiten zu den Entwicklern.</p>
+
+<h3 id="settings-overview">12.1. Hauptbereiche der Einstellungen</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_permissions_language.webp" alt="Oberer Bereich der ShiftAlarm-Einstellungen: Berechtigungen, Design, App-Sprache und Offline-Sprachmodelle">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Berechtigungen</strong> — öffnet Weckerberechtigungen und Zuverlässigkeitseinstellungen. Prüfen Sie Benachrichtigungen, exakte Alarme, Hintergrundaktivität und Akkueinschränkungen. <a href="#geo">Geo-Wecker</a> benötigen außerdem Standortzugriff; für die Auslösung bei geschlossener App ist Standortzugriff im Hintergrund oder „Immer zulassen“ erforderlich. Bezeichnungen und Pfade unterscheiden sich je nach Android-Version und Gerätehersteller.</li>
+<li><strong>Design</strong> — ermöglicht die Auswahl eines hellen, dunklen oder systemabhängigen Erscheinungsbilds, einer Farbvariante der Benutzeroberfläche sowie das Aktivieren oder Deaktivieren haptischer Rückmeldungen für Aktionen in der App. Das Systemdesign folgt dem aktuellen Erscheinungsbild des Telefons.</li>
+<li><strong>App-Sprache</strong> — ermöglicht die Verwendung einer anderen Sprache als der Systemsprache des Telefons. Der ShiftAlarm-Katalog enthält 108 Sprachen: Suchen Sie die gewünschte Sprache, laden Sie das Sprachpaket herunter und wenden Sie es an.</li>
+<li><strong>Offline-Sprachmodelle</strong> — installieren ein Modul für <a href="#notes-create">Sprache-zu-Text-Notizen</a>. Die Offline-Erkennung wird derzeit getestet und ist für ungefähr 20 Sprachen verfügbar. Ihre Qualität kann geringer als bei der Online-Erkennung sein und hängt von Sprache, Mikrofon, Telefonleistung und Aufnahmebedingungen ab.</li>
+</ol>
+
+<div class="warning"><strong>Android-Berechtigungen unterscheiden sich je nach Gerät.</strong> Auf einigen Telefonen müssen Sie zusätzlich Autostart erlauben, „Uneingeschränkt“ oder einen ähnlichen Akkumodus auswählen und Hintergrundaktivität zulassen. Diese Einstellungen verringern die Wahrscheinlichkeit, dass das System ShiftAlarm stoppt; ihre genauen Namen legt jedoch der Gerätehersteller fest.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_help_backup_diagnostics.webp" alt="Unterer Bereich der ShiftAlarm-Einstellungen: Dokumente, Benutzerhandbuch, Sicherung, Diagnose und Entwicklerkontakt">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Dokumente und Hilfe</strong> — öffnet die rechtlichen Dokumente der App: Nutzungsbedingungen, Datenschutzerklärung, Haftungsausschluss und die kurze Hilfeseite.</li>
+<li><strong>Einführung und Benutzerhandbuch</strong> — öffnet dieses vollständige illustrierte Handbuch mit detaillierten Beschreibungen der ShiftAlarm-Funktionen.</li>
+<li><strong>Sicherung und Wiederherstellung</strong> — erstellt eine Datei mit unterstützten App-Einstellungen und Daten oder stellt sie aus einer früheren Sicherung wieder her. Dies ist nützlich, bevor Sie die App neu installieren, das Telefon zurücksetzen oder Daten auf ein anderes Gerät übertragen. Siehe <a href="#backup">„Sicherung und Wiederherstellung“</a> für eine ausführliche Anleitung.</li>
+<li><strong>Diagnoseprotokoll</strong> — öffnet separate Protokolle für App-Funktionen. Sie zeichnen technische Schritte wie Planung und Wiederherstellung von Warnungen, Ereignisverarbeitung, Berechtigungsstatus und weitere Dienstinformationen auf. Ein Protokoll hilft, die Phase zu ermitteln, in der ein Fehler auftrat. Sie können Einträge kopieren oder für den Versand per E-Mail an die Entwickler vorbereiten. Siehe <a href="#diagnostics">„Diagnose und Fehlerbehebung“</a> für Einzelheiten.</li>
+<li><strong>Entwickler kontaktieren</strong> — öffnet die E-Mail-App und erstellt eine an den Support adressierte Nachricht. Verwenden Sie sie, um ein Problem zu melden, Feedback oder einen Vorschlag zu senden oder eine Frage zu stellen. Geben Sie bei einem technischen Problem nach Möglichkeit Telefonmodell, Android-Version, Zeitpunkt des Problems, durchgeführte Schritte und das betreffende Diagnoseprotokoll an.</li>
+</ol>
+
+<div class="notice">Diagnoseprotokolle werden nicht automatisch an die Entwickler gesendet. Sie müssen die benötigten Informationen kopieren oder auf „An Entwickler senden“ tippen, eine E-Mail-App auswählen, die vorbereitete Nachricht prüfen und den Versand bestätigen.</div>
+
+<h2 id="backup">13. Sicherung und Wiederherstellung</h2>
+
+<p>Eine Sicherung speichert unterstützte ShiftAlarm-Einstellungen und Benutzerdaten in einer separaten Datei. Sie hilft bei der Wiederherstellung nach einer Neuinstallation der App, dem Zurücksetzen des Telefons oder dem Wechsel auf ein anderes Gerät.</p>
+<ol class="step-list">
+<li>Öffnen Sie „Einstellungen → Sicherung und Wiederherstellung“.</li>
+<li>Erstellen Sie eine Sicherung und speichern Sie die resultierende Datei auf dem Telefon oder teilen Sie sie über das Systemmenü.</li>
+<li>Öffnen Sie zur Wiederherstellung denselben Bereich und wählen Sie eine zuvor erstellte Sicherungsdatei aus.</li>
+<li>Prüfen Sie nach der Wiederherstellung wichtige Wecker, Pläne und Android-Berechtigungen. Einige Sicherheitsberechtigungen des Systems müssen auf einem neuen Gerät oder nach einer Neuinstallation möglicherweise erneut erteilt werden.</li>
+</ol>
+<p class="tip">Bewahren Sie eine aktuelle Kopie an einem sicheren Ort auf, der auch zugänglich bleibt, wenn das Telefon verloren geht, beschädigt oder zurückgesetzt wird. Eine Sicherungsdatei ersetzt keine Android-Systemberechtigungen und kann Daten, auf die die App nicht zugreifen darf, nicht automatisch einschließen.</p>
+
+<h2 id="diagnostics">14. Diagnose und Fehlerbehebung</h2>
+
+<p>ShiftAlarm stellt für verschiedene Funktionen getrennte Diagnoseprotokolle bereit. Sie speichern eine Folge technischer Ereignisse und helfen festzustellen, ob eine Warnung geplant, nach einem Neustart wiederhergestellt, zur Verarbeitung weitergegeben oder aufgrund einer Systemeinstellung gestoppt wurde.</p>
+
+<h3 id="diagnostics-control">14.1. Diagnoseerfassung steuern</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_sections.webp" alt="ShiftAlarm-Diagnoseprotokollbildschirm mit Hauptschalter und einzelnem Weckerprotokoll">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Diagnose erfassen</strong> — der Hauptschalter für alle Diagnosebereiche der App. Deaktivieren Sie ihn, um das Hinzufügen neuer Ereignisse zu allen Protokollen gleichzeitig zu stoppen. Nach erneuter Aktivierung wird die Erfassung neuer Ereignisse fortgesetzt.</li>
+<li><strong>Protokoll einer einzelnen Funktion</strong> — jedes Modul besitzt einen eigenen Schalter und eine Schaltfläche „Öffnen“. Sie können beispielsweise die globale Diagnose aktiviert lassen und nur das Protokoll für Wecker, Uhr oder eine andere Funktion deaktivieren. Der Screenshot zeigt das Weckerprotokoll, das Zustellung, Planung, Wiederherstellung, Schutzmechanismen und Ereignisse des Weckerbildschirms aufzeichnet.</li>
+</ol>
+
+<div class="notice">Die Schalter steuern nur die Aufzeichnung technischer Ereignisse. Das Deaktivieren des Protokolls für Wecker, Uhr oder eine andere Funktion deaktiviert nicht die Funktion selbst. Löschen Sie zuvor gespeicherte Einträge separat über die Schaltfläche „Leeren“ im jeweiligen Protokoll.</div>
+
+<h3 id="diagnostics-log">14.2. Protokoll einer einzelnen Funktion</h3>
+
+<p>Tippen Sie im gewünschten Diagnosebereich auf „Öffnen“. Das folgende Beispiel zeigt das Weckerprotokoll; Protokolle anderer Funktionen arbeiten ähnlich.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_alarm_log.webp" alt="ShiftAlarm-Diagnoseprotokoll für Wecker mit Ereignisanzahl, Aktionen und technischen Einträgen">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Gespeicherte Ereignisse</strong> — zeigt die Anzahl der derzeit im ausgewählten Protokoll gespeicherten Einträge.</li>
+<li><strong>Protokollaktionen</strong>:
+<ul>
+<li><strong>Kopieren</strong> — kopiert alle Daten aus dem aktuellen Protokoll in die Zwischenablage. Sie können sie in eine E-Mail oder eine andere App einfügen.</li>
+<li><strong>Leeren</strong> — löscht die gespeicherten Einträge in diesem Protokoll. Danach erscheinen nur Ereignisse, die später bei aktivierter Diagnose aufgezeichnet werden.</li>
+<li><strong>An Entwickler senden</strong> — öffnet die App-Auswahl zum Senden einer E-Mail. Wählen Sie eine E-Mail-App; Entwickleradresse und Diagnosedaten werden automatisch eingefügt. Fügen Sie vor dem Senden eine Problembeschreibung hinzu, prüfen Sie die Nachricht und bestätigen Sie anschließend den Versand.</li>
+</ul>
+</li>
+<li><strong>App-Ereignisse</strong> — die eigentlichen Protokolleinträge. Ein Eintrag enthält normalerweise Datum und Uhrzeit, einen technischen Ereignisnamen und zusätzliche Parameter wie Kennung, Status oder Grund. Technische Namen können auf Englisch erscheinen; bearbeiten oder übersetzen Sie sie vor dem Senden nicht.</li>
+</ol>
+
+<div class="warning">Kopieren oder senden Sie vor dem Leeren eines Protokolls alle benötigten Einträge. Gelöschte Diagnoseereignisse können nicht wiederhergestellt werden.</div>
+
+<div class="tip">Wenn sich das Problem reproduzieren lässt, aktivieren Sie zuerst die globale Diagnoseerfassung und das betreffende Funktionsprotokoll und wiederholen Sie dann die Aktionen, die das Problem verursacht haben. Geben Sie in Ihrer Nachricht den genauen Zeitpunkt des Problems, Telefonmodell, Android-Version, erwartetes und tatsächliches Ergebnis an. So lässt sich Ihre Beschreibung den Protokollereignissen zuordnen.</div>
+
+<h2 id="faq">15. Häufig gestellte Fragen</h2>
+
+<h3>Der Wecker wurde nicht rechtzeitig ausgelöst</h3>
+<p>Prüfen Sie Benachrichtigungen, die Berechtigung für exakte Alarme, Hintergrundaktivität und Akkueinschränkungen.</p>
+<h3>Der Geo-Wecker wurde zu spät ausgelöst</h3>
+<p>Prüfen Sie genauen Standort und Standortzugriff im Hintergrund, Akkueinschränkungen und App-Autostart. Versuchen Sie einen Radius von 1.300–1.500 m in einer Stadt und 4.000–5.000 m außerhalb einer Stadt. Die tatsächliche Auslösung erfolgt möglicherweise nicht genau auf der Radiuslinie.</p>
+<h3>Das Widget wurde nicht sofort aktualisiert</h3>
+<p>Öffnen Sie die App oder tippen Sie auf die Aktualisierungsschaltfläche des Widgets. Android kann häufige Widget-Aktualisierungen einschränken.</p>
+<h3>Ich habe die Sprache geändert, aber ein Dokument oder das Handbuch wurde noch nicht aktualisiert</h3>
+<p>Prüfen Sie Ihre Internetverbindung und warten Sie, bis der Download abgeschlossen ist. Ist die Remote-Version nicht verfügbar, verwendet die App die integrierte Ausweichversion.</p>
+
+<div class="footer small">Das Handbuch kann über GitHub aktualisiert werden. Ist die Remote-Version nicht verfügbar, verwendet die App die integrierte Offline-Version.</div>
+</main>
+</body>
+</html>

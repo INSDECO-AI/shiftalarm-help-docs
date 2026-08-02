@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guida utente di ShiftAlarm</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #64748b;
+  --accent: #2563eb;
+  --soft: #e8eef8;
+  --border: #dbe4f0;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.58;
+  margin: 0;
+  padding: 18px;
+  color: var(--text);
+  background: var(--bg);
+}
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+h1 { margin: 0 0 8px; font-size: 28px; line-height: 1.2; }
+h2 { margin: 32px 0 10px; font-size: 21px; line-height: 1.25; }
+h3 { margin: 22px 0 8px; font-size: 17px; }
+p, li { font-size: 16px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul, ol { padding-left: 22px; }
+.notice, .tip, .warning {
+  padding: 14px 16px;
+  border-radius: 16px;
+  margin: 14px 0;
+  border: 1px solid var(--border);
+}
+.notice { background: var(--soft); }
+.tip { background: #ecfdf5; }
+.warning { background: #fff7ed; }
+.small { color: var(--muted); font-size: 14px; }
+.toc {
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 16px;
+  margin: 18px 0 24px;
+}
+.toc ol { margin: 8px 0 0; }
+.step-list li { margin-bottom: 8px; }
+.guide-figure {
+  margin: 18px 0;
+}
+.guide-image {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+}
+.callout-list li {
+  margin-bottom: 10px;
+}
+.guide-caption {
+  max-width: 520px;
+  margin: 10px auto 0;
+  color: var(--text);
+  font-size: 15px;
+}
+.guide-caption strong {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.footer {
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --card: #111827;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --accent: #93c5fd;
+    --soft: #1f2937;
+    --border: #334155;
+  }
+  main { box-shadow: none; }
+  .toc { background: #172033; }
+  .tip { background: #10251f; }
+  .warning { background: #2a1d10; }
+}
+</style>
+</head>
+<body>
+<main>
+<h1>Guida utente di ShiftAlarm</h1>
+<p class="small">Versione 14. Data: 02.08.2026.</p>
+<div class="notice">Questa pagina è una guida pratica a ShiftAlarm. Spiega a cosa serve ogni funzione principale, dove trovarla, cosa toccare e cosa verificare se una funzione non opera come previsto.</div>
+<nav class="toc">
+<strong>Indice</strong>
+<ol><li><a href="#start">1. Primo avvio</a></li><li><a href="#permissions">2. Autorizzazioni e affidabilità</a></li><li><a href="#main">3. Schermata principale</a></li><li><a href="#shifts">4. Turnazioni</a></li><li><a href="#statistics">5. Statistiche della turnazione</a></li><li><a href="#alarms">6. Sveglie</a></li><li><a href="#geo">7. Sveglie geolocalizzate</a></li><li><a href="#notes">8. Note, eventi e promemoria</a></li><li><a href="#clock">9. Orologio, timer e cronometro</a></li><li><a href="#widgets">10. Widget</a></li><li><a href="#salary">11. Calcolo dello stipendio</a></li><li><a href="#settings">12. Impostazioni</a></li><li><a href="#backup">13. Backup e ripristino</a></li><li><a href="#diagnostics">14. Diagnostica e risoluzione dei problemi</a></li><li><a href="#faq">15. Domande frequenti</a></li></ol>
+</nav>
+<h2 id="start">1. Primo avvio</h2>
+
+<p>Al primo avvio, ShiftAlarm mostra una breve procedura di configurazione. La schermata principale è già disponibile in background, ma è consigliabile completare prima la configurazione di base.</p>
+<ol class="step-list">
+<li>Leggi le informazioni introduttive e tocca «Continua».</li>
+<li>Nel passaggio relativo ai documenti, aprili o accetta quelli richiesti quando sei pronto a proseguire.</li>
+<li>Nel passaggio relativo alle autorizzazioni, apri la schermata corrispondente e verifica notifiche, sveglie esatte, accesso alla posizione e restrizioni della batteria.</li>
+<li>Tocca «Termina configurazione».</li>
+</ol>
+<p class="tip">Puoi configurare le autorizzazioni in seguito in «Impostazioni → Autorizzazioni e affidabilità».</p>
+
+<h2 id="permissions">2. Autorizzazioni e affidabilità</h2>
+
+<p>Sveglie, promemoria e sveglie geolocalizzate dipendono dalle impostazioni di Android e dal software del produttore del dispositivo.</p>
+<ul>
+<li><strong>Notifiche</strong> — necessarie per sveglie, promemoria, timer e notifiche di servizio.</li>
+<li><strong>Sveglie esatte</strong> — aiutano la sveglia ad avviarsi all’ora prevista.</li>
+<li><strong>Posizione</strong> — necessaria per le sveglie geolocalizzate.</li>
+<li><strong>Posizione in background</strong> — necessaria affinché una sveglia geolocalizzata funzioni mentre l’app è chiusa.</li>
+<li><strong>Batteria e attività in background</strong> — possono influire sull’affidabilità dell’attivazione sui dispositivi Xiaomi/Redmi e su alcuni altri dispositivi.</li>
+</ul>
+<p class="warning">Android non garantisce sempre la consegna immediata di notifiche, sveglie esatte o eventi di geofencing. Per gli avvisi importanti, verifica ogni voce nella schermata delle autorizzazioni.</p>
+
+<h2 id="main">3. Schermata principale</h2>
+
+<p>La schermata principale è il tuo pannello quotidiano. Offre accesso diretto a calendario, orologio, sveglie geolocalizzate, sveglie normali, turnazioni, note e impostazioni.</p>
+
+<h3 id="main-overview">3.1. Elementi della schermata principale</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_screen_overview.png" alt="Schermata principale di ShiftAlarm con comandi numerati">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Freccia indietro</strong> — sposta il calendario al mese precedente.</li>
+<li><strong>Mese e anno</strong> — mostra il mese aperto. Tocca quest’area per usare il <a href="#main-date-picker">selettore guidato di mese e anno</a>.</li>
+<li><strong>Freccia avanti</strong> — sposta il calendario al mese successivo.</li>
+<li><strong>Calendario</strong> — l’area principale del mese. Puoi scorrere il calendario. Ogni giorno può mostrare data, promemoria, eventi, turno programmato e modifiche della giornata. Un tocco seleziona una data; una pressione prolungata apre le <a href="#main-day-actions">informazioni e azioni per il giorno selezionato</a>.</li>
+<li><strong>Oggi</strong> — riporta il calendario al giorno corrente.</li>
+<li><strong>Orologio</strong> — apre <a href="#clock">orologio mondiale, cronometro e timer</a>.</li>
+<li><strong>Sveglia geolocalizzata</strong> — apre <a href="#geo">mappa, luoghi salvati e impostazioni delle sveglie geolocalizzate</a>. Un avviso può attivarsi quando entri nell’area selezionata, quando ne esci o in entrambi i casi.</li>
+<li><strong>Sveglia</strong> — apre le <a href="#alarms">sveglie singole, ripetute e collegate ai turni</a>.</li>
+<li><strong>Turnazione</strong> — apre <a href="#shifts">turnazioni, creazione e modifica, nonché statistiche</a>.</li>
+<li><strong>Note</strong> — apre <a href="#notes">note, eventi, promemoria, note audio e conversione da voce a testo</a>.</li>
+<li><strong>Impostazioni</strong> — apre <a href="#settings">autorizzazioni, lingua, tema, modelli vocali offline, backup, diagnostica, documenti e formazione</a>.</li>
+</ol>
+
+
+<h3 id="main-date-picker">3.2. Selezionare mese e anno</h3>
+
+<p>Tocca il mese e l’anno nella parte superiore della schermata principale per aprire rapidamente il periodo desiderato del calendario. La selezione procede per fasi: <strong>secolo → decennio → anno → mese</strong>.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_century.webp" alt="Passaggio 1: selezione di un secolo nel calendario di ShiftAlarm">
+<figcaption class="guide-caption"><strong>1. Seleziona un secolo.</strong> Tocca il periodo che contiene l’anno desiderato. Nell’esempio vengono selezionati gli anni 2000.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_decade.webp" alt="Passaggio 2: selezione di un decennio nel calendario di ShiftAlarm">
+<figcaption class="guide-caption"><strong>2. Seleziona un decennio.</strong> Tocca l’intervallo che contiene l’anno desiderato. Per il 2026, seleziona «2020–2029».</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_year.webp" alt="Passaggio 3: selezione di un anno nel calendario di ShiftAlarm">
+<figcaption class="guide-caption"><strong>3. Seleziona un anno.</strong> Tocca l’anno desiderato. Nell’esempio viene selezionato il 2026.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_month.webp" alt="Passaggio 4: selezione di un mese nel calendario di ShiftAlarm">
+<figcaption class="guide-caption"><strong>4. Seleziona un mese.</strong> Tocca il mese desiderato. Nell’esempio viene selezionato luglio.</figcaption>
+</figure>
+
+<div class="tip">Dopo aver selezionato un mese, il pannello si chiude e il calendario principale si apre sul mese e sull’anno scelti.</div>
+<div class="notice">Il pulsante «Indietro» torna alla fase precedente. Nella schermata del secolo chiude il selettore della data.</div>
+
+<h3 id="main-day-actions">3.3. Informazioni e azioni per un giorno selezionato</h3>
+
+<p>Tocca e tieni premuto il giorno desiderato nel calendario. Si apre un pannello con informazioni e azioni per quella data. Trascina il pannello verso l’alto per vedere tutte le azioni disponibili.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_day_actions.webp" alt="Pannello di ShiftAlarm con informazioni e azioni per un giorno del calendario selezionato">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Data</strong> — mostra il giorno della settimana e la data selezionata. Trascina la maniglia superiore verso l’alto o il basso per espandere o chiudere il pannello.</li>
+<li><strong>Turno</strong> — mostra il turno calcolato o una modifica della giornata, ad esempio riposo, permesso, ferie, malattia o un’altra eccezione.</li>
+<li><strong>Sveglie per questa data</strong> — mostra le sveglie assegnate al giorno selezionato o segnala che non ne esistono.</li>
+<li><strong>Eventi e promemoria</strong> — mostra le voci collegate alla data selezionata.</li>
+<li><strong>Aggiungi sveglia</strong> — apre la creazione di una sveglia singola per la data selezionata.</li>
+<li><strong>Modifica turno</strong> — crea un’eccezione per un giorno o un intervallo di date nella turnazione attiva.</li>
+<li><strong>Aggiungi nota</strong> — consente di scegliere un evento o un promemoria da creare per la data selezionata.</li>
+</ol>
+
+<div class="notice">L’azione «Modifica turno» consente di regolare i giorni nella turnazione attiva.</div>
+
+<h4 id="main-shift-override">Modificare un giorno o un intervallo di date</h4>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_types.webp" alt="Selezione di un intervallo di date e del tipo di modifica del turno in ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Data iniziale</strong> — il primo giorno della modifica. Inizialmente usa la data selezionata nel calendario.</li>
+<li><strong>Data finale</strong> — l’ultimo giorno della modifica. Per modificare un solo giorno, lascia selezionata la stessa data.</li>
+<li><strong>Permesso</strong> — sostituisce il turno calcolato con un permesso.</li>
+<li><strong>Ferie</strong> — contrassegna il giorno o l’intervallo selezionato come ferie.</li>
+<li><strong>Malattia</strong> — contrassegna il giorno o l’intervallo selezionato come malattia.</li>
+<li><strong>Salva modifica</strong> — applica al calendario l’eccezione selezionata.</li>
+</ol>
+
+<h4 id="main-shift-time-adjustment">Regolare l’orario di lavoro</h4>
+
+<p>Scorri l’elenco dei tipi di modifica e seleziona «Modifica turno» per cambiare la durata del turno di lavoro calcolato.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_time_adjustment.webp" alt="Regolazione dell’orario di lavoro di un turno in ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Modifica turno</strong> — abilita la regolazione dell’orario di lavoro per il turno selezionato.</li>
+<li><strong>+ tempo</strong> — aggiunge ore o minuti alla durata standard del turno.</li>
+<li><strong>− tempo</strong> — riduce la durata del turno, ad esempio quando il lavoro è terminato prima.</li>
+<li><strong>Conta questo tempo come straordinario</strong> — considera il tempo aggiunto come straordinario. Se l’opzione è disattivata, viene conteggiato come orario di lavoro normale.</li>
+<li><strong>Salva modifica</strong> — applica la regolazione al giorno o all’intervallo selezionato.</li>
+</ol>
+
+<div class="tip">La modifica di una giornata non cambia il modello di turnazione originale. Viene memorizzata come eccezione separata e inclusa nel calendario, nelle statistiche, nel calcolo dello stipendio e nei report.</div>
+
+<h2 id="shifts">4. Turnazioni</h2>
+
+<p>Una turnazione definisce un ciclo di lavoro ripetitivo e costituisce la base per le altre funzioni di ShiftAlarm. L’app la usa per compilare il calendario, collegare le sveglie ai turni, conteggiare l’orario di lavoro, generare statistiche, stimare lo stipendio e preparare report.</p>
+
+<div class="notice"><strong>Principio di base.</strong> Crea innanzitutto la turnazione ripetitiva di base. Aggiungi ferie, malattia, permesso, un turno sostitutivo singolo o una regolazione dell’orario di lavoro come eccezione per date specifiche tramite le <a href="#main-day-actions">azioni del giorno selezionato</a>. In questo modo il ciclo originale resta invariato.</div>
+
+<h3 id="shifts-list">4.1. Elenco e comandi delle turnazioni</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedules_overview.webp" alt="Schermata delle turnazioni di ShiftAlarm con scheda della turnazione attiva e comandi numerati">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Dettagli della turnazione</strong> — nome, data iniziale, durata del ciclo e una breve sequenza di giorni. Nell’esempio, «D · D · O · O» indica due turni diurni seguiti da due giorni di riposo.</li>
+<li><strong>Interruttore</strong> — disattiva temporaneamente la turnazione senza eliminarla. Quando la riattivi, le impostazioni salvate continuano ad applicarsi.</li>
+<li><strong>Stato della turnazione</strong> — indica quale turnazione è attualmente attiva.</li>
+<li><strong>Modifica</strong> — apre i parametri modificabili. Dopo la configurazione iniziale, una parte della base della turnazione viene bloccata per impedire il ricalcolo accidentale dei dati del calendario già creati.</li>
+<li><strong>Elimina</strong> — elimina la turnazione dopo la conferma. Prima di eliminarla, verifica eventuali sveglie collegate ai turni e i calcoli.</li>
+<li><strong>Apri statistiche</strong> — apre le <a href="#statistics">statistiche su orario di lavoro, periodo, stipendio e report</a>di questa turnazione.</li>
+<li><strong>Crea turnazione</strong> — consente di selezionare un modello pronto o creare un ciclo personalizzato.</li>
+</ol>
+
+<h3 id="shifts-create">4.2. Avviare la creazione di una turnazione</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_create.webp" alt="Pannello di creazione della turnazione con nome, data iniziale, modelli e turnazione personalizzata">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Nome turnazione</strong> — inserisci un nome chiaro, ad esempio «Principale 2/2», «Turno notturno» o il nome del luogo di lavoro.</li>
+<li><strong>Data iniziale</strong> — la data che corrisponde al <strong>primo giorno del ciclo ripetitivo</strong>. Puoi selezionare una data passata o futura; l’app calcola la turnazione in avanti e indietro a partire da tale data.</li>
+<li><strong>Modelli</strong> — comuni sequenze di turni pronte all’uso. L’esempio usa il modello «2/2 giorno».</li>
+<li><strong>Turnazione personalizzata</strong> — crea una sequenza personalizzata di giorni lavorativi e di riposo.</li>
+<li><strong>Crea turnazione</strong> — apre l’editor dettagliato per l’opzione selezionata.</li>
+</ol>
+
+<div class="tip">Per il modello «D · D · O · O», la data iniziale è normalmente il primo dei due giorni lavorativi. In un ciclo personalizzato, anche il giorno 1 può essere di riposo; l’importante è che la data selezionata corrisponda esattamente al giorno 1 della sequenza creata.</div>
+
+<h3 id="shifts-template">4.3. Creare una turnazione da un modello</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_template.webp" alt="Editor della turnazione da modello con nome, sequenza, data iniziale e orario del turno">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Nome turnazione</strong> — mantieni il nome suggerito o sostituiscilo con uno personalizzato.</li>
+<li><strong>Modello</strong> — mostra la sequenza di lettere e il relativo significato. Nell’esempio, «D · D · O · O» significa turno diurno, turno diurno, giorno di riposo, giorno di riposo.</li>
+<li><strong>Data iniziale</strong> — seleziona la data del primo giorno nella sequenza visualizzata.</li>
+<li><strong>Orario del turno</strong> — specifica l’ora di inizio e di fine per ogni tipo di turno lavorativo. L’app mostra la durata calcolata.</li>
+<li><strong>Annulla</strong> — chiude l’editor senza salvare.</li>
+<li><strong>Salva</strong> — salva la turnazione e inizia a calcolare i turni nel calendario.</li>
+</ol>
+
+<div class="warning"><strong>Dopo il primo salvataggio.</strong> La data iniziale e la struttura del ciclo vengono bloccate per proteggere i dati del calendario già calcolati. Puoi comunque modificare il nome e alcuni parametri di lavoro. Se ti serve un ciclo di base o una data di riferimento diversi, è più sicuro creare una nuova turnazione.</div>
+
+<h3 id="shifts-custom">4.4. Creare un ciclo personalizzato</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_custom.webp" alt="Editor della turnazione personalizzata con durata del ciclo, comandi dei giorni, data iniziale e impostazioni per ogni giorno">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Nome turnazione</strong> — assegna un nome alla sequenza personalizzata.</li>
+<li><strong>Durata del ciclo</strong> — mostra il numero di giorni inclusi nella sequenza ripetitiva.</li>
+<li><strong>Rimuovi giorno</strong> — accorcia il ciclo di un giorno.</li>
+<li><strong>Aggiungi giorno</strong> — aggiunge un altro giorno configurabile alla fine del ciclo.</li>
+<li><strong>Data iniziale</strong> — la data che corrisponde al giorno 1 del ciclo personalizzato.</li>
+<li><strong>Impostazioni del giorno</strong> — tocca la scheda «Tipo di turno» e seleziona un giorno di riposo o il tipo di lavoro desiderato: giorno, notte, mattina, sera, 24 ore o turno personalizzato. Per un giorno lavorativo, specifica l’ora di inizio e fine. Configura allo stesso modo gli altri giorni del ciclo più in basso nella schermata.</li>
+<li><strong>Annulla</strong> — chiude l’editor senza salvare.</li>
+<li><strong>Salva</strong> — salva il ciclo personalizzato e lo calcola nel calendario.</li>
+</ol>
+
+<div class="notice"><strong>Che cos’è un ciclo?</strong> Un ciclo è il numero di giorni dopo il quale la sequenza ricomincia. Ad esempio, un ciclo di quattro giorni può essere «2 giorni lavorativi + 2 giorni di riposo», mentre uno di sei giorni può essere «3 giorni lavorativi + 3 giorni di riposo». Dopo l’ultimo giorno, l’app torna al giorno 1.</div>
+
+<div class="tip">Non modificare il ciclo di base per un’eccezione singola alla turnazione. Tieni premuta una data del calendario e crea un giorno di riposo, ferie, malattia, un turno sostitutivo o una regolazione dell’orario.</div>
+
+
+
+<span id="shift-statistics"></span>
+<h2 id="statistics">5. Statistiche della turnazione</h2>
+
+<p>Apri «Statistiche» dalla scheda di una turnazione usando il pulsante <strong>«Apri statistiche»</strong> . Questa sezione riunisce informazioni su giorni lavorativi e di riposo, modifiche della turnazione, orario di lavoro previsto ed effettivo, stipendio stimato e report.</p>
+
+<div class="notice"><strong>Importante:</strong> le statistiche vengono calcolate soltanto per la turnazione selezionata. Il periodo scelto si applica a tutti i valori relativi a orario di lavoro, stipendio e report riportati sotto.</div>
+
+<h3 id="statistics-period">5.1. Turnazione, periodo e riepilogo dei giorni</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_period_overview.webp" alt="Schermata delle statistiche con informazioni sulla turnazione, selezione del periodo e totali dei giorni">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Informazioni sulla turnazione</strong> — mostrano il nome della turnazione selezionata, la data iniziale del primo ciclo e la durata del ciclo ripetitivo. Le statistiche in questa schermata si applicano soltanto a questa turnazione.</li>
+<li><strong>Scheda del periodo selezionato</strong> — mostra il periodo in uso. Toccala o tocca la freccia a destra per selezionare il mese corrente, precedente o successivo, l’anno corrente o un intervallo di date personalizzato.</li>
+<li><strong>Riepilogo dei giorni</strong> — mostra il numero di giorni nel periodo, i turni lavorativi, i giorni di riposo, i turni completati e futuri e i giorni modificati. I giorni modificati sono eccezioni al ciclo di base: ferie, malattia, permesso, turno sostitutivo o spostato, regolazione dell’orario di lavoro e altre modifiche.</li>
+</ol>
+
+<div class="warning"><strong>I periodi futuri sono previsioni.</strong> Per un mese futuro, l’app usa la turnazione creata e i dati già inseriti, ma non può conoscere future malattie, ferie, permessi, ore di straordinario, bonus o trattenute. Se selezioni l’anno corrente, i totali possono combinare i dati effettivi delle date passate con una previsione per il resto dell’anno.</div>
+
+<h3 id="statistics-work">5.2. Orario di lavoro, stipendio e report</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_work_salary_reports.webp" alt="Schermata delle statistiche con orario di lavoro, avanzamento, stipendio e accesso ai report">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Orario di lavoro</strong> — scheda riepilogativa di ore e avanzamento. Toccala per aprire le <a href="#statistics-break">impostazioni del tempo di pausa</a>.</li>
+<li><strong>Ore previste</strong> — durata totale dei turni e delle modifiche programmati nel periodo selezionato.</li>
+<li><strong>Ore lavorate</strong> — il tempo nei turni considerati completati alla data corrente, con le impostazioni delle pause applicate.</li>
+<li><strong>Avanzamento</strong> — mostra quanti turni lavorativi sono stati completati sul totale e quale percentuale del periodo selezionato è trascorsa.</li>
+<li><strong>Stipendio</strong> — apre le <a href="#salary">impostazioni per il calcolo dello stipendio</a>. La scheda mostra una stima per la turnazione e il periodo selezionati.</li>
+<li><strong>Totale</strong> — l’importo stimato guadagnato finora, comprensivo del metodo di pagamento scelto, bonus, straordinari e trattenute.</li>
+<li><strong>Tariffa o stipendio</strong> — il contenuto della scheda dipende dal metodo di calcolo selezionato: pagamento per ora, per turno o per mese. Mostra il valore inserito nelle impostazioni dello stipendio.</li>
+<li><strong>Dettagli del calcolo</strong> — tempo retribuito, ore di straordinario, bonus e trattenute per il periodo selezionato.</li>
+<li><strong>Report</strong> — apre <a href="#reports">report dettagliati su periodi, orario di lavoro e stipendio</a>.</li>
+</ol>
+
+<div class="tip">Tutti i valori nelle sezioni dell’orario di lavoro e dello stipendio vengono ricalcolati quando cambi il periodo nella scheda superiore.</div>
+
+<h3 id="statistics-break">5.3. Conteggiare le pause nell’orario di lavoro</h3>
+
+<p>Tocca la scheda «Orario di lavoro» per specificare se una pausa pranzo o un’altra pausa debba essere inclusa nel tempo effettivamente lavorato e retribuito.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_break_settings.webp" alt="Pannello delle impostazioni per il conteggio e la durata delle pause">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Totali attuali</strong> — mostrano le ore previste e lavorate per il periodo selezionato prima che vengano applicate le nuove impostazioni.</li>
+<li><strong>Conta la pausa come orario di lavoro</strong> — lascia attiva questa opzione se la pausa è retribuita e inclusa nella durata del turno. Disattivala se il tempo specificato deve essere escluso dal tempo lavorato e retribuito.</li>
+<li><strong>Durata della pausa</strong> — seleziona ore e minuti per una pausa. Questa impostazione viene usata nel ricalcolo dei turni lavorativi interessati.</li>
+<li><strong>Pausa totale</strong> — mostra la durata selezionata prima del salvataggio.</li>
+<li><strong>Salva</strong> — applica l’impostazione e ricalcola l’orario di lavoro e i valori correlati.</li>
+</ol>
+
+<div class="notice">Una pausa può rappresentare la pausa pranzo, il passaggio di consegne o un altro intervallo non retribuito all’interno del turno. Inserisci la durata che corrisponde alle regole del tuo luogo di lavoro.</div>
+
+<h3 id="reports">5.4. Report: periodo, stato e riepilogo</h3>
+
+<p>Apri «Report» dalla scheda inferiore nella schermata delle statistiche. Questa sezione fornisce informazioni più dettagliate per il periodo selezionato: orario di lavoro, turni e assenze, regolazioni del calendario, stipendio, bonus, trattenute, confronto dei periodi, dettagli giorno per giorno ed esportazione.</p>
+
+<div class="warning"><strong>I report vengono forniti esclusivamente a scopo informativo.</strong> I calcoli si basano sulla turnazione selezionata, sulle impostazioni dello stipendio, sul conteggio delle pause e sulle modifiche ai turni nel calendario. I dati effettivi del datore di lavoro possono differire a causa di un diverso sistema di rilevazione delle presenze, arrotondamenti, imposte, indennità o regole interne. Se trovi un errore o un metodo di calcolo non supportato, contatta gli sviluppatori all’indirizzo indicato nell’app e includi i dati inseriti e il risultato previsto.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_period_salary.webp" alt="Schermata dei report con selezione del periodo, stato, riepilogo e dettaglio dello stipendio">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Periodo del report</strong> — tocca la scheda per selezionare il mese corrente, precedente o successivo, un intervallo predefinito o date personalizzate. Tutte le informazioni sottostanti si applicano al periodo selezionato.</li>
+<li><strong>Stato del periodo</strong> — mostra se il periodo è completato, attualmente attivo o non ancora iniziato. Un periodo completato viene calcolato dai dati effettivi salvati. Un periodo attivo combina i dati già lavorati con il piano corrente, mentre un periodo futuro è una previsione.</li>
+<li><strong>Riepilogo</strong> — riepilogo testuale del tempo effettivamente lavorato, dell’importo calcolato e dello straordinario.</li>
+<li><strong>Stipendio</strong> — dettaglio di paga base, retribuzione degli straordinari, bonus, trattenute e stima finale. I valori dipendono dalle <a href="#salary">impostazioni dello stipendio</a> e dal periodo selezionato.</li>
+</ol>
+
+<h3 id="reports-work">5.5. Orario di lavoro, assenze e giorni</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_work_absences.webp" alt="Schermata dei report con orario di lavoro, pause, turni completati e assenze">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Orario di lavoro</strong> — mostra le ore previste ed effettivamente lavorate, le ore previste ed effettive prima della detrazione delle pause, il numero di turni completati, la durata media del turno e la pausa totale detratta. Configura le pause nella <a href="#statistics-break">sezione dell’orario di lavoro</a>.</li>
+<li><strong>Assenze e giorni</strong> — mostra il numero di giorni di riposo, ferie, malattia, permesso e giorni modificati nel periodo selezionato.</li>
+</ol>
+
+<h3 id="reports-charts">5.6. Regolazioni e grafici</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_corrections_charts.webp" alt="Schermata dei report con regolazioni, composizione dello stipendio e valori dell’orario di lavoro">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Regolazioni</strong> — mostrano le ore di straordinario, la variazione totale della durata dei turni e il numero di giorni modificati rispetto alla turnazione di base.</li>
+<li><strong>Grafici</strong> — rappresentano la composizione dello stipendio e dell’orario di lavoro: paga base, straordinari, bonus, trattenute, totale e ore previste, lavorate e retribuite.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_charts_days.webp" alt="Grafici aggiuntivi del report con ore e grafico a torta dei tipi di giornata">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ore</strong> — proseguono il confronto visivo tra ore previste, lavorate, retribuite e di straordinario. La riga «Orario di lavoro effettivo» mostra il risultato dopo l’applicazione delle impostazioni e delle regolazioni.</li>
+<li><strong>Tipi di giornata</strong> — grafico a torta che distribuisce i giorni del periodo selezionato per tipo. La legenda dipende dalla turnazione e dalle modifiche effettive: turni diurni, notturni o altri, giorni di riposo, ferie, malattia, permessi e altri stati.</li>
+</ol>
+
+<h3 id="reports-comparison">5.7. Confrontare i periodi</h3>
+
+<p>La sezione di confronto aiuta a confrontare stipendio, tempo, turni e assenze tra più periodi. Il numero di periodi disponibili dipende dai dati salvati.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_chart.webp" alt="Schermata di confronto dei periodi con selezione dell’intervallo, grafico dello stipendio e inizio della tabella di confronto">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Confronta periodi</strong> — tocca la scheda per scegliere quanti periodi confrontare e il relativo intervallo.</li>
+<li><strong>Grafico ed elenco dei periodi</strong> — mostrano lo stipendio per ogni periodo ed elencano gli intervalli inclusi nel confronto insieme al loro stato.</li>
+<li><strong>Tabella di confronto</strong> — contiene valori dettagliati per ogni periodo. Fai scorrere la tabella orizzontalmente verso sinistra o destra per visualizzare le colonne rimanenti.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_table.webp" alt="Proseguimento della tabella di confronto e differenze tra periodi adiacenti">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Valori dei periodi</strong> — stipendio totale, ore lavorate e retribuite, straordinari, bonus, trattenute, turni completati, assenze e giorni modificati.</li>
+<li><strong>Differenza tra i periodi</strong> — mostra in che modo ciascun periodo differisce dal precedente. I valori positivi e negativi indicano un aumento o una diminuzione della metrica corrispondente. Il colore da solo non indica sempre un vantaggio o un problema; ad esempio, un aumento delle trattenute significa che viene trattenuto un importo maggiore.</li>
+</ol>
+
+<h3 id="reports-details-export">5.8. Dettagli giornalieri ed esportazione</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_details_export.webp" alt="Schede dei report per dettagli giornalieri ed esportazione in PDF, HTML, JSON o CSV">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Dettagli giornalieri</strong> — aprono un elenco di ogni giorno nel periodo selezionato. Per un giorno specifico puoi verificare tipo di turno, orario previsto ed effettivo, regolazioni delle ore, assenze e altre modifiche.</li>
+<li><strong>Esporta</strong> — salva il report come PDF, HTML, JSON o CSV. Seleziona il periodo del report prima di esportare; potrai poi stampare, salvare o condividere il file tramite il menu di sistema di Android.</li>
+</ol>
+
+<div class="tip">Prima di confrontare o esportare, verifica il periodo selezionato, la turnazione, le modifiche ai turni, le pause e le impostazioni dello stipendio. Un errore nei dati di origine inciderà su tutti i totali del report.</div>
+
+<h2 id="alarms">6. Sveglie</h2>
+
+<p>ShiftAlarm consente di creare sveglie singole, ripeterle in determinati giorni della settimana o collegarne l’ora a una turnazione.</p>
+
+<h3 id="alarms-list">6.1. Elenco delle sveglie</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarms_overview.webp" alt="Schermata delle sveglie ShiftAlarm con prossimo avviso, ordinamento, scheda della sveglia e pulsante di aggiunta">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Prossima sveglia</strong> — mostra la data e l’ora del prossimo avviso attivo.</li>
+<li><strong>Ordinamento delle sveglie</strong> — modifica l’ordine delle schede delle sveglie, ad esempio mostrando prima quelle abilitate.</li>
+<li><strong>Scheda della sveglia</strong> — contiene ora, data o modalità di ripetizione, tipo di programmazione e tempo rimanente. Tocca la scheda per modificarla.</li>
+<li><strong>Interruttore</strong> — abilita o disabilita temporaneamente la sveglia senza eliminarne le impostazioni.</li>
+<li><strong>Elimina</strong> — elimina la sveglia selezionata.</li>
+<li><strong>Aggiungi sveglia</strong> — apre la schermata per creare una nuova sveglia.</li>
+</ol>
+
+<h3 id="alarms-create">6.2. Creare e modificare una sveglia</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_time_schedule.webp" alt="Parte superiore dell’editor della sveglia ShiftAlarm: ora, tipo di programmazione, posticipo e comandi di salvataggio">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ora</strong> — scorri le ruote di ore e minuti per impostare l’ora dell’avviso.</li>
+<li><strong>Tipo di programmazione</strong> — seleziona una delle seguenti modalità:
+<ul>
+<li><strong>Una volta</strong> — la sveglia si attiva una volta nella data selezionata;</li>
+<li><strong>Per giorni</strong> — si ripete nei giorni della settimana selezionati;</li>
+<li><strong>Per turni</strong> — collega la sveglia a una turnazione e a un tipo di turno selezionati.</li>
+</ul>
+</li>
+<li><strong>Posticipa</strong> — imposta di quanti minuti posticipare l’avviso quando tocchi il pulsante di posticipo nella schermata della suoneria.</li>
+<li><strong>Annulla e Salva</strong> — questi pulsanti sono fissi nella parte inferiore della schermata e restano disponibili mentre scorri l’editor.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_behavior.webp" alt="Impostazioni ShiftAlarm per durata della sveglia, ripetizione dell’avviso, aumento graduale del volume e vibrazione">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Durata della sveglia</strong> — determina per quanto tempo suona l’avviso se l’utente non lo interrompe.</li>
+<li><strong>Ripeti se la sveglia viene ignorata</strong> — abilita un altro avviso se la sveglia non è stata né interrotta né posticipata. Imposta sotto l’intervallo prima del nuovo avviso.</li>
+<li><strong>Aumento graduale del volume</strong> — inizia con un audio più basso e aumenta gradualmente il volume per il tempo selezionato.</li>
+<li><strong>Vibrazione</strong> — abilita o disabilita la vibrazione durante l’avviso.</li>
+<li><strong>Annulla e Salva</strong> — comandi fissi dell’editor.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_sound_name.webp" alt="Parte inferiore dell’editor della sveglia ShiftAlarm: vibrazione, suono, nome e comandi di salvataggio">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Vibrazione</strong> — abilita o disabilita l’avviso con vibrazione.</li>
+<li><strong>Suono</strong> — consente di selezionare un suono integrato, di sistema o aggiunto dall’utente. Puoi aggiungere all’app fino a cinque suoni personalizzati.</li>
+<li><strong>Nome</strong> — etichetta facoltativa che aiuta a distinguere le sveglie.</li>
+<li><strong>Annulla e Salva</strong> — annulla le modifiche o salva la sveglia.</li>
+</ol>
+
+<div class="notice">Dopo il salvataggio, la sveglia compare nell’elenco principale. Prima di un avviso importante, verifica che la sveglia sia abilitata, che l’app disponga delle autorizzazioni per notifiche e sveglie esatte e che il sistema non ne limiti l’attività in background.</div>
+
+<div class="tip">Per creare una sveglia collegata a un turno, crea prima una turnazione adeguata. Nell’editor scegli un’ora di attivazione fissa o un anticipo/ritardo rispetto all’inizio del turno.</div>
+
+<h2 id="geo">7. Sveglie geolocalizzate</h2>
+
+<p>Una sveglia geolocalizzata controlla quando il dispositivo entra in un’area selezionata o ne esce. L’area è definita da un punto sulla mappa e da un raggio attorno a quel punto. Puoi usarla, ad esempio, per ricevere un avviso quando ti avvicini al lavoro, a casa, a una fermata dell’autobus, a una stazione o a un altro luogo.</p>
+
+<h3 id="geo-overview">7.1. Mappa e comandi</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_overview.webp" alt="Schermata principale delle sveglie geolocalizzate di ShiftAlarm con mappa e comandi numerati">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ingrandisci</strong> — ingrandisce la mappa.</li>
+<li><strong>Riduci</strong> — riduce la scala della mappa.</li>
+<li><strong>La mia posizione</strong> — sposta la mappa sulla posizione corrente del dispositivo. Per questa funzione l’app necessita dell’accesso alla posizione.</li>
+<li><strong>Luoghi salvati</strong> — apre l’elenco delle sveglie geolocalizzate e dei punti di posizione salvati.</li>
+<li><strong>Indietro</strong> — torna alla schermata precedente dell’app.</li>
+<li><strong>Numero di sveglie geolocalizzate</strong> — mostra quante sveglie geolocalizzate sono state create.</li>
+<li><strong>Elenco delle sveglie geolocalizzate</strong> — apre un elenco separato delle sveglie geolocalizzate create.</li>
+</ol>
+
+<div class="tip">Puoi usare anche i gesti per ingrandire o ridurre. Tocca la mappa con due dita e allontanale per ingrandire oppure avvicinale per ridurre.</div>
+<div class="notice">Nelle lingue con scrittura da destra a sinistra, i comandi laterali possono comparire sul lato opposto. Le loro funzioni restano invariate.</div>
+
+<h3 id="geo-saved-places">7.2. Sveglie e punti di posizione salvati</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_saved_places.webp" alt="Finestra dei luoghi salvati con schede delle sveglie geolocalizzate e dei punti di posizione">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Sveglie</strong> — mostra le sveglie geolocalizzate aggiunte ai luoghi salvati.</li>
+<li><strong>Punti di posizione</strong> — mostra le coordinate salvate senza una sveglia geolocalizzata attiva.</li>
+<li><strong>Elenco dei luoghi salvati</strong> — tocca una scheda per spostarti su quel luogo nella mappa.</li>
+<li><strong>Chiudi</strong> — chiude la finestra e torna alla mappa.</li>
+</ol>
+
+<div class="notice">Se elimini una sveglia geolocalizzata salvata nei preferiti, le sue coordinate vengono mantenute automaticamente nella scheda «Punti di posizione». Potrai riutilizzare il punto in seguito per creare un’altra sveglia geolocalizzata.</div>
+
+<h3 id="geo-select-point">7.3. Selezionare un punto e un raggio</h3>
+
+<p>Tocca e tieni premuto il luogo desiderato sulla mappa. L’app inserisce un indicatore e apre il pannello del punto selezionato.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_selected_point.webp" alt="Punto selezionato sulla mappa con indirizzo, raggio, preferito e pulsante per creare una sveglia geolocalizzata">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Indicatore del punto selezionato</strong> — il centro del futuro geofence. La mappa mostra anche un cerchio per il raggio selezionato.</li>
+<li><strong>Indirizzo e coordinate</strong> — consentono di verificare che sia selezionato il luogo corretto.</li>
+<li><strong>Salva punto di posizione</strong> — aggiunge le coordinate selezionate ai luoghi salvati senza creare una sveglia.</li>
+<li><strong>Raggio</strong> — imposta la dimensione dell’area attorno al punto. Sposta il cursore fino a selezionare una distanza adeguata.</li>
+<li><strong>Annulla</strong> — annulla la selezione del punto.</li>
+<li><strong>Crea qui</strong> — apre l’editor di una nuova sveglia geolocalizzata per il punto selezionato.</li>
+</ol>
+
+<div class="warning"><strong>Come scegliere un raggio.</strong> Il telefono non rileva continuamente le proprie coordinate. Android, il produttore del dispositivo, la modalità di risparmio energetico, il GPS, la qualità del segnale della rete mobile e del Wi-Fi e la velocità di spostamento influiscono sul momento in cui viene rilevato il confine. L’avviso può quindi attivarsi lontano dalla linea tracciata. Ad esempio, con un raggio di 800 m, l’ingresso può essere rilevato quando il dispositivo è già all’interno dell’area, forse a 700, 600 o 500 m dal punto.</div>
+
+<ul>
+<li><strong>In città</strong>è generalmente consigliato un raggio di <strong>1.300–1.500 m</strong> .</li>
+<li><strong>Fuori città</strong>, dove gli aggiornamenti della posizione possono essere meno frequenti, è consigliato un raggio di <strong>4.000–5.000 m</strong> .</li>
+<li><strong>Il raggio esatto</strong> deve essere scelto in base al percorso, alla velocità e al comportamento del dispositivo.</li>
+</ul>
+
+<div class="notice">Il sistema rileva quando il dispositivo attraversa il confine virtuale dell’area. Nella modalità «All’ingresso», un raggio maggiore offre in genere al telefono più tempo per rilevare il tuo avvicinamento. Nella modalità «All’uscita», invece, il confine è posizionato più lontano dal punto selezionato.</div>
+
+<h3 id="geo-create">7.4. Creare una sveglia geolocalizzata</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_location_schedule.webp" alt="Parte superiore dell’editor della sveglia geolocalizzata: disponibilità, posizione e tipo di programmazione">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Disponibilità della sveglia geolocalizzata</strong> — mostra se le autorizzazioni necessarie sono configurate e se l’app può registrare il geofence.</li>
+<li><strong>Posizione</strong> — contiene l’indirizzo e le coordinate selezionati. Puoi modificare l’indirizzo come etichetta, ma il punto effettivo viene selezionato sulla mappa.</li>
+<li><strong>Tipo di programmazione</strong> — determina i giorni e le condizioni in cui la sveglia geolocalizzata è attiva.</li>
+<li><strong>Sempre</strong> — la sveglia geolocalizzata è attiva ogni giorno quando è abilitata.</li>
+<li><strong>Una volta</strong> — viene usata per la prossima attivazione singola quando si verifica la condizione selezionata.</li>
+<li><strong>Per giorni</strong> — funziona soltanto nei giorni della settimana selezionati.</li>
+<li><strong>Per turni</strong> — collega la sveglia geolocalizzata alla turnazione attiva.</li>
+</ol>
+
+<div class="notice"><strong>Programmazione «Per turni».</strong> Scegli se deve funzionare nel giorno del turno, soltanto prima o soltanto dopo, quindi specifica il tipo di turno desiderato: giorno, notte, mattina, sera, 24 ore, personalizzato o qualsiasi turno lavorativo.</div>
+<div class="tip">Se una data del calendario è contrassegnata come giorno di riposo, ferie, malattia o permesso anziché come turno lavorativo, una sveglia geolocalizzata collegata al turno non sarà attiva quel giorno.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_trigger_settings.webp" alt="Parte inferiore dell’editor della sveglia geolocalizzata: condizione di ingresso o uscita, raggio e impostazioni dell’avviso">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Condizione di attivazione</strong> — determina quale attraversamento del confine avvia l’avviso.</li>
+<li><strong>All’ingresso</strong> — avvia l’avviso quando il dispositivo entra nel raggio selezionato, ad esempio mentre ti avvicini al lavoro o alla fermata desiderata.</li>
+<li><strong>All’uscita</strong> — avvia l’avviso quando il dispositivo esce dal raggio selezionato, ad esempio dopo aver lasciato il lavoro o una stazione, in modo da non perdere la parte successiva del percorso.</li>
+<li><strong>All’ingresso o all’uscita</strong> — avvia l’avviso ogni volta che il confine viene attraversato in una delle due direzioni.</li>
+<li><strong>Raggio</strong> — la dimensione del geofence attorno al punto selezionato.</li>
+<li><strong>Durata della sveglia</strong> — determina per quanto tempo suona l’avviso.</li>
+<li><strong>Aumento graduale del volume</strong> — imposta un aumento progressivo del volume dopo l’avvio dell’avviso.</li>
+<li><strong>Annulla e Salva</strong> — annulla le modifiche o salva la sveglia geolocalizzata.</li>
+</ol>
+
+<div class="tip">Le opzioni rimanenti più in basso sono simili a quelle di una sveglia normale: suono, vibrazione, durata dell’avviso, aumento graduale del volume e nome.</div>
+
+<h3 id="geo-existing">7.5. Una sveglia geolocalizzata sulla mappa e i relativi comandi</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_marker_radius.webp" alt="Indicatore della sveglia geolocalizzata creata e cerchio del raggio di attivazione sulla mappa">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Indicatore della sveglia geolocalizzata</strong> — mostra il punto selezionato.</li>
+<li><strong>Confine del raggio</strong> — mostra l’area di cui l’app controlla l’ingresso o l’uscita.</li>
+</ol>
+
+<p>Tocca l’indicatore della sveglia geolocalizzata. Viene visualizzata prima una piccola finestra informativa. Toccala per aprire la scheda dettagliata.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_alarm_card.webp" alt="Scheda dettagliata della sveglia geolocalizzata con informazioni, preferito, interruttore e comandi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Nome e indirizzo</strong> — identificano la sveglia geolocalizzata selezionata.</li>
+<li><strong>Preferito</strong> — aggiunge la sveglia ai luoghi salvati o la rimuove.</li>
+<li><strong>Interruttore</strong> — abilita o disabilita temporaneamente la sveglia geolocalizzata senza eliminarne le impostazioni.</li>
+<li><strong>Impostazioni e stato</strong> — mostrano raggio, condizione di ingresso o uscita, programmazione, disponibilità del geofence e informazioni sulle attivazioni precedenti.</li>
+<li><strong>Modifica</strong> — apre le impostazioni della sveglia geolocalizzata.</li>
+<li><strong>Chiudi</strong> — chiude la scheda e torna alla mappa.</li>
+<li><strong>Elimina</strong> — elimina la sveglia geolocalizzata dopo la conferma.</li>
+</ol>
+
+<div class="warning">Per un funzionamento affidabile, consenti la posizione precisa e in background, rimuovi le rigide restrizioni della batteria per ShiftAlarm e verifica le impostazioni di avvio automatico, se disponibili sul dispositivo. Anche con impostazioni corrette, Android non garantisce il rilevamento del confine con una precisione di pochi metri.</div>
+
+<h2 id="notes">8. Note, eventi e promemoria</h2>
+
+<p>La sezione «Note» memorizza testo semplice, elenchi, liste di controllo, registrazioni audio, note da voce a testo, promemoria ed eventi.</p>
+
+<h3 id="notes-create">8.1. Aggiungere una nota</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_type_picker.webp" alt="Selezione di un nuovo tipo di nota in ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Maniglia del pannello</strong> — trascinala verso l’alto per mostrare l’elenco completo dei tipi di nota oppure verso il basso per chiudere il pannello.</li>
+<li><strong>Tipo di nota</strong> — seleziona l’opzione appropriata:
+<ul>
+<li><strong>Nota di testo</strong> — testo semplice;</li>
+<li><strong>Lista di controllo</strong> — elenco di elementi con caselle di completamento;</li>
+<li><strong>Elenco</strong> — elenco puntato o numerato;</li>
+<li><strong>Nota audio</strong> — registrazione vocale;</li>
+<li><strong>Voce in testo</strong> — crea una nota tramite il riconoscimento vocale;</li>
+<li><strong>Promemoria</strong> — voce con una notifica a un’ora specifica;</li>
+<li><strong>Evento</strong> — voce collegata a una data e un’ora.</li>
+</ul>
+</li>
+<li><strong>Annulla</strong> — chiude il selettore senza creare una nota.</li>
+</ol>
+
+<div class="tip">Dopo aver selezionato un tipo, si apre l’editor appropriato. Compila i campi necessari e salva la voce.</div>
+
+<h3 id="notes-list">8.2. Elenco e comandi delle note</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_overview.webp" alt="Schermata delle note ShiftAlarm con ordinamento, note attive e archiviate, ricerca e azioni delle schede">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ordina</strong> — modifica l’ordine delle note nell’elenco.</li>
+<li><strong>Attive</strong> — mostra le note normali e programmate che non sono state spostate nell’archivio.</li>
+<li><strong>Archivio</strong> — apre l’elenco delle note archiviate.</li>
+<li><strong>Cerca</strong> — trova corrispondenze nei titoli e nei contenuti delle note.</li>
+<li><strong>Scheda della nota</strong> — mostra titolo, tipo, stato e informazioni aggiuntive. Tocca la scheda per aprire la nota.</li>
+<li><strong>Fissa</strong> — fissa la nota all’inizio dell’elenco.</li>
+<li><strong>Archivia</strong> — rimuove la nota dall’elenco attivo e la sposta nell’archivio.</li>
+<li><strong>Elimina</strong> — elimina la nota dopo la conferma.</li>
+<li><strong>Aggiungi nota</strong> — apre il selettore del tipo di nuova nota.</li>
+</ol>
+
+<div class="notice">Usa l’archivio per le voci che non servono più nell’elenco principale ma devono restare salvate. Elimina una nota soltanto quando non è più necessaria.</div>
+
+<h2 id="clock">9. Orologio, cronometro e timer</h2>
+
+<p>Questa sezione riunisce ora locale e mondiale, cronometro e timer. Aprila con il pulsante <strong>«Orologio»</strong> nella schermata principale.</p>
+
+<div class="notice">Nella parte inferiore della schermata compaiono tre schede: «Orologio», «Cronometro» e «Timer». Tocca una scheda per cambiare modalità.</div>
+
+<h3 id="clock-world">9.1. Orologio e orologio mondiale</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_overview.webp" alt="Schermata dell’orologio ShiftAlarm con ora locale, orologi mondiali, pulsante di aggiunta e schede inferiori">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ora locale</strong> — mostra l’ora corrente, la data e il fuso orario di sistema del dispositivo.</li>
+<li><strong>Orologi mondiali</strong> — mostrano le città e i fusi orari aggiunti. Finché l’elenco è vuoto, l’app mostra un suggerimento.</li>
+<li><strong>Pulsante Più</strong> — apre il selettore dell’orologio mondiale.</li>
+<li><strong>Schede della sezione</strong> — consentono di passare tra le schermate «Orologio», «Cronometro» e «Timer».</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_add_timezone.webp" alt="Aggiunta di una città o di un fuso orario all’orologio mondiale di ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Cerca</strong> — inserisci il nome di una città o di un fuso orario per filtrare l’elenco.</li>
+<li><strong>Elenco di città e fusi orari</strong> — tocca l’opzione desiderata per aggiungerla alla schermata dell’orologio mondiale.</li>
+</ol>
+
+<div class="tip">Il fuso orario locale viene mostrato sempre per primo. Puoi rimuovere dall’elenco gli orologi mondiali aggiunti, ma non l’ora locale.</div>
+
+<h3 id="clock-stopwatch">9.2. Cronometro</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_start.webp" alt="Cronometro di ShiftAlarm prima dell’avvio">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Cronologia</strong> — apre le sessioni del cronometro salvate.</li>
+<li><strong>Avvia</strong> — avvia il cronometraggio.</li>
+<li><strong>Reimposta</strong> — non disponibile prima dell’avvio del cronometro. Dopo l’arresto, riporta il cronometro a zero e rimuove i giri correnti.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_running.webp" alt="Cronometro di ShiftAlarm in funzione con comandi di cronologia, salvataggio, giro e pausa">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Cronologia</strong> — mostra le sessioni salvate in precedenza.</li>
+<li><strong>Salva</strong> — richiede un nome e salva la sessione corrente del cronometro.</li>
+<li><strong>Giro</strong> — registra un risultato intermedio senza interrompere il cronometraggio totale.</li>
+<li><strong>Pausa</strong> — mette in pausa il cronometro. Dopo la pausa puoi riprenderlo o reimpostarlo.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_laps.webp" alt="Giri del cronometro di ShiftAlarm e opzioni di ordinamento">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Originale, più veloci e più lenti</strong> — modificano l’ordine di visualizzazione dei giri: ordine originale, più veloci prima o più lenti prima.</li>
+<li><strong>Giri</strong> — ogni giro mostra il tempo totale in cui è stato registrato e il tempo del singolo giro.</li>
+</ol>
+
+<div class="notice">Quando tocchi Salva, inserisci il nome della sessione e conferma. Potrai aprire in seguito la sessione salvata dalla Cronologia.</div>
+
+<h3 id="clock-timer">9.3. Timer</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_setup.webp" alt="Impostazione di un timer ShiftAlarm con ruote di ore, minuti e secondi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ore</strong> — scorri la ruota e seleziona il numero di ore.</li>
+<li><strong>Minuti</strong> — scorri la ruota e seleziona il numero di minuti.</li>
+<li><strong>Secondi</strong> — scorri la ruota e seleziona il numero di secondi.</li>
+<li><strong>Avvia</strong> — avvia il timer con la durata selezionata.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_running.webp" alt="Timer ShiftAlarm in esecuzione con tempo rimanente e comandi di pausa, aggiunta di un minuto e arresto">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tempo rimanente</strong> — mostra quanto tempo manca all’avviso.</li>
+<li><strong>Ora di fine</strong> — mostra l’ora approssimativa in cui terminerà il timer.</li>
+<li><strong>Timer recenti</strong> — durate recenti salvate; toccane una per riutilizzarla rapidamente.</li>
+<li><strong>Pausa</strong> — interrompe temporaneamente il conto alla rovescia. Puoi riprenderlo in seguito.</li>
+<li><strong>+1 min</strong> — aggiunge un minuto al tempo rimanente.</li>
+<li><strong>Arresta</strong> — arresta completamente il timer.</li>
+</ol>
+
+<div class="tip">Il timer e il cronometro continuano a funzionare in background. Il loro stato può comparire in una notifica, nella schermata principale e nei widget.</div>
+
+<h2 id="widgets">10. Widget</h2>
+
+<p>ShiftAlarm offre widget per la schermata Home del telefono.</p>
+<ul>
+<li><strong>Oggi 4×2</strong> — pannello compatto con due sezioni configurabili.</li>
+<li><strong>Oggi 4×3</strong> — pannello con un orologio in alto e due sezioni sotto.</li>
+<li><strong>Calendario 4×4</strong> — widget del calendario con la turnazione.</li>
+</ul>
+<p>Aggiungi un widget tramite il menu dei widget Android nella schermata Home del telefono.</p>
+
+<h2 id="salary">11. Calcolo dello stipendio</h2>
+
+<p>Apri «Calcolo dello stipendio» dalla scheda dello stipendio nelle <a href="#statistics-work">statistiche della turnazione selezionata</a>. Qui puoi impostare il metodo di pagamento, la tariffa o lo stipendio mensile, le regole per gli straordinari, i bonus e le trattenute. L’app usa queste impostazioni insieme al periodo selezionato, alla turnazione, alle modifiche del calendario e al conteggio delle pause.</p>
+
+<div class="warning"><strong>Il calcolo viene fornito esclusivamente a scopo informativo.</strong> La retribuzione effettiva può differire se il datore di lavoro usa un altro sistema per rilevazione delle presenze, arrotondamenti, indennità, imposte, bonus, trattenute o pagamento di particolari tipi di turno. Non usare il risultato come documento ufficiale della busta paga; confrontalo con il cedolino del datore di lavoro. Se trovi un metodo di calcolo che l’app non gestisce correttamente, invia un’e-mail agli sviluppatori all’indirizzo indicato nell’app. Descrivi le regole, fornisci dati di esempio e indica il risultato previsto. Il metodo potrà quindi essere valutato per un aggiornamento futuro.</div>
+
+<h3 id="salary-settings">11.1. Tariffa, straordinari e bonus</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_settings_overview.webp" alt="Schermata di calcolo dello stipendio con turnazione selezionata, tipo di tariffa, straordinari e bonus">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Turnazione selezionata</strong> — mostra la turnazione utilizzata. Lo stipendio viene calcolato da questa turnazione e dal periodo selezionato nelle statistiche.</li>
+<li><strong>Tipo di tariffa e importo della retribuzione</strong> — seleziona il pagamento <strong>per ora</strong>, <strong>per turno</strong>o <strong>per mese</strong>, quindi inserisci l’importo corrispondente. Il nome del campo cambia in base al tipo di tariffa selezionato.</li>
+<li><strong>Straordinari</strong> — abilita questa sezione se le ore aggiuntive sono pagate diversamente dall’orario di lavoro normale. Specifica quindi il moltiplicatore della retribuzione degli straordinari. Aggiungi ore extra al calendario tramite <a href="#main-shift-time-adjustment">«Modifica turno» → «+ tempo»</a>; abilita «Conta questo tempo come straordinario» affinché le ore vengano considerate straordinarie.</li>
+<li><strong>Bonus</strong> — mostra il metodo di calcolo corrente e i totali. Tocca la scheda per aprire le <a href="#salary-bonuses">impostazioni dei bonus</a>.</li>
+</ol>
+
+<div class="notice">Il pulsante «Salva» applica le impostazioni alla turnazione selezionata. Dopo il salvataggio, i totali nelle statistiche e nei report vengono ricalcolati usando i dati inseriti.</div>
+
+<h3 id="salary-summary">11.2. Trattenute e totale del calcolo</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions_total.webp" alt="Schermata di calcolo dello stipendio con trattenute e dettaglio finale">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Trattenute</strong> — mostra l’importo totale e il numero di trattenute configurate. Tocca la scheda per aprire l’ <a href="#salary-deductions">elenco delle trattenute</a>.</li>
+<li><strong>Totale</strong> — dettaglio riepilogativo: tempo retribuito, ore lavorate, straordinari, paga base, retribuzione degli straordinari, bonus, trattenute e risultato finale.</li>
+</ol>
+
+<div class="tip">Il risultato dipende non soltanto dalle impostazioni di questa schermata, ma anche dal periodo statistico selezionato, dai turni completati, dalle modifiche dei giorni, dagli straordinari e dalle impostazioni delle pause non retribuite.</div>
+
+<h3 id="salary-bonuses">11.3. Bonus</h3>
+
+<p>Tocca la scheda «Bonus» nella schermata di calcolo dello stipendio. Puoi inserire un bonus manualmente o calcolarlo in percentuale, se questo corrisponde al tuo sistema retributivo.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_bonuses.webp" alt="Schermata delle impostazioni dei bonus con opzioni di calcolo e inserimento dell’importo">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Informazioni riepilogative</strong> — mostrano il totale dei bonus calcolato e l’importo base usato per il calcolo.</li>
+<li><strong>Calcolo dei bonus</strong> — seleziona l’inserimento manuale o un calcolo percentuale, ad esempio una percentuale sulle vendite, se questo metodo viene usato sul tuo luogo di lavoro.</li>
+<li><strong>Metodo di inserimento</strong> — «Importo totale» è adatto a un unico bonus finale. Le righe separate sono utili quando esistono più bonus da conteggiare indipendentemente.</li>
+<li><strong>Importo o percentuale</strong> — inserisci il valore richiesto dal metodo di calcolo selezionato.</li>
+<li><strong>Annulla e Salva</strong> — annulla le modifiche o le applica al calcolo dello stipendio.</li>
+</ol>
+
+<h3 id="salary-deductions">11.4. Elenco delle trattenute</h3>
+
+<p>Tocca la scheda «Trattenute» nella schermata principale del calcolo. Questa sezione consente di memorizzare più trattenute e gestirle separatamente.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions.webp" alt="Schermata dell’elenco delle trattenute con importo totale, righe e pulsante di aggiunta">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Informazioni riepilogative</strong> — mostrano l’importo e il numero di tutte le trattenute abilitate.</li>
+<li><strong>Riga della trattenuta</strong> — mostra nome, valore e tipo. Tocca la riga per aprire le <a href="#salary-deduction-editor">impostazioni della trattenuta</a>. L’icona del cestino elimina la riga.</li>
+<li><strong>Aggiungi trattenuta</strong> — il pulsante «+» crea una nuova riga di trattenuta.</li>
+<li><strong>Annulla e Salva</strong> — annulla le modifiche o salva l’intero elenco.</li>
+</ol>
+
+<h3 id="salary-deduction-editor">11.5. Configurare una singola trattenuta</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deduction_editor.webp" alt="Pannello di una singola trattenuta con nome, valore, tipo e base della trattenuta">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Nome della trattenuta</strong> — inserisci un nome chiaro, ad esempio «Imposta», «Assegno di mantenimento» o «Penale».</li>
+<li><strong>Valore</strong> — inserisci un importo o una percentuale in base al tipo di valore selezionato sotto.</li>
+<li><strong>Tipo di valore</strong> — seleziona un importo fisso o una percentuale.</li>
+<li><strong>Tipo di trattenuta</strong> — una trattenuta <strong>variabile</strong> si applica a uno specifico periodo di calcolo; una trattenuta <strong>ricorrente</strong> viene applicata regolarmente finché resta abilitata.</li>
+<li><strong>Detrai da</strong> — seleziona la base di calcolo: stipendio totale, paga base, bonus o un’altra opzione disponibile.</li>
+<li><strong>Abilitata</strong> — disabilita temporaneamente la trattenuta senza eliminarne le impostazioni.</li>
+<li><strong>Annulla e Salva</strong> — chiude il pannello senza modifiche o salva la trattenuta.</li>
+</ol>
+
+<div class="notice">Per una trattenuta percentuale è particolarmente importante selezionare la base corretta in «Detrai da»: la stessa percentuale sullo stipendio totale, sulla paga base e sui bonus produce risultati diversi.</div>
+
+<h2 id="settings">12. Impostazioni</h2>
+
+<p>Apri «Impostazioni» con il pulsante nella parte inferiore della <a href="#main-overview">schermata principale</a>. Questa sezione contiene autorizzazioni di sistema, aspetto e lingua dell’app, riconoscimento vocale offline, documenti e guida utente, backup, diagnostica e opzioni di contatto degli sviluppatori.</p>
+
+<h3 id="settings-overview">12.1. Sezioni principali delle impostazioni</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_permissions_language.webp" alt="Parte superiore delle impostazioni ShiftAlarm: autorizzazioni, tema, lingua dell’app e modelli vocali offline">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Autorizzazioni</strong> — apre le autorizzazioni delle sveglie e le impostazioni di affidabilità. Verifica notifiche, sveglie esatte, attività in background e restrizioni della batteria. <a href="#geo">Le sveglie geolocalizzate</a> richiedono anche l’accesso alla posizione; per l’attivazione mentre l’app è chiusa è necessario l’accesso alla posizione in background o «Consenti sempre». I nomi delle voci e i percorsi variano in base alla versione di Android e al produttore del dispositivo.</li>
+<li><strong>Tema</strong> — consente di selezionare un aspetto chiaro, scuro o di sistema, scegliere una variante di colore dell’interfaccia e abilitare o disabilitare il feedback aptico per le azioni nell’app. Il tema di sistema segue l’aspetto corrente del telefono.</li>
+<li><strong>Lingua dell’app</strong> — consente di usare una lingua diversa da quella di sistema del telefono. Il catalogo di ShiftAlarm contiene 108 lingue: trova quella desiderata con la ricerca, scarica il pacchetto lingua e applicalo.</li>
+<li><strong>Modelli vocali offline</strong> — installano un modulo per le <a href="#notes-create">note da voce a testo</a>. Il riconoscimento offline è attualmente in fase di test ed è disponibile per circa 20 lingue. La qualità può essere inferiore al riconoscimento online e dipende da lingua, microfono, prestazioni del telefono e condizioni di registrazione.</li>
+</ol>
+
+<div class="warning"><strong>Le autorizzazioni Android variano da un dispositivo all’altro.</strong> Su alcuni telefoni devi anche consentire l’avvio automatico, selezionare «Senza restrizioni» o una modalità batteria simile e permettere l’attività in background. Queste impostazioni riducono la possibilità che il sistema interrompa ShiftAlarm, ma i nomi esatti sono stabiliti dal produttore del dispositivo.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_help_backup_diagnostics.webp" alt="Parte inferiore delle impostazioni ShiftAlarm: documenti, guida utente, backup, diagnostica e contatto degli sviluppatori">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Documenti e guida</strong> — apre i documenti legali dell’app: Termini di utilizzo, Informativa sulla privacy, Esclusione di responsabilità e la breve pagina di aiuto.</li>
+<li><strong>Formazione e guida utente</strong> — apre questa guida illustrata completa con descrizioni dettagliate delle funzioni di ShiftAlarm.</li>
+<li><strong>Backup e ripristino</strong> — crea un file contenente le impostazioni e i dati supportati dell’app oppure li ripristina da un backup precedente. È utile prima di reinstallare l’app, reimpostare il telefono o trasferire i dati su un altro dispositivo. Consulta <a href="#backup">«Backup e ripristino»</a> per istruzioni dettagliate.</li>
+<li><strong>Registro diagnostico</strong> — apre registri separati per le funzioni dell’app. Questi registrano fasi tecniche come programmazione e ripristino degli avvisi, elaborazione degli eventi, stato delle autorizzazioni e altre informazioni di servizio. Un registro aiuta a individuare la fase in cui si è verificato un errore. Puoi copiare le voci o prepararle per l’invio tramite e-mail agli sviluppatori. Consulta <a href="#diagnostics">«Diagnostica e risoluzione dei problemi»</a> per i dettagli.</li>
+<li><strong>Contatta gli sviluppatori</strong> — apre l’app di posta elettronica e crea un messaggio indirizzato all’assistenza. Usalo per segnalare un problema, inviare un commento o un suggerimento oppure fare una domanda. Per un problema tecnico, includi se possibile modello del telefono, versione di Android, ora del problema, passaggi eseguiti e registro diagnostico pertinente.</li>
+</ol>
+
+<div class="notice">I registri diagnostici non vengono inviati automaticamente agli sviluppatori. Devi copiare le informazioni necessarie oppure toccare «Invia agli sviluppatori», scegliere un’app di posta elettronica, controllare il messaggio preparato e confermarne l’invio.</div>
+
+<h2 id="backup">13. Backup e ripristino</h2>
+
+<p>Un backup salva in un file separato le impostazioni e i dati utente di ShiftAlarm supportati. Aiuta a ripristinare i dati dopo la reinstallazione dell’app, la reimpostazione del telefono o il passaggio a un altro dispositivo.</p>
+<ol class="step-list">
+<li>Apri «Impostazioni → Backup e ripristino».</li>
+<li>Crea un backup e salva il file ottenuto sul telefono oppure condividilo tramite il menu di sistema.</li>
+<li>Per ripristinare, apri la stessa sezione e seleziona un file di backup creato in precedenza.</li>
+<li>Dopo il ripristino, verifica le sveglie importanti, le turnazioni e le autorizzazioni Android. Alcune autorizzazioni di sicurezza del sistema potrebbero dover essere concesse di nuovo su un dispositivo nuovo o dopo la reinstallazione.</li>
+</ol>
+<p class="tip">Conserva una copia aggiornata in un luogo sicuro che rimanga accessibile se il telefono viene perso, danneggiato o reimpostato. Un file di backup non sostituisce le autorizzazioni di sistema Android e non può includere automaticamente dati ai quali l’app non è autorizzata ad accedere.</p>
+
+<h2 id="diagnostics">14. Diagnostica e risoluzione dei problemi</h2>
+
+<p>ShiftAlarm offre registri diagnostici separati per diverse funzioni. Conservano una sequenza di eventi tecnici e aiutano a stabilire se un avviso è stato programmato, ripristinato dopo un riavvio, inviato all’elaborazione o interrotto a causa di un’impostazione di sistema.</p>
+
+<h3 id="diagnostics-control">14.1. Controllare la raccolta diagnostica</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_sections.webp" alt="Schermata del registro diagnostico di ShiftAlarm con interruttore principale e singolo registro delle sveglie">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Raccogli diagnostica</strong> — l’interruttore principale per tutte le sezioni diagnostiche dell’app. Disattivalo per interrompere contemporaneamente l’aggiunta di nuovi eventi a tutti i registri. La raccolta riprende quando lo riattivi.</li>
+<li><strong>Registro di una singola funzione</strong> — ogni modulo dispone del proprio interruttore e del pulsante «Apri». Ad esempio, puoi lasciare attiva la diagnostica globale e disabilitare soltanto il registro della sveglia, dell’orologio o di un’altra funzione. L’immagine mostra il registro delle sveglie, che registra consegna, programmazione, ripristino, protezioni ed eventi della schermata della sveglia.</li>
+</ol>
+
+<div class="notice">Gli interruttori controllano soltanto la registrazione degli eventi tecnici. Disattivare il registro della sveglia, dell’orologio o di un’altra funzione non disattiva la funzione stessa. Elimina separatamente le voci già salvate con il pulsante «Cancella» nel registro corrispondente.</div>
+
+<h3 id="diagnostics-log">14.2. Registro di una singola funzione</h3>
+
+<p>Tocca «Apri» nella sezione diagnostica desiderata. L’esempio seguente mostra il registro delle sveglie; i registri delle altre funzioni operano in modo simile.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_alarm_log.webp" alt="Registro diagnostico delle sveglie di ShiftAlarm con numero di eventi, azioni e voci tecniche">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Eventi salvati</strong> — mostra il numero di voci attualmente memorizzate nel registro selezionato.</li>
+<li><strong>Azioni del registro</strong>:
+<ul>
+<li><strong>Copia</strong> — copia tutti i dati del registro corrente negli appunti. Puoi incollarli in un’e-mail o in un’altra app.</li>
+<li><strong>Cancella</strong> — elimina le voci salvate nel registro. Dopo la cancellazione, compariranno soltanto gli eventi registrati successivamente mentre la diagnostica è attiva.</li>
+<li><strong>Invia agli sviluppatori</strong> — apre il selettore delle app per inviare un’e-mail. Scegli un’app di posta elettronica; l’indirizzo degli sviluppatori e i dati diagnostici vengono inseriti automaticamente. Prima dell’invio, aggiungi una descrizione del problema, controlla il messaggio e poi conferma l’invio.</li>
+</ul>
+</li>
+<li><strong>Eventi dell’app</strong> — le voci del registro. Una voce contiene normalmente data e ora, il nome tecnico di un evento e parametri aggiuntivi come identificatore, stato o motivo. I nomi tecnici possono comparire in inglese; non modificarli né tradurli prima dell’invio.</li>
+</ol>
+
+<div class="warning">Prima di cancellare un registro, copia o invia tutte le voci necessarie. Gli eventi diagnostici eliminati non possono essere recuperati.</div>
+
+<div class="tip">Se il problema è riproducibile, abilita prima la raccolta diagnostica globale e il registro della funzione interessata, quindi ripeti le azioni che hanno causato il problema. Nel messaggio indica l’ora esatta del problema, il modello del telefono, la versione di Android, il risultato previsto e quello effettivo. Questo aiuta ad associare la descrizione agli eventi del registro.</div>
+
+<h2 id="faq">15. Domande frequenti</h2>
+
+<h3>La sveglia non si è attivata in orario</h3>
+<p>Verifica le notifiche, l’autorizzazione per le sveglie esatte, l’attività in background e le restrizioni della batteria.</p>
+<h3>La sveglia geolocalizzata si è attivata in ritardo</h3>
+<p>Verifica la posizione precisa e in background, le restrizioni della batteria e l’avvio automatico dell’app. Prova un raggio di 1.300–1.500 m in città e di 4.000–5.000 m fuori città. L’attivazione effettiva potrebbe non avvenire esattamente sulla linea del raggio.</p>
+<h3>Il widget non si è aggiornato subito</h3>
+<p>Apri l’app o tocca il pulsante di aggiornamento del widget. Android può limitare gli aggiornamenti frequenti dei widget.</p>
+<h3>Ho cambiato lingua, ma un documento o la guida non si sono ancora aggiornati</h3>
+<p>Verifica la connessione a Internet e attendi il completamento del download. Se la versione remota non è disponibile, l’app usa la versione di riserva integrata.</p>
+
+<div class="footer small">La guida può essere aggiornata tramite GitHub. Se la versione remota non è disponibile, l’app usa la versione offline integrata.</div>
+</main>
+</body>
+</html>
