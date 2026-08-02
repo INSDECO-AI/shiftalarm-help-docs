@@ -1,0 +1,455 @@
+{
+  "manifest_version": 3,
+  "min_supported_app_version": 1,
+  "guide": {
+    "id": "shiftalarm_help",
+    "title": "ShiftAlarm Help",
+    "fallback_language": "en",
+    "bundled_languages": [
+      "en",
+      "ru"
+    ]
+  },
+  "pages": [
+    {
+      "language": "en",
+      "version": "14",
+      "url": "en/help.html",
+      "sha256": "598AE488CBBD3BC618C1BA7849B04171646506161B5A94FA42F8EE0048784538"
+    },
+    {
+      "language": "ru",
+      "version": "14",
+      "url": "ru/help.html",
+      "sha256": "6C189AD5FE0F0A95B229D2F31E5D2423E61FE1A891E6FB71B6BCCD1D3CD21436"
+    },
+    {
+      "language": "ar",
+      "version": "14",
+      "url": "ar/help.html",
+      "sha256": "6C2FFABCB71C2EDAADC3E0D46259A690592D70069806F2B29141302AA8864A2B"
+    },
+    {
+      "language": "zh-Hans",
+      "version": "14",
+      "url": "zh-Hans/help.html",
+      "sha256": "37A5A084F3E054AEA054D4334C6BF12DB811CA37BE4F2DE17CDE475B6F9452F3"
+    },
+    {
+      "language": "zh-Hant",
+      "version": "14",
+      "url": "zh-Hant/help.html",
+      "sha256": "7938EE3E983980CC2BABA710DB244D23E00A744F5613E39B8F08F13A57DB5EEE"
+    }
+  ],
+  "assets": [
+    {
+      "id": "alarm_editor_behavior",
+      "version": "1",
+      "url": "shared/images/alarm_editor_behavior.webp",
+      "sha256": "FB37829F97C0AE55EE40B8BAAAEAFECD62CF532C8DC0D1053A5B0278D24504C5",
+      "size_bytes": 148462,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "alarm_editor_sound_name",
+      "version": "1",
+      "url": "shared/images/alarm_editor_sound_name.webp",
+      "sha256": "680A6DCAFC2DBFB78B4106389272A236C2CC1E36AF122FA75E34ADE7CE180B3F",
+      "size_bytes": 93714,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "alarm_editor_time_schedule",
+      "version": "1",
+      "url": "shared/images/alarm_editor_time_schedule.webp",
+      "sha256": "EB888DA81579D6E837B6B9D69BE0E66A935983B8111247D4B61FFBC8CCAABA53",
+      "size_bytes": 92262,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "alarms_overview",
+      "version": "1",
+      "url": "shared/images/alarms_overview.webp",
+      "sha256": "EE38EAC37D02239800C293CF4F6668A3D59D57B76F991AD6CAC23552C3AD3239",
+      "size_bytes": 100640,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "clock_add_timezone",
+      "version": "1",
+      "url": "shared/images/clock_add_timezone.webp",
+      "sha256": "0727ECDA92306C99505259693DC451B3ADCA0B95F50D85610DD126C547D869A4",
+      "size_bytes": 53164,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "clock_overview",
+      "version": "1",
+      "url": "shared/images/clock_overview.webp",
+      "sha256": "564FF60DEB7811BA37DE6FD3ABDC40E38CC2190E9B0235556A8F56ECC750DD4B",
+      "size_bytes": 32238,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "date_picker_century",
+      "version": "1",
+      "url": "shared/images/date_picker_century.webp",
+      "sha256": "954A487A50FBAD36D7627A669F2D8FD6DA60B29A0EF09354F2A13F609EBBCEA1",
+      "size_bytes": 249818,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "date_picker_decade",
+      "version": "1",
+      "url": "shared/images/date_picker_decade.webp",
+      "sha256": "9F055E25EF7390002AA32BA0E440DD918BA69CA42ABA754E6AB30305C4AAD11C",
+      "size_bytes": 149346,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "date_picker_month",
+      "version": "1",
+      "url": "shared/images/date_picker_month.webp",
+      "sha256": "7937B9AEFFC40632D05EC8DB87C2E324897311832AF96728BD919D3BE0965C0E",
+      "size_bytes": 189346,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "date_picker_year",
+      "version": "1",
+      "url": "shared/images/date_picker_year.webp",
+      "sha256": "BB6EEC69B013E59EF6DF5391CA55B933177DAD032E7810B005A132EAAF82D7FC",
+      "size_bytes": 187264,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "diagnostics_alarm_log",
+      "version": "1",
+      "url": "shared/images/diagnostics_alarm_log.webp",
+      "sha256": "BB46D264377430DC8597A419EAB20FCB12389A564A0D488F6A4D49C5E4F4FFE4",
+      "size_bytes": 156578,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "diagnostics_sections",
+      "version": "1",
+      "url": "shared/images/diagnostics_sections.webp",
+      "sha256": "C34435888B4013B931D8EE109D056143C072B2866A0CDEC8242597438B49B65B",
+      "size_bytes": 172140,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "geo_alarm_card",
+      "version": "1",
+      "url": "shared/images/geo_alarm_card.webp",
+      "sha256": "6E31FA8D2C080A8754ACD00CFA14B89AE6A7A1850D812068D22D439D1436E2D9",
+      "size_bytes": 248724,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "geo_editor_location_schedule",
+      "version": "1",
+      "url": "shared/images/geo_editor_location_schedule.webp",
+      "sha256": "956A5F398584B07AEB8C3DA4ECE0EDFF059021EDA6ABEBE824A7503453C01E58",
+      "size_bytes": 86480,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "geo_editor_trigger_settings",
+      "version": "1",
+      "url": "shared/images/geo_editor_trigger_settings.webp",
+      "sha256": "BC0AAA8BE8BCA7E86C0A6E9BF39D7FE6B7688F5085DC3AD2CD4A4154B45023EA",
+      "size_bytes": 75074,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "geo_marker_radius",
+      "version": "1",
+      "url": "shared/images/geo_marker_radius.webp",
+      "sha256": "11B89B97BDE4E1AF0D8B2A67DAD9352229717E0851198C589842D4CB3DF2E6AC",
+      "size_bytes": 355440,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "geo_overview",
+      "version": "1",
+      "url": "shared/images/geo_overview.webp",
+      "sha256": "6220B9CF101110329D67350B602B7124EA03DCBCF20FB39F15F3405FDA884FAA",
+      "size_bytes": 124400,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "geo_saved_places",
+      "version": "1",
+      "url": "shared/images/geo_saved_places.webp",
+      "sha256": "3D03543D8CDA61A3AEC8029936AF5620C91A1F02E035AA5E82464DDB2FA6A2AE",
+      "size_bytes": 114396,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "geo_selected_point",
+      "version": "1",
+      "url": "shared/images/geo_selected_point.webp",
+      "sha256": "C9CAE56CB9188EE5B2FAF9B5082085C3271DCB328F3AFEE6A1871CADF8C96A3E",
+      "size_bytes": 274144,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "main_day_actions",
+      "version": "1",
+      "url": "shared/images/main_day_actions.webp",
+      "sha256": "7C8849BF641E551684EA5189C23DE70A21A65B51C2CB951F0FA29E85806B442E",
+      "size_bytes": 52216,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "main_screen_overview",
+      "version": "1",
+      "url": "shared/images/main_screen_overview.png",
+      "sha256": "21096C0CC7BA6B7A72BE8B6D92A6E9FB99DDAAB9ED6389B6EBE672DD5263D0C6",
+      "size_bytes": 498258,
+      "mime_type": "image/png"
+    },
+    {
+      "id": "notes_overview",
+      "version": "1",
+      "url": "shared/images/notes_overview.webp",
+      "sha256": "C816FA111EF5E57E00C795A8BE79586556BFD3F1C59FF411AEED8D50BF4520E2",
+      "size_bytes": 56462,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "notes_type_picker",
+      "version": "1",
+      "url": "shared/images/notes_type_picker.webp",
+      "sha256": "1886BBC5B54AFB07C747BADE20E4734F60ED067DA088E6BB16F49BFB372DA399",
+      "size_bytes": 62060,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "reports_charts_days",
+      "version": "1",
+      "url": "shared/images/reports_charts_days.webp",
+      "sha256": "93DD1199DF8A9D1E526A3125D9B0092AE541C7F1A3272545B47D33FC18E1D933",
+      "size_bytes": 43718,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "reports_comparison_chart",
+      "version": "1",
+      "url": "shared/images/reports_comparison_chart.webp",
+      "sha256": "576A959A2432BB590DFFE1B47DF6042BDE318644142980D7EB7B519F8B3F7C00",
+      "size_bytes": 46216,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "reports_comparison_table",
+      "version": "1",
+      "url": "shared/images/reports_comparison_table.webp",
+      "sha256": "9CC79F42641ABCFE57A4C375FAAA9F1FAFF0CE997A514E11DF41F8C53B993E03",
+      "size_bytes": 64972,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "reports_corrections_charts",
+      "version": "1",
+      "url": "shared/images/reports_corrections_charts.webp",
+      "sha256": "06D68347DC8593C1D832726A6FB1A68E1BA7443D359DB770F82D173ECD16866A",
+      "size_bytes": 45252,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "reports_details_export",
+      "version": "1",
+      "url": "shared/images/reports_details_export.webp",
+      "sha256": "EF0512299658A35C86691722E43AFCAF72100E319E095359E798339390F33DC6",
+      "size_bytes": 42466,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "reports_period_salary",
+      "version": "1",
+      "url": "shared/images/reports_period_salary.webp",
+      "sha256": "0FCD81C5E2F8C882AE4F2F6EF175AD0E885622A8BA553B9AC9FBE928150CAD34",
+      "size_bytes": 61132,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "reports_work_absences",
+      "version": "1",
+      "url": "shared/images/reports_work_absences.webp",
+      "sha256": "4303948A31D8D5111AEBD5E9D4E3D697D2FE5019B23E8FF5616F5D4D80C64DFA",
+      "size_bytes": 48878,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "salary_bonuses",
+      "version": "1",
+      "url": "shared/images/salary_bonuses.webp",
+      "sha256": "A3FA1CD8B4F7875DFECAB4ACA2AA476100974990B05E4C4DC8464CFFB8362D85",
+      "size_bytes": 38642,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "salary_deduction_editor",
+      "version": "1",
+      "url": "shared/images/salary_deduction_editor.webp",
+      "sha256": "62A797933D06687D1F7D773D09B28D8FF882624432954B92DD297F32DA8FEA00",
+      "size_bytes": 36642,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "salary_deductions",
+      "version": "1",
+      "url": "shared/images/salary_deductions.webp",
+      "sha256": "DC9BE65631C5462F14BECB5578C606EBCC7D59A7D564F12D235B93F97283878A",
+      "size_bytes": 25734,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "salary_deductions_total",
+      "version": "1",
+      "url": "shared/images/salary_deductions_total.webp",
+      "sha256": "96081C53053712756E3352DF1BD4035A3727FFFADD0785354DE3FEC74E0D8891",
+      "size_bytes": 46892,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "salary_settings_overview",
+      "version": "1",
+      "url": "shared/images/salary_settings_overview.webp",
+      "sha256": "4F2FC4F832DD380898BC664299F8E875627AF2E85CD17D2A960FCB85A10928BE",
+      "size_bytes": 46250,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "settings_help_backup_diagnostics",
+      "version": "1",
+      "url": "shared/images/settings_help_backup_diagnostics.webp",
+      "sha256": "9D391FA5C916151234C952BD3AF2F1D2578CB9CA83F2FD270C0141D077A36117",
+      "size_bytes": 304576,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "settings_permissions_language",
+      "version": "1",
+      "url": "shared/images/settings_permissions_language.webp",
+      "sha256": "0C102B8AC5CED3B207212484F7B93A8A4C9C579626FFB74B7BD1F7DF849A0814",
+      "size_bytes": 115136,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "shift_override_time_adjustment",
+      "version": "1",
+      "url": "shared/images/shift_override_time_adjustment.webp",
+      "sha256": "02BD35502B78B4CF9DF49C20EB21F02D7B562B915FF26AA45C7C089474EEAF32",
+      "size_bytes": 149868,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "shift_override_types",
+      "version": "1",
+      "url": "shared/images/shift_override_types.webp",
+      "sha256": "841F2A873E765D91E3116D864C68C3CC0553F5A0DCD3AD78B229F4BA7A2EB5E6",
+      "size_bytes": 148438,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "shift_schedule_create",
+      "version": "1",
+      "url": "shared/images/shift_schedule_create.webp",
+      "sha256": "D1C9864A6AF5A0134E1F3BC7BCB601ED34CDB5D74636118F1CB785FC6050D1FE",
+      "size_bytes": 55310,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "shift_schedule_custom",
+      "version": "1",
+      "url": "shared/images/shift_schedule_custom.webp",
+      "sha256": "5535596749659343F413D1A6073583ADFB71A6F161F2ECF5592472BEF174DF12",
+      "size_bytes": 60998,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "shift_schedule_template",
+      "version": "1",
+      "url": "shared/images/shift_schedule_template.webp",
+      "sha256": "D66772887B6A365B491B43D426369677A860DB4182249C48A3D66375E9D6C95E",
+      "size_bytes": 68680,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "shift_schedules_overview",
+      "version": "1",
+      "url": "shared/images/shift_schedules_overview.webp",
+      "sha256": "FD5434DB7D0F7C9743CB8B34FFE66A00A67ED3380E792F0A95D0EE14FCECA1D2",
+      "size_bytes": 35046,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "statistics_break_settings",
+      "version": "1",
+      "url": "shared/images/statistics_break_settings.webp",
+      "sha256": "193116463578B44EB872C48C55EB04EEDDA42550E8413C67592D66EED7EDC045",
+      "size_bytes": 48428,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "statistics_period_overview",
+      "version": "1",
+      "url": "shared/images/statistics_period_overview.webp",
+      "sha256": "A79E53DAEE65FC711F575C36E670D4B576770A37919D2D7763C7727DCBE1DD95",
+      "size_bytes": 53608,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "statistics_work_salary_reports",
+      "version": "1",
+      "url": "shared/images/statistics_work_salary_reports.webp",
+      "sha256": "03A6238BFC876D0A9A83063835BCA30975CAB360088B03F06876F45C6CEC5BB7",
+      "size_bytes": 61268,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "stopwatch_laps",
+      "version": "1",
+      "url": "shared/images/stopwatch_laps.webp",
+      "sha256": "39A541E172DD49FE544057C91698DDDC023FA934E2F44C40892F5E79C1185BF5",
+      "size_bytes": 24522,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "stopwatch_running",
+      "version": "1",
+      "url": "shared/images/stopwatch_running.webp",
+      "sha256": "78397276A65610D9F2A7CD4F6EE3691A6BEDD5ADBB8808A9BB7C146FF818E084",
+      "size_bytes": 19368,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "stopwatch_start",
+      "version": "1",
+      "url": "shared/images/stopwatch_start.webp",
+      "sha256": "CAC7F37FDD589B8C89D1D2F09861445398D36C737AE702863CF1FBC658321A5A",
+      "size_bytes": 17606,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "timer_running",
+      "version": "1",
+      "url": "shared/images/timer_running.webp",
+      "sha256": "44B8CDA37DFF979E1EA83F91ADA5D1E9AC7514219EED21A3D0CB849BE1A979E1",
+      "size_bytes": 23894,
+      "mime_type": "image/webp"
+    },
+    {
+      "id": "timer_setup",
+      "version": "1",
+      "url": "shared/images/timer_setup.webp",
+      "sha256": "51166D4D35DF85FEC253A398C2FE3DF61B724F10BB5F25D554E0F147D9DDDC4C",
+      "size_bytes": 27376,
+      "mime_type": "image/webp"
+    }
+  ]
+}
