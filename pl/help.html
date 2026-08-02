@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Instrukcja obsługi ShiftAlarm</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #64748b;
+  --accent: #2563eb;
+  --soft: #e8eef8;
+  --border: #dbe4f0;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.58;
+  margin: 0;
+  padding: 18px;
+  color: var(--text);
+  background: var(--bg);
+}
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+h1 { margin: 0 0 8px; font-size: 28px; line-height: 1.2; }
+h2 { margin: 32px 0 10px; font-size: 21px; line-height: 1.25; }
+h3 { margin: 22px 0 8px; font-size: 17px; }
+p, li { font-size: 16px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul, ol { padding-left: 22px; }
+.notice, .tip, .warning {
+  padding: 14px 16px;
+  border-radius: 16px;
+  margin: 14px 0;
+  border: 1px solid var(--border);
+}
+.notice { background: var(--soft); }
+.tip { background: #ecfdf5; }
+.warning { background: #fff7ed; }
+.small { color: var(--muted); font-size: 14px; }
+.toc {
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 16px;
+  margin: 18px 0 24px;
+}
+.toc ol { margin: 8px 0 0; }
+.step-list li { margin-bottom: 8px; }
+.guide-figure {
+  margin: 18px 0;
+}
+.guide-image {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+}
+.callout-list li {
+  margin-bottom: 10px;
+}
+.guide-caption {
+  max-width: 520px;
+  margin: 10px auto 0;
+  color: var(--text);
+  font-size: 15px;
+}
+.guide-caption strong {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.footer {
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --card: #111827;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --accent: #93c5fd;
+    --soft: #1f2937;
+    --border: #334155;
+  }
+  main { box-shadow: none; }
+  .toc { background: #172033; }
+  .tip { background: #10251f; }
+  .warning { background: #2a1d10; }
+}
+</style>
+</head>
+<body>
+<main>
+<h1>Instrukcja obsługi ShiftAlarm</h1>
+<p class="small">Wersja 14. Data: 2 sierpnia 2026 r.</p>
+<div class="notice">Ta strona jest praktyczną instrukcją obsługi ShiftAlarm. Wyjaśnia działanie każdej głównej funkcji, wskazuje, gdzie ją znaleźć i czego dotknąć, a także co sprawdzić, jeśli funkcja nie działa zgodnie z oczekiwaniami.</div>
+<nav class="toc">
+<strong>Spis treści</strong>
+<ol><li><a href="#start">1. Pierwsze uruchomienie</a></li><li><a href="#permissions">2. Uprawnienia i niezawodność</a></li><li><a href="#main">3. Ekran główny</a></li><li><a href="#shifts">4. Harmonogramy zmian</a></li><li><a href="#statistics">5. Statystyki harmonogramu</a></li><li><a href="#alarms">6. Alarmy</a></li><li><a href="#geo">7. Alarmy GPS</a></li><li><a href="#notes">8. Notatki, wydarzenia i przypomnienia</a></li><li><a href="#clock">9. Zegar, minutnik i stoper</a></li><li><a href="#widgets">10. Widżety</a></li><li><a href="#salary">11. Obliczanie wynagrodzenia</a></li><li><a href="#settings">12. Ustawienia</a></li><li><a href="#backup">13. Kopia zapasowa i przywracanie</a></li><li><a href="#diagnostics">14. Diagnostyka i rozwiązywanie problemów</a></li><li><a href="#faq">15. Często zadawane pytania</a></li></ol>
+</nav>
+<h2 id="start">1. Pierwsze uruchomienie</h2>
+
+<p>Przy pierwszym uruchomieniu ShiftAlarm wyświetla krótki proces konfiguracji. Ekran główny jest już dostępny w tle, ale najlepiej najpierw dokończyć konfigurację podstawową.</p>
+<ol class="step-list">
+<li>Przeczytaj informacje wprowadzające i dotknij „Kontynuuj”.</li>
+<li>Na etapie dokumentów otwórz dokumenty lub zaakceptuj wymagane dokumenty, gdy będziesz gotowy przejść dalej.</li>
+<li>Na etapie uprawnień otwórz ekran uprawnień i sprawdź powiadomienia, dokładne alarmy, dostęp do lokalizacji oraz ograniczenia baterii.</li>
+<li>Dotknij „Zakończ konfigurację”.</li>
+</ol>
+<p class="tip">Uprawnienia możesz skonfigurować później w sekcji „Ustawienia → Uprawnienia i niezawodność”.</p>
+
+<h2 id="permissions">2. Uprawnienia i niezawodność</h2>
+
+<p>Działanie alarmów, przypomnień i alarmów GPS zależy od ustawień Androida oraz oprogramowania producenta urządzenia.</p>
+<ul>
+<li><strong>Powiadomienia</strong> — są wymagane dla alarmów, przypomnień, minutnika i powiadomień usług.</li>
+<li><strong>Dokładne alarmy</strong> — pomagają uruchamiać alarm o wyznaczonej porze.</li>
+<li><strong>Lokalizacja</strong> — jest wymagana dla alarmów GPS.</li>
+<li><strong>Lokalizacja w tle</strong> — jest wymagana, aby alarm GPS działał, gdy aplikacja jest zamknięta.</li>
+<li><strong>Bateria i aktywność w tle</strong> — mogą wpływać na niezawodność wyzwalania na urządzeniach Xiaomi/Redmi i niektórych innych.</li>
+</ul>
+<p class="warning">Android nie zawsze gwarantuje natychmiastowe dostarczenie powiadomień, dokładnych alarmów lub zdarzeń geostrefy. W przypadku ważnych alertów sprawdź każdy element na ekranie uprawnień.</p>
+
+<h2 id="main">3. Ekran główny</h2>
+
+<p>Ekran główny jest codziennym panelem aplikacji. Zapewnia bezpośredni dostęp do kalendarza, zegara, alarmów GPS, zwykłych alarmów, harmonogramów zmian, notatek i ustawień.</p>
+
+<h3 id="main-overview">3.1. Elementy ekranu głównego</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_screen_overview.png" alt="Ekran główny ShiftAlarm z ponumerowanymi elementami sterującymi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Strzałka wstecz</strong> — przesuwa kalendarz do poprzedniego miesiąca.</li>
+<li><strong>Miesiąc i rok</strong> — pokazuje otwarty miesiąc. Dotknij tego obszaru, aby użyć <a href="#main-date-picker">etapowego wyboru miesiąca i roku</a>.</li>
+<li><strong>Strzałka dalej</strong> — przesuwa kalendarz do następnego miesiąca.</li>
+<li><strong>Kalendarz</strong> — główny obszar miesiąca. Kalendarz można przesuwać. Każdy dzień może pokazywać datę, przypomnienia, wydarzenia, zaplanowaną zmianę i zmiany dotyczące dnia. Zwykłe dotknięcie wybiera datę, a dłuższe przytrzymanie otwiera <a href="#main-day-actions">informacje i działania dla wybranego dnia</a>.</li>
+<li><strong>Dzisiaj</strong> — przywraca w kalendarzu bieżący dzień.</li>
+<li><strong>Zegar</strong> — otwiera <a href="#clock">zegar światowy, stoper i minutnik</a>.</li>
+<li><strong>Alarm GPS</strong> — otwiera <a href="#geo">mapę, zapisane miejsca i ustawienia alarmów GPS</a>. Alert może zostać uruchomiony przy wejściu do wybranego obszaru, wyjściu z niego albo w obu przypadkach.</li>
+<li><strong>Alarm</strong> — otwiera <a href="#alarms">alarmy zwykłe, powtarzane i powiązane ze zmianami</a>.</li>
+<li><strong>Harmonogram</strong> — otwiera <a href="#shifts">harmonogramy zmian, ich tworzenie i edycję oraz statystyki</a>.</li>
+<li><strong>Notatki</strong> — otwiera <a href="#notes">notatki, wydarzenia, przypomnienia, notatki dźwiękowe i zamianę mowy na tekst</a>.</li>
+<li><strong>Ustawienia</strong> — otwiera <a href="#settings">uprawnienia, język, motyw, modele mowy offline, kopię zapasową, diagnostykę, dokumenty i samouczek</a>.</li>
+</ol>
+
+
+<h3 id="main-date-picker">3.2. Wybór miesiąca i roku</h3>
+
+<p>Dotknij miesiąca i roku u góry ekranu głównego, aby szybko otworzyć potrzebny okres kalendarza. Wybór przebiega etapami: <strong>stulecie → dekada → rok → miesiąc</strong>.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_century.webp" alt="Krok 1: wybór stulecia w kalendarzu ShiftAlarm">
+<figcaption class="guide-caption"><strong>1. Wybierz stulecie.</strong> Dotknij okresu zawierającego potrzebny rok. W przykładzie wybrano lata 2000.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_decade.webp" alt="Krok 2: wybór dekady w kalendarzu ShiftAlarm">
+<figcaption class="guide-caption"><strong>2. Wybierz dekadę.</strong> Dotknij zakresu zawierającego potrzebny rok. Dla roku 2026 wybierz „2020–2029”.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_year.webp" alt="Krok 3: wybór roku w kalendarzu ShiftAlarm">
+<figcaption class="guide-caption"><strong>3. Wybierz rok.</strong> Dotknij potrzebnego roku. W przykładzie wybrano 2026.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_month.webp" alt="Krok 4: wybór miesiąca w kalendarzu ShiftAlarm">
+<figcaption class="guide-caption"><strong>4. Wybierz miesiąc.</strong> Dotknij potrzebnego miesiąca. W przykładzie wybrano lipiec.</figcaption>
+</figure>
+
+<div class="tip">Po wybraniu miesiąca panel zostaje zamknięty, a kalendarz główny otwiera się na wybranym miesiącu i roku.</div>
+<div class="notice">Przycisk „Wstecz” wraca do poprzedniego etapu. Na ekranie stulecia zamyka wybór daty.</div>
+
+<h3 id="main-day-actions">3.3. Informacje i działania dla wybranego dnia</h3>
+
+<p>Dotknij i przytrzymaj odpowiedni dzień w kalendarzu. Otworzy się panel z informacjami i działaniami dla tej daty. Przeciągnij panel w górę, aby zobaczyć wszystkie dostępne działania.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_day_actions.webp" alt="Panel informacji i działań ShiftAlarm dla wybranego dnia kalendarza">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Data</strong> — pokazuje dzień tygodnia i wybraną datę. Przeciągnij uchwyt u góry w górę lub w dół, aby rozwinąć albo zamknąć panel.</li>
+<li><strong>Zmiana</strong> — pokazuje wyliczoną zmianę albo modyfikację dnia, taką jak dzień wolny, czas wolny, urlop, zwolnienie chorobowe lub inny wyjątek.</li>
+<li><strong>Alarmy na tę datę</strong> — pokazuje alarmy przypisane do wybranego dnia lub informuje o ich braku.</li>
+<li><strong>Wydarzenia i przypomnienia</strong> — pokazuje wpisy powiązane z wybraną datą.</li>
+<li><strong>Dodaj alarm</strong> — otwiera tworzenie jednorazowego alarmu na wybraną datę.</li>
+<li><strong>Zmień zmianę</strong> — tworzy wyjątek dla jednego dnia lub zakresu dat w aktywnym harmonogramie.</li>
+<li><strong>Dodaj notatkę</strong> — pozwala wybrać wydarzenie lub przypomnienie do utworzenia na wybraną datę.</li>
+</ol>
+
+<div class="notice">Działanie „Zmień zmianę” służy do korygowania dni w aktywnym harmonogramie zmian.</div>
+
+<h4 id="main-shift-override">Zmiana jednego dnia lub zakresu dat</h4>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_types.webp" alt="Wybór zakresu dat i rodzaju zmiany harmonogramu w ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Data początkowa</strong> — pierwszy dzień zmiany. Początkowo używa daty wybranej w kalendarzu.</li>
+<li><strong>Data końcowa</strong> — ostatni dzień zmiany. Aby zmienić tylko jeden dzień, pozostaw tę samą datę.</li>
+<li><strong>Czas wolny</strong> — zastępuje wyliczoną zmianę czasem wolnym.</li>
+<li><strong>Urlop</strong> — oznacza wybrany dzień lub zakres jako urlop.</li>
+<li><strong>Zwolnienie chorobowe</strong> — oznacza wybrany dzień lub zakres jako zwolnienie chorobowe.</li>
+<li><strong>Zapisz zmianę</strong> — stosuje wybrany wyjątek w kalendarzu.</li>
+</ol>
+
+<h4 id="main-shift-time-adjustment">Korygowanie czasu pracy</h4>
+
+<p>Przewiń listę rodzajów zmian w dół i wybierz „Edytuj zmianę”, aby zmienić długość wyliczonej zmiany roboczej.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_time_adjustment.webp" alt="Korygowanie czasu pracy na zmianie w ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Edytuj zmianę</strong> — umożliwia korektę czasu pracy wybranej zmiany.</li>
+<li><strong>+ czas</strong> — dodaje godziny lub minuty do standardowej długości zmiany.</li>
+<li><strong>− czas</strong> — skraca zmianę, na przykład gdy praca zakończyła się wcześniej.</li>
+<li><strong>Wlicz ten czas jako nadgodziny</strong> — traktuje dodany czas jako nadgodziny. Gdy opcja jest wyłączona, czas jest liczony jako zwykły czas pracy.</li>
+<li><strong>Zapisz zmianę</strong> — stosuje korektę do wybranego dnia lub zakresu.</li>
+</ol>
+
+<div class="tip">Modyfikacja dnia nie zmienia oryginalnego szablonu harmonogramu. Jest zapisywana jako osobny wyjątek i uwzględniana w kalendarzu, statystykach, obliczeniach wynagrodzenia i raportach.</div>
+
+<h2 id="shifts">4. Harmonogramy zmian</h2>
+
+<p>Harmonogram zmian określa powtarzalny cykl pracy i stanowi podstawę innych funkcji ShiftAlarm. Aplikacja używa go do wypełniania kalendarza, wiązania alarmów ze zmianami, zliczania czasu pracy, tworzenia statystyk, szacowania wynagrodzenia i przygotowywania raportów.</p>
+
+<div class="notice"><strong>Podstawowa zasada.</strong> Najpierw utwórz bazowy harmonogram cykliczny. Urlop, zwolnienie chorobowe, czas wolny, jednorazową zmianę zastępczą lub korektę czasu pracy dodawaj jako wyjątki dla konkretnych dat przez <a href="#main-day-actions">działania wybranego dnia</a>. Dzięki temu pierwotny cykl pozostaje niezmieniony.</div>
+
+<h3 id="shifts-list">4.1. Lista harmonogramów i elementy sterujące</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedules_overview.webp" alt="Ekran harmonogramów ShiftAlarm z kartą aktywnego harmonogramu i ponumerowanymi elementami sterującymi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Szczegóły harmonogramu</strong> — obejmują nazwę, datę rozpoczęcia, długość cyklu i skróconą sekwencję dni. W przykładzie sekwencja oznacza dwie zmiany dzienne, po których następują dwa dni wolne.</li>
+<li><strong>Przełącznik</strong> — tymczasowo wyłącza harmonogram bez usuwania go. Po ponownym włączeniu zapisane ustawienia nadal obowiązują.</li>
+<li><strong>Stan harmonogramu</strong> — wskazuje, który harmonogram jest obecnie aktywny.</li>
+<li><strong>Edytuj</strong> — otwiera parametry, które można zmienić. Po konfiguracji początkowej część podstawowych danych harmonogramu zostaje zablokowana, aby zapobiec przypadkowemu przeliczeniu utworzonych już danych kalendarza.</li>
+<li><strong>Usuń</strong> — usuwa harmonogram po potwierdzeniu. Przed usunięciem sprawdź alarmy powiązane ze zmianami oraz obliczenia.</li>
+<li><strong>Otwórz statystyki</strong> — otwiera <a href="#statistics">statystyki czasu pracy, okresu, wynagrodzenia i raportów</a> tego harmonogramu.</li>
+<li><strong>Utwórz harmonogram</strong> — pozwala wybrać gotowy szablon lub utworzyć własny cykl.</li>
+</ol>
+
+<h3 id="shifts-create">4.2. Rozpoczynanie tworzenia harmonogramu</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_create.webp" alt="Panel tworzenia harmonogramu z nazwą, datą rozpoczęcia, szablonami i własnym harmonogramem">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Nazwa harmonogramu</strong> — wpisz czytelną nazwę, na przykład „Główny 2/2”, „Nocna zmiana” albo nazwę miejsca pracy.</li>
+<li><strong>Data rozpoczęcia</strong> — data odpowiadająca <strong>pierwszemu dniowi powtarzalnego cyklu</strong>. Możesz wybrać datę przeszłą lub przyszłą; aplikacja wyliczy harmonogram w przód i wstecz od tej daty.</li>
+<li><strong>Szablony</strong> — gotowe, typowe sekwencje zmian. W przykładzie użyto szablonu „2/2 dzienna”.</li>
+<li><strong>Własny harmonogram</strong> — tworzy własną sekwencję dni roboczych i wolnych.</li>
+<li><strong>Utwórz harmonogram</strong> — otwiera szczegółowy edytor wybranej opcji.</li>
+</ol>
+
+<div class="tip">W szablonie z dwoma dniami pracy i dwoma dniami wolnymi data rozpoczęcia jest zwykle pierwszym z dwóch dni roboczych. We własnym cyklu dzień 1 może być również dniem wolnym; ważne jest, aby wybrana data odpowiadała dokładnie pierwszemu dniowi utworzonej sekwencji.</div>
+
+<h3 id="shifts-template">4.3. Tworzenie harmonogramu z szablonu</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_template.webp" alt="Edytor harmonogramu z szablonu z nazwą, sekwencją, datą rozpoczęcia i godzinami zmiany">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Nazwa harmonogramu</strong> — zachowaj sugerowaną nazwę lub zastąp ją własną.</li>
+<li><strong>Szablon</strong> — pokazuje sekwencję liter i jej znaczenie. W przykładzie sekwencja oznacza zmianę dzienną, zmianę dzienną, dzień wolny i dzień wolny.</li>
+<li><strong>Data rozpoczęcia</strong> — wybierz datę pierwszego dnia wyświetlanej sekwencji.</li>
+<li><strong>Godziny zmiany</strong> — określ godzinę rozpoczęcia i zakończenia każdego rodzaju zmiany roboczej. Aplikacja wyświetli wyliczoną długość.</li>
+<li><strong>Anuluj</strong> — zamyka edytor bez zapisywania.</li>
+<li><strong>Zapisz</strong> — zapisuje harmonogram i rozpoczyna wyliczanie zmian w kalendarzu.</li>
+</ol>
+
+<div class="warning"><strong>Po pierwszym zapisaniu.</strong> Data rozpoczęcia i struktura cyklu zostają zablokowane, aby chronić wyliczone już dane kalendarza. Nadal można edytować nazwę i niektóre parametry pracy. Jeśli potrzebujesz innego cyklu bazowego lub daty odniesienia, bezpieczniej jest utworzyć nowy harmonogram.</div>
+
+<h3 id="shifts-custom">4.4. Tworzenie własnego cyklu</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_custom.webp" alt="Edytor własnego harmonogramu z długością cyklu, elementami sterującymi dniami, datą rozpoczęcia i ustawieniami każdego dnia">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Nazwa harmonogramu</strong> — nadaj nazwę własnej sekwencji.</li>
+<li><strong>Długość cyklu</strong> — pokazuje liczbę dni w powtarzalnej sekwencji.</li>
+<li><strong>Usuń dzień</strong> — skraca cykl o jeden dzień.</li>
+<li><strong>Dodaj dzień</strong> — dodaje kolejny konfigurowalny dzień na końcu cyklu.</li>
+<li><strong>Data rozpoczęcia</strong> — data odpowiadająca dniowi 1 własnego cyklu.</li>
+<li><strong>Ustawienia dnia</strong> — dotknij karty „Rodzaj zmiany” i wybierz dzień wolny lub odpowiedni rodzaj pracy: zmianę dzienną, nocną, poranną, wieczorną, 24-godzinną albo własną. Dla dnia roboczego określ godzinę rozpoczęcia i zakończenia. W ten sam sposób skonfiguruj pozostałe dni cyklu niżej na ekranie.</li>
+<li><strong>Anuluj</strong> — zamyka edytor bez zapisywania.</li>
+<li><strong>Zapisz</strong> — zapisuje własny cykl i wylicza go w kalendarzu.</li>
+</ol>
+
+<div class="notice"><strong>Czym jest cykl?</strong> Cykl to liczba dni, po których sekwencja rozpoczyna się od nowa. Na przykład czterodniowy cykl może obejmować „2 dni pracy + 2 dni wolne”, a sześciodniowy — „3 dni pracy + 3 dni wolne”. Po ostatnim dniu aplikacja wraca do dnia 1.</div>
+
+<div class="tip">Nie zmieniaj cyklu bazowego z powodu jednorazowego wyjątku w harmonogramie. Przytrzymaj datę w kalendarzu i utwórz dzień wolny, urlop, zwolnienie chorobowe, zmianę zastępczą lub korektę czasu.</div>
+
+
+
+<span id="shift-statistics"></span>
+<h2 id="statistics">5. Statystyki harmonogramu</h2>
+
+<p>Otwórz „Statystyki” z karty harmonogramu za pomocą przycisku <strong>„Otwórz statystyki”</strong>. Ta sekcja łączy informacje o dniach pracy i wolnych, zmianach harmonogramu, planowanym i rzeczywistym czasie pracy, szacowanym wynagrodzeniu oraz raportach.</p>
+
+<div class="notice"><strong>Ważne:</strong> statystyki są obliczane tylko dla wybranego harmonogramu zmian. Wybrany okres dotyczy wszystkich wartości czasu pracy, wynagrodzenia i raportów wyświetlanych poniżej.</div>
+
+<h3 id="statistics-period">5.1. Podsumowanie harmonogramu, okresu i dni</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_period_overview.webp" alt="Ekran statystyk z informacjami o harmonogramie, wyborem okresu i podsumowaniem dni">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Informacje o harmonogramie</strong> — pokazują nazwę wybranego harmonogramu, datę rozpoczęcia pierwszego cyklu i długość powtarzalnego cyklu. Statystyki na tym ekranie dotyczą tylko tego harmonogramu.</li>
+<li><strong>Karta wybranego okresu</strong> — pokazuje używany okres. Dotknij jej lub strzałki po prawej stronie, aby wybrać bieżący, poprzedni albo następny miesiąc, bieżący rok lub własny zakres dat.</li>
+<li><strong>Podsumowanie dni</strong> — pokazuje liczbę dni w okresie, zmian roboczych, dni wolnych, zmian zakończonych i nadchodzących oraz dni zmodyfikowanych. Zmodyfikowane dni są wyjątkami od cyklu bazowego: urlopem, zwolnieniem chorobowym, czasem wolnym, zmianą zastępczą lub przeniesioną, korektą czasu pracy albo inną zmianą.</li>
+</ol>
+
+<div class="warning"><strong>Przyszłe okresy są prognozami.</strong> Dla przyszłego miesiąca aplikacja korzysta z utworzonego harmonogramu i już wprowadzonych danych, ale nie zna przyszłych zwolnień chorobowych, urlopów, czasu wolnego, nadgodzin, premii ani potrąceń. Po wybraniu bieżącego roku podsumowanie może łączyć rzeczywiste dane z przeszłych dat z prognozą na pozostałą część roku.</div>
+
+<h3 id="statistics-work">5.2. Czas pracy, wynagrodzenie i raporty</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_work_salary_reports.webp" alt="Ekran statystyk z czasem pracy, postępem, wynagrodzeniem i dostępem do raportów">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Czas pracy</strong> — karta podsumowująca godziny i postęp. Dotknij jej, aby otworzyć <a href="#statistics-break">ustawienia przerw</a>.</li>
+<li><strong>Planowane godziny</strong> — łączny czas zaplanowanych zmian i modyfikacji w wybranym okresie.</li>
+<li><strong>Przepracowane godziny</strong> — czas zmian uznanych za zakończone do bieżącej daty, po zastosowaniu ustawień przerw.</li>
+<li><strong>Postęp</strong> — pokazuje liczbę zakończonych zmian roboczych względem wszystkich zmian oraz procent ukończenia wybranego okresu.</li>
+<li><strong>Wynagrodzenie</strong> — otwiera <a href="#salary">ustawienia obliczania wynagrodzenia</a>. Karta pokazuje szacunek dla wybranego harmonogramu i okresu.</li>
+<li><strong>Łącznie</strong> — szacowana kwota zarobiona do tej pory, uwzględniająca wybraną metodę płatności, premie, nadgodziny i potrącenia.</li>
+<li><strong>Stawka lub pensja</strong> — zawartość tej karty zależy od wybranej metody obliczeń: płatność za godzinę, za zmianę albo za miesiąc. Pokazuje wartość wpisaną w ustawieniach wynagrodzenia.</li>
+<li><strong>Szczegóły obliczeń</strong> — płatny czas, nadgodziny, premie i potrącenia w wybranym okresie.</li>
+<li><strong>Raporty</strong> — otwiera <a href="#reports">szczegółowe raporty dotyczące okresów, czasu pracy i wynagrodzenia</a>.</li>
+</ol>
+
+<div class="tip">Wszystkie wartości w sekcjach czasu pracy i wynagrodzenia są przeliczane po zmianie okresu na górnej karcie.</div>
+
+<h3 id="statistics-break">5.3. Uwzględnianie przerw w czasie pracy</h3>
+
+<p>Dotknij karty „Czas pracy”, aby określić, czy przerwa na posiłek lub inna przerwa ma być wliczana do faktycznie przepracowanego i płatnego czasu.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_break_settings.webp" alt="Panel ustawień uwzględniania i długości przerwy">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Bieżące podsumowanie</strong> — pokazuje planowane i przepracowane godziny dla wybranego okresu przed zastosowaniem nowych ustawień.</li>
+<li><strong>Wliczaj przerwę do czasu pracy</strong> — pozostaw tę opcję włączoną, jeśli przerwa jest płatna i wliczona w długość zmiany. Wyłącz ją, jeśli podany czas ma zostać odjęty od czasu przepracowanego i płatnego.</li>
+<li><strong>Długość przerwy</strong> — wybierz godziny i minuty jednej przerwy. Ustawienie służy do przeliczania odpowiednich zmian roboczych.</li>
+<li><strong>Łączny czas przerwy</strong> — pokazuje wybraną długość przed zapisaniem.</li>
+<li><strong>Zapisz</strong> — stosuje ustawienie oraz przelicza czas pracy i powiązane wartości.</li>
+</ol>
+
+<div class="notice">Przerwa może oznaczać przerwę na posiłek, przekazanie zmiany lub inny niepłatny okres w trakcie zmiany. Wprowadź długość zgodną z zasadami obowiązującymi w miejscu pracy.</div>
+
+<h3 id="reports">5.4. Raporty: okres, stan i podsumowanie</h3>
+
+<p>Otwórz „Raporty” z dolnej karty na ekranie statystyk. Ta sekcja zawiera bardziej szczegółowe informacje dla wybranego okresu: czas pracy, zmiany i nieobecności, korekty kalendarza, wynagrodzenie, premie, potrącenia, porównanie okresów, szczegóły poszczególnych dni i eksport.</p>
+
+<div class="warning"><strong>Raporty służą wyłącznie do celów informacyjnych.</strong> Obliczenia opierają się na wybranym harmonogramie, ustawieniach wynagrodzenia, uwzględnianiu przerw i zmianach w kalendarzu. Rzeczywiste dane pracodawcy mogą być inne z powodu odmiennego systemu ewidencji czasu pracy, zaokrągleń, podatków, dodatków lub zasad wewnętrznych. Jeśli znajdziesz błąd albo nieobsługiwaną metodę obliczeń, skontaktuj się z programistami pod adresem podanym w aplikacji i dołącz dane wejściowe oraz oczekiwany wynik.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_period_salary.webp" alt="Ekran raportów z wyborem okresu, stanem, podsumowaniem i szczegółowym zestawieniem wynagrodzenia">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Okres raportu</strong> — dotknij karty, aby wybrać bieżący, poprzedni lub następny miesiąc, gotowy zakres albo własne daty. Wszystkie informacje poniżej dotyczą wybranego okresu.</li>
+<li><strong>Stan okresu</strong> — pokazuje, czy okres jest zakończony, obecnie aktywny, czy jeszcze się nie rozpoczął. Zakończony okres jest obliczany na podstawie zapisanych danych rzeczywistych. Aktywny okres łączy dane już przepracowane z bieżącym planem, natomiast przyszły okres jest prognozą.</li>
+<li><strong>Podsumowanie</strong> — tekstowe podsumowanie faktycznie przepracowanego czasu, wyliczonej kwoty i nadgodzin.</li>
+<li><strong>Wynagrodzenie</strong> — szczegółowy podział na wynagrodzenie podstawowe, zapłatę za nadgodziny, premie, potrącenia i końcową kwotę szacunkową. Wartości zależą od <a href="#salary">ustawień wynagrodzenia</a> i wybranego okresu.</li>
+</ol>
+
+<h3 id="reports-work">5.5. Czas pracy, nieobecności i dni</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_work_absences.webp" alt="Ekran raportów z czasem pracy, przerwami, zakończonymi zmianami i nieobecnościami">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Czas pracy</strong> — pokazuje planowane i faktycznie przepracowane godziny, godziny planowane i rzeczywiste przed odjęciem przerw, liczbę zakończonych zmian, średnią długość zmiany oraz łączny odjęty czas przerw. Przerwy skonfiguruj w <a href="#statistics-break">sekcji czasu pracy</a>.</li>
+<li><strong>Nieobecności i dni</strong> — pokazuje liczbę dni wolnych, dni urlopu, dni zwolnienia chorobowego, dni czasu wolnego i dni zmodyfikowanych w wybranym okresie.</li>
+</ol>
+
+<h3 id="reports-charts">5.6. Korekty i wykresy</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_corrections_charts.webp" alt="Ekran raportów z korektami, strukturą wynagrodzenia i wartościami czasu pracy">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Korekty</strong> — pokazują nadgodziny, łączną zmianę długości zmian oraz liczbę dni zmodyfikowanych względem harmonogramu bazowego.</li>
+<li><strong>Wykresy</strong> — przedstawiają strukturę wynagrodzenia i czasu pracy: wynagrodzenie podstawowe, nadgodziny, premie, potrącenia, sumę oraz godziny planowane, przepracowane i płatne.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_charts_days.webp" alt="Dodatkowe wykresy raportu z godzinami i kołowym wykresem rodzajów dni">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Godziny</strong> — dalsze wizualne porównanie godzin planowanych, przepracowanych, płatnych i nadliczbowych. Wiersz „Rzeczywisty czas pracy” pokazuje wynik po zastosowaniu ustawień i korekt.</li>
+<li><strong>Rodzaje dni</strong> — wykres kołowy dzielący dni wybranego okresu według rodzaju. Legenda zależy od harmonogramu i rzeczywistych zmian: zmiany dzienne, nocne lub inne, dni wolne, urlop, zwolnienie chorobowe, czas wolny i inne stany.</li>
+</ol>
+
+<h3 id="reports-comparison">5.7. Porównywanie okresów</h3>
+
+<p>Sekcja porównania pomaga zestawić wynagrodzenie, czas, zmiany i nieobecności z kilku okresów. Liczba dostępnych okresów zależy od zapisanych danych.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_chart.webp" alt="Ekran porównania okresów z wyborem zakresu, wykresem wynagrodzenia i początkiem tabeli porównawczej">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Porównaj okresy</strong> — dotknij karty, aby wybrać liczbę porównywanych okresów i ich zakres.</li>
+<li><strong>Wykres i lista okresów</strong> — pokazuje wynagrodzenie dla każdego okresu oraz wymienia przedziały uwzględnione w porównaniu wraz z ich stanem.</li>
+<li><strong>Tabela porównawcza</strong> — zawiera szczegółowe wartości dla każdego okresu. Przesuń tabelę poziomo w lewo lub w prawo, aby zobaczyć pozostałe kolumny.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_table.webp" alt="Dalsza część tabeli porównawczej i różnice między kolejnymi okresami">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Wartości okresu</strong> — łączne wynagrodzenie, godziny przepracowane i płatne, nadgodziny, premie, potrącenia, zakończone zmiany, nieobecności i zmodyfikowane dni.</li>
+<li><strong>Różnica między okresami</strong> — pokazuje, czym każdy okres różni się od poprzedniego. Wartości dodatnie i ujemne oznaczają wzrost lub spadek odpowiedniego wskaźnika. Sam kolor nie zawsze oznacza korzyść lub problem; na przykład wzrost potrąceń oznacza zatrzymanie większej kwoty.</li>
+</ol>
+
+<h3 id="reports-details-export">5.8. Szczegóły dni i eksport</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_details_export.webp" alt="Karty raportu ze szczegółami dni i eksportem do PDF, HTML, JSON lub CSV">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Szczegóły dni</strong> — otwiera listę wszystkich dni w wybranym okresie. Dla konkretnego dnia możesz sprawdzić rodzaj zmiany, czas planowany i rzeczywisty, korekty godzin, nieobecności oraz inne zmiany.</li>
+<li><strong>Eksport</strong> — zapisuje raport jako PDF, HTML, JSON lub CSV. Przed eksportem wybierz okres raportu; następnie możesz wydrukować, zapisać lub udostępnić plik przez menu systemowe Androida.</li>
+</ol>
+
+<div class="tip">Przed porównaniem lub eksportem sprawdź wybrany okres, harmonogram, modyfikacje zmian, przerwy i ustawienia wynagrodzenia. Błąd w danych źródłowych wpłynie na każde podsumowanie raportu.</div>
+
+<h2 id="alarms">6. Alarmy</h2>
+
+<p>ShiftAlarm pozwala tworzyć alarmy jednorazowe, powtarzać je w wybrane dni tygodnia lub powiązać ich godzinę z harmonogramem zmian.</p>
+
+<h3 id="alarms-list">6.1. Lista alarmów</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarms_overview.webp" alt="Ekran alarmów ShiftAlarm z następnym alertem, sortowaniem, kartą alarmu i przyciskiem dodawania">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Następny alarm</strong> — pokazuje datę i godzinę następnego aktywnego alertu.</li>
+<li><strong>Sortowanie alarmów</strong> — zmienia kolejność kart alarmów, na przykład pokazując najpierw włączone alarmy.</li>
+<li><strong>Karta alarmu</strong> — zawiera godzinę, datę lub tryb powtarzania, rodzaj harmonogramu i pozostały czas. Dotknij karty, aby ją edytować.</li>
+<li><strong>Przełącznik</strong> — tymczasowo włącza lub wyłącza alarm bez usuwania jego ustawień.</li>
+<li><strong>Usuń</strong> — usuwa wybrany alarm.</li>
+<li><strong>Dodaj alarm</strong> — otwiera ekran tworzenia nowego alarmu.</li>
+</ol>
+
+<h3 id="alarms-create">6.2. Tworzenie i edytowanie alarmu</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_time_schedule.webp" alt="Górna część edytora alarmu ShiftAlarm: godzina, rodzaj harmonogramu, drzemka i przyciski zapisywania">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Godzina</strong> — przewiń pokrętła godzin i minut, aby ustawić porę alertu.</li>
+<li><strong>Rodzaj harmonogramu</strong> — wybierz jeden z trybów:
+<ul>
+<li><strong>Jednorazowo</strong> — alarm uruchamia się raz w wybranym dniu;</li>
+<li><strong>Według dni</strong> — powtarza się w wybrane dni tygodnia;</li>
+<li><strong>Według zmian</strong> — wiąże alarm z wybranym harmonogramem i rodzajem zmiany.</li>
+</ul>
+</li>
+<li><strong>Drzemka</strong> — określa, o ile minut alert zostanie odłożony po dotknięciu przycisku drzemki na ekranie dzwonienia.</li>
+<li><strong>Anuluj i Zapisz</strong> — te przyciski są zamocowane u dołu ekranu i pozostają dostępne podczas przewijania edytora.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_behavior.webp" alt="Ustawienia ShiftAlarm dotyczące czasu trwania alarmu, powtarzania alertu, stopniowego zwiększania głośności i wibracji">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Czas trwania alarmu</strong> — określa, jak długo alert będzie dzwonił, jeśli użytkownik go nie zatrzyma.</li>
+<li><strong>Powtórz, jeśli alarm zostanie zignorowany</strong> — włącza kolejny alert, gdy alarmu ani nie wyłączono, ani nie odłożono. Poniżej ustaw czas do ponownego alertu.</li>
+<li><strong>Stopniowe zwiększanie głośności</strong> — zaczyna od cichszego dźwięku i stopniowo zwiększa głośność przez wybrany czas.</li>
+<li><strong>Wibracje</strong> — włączają lub wyłączają wibracje podczas alertu.</li>
+<li><strong>Anuluj i Zapisz</strong> — stałe elementy sterujące edytora.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_sound_name.webp" alt="Dolna część edytora alarmu ShiftAlarm: wibracje, dźwięk, nazwa i przyciski zapisywania">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Wibracje</strong> — włączają lub wyłączają alert wibracyjny.</li>
+<li><strong>Dźwięk</strong> — pozwala wybrać dźwięk wbudowany, systemowy lub dodany przez użytkownika. Do aplikacji można dodać maksymalnie pięć własnych dźwięków.</li>
+<li><strong>Nazwa</strong> — opcjonalna etykieta ułatwiająca rozróżnianie alarmów.</li>
+<li><strong>Anuluj i Zapisz</strong> — odrzuca zmiany lub zapisuje alarm.</li>
+</ol>
+
+<div class="notice">Po zapisaniu alarm pojawi się na liście głównej. Przed ważnym alertem upewnij się, że alarm jest włączony, aplikacja ma uprawnienia do powiadomień i dokładnych alarmów, a system nie ogranicza jej aktywności w tle.</div>
+
+<div class="tip">Aby utworzyć alarm powiązany ze zmianą, najpierw utwórz odpowiedni harmonogram zmian. W edytorze wybierz stałą porę uruchomienia albo przesunięcie względem rozpoczęcia zmiany.</div>
+
+<h2 id="geo">7. Alarmy GPS</h2>
+
+<p>Alarm GPS monitoruje, kiedy urządzenie wchodzi do wybranego obszaru lub z niego wychodzi. Obszar jest określony przez punkt na mapie i promień wokół niego. Alarmu GPS można na przykład użyć, aby otrzymać alert przy zbliżaniu się do pracy, domu, przystanku autobusowego, stacji lub innego miejsca.</p>
+
+<h3 id="geo-overview">7.1. Mapa i elementy sterujące</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_overview.webp" alt="Ekran główny alarmów GPS ShiftAlarm z mapą i ponumerowanymi elementami sterującymi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Powiększ</strong> — powiększa mapę.</li>
+<li><strong>Pomniejsz</strong> — zmniejsza skalę mapy.</li>
+<li><strong>Moja lokalizacja</strong> — przesuwa mapę do bieżącego położenia urządzenia. Ta funkcja wymaga dostępu aplikacji do lokalizacji.</li>
+<li><strong>Zapisane miejsca</strong> — otwiera listę zapisanych alarmów GPS i punktów lokalizacji.</li>
+<li><strong>Wstecz</strong> — wraca do poprzedniego ekranu aplikacji.</li>
+<li><strong>Liczba alarmów GPS</strong> — pokazuje liczbę utworzonych alarmów GPS.</li>
+<li><strong>Lista alarmów GPS</strong> — otwiera osobną listę utworzonych alarmów GPS.</li>
+</ol>
+
+<div class="tip">Skalę można również zmieniać gestami. Dotknij mapy dwoma palcami i rozsuń je, aby powiększyć, albo zsuń, aby pomniejszyć.</div>
+<div class="notice">W językach pisanych od prawej do lewej boczne elementy sterujące mogą być widoczne po przeciwnej stronie. Ich funkcje pozostają takie same.</div>
+
+<h3 id="geo-saved-places">7.2. Zapisane alarmy i punkty lokalizacji</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_saved_places.webp" alt="Okno zapisanych miejsc z kartami alarmów GPS i punktów lokalizacji">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Alarmy</strong> — pokazują alarmy GPS dodane do zapisanych miejsc.</li>
+<li><strong>Punkty lokalizacji</strong> — pokazują zapisane współrzędne bez aktywnego alarmu GPS.</li>
+<li><strong>Lista zapisanych miejsc</strong> — dotknij karty, aby przejść do danego miejsca na mapie.</li>
+<li><strong>Zamknij</strong> — zamyka okno i wraca do mapy.</li>
+</ol>
+
+<div class="notice">Jeśli usuniesz alarm GPS oznaczony zakładką, jego współrzędne zostaną automatycznie zachowane na karcie „Punkty lokalizacji”. Później możesz ponownie użyć tego punktu do utworzenia kolejnego alarmu GPS.</div>
+
+<h3 id="geo-select-point">7.3. Wybór punktu i promienia</h3>
+
+<p>Dotknij i przytrzymaj odpowiednie miejsce na mapie. Aplikacja umieści znacznik i otworzy panel wybranego punktu.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_selected_point.webp" alt="Wybrany punkt mapy z adresem, promieniem, zakładką i przyciskiem tworzenia alarmu GPS">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Znacznik wybranego punktu</strong> — środek przyszłej geostrefy. Mapa pokazuje również okrąg wybranego promienia.</li>
+<li><strong>Adres i współrzędne</strong> — pozwalają sprawdzić, czy wybrano właściwe miejsce.</li>
+<li><strong>Zapisz punkt lokalizacji</strong> — dodaje wybrane współrzędne do zapisanych miejsc bez tworzenia alarmu.</li>
+<li><strong>Promień</strong> — określa wielkość obszaru wokół punktu. Przesuwaj suwak, aż wybierzesz odpowiednią odległość.</li>
+<li><strong>Anuluj</strong> — anuluje wybór punktu.</li>
+<li><strong>Utwórz tutaj</strong> — otwiera edytor nowego alarmu GPS dla wybranego punktu.</li>
+</ol>
+
+<div class="warning"><strong>Jak wybrać promień.</strong> Telefon nie śledzi swoich współrzędnych bez przerwy. Android, producent urządzenia, tryb oszczędzania baterii, GPS, jakość sygnału sieci komórkowej i Wi‑Fi oraz prędkość przemieszczania wpływają na moment wykrycia granicy. Alert może więc uruchomić się z dala od narysowanej linii. Na przykład przy promieniu 800 m wejście może zostać wykryte, gdy urządzenie jest już wewnątrz obszaru — być może 700, 600 lub 500 m od punktu.</div>
+
+<ul>
+<li><strong>W mieście</strong> zazwyczaj zalecany jest promień <strong>1300–1500 m</strong>.</li>
+<li><strong>Poza miastem</strong>, gdzie aktualizacje lokalizacji mogą być rzadsze, zaleca się <strong>4000–5000 m</strong>.</li>
+<li><strong>Dokładny promień</strong> należy dobrać do trasy, prędkości i działania urządzenia.</li>
+</ul>
+
+<div class="notice">System wykrywa przekroczenie przez urządzenie wirtualnej granicy obszaru. W trybie „Przy wejściu” większy promień zwykle daje telefonowi więcej czasu na wykrycie zbliżania. W trybie „Przy wyjściu” granica znajduje się natomiast dalej od wybranego punktu.</div>
+
+<h3 id="geo-create">7.4. Tworzenie alarmu GPS</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_location_schedule.webp" alt="Górna część edytora alarmu GPS: gotowość, lokalizacja i rodzaj harmonogramu">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Gotowość alarmu GPS</strong> — pokazuje, czy skonfigurowano wymagane uprawnienia i czy aplikacja może zarejestrować geostrefę.</li>
+<li><strong>Lokalizacja</strong> — zawiera wybrany adres i współrzędne. Adres można edytować jako etykietę, ale właściwy punkt wybiera się na mapie.</li>
+<li><strong>Rodzaj harmonogramu</strong> — określa dni i warunki aktywności alarmu GPS.</li>
+<li><strong>Zawsze</strong> — alarm GPS jest aktywny codziennie, dopóki jest włączony.</li>
+<li><strong>Jednorazowo</strong> — służy do następnego jednorazowego uruchomienia po spełnieniu wybranego warunku.</li>
+<li><strong>Według dni</strong> — działa tylko w wybrane dni tygodnia.</li>
+<li><strong>Według zmian</strong> — wiąże alarm GPS z aktywnym harmonogramem zmian.</li>
+</ol>
+
+<div class="notice"><strong>Harmonogram „Według zmian”.</strong> Wybierz, czy alarm działa w dniu zmiany, tylko przed zmianą czy tylko po niej, i określ odpowiedni rodzaj zmiany: dzienna, nocna, poranna, wieczorna, 24-godzinna, własna albo dowolna zmiana robocza.</div>
+<div class="tip">Jeśli data w kalendarzu jest oznaczona jako dzień wolny, urlop, zwolnienie chorobowe lub czas wolny zamiast zmiany roboczej, alarm GPS powiązany ze zmianami nie będzie tego dnia aktywny.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_trigger_settings.webp" alt="Dolna część edytora alarmu GPS: warunek wejścia lub wyjścia, promień i ustawienia alertu">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Warunek uruchomienia</strong> — określa, które przekroczenie granicy uruchamia alert.</li>
+<li><strong>Przy wejściu</strong> — uruchamia alert, gdy urządzenie znajdzie się w wybranym promieniu, na przykład przy zbliżaniu się do pracy lub właściwego przystanku.</li>
+<li><strong>Przy wyjściu</strong> — uruchamia alert, gdy urządzenie opuści wybrany promień, na przykład po wyjściu z pracy lub stacji, aby nie przegapić kolejnego odcinka trasy.</li>
+<li><strong>Przy wejściu lub wyjściu</strong> — uruchamia alert przy każdym przekroczeniu granicy w dowolnym kierunku.</li>
+<li><strong>Promień</strong> — wielkość geostrefy wokół wybranego punktu.</li>
+<li><strong>Czas trwania alarmu</strong> — określa, jak długo będzie odtwarzany alert.</li>
+<li><strong>Stopniowe zwiększanie głośności</strong> — ustawia łagodny wzrost głośności po rozpoczęciu alertu.</li>
+<li><strong>Anuluj i Zapisz</strong> — odrzuca zmiany lub zapisuje alarm GPS.</li>
+</ol>
+
+<div class="tip">Pozostałe opcje poniżej są podobne do ustawień zwykłego alarmu: dźwięk, wibracje, czas trwania alertu, stopniowe zwiększanie głośności i nazwa.</div>
+
+<h3 id="geo-existing">7.5. Alarm GPS na mapie i jego elementy sterujące</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_marker_radius.webp" alt="Znacznik utworzonego alarmu GPS i okrąg promienia uruchomienia na mapie">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Znacznik alarmu GPS</strong> — pokazuje wybrany punkt.</li>
+<li><strong>Granica promienia</strong> — pokazuje obszar, którego wejście lub opuszczenie monitoruje aplikacja.</li>
+</ol>
+
+<p>Dotknij znacznika alarmu GPS. Najpierw pojawi się małe okno informacyjne. Dotknij go, aby otworzyć kartę szczegółową.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_alarm_card.webp" alt="Szczegółowa karta alarmu GPS z informacjami, zakładką, przełącznikiem i elementami sterującymi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Nazwa i adres</strong> — identyfikują wybrany alarm GPS.</li>
+<li><strong>Zakładka</strong> — dodaje alarm do zapisanych miejsc lub go z nich usuwa.</li>
+<li><strong>Przełącznik</strong> — włącza lub tymczasowo wyłącza alarm GPS bez usuwania jego ustawień.</li>
+<li><strong>Ustawienia i stan</strong> — pokazują promień, warunek wejścia lub wyjścia, harmonogram, gotowość geostrefy oraz informacje o wcześniejszych uruchomieniach.</li>
+<li><strong>Edytuj</strong> — otwiera ustawienia alarmu GPS.</li>
+<li><strong>Zamknij</strong> — zamyka kartę i wraca do mapy.</li>
+<li><strong>Usuń</strong> — usuwa alarm GPS po potwierdzeniu.</li>
+</ol>
+
+<div class="warning">Aby zapewnić niezawodne działanie, zezwól na dokładną lokalizację i lokalizację w tle, usuń rygorystyczne ograniczenia baterii dla ShiftAlarm i sprawdź ustawienia automatycznego uruchamiania, jeśli urządzenie je udostępnia. Nawet przy prawidłowych ustawieniach Android nie gwarantuje wykrycia granicy z dokładnością do kilku metrów.</div>
+
+<h2 id="notes">8. Notatki, wydarzenia i przypomnienia</h2>
+
+<p>Sekcja „Notatki” przechowuje zwykły tekst, listy, listy kontrolne, nagrania dźwiękowe, notatki tworzone z mowy, przypomnienia i wydarzenia.</p>
+
+<h3 id="notes-create">8.1. Dodawanie notatki</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_type_picker.webp" alt="Wybór rodzaju nowej notatki w ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Uchwyt panelu</strong> — przeciągnij go w górę, aby wyświetlić pełną listę rodzajów notatek, albo w dół, aby zamknąć panel.</li>
+<li><strong>Rodzaj notatki</strong> — wybierz odpowiednią opcję:
+<ul>
+<li><strong>Notatka tekstowa</strong> — zwykły tekst;</li>
+<li><strong>Lista kontrolna</strong> — lista pozycji z polami do oznaczania wykonania;</li>
+<li><strong>Lista</strong> — lista punktowana lub numerowana;</li>
+<li><strong>Notatka dźwiękowa</strong> — nagranie głosu;</li>
+<li><strong>Mowa na tekst</strong> — tworzy notatkę za pomocą rozpoznawania mowy;</li>
+<li><strong>Przypomnienie</strong> — wpis z powiadomieniem o określonej porze;</li>
+<li><strong>Wydarzenie</strong> — wpis powiązany z datą i godziną.</li>
+</ul>
+</li>
+<li><strong>Anuluj</strong> — zamyka okno wyboru bez tworzenia notatki.</li>
+</ol>
+
+<div class="tip">Po wybraniu rodzaju otworzy się odpowiedni edytor. Wypełnij wymagane pola i zapisz wpis.</div>
+
+<h3 id="notes-list">8.2. Lista notatek i elementy sterujące</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_overview.webp" alt="Ekran notatek ShiftAlarm z sortowaniem, notatkami aktywnymi i zarchiwizowanymi, wyszukiwaniem i działaniami kart">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Sortuj</strong> — zmienia kolejność notatek na liście.</li>
+<li><strong>Aktywne</strong> — pokazuje zwykłe i zaplanowane notatki, których nie przeniesiono do archiwum.</li>
+<li><strong>Archiwum</strong> — otwiera listę zarchiwizowanych notatek.</li>
+<li><strong>Szukaj</strong> — wyszukuje dopasowania w tytułach i treści notatek.</li>
+<li><strong>Karta notatki</strong> — pokazuje tytuł, rodzaj, stan i dodatkowe informacje. Dotknij karty, aby otworzyć notatkę.</li>
+<li><strong>Przypnij</strong> — przypina notatkę u góry listy.</li>
+<li><strong>Archiwizuj</strong> — usuwa notatkę z listy aktywnej i przenosi ją do archiwum.</li>
+<li><strong>Usuń</strong> — usuwa notatkę po potwierdzeniu.</li>
+<li><strong>Dodaj notatkę</strong> — otwiera okno wyboru rodzaju nowej notatki.</li>
+</ol>
+
+<div class="notice">Archiwum służy do przechowywania wpisów, które nie są już potrzebne na liście głównej, ale powinny pozostać zapisane. Usuń notatkę tylko wtedy, gdy nie będzie już w ogóle potrzebna.</div>
+
+<h2 id="clock">9. Zegar, stoper i minutnik</h2>
+
+<p>Ta sekcja łączy czas lokalny i światowy, stoper oraz minutnik. Otwórz ją przyciskiem <strong>„Zegar”</strong> na ekranie głównym.</p>
+
+<div class="notice">U dołu ekranu znajdują się trzy karty: „Zegar”, „Stoper” i „Minutnik”. Dotknij karty, aby zmienić tryb.</div>
+
+<h3 id="clock-world">9.1. Zegar i zegar światowy</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_overview.webp" alt="Ekran zegara ShiftAlarm z czasem lokalnym, zegarami światowymi, przyciskiem dodawania i dolnymi kartami">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Czas lokalny</strong> — pokazuje bieżącą godzinę, datę i systemową strefę czasową urządzenia.</li>
+<li><strong>Zegary światowe</strong> — pokazują dodane miasta i strefy czasowe. Gdy lista jest pusta, aplikacja wyświetla podpowiedź.</li>
+<li><strong>Przycisk plus</strong> — otwiera wybór zegara światowego.</li>
+<li><strong>Karty sekcji</strong> — przełączają między ekranami „Zegar”, „Stoper” i „Minutnik”.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_add_timezone.webp" alt="Dodawanie miasta lub strefy czasowej do zegara światowego ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Szukaj</strong> — wpisz nazwę miasta lub strefy czasowej, aby przefiltrować listę.</li>
+<li><strong>Lista miast i stref czasowych</strong> — dotknij odpowiedniej opcji, aby dodać ją do ekranu zegara światowego.</li>
+</ol>
+
+<div class="tip">Lokalna strefa czasowa jest zawsze wyświetlana jako pierwsza. Dodane zegary światowe można usunąć z listy, ale czasu lokalnego nie można usunąć.</div>
+
+<h3 id="clock-stopwatch">9.2. Stoper</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_start.webp" alt="Stoper ShiftAlarm przed uruchomieniem">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Historia</strong> — otwiera zapisane sesje stopera.</li>
+<li><strong>Start</strong> — rozpoczyna pomiar czasu.</li>
+<li><strong>Resetuj</strong> — jest niedostępne przed uruchomieniem stopera. Po zatrzymaniu zeruje stoper i usuwa bieżące okrążenia.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_running.webp" alt="Uruchomiony stoper ShiftAlarm z przyciskami historii, zapisywania, okrążenia i pauzy">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Historia</strong> — pokazuje wcześniej zapisane sesje.</li>
+<li><strong>Zapisz</strong> — prosi o nazwę i zapisuje bieżącą sesję stopera.</li>
+<li><strong>Okrążenie</strong> — zapisuje wynik pośredni bez zatrzymywania całkowitego czasu.</li>
+<li><strong>Pauza</strong> — wstrzymuje stoper. Po wstrzymaniu można go wznowić lub wyzerować.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_laps.webp" alt="Okrążenia stopera ShiftAlarm i opcje ich sortowania">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Oryginalnie, najszybsze i najwolniejsze</strong> — zmieniają kolejność wyświetlania okrążeń: pierwotna kolejność, najpierw najszybsze albo najpierw najwolniejsze.</li>
+<li><strong>Okrążenia</strong> — każde okrążenie pokazuje łączny czas jego zarejestrowania i indywidualny czas okrążenia.</li>
+</ol>
+
+<div class="notice">Po dotknięciu Zapisz wpisz nazwę sesji i potwierdź. Zapisaną sesję można później otworzyć z Historii.</div>
+
+<h3 id="clock-timer">9.3. Minutnik</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_setup.webp" alt="Ustawianie minutnika ShiftAlarm za pomocą pokręteł godzin, minut i sekund">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Godziny</strong> — przewiń pokrętło i wybierz liczbę godzin.</li>
+<li><strong>Minuty</strong> — przewiń pokrętło i wybierz liczbę minut.</li>
+<li><strong>Sekundy</strong> — przewiń pokrętło i wybierz liczbę sekund.</li>
+<li><strong>Start</strong> — uruchamia minutnik z wybranym czasem.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_running.webp" alt="Uruchomiony minutnik ShiftAlarm z pozostałym czasem oraz przyciskami pauzy, dodawania minuty i zatrzymania">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Pozostały czas</strong> — pokazuje, ile czasu pozostało do alertu.</li>
+<li><strong>Godzina zakończenia</strong> — pokazuje przybliżoną godzinę zakończenia minutnika.</li>
+<li><strong>Ostatnie minutniki</strong> — zapisane ostatnio czasy; dotknij jednego, aby szybko użyć go ponownie.</li>
+<li><strong>Pauza</strong> — tymczasowo zatrzymuje odliczanie. Później można je wznowić.</li>
+<li><strong>+1 min</strong> — dodaje minutę do pozostałego czasu.</li>
+<li><strong>Zatrzymaj</strong> — całkowicie zatrzymuje minutnik.</li>
+</ol>
+
+<div class="tip">Minutnik i stoper działają dalej w tle. Ich stan może być widoczny w powiadomieniu, na ekranie głównym i w widżetach.</div>
+
+<h2 id="widgets">10. Widżety</h2>
+
+<p>ShiftAlarm udostępnia widżety na ekran główny telefonu.</p>
+<ul>
+<li><strong>Dzisiaj 4×2</strong> — kompaktowy panel z dwiema konfigurowalnymi sekcjami.</li>
+<li><strong>Dzisiaj 4×3</strong> — panel z zegarem u góry i dwiema sekcjami poniżej.</li>
+<li><strong>Kalendarz 4×4</strong> — widżety kalendarza z harmonogramem zmian.</li>
+</ul>
+<p>Dodaj widżet z menu widżetów Androida na ekranie głównym telefonu.</p>
+
+<h2 id="salary">11. Obliczanie wynagrodzenia</h2>
+
+<p>Otwórz „Obliczanie wynagrodzenia” z karty wynagrodzenia w <a href="#statistics-work">statystykach wybranego harmonogramu</a>. Tutaj można ustawić metodę płatności, stawkę lub miesięczną pensję, zasady nadgodzin, premie i potrącenia. Aplikacja używa tych ustawień wraz z wybranym okresem, harmonogramem zmian, modyfikacjami kalendarza i uwzględnianiem przerw.</p>
+
+<div class="warning"><strong>Obliczenie służy wyłącznie do celów informacyjnych.</strong> Rzeczywista wypłata może się różnić, jeśli pracodawca stosuje inny system ewidencji czasu pracy, zaokrąglenia, dodatki, podatki, premie, potrącenia lub sposób płatności za określone rodzaje zmian. Nie używaj wyniku jako oficjalnego dokumentu płacowego; porównaj go z paskiem wynagrodzenia od pracodawcy. Jeśli znajdziesz metodę obliczeń, której aplikacja nie obsługuje dokładnie, wyślij wiadomość do programistów na adres podany w aplikacji. Opisz zasady, podaj przykładowe dane wejściowe i oczekiwany wynik. Metoda będzie mogła zostać rozważona w przyszłej aktualizacji.</div>
+
+<h3 id="salary-settings">11.1. Stawka, nadgodziny i premie</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_settings_overview.webp" alt="Ekran obliczania wynagrodzenia z wybranym harmonogramem, rodzajem stawki, nadgodzinami i premiami">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Wybrany harmonogram</strong> — pokazuje używany harmonogram zmian. Wynagrodzenie jest obliczane na podstawie tego harmonogramu i okresu wybranego w statystykach.</li>
+<li><strong>Rodzaj stawki i kwota wynagrodzenia</strong> — wybierz płatność <strong>za godzinę</strong>, <strong>za zmianę</strong> albo <strong>za miesiąc</strong>, a następnie wpisz odpowiednią kwotę. Nazwa pola zmienia się wraz z wybranym rodzajem stawki.</li>
+<li><strong>Nadgodziny</strong> — włącz tę sekcję, jeśli dodatkowe godziny są opłacane inaczej niż zwykły czas pracy. Następnie podaj mnożnik zapłaty za nadgodziny. Dodaj dodatkowe godziny do kalendarza przez <a href="#main-shift-time-adjustment">„Zmień zmianę” → „+ czas”</a>; włącz „Wlicz ten czas jako nadgodziny”, aby godziny zostały tak potraktowane.</li>
+<li><strong>Premie</strong> — pokazują bieżącą metodę obliczeń i podsumowanie. Dotknij karty, aby otworzyć <a href="#salary-bonuses">ustawienia premii</a>.</li>
+</ol>
+
+<div class="notice">Przycisk „Zapisz” stosuje ustawienia do wybranego harmonogramu. Po zapisaniu podsumowania w statystykach i raportach są przeliczane z użyciem wprowadzonych danych.</div>
+
+<h3 id="salary-summary">11.2. Potrącenia i podsumowanie obliczeń</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions_total.webp" alt="Ekran obliczania wynagrodzenia z potrąceniami i końcowym zestawieniem">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Potrącenia</strong> — pokazują łączną kwotę i liczbę skonfigurowanych potrąceń. Dotknij karty, aby otworzyć <a href="#salary-deductions">listę potrąceń</a>.</li>
+<li><strong>Łącznie</strong> — zestawienie podsumowujące: płatny czas, przepracowane godziny, nadgodziny, wynagrodzenie podstawowe, zapłata za nadgodziny, premie, potrącenia i wynik końcowy.</li>
+</ol>
+
+<div class="tip">Wynik zależy nie tylko od ustawień na tym ekranie, lecz także od okresu wybranego w statystykach, zakończonych zmian, modyfikacji dni, nadgodzin i ustawień niepłatnych przerw.</div>
+
+<h3 id="salary-bonuses">11.3. Premie</h3>
+
+<p>Dotknij karty „Premie” na ekranie obliczania wynagrodzenia. Premię można wprowadzić ręcznie lub obliczyć procentowo, jeśli odpowiada to używanemu systemowi wynagrodzeń.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_bonuses.webp" alt="Ekran ustawień premii z opcjami obliczeń i wprowadzania kwoty">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Informacje podsumowujące</strong> — pokazują wyliczoną łączną premię i kwotę bazową używaną w obliczeniu.</li>
+<li><strong>Obliczanie premii</strong> — wybierz wprowadzanie ręczne lub obliczenie procentowe, na przykład procent od sprzedaży, jeśli taka metoda jest używana w miejscu pracy.</li>
+<li><strong>Metoda wprowadzania</strong> — „Łączna kwota” jest odpowiednia dla jednej końcowej premii. Osobne wiersze są przydatne, gdy kilka premii trzeba policzyć niezależnie.</li>
+<li><strong>Kwota lub procent</strong> — wpisz wartość wymaganą przez wybraną metodę obliczeń.</li>
+<li><strong>Anuluj i Zapisz</strong> — odrzuca zmiany lub stosuje je do obliczania wynagrodzenia.</li>
+</ol>
+
+<h3 id="salary-deductions">11.4. Lista potrąceń</h3>
+
+<p>Dotknij karty „Potrącenia” na głównym ekranie obliczeń. W tej sekcji można zapisać kilka potrąceń i zarządzać każdym z osobna.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions.webp" alt="Ekran listy potrąceń z łączną kwotą, wierszami potrąceń i przyciskiem dodawania">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Informacje podsumowujące</strong> — pokazują kwotę i liczbę wszystkich włączonych potrąceń.</li>
+<li><strong>Wiersz potrącenia</strong> — pokazuje nazwę, wartość i rodzaj. Dotknij wiersza, aby otworzyć <a href="#salary-deduction-editor">ustawienia potrącenia</a>. Ikona kosza usuwa wiersz.</li>
+<li><strong>Dodaj potrącenie</strong> — przycisk „+” tworzy nowy wiersz potrącenia.</li>
+<li><strong>Anuluj i Zapisz</strong> — odrzuca zmiany lub zapisuje całą listę.</li>
+</ol>
+
+<h3 id="salary-deduction-editor">11.5. Konfigurowanie pojedynczego potrącenia</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deduction_editor.webp" alt="Panel pojedynczego potrącenia z nazwą, wartością, rodzajem i podstawą potrącenia">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Nazwa potrącenia</strong> — wpisz czytelną nazwę, na przykład „Podatek”, „Alimenty” lub „Kara”.</li>
+<li><strong>Wartość</strong> — wpisz kwotę lub procent zależnie od rodzaju wartości wybranego poniżej.</li>
+<li><strong>Rodzaj wartości</strong> — wybierz stałą kwotę lub procent.</li>
+<li><strong>Rodzaj potrącenia</strong> — potrącenie <strong>zmienne</strong> dotyczy konkretnego okresu obliczeniowego; potrącenie <strong>cykliczne</strong> jest stosowane regularnie, dopóki pozostaje włączone.</li>
+<li><strong>Potrąć z</strong> — wybierz podstawę obliczeń: wynagrodzenie łączne, wynagrodzenie podstawowe, premie albo inną dostępną opcję.</li>
+<li><strong>Włączone</strong> — pozwala tymczasowo wyłączyć potrącenie bez usuwania jego ustawień.</li>
+<li><strong>Anuluj i Zapisz</strong> — zamyka panel bez zmian lub zapisuje potrącenie.</li>
+</ol>
+
+<div class="notice">W przypadku potrącenia procentowego szczególnie ważny jest wybór właściwej podstawy „Potrąć z”: ten sam procent wynagrodzenia łącznego, podstawowego i premii daje różne wyniki.</div>
+
+<h2 id="settings">12. Ustawienia</h2>
+
+<p>Otwórz „Ustawienia” przyciskiem u dołu <a href="#main-overview">ekranu głównego</a>. Ta sekcja zawiera uprawnienia systemowe, wygląd i język aplikacji, rozpoznawanie mowy offline, dokumenty i instrukcję obsługi, kopię zapasową, diagnostykę oraz opcje kontaktu z programistami.</p>
+
+<h3 id="settings-overview">12.1. Główne sekcje ustawień</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_permissions_language.webp" alt="Górna część ustawień ShiftAlarm: uprawnienia, motyw, język aplikacji i modele mowy offline">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Uprawnienia</strong> — otwierają ustawienia uprawnień alarmów i niezawodności. Sprawdź powiadomienia, dokładne alarmy, aktywność w tle i ograniczenia baterii. <a href="#geo">Alarmy GPS</a> wymagają również dostępu do lokalizacji; do uruchamiania przy zamkniętej aplikacji potrzebny jest dostęp w tle lub opcja „Zezwalaj zawsze”. Nazwy i ścieżki elementów różnią się zależnie od wersji Androida i producenta urządzenia.</li>
+<li><strong>Motyw</strong> — pozwala wybrać wygląd jasny, ciemny lub systemowy, wariant kolorystyczny interfejsu oraz włączyć lub wyłączyć reakcję dotykową działań w aplikacji. Motyw systemowy odpowiada bieżącemu wyglądowi telefonu.</li>
+<li><strong>Język aplikacji</strong> — pozwala używać języka innego niż język systemowy telefonu. Katalog ShiftAlarm zawiera 108 języków: znajdź odpowiedni język za pomocą wyszukiwania, pobierz pakiet językowy i zastosuj go.</li>
+<li><strong>Modele mowy offline</strong> — instalują moduł dla <a href="#notes-create">notatek tworzonych z mowy</a>. Rozpoznawanie offline jest obecnie testowane i dostępne dla około 20 języków. Jego jakość może być niższa niż rozpoznawania online i zależy od języka, mikrofonu, wydajności telefonu oraz warunków nagrywania.</li>
+</ol>
+
+<div class="warning"><strong>Uprawnienia Androida różnią się między urządzeniami.</strong> Na niektórych telefonach trzeba również zezwolić na automatyczne uruchamianie, wybrać tryb baterii „Bez ograniczeń” lub podobny oraz zezwolić na aktywność w tle. Te ustawienia zmniejszają ryzyko zatrzymania ShiftAlarm przez system, ale ich dokładne nazwy zależą od producenta urządzenia.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_help_backup_diagnostics.webp" alt="Dolna część ustawień ShiftAlarm: dokumenty, instrukcja obsługi, kopia zapasowa, diagnostyka i kontakt z programistami">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Dokumenty i pomoc</strong> — otwiera dokumenty prawne aplikacji: Warunki korzystania, Politykę prywatności, Wyłączenie odpowiedzialności i skróconą stronę pomocy.</li>
+<li><strong>Samouczek i instrukcja obsługi</strong> — otwiera tę pełną ilustrowaną instrukcję ze szczegółowymi opisami funkcji ShiftAlarm.</li>
+<li><strong>Kopia zapasowa i przywracanie</strong> — tworzy plik z obsługiwanymi ustawieniami i danymi aplikacji lub przywraca je z wcześniejszej kopii. Jest to przydatne przed ponowną instalacją aplikacji, zresetowaniem telefonu lub przeniesieniem danych na inne urządzenie. Szczegółowe instrukcje znajdziesz w sekcji <a href="#backup">„Kopia zapasowa i przywracanie”</a>.</li>
+<li><strong>Dziennik diagnostyczny</strong> — otwiera osobne dzienniki funkcji aplikacji. Zapisują one etapy techniczne, takie jak planowanie i odzyskiwanie alertów, przetwarzanie zdarzeń, stan uprawnień oraz inne informacje serwisowe. Dziennik pomaga ustalić etap, na którym wystąpił błąd. Wpisy można skopiować lub przygotować do wysłania programistom pocztą e-mail. Szczegóły znajdziesz w sekcji <a href="#diagnostics">„Diagnostyka i rozwiązywanie problemów”</a>.</li>
+<li><strong>Kontakt z programistami</strong> — otwiera aplikację pocztową i tworzy wiadomość do pomocy technicznej. Użyj jej, aby zgłosić problem, wysłać opinię lub sugestię albo zadać pytanie. W przypadku problemu technicznego podaj model telefonu, wersję Androida, godzinę wystąpienia problemu, wykonane czynności i w miarę możliwości odpowiedni dziennik diagnostyczny.</li>
+</ol>
+
+<div class="notice">Dzienniki diagnostyczne nie są automatycznie wysyłane programistom. Musisz skopiować potrzebne informacje lub dotknąć „Wyślij programistom”, wybrać aplikację pocztową, przejrzeć przygotowaną wiadomość i potwierdzić wysłanie.</div>
+
+<h2 id="backup">13. Kopia zapasowa i przywracanie</h2>
+
+<p>Kopia zapasowa zapisuje obsługiwane ustawienia ShiftAlarm i dane użytkownika w osobnym pliku. Pomaga przywrócić dane po ponownej instalacji aplikacji, zresetowaniu telefonu lub przejściu na inne urządzenie.</p>
+<ol class="step-list">
+<li>Otwórz „Ustawienia → Kopia zapasowa i przywracanie”.</li>
+<li>Utwórz kopię zapasową i zapisz powstały plik w telefonie lub udostępnij go przez menu systemowe.</li>
+<li>Aby przywrócić dane, otwórz tę samą sekcję i wybierz wcześniej utworzony plik kopii zapasowej.</li>
+<li>Po przywróceniu sprawdź ważne alarmy, harmonogramy i uprawnienia Androida. Niektóre systemowe uprawnienia bezpieczeństwa mogą wymagać ponownego udzielenia na nowym urządzeniu lub po ponownej instalacji.</li>
+</ol>
+<p class="tip">Przechowuj aktualną kopię w bezpiecznym miejscu, które pozostanie dostępne w przypadku zgubienia, uszkodzenia lub zresetowania telefonu. Plik kopii zapasowej nie zastępuje uprawnień systemowych Androida i nie może automatycznie zawierać danych, do których aplikacja nie ma dostępu.</p>
+
+<h2 id="diagnostics">14. Diagnostyka i rozwiązywanie problemów</h2>
+
+<p>ShiftAlarm udostępnia osobne dzienniki diagnostyczne dla różnych funkcji. Zachowują sekwencję zdarzeń technicznych i pomagają ustalić, czy alert został zaplanowany, przywrócony po ponownym uruchomieniu, przekazany do przetwarzania czy zatrzymany przez ustawienie systemowe.</p>
+
+<h3 id="diagnostics-control">14.1. Sterowanie zbieraniem danych diagnostycznych</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_sections.webp" alt="Ekran dzienników diagnostycznych ShiftAlarm z przełącznikiem głównym i osobnym dziennikiem alarmów">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Zbieraj dane diagnostyczne</strong> — główny przełącznik wszystkich sekcji diagnostycznych aplikacji. Wyłącz go, aby jednocześnie zatrzymać dodawanie nowych zdarzeń do wszystkich dzienników. Zbieranie nowych zdarzeń zostanie wznowione po ponownym włączeniu.</li>
+<li><strong>Dziennik pojedynczej funkcji</strong> — każdy moduł ma własny przełącznik i przycisk „Otwórz”. Można na przykład pozostawić diagnostykę globalną włączoną, wyłączając tylko dziennik alarmów, zegara lub innej funkcji. Zrzut ekranu pokazuje dziennik alarmów, który rejestruje zdarzenia dostarczania, planowania, odzyskiwania, ochrony przed duplikatami i ekranu alarmu.</li>
+</ol>
+
+<div class="notice">Przełączniki sterują tylko rejestrowaniem zdarzeń technicznych. Wyłączenie dziennika alarmów, zegara lub innej funkcji nie wyłącza samej funkcji. Wcześniej zapisane wpisy usuń osobno przyciskiem „Wyczyść” w odpowiednim dzienniku.</div>
+
+<h3 id="diagnostics-log">14.2. Dziennik pojedynczej funkcji</h3>
+
+<p>Dotknij „Otwórz” w odpowiedniej sekcji diagnostycznej. Poniższy przykład przedstawia dziennik alarmów; dzienniki innych funkcji działają podobnie.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_alarm_log.webp" alt="Dziennik diagnostyczny alarmów ShiftAlarm z liczbą zdarzeń, działaniami i wpisami technicznymi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Zapisane zdarzenia</strong> — pokazuje liczbę wpisów przechowywanych obecnie w wybranym dzienniku.</li>
+<li><strong>Działania dziennika</strong>:
+<ul>
+<li><strong>Kopiuj</strong> — kopiuje wszystkie dane z bieżącego dziennika do schowka. Można je wkleić do wiadomości e-mail lub innej aplikacji.</li>
+<li><strong>Wyczyść</strong> — usuwa zapisane wpisy z tego dziennika. Po wyczyszczeniu pojawią się tylko zdarzenia zarejestrowane później, gdy diagnostyka będzie włączona.</li>
+<li><strong>Wyślij programistom</strong> — otwiera wybór aplikacji do wysłania wiadomości e-mail. Wybierz aplikację pocztową; adres programistów i dane diagnostyczne zostaną wstawione automatycznie. Przed wysłaniem dodaj opis problemu, przejrzyj wiadomość i potwierdź wysłanie.</li>
+</ul>
+</li>
+<li><strong>Zdarzenia aplikacji</strong> — właściwe wpisy dziennika. Wpis zwykle zawiera datę i godzinę, techniczną nazwę zdarzenia oraz dodatkowe parametry, takie jak identyfikator, stan lub przyczyna. Nazwy techniczne mogą występować po angielsku; nie edytuj ich ani nie tłumacz przed wysłaniem.</li>
+</ol>
+
+<div class="warning">Przed wyczyszczeniem dziennika skopiuj lub wyślij potrzebne wpisy. Usuniętych zdarzeń diagnostycznych nie można odzyskać.</div>
+
+<div class="tip">Jeśli problem da się odtworzyć, najpierw włącz globalne zbieranie danych diagnostycznych i dziennik odpowiedniej funkcji, a następnie powtórz działania, które spowodowały problem. W wiadomości podaj dokładną godzinę problemu, model telefonu, wersję Androida, oczekiwany i rzeczywisty wynik. Pomoże to dopasować opis do zdarzeń w dzienniku.</div>
+
+<h2 id="faq">15. Często zadawane pytania</h2>
+
+<h3>Alarm nie uruchomił się o czasie</h3>
+<p>Sprawdź powiadomienia, uprawnienie do dokładnych alarmów, aktywność w tle i ograniczenia baterii.</p>
+<h3>Alarm GPS uruchomił się z opóźnieniem</h3>
+<p>Sprawdź dokładną lokalizację i lokalizację w tle, ograniczenia baterii oraz automatyczne uruchamianie aplikacji. Wypróbuj promień 1300–1500 m w mieście i 4000–5000 m poza miastem. Rzeczywiste uruchomienie może nie nastąpić dokładnie na linii promienia.</p>
+<h3>Widżet nie zaktualizował się od razu</h3>
+<p>Otwórz aplikację lub dotknij przycisku odświeżania widżetu. Android może ograniczać częste aktualizacje widżetów.</p>
+<h3>Język został zmieniony, ale dokument lub instrukcja nie zostały jeszcze zaktualizowane</h3>
+<p>Sprawdź połączenie z Internetem i poczekaj na pobranie. Jeśli wersja zdalna jest niedostępna, aplikacja użyje wbudowanej wersji zastępczej.</p>
+
+<div class="footer small">Instrukcja może być aktualizowana przez GitHub. Jeśli wersja zdalna jest niedostępna, aplikacja użyje wbudowanej wersji offline.</div>
+</main>
+</body>
+</html>
