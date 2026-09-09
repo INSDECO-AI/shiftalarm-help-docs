@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ShiftAlarmi kasutusjuhend</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #64748b;
+  --accent: #2563eb;
+  --soft: #e8eef8;
+  --border: #dbe4f0;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.58;
+  margin: 0;
+  padding: 18px;
+  color: var(--text);
+  background: var(--bg);
+}
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+h1 { margin: 0 0 8px; font-size: 28px; line-height: 1.2; }
+h2 { margin: 32px 0 10px; font-size: 21px; line-height: 1.25; }
+h3 { margin: 22px 0 8px; font-size: 17px; }
+p, li { font-size: 16px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul, ol { padding-left: 22px; }
+.notice, .tip, .warning {
+  padding: 14px 16px;
+  border-radius: 16px;
+  margin: 14px 0;
+  border: 1px solid var(--border);
+}
+.notice { background: var(--soft); }
+.tip { background: #ecfdf5; }
+.warning { background: #fff7ed; }
+.small { color: var(--muted); font-size: 14px; }
+.toc {
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 16px;
+  margin: 18px 0 24px;
+}
+.toc ol { margin: 8px 0 0; }
+.step-list li { margin-bottom: 8px; }
+.guide-figure {
+  margin: 18px 0;
+}
+.guide-image {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+}
+.callout-list li {
+  margin-bottom: 10px;
+}
+.guide-caption {
+  max-width: 520px;
+  margin: 10px auto 0;
+  color: var(--text);
+  font-size: 15px;
+}
+.guide-caption strong {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.footer {
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --card: #111827;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --accent: #93c5fd;
+    --soft: #1f2937;
+    --border: #334155;
+  }
+  main { box-shadow: none; }
+  .toc { background: #172033; }
+  .tip { background: #10251f; }
+  .warning { background: #2a1d10; }
+}
+</style>
+</head>
+<body>
+<main>
+<h1>ShiftAlarmi kasutusjuhend</h1>
+<p class="small">Versioon 14. Kuupäev: 2. august 2026.</p>
+<div class="notice">See leht on ShiftAlarmi praktiline juhend. See selgitab iga põhifunktsiooni otstarvet, kust seda leida, mida puudutada ja mida kontrollida, kui funktsioon ei tööta ootuspäraselt.</div>
+<nav class="toc">
+<strong>Sisukord</strong>
+<ol><li><a href="#start">1. Esimene käivitamine</a></li><li><a href="#permissions">2. Load ja töökindlus</a></li><li><a href="#main">3. Peaekraan</a></li><li><a href="#shifts">4. Vahetuste ajakavad</a></li><li><a href="#statistics">5. Ajakava statistika</a></li><li><a href="#alarms">6. Äratused</a></li><li><a href="#geo">7. Geoalarmid</a></li><li><a href="#notes">8. Märkmed, sündmused ja meeldetuletused</a></li><li><a href="#clock">9. Kell, taimer ja stopper</a></li><li><a href="#widgets">10. Vidinad</a></li><li><a href="#salary">11. Palgaarvestus</a></li><li><a href="#settings">12. Seaded</a></li><li><a href="#backup">13. Varundamine ja taastamine</a></li><li><a href="#diagnostics">14. Diagnostika ja tõrkeotsing</a></li><li><a href="#faq">15. Korduma kippuvad küsimused</a></li></ol>
+</nav>
+<h2 id="start">1. Esimene käivitamine</h2>
+
+<p>Kui ShiftAlarm esimest korda käivitub, kuvatakse lühike seadistusvoog. Põhiekraan on juba taustal saadaval, kuid kõige parem on kõigepealt põhiseadistus lõpule viia.</p>
+<ol class="step-list">
+<li>Lugege sissejuhatavat teavet ja puudutage nuppu „Jätka“.</li>
+<li>Dokumentide etapis avage dokumendid või nõustuge nõutavate dokumentidega, kui olete valmis jätkama.</li>
+<li>Lubade etapis avage lubade ekraan ja kontrollige teatisi, täpseid alarme, asukoha juurdepääsu ja aku piiranguid.</li>
+<li>Puudutage nuppu „Lõpeta seadistamine“.</li>
+</ol>
+<p class="tip">Õigusi saate hiljem konfigureerida jaotises „Seaded → Load ja usaldusväärsus“.</p>
+
+<h2 id="permissions">2. Load ja töökindlus</h2>
+
+<p>Äratused, meeldetuletused ja geograafiline alarm sõltuvad Androidi seadetest ja seadme tootja tarkvarast.</p>
+<ul>
+<li><strong>Teavitused</strong> – vajalikud äratuste, meeldetuletuste, taimeri ja teenuseteavituste jaoks.</li>
+<li><strong>Täpsed äratused</strong> – aitavad äratusel vajalikul ajal käivituda.</li>
+<li><strong>Asukoht</strong> – vajalik geograafiliste äratuste jaoks.</li>
+<li><strong>Taustapõhine asukoht</strong> – vajalik geograafilise alarmi töötamiseks, kui rakendus on suletud.</li>
+<li><strong>Aku ja taustategevus</strong> – võivad mõjutada käivituskindlust Xiaomi/Redmi ja mõnes muus seadmes.</li>
+</ul>
+<p class="warning">Android ei garanteeri alati teavituste, täpsete äratuste või geopiirde sündmuste kohest edastamist. Oluliste teadete kuvamiseks kontrollige iga üksust õiguste ekraanil.</p>
+
+<h2 id="main">3. Põhiekraan</h2>
+
+<p>Põhiekraan on teie igapäevane armatuurlaud. See pakub otsest juurdepääsu kalendrile, kellale, Geo alarmidele, tavalistele äratustele, vahetuste ajakavadele, märkmetele ja sätetele.</p>
+
+<h3 id="main-overview">3.1. Põhiekraani elemendid</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_screen_overview.png" alt="ShiftAlarm põhiekraan nummerdatud juhtnuppudega">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tagasi nool</strong> — liigutab kalendri eelmisele kuule.</li>
+<li><strong>Kuu ja aasta</strong> — näitab avatud kuud. Puudutage seda ala, et kasutada <a href="#main-date-picker">samm-sammult kuu ja aasta valijat</a>.</li>
+<li><strong>Edasi nool</strong> – liigutab kalendrit järgmisele kuule.</li>
+<li><strong>Kalender</strong> – peamine kuuala. Saate kalendrit libistada. Iga päev saab kuvada kuupäeva, meeldetuletusi, sündmusi, ajastatud vahetust ja päevamuudatusi. Tavaline puudutus valib kuupäeva; Pikk vajutus avab <a href="#main-day-actions">valitud päeva teabe ja toimingud</a>.</li>
+<li><strong>Täna</strong> — naaseb kalendrisse praeguse päeva.</li>
+<li><strong>Kell</strong> — avab <a href="#clock">maailmakella, stopperi ja taimeri</a>.</li>
+<li><strong>Geoalarm</strong> — avab <a href="#geo">kaardi, salvestatud kohad ja Geoalarm seaded</a>. Hoiatus võib käivituda, kui sisenete valitud piirkonda, lahkute sealt või teete mõlemat.</li>
+<li><strong>Äratus</strong> — avab <a href="#alarms">tavalised, korduvad ja vahetustega seotud äratused</a>.</li>
+<li><strong>Ajakava</strong> — avab <a href="#shifts">vahetuste ajakavad, nende loomise ja muutmise ning statistika</a>.</li>
+<li><strong>Märkmed</strong> — avab <a href="#notes">märkmed, sündmused, meeldetuletused, helimärkmed ja kõne tekstiks teisendamise funktsiooni</a>.</li>
+<li><strong>Seaded</strong> — avab <a href="#settings">load, keele, teema, võrguühenduseta kõnemudelid, varundamise, diagnostika, dokumendid ja koolituse</a>.</li>
+</ol>
+
+
+<h3 id="main-date-picker">3.2. Kuu ja aasta valimine</h3>
+
+<p>Soovitud kalendriperioodi kiireks avamiseks puudutage põhiekraani ülaosas olevat kuud ja aastat. Valik toimub etappidena: <strong>sajand → kümnend → aasta → kuu</strong>.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_century.webp" alt="1. samm: sajandi valimine ShiftAlarmi kalendris">
+<figcaption class="guide-caption"><strong>1. Valige sajand.</strong> Puudutage perioodi, mis sisaldab vajalikku aastat. Näites valitakse 2000ndad.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_decade.webp" alt="2. samm: kümnendi valimine ShiftAlarmi kalendris">
+<figcaption class="guide-caption"><strong>2. Valige kümnend.</strong> Puudutage vahemikku, mis sisaldab vajalikku aastat. 2026. aasta puhul valige „2020–2029”.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_year.webp" alt="3. samm: aasta valimine ShiftAlarmi kalendris">
+<figcaption class="guide-caption"><strong>3. Valige aasta.</strong> Puudutage soovitud aastat. Näites on valitud 2026.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_month.webp" alt="4. samm: kuu valimine ShiftAlarmi kalendris">
+<figcaption class="guide-caption"><strong>4. Valige kuu.</strong> Puudutage soovitud kuud. Näites valitakse juuli.</figcaption>
+</figure>
+
+<div class="tip">Pärast kuu valimist paneel sulgub ja põhikalender avaneb valitud kuul ja aastal.</div>
+<div class="notice">Nupp „Tagasi” naaseb eelmisesse etappi. Sajandi ekraanil sulgeb see kuupäevavalija.</div>
+
+<h3 id="main-day-actions">3.3. Teave ja toimingud valitud päeva kohta</h3>
+
+<p>Puudutage ja hoidke kalendris soovitud päeva. Avaneb paneel selle kuupäeva teabe ja toimingutega. Lohistage paneeli ülespoole, et näha kõiki saadaolevaid toiminguid.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_day_actions.webp" alt="Valitud kalendripäeva ShiftAlarmi teabe- ja toimingute paneel">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Kuupäev</strong> — näitab nädalapäeva ja valitud kuupäeva. Paneeli laiendamiseks või sulgemiseks lohistage ülemist käepidet üles või alla.</li>
+<li><strong>Vahetus</strong> — näitab arvutatud vahetust või päevamuudatust, näiteks vaba päeva, vaba aega, puhkust, haiguslehte või muud erandit.</li>
+<li><strong>Selle kuupäeva alarmid</strong> — näitab valitud päevale määratud alarme või aruandeid, et neid pole olemas.</li>
+<li><strong>Sündmused ja meeldetuletused</strong> — näitab valitud kuupäevaga seotud kirjeid.</li>
+<li><strong>Lisa äratus</strong> — avab valitud kuupäevale ühekordse alarmi loomise.</li>
+<li><strong>Vahetuse muutmine</strong> — loob aktiivses ajakavas ühe päeva või kuupäevavahemiku jaoks erandi.</li>
+<li><strong>Lisa märkus</strong> — võimaldab teil valida valitud kuupäevale loodava sündmuse või meeldetuletuse.</li>
+</ol>
+
+<div class="notice">Toiming „Vahetuse muutmine” on saadaval aktiivse vahetuse ajakava päevade muutmiseks.</div>
+
+<h4 id="main-shift-override">Ühe päeva või kuupäevavahemiku muutmine</h4>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_types.webp" alt="Kuupäevavahemiku ja vahetuse muutmise tüübi valimine ShiftAlarmis">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Alguskuupäev</strong> — muudatuse esimene päev. Algselt kasutatakse kalendris valitud kuupäeva.</li>
+<li><strong>Lõppkuupäev</strong> — muudatuse viimane päev. Ainult ühe päeva muutmiseks jätke sama kuupäev valituks.</li>
+<li><strong>Vaba aeg</strong> — asendab arvutatud vahetuse vaba ajaga.</li>
+<li><strong>Puhkus</strong> — märgib valitud päeva või vahemiku puhkuseks.</li>
+<li><strong>Haigusleht</strong> — märgib valitud päeva või vahemiku haigusleheks.</li>
+<li><strong>Salvesta muudatus</strong> — rakendab valitud erandi kalendrile.</li>
+</ol>
+
+<h4 id="main-shift-time-adjustment">Tööaja kohandamine</h4>
+
+<p>Kerige muudatuste tüüpide loendit allapoole ja valige „Muuda vahetust”, et muuta arvutatud töövahetuse kestust.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_time_adjustment.webp" alt="Vahetuse tööaja kohandamine ShiftAlarmis">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Muuda vahetust</strong> — lubab valitud vahetuse tööaja kohandamise.</li>
+<li><strong>+ aeg</strong> — lisab standardsele vahetuse kestusele tunde või minuteid.</li>
+<li><strong>− aeg</strong> — vähendab vahetuse kestust, näiteks kui töö lõppes varem.</li>
+<li><strong>Loe see aeg ületunniks</strong> — käsitleb lisatud aega ületunniks. Kui valik on välja lülitatud, arvestatakse see tavalise tööajana.</li>
+<li><strong>Salvesta muudatus</strong> — rakendab muudatuse valitud päevale või vahemikule.</li>
+</ol>
+
+<div class="tip">Päeva muudatus ei muuda algset ajakava malli. See salvestatakse eraldi erandina ja lisatakse kalendrisse, statistikasse, palgaarvestusse ja aruannetesse.</div>
+
+<h2 id="shifts">4. Vahetuste ajakavad</h2>
+
+<p>Vahetuste ajakava määratleb korduva töötsükli ja annab aluse teistele ShiftAlarmi funktsioonidele. Rakendus kasutab seda kalendri täitmiseks, alarmide linkimiseks vahetustega, tööaja loendamiseks, statistika genereerimiseks, palga hindamiseks ja aruannete koostamiseks.</p>
+
+<div class="notice"><strong>Põhiprintsiip.</strong> Esmalt looge baaskorduv ajakava. Lisage puhkus, haigusleht, vaba aeg, ühekordne asendusvahetus või tööaja kohandamine erandina teatud kuupäevadele <a href="#main-day-actions">valitud päeva toimingute</a> kaudu. See hoiab algse tsükli muutumatuna.</div>
+
+<h3 id="shifts-list">4.1. Ajakava loend ja juhtnupud</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedules_overview.webp" alt="ShiftAlarm ajakava ekraan aktiivse ajakava kaardi ja nummerdatud juhtnuppudega">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ajakava üksikasjad</strong> – nimi, alguskuupäev, tsükli pikkus ja lühike päevade jada. Näites tähendab „D · D · O · O” kahte päevavahetust, millele järgneb kaks vaba päeva.</li>
+<li><strong>Vaheta</strong> – keelab ajakava ajutiselt ilma seda kustutamata. Kui selle uuesti lubate, jäävad salvestatud sätted kehtima.</li>
+<li><strong>Ajakava olek</strong> — näitab, milline ajakava on hetkel aktiivne.</li>
+<li><strong>Muuda</strong> — avab muudetavad parameetrid. Pärast esialgset seadistamist lukustatakse osa ajakava alusest, et vältida juba loodud kalendriandmete kogemata ümberarvutamist.</li>
+<li><strong>Kustuta</strong> — kustutab ajakava pärast kinnitamist. Enne kustutamist kontrollige kõiki vahetustega seotud alarme ja arvutusi.</li>
+<li><strong>Ava statistika</strong> — avab selle ajakava <a href="#statistics">tööaja, perioodi, palga ja aruannete statistika</a>.</li>
+<li><strong>Loo ajakava</strong> — võimaldab teil valida valmis malli või luua kohandatud tsükli.</li>
+</ol>
+
+<h3 id="shifts-create">4.2. Ajakava loomise alustamine</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_create.webp" alt="Ajakava loomise paneel nime, alguskuupäeva, mallide ja kohandatud ajakavaga">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ajakava nimi</strong> — sisestage selge nimi, näiteks „Põhivahetus 2/2”, „Öövahetus” või oma töökoha nimi.</li>
+<li><strong>Alguskuupäev</strong> — kuupäev, mis vastab <strong>korduva tsükli esimesele päevale</strong>. Võite valida mineviku või tuleviku kuupäeva; rakendus arvutab ajakava selle põhjal edasi ja tagasi.</li>
+<li><strong>Mallid</strong> — valmis tavalised vahetuste järjestused. Näites kasutatakse malli „2/2 päeva“.</li>
+<li><strong>Kohandatud ajakava</strong> — loob teie enda tööpäevade ja puhkepäevade jada.</li>
+<li><strong>Loo ajakava</strong> — avab valitud valiku detailse redaktori.</li>
+</ol>
+
+<div class="tip">Malli „D · D · O · O“ puhul on alguskuupäev tavaliselt kahest tööpäevast esimene. Kohandatud tsüklis võib ka 1. päev olla puhkepäev; oluline on see, et valitud kuupäev vastaks täpselt teie loodud jada 1. päevale.</div>
+
+<h3 id="shifts-template">4.3. Ajakava loomine mallist</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_template.webp" alt="Malli ajakava redaktor nime, järjestuse, alguskuupäeva ja vahetuse ajaga">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ajakava nimi</strong> — jätke soovitatud nimi alles või asendage see oma nimega.</li>
+<li><strong>Mall</strong> — näitab tähtede järjestust ja selle tähendust. Näites tähendab „D · D · O · O” päevavahetust, päevavahetust, puhkepäeva, puhkepäeva.</li>
+<li><strong>Alguskuupäev</strong> — valige kuvatava järjestuse esimese päeva kuupäev.</li>
+<li><strong>Vahetuse aeg</strong> — määrake iga töövahetuse tüübi algus- ja lõppaeg. Rakendus kuvab arvutatud kestuse.</li>
+<li><strong>Tühista</strong> — sulgeb redaktori salvestamata.</li>
+<li><strong>Salvesta</strong> — salvestab ajakava ja alustab kalendris vahetuste arvutamist.</li>
+</ol>
+
+<div class="warning"><strong>Pärast esimest salvestamist.</strong> Alguskuupäev ja tsükli struktuur on lukustatud, et kaitsta juba arvutatud kalendriandmeid. Nime ja mõningaid tööparameetreid saate endiselt muuta. Kui vajate teistsugust baastsüklit või võrdluskuupäeva, on turvalisem luua uus ajakava.</div>
+
+<h3 id="shifts-custom">4.4. Kohandatud tsükli loomine</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_custom.webp" alt="Kohandatud ajakava redaktor tsükli pikkuse, päevakontrollide, alguskuupäeva ja iga päeva sätetega">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ajakava nimi</strong> — andke oma kohandatud järjestusele nimi.</li>
+<li><strong>Tsükli pikkus</strong> — näitab, mitu päeva korduvasse järjestusse kuulub.</li>
+<li><strong>Eemalda päev</strong> — lühendab tsüklit ühe päeva võrra.</li>
+<li><strong>Lisa päev</strong> — lisab tsükli lõppu veel ühe konfigureeritava päeva.</li>
+<li><strong>Alguskuupäev</strong> — kuupäev, mis vastab kohandatud tsükli 1. päevale.</li>
+<li><strong>Päeva seaded</strong> — puudutage nuppu „Vahetus tüüp” ja valige vaba päev või vajalik töö tüüp: päev, öö, hommik, õhtu, 24-tunnine või kohandatud vahetus. Tööpäeva jaoks määrake algus- ja lõppaeg. Konfigureerige tsükli ülejäänud päevad samamoodi ekraanil allpool.</li>
+<li><strong>Tühista</strong> — sulgeb redaktori salvestamata.</li>
+<li><strong>Salvesta</strong> — salvestab kohandatud tsükli ja arvutab selle kalendris.</li>
+</ol>
+
+<div class="notice"><strong>Mis on tsükkel?</strong> Tsükkel on päevade arv, mille järel järjestus algab uuesti. Näiteks neljapäevane tsükkel võib olla „2 tööpäeva + 2 puhkepäeva”, samas kui kuuepäevane tsükkel võib olla „3 tööpäeva + 3 puhkepäeva”. Pärast viimast päeva naaseb rakendus 1. päevale.</div>
+
+<div class="tip">Ärge muutke baastsüklit ühekordse ajakava erandi jaoks. Vajuta pikalt kalendrikuupäeva ja loo vaba päev, puhkus, haigusleht, asendusvahetus või ajamuudatus.</div>
+
+
+
+<span id="shift-statistics"></span>
+<h2 id="statistics">5. Ajakava statistika</h2>
+
+<p>Ava ajakava kaardilt „Statistika”, kasutades nuppu <strong>„Ava statistika”</strong>. See jaotis koondab teavet tööpäevade ja vabade päevade, ajakava muudatuste, planeeritud ja tegeliku tööaja, eeldatava palga ja aruannete kohta.</p>
+
+<div class="notice"><strong>Tähtis:</strong> statistikat arvutatakse ainult valitud vahetuse ajakava kohta. Valitud periood kehtib kõigile selle all olevatele tööaja, palga ja aruandluse väärtustele.</div>
+
+<h3 id="statistics-period">5.1. Ajakava, perioodi ja päeva kokkuvõte</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_period_overview.webp" alt="Statistikaekraan ajakava teabe, perioodi valiku ja päevade kogusummadega">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ajakava teave</strong> — näitab valitud ajakava nime, esimese tsükli alguskuupäeva ja korduva tsükli pikkust. Sellel ekraanil kuvatav statistika kehtib ainult selle ajakava kohta.</li>
+<li><strong>Valitud perioodi kaart</strong> — näitab kasutatavat perioodi. Puudutage seda või paremal asuvat noolt, et valida praegune, eelmine või järgmine kuu, praegune aasta või kohandatud kuupäevavahemik.</li>
+<li><strong>Päeva kokkuvõte</strong> — näitab perioodi päevade arvu, töövahetusi, vabu päevi, lõpetatud ja eelseisvaid vahetusi ning muudetud päevi. Muudetud päevad on baastsükli erandid: puhkus, haigusleht, vaba aeg, asendus- või ümberpaigutatud vahetus, tööaja kohandamine ja muud muudatused.</li>
+</ol>
+
+<div class="warning"><strong>Tulevased perioodid on prognoosid.</strong> Tulevase kuu puhul kasutab rakendus loodud ajakava ja juba sisestatud andmeid, kuid see ei tea tulevasi haiguslehti, puhkusi, vaba aega, ületunde, boonuseid ega mahaarvamisi. Kui valite käesoleva aasta, võivad kogusummad kombineerida tegelikke andmeid varasemate kuupäevade kohta ülejäänud aasta prognoosiga.</div>
+
+<h3 id="statistics-work">5.2. Tööaeg, palk ja aruanded</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_work_salary_reports.webp" alt="Statistikaekraan tööaja, edenemise, palga ja aruannete juurdepääsuga">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tööaeg</strong> – kokkuvõttekaart tundide ja edenemise kohta. Puudutage seda, et avada <a href="#statistics-break">pausiaja seaded</a>.</li>
+<li><strong>Planeeritud tunnid</strong> — valitud perioodil planeeritud vahetuste ja muudatuste kogukestus.</li>
+<li><strong>Töötatud tunnid</strong> — praeguse kuupäeva seisuga lõpetatuks loetud vahetuste aeg, rakendatud pausiseadetega.</li>
+<li><strong>Edusammud</strong> — näitab, mitu töövahetust on koguarvust lõpetatud ja kui suur protsent valitud perioodist on lõpetatud.</li>
+<li><strong>Palk</strong> — avab <a href="#salary">palga arvutamise seaded</a>. Kaart näitab valitud ajakava ja perioodi hinnangut.</li>
+<li><strong>Kokku</strong> — seni teenitud hinnanguline summa, mis sisaldab valitud palgameetodit, boonuseid, ületunnitasu ja mahaarvamisi.</li>
+<li><strong>Määr või palk</strong> — selle kaardi sisu sõltub valitud arvutusmeetodist: tunnipalk, vahetuse palk või kuupalk. See kuvab palgaseadetes sisestatud väärtuse.</li>
+<li><strong>Arvutuse üksikasjad</strong> — valitud perioodi tasustatud aeg, ületunnid, boonused ja mahaarvamised.</li>
+<li><strong>Aruanded</strong> — avab <a href="#reports">üksikasjalikud aruanded perioodide, tööaja ja palga kohta</a>.</li>
+</ol>
+
+<div class="tip">Kõik tööaja ja palga jaotiste väärtused arvutatakse uuesti, kui muudate ülemisel kaardil perioodi.</div>
+
+<h3 id="statistics-break">5.3. Tööaja pauside arvestamine</h3>
+
+<p>Puudutage kaarti „Tööaeg“, et määrata, kas söögipaus või mõni muu paus tuleks arvestada tegelikult töötatud ja tasustatud aja hulka.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_break_settings.webp" alt="Pausi arvestamise ja kestuse sätete paneel">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Praegused kogusummad</strong> — näitab valitud perioodi planeeritud ja töötatud tunde enne uute sätete rakendamist.</li>
+<li><strong>Arvesta paus tööajana</strong> — jätke see valik sisse, kui paus on tasustatud ja arvestatud vahetuse kestusse. Lülitage see välja, kui määratud aeg tuleb töötatud ja tasustatud ajast välja jätta.</li>
+<li><strong>Pausi kestus</strong> — valige ühe pausi tunnid ja minutid. Seda sätet kasutatakse kohaldatavate töövahetuste ümberarvutamisel.</li>
+<li><strong>Pausi kogukestus</strong> — näitab valitud kestust enne salvestamist.</li>
+<li><strong>Salvesta</strong> — rakendab sätet ja arvutab tööaja ja sellega seotud väärtused uuesti.</li>
+</ol>
+
+<div class="notice">Paus võib tähistada söögipausi, vahetuse üleandmist või muud tasustamata intervalli vahetuse sees. Sisestage kestus, mis vastab teie töökoha reeglitele.</div>
+
+<h3 id="reports">5.4. Aruanded: periood, olek ja kokkuvõte</h3>
+
+<p>Avage statistikaekraani alumiselt kaardilt „Aruanded”. See jaotis annab valitud perioodi kohta üksikasjalikumat teavet: tööaeg, vahetused ja puudumised, kalendrikohandused, palk, boonused, mahaarvamised, perioodide võrdlus, päevade kaupa üksikasjad ja eksport.</p>
+
+<div class="warning"><strong>Aruanded on esitatud ainult informatiivsel eesmärgil.</strong> Arvutused põhinevad valitud ajakaval, palgaseadetel, pauside arvestusel ja kalendrivahetuste muudatustel. Teie tööandja tegelikud arvud võivad erineda erineva tööajaarvestussüsteemi, ümardamise, maksude, toetuste või sise-eeskirjade tõttu. Kui leiate vea või toetamata arvutusmeetodi, võtke ühendust arendajatega rakenduses kuvatud aadressil ning lisage sisendandmed ja eeldatav tulemus.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_period_salary.webp" alt="Aruannete ekraan perioodi valiku, oleku, kokkuvõtte ja üksikasjaliku palgajaotusega">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Aruandeperiood</strong> – puudutage kaarti, et valida praegune, eelmine või järgmine kuu, eelmääratud vahemik või kohandatud kuupäevad. Kogu allolev teave kehtib valitud perioodi kohta.</li>
+<li><strong>Perioodi olek</strong> – näitab, kas periood on lõppenud, praegu aktiivne või pole veel alanud. Lõpetatud periood arvutatakse salvestatud tegelike andmete põhjal. Aktiivne periood ühendab juba töötatud andmed praeguse plaaniga, samas kui tulevane periood on prognoos.</li>
+<li><strong>Kokkuvõte</strong> — tekstiline kokkuvõte tegelikult töötatud ajast, arvutatud summast ja ületunnitööst.</li>
+<li><strong>Palk</strong> — üksikasjalik jaotus põhipalgast, ületunnitöö tasudest, boonustest, mahaarvamistest ja lõplikust hinnangust. Väärtused sõltuvad <a href="#salary">palga seadetest</a> ja valitud perioodist.</li>
+</ol>
+
+<h3 id="reports-work">5.5. Tööaeg, puudumised ja päevad</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_work_absences.webp" alt="Aruannete ekraan tööaja, pauside, lõpetatud vahetuste ja puudumistega">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tööaeg</strong> — näitab planeeritud ja tegelikke töötunde, planeeritud ja tegelikke tunde enne pausi mahaarvamist, lõpetatud vahetuste arvu, vahetuse keskmist kestust ja mahaarvatud pausi koguarvu. Pauside seadistamine <a href="#statistics-break">tööaja osas</a>.</li>
+<li><strong>Puudumised ja päevad</strong> — näitab valitud perioodil vabade päevade, puhkusepäevade, haiguspäevade, vabade päevade ja muudetud päevade arvu.</li>
+</ol>
+
+<h3 id="reports-charts">5.6. Korrigeerimised ja diagrammid</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_corrections_charts.webp" alt="Aruannete ekraan koos kohanduste, palga koostise ja tööaja väärtustega">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Korigeerimised</strong> — näitab ületunde, vahetuse kestuse kogumuutust ja põhigraafikust võrreldes muudetud päevade arvu.</li>
+<li><strong>Diagrammid</strong> — visualiseerib palga ja tööaja koostist: põhipalk, ületunnid, boonused, mahaarvamised, kokku ning planeeritud, töötatud ja tasustatud tunnid.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_charts_days.webp" alt="Lisaaruande diagrammid tundide ja päevatüüpi sektordiagrammiga">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tunnid</strong> — jätkab planeeritud, töötatud, tasustatud ja ületunnid. Rea „Tegelik tööaeg” näitab tulemust pärast sätete ja kohanduste rakendamist.</li>
+<li><strong>Päevatüübid</strong> — sektordiagramm, mis jaotab valitud perioodi päevad tüübi järgi. Legend sõltub ajakavast ja tegelikest muudatustest: päev, öö või muud vahetused, vabad päevad, puhkus, haigusleht, vaba aeg ja muud olekud.</li>
+</ol>
+
+<h3 id="reports-comparison">5.7. Perioodide võrdlemine</h3>
+
+<p>Võrdlusosa aitab teil võrrelda palka, aega, vahetusi ja puudumisi mitme perioodi lõikes. Saadaval olevate perioodide arv sõltub salvestatud andmetest.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_chart.webp" alt="Perioodide võrdlusekraan vahemiku valiku, palgatabeli ja võrdlustabeli algusega">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Perioodide võrdlus</strong> — puudutage kaarti, et valida võrreldavate perioodide arv ja nende vahemik.</li>
+<li><strong>Diagramm ja perioodide loend</strong> — näitab iga perioodi palka ja loetleb võrdlusse kaasatud intervallid koos nende olekuga.</li>
+<li><strong>Võrdlustabel</strong> — sisaldab iga perioodi kohta üksikasjalikke väärtusi. Ülejäänud veergude kuvamiseks libista tabelit horisontaalselt vasakule või paremale.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_table.webp" alt="Võrdlustabeli jätk ja külgnevate perioodide erinevused">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Perioodide väärtused</strong> — kogupalk, töötatud ja tasustatud tunnid, ületunnid, boonused, mahaarvamised, tehtud vahetused, puudumised ja muudetud päevad.</li>
+<li><strong>Perioodide erinevus</strong> — näitab, kuidas iga periood eelmisest erineb. Positiivsed ja negatiivsed väärtused näitavad vastava mõõdiku suurenemist või vähenemist. Ainult värv ei tähenda alati kasu või probleemi; näiteks mahaarvamiste suurenemine tähendab suurema summa kinnipidamist.</li>
+</ol>
+
+<h3 id="reports-details-export">5.8. Päevaandmed ja eksport</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_details_export.webp" alt="Aruandekaardid päevaandmete jaoks ja eksport PDF-, HTML-, JSON- või CSV-vormingusse">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Päevaandmed</strong> — avab valitud perioodi iga päeva loendi. Saate kontrollida vahetuse tüüpi, planeeritud ja tegelikku aega, tundide korrigeerimisi, puudumisi ja muid muudatusi konkreetse päeva kohta.</li>
+<li><strong>Eksport</strong> – salvestab aruande PDF-, HTML-, JSON- või CSV-failina. Enne eksportimist valige aruandeperiood; seejärel saate faili Androidi süsteemimenüü kaudu printida, salvestada või jagada.</li>
+</ol>
+
+<div class="tip">Enne võrdlemist või eksportimist kontrollige valitud perioodi, ajakava, vahetuse muudatusi, pause ja palgaseadeid. Viga lähteandmetes mõjutab kõiki aruande kogusummasid.</div>
+
+<h2 id="alarms">6. Alarmid</h2>
+
+<p>ShiftAlarm võimaldab teil luua ühekordseid alarme, korrata neid valitud nädalapäevadel või siduda nende aja vahetuse ajakavaga.</p>
+
+<h3 id="alarms-list">6.1. Häirete loend</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarms_overview.webp" alt="ShiftAlarm häireekraan järgmise häire, sortimise, häirekaardi ja lisamisnupuga">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Järgmine häire</strong> — näitab järgmise aktiivse häire kuupäeva ja kellaaega.</li>
+<li><strong>Häirete sortimine</strong> — muudab häirekaartide järjekorda, näiteks kuvades esimesena lubatud häireid.</li>
+<li><strong>Häirekaart</strong> — sisaldab kellaaega, kuupäeva või kordusrežiimi, ajakava tüüpi ja järelejäänud aega. Puudutage kaarti selle muutmiseks.</li>
+<li><strong>Lülitus</strong> — lubab või keelab äratuse ajutiselt ilma selle sätteid kustutamata.</li>
+<li><strong>Kustuta</strong> — kustutab valitud äratuse.</li>
+<li><strong>Lisa äratus</strong> — avab uue äratuse loomise ekraani.</li>
+</ol>
+
+<h3 id="alarms-create">6.2. Äratuse loomine ja muutmine</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_time_schedule.webp" alt="ShiftAlarmi äratuseredaktori ülaosas: aja, ajakava tüübi, edasilükkamise ja salvestamise juhtnupud">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Aeg</strong> — kerige tunni- ja minutirattaid äratuse aja määramiseks.</li>
+<li><strong>Ajakava tüüp</strong> — valige üks järgmistest režiimidest:
+<ul>
+<li><strong>Üks kord</strong> — äratus käivitub üks kord valitud kuupäeval;</li>
+<li><strong>Päevade kaupa</strong> — kordub valitud nädalapäevadel;</li>
+<li><strong>Vahetuste kaupa</strong> — seob äratuse valitud ajakava ja vahetuse tüübiga.</li>
+</ul>
+</li>
+<li><strong>Edasilükkamine</strong> — määrab, mitu minutit märguanne lükatakse edasi, kui puudutate helina ekraanil edasilükkamise nuppu.</li>
+<li><strong>Tühista ja salvesta</strong> — need nupud on ekraani allosas fikseeritud ja jäävad redaktoris kerimise ajal kättesaadavaks.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_behavior.webp" alt="ShiftAlarm seaded äratuse kestuse, kordushoiatuse, järkjärgulise helitugevuse suurendamise ja vibratsiooni jaoks">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Äratuse kestus</strong> — määrab, kui kaua märguanne kõlab, kui kasutaja seda ei peata.</li>
+<li><strong>Korda, kui äratust ignoreeritakse</strong> — lubab teise märguande, kui äratust ei lükatud tagasi ega lükatud edasi. Määrake intervall enne selle all olevat kordushoiatust.</li>
+<li><strong>Järkjärguline helitugevuse suurendamine</strong> — alustab vaiksema heliga ja suurendab helitugevust järk-järgult valitud aja jooksul.</li>
+<li><strong>Vibratsioon</strong> — lubab või keelab vibratsiooni hoiatuse ajal.</li>
+<li><strong>Tühista ja salvesta</strong> — redaktori fikseeritud juhtnupud.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_sound_name.webp" alt="ShiftAlarmi hoiatusredaktori allosa: vibratsiooni, heli, nime ja salvestamise juhtnupud">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Vibratsioon</strong> — lubab või keelab vibratsioonihoiatuse.</li>
+<li><strong>Heli</strong> — võimaldab valida sisseehitatud, süsteemi või kasutaja lisatud heli. Rakendusele saab lisada kuni viis kohandatud heli.</li>
+<li><strong>Nimi</strong> – valikuline silt, mis aitab alarme eristada.</li>
+<li><strong>Tühista ja salvesta</strong> – tühista muudatused või salvesta alarmi.</li>
+</ol>
+
+<div class="notice">Pärast salvestamist kuvatakse alarm põhiloendis. Enne olulist hoiatust veenduge, et alarm on lubatud, rakendusel on teavituste ja täpse alarmi load ning süsteem ei piira selle taustategevust.</div>
+
+<div class="tip">Vahetusega seotud alarmi loomiseks looge kõigepealt sobiv vahetuse ajakava. Valige redaktoris fikseeritud käivitusaeg või nihe vahetuse alguse suhtes.</div>
+
+<h2 id="geo">7. Geograafilised alarmid</h2>
+
+<p>Geograafiline alarm jälgib, millal seade siseneb valitud alale või lahkub sealt. Ala määratleb punkt kaardil ja selle punkti ümber olev raadius. Näiteks kasutage Geo Alarmi, et saada märguanne tööle, kodule, bussipeatusele, jaamale või muule kohale lähenedes.</p>
+
+<h3 id="geo-overview">7.1. Kaart ja juhtnupud</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_overview.webp" alt="ShiftAlarm Geo Alarmi põhiekraan kaardi ja nummerdatud juhtnuppudega">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Suumi sisse</strong> — suurendab kaarti.</li>
+<li><strong>Suumi välja</strong> — vähendab kaardi skaalat.</li>
+<li><strong>Minu asukoht</strong> — liigutab kaardi seadme praegusesse asukohta. Rakendus vajab selle funktsiooni jaoks asukohale juurdepääsu.</li>
+<li><strong>Salvestatud kohad</strong> — avab salvestatud geoalarmide ja asukohapunktide loendi.</li>
+<li><strong>Tagasi</strong> — naaseb eelmisele rakenduse ekraanile.</li>
+<li><strong>Geoalarmide arv</strong> — näitab, mitu geoalarm on loodud.</li>
+<li><strong>Geoalarmide loend</strong> — avab eraldi loodud geoalarmide loendi.</li>
+</ol>
+
+<div class="tip">Suumida saab ka žestidega. Puudutage kaarti kahe sõrmega ja liigutage need laiali, et sisse suumida, või näpistage neid kokku, et välja suumida.</div>
+<div class="notice">Külgmised juhtnupud võivad paremalt vasakule kirjutatavates keeltes ilmuda vastasküljel. Nende funktsioonid jäävad samaks.</div>
+
+<h3 id="geo-saved-places">7.2. Salvestatud alarmid ja asukohapunktid</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_saved_places.webp" alt="Salvestatud kohtade aken geoalarmi ja asukohapunktide vahekaartidega">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Alarmid</strong> — kuvab salvestatud kohtadele lisatud geoalarme.</li>
+<li><strong>Asukohapunktid</strong> — kuvab salvestatud koordinaate ilma aktiivse geoalarmita.</li>
+<li><strong>Salvestatud kohtade loend</strong> — puudutage kaarti, et liikuda kaardil sellesse kohta.</li>
+<li><strong>Sule</strong> — sulgeb akna ja naaseb kaardile.</li>
+</ol>
+
+<div class="notice">Kui kustutate järjehoidjatesse lisatud geoalarmi, säilivad selle koordinaadid automaatselt vahekaardil „Asukohapunktid”. Hiljem saate punkti uuesti kasutada uue geoalarmi loomiseks.</div>
+
+<h3 id="geo-select-point">7.3. Punkti ja raadiuse valimine</h3>
+
+<p>Puudutage ja hoidke kaardil soovitud kohta. Rakendus asetab markeri ja avab valitud punkti paneeli.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_selected_point.webp" alt="Valitud kaardipunkt aadressi, raadiuse, järjehoidja ja geoalarmi loomise nupuga">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Valitud punkti marker</strong> — tulevase geopiirde keskpunkt. Kaardil kuvatakse valitud raadiuse jaoks ka ring.</li>
+<li><strong>Aadress ja koordinaadid</strong> — saate kontrollida, kas õige koht on valitud.</li>
+<li><strong>Salvesta asukohapunkt</strong> — lisab valitud koordinaadid salvestatud kohtadele ilma alarmi loomata.</li>
+<li><strong>Raadius</strong> — määrab punkti ümbritseva ala suuruse. Liigutage liugurit, kuni valite sobiva vahemaa.</li>
+<li><strong>Tühista</strong> — tühistab punkti valiku.</li>
+<li><strong>Loo siia</strong> — avab valitud punkti jaoks uue Geo Alarm redaktori.</li>
+</ol>
+
+<div class="warning"><strong>Kuidas valida raadiust.</strong> Telefon ei jälgi oma koordinaate pidevalt. Android, seadme tootja, aku säästurežiim, GPS, mobiilsidevõrgu ja WiFi-signaali kvaliteet ning liikumiskiirus mõjutavad kõik piiri tuvastamise aega. Seetõttu võib hoiatus käivituda ka joonistatud joonest väljaspool. Näiteks 800 m raadiuse korral võidakse sisenemine tuvastada pärast seda, kui seade on juba piirkonnas – võib-olla 700, 600 või 500 m kaugusel punktist.</div>
+
+<ul>
+<li><strong>Linnas</strong> on üldiselt soovitatav raadius <strong>1300–1500 m</strong>.</li>
+<li><strong>Väljaspool linna</strong>, kus asukoha värskendused võivad olla harvemad, on soovitatav raadius <strong>4000–5000 m</strong>.</li>
+<li><strong>Täpne raadius</strong> tuleks valida teie marsruudi, kiiruse ja seadme käitumise põhjal.</li>
+</ul>
+
+<div class="notice">Süsteem tuvastab, kui seade ületab piirkonna virtuaalse piiri. Režiimis „Sisenemisel“ annab suurem raadius telefonile tavaliselt rohkem aega teie lähenemise tuvastamiseks. „Väljumisel“ režiimis paigutatakse piir hoopis valitud punktist kaugemale.</div>
+
+<h3 id="geo-create">7.4. Geoalarmide loomine</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_location_schedule.webp" alt="Geoalarmide redaktori ülaosa: valmisolek, asukoht ja ajakava tüüp">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Geoalarmide valmisolek</strong> — näitab, kas vajalikud õigused on konfigureeritud ja kas rakendus saab geofence'i registreerida.</li>
+<li><strong>Asukoht</strong> — sisaldab valitud aadressi ja koordinaate. Saate aadressi sildina muuta, kuid kaardil valitakse tegelik punkt.</li>
+<li><strong>Ajakava tüüp</strong> — määrab päevad ja tingimused, mille korral Geo Alarm on aktiivne.</li>
+<li><strong>Alati</strong> — Geo Alarm on aktiivne iga päev, kui see on lubatud.</li>
+<li><strong>Üks kord</strong> — kasutatakse järgmise ühekordse käivitamise jaoks, kui valitud tingimus on täidetud.</li>
+<li><strong>Päevade kaupa</strong> — töötab ainult valitud nädalapäevadel.</li>
+<li><strong>Vahetuste kaupa</strong> — seob Geo Alarmi aktiivse vahetuse ajakavaga.</li>
+</ol>
+
+<div class="notice"><strong>Ajakava „Vahetuste kaupa“.</strong> Valige, kas see töötab vahetuse päeval, ainult enne vahetust või ainult pärast seda, ja määrake vajalik vahetuse tüüp: päev, öö, hommik, õhtu. 24-tunnine, kohandatud või mis tahes töövahetus.</div>
+<div class="tip">Kui kalendrikuupäev on märgitud vaba päeva, puhkuse, haiguslehe või vaba ajana töövahetuse asemel, siis vahetustega seotud Geo Alarm sel päeval aktiivne ei ole.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_trigger_settings.webp" alt="Geo Alarm redaktori allosas: sisenemis- või väljumistingimus, raadius ja häireseaded">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Päästikutingimus</strong> — määrab, milline piiriületus käivitab häire.</li>
+<li><strong>Sisenemisel</strong> — käivitab häire, kui seade siseneb valitud raadiusesse, näiteks tööle või vajalikule peatusele lähenedes.</li>
+<li><strong>Väljumisel</strong> — käivitab häire, kui seade lahkub valitud raadiusest, näiteks pärast töölt või jaamast lahkumist, et te ei järgmise marsruudiosa vahelejätmine.</li>
+<li><strong>Sisenemisel või väljumisel</strong> — käivitab hoiatuse iga kord, kui piir ületatakse mõlemas suunas.</li>
+<li><strong>Raadius</strong> — valitud punkti ümber oleva geopiirde suurus.</li>
+<li><strong>Häire kestus</strong> — määrab, kui kaua hoiatus kõlab.</li>
+<li><strong>Järkjärguline helitugevuse suurendamine</strong> — määrab sujuva helitugevuse suurenemise pärast hoiatuse algust.</li>
+<li><strong>Tühista ja salvesta</strong> — tühista muudatused või salvesta geoalarm.</li>
+</ol>
+
+<div class="tip">Ülejäänud valikud on sarnased tavalise äratusega: heli, vibratsioon, hoiatuse kestus, järkjärguline helitugevuse suurendamine ja nimi.</div>
+
+<h3 id="geo-existing">7.5. Geoalarm kaardil ja selle juhtnupud</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_marker_radius.webp" alt="Loodud geoalarmmarker ja selle käivitusraadiuse ring kaardil">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Geoalarmmarker</strong> — näitab valitud punkti.</li>
+<li><strong>Raadiuse piir</strong> — näitab ala, mille sisenemist või väljumist rakendus jälgib.</li>
+</ol>
+
+<p>Puudutage Geoalarm markerit. Esmalt ilmub väike teabeaken. Puudutage seda akent, et avada üksikasjalik kaart.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_alarm_card.webp" alt="Detailne geoalarmi kaart teabe, järjehoidja, lüliti ja juhtnuppudega">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Nimi ja aadress</strong> — tuvastage valitud geoalarm.</li>
+<li><strong>Järjehoidja</strong> — lisab alarmi salvestatud kohtadele või eemaldab selle nendest.</li>
+<li><strong>Lüliti</strong> — lubab või keelab ajutiselt geoalarmi ilma selle sätteid kustutamata.</li>
+<li><strong>Seaded ja olek</strong> — näitavad raadiust, sisenemis- või väljumistingimust, ajakava, geopiirde valmisolekut ja teavet eelmiste aktiveerimiste kohta.</li>
+<li><strong>Muuda</strong> — avab geoalarmi seaded.</li>
+<li><strong>Sule</strong> — sulgeb kaardi ja naaseb kaardile.</li>
+<li><strong>Kustuta</strong> — kustutab Geo Alarmi pärast kinnitamist.</li>
+</ol>
+
+<div class="warning">Usaldusväärse töö tagamiseks lubage täpne ja taustal asukoha määramine, eemaldage ShiftAlarmi jaoks ranged akupiirangud ja kontrollige automaatse taustakäivituse seadeid, kui teie seade neid pakub. Isegi õigete sätete korral ei garanteeri Android piiri tuvastamist mõne meetri täpsusega.</div>
+
+<h2 id="notes">8. Märkmed, sündmused ja meeldetuletused</h2>
+
+<p>Jaotises „Märkmed” salvestatakse lihttekst, loendid, kontrollnimekirjad, helisalvestised, kõnest tekstiks teisendatud märkmed, meeldetuletused ja sündmused.</p>
+
+<h3 id="notes-create">8.1. Märkme lisamine</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_type_picker.webp" alt="Uue märkmetüübi valimine ShiftAlarmis">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Paneeli käepide</strong> – lohistage seda üles, et kuvada märkmetüüpide täielik loend, või alla, et paneel sulgeda.</li>
+<li><strong>Märkme tüüp</strong> – valige sobiv suvand:
+<ul>
+<li><strong>Tekstimärkus</strong> – lihttekst;</li>
+<li><strong>Kontroll-loend</strong> – üksuste loend koos täitmise märkeruutudega;</li>
+<li><strong>Loend</strong> – täpp- või nummerdatud loend;</li>
+<li><strong>Helimärkus</strong> – häälsalvestis;</li>
+<li><strong>Kõne tekstiks</strong> — loob märkme kõnetuvastuse abil;</li>
+<li><strong>Meeldetuletus</strong> — kirje koos teavitusega määratud ajal;</li>
+<li><strong>Sündmus</strong> — kuupäeva ja kellaajaga seotud kirje.</li>
+</ul>
+</li>
+<li><strong>Tühista</strong> — sulgeb valija ilma märget loomata.</li>
+</ol>
+
+<div class="tip">Pärast tüübi valimist avaneb sobiv redaktor. Täitke nõutavad väljad ja salvestage kirje.</div>
+
+<h3 id="notes-list">8.2. Märkmete loend ja juhtnupud</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_overview.webp" alt="ShiftAlarm märkmete ekraan sortimise, aktiivsete ja arhiveeritud märkmete, otsingu ja kaarditoimingutega">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Sorteeri</strong> — muudab märkmete järjekorda loendis.</li>
+<li><strong>Aktiivne</strong> — kuvab tavalisi ja ajastatud märkmeid, mida pole arhiivi teisaldatud.</li>
+<li><strong>Arhiivi</strong> — avab arhiveeritud märkmete loendi.</li>
+<li><strong>Otsi</strong> — leiab vasteid märkmete pealkirjades ja sisus.</li>
+<li><strong>Märkmekaart</strong> — kuvab pealkirja, tüübi, olekut ja lisateavet. Märkme avamiseks puudutage kaarti.</li>
+<li><strong>Kinnita</strong> — kinnitab märkme loendi ülaossa.</li>
+<li><strong>Arhiivi</strong> — eemaldab märkme aktiivsest loendist ja teisaldab selle arhiivi.</li>
+<li><strong>Kustuta</strong> — kustutab märkme pärast kinnitamist.</li>
+<li><strong>Lisa märge</strong> — avab uue märkme tüübi valija.</li>
+</ol>
+
+<div class="notice">Kasutage arhiivi kirjete jaoks, mida põhiloendis enam vaja pole, kuid mis peaksid jääma salvestatuks. Kustutage märge ainult siis, kui seda enam üldse vaja pole.</div>
+
+<h2 id="clock">9. Kell, stopper ja taimer</h2>
+
+<p>See jaotis ühendab kohaliku ja maailmaaja, stopperi ja taimeri. Avage see põhiekraanil nupuga <strong>„Kell“</strong>.</p>
+
+<div class="notice">Ekraani allosas kuvatakse kolm vahekaarti: „Kell“, „Stopper“ ja „Taimer“. Režiimide vahetamiseks puudutage vahekaarti.</div>
+
+<h3 id="clock-world">9.1. Kell ja maailmakell</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_overview.webp" alt="ShiftAlarm kellakuva kohaliku aja, maailmakellade, lisamisnupu ja alumiste vahekaartidega">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Kohalik aeg</strong> — näitab praegust kellaaega, kuupäeva ja seadme süsteemi ajavööndit.</li>
+<li><strong>Maailmakellad</strong> — kuvab lisatud linnu ja ajavööndeid. Kui loend on tühi, kuvab rakendus vihje.</li>
+<li><strong>Plussnupp</strong> – avab maailmakella valija.</li>
+<li><strong>Jaotise vahekaardid</strong> – vahetab ekraanide „Kell“, „Stopper“ ja „Taimer“ vahel.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_add_timezone.webp" alt="Linna või ajavööndi lisamine ShiftAlarmi maailmakellale">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Otsi</strong> – sisesta linna või ajavööndi nimi loendi filtreerimiseks.</li>
+<li><strong>Linna ja ajavööndi loend</strong> – puuduta vajalikku valikut, et see maailmakella ekraanile lisada.</li>
+</ol>
+
+<div class="tip">Kohalik ajavöönd kuvatakse alati esimesena. Saate loendist lisatud maailmakellasid eemaldada, kuid kohalikku aega ei saa eemaldada.</div>
+
+<h3 id="clock-stopwatch">9.2. Stopper</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_start.webp" alt="ShiftAlarm stopper enne selle käivitamist">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ajalugu</strong> — avab salvestatud stopperi seansid.</li>
+<li><strong>Alusta</strong> — alustab ajavõttu.</li>
+<li><strong>Lähtesta</strong> — pole enne stopperi käivitamist saadaval. Pärast peatamist nullib see stopperi ja eemaldab praegused ringid.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_running.webp" alt="ShiftAlarmi stopperi käivitamine ajaloo, salvestamise, ringi ja pausi juhtnuppudega">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ajalugu</strong> — kuvab eelnevalt salvestatud seansse.</li>
+<li><strong>Salvesta</strong> — küsib nime ja salvestab praeguse stopperi seansi.</li>
+<li><strong>Ring</strong> — salvestab vahetulemuse ilma taimerit peatamata.</li>
+<li><strong>Paus</strong> — peatab stopperi. Pärast pausi tegemist saate seda jätkata või lähtestada.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_laps.webp" alt="ShiftAlarm stopperi ringid ja nende sortimisvalikud">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Algne, kiireim ja aeglaseim</strong> — muutke ringide kuvamise järjekorda: algne järjekord, kiireim esimesena või aeglaseim esimesena.</li>
+<li><strong>Ringid</strong> — iga ring näitab selle salvestamise koguaega ja individuaalse ringi aega.</li>
+</ol>
+
+<div class="notice">Kui puudutate nuppu Salvesta, sisestage seansi nimi ja kinnitage. Salvestatud seansi saate hiljem ajaloost avada.</div>
+
+<h3 id="clock-timer">9.3. Taimer</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_setup.webp" alt="ShiftAlarmi taimeri seadistamine tunni-, minuti- ja sekundiratastega">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tunnid</strong> — kerige ratast ja valige tundide arv.</li>
+<li><strong>Minutid</strong> — kerige ratast ja valige minutite arv.</li>
+<li><strong>Sekundid</strong> — kerige ratast ja valige sekundite arv.</li>
+<li><strong>Alusta</strong> — käivitab taimeri valitud kestusega.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_running.webp" alt="ShiftAlarmi taimeri käivitamine järelejäänud aja, pausi, minuti lisamise ja peatamise juhtnuppudega">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Jäänud aeg</strong> — näitab, kui palju aega on jäänud enne märguannet.</li>
+<li><strong>Lõppaeg</strong> — näitab ligikaudset aega, millal taimer lõpeb.</li>
+<li><strong>Hiljutised taimerid</strong> — salvestatud hiljutised kestused; puudutage ühte, et seda kiiresti uuesti kasutada.</li>
+<li><strong>Paus</strong> — peatab ajutiselt loenduri. Saate seda hiljem jätkata.</li>
+<li><strong>+1 min</strong> — lisab järelejäänud ajale ühe minuti.</li>
+<li><strong>Stopp</strong> — peatab taimeri täielikult.</li>
+</ol>
+
+<div class="tip">Taimer ja stopper jätkavad taustal töötamist. Nende olek võib ilmuda teavituses, põhiekraanil ja vidinates.</div>
+
+<h2 id="widgets">10. Vidinad</h2>
+
+<p>ShiftAlarm pakub vidinaid telefoni avakuvale.</p>
+<ul>
+<li><strong>Today 4×2</strong> — kompaktne paneel kahe konfigureeritava sektsiooniga.</li>
+<li><strong>Today 4×3</strong> — paneel, mille ülaosas on kell ja all kaks sektsiooni.</li>
+<li><strong>Kalender 4×4</strong> — kalendrividinad vahetuste ajakavaga.</li>
+</ul>
+<p>Lisage vidin telefoni avakuvale Androidi vidinate menüü kaudu.</p>
+
+<h2 id="salary">11. Palgaarvestus</h2>
+
+<p>Avage <a href="#statistics-work">valitud ajakava statistika</a> palgakaardilt „Palgaarvestus“. Siin saate määrata palgameetodi, määra või kuupalga, ületunnitöö reeglid, boonused ja mahaarvamised. Rakendus kasutab neid seadeid koos valitud perioodi, vahetuste ajakava, kalendrimuudatuste ja pauside arvestusega.</p>
+
+<div class="warning"><strong>Arvutus on esitatud ainult informatiivsel eesmärgil.</strong> Tegelik palk võib erineda, kui teie tööandja kasutab tööajaarvestuse, ümardamise, toetuste, maksude, boonuste, mahaarvamiste või teatud vahetuste tüüpide eest maksmiseks mõnda muud süsteemi. Ärge kasutage tulemust ametliku palgaarvestusdokumendina; võrrelge seda oma tööandja palgalehega. Kui leiate arvutusmeetodi, mida rakendus täpselt ei käsitle, saatke arendajatele e-kiri rakenduses näidatud aadressile. Kirjeldage reegleid, esitage näidissisendandmed ja märkige oodatav tulemus. Seejärel saab meetodit tulevases värskenduses kaaluda.</div>
+
+<h3 id="salary-settings">11.1. Määr, ületunnid ja boonused</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_settings_overview.webp" alt="Palgaarvutuse ekraan valitud ajakava, määra tüübi, ületunnitöö ja boonustega">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Valitud ajakava</strong> — näitab, millist vahetuste ajakava kasutatakse. Palk arvutatakse selle ajakava ja statistikas valitud perioodi põhjal.</li>
+<li><strong>Tasu tüüp ja palgasumma</strong> — valige makse <strong>tunnis</strong>, <strong>vahetuses</strong> või <strong>kuus</strong> ja sisestage seejärel vastav summa. Välja nimi muutub koos valitud palgatüübiga.</li>
+<li><strong>Ületunnid</strong> — lubage see jaotis, kui lisatundide eest makstakse tavapärasest tööajast erinevalt. Seejärel määrake ületunnitöö tasu kordaja. Lisage kalendrisse lisatunnid valiku <a href="#main-shift-time-adjustment">„Vahetuse muutmine“ → „+ aeg“</a> kaudu; lubage valik „Arvesta see aeg ületunnitööna“, et tunde käsitletaks ületunnitööna.</li>
+<li><strong>Boonused</strong> — näitab praegust arvutusmeetodit ja kogusummasid. Puudutage kaarti, et avada <a href="#salary-bonuses">boonuste seaded</a>.</li>
+</ol>
+
+<div class="notice">Nupp „Salvesta” rakendab seaded valitud ajakavale. Pärast salvestamist arvutatakse statistika ja aruannete kogusummad sisestatud andmete põhjal uuesti.</div>
+
+<h3 id="salary-summary">11.2. Mahaarvamised ja arvutamise kogusumma</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions_total.webp" alt="Palgaarvutuse ekraan mahaarvamiste ja lõpliku jaotusega">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Mahaarvamised</strong> — näitab konfigureeritud mahaarvamiste kogusummat ja arvu. Puudutage kaarti, et avada <a href="#salary-deductions">mahaarvamiste loend</a>.</li>
+<li><strong>Kokku</strong> – kokkuvõtlik jaotus: tasustatud aeg, töötatud tunnid, ületunnid, põhipalk, ületunnitasu, boonused, mahaarvamised ja lõpptulemus.</li>
+</ol>
+
+<div class="tip">Tulemus sõltub lisaks selle ekraani sätetele ka valitud statistikaperioodist, täidetud vahetustest, päevavahetustest, ületundidest ja tasustamata pauside sätetest.</div>
+
+<h3 id="salary-bonuses">11.3. Boonused</h3>
+
+<p>Puudutage palgaarvutuse ekraanil kaarti „Boonused”. Saate boonuse sisestada käsitsi või arvutada selle protsendina, kui see sobib teie palgasüsteemiga.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_bonuses.webp" alt="Boonuse seadete ekraan arvutuse ja summa sisestamise valikutega">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Kokkuvõtlik teave</strong> — näitab arvutatud boonuse kogusummat ja arvutamiseks kasutatud baassummat.</li>
+<li><strong>Boonuse arvutamine</strong> — valige käsitsi sisestamine või protsendiline arvutus, näiteks müügi protsent, kui seda meetodit teie töökohal kasutatakse.</li>
+<li><strong>Sisestusmeetod</strong> — „Kogusumma” sobib ühe lõpliku boonuse jaoks. Eraldi read on kasulikud, kui on mitu boonust, mida tuleb eraldi arvestada.</li>
+<li><strong>Summa või protsent</strong> — sisestage valitud arvutusmeetodi nõutav väärtus.</li>
+<li><strong>Tühista ja salvesta</strong> — tühista muudatused või rakenda need palgaarvutusele.</li>
+</ol>
+
+<h3 id="salary-deductions">11.4. Mahaarvamiste loend</h3>
+
+<p>Puudutage arvutuse põhiekraanil kaarti „Mahaarvamised”. See jaotis võimaldab teil salvestada mitu mahaarvamist ja hallata igaüht neist eraldi.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions.webp" alt="Mahaarvamiste loendi ekraan kogusumma, mahaarvamiste ridade ja lisamisnupuga">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Kokkuvõtlik teave</strong> — näitab kõigi lubatud mahaarvamiste summat ja arvu.</li>
+<li><strong>Mahaarvamiste rida</strong> — näitab nime, väärtust ja tüüpi. Puudutage rida, et avada <a href="#salary-deduction-editor">mahaarvamise sätted</a>. Prügikastiikoon kustutab rea.</li>
+<li><strong>Lisa mahaarvamine</strong> — nupp „+” loob uue mahaarvamise rea.</li>
+<li><strong>Tühista ja salvesta</strong> — tühista muudatused või salvesta kogu loend.</li>
+</ol>
+
+<h3 id="salary-deduction-editor">11.5. Individuaalse mahaarvamise seadistamine</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deduction_editor.webp" alt="Individuaalse mahaarvamise paneel nime, väärtuse, tüübi ja mahaarvamise alusega">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Mahaarvamise nimi</strong> — sisestage selge nimi, näiteks „Maks”, „Lapsetoetus” või „Trahv”.</li>
+<li><strong>Väärtus</strong> — sisestage summa või protsent, olenevalt allpool valitud väärtuse tüübist.</li>
+<li><strong>Väärtuse tüüp</strong> — valige fikseeritud summa või protsent.</li>
+<li><strong>Mahaarvamise tüüp</strong> — <strong>muutuv</strong> mahaarvamine kehtib kindlale arvutusperioodile; <strong>korduv</strong> mahaarvamine rakendatakse regulaarselt, kuni see on lubatud.</li>
+<li><strong>Mahaarvamine</strong> — valige arvutusalus: kogupalk, põhipalk, boonused või muu saadaolev valik.</li>
+<li><strong>Lubatud</strong> — keelab mahaarvamise ajutiselt ilma selle sätteid kustutamata.</li>
+<li><strong>Tühista ja salvesta</strong> — sulgege paneel muudatusteta või salvestage mahaarvamine.</li>
+</ol>
+
+<div class="notice">Protsendilise mahaarvamise puhul on eriti oluline valida õige „Mahaarvamise“ alus: sama protsent kogupalgast, põhipalgast ja boonustest annab erinevaid tulemusi.</div>
+
+<h2 id="settings">12. Seaded</h2>
+
+<p>Avage „Seaded“ <a href="#main-overview">peaekraani</a> allosas oleva nupuga. See jaotis sisaldab süsteemiõigusi, välimust ja rakenduse keelt, võrguühenduseta kõnetuvastust, dokumente ja kasutusjuhendit, varundamist, diagnostikat ja arendajaga ühenduse võtmise võimalusi.</p>
+
+<h3 id="settings-overview">12.1. Peamised seadete jaotised</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_permissions_language.webp" alt="ShiftAlarmi sätete ülaosa: õigused, teema, rakenduse keel ja võrguühenduseta kõnemudelid">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Load</strong> — avab alarmi õigused ja usaldusväärsuse seaded. Kontrollige teatisi, täpseid alarme, taustategevust ja aku piiranguid. <a href="#geo">Geoalarmid</a> vajavad ka asukohale juurdepääsu; rakenduse sulgemise ajal on käivitamiseks vaja taustal või valikuga „Luba kogu aeg” asukohale juurdepääsu. Üksuste nimed ja teed varieeruvad olenevalt Androidi versioonist ja seadme tootjast.</li>
+<li><strong>Teema</strong> – võimaldab valida heleda, tumeda või süsteemi välimuse, valida liidese värvivariandi ning lubada või keelata rakenduse toimingute haptilise tagasiside. Süsteemi teema järgib telefoni praegust välimust.</li>
+<li><strong>Rakenduse keel</strong> – võimaldab kasutada telefoni süsteemikeelest erinevat keelt. ShiftAlarmi kataloog sisaldab 108 keelt: leidke otsingu abil vajalik keel, laadige alla keelepakett ja rakendage see.</li>
+<li><strong>Võrguühenduseta kõnemudelid</strong> – installib mooduli <a href="#notes-create">kõnest tekstiks teisendatud märkmete</a> jaoks. Võrguühenduseta tuvastust testitakse praegu ja see on saadaval umbes 20 keeles. Selle kvaliteet võib olla madalam kui võrgus tuvastuse puhul ning sõltub keelest, mikrofonist, telefoni jõudlusest ja salvestustingimustest.</li>
+</ol>
+
+<div class="warning"><strong>Androidi load erinevad seadmete vahel.</strong> Mõnes telefonis peate lubama ka automaatse taustakäivituse, valima „Piiranguteta” või sarnase akurežiimi ja lubama taustategevuse. Need seaded vähendavad võimalust, et süsteem peatab ShiftAlarmi, kuid nende täpsed nimed määrab seadme tootja.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_help_backup_diagnostics.webp" alt="ShiftAlarmi seadete allosas: dokumendid, kasutusjuhend, varundamine, diagnostika ja arendaja kontakt">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Dokumendid ja abi</strong> — avab rakenduse juriidilised dokumendid: kasutustingimused, privaatsuspoliitika, lahtiütlus ja lühikese abilehe.</li>
+<li><strong>Koolitus- ja kasutusjuhend</strong> — avab selle täieliku illustreeritud juhendi koos ShiftAlarmi funktsioonide üksikasjalike kirjeldustega.</li>
+<li><strong>Varundamine ja taastamine</strong> — loob faili, mis sisaldab toetatud rakenduse seadeid ja andmeid, või taastab need varasemast varukoopiast. See on kasulik enne rakenduse uuesti installimist, telefoni lähtestamist või andmete edastamist teise seadmesse. Üksikasjalike juhiste saamiseks vaadake jaotist <a href="#backup">„Varundamine ja taastamine”</a>.</li>
+<li><strong>Diagnostiline logi</strong> – avab rakenduse funktsioonide jaoks eraldi logid. Need salvestavad tehnilisi etappe, nagu teadete ajastamine ja taastamine, sündmuste töötlemine, lubade olek ja muu teenuseteave. Logi aitab tuvastada etapi, kus tõrge tekkis. Saate kirjeid kopeerida või need arendajatele e-posti teel saatmiseks ette valmistada. Üksikasjade saamiseks vaadake jaotist <a href="#diagnostics">„Diagnostics ja tõrkeotsing”</a>.</li>
+<li><strong>Võtke ühendust arendajatega</strong> – avab e-posti rakenduse ja loob toele adresseeritud sõnumi. Kasutage seda probleemi teatamiseks, tagasiside või ettepaneku saatmiseks või küsimuse esitamiseks. Tehnilise probleemi korral lisage telefoni mudel, Androidi versioon, probleemi kellaaeg, tehtud toimingud ja võimaluse korral asjakohane diagnostikalogi.</li>
+</ol>
+
+<div class="notice">Diagnostilisi logisid ei saadeta arendajatele automaatselt. Peate kopeerima vajaliku teabe või puudutama nuppu „Saada arendajatele“, valima e-posti rakenduse, vaatama ettevalmistatud sõnumi üle ja kinnitama selle saatmise.</div>
+
+<h2 id="backup">13. Varundamine ja taastamine</h2>
+
+<p>Varukoopia salvestab toetatud ShiftAlarmi seaded ja kasutajaandmed eraldi faili. See aitab andmeid taastada pärast rakenduse uuesti installimist, telefoni lähtestamist või teisele seadmele kolimist.</p>
+<ol class="step-list">
+<li>Ava ​​„Seaded → Varundamine ja taastamine”.</li>
+<li>Looge varukoopia ja salvestage saadud fail telefoni või jagage seda süsteemimenüü kaudu.</li>
+<li>Taastamiseks avage sama jaotis ja valige eelnevalt loodud varukoopiafail.</li>
+<li>Pärast taastamist kontrollige olulisi alarme, ajakavasid ja Androidi õigusi. Mõned süsteemi turvaload võidakse uues seadmes või pärast uuesti installimist uuesti anda.</li>
+</ol>
+<p class="tip">Hoidke praegust koopiat kindlas kohas, mis jääb telefoni kadumise, kahjustumise või lähtestamise korral kättesaadavaks. Varukoopiafail ei asenda Androidi süsteemiõigusi ega saa automaatselt lisada andmeid, millele rakendusel pole lubatud juurde pääseda.</p>
+
+<h2 id="diagnostics">14. Diagnostika ja tõrkeotsing</h2>
+
+<p>ShiftAlarm pakub erinevate funktsioonide jaoks eraldi diagnostikalogisid. Need säilitavad tehniliste sündmuste jada ja aitavad kindlaks teha, kas hoiatus ajastati, taastati pärast taaskäivitamist, edastati töötlemiseks või peatati süsteemi seadete tõttu.</p>
+
+<h3 id="diagnostics-control">14.1. Diagnostika kogumise juhtimine</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_sections.webp" alt="ShiftAlarmi diagnostikalogi ekraan pealüliti ja individuaalse häirelogiga">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Diagnostika kogumine</strong> – rakenduse iga diagnostikasektsiooni pealüliti. Lülitage see välja, et peatada uute sündmuste lisamine kõikidesse logidesse korraga. Uute sündmuste kogumine jätkub pärast selle uuesti lubamist.</li>
+<li><strong>Individuaalne funktsioonide logi</strong> – igal moodulil on oma lüliti ja nupp „Ava”. Näiteks saate jätta globaalse diagnostika lubatuks, keelates samal ajal ainult äratuse, kella või mõne muu funktsiooni logi. Ekraanipildil on näidatud häirelogi, mis salvestab kohaletoimetamise, ajastamise, taastamise, valve-kaitse ja häireekraani sündmused.</li>
+</ol>
+
+<div class="notice">Lülitid juhivad ainult tehniliste sündmuste salvestamist. Äratuse, kella või muu funktsioonilogi keelamine ei keela funktsiooni ennast. Kustutage eelnevalt salvestatud kirjed eraldi vastava logi sees oleva nupuga „Tühjenda“.</div>
+
+<h3 id="diagnostics-log">14.2. Individuaalne funktsioonide logi</h3>
+
+<p>Puudutage vajalikus diagnostikaosas nuppu „Ava“. Allolev näide näitab häirelogi; Teiste funktsioonide logid toimivad sarnasel viisil.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_alarm_log.webp" alt="ShiftAlarmi häire diagnostikalogi sündmuste arvu, toimingute ja tehniliste kirjetega">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Salvestatud sündmused</strong> — näitab valitud logis praegu salvestatud kirjete arvu.</li>
+<li><strong>Logi toimingud</strong>:
+<ul>
+<li><strong>Kopeeri</strong> — kopeerib kõik andmed praegusest logist lõikelauale. Saate need kleepida e-kirja või teise rakendusse.</li>
+<li><strong>Tühjenda</strong> — kustutab selle logi salvestatud kirjed. Pärast kustutamist kuvatakse ainult sündmused, mis on salvestatud hiljem, kui diagnostika on lubatud.</li>
+<li><strong>Saada arendajatele</strong> — avab rakenduse valija e-kirja saatmiseks. Valige e-posti rakendus; Arendaja aadress ja diagnostikaandmed sisestatakse automaatselt. Enne saatmist lisage probleemi kirjeldus, vaadake sõnum üle ja seejärel kinnitage selle saatmine.</li>
+</ul>
+</li>
+<li><strong>Rakenduse sündmused</strong> – logikirjed ise. Kirje sisaldab tavaliselt kuupäeva ja kellaaega, tehnilise sündmuse nime ja täiendavaid parameetreid, nagu identifikaator, olek või põhjus. Tehnilised nimed võivad esineda inglise keeles; ärge neid enne saatmist muutke ega tõlkige.</li>
+</ol>
+
+<div class="warning">Enne logi kustutamist kopeerige või saatke kõik vajalikud kirjed. Kustutatud diagnostikasündmusi ei saa taastada.</div>
+
+<div class="tip">Kui probleemi saab reprodutseerida, lubage kõigepealt globaalne diagnostikakogumine ja vastava funktsiooni logi ning seejärel korrake probleemi põhjustanud toiminguid. Esitage oma sõnumis probleemi täpne kellaaeg, telefoni mudel, Androidi versioon, oodatav tulemus ja tegelik tulemus. See aitab teie kirjeldust logisündmustega sobitada.</div>
+
+<h2 id="faq">15. Korduma kippuvad küsimused</h2>
+
+<h3>Äratus ei käivitunud õigel ajal</h3>
+<p>Kontrollige märguandeid, täpse äratuse luba, taustategevust ja aku piiranguid.</p>
+<h3>Geoalarm käivitus hilja</h3>
+<p>Kontrollige täpset ja taustaasukohta, aku piiranguid ja automaatset taustakäivitust. Proovige linnas raadiust 1300–1500 m ja linnast väljaspool raadiust 4000–5000 m. Tegelik käivitus ei pruugi toimuda täpselt raadiuse joonel.</p>
+<h3>Vidin ei värskendunud kohe</h3>
+<p>Avage rakendus või puudutage vidina värskendamisnuppu. Android võib piirata vidinate sagedasi värskendusi.</p>
+<h3>Muutsin keelt, aga dokumenti või juhendit pole veel uuendatud</h3>
+<p>Kontrollige oma internetiühendust ja andke allalaadimiseks aega. Kui kaugversioon pole saadaval, kasutab rakendus oma sisseehitatud varuvõimalust.</p>
+
+<div class="footer small">Juhendi saab uuendada GitHubi kaudu. Kui kaugversioon pole saadaval, kasutab rakendus oma sisseehitatud võrguühenduseta versiooni.</div>
+</main>
+</body>
+</html>

@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ShiftAlarm lietotāja rokasgrāmata</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #64748b;
+  --accent: #2563eb;
+  --soft: #e8eef8;
+  --border: #dbe4f0;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.58;
+  margin: 0;
+  padding: 18px;
+  color: var(--text);
+  background: var(--bg);
+}
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+h1 { margin: 0 0 8px; font-size: 28px; line-height: 1.2; }
+h2 { margin: 32px 0 10px; font-size: 21px; line-height: 1.25; }
+h3 { margin: 22px 0 8px; font-size: 17px; }
+p, li { font-size: 16px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul, ol { padding-left: 22px; }
+.notice, .tip, .warning {
+  padding: 14px 16px;
+  border-radius: 16px;
+  margin: 14px 0;
+  border: 1px solid var(--border);
+}
+.notice { background: var(--soft); }
+.tip { background: #ecfdf5; }
+.warning { background: #fff7ed; }
+.small { color: var(--muted); font-size: 14px; }
+.toc {
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 16px;
+  margin: 18px 0 24px;
+}
+.toc ol { margin: 8px 0 0; }
+.step-list li { margin-bottom: 8px; }
+.guide-figure {
+  margin: 18px 0;
+}
+.guide-image {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+}
+.callout-list li {
+  margin-bottom: 10px;
+}
+.guide-caption {
+  max-width: 520px;
+  margin: 10px auto 0;
+  color: var(--text);
+  font-size: 15px;
+}
+.guide-caption strong {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.footer {
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --card: #111827;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --accent: #93c5fd;
+    --soft: #1f2937;
+    --border: #334155;
+  }
+  main { box-shadow: none; }
+  .toc { background: #172033; }
+  .tip { background: #10251f; }
+  .warning { background: #2a1d10; }
+}
+</style>
+</head>
+<body>
+<main>
+<h1>ShiftAlarm lietotāja rokasgrāmata</h1>
+<p class="small">14. versija. Datums: 2026. gada 2. augusts.</p>
+<div class="notice">Šī lapa ir praktisks ShiftAlarm ceļvedis. Tajā ir paskaidrots, ko dara katra galvenā funkcija, kur to atrast, kam pieskarties un ko pārbaudīt, ja funkcija nedarbojas, kā paredzēts.</div>
+<nav class="toc">
+<strong>Saturs</strong>
+<ol><li><a href="#start">1. Pirmā palaišana</a></li><li><a href="#permissions">2. Atļaujas un uzticamība</a></li><li><a href="#main">3. Galvenais ekrāns</a></li><li><a href="#shifts">4. Maiņu grafiki</a></li><li><a href="#statistics">5. Grafika statistika</a></li><li><a href="#alarms">6. Modinātāji</a></li><li><a href="#geo">7. Ģeo modinātāji</a></li><li><a href="#notes">8. Piezīmes, notikumi un atgādinājumi</a></li><li><a href="#clock">9. Pulkstenis, taimeris un hronometrs</a></li><li><a href="#widgets">10. Logrīki</a></li><li><a href="#salary">11. Algas aprēķins</a></li><li><a href="#settings">12. Iestatījumi</a></li><li><a href="#backup">13. Dublēšana un atjaunošana</a></li><li><a href="#diagnostics">14. Diagnostika un problēmu novēršana</a></li><li><a href="#faq">15. Bieži uzdotie jautājumi</a></li></ol>
+</nav>
+<h2 id="start">1. Pirmā palaišana</h2>
+
+<p>Kad ShiftAlarm tiek palaists pirmo reizi, tas parāda īsu iestatīšanas plūsmu. Galvenais ekrāns jau ir pieejams fonā, taču vislabāk ir vispirms pabeigt pamata iestatīšanu.</p>
+<ol class="step-list">
+<li>Izlasiet ievadinformāciju un pieskarieties “Turpināt”.</li>
+<li>Dokumentu solī atveriet dokumentus vai apstipriniet nepieciešamos dokumentus, kad esat gatavs turpināt.</li>
+<li>Atļauju solī atveriet atļauju ekrānu un pārbaudiet paziņojumus, precīzus trauksmes signālus, piekļuvi atrašanās vietai un akumulatora ierobežojumus.</li>
+<li>Pieskarieties “Pabeigt iestatīšanu”.</li>
+</ol>
+<p class="tip">Atļaujas varat konfigurēt vēlāk sadaļā “Iestatījumi → Atļaujas un uzticamība”.</p>
+
+<h2 id="permissions">2. Atļaujas un uzticamība</h2>
+
+<p>Modinātāji, atgādinājumi un ģeogrāfiskās trauksmes signāli ir atkarīgi no Android iestatījumiem un ierīces ražotāja programmatūras.</p>
+<ul>
+<li><strong>Paziņojumi</strong> — nepieciešami modinātājiem, atgādinājumiem, taimerim un pakalpojumu paziņojumiem.</li>
+<li><strong>Precīzi trauksmes signāli</strong> — palīdz trauksmei sākties nepieciešamajā laikā.</li>
+<li><strong>Atrašanās vieta</strong> — nepieciešama ģeogrāfiskajām trauksmēm.</li>
+<li><strong>Fona atrašanās vieta</strong> — nepieciešama, lai ģeogrāfiskā trauksme darbotos, kamēr lietotne ir aizvērta.</li>
+<li><strong>Akumulatora un fona aktivitātes</strong> — var ietekmēt aktivizēšanas uzticamību Xiaomi/Redmi un dažās citās ierīcēs.</li>
+</ul>
+<p class="warning">Android ne vienmēr garantē tūlītēju paziņojumu, precīzu trauksmju vai ģeogrāfiskās zonas notikumu piegādi. Lai saņemtu svarīgus brīdinājumus, pārbaudiet katru vienumu atļauju ekrānā.</p>
+
+<h2 id="main">3. Galvenais ekrāns</h2>
+
+<p>Galvenais ekrāns ir jūsu ikdienas informācijas panelis. Tas nodrošina tiešu piekļuvi kalendāram, pulkstenim, Geo Alarms, parastajiem trauksmes signāliem, maiņu grafikiem, piezīmēm un iestatījumiem.</p>
+
+<h3 id="main-overview">3.1. Galvenā ekrāna elementi</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_screen_overview.png" alt="ShiftAlarm galvenais ekrāns ar numurētām vadības ierīcēm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Atpakaļvērsta bultiņa</strong> — pārvieto kalendāru uz iepriekšējo mēnesi.</li>
+<li><strong>Mēnesis un gads</strong> — parāda atvērto mēnesi. Pieskarieties šim apgabalam, lai izmantotu <a href="#main-date-picker">soli pa solim veicamo mēneša un gada atlasītāju</a>.</li>
+<li><strong>Uz priekšu vērsta bultiņa</strong> — pārvieto kalendāru uz nākamo mēnesi.</li>
+<li><strong>Kalendārs</strong> — galvenā mēneša zona. Varat pārvilkt kalendāru. Katra diena var parādīt datumu, atgādinājumus, notikumus, plānoto maiņu un dienu izmaiņas. Parasts pieskāriens atlasa datumu; ilgstoša nospiešana atver <a href="#main-day-actions">informāciju un darbības atlasītajai dienai</a>.</li>
+<li><strong>Šodien</strong> — atgriež kalendārā pašreizējo dienu.</li>
+<li><strong>Pulkstenis</strong> — atver <a href="#clock">pasaules pulksteni, hronometru un taimeri</a>.</li>
+<li><strong>Ģeogrāfiskā trauksme</strong> — atver <a href="#geo">karti, saglabātās vietas un ģeogrāfiskās trauksmes iestatījumus</a>. Brīdinājums var tikt aktivizēts, ieejot atlasītajā apgabalā, izejot no tā vai veicot kādu no šīm darbībām.</li>
+<li><strong>Modinātājs</strong> — atver <a href="#alarms">parastos, atkārtotos un ar maiņu saistītos trauksmes signālus</a>.</li>
+<li><strong>Grafiks</strong> — atver <a href="#shifts">maiņu grafikus, to izveidi un rediģēšanu, kā arī statistiku</a>.</li>
+<li><strong>Piezīmes</strong> — atver <a href="#notes">piezīmes, notikumus, atgādinājumus, audio piezīmes un runas pārveidošanu tekstā</a>.</li>
+<li><strong>Iestatījumi</strong> — atver <a href="#settings">atļaujas, valodu, tēmu, bezsaistes runas modeļus, dublēšanu, diagnostiku, dokumentus un apmācību</a>.</li>
+</ol>
+
+
+<h3 id="main-date-picker">3.2. Mēneša un gada izvēle</h3>
+
+<p>Pieskarieties mēnesim un gadam galvenā ekrāna augšdaļā, lai ātri atvērtu nepieciešamo kalendāra periodu. Atlase notiek pa posmiem: <strong>gadsimts → desmitgade → gads → mēnesis</strong>.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_century.webp" alt="1. darbība: gadsimta atlasīšana ShiftAlarm kalendārā">
+<figcaption class="guide-caption"><strong>1.Atlasiet gadsimtu.</strong> Pieskarieties periodam, kurā ir nepieciešamais gads. Piemērā ir atlasīti 2000. gadi.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_decade.webp" alt="2. darbība: desmitgades atlasīšana ShiftAlarm kalendārā">
+<figcaption class="guide-caption"><strong>2.Atlasiet desmitgadi.</strong> Pieskarieties diapazonam, kurā ir nepieciešamais gads. 2026. gadam atlasiet “2020–2029”.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_year.webp" alt="3. solis: gada atlasīšana ShiftAlarm kalendārā">
+<figcaption class="guide-caption"><strong>3.Atlasiet gadu.</strong> Pieskarieties vajadzīgajam gadam. Piemērā ir atlasīts 2026. gads.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_month.webp" alt="4. solis: mēneša atlasīšana ShiftAlarm kalendārā">
+<figcaption class="guide-caption"><strong>4.Atlasiet mēnesi.</strong> Pieskarieties vajadzīgajam mēnesim. Piemērā ir atlasīts jūlijs.</figcaption>
+</figure>
+
+<div class="tip">Pēc mēneša atlases panelis aizveras un galvenais kalendārs atveras atlasītajā mēnesī un gadā.</div>
+<div class="notice">Poga “Atpakaļ” atgriežas iepriekšējā posmā. Gadsimta ekrānā tā aizver datuma atlasītāju.</div>
+
+<h3 id="main-day-actions">3.3. Informācija un darbības atlasītajai dienai</h3>
+
+<p>Pieskarieties un turiet vajadzīgo dienu kalendārā. Tiks atvērts panelis ar informāciju un darbībām šim datumam. Velciet paneli uz augšu, lai skatītu visas pieejamās darbības.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_day_actions.webp" alt="ShiftAlarm informācijas un darbību panelis atlasītajai kalendāra dienai">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Datums</strong> — parāda nedēļas dienu un atlasīto datumu. Velciet augšpusē esošo turi uz augšu vai uz leju, lai izvērstu vai aizvērtu paneli.</li>
+<li><strong>Maiņa</strong> — parāda aprēķināto maiņu vai dienas maiņu, piemēram, brīvdienu, atvaļinājumu, slimības atvaļinājumu vai citu izņēmumu.</li>
+<li><strong>Šī datuma trauksmes signāli</strong> — parāda atlasītajai dienai piešķirtos trauksmes signālus vai ziņojumus, ka tādu nav.</li>
+<li><strong>Notikumi un atgādinājumi</strong> — parāda ierakstus, kas saistīti ar atlasīto datumu.</li>
+<li><strong>Pievienot trauksmi</strong> — atver vienreizēja trauksmes signāla izveidi atlasītajam datumam.</li>
+<li><strong>Mainīt maiņu</strong> — izveido izņēmumu vienai dienai vai datumu diapazonam aktīvajā grafikā.</li>
+<li><strong>Pievienot piezīmi</strong> — ļauj izvēlēties notikumu vai atgādinājumu, ko izveidot atlasītajam datumam.</li>
+</ol>
+
+<div class="notice">Darbība “Mainīt maiņu” ir pieejama, lai pielāgotu dienas aktīvajā maiņu grafikā.</div>
+
+<h4 id="main-shift-override">Viena diena vai datumu diapazona maiņa</h4>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_types.webp" alt="Datumu diapazona un maiņas maiņas veida izvēle ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Sākuma datums</strong> — pirmā izmaiņu diena. Sākotnēji tiek izmantots kalendārā atlasītais datums.</li>
+<li><strong>Beigu datums</strong> — pēdējā izmaiņu diena. Lai mainītu tikai vienu dienu, atstājiet atlasīto datumu to pašu.</li>
+<li><strong>Atvaļinājums</strong> — aizstāj aprēķināto maiņu ar brīvdienu.</li>
+<li><strong>Atvaļinājums</strong> — atzīmē atlasīto dienu vai diapazonu kā atvaļinājumu.</li>
+<li><strong>Slimības atvaļinājums</strong> — atzīmē atlasīto dienu vai diapazonu kā slimības atvaļinājumu.</li>
+<li><strong>Saglabāt izmaiņas</strong> — lieto atlasīto izņēmumu kalendārā.</li>
+</ol>
+
+<h4 id="main-shift-time-adjustment">Darba laika pielāgošana</h4>
+
+<p>Ritiniet uz leju izmaiņu veidu sarakstu un atlasiet “Rediģēt maiņu”, lai mainītu aprēķinātās darba maiņas ilgumu.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_time_adjustment.webp" alt="Maiņas darba laika pielāgošana ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Rediģēt maiņu</strong> — iespējo darba laika pielāgošanu atlasītajai maiņai.</li>
+<li><strong>+ laiks</strong> — pievieno stundas vai minūtes standarta maiņas ilgumam.</li>
+<li><strong>− laiks</strong> — samazina maiņas ilgumu, piemēram, ja darbs beidzas priekšlaicīgi.</li>
+<li><strong>Uzskaitīt šo laiku kā virsstundas</strong> — uzskatīt pievienoto laiku par virsstundām. Ja opcija ir izslēgta, tas tiek skaitīts kā parastais darba laiks.</li>
+<li><strong>Saglabāt izmaiņas</strong> — piemēro korekciju atlasītajai dienai vai diapazonam.</li>
+</ol>
+
+<div class="tip">Dienas maiņa nemaina sākotnējo grafika veidni. Tā tiek saglabāta kā atsevišķs izņēmums un ir iekļauta kalendārā, statistikā, algas aprēķinā un pārskatos.</div>
+
+<h2 id="shifts">4. Maiņu grafiki</h2>
+
+<p>Maiņu grafiks definē atkārtotu darba ciklu un nodrošina pamatu citām ShiftAlarm funkcijām. Lietotne to izmanto, lai aizpildītu kalendāru, saistītu trauksmes signālus ar maiņām, skaitītu darba laiku, ģenerētu statistiku, aprēķinātu algu un sagatavotu pārskatus.</p>
+
+<div class="notice"><strong>Pamatprincips.</strong> Vispirms izveidojiet pamata atkārtoto grafiku. Pievienojiet atvaļinājumu, slimības atvaļinājumu, brīvdienas, vienreizēju aizstāšanas maiņu vai darba laika korekciju kā izņēmumu konkrētiem datumiem, izmantojot <a href="#main-day-actions">atlasīto dienu darbības</a>. Tas saglabā sākotnējo ciklu nemainīgu.</div>
+
+<h3 id="shifts-list">4.1. Grafiku saraksts un vadīklas</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedules_overview.webp" alt="ShiftAlarm grafika ekrāns ar aktīvu grafika karti un numurētām vadīklām">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Grafika informācija</strong> — nosaukums, sākuma datums, cikla ilgums un īsa dienu secība. Piemērā “D · D · O · O” nozīmē divas dienas maiņas, kam seko divas brīvdienas.</li>
+<li><strong>Pārslēgt</strong> — īslaicīgi atspējo grafiku, to neizdzēšot. Kad to atkal iespējojat, saglabātie iestatījumi turpina darboties.</li>
+<li><strong>Grafika statuss</strong> — norāda, kurš grafiks pašlaik ir aktīvs.</li>
+<li><strong>Rediģēt</strong> — atver parametrus, kurus var mainīt. Pēc sākotnējās iestatīšanas daļa no grafika bāzes tiek bloķēta, lai novērstu nejaušu jau izveidoto kalendāra datu pārrēķināšanu.</li>
+<li><strong>Dzēst</strong> — pēc apstiprināšanas izdzēš grafiku. Pirms dzēšanas pārbaudiet visus ar maiņu saistītos trauksmes signālus un aprēķinus.</li>
+<li><strong>Atvērt statistiku</strong> — atver šī grafika <a href="#statistics">darba laika, perioda, algas un atskaišu statistiku</a>.</li>
+<li><strong>Izveidot grafiku</strong> — ļauj atlasīt gatavu veidni vai izveidot pielāgotu ciklu.</li>
+</ol>
+
+<h3 id="shifts-create">4.2. Sākuma grafika izveide</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_create.webp" alt="Grafika izveides panelis ar nosaukumu, sākuma datumu, veidnēm un pielāgotu grafiku">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Grafika nosaukums</strong> — ievadiet skaidru nosaukumu, piemēram, “Galvenais 2/2”, “Nakts maiņa” vai savas darba vietas nosaukumu.</li>
+<li><strong>Sākuma datums</strong> — datums, kas atbilst <strong>atkārtotā cikla pirmajai dienai</strong>. Varat atlasīt pagātnes vai nākotnes datumu; lietotne aprēķina grafiku uz priekšu un atpakaļ no tā.</li>
+<li><strong>Veidnes</strong> — gatavas kopīgas maiņu secības. Piemērā tiek izmantota veidne “2/2 dienas”.</li>
+<li><strong>Pielāgots grafiks</strong> — izveido savu darba dienu un brīvdienu secību.</li>
+<li><strong>Izveidot grafiku</strong> — atver detalizēto redaktoru atlasītajai opcijai.</li>
+</ol>
+
+<div class="tip">Veidnei “D · D · O · O” sākuma datums parasti ir pirmā no divām darba dienām. Pielāgotā ciklā 1. diena var būt arī brīvdiena; svarīgi ir tas, lai atlasītais datums precīzi atbilstu jūsu izveidotās secības 1. dienai.</div>
+
+<h3 id="shifts-template">4.3. Grafika izveide no veidnes</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_template.webp" alt="Veidnes grafika redaktors ar nosaukumu, secību, sākuma datumu un maiņas laiku">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Grafika nosaukums</strong> — saglabājiet ieteikto nosaukumu vai aizstājiet to ar savu.</li>
+<li><strong>Veidne</strong> — parāda burtu secību un tās nozīmi. Piemērā “D · D · O · O” nozīmē dienas maiņa, dienas maiņa, brīvdiena, brīvdiena.</li>
+<li><strong>Sākuma datums</strong> — atlasiet pirmās dienas datumu parādītajā secībā.</li>
+<li><strong>Maiņas laiks</strong> — norādiet katra darba maiņas veida sākuma un beigu laiku. Lietotnē tiek parādīts aprēķinātais ilgums.</li>
+<li><strong>Atcelt</strong> — aizver redaktoru bez saglabāšanas.</li>
+<li><strong>Saglabāt</strong> — saglabā grafiku un sāk aprēķināt maiņas kalendārā.</li>
+</ol>
+
+<div class="warning"><strong>Pēc pirmās saglabāšanas.</strong> Sākuma datums un cikla struktūra ir bloķēti, lai aizsargātu jau aprēķinātos kalendāra datus. Joprojām varat rediģēt nosaukumu un dažus darba parametrus. Ja nepieciešams cits bāzes cikls vai atsauces datums, drošāk ir izveidot jaunu grafiku.</div>
+
+<h3 id="shifts-custom">4.4. Pielāgota cikla izveide</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_custom.webp" alt="Pielāgots grafika redaktors ar cikla garumu, dienas vadīklām, sākuma datumu un katras dienas iestatījumiem">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Grafika nosaukums</strong> — piešķiriet pielāgotajai secībai nosaukumu.</li>
+<li><strong>Cikla garums</strong> — parāda, cik dienas ir iekļautas atkārtotajā secībā.</li>
+<li><strong>Noņemt dienu</strong> — saīsina ciklu par vienu dienu.</li>
+<li><strong>Pievienot dienu</strong> — pievieno vēl vienu konfigurējamu dienu cikla beigās.</li>
+<li><strong>Sākuma datums</strong> — datums, kas atbilst pielāgotā cikla 1. dienai.</li>
+<li><strong>Dienas iestatījumi</strong> — pieskarieties pogai “Maiņa” tips” un atlasiet brīvdienu vai nepieciešamo darba veidu: diena, nakts, rīts, vakars, 24 stundu vai pielāgota maiņa. Darba dienai norādiet sākuma un beigu laiku. Konfigurējiet atlikušās cikla dienas tādā pašā veidā tālāk ekrānā.</li>
+<li><strong>Atcelt</strong> — aizver redaktoru, nesaglabājot.</li>
+<li><strong>Saglabāt</strong> — saglabā pielāgoto ciklu un aprēķina to kalendārā.</li>
+</ol>
+
+<div class="notice"><strong>Kas ir cikls?</strong> Cikls ir dienu skaits, pēc kura secība sākas no jauna. Piemēram, četru dienu cikls var būt “2 darba dienas + 2 brīvdienas”, savukārt sešu dienu cikls var būt “3 darba dienas + 3 brīvdienas”. Pēc pēdējās dienas lietotne atgriežas 1. dienā.</div>
+
+<div class="tip">Nemainiet pamata ciklu vienreizēja grafika izņēmuma gadījumā. Ilgi nospiediet kalendāra datumu un izveidojiet brīvdienu, atvaļinājumu, slimības atvaļinājumu, aizvietošanas maiņu vai laika korekciju.</div>
+
+
+
+<span id="shift-statistics"></span>
+<h2 id="statistics">5. Grafika statistika</h2>
+
+<p>Atveriet sadaļu “Statistika” no grafika kartes, izmantojot pogu <strong>“Atvērt statistiku”</strong>. Šajā sadaļā ir apkopota informācija par darba dienām un brīvdienām, grafika izmaiņām, plānoto un faktisko darba laiku, paredzamo algu un atskaitēm.</p>
+
+<div class="notice"><strong>Svarīgi:</strong> statistika tiek aprēķināta tikai atlasītajam maiņu grafikam. Atlasītais periods attiecas uz visām darba laika, algas un atskaites vērtībām zem tā.</div>
+
+<h3 id="statistics-period">5.1. Grafiks, periods un dienas kopsavilkums</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_period_overview.webp" alt="Statistikas ekrāns ar grafika informāciju, perioda atlasi un dienu kopsummu">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Grafika informācija</strong> — parāda atlasītā grafika nosaukumu, pirmā cikla sākuma datumu un atkārtotā cikla ilgumu. Šajā ekrānā redzamā statistika attiecas tikai uz šo grafiku.</li>
+<li><strong>Atlasītā perioda karte</strong> — parāda izmantoto periodu. Pieskarieties tai vai bultiņai labajā pusē, lai atlasītu pašreizējo, iepriekšējo vai nākamo mēnesi, pašreizējo gadu vai pielāgotu datumu diapazonu.</li>
+<li><strong>Dienas kopsavilkums</strong> — parāda dienu skaitu periodā, darba maiņas, brīvdienas, pabeigtās un gaidāmās maiņas, kā arī mainītās dienas. Izmainītās dienas ir izņēmumi no pamata cikla: atvaļinājums, slimības atvaļinājums, brīvais laiks, aizstāšana vai pārcelta maiņa, darba laika korekcija un citas izmaiņas.</li>
+</ol>
+
+<div class="warning"><strong>Nākotnes periodi ir prognozes.</strong> Nākotnes mēnesim lietotne izmanto izveidoto grafiku un jau ievadītos datus, taču tā nevar zināt turpmākos slimības atvaļinājumus, atvaļinājumus, brīvos laikus, virsstundas, prēmijas vai atskaitījumus. Atlasot pašreizējo gadu, kopsummas var apvienot faktiskos datus par pagātnes datumiem ar prognozi atlikušajai gada daļai.</div>
+
+<h3 id="statistics-work">5.2. Darba laiks, alga un pārskati</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_work_salary_reports.webp" alt="Statistikas ekrāns ar piekļuvi darba laikam, progresam, algai un pārskatiem">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Darba laiks</strong> — kopsavilkuma karte par stundām un progresu. Pieskarieties tai, lai atvērtu <a href="#statistics-break">pārtraukumu iestatījumus</a>.</li>
+<li><strong>Plānotās stundas</strong> — kopējais plānoto maiņu un izmaiņu ilgums atlasītajā periodā.</li>
+<li><strong>Nostrādātās stundas</strong> — laiks maiņās, kas tiek uzskatītas par pabeigtām pašreizējā datumā, ar piemērotiem pārtraukumu iestatījumiem.</li>
+<li><strong>Progress</strong> — parāda, cik darba maiņu ir pabeigtas no kopējā skaita un cik procentu no atlasītā perioda ir pabeigta.</li>
+<li><strong>Alga</strong> — atver <a href="#salary">algas aprēķina iestatījumus</a>. Kartē ir redzama aplēse izvēlētajam grafikam un periodam.</li>
+<li><strong>Kopā</strong> — aptuvenā līdz šim nopelnītā summa, ieskaitot izvēlēto apmaksas metodi, prēmijas, virsstundas un atskaitījumus.</li>
+<li><strong>Likme vai alga</strong> — šīs kartes saturs ir atkarīgs no izvēlētās aprēķina metodes: samaksa stundā, maiņā vai mēnesī. Tajā tiek parādīta algas iestatījumos ievadītā vērtība.</li>
+<li><strong>Aprēķina informācija</strong> — apmaksātais laiks, virsstundas, prēmijas un atskaitījumi par atlasīto periodu.</li>
+<li><strong>Atskaites</strong> — atver <a href="#reports">detalizētas atskaites par periodiem, darba laiku un algu</a>.</li>
+</ol>
+
+<div class="tip">Visas vērtības darba laika un algas sadaļās tiek pārrēķinātas, mainot periodu augšējā kartītē.</div>
+
+<h3 id="statistics-break">5.3. Pārtraukumu uzskaite darba laikā</h3>
+
+<p>Pieskarieties kartei “Darba laiks”, lai norādītu, vai ēdienreizes pārtraukums vai cits pārtraukums ir jāuzskaita kā daļa no faktiski nostrādātā un apmaksātā laika.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_break_settings.webp" alt="Pārtraukumu uzskaites un ilguma iestatījumu panelis">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Pašreizējās kopsummas</strong> — parāda plānotās un nostrādātās stundas atlasītajā periodā pirms jauno iestatījumu piemērošanas.</li>
+<li><strong>Ieskaitīt pārtraukumu kā darba laiku</strong> — atstājiet šo opciju ieslēgtu, ja pārtraukums ir apmaksāts un iekļauts maiņas ilgumā. Izslēdziet to, ja norādītais laiks ir jāizslēdz no nostrādātā un apmaksātā laika.</li>
+<li><strong>Pārtraukuma ilgums</strong> — atlasiet stundas un minūtes vienam pārtraukumam. Šis iestatījums tiek izmantots, pārrēķinot piemērojamās darba maiņas.</li>
+<li><strong>Kopējais pārtraukums</strong> — parāda atlasīto ilgumu pirms saglabāšanas.</li>
+<li><strong>Saglabāt</strong> — lieto iestatījumu un pārrēķina darba laiku un saistītās vērtības.</li>
+</ol>
+
+<div class="notice">Pārtraukums var būt ēdienreizes pārtraukums, maiņas nodošana vai cits neapmaksāts intervāls maiņas ietvaros. Ievadiet ilgumu, kas atbilst jūsu darba vietas noteikumiem.</div>
+
+<h3 id="reports">5.4. Atskaites: periods, statuss un kopsavilkums</h3>
+
+<p>Atveriet sadaļu “Atskaites” no statistikas ekrāna apakšējās kartītes. Šajā sadaļā sniegta detalizētāka informācija par atlasīto periodu: darba laiks, maiņas un prombūtne, kalendāra korekcijas, alga, prēmijas, atskaitījumi, periodu salīdzinājums, detalizēta informācija pa dienām un eksports.</p>
+
+<div class="warning"><strong>Atskaites ir sniegtas tikai informatīvos nolūkos.</strong> Aprēķini ir balstīti uz atlasīto grafiku, algas iestatījumiem, pārtraukumu uzskaiti un kalendāra maiņu izmaiņām. Jūsu darba devēja faktiskie skaitļi var atšķirties atšķirīgas laika uzskaites sistēmas, noapaļošanas, nodokļu, pabalstu vai iekšējo noteikumu dēļ. Ja atrodat kļūdu vai neatbalstītu aprēķina metodi, sazinieties ar izstrādātājiem lietotnē norādītajā adresē un iekļaujiet ievades datus un paredzamo rezultātu.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_period_salary.webp" alt="Ziņojumu ekrāns ar perioda atlasi, statusu, kopsavilkumu un detalizētu algas sadalījumu">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ziņojuma periods</strong> — pieskarieties kartītei, lai atlasītu pašreizējo, iepriekšējo vai nākamo mēnesi, iepriekš iestatītu diapazonu vai pielāgotus datumus. Visa tālāk sniegtā informācija attiecas uz atlasīto periodu.</li>
+<li><strong>Perioda statuss</strong> — parāda, vai periods ir pabeigts, pašlaik aktīvs vai vēl nav sācies. Pabeigts periods tiek aprēķināts no saglabātajiem faktiskajiem datiem. Aktīvais periods apvieno jau apstrādātos datus ar pašreizējo plānu, savukārt nākotnes periods ir prognoze.</li>
+<li><strong>Kopsavilkums</strong> — faktiski nostrādātā laika, aprēķinātās summas un virsstundu teksta kopsavilkums.</li>
+<li><strong>Alga</strong> — detalizēts pamatalgas, virsstundu samaksas, prēmiju, atskaitījumu un galīgās tāmes sadalījums. Vērtības ir atkarīgas no <a href="#salary">algas iestatījumiem</a> un atlasītā perioda.</li>
+</ol>
+
+<h3 id="reports-work">5.5. Darba laiks, prombūtnes un dienas</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_work_absences.webp" alt="Atskaites ekrāns ar darba laiku, pārtraukumiem, pabeigtajām maiņām un prombūtni">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Darba laiks</strong> — parāda plānotās un faktiski nostrādātās stundas, plānotās un faktiski nostrādātās stundas pirms pārtraukuma atskaitīšanas, pabeigto maiņu skaitu, vidējo maiņas ilgumu un kopējo atskaitīto pārtraukumu. Konfigurējiet pārtraukumus <a href="#statistics-break">darba laika sadaļā</a>.</li>
+<li><strong>Prombūtnes un dienas</strong> — parāda brīvdienu, atvaļinājuma dienu, slimības atvaļinājuma dienu, brīvdienu un mainīto dienu skaitu atlasītajā periodā.</li>
+</ol>
+
+<h3 id="reports-charts">5.6. Korekcijas un diagrammas</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_corrections_charts.webp" alt="Atskaites ekrāns ar korekcijām, algas sastāvu un darba laika vērtībām">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Korekcijas</strong> — parāda virsstundas, kopējās maiņas ilguma izmaiņas un dienu skaitu, kas mainītas no pamatgrafika.</li>
+<li><strong>Diagrammas</strong> — vizualizē algas un darba laika sastāvu: pamatalgu, virsstundas, prēmijas, atskaitījumus, kopējo un plānotās, nostrādātās un apmaksātās stundas.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_charts_days.webp" alt="Papildu atskaites diagrammas ar stundām un dienas tipa sektoru diagrammu">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Stundas</strong> — turpina plānoto vizuālo salīdzinājumu, nostrādātās, apmaksātās un virsstundas. Rindā “Faktiskais darba laiks” tiek parādīts rezultāts pēc iestatījumu un pielāgojumu piemērošanas.</li>
+<li><strong>Dienu veidi</strong> — sektoru diagramma, kas sadala dienas atlasītajā periodā pēc veida. Apzīmējumi ir atkarīgi no grafika un faktiskajām izmaiņām: dienas, nakts vai citas maiņas, brīvdienas, atvaļinājums, slimības atvaļinājums, brīvais laiks un citi stāvokļi.</li>
+</ol>
+
+<h3 id="reports-comparison">5.7. Periodu salīdzināšana</h3>
+
+<p>Salīdzināšanas sadaļa palīdz salīdzināt algu, laiku, maiņas un prombūtni vairākos periodos. Pieejamo periodu skaits ir atkarīgs no saglabātajiem datiem.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_chart.webp" alt="Periodu salīdzināšanas ekrāns ar diapazona izvēli, algu diagrammu un salīdzināšanas tabulas sākumu">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Salīdzināt periodus</strong> — pieskarieties kartītei, lai izvēlētos, cik periodus salīdzināt un to diapazonu.</li>
+<li><strong>Diagramma un periodu saraksts</strong> — parāda katra perioda algu un uzskaita salīdzinājumā iekļautos intervālus kopā ar to statusu.</li>
+<li><strong>Salīdzināšanas tabula</strong> — satur detalizētas vērtības katram periodam. Pārvelciet tabulu horizontāli pa kreisi vai pa labi, lai skatītu atlikušās kolonnas.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_table.webp" alt="Salīdzināšanas tabulas turpinājums un atšķirības starp blakus esošajiem periodiem">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Perioda vērtības</strong> — kopējā alga, nostrādātās un apmaksātās stundas, virsstundas, prēmijas, atskaitījumi, pabeigtās maiņas, prombūtnes un mainītās dienas.</li>
+<li><strong>Atšķirība starp periodiem</strong> — parāda, kā katrs periods atšķiras no iepriekšējā. Pozitīvas un negatīvas vērtības norāda atbilstošā rādītāja pieaugumu vai samazinājumu. Krāsa vien ne vienmēr nozīmē ieguvumu vai problēmu; piemēram, atskaitījumu pieaugums nozīmē, ka tiek ieturēta lielāka summa.</li>
+</ol>
+
+<h3 id="reports-details-export">5.8. Dienas informācija un eksports</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_details_export.webp" alt="Ziņojumu kartītes dienas informācijai un eksportēšanai PDF, HTML, JSON vai CSV formātā">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Dienas informācija</strong> — atver sarakstu ar katru dienu atlasītajā periodā. Varat pārbaudīt maiņas veidu, plānoto un faktisko laiku, stundu korekcijas, prombūtnes un citas izmaiņas konkrētai dienai.</li>
+<li><strong>Eksportēt</strong> — saglabā atskaiti PDF, HTML, JSON vai CSV formātā. Pirms eksportēšanas atlasiet atskaites periodu; pēc tam failu varat izdrukāt, saglabāt vai kopīgot, izmantojot Android sistēmas izvēlni.</li>
+</ol>
+
+<div class="tip">Pirms salīdzināšanas vai eksportēšanas pārbaudiet atlasīto periodu, grafiku, maiņas izmaiņas, pārtraukumus un algas iestatījumus. Kļūda avota datos ietekmēs katru atskaites kopsummu.</div>
+
+<h2 id="alarms">6. Trauksmes signāli</h2>
+
+<p>ShiftAlarm ļauj izveidot vienreizējus trauksmes signālus, atkārtot tos atlasītajās nedēļas dienās vai saistīt to laiku ar maiņas grafiku.</p>
+
+<h3 id="alarms-list">6.1. Trauksmes saraksts</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarms_overview.webp" alt="ShiftAlarm trauksmes ekrāns ar nākamo brīdinājumu, kārtošanu, trauksmes karti un pievienošanas pogu">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Nākamais trauksmes signāls</strong> — parāda nākamā aktīvā brīdinājuma datumu un laiku.</li>
+<li><strong>Trauksmes signālu kārtošana</strong> — maina trauksmes karšu secību, piemēram, vispirms parādot iespējotos trauksmes signālus.</li>
+<li><strong>Trauksmes karte</strong> — satur laiku, datumu vai atkārtošanas režīmu, grafika veidu un atlikušo laiku. Pieskarieties kartei, lai to rediģētu.</li>
+<li><strong>Pārslēgt</strong> — īslaicīgi iespējo vai atspējo modinātāju, neizdzēšot tā iestatījumus.</li>
+<li><strong>Dzēst</strong> — dzēš atlasīto modinātāju.</li>
+<li><strong>Pievienot modinātāju</strong> — atver ekrānu jauna modinātāja izveidei.</li>
+</ol>
+
+<h3 id="alarms-create">6.2. Modinātāja izveide un rediģēšana</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_time_schedule.webp" alt="ShiftAlarm modinātāja redaktora augšdaļa: laiks, grafika veids, atlikšana un saglabāšanas vadīklas">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Laiks</strong> — ritiniet stundu un minūšu ritenīšus, lai iestatītu modinātāja laiku.</li>
+<li><strong>Grafika veids</strong> — atlasiet vienu no šiem režīmiem:
+<ul>
+<li><strong>Reizi</strong> — modinātājs iedarbojas vienu reizi atlasītajā datumā;</li>
+<li><strong>Pa dienām</strong> — atkārtojas atlasītajās nedēļas dienās;</li>
+<li><strong>Pa maiņām</strong> — saista modinātāju ar atlasīto grafiku un maiņas veidu.</li>
+</ul>
+</li>
+<li><strong>Atlikšana</strong> — iestata, cik minūtes brīdinājums tiek atlikts, ja zvana ekrānā pieskaraties atlikšanas pogai.</li>
+<li><strong>Atcelt un saglabāt</strong> — šīs pogas ir fiksētas ekrāna apakšdaļā un paliek pieejamas, kamēr ritināt redaktoru.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_behavior.webp" alt="ShiftAlarm iestatījumi brīdinājuma ilgumam, atkārtošanas brīdinājumam, pakāpeniskai skaļuma palielināšanai un vibrācijai">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Signāla ilgums</strong> — nosaka, cik ilgi brīdinājums skan, ja lietotājs to neaptur.</li>
+<li><strong>Atkārtot, ja brīdinājums tiek ignorēts</strong> — iespējo citu brīdinājumu, ja brīdinājums netika ne atmests, ne atlikts. Iestatiet intervālu pirms atkārtota brīdinājuma zem tā.</li>
+<li><strong>Pakāpeniska skaļuma palielināšana</strong> — sāk ar klusāku audio un pakāpeniski palielina skaļumu atlasītajā laikā.</li>
+<li><strong>Vibrācija</strong> — aktivizē vai atspējo vibrāciju brīdinājuma laikā.</li>
+<li><strong>Atcelt un saglabāt</strong> — fiksētas redaktora vadīklas.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_sound_name.webp" alt="ShiftAlarm trauksmes redaktora apakšdaļa: vibrācijas, skaņas, nosaukuma un saglabāšanas vadīklas">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Vibrācija</strong> — aktivizē vai atspējo vibrācijas brīdinājumu.</li>
+<li><strong>Skaņa</strong> — ļauj atlasīt iebūvētu, sistēmas vai lietotāja pievienotu skaņu. Lietotnei var pievienot līdz piecām pielāgotām skaņām.</li>
+<li><strong>Nosaukums</strong> — papildu etiķete, kas palīdz atšķirt trauksmes signālus.</li>
+<li><strong>Atcelt un saglabāt</strong> — atmest izmaiņas vai saglabāt trauksmi.</li>
+</ol>
+
+<div class="notice">Pēc saglabāšanas trauksme parādās galvenajā sarakstā. Pirms svarīga brīdinājuma pārliecinieties, vai trauksme ir iespējota, lietotnei ir paziņojumu un precīzas trauksmes atļaujas un vai sistēma neierobežo tās fona aktivitātes.</div>
+
+<div class="tip">Lai izveidotu ar maiņu saistītu trauksmi, vispirms izveidojiet atbilstošu maiņas grafiku. Redaktorā izvēlieties fiksētu aktivizēšanas laiku vai nobīdi attiecībā pret maiņas sākumu.</div>
+
+<h2 id="geo">7. Ģeogrāfiskās trauksmes signāli</h2>
+
+<p>Ģeogrāfiskā trauksme uzrauga, kad ierīce ieiet atlasītajā apgabalā vai iziet no tā. Apgabalu nosaka punkts kartē un rādiuss ap šo punktu. Piemēram, izmantojiet Geo Alarm, lai saņemtu brīdinājumu, tuvojoties darbam, mājām, autobusa pieturai, stacijai vai citai vietai.</p>
+
+<h3 id="geo-overview">7.1. Karte un vadības elementi</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_overview.webp" alt="ShiftAlarm Geo Alarm galvenais ekrāns ar karti un numurētām vadības elementiem">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Pietuvināt</strong> — palielina karti.</li>
+<li><strong>Attālināt</strong> — samazina kartes mērogu.</li>
+<li><strong>Mana atrašanās vieta</strong> — pārvieto karti uz ierīces pašreizējo atrašanās vietu. Lai izmantotu šo funkciju, lietotnei ir nepieciešama piekļuve atrašanās vietas datiem.</li>
+<li><strong>Saglabātās vietas</strong> — atver saglabāto ģeogrāfisko trauksmju un atrašanās vietas punktu sarakstu.</li>
+<li><strong>Atpakaļ</strong> — atgriežas iepriekšējā lietotnes ekrānā.</li>
+<li><strong>Ģeogrāfisko trauksmju skaits</strong> — parāda, cik ģeogrāfisko trauksmju ir izveidotas.</li>
+<li><strong>Ģeogrāfisko trauksmju saraksts</strong> — atver atsevišķu izveidoto ģeogrāfisko trauksmju sarakstu.</li>
+</ol>
+
+<div class="tip">Varat arī tuvināt karti ar žestiem. Pieskarieties kartei ar diviem pirkstiem un izpletiet tos, lai tuvinātu, vai saspiediet tos kopā, lai tālinātu.</div>
+<div class="notice">Sānu vadības elementi var parādīties pretējā pusē valodās, kas tiek rakstītas no labās uz kreiso pusi. To funkcijas paliek nemainīgas.</div>
+
+<h3 id="geo-saved-places">7.2. Saglabātie trauksmes signāli un atrašanās vietas punkti</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_saved_places.webp" alt="Saglabāto vietu logs ar ģeogrāfisko trauksmi un atrašanās vietas punktu cilnēm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Trauksmes signāli</strong> — parāda saglabātajām vietām pievienotos ģeogrāfiskos trauksmes signālus.</li>
+<li><strong>Atrašanās vietas punkti</strong> — parāda saglabātās koordinātas bez aktīva ģeogrāfiskā trauksmes signāla.</li>
+<li><strong>Saglabāto vietu saraksts</strong> — pieskarieties kartītei, lai pārvietotos uz šo vietu kartē.</li>
+<li><strong>Aizvērt</strong> — aizver logu un atgriežas kartē.</li>
+</ol>
+
+<div class="notice">Ja izdzēšat grāmatzīmēm pievienotu ģeogrāfisko trauksmi, tās koordinātas tiek automātiski saglabātas cilnē “Atrašanās vietas punkti”. Punktu vēlāk var izmantot vēlreiz, lai izveidotu vēl vienu ģeogrāfisko trauksmi.</div>
+
+<h3 id="geo-select-point">7.3. Punkta un rādiusa izvēle</h3>
+
+<p>Pieskarieties un turiet vajadzīgo vietu kartē. Lietotne ievieto marķieri un atver atlasītā punkta paneli.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_selected_point.webp" alt="Atlasītais kartes punkts ar adresi, rādiusu, grāmatzīmi un ģeogrāfiskās trauksmes izveides pogu">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Atlasītā punkta marķieris</strong> — nākotnes ģeogrāfiskās zonas centrs. Kartē atlasītajam rādiusam tiek parādīts arī aplis.</li>
+<li><strong>Adrese un koordinātas</strong> — ļauj pārbaudīt, vai ir atlasīta pareizā vieta.</li>
+<li><strong>Saglabāt atrašanās vietas punktu</strong> — pievieno atlasītās koordinātas saglabātajām vietām, neradot trauksmi.</li>
+<li><strong>Rādiuss</strong> — iestata apgabala lielumu ap punktu. Pārvietojiet slīdni, līdz atlasāt atbilstošu attālumu.</li>
+<li><strong>Atcelt</strong> — atceļ punkta atlasi.</li>
+<li><strong>Izveidot šeit</strong> — atver jauno ģeogrāfiskās trauksmes redaktoru atlasītajam punktam.</li>
+</ol>
+
+<div class="warning"><strong>Kā izvēlēties rādiusu.</strong> Tālrunis nepārtraukti neizseko savas koordinātas. Robežas noteikšanas laiku ietekmē Android, ierīces ražotājs, akumulatora taupīšanas režīms, GPS, mobilā tīkla un Wi-Fi signāla kvalitāte, kā arī kustības ātrums. Tāpēc brīdinājums var tikt aktivizēts ārpus novilktās līnijas. Piemēram, ja rādiuss ir 800 m, ieiešana var tikt noteikta pēc tam, kad ierīce jau atrodas apgabalā — iespējams, 700, 600 vai 500 m attālumā no punkta.</div>
+
+<ul>
+<li><strong>Pilsētā</strong> parasti ieteicams rādiuss <strong>1300–1500 m</strong>.</li>
+<li><strong>Ārpus pilsētas</strong>, kur atrašanās vietas atjauninājumi var būt retāki, ieteicams rādiuss <strong>4000–5000 m</strong>.</li>
+<li><strong>Precīzs rādiuss</strong> jāizvēlas, pamatojoties uz jūsu maršrutu, ātrumu un ierīces darbību.</li>
+</ul>
+
+<div class="notice">Sistēma nosaka, kad ierīce šķērso apgabala virtuālo robežu. Režīmā “Ieiejot” lielāks rādiuss parasti dod tālrunim vairāk laika, lai noteiktu jūsu tuvošanos. Režīmā “Izejot” robeža tiek novietota tālāk no atlasītā punkta.</div>
+
+<h3 id="geo-create">7.4. Ģeo trauksmes izveide</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_location_schedule.webp" alt="Ģeo trauksmes redaktora augšdaļa: gatavība, atrašanās vieta un grafika veids">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ģeo trauksmes gatavība</strong> — parāda, vai ir konfigurētas nepieciešamās atļaujas un vai lietotne var reģistrēt ģeožogu.</li>
+<li><strong>Atrašanās vieta</strong> — satur atlasīto adresi un koordinātas. Varat rediģēt adresi kā etiķeti, bet kartē tiek atlasīts faktiskais punkts.</li>
+<li><strong>Grafika veids</strong> — nosaka dienas un apstākļus, kādos ģeogrāfiskā trauksme ir aktīva.</li>
+<li><strong>Vienmēr</strong> — ģeogrāfiskā trauksme ir aktīva katru dienu, kamēr tā ir iespējota.</li>
+<li><strong>Vienreiz</strong> — tiek izmantots nākamajai vienreizējai aktivizēšanai, kad ir izpildīts atlasītais nosacījums.</li>
+<li><strong>Pa dienām</strong> — darbojas tikai atlasītajās nedēļas dienās.</li>
+<li><strong>Pa maiņām</strong> — saista ģeogrāfisko trauksmi ar aktīvo maiņas grafiku.</li>
+</ol>
+
+<div class="notice"><strong>Grafika “Pa maiņām”.</strong> Izvēlieties, vai tas darbojas maiņas dienā, tikai pirms maiņas vai tikai pēc tās, un norādiet nepieciešamo maiņas veidu: diena, nakts, rīts, vakars. 24 stundu, pielāgota vai jebkura darba maiņa.</div>
+<div class="tip">Ja kalendāra datums ir atzīmēts kā brīvdiena, atvaļinājums, slimības atvaļinājums vai brīvais laiks, nevis darba maiņa, ar maiņu saistītais ģeogrāfiskais trauksmes signāls šajā dienā nebūs aktīvs.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_trigger_settings.webp" alt="Ģeogrāfiskā trauksmes signāla redaktora apakšdaļa: ieejas vai izejas nosacījums, rādiuss un brīdinājuma iestatījumi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Aktivizācijas nosacījums</strong> — nosaka, kura robežas šķērsošana iedarbina brīdinājumu.</li>
+<li><strong>Ieejot</strong> — iedarbina brīdinājumu, kad ierīce ieiet atlasītajā rādiusā, piemēram, tuvojoties darbam vai nepieciešamajai pieturai.</li>
+<li><strong>Izejot</strong> — iedarbina brīdinājumu, kad ierīce atstāj atlasīto rādiusu, piemēram, pēc darba vai stacijas atstāšanas, lai jūs to nedarītu nokavēt nākamo maršruta daļu.</li>
+<li><strong>Iebraucot vai izbraucot</strong> — sāk brīdinājumu ikreiz, kad robeža tiek šķērsota jebkurā virzienā.</li>
+<li><strong>Rādiuss</strong> — ģeogrāfiskās zonas lielums ap atlasīto punktu.</li>
+<li><strong>Trauksmes ilgums</strong> — nosaka, cik ilgi brīdinājums skan.</li>
+<li><strong>Pakāpeniska skaļuma palielināšana</strong> — iestata vienmērīgu skaļuma pieaugumu pēc brīdinājuma sākuma.</li>
+<li><strong>Atcelt un saglabāt</strong> — atmest izmaiņas vai saglabāt ģeogrāfisko trauksmi.</li>
+</ol>
+
+<div class="tip">Pārējās tālāk norādītās opcijas ir līdzīgas parastajam trauksmes signālam: skaņa, vibrācija, brīdinājuma ilgums, pakāpeniska skaļuma palielināšana un nosaukums.</div>
+
+<h3 id="geo-existing">7.5. Ģeo trauksmes signāls kartē un tā vadības elementi</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_marker_radius.webp" alt="Izveidots ģeo trauksmes marķieris un tā aktivizēšanas rādiusa aplis kartē">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ģeo trauksmes marķieris</strong> — parāda atlasīto punktu.</li>
+<li><strong>Rādiusa robeža</strong> — parāda apgabalu, kura iebraukšanu vai izbraukšanu uzrauga lietotne.</li>
+</ol>
+
+<p>Pieskarieties ģeogrāfiskās trauksmes marķierim. Vispirms parādās neliels informācijas logs. Pieskarieties šim logam, lai atvērtu detalizēto karti.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_alarm_card.webp" alt="Detalizēta ģeo trauksmes kartīte ar informāciju, grāmatzīmi, slēdzi un vadības ierīcēm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Nosaukums un adrese</strong> — identificē atlasīto ģeo trauksmi.</li>
+<li><strong>Grāmatzīme</strong> — pievieno trauksmi saglabātajām vietām vai noņem to no tām.</li>
+<li><strong>Slēdzis</strong> — iespējo vai īslaicīgi atspējo ģeo trauksmi, neizdzēšot tās iestatījumus.</li>
+<li><strong>Iestatījumi un statuss</strong> — parāda rādiusu, ieejas vai izejas nosacījumu, grafiku, ģeožoga gatavību un informāciju par iepriekšējām aktivizēšanām.</li>
+<li><strong>Rediģēt</strong> — atver ģeo trauksmes iestatījumus.</li>
+<li><strong>Aizvērt</strong> — aizver karti un atgriežas kartē.</li>
+<li><strong>Dzēst</strong> — pēc apstiprināšanas izdzēš ģeogrāfisko trauksmi.</li>
+</ol>
+
+<div class="warning">Lai nodrošinātu uzticamu darbību, atļaujiet precīzu un fona atrašanās vietas noteikšanu, noņemiet stingrus akumulatora ierobežojumus funkcijai ShiftAlarm un pārbaudiet automātiskās palaišanas fonā iestatījumus, ja jūsu ierīce tos nodrošina. Pat ar pareiziem iestatījumiem Android negarantē robežu noteikšanu ar precizitāti līdz dažiem metriem.</div>
+
+<h2 id="notes">8. Piezīmes, notikumi un atgādinājumi</h2>
+
+<p>Sadaļā “Piezīmes” tiek glabāts vienkāršs teksts, saraksti, kontrolsaraksti, audio ieraksti, runas pārveidošanas tekstā piezīmes, atgādinājumi un notikumi.</p>
+
+<h3 id="notes-create">8.1. Piezīmes pievienošana</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_type_picker.webp" alt="Jauna piezīmes veida izvēle ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Paneļa turis</strong> — velciet to uz augšu, lai atklātu pilnu piezīmju veidu sarakstu, vai uz leju, lai aizvērtu paneli.</li>
+<li><strong>Piezīmes veids</strong> — atlasiet atbilstošo opciju:
+<ul>
+<li><strong>Teksta piezīme</strong> — vienkāršs teksts;</li>
+<li><strong>Pārbaudes saraksts</strong> — vienumu saraksts ar pabeigšanas izvēles rūtiņām;</li>
+<li><strong>Saraksts</strong> — saraksts ar aizzīmēm vai numurēts saraksts;</li>
+<li><strong>Audio piezīme</strong> — balss ieraksts;</li>
+<li><strong>Runas pārveidošana tekstā</strong> — izveido piezīmi, izmantojot runas atpazīšanu;</li>
+<li><strong>Atgādinājums</strong> — ieraksts ar paziņojumu noteiktā laikā;</li>
+<li><strong>Notikums</strong> — ieraksts, kas saistīts ar datumu un laiku.</li>
+</ul>
+</li>
+<li><strong>Atcelt</strong> — aizver atlasītāju, neizveidojot piezīmi.</li>
+</ol>
+
+<div class="tip">Pēc veida izvēles tiek atvērts atbilstošais redaktors. Aizpildiet obligātos laukus un saglabājiet ierakstu.</div>
+
+<h3 id="notes-list">8.2. Piezīmju saraksts un vadīklas</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_overview.webp" alt="ShiftAlarm piezīmju ekrāns ar kārtošanu, aktīvajām un arhivētajām piezīmēm, meklēšanu un darbībām ar karti">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Kārtot</strong> — maina piezīmju secību sarakstā.</li>
+<li><strong>Aktīvs</strong> — rāda parastās un plānotās piezīmes, kas nav pārvietotas uz arhīvu.</li>
+<li><strong>Arhīvs</strong> — atver arhivēto piezīmju sarakstu.</li>
+<li><strong>Meklēt</strong> — atrod atbilstības piezīmju nosaukumos un saturā.</li>
+<li><strong>Piezīmju kartīte</strong> — rāda nosaukumu, veidu, statusu un papildu informāciju. Pieskarieties kartītei, lai atvērtu piezīmi.</li>
+<li><strong>Piespraust</strong> — piesprauž piezīmi saraksta augšdaļā.</li>
+<li><strong>Arhīvs</strong> — noņem piezīmi no aktīvā saraksta un pārvieto to uz arhīvu.</li>
+<li><strong>Dzēst</strong> — izdzēš piezīmi pēc apstiprināšanas.</li>
+<li><strong>Pievienot piezīmi</strong> — atver jaunās piezīmes veida atlasītāju.</li>
+</ol>
+
+<div class="notice">Izmantojiet arhīvu ierakstiem, kas vairs nav nepieciešami galvenajā sarakstā, bet kuriem jāpaliek saglabātiem. Izdzēsiet piezīmi tikai tad, ja tā vairs nav nepieciešama.</div>
+
+<h2 id="clock">9. Pulkstenis, hronometrs un taimeris</h2>
+
+<p>Šajā sadaļā ir apvienots vietējais un pasaules laiks, hronometrs un taimeris. Atveriet to, galvenajā ekrānā nospiežot pogu <strong>“Pulkstenis”</strong>.</p>
+
+<div class="notice">Ekrāna apakšdaļā parādās trīs cilnes: “Pulkstenis”, “Hronometrs” un “Taimeris”. Pieskarieties cilnei, lai pārslēgtu režīmus.</div>
+
+<h3 id="clock-world">9.1. Pulkstenis un pasaules pulkstenis</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_overview.webp" alt="ShiftAlarm pulksteņa ekrāns ar vietējo laiku, pasaules pulksteņiem, pievienošanas pogu un apakšējām cilnēm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Vietējais laiks</strong> — rāda pašreizējo laiku, datumu un ierīces sistēmas laika joslu.</li>
+<li><strong>Pasaules pulksteņi</strong> — rāda pievienotās pilsētas un laika joslas. Kamēr saraksts ir tukšs, lietotnē tiek parādīts padoms.</li>
+<li><strong>Pluszīmes poga</strong> — atver pasaules pulksteņa atlasītāju.</li>
+<li><strong>Sadaļu cilnes</strong> — pārslēdzas starp ekrāniem “Pulkstenis”, “Hronometrs” un “Taimeris”.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_add_timezone.webp" alt="Pilsētas vai laika joslas pievienošana ShiftAlarm pasaules pulkstenim">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Meklēšana</strong> — ievadiet pilsētas vai laika joslas nosaukumu, lai filtrētu sarakstu.</li>
+<li><strong>Pilsētu un laika joslu saraksts</strong> — pieskarieties vajadzīgajai opcijai, lai to pievienotu pasaules pulksteņa ekrānam.</li>
+</ol>
+
+<div class="tip">Vispirms tiek parādīta vietējā laika josla. Pievienotos pasaules pulksteņus var noņemt no saraksta, bet vietējo laiku nevar noņemt.</div>
+
+<h3 id="clock-stopwatch">9.2. Hronometrs</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_start.webp" alt="ShiftAlarm hronometrs pirms tā palaišanas">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Vēsture</strong> — atver saglabātās hronometra sesijas.</li>
+<li><strong>Sākt</strong> — sāk laika mērīšanu.</li>
+<li><strong>Atiestatīt</strong> — nav pieejams pirms hronometra palaišanas. Pēc apturēšanas hronometrs tiek atgriezts uz nulli un tiek noņemti pašreizējie apļi.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_running.webp" alt="ShiftAlarm hronometra palaišana ar vēstures, saglabāšanas, apļu un pauzes vadīklām">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Vēsture</strong> — parāda iepriekš saglabātās sesijas.</li>
+<li><strong>Saglabāt</strong> — aicina ievadīt nosaukumu un saglabā pašreizējo hronometra sesiju.</li>
+<li><strong>Aplis</strong> — ieraksta starprezultātu, neapturot kopējo taimeri.</li>
+<li><strong>Pauze</strong> — aptur hronometru. Pēc pauzes to var atsākt vai atiestatīt.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_laps.webp" alt="ShiftAlarm hronometra apļi un to kārtošanas opcijas">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Sākotnējais, ātrākais un lēnākais</strong> — mainīt apļu attēlošanas secību: sākotnējā secība, ātrākais pirmais vai lēnākais pirmais.</li>
+<li><strong>Apļi</strong> — katrs aplis parāda kopējo laiku, kurā tas tika ierakstīts, un individuālā apļa laiku.</li>
+</ol>
+
+<div class="notice">Pieskaroties Saglabāt, ievadiet sesijas nosaukumu un apstipriniet. Saglabāto sesiju varat atvērt vēlāk sadaļā Vēsture.</div>
+
+<h3 id="clock-timer">9.3. Taimeris</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_setup.webp" alt="ShiftAlarm taimera iestatīšana ar stundu, minūšu un sekunžu ritenīšiem">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Stundas</strong> — ritiniet ritenīti un atlasiet stundu skaitu.</li>
+<li><strong>Minūtes</strong> — ritiniet ritenīti un atlasiet minūšu skaitu.</li>
+<li><strong>Sekundes</strong> — ritiniet ritenīti un atlasiet sekunžu skaitu.</li>
+<li><strong>Sākt</strong> — ieslēdz taimeri ar atlasīto ilgumu.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_running.webp" alt="ShiftAlarm taimera palaišana ar atlikušo laiku, pauzes, minūtes pievienošanas un apturēšanas vadīklām">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Atlikušais laiks</strong> — parāda, cik daudz laika atlicis līdz brīdinājumam.</li>
+<li><strong>Beigu laiks</strong> — parāda aptuveno laiku, kurā taimeris beigsies.</li>
+<li><strong>Nesen izmantotie taimeri</strong> — saglabātie nesen izmantotie ilgumi; pieskarieties vienam no tiem, lai to ātri atkārtoti izmantotu.</li>
+<li><strong>Pauze</strong> — īslaicīgi aptur atpakaļskaitīšanu. Pēc tam to var atsākt.</li>
+<li><strong>+1 min</strong> — pievieno vienu minūti atlikušajam laikam.</li>
+<li><strong>Apturēt</strong> — pilnībā aptur taimeri.</li>
+</ol>
+
+<div class="tip">Taimeris un hronometrs turpina darboties fonā. To statuss var tikt parādīts paziņojumā, galvenajā ekrānā un logrīkos.</div>
+
+<h2 id="widgets">10. Logrīki</h2>
+
+<p>ShiftAlarm nodrošina logrīkus tālruņa sākuma ekrānam.</p>
+<ul>
+<li><strong>Today 4×2</strong> — kompakts panelis ar divām konfigurējamām sadaļām.</li>
+<li><strong>Today 4×3</strong> — panelis ar pulksteni augšpusē un divām sadaļām apakšā.</li>
+<li><strong>Kalendārs 4×4</strong> — kalendāra logrīki ar maiņu grafiku.</li>
+</ul>
+<p>Pievienojiet logrīku, izmantojot Android logrīku izvēlni tālruņa sākuma ekrānā.</p>
+
+<h2 id="salary">11. Algas aprēķins</h2>
+
+<p>Atveriet “Algas aprēķins” no algas kartes <a href="#statistics-work">atlasītā grafika statistikā</a>. Šeit varat iestatīt apmaksas metodi, likmi vai mēnešalgu, virsstundu noteikumus, prēmijas un atskaitījumus. Lietotne izmanto šos iestatījumus kopā ar atlasīto periodu, maiņu grafiku, kalendāra izmaiņām un pārtraukumu uzskaiti.</p>
+
+<div class="warning"><strong>Aprēķins ir sniegts tikai informatīvos nolūkos.</strong> Faktiskā alga var atšķirties, ja jūsu darba devējs izmanto citu sistēmu laika uzskaitei, noapaļošanai, piemaksām, nodokļiem, prēmijām, atskaitījumiem vai samaksai par konkrētiem maiņu veidiem. Neizmantojiet rezultātu kā oficiālu algas dokumentu; salīdziniet to ar sava darba devēja algas lapu. Ja atrodat aprēķina metodi, kuru lietotne neapstrādā precīzi, rakstiet izstrādātājiem uz lietotnē norādīto adresi. Aprakstiet noteikumus, sniedziet ievades datu paraugus un norādiet paredzamo rezultātu. Pēc tam metodi var apsvērt turpmākai atjaunināšanai.</div>
+
+<h3 id="salary-settings">11.1. Likme, virsstundas un prēmijas</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_settings_overview.webp" alt="Algas aprēķina ekrāns ar atlasīto grafiku, likmes veidu, virsstundām un prēmijām">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Atlasītais grafiks</strong> — parāda, kurš maiņas grafiks tiek izmantots. Alga tiek aprēķināta no šī grafika un statistikā atlasītā perioda.</li>
+<li><strong>Likmes veids un samaksas summa</strong> — atlasiet samaksu <strong>stundā</strong>, <strong>maiņā</strong> vai <strong>mēnesī</strong> un pēc tam ievadiet atbilstošo summu. Lauka nosaukums mainās atkarībā no atlasītā likmes veida.</li>
+<li><strong>Virsstundas</strong> — aktivizējiet šo sadaļu, ja virsstundas tiek apmaksātas atšķirīgi no parastā darba laika. Pēc tam norādiet virsstundu samaksas reizinātāju. Pievienojiet kalendāram papildu stundas, izmantojot <a href="#main-shift-time-adjustment">“Mainīt maiņu” → “+ laiks”</a>; aktivizējiet “Uzskaitīt šo laiku kā virsstundas”, lai stundas tiktu uzskatītas par virsstundām.</li>
+<li><strong>Prēmijas</strong> — parāda pašreizējo aprēķina metodi un kopsummas. Pieskarieties kartei, lai atvērtu <a href="#salary-bonuses">bonusu iestatījumus</a>.</li>
+</ol>
+
+<div class="notice">Poga “Saglabāt” piemēro iestatījumus atlasītajam grafikam. Pēc saglabāšanas kopsummas statistikā un pārskatos tiek pārrēķinātas, izmantojot ievadītos datus.</div>
+
+<h3 id="salary-summary">11.2. Atskaitījumi un aprēķinu kopsumma</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions_total.webp" alt="Algas aprēķina ekrāns ar atskaitījumiem un galīgo sadalījumu">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Atskaitījumi</strong> — parāda konfigurēto atskaitījumu kopējo summu un skaitu. Pieskarieties kartei, lai atvērtu <a href="#salary-deductions">atskaitījumu sarakstu</a>.</li>
+<li><strong>Kopā</strong> — kopsavilkuma sadalījums: apmaksātais laiks, nostrādātās stundas, virsstundas, pamatalga, virsstundu samaksa, prēmijas, atskaitījumi un gala rezultāts.</li>
+</ol>
+
+<div class="tip">Rezultāts ir atkarīgs ne tikai no šī ekrāna iestatījumiem, bet arī no atlasītā statistikas perioda, pabeigtajām maiņām, dienas maiņām, virsstundām un neapmaksātu pārtraukumu iestatījumiem.</div>
+
+<h3 id="salary-bonuses">11.3. Prēmijas</h3>
+
+<p>Algas aprēķina ekrānā pieskarieties kartei “Prēmijas”. Bonusu var ievadīt manuāli vai aprēķināt procentos, ja tas atbilst jūsu atalgojuma sistēmai.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_bonuses.webp" alt="Bonusa iestatījumu ekrāns ar aprēķina un summas ievades opcijām">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Kopsavilkuma informācija</strong> — parāda aprēķināto bonusa kopsummu un aprēķinam izmantoto pamatsummu.</li>
+<li><strong>Bonusa aprēķins</strong> — atlasiet manuālu ievadi vai procentuālo aprēķinu, piemēram, pārdošanas procentuālo daļu, ja šī metode tiek izmantota jūsu darba vietā.</li>
+<li><strong>Ievades metode</strong> — “Kopējā summa” ir piemērota vienai galīgajai prēmijai. Atsevišķas rindas ir noderīgas, ja ir vairākas prēmijas, kas jāskaita neatkarīgi.</li>
+<li><strong>Summa vai procenti</strong> — ievadiet izvēlētās aprēķina metodes nepieciešamo vērtību.</li>
+<li><strong>Atcelt un saglabāt</strong> — atmest izmaiņas vai lietot tās algas aprēķinam.</li>
+</ol>
+
+<h3 id="salary-deductions">11.4. Atskaitījumu saraksts</h3>
+
+<p>Galvenajā aprēķina ekrānā pieskarieties kartei “Atskaitījumi”. Šajā sadaļā varat saglabāt vairākus atskaitījumus un pārvaldīt katru no tiem atsevišķi.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions.webp" alt="Atskaitījumu saraksta ekrāns ar kopējo summu, atskaitījumu rindām un pievienošanas pogu">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Kopsavilkuma informācija</strong> — parāda visu iespējoto atskaitījumu summu un skaitu.</li>
+<li><strong>Atskaitījumu rinda</strong> — parāda nosaukumu, vērtību un veidu. Pieskarieties rindai, lai atvērtu <a href="#salary-deduction-editor">atskaitījumu iestatījumus</a>. Miskastes ikona izdzēš rindu.</li>
+<li><strong>Pievienot atskaitījumu</strong> — poga “+” izveido jaunu atskaitījumu rindu.</li>
+<li><strong>Atcelt un saglabāt</strong> — atmest izmaiņas vai saglabāt visu sarakstu.</li>
+</ol>
+
+<h3 id="salary-deduction-editor">11.5. Individuāla atskaitījuma konfigurēšana</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deduction_editor.webp" alt="Individuāla atskaitījuma panelis ar nosaukumu, vērtību, veidu un atskaitījuma bāzi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Atskaitījuma nosaukums</strong> — ievadiet skaidru nosaukumu, piemēram, “Nodoklis”, “Uzturlīdzekļi bērniem” vai “Sods”.</li>
+<li><strong>Vērtība</strong> — ievadiet summu vai procentuālo daļu atkarībā no tālāk atlasītā vērtības veida.</li>
+<li><strong>Vērtības veids</strong> — atlasiet fiksētu summu vai procentuālo daļu.</li>
+<li><strong>Atskaitījuma veids</strong> — <strong>mainīgs</strong> atskaitījums attiecas uz konkrētu aprēķina periodu; <strong>atkārtots</strong> ieturējums tiek piemērots regulāri, kamēr tas paliek iespējots.</li>
+<li><strong>Atskaitīt no</strong> — atlasiet aprēķina bāzi: kopējā alga, pamatalga, prēmijas vai cita pieejama opcija.</li>
+<li><strong>Iespējots</strong> — īslaicīgi atspējo ieturējumu, neizdzēšot tā iestatījumus.</li>
+<li><strong>Atcelt un saglabāt</strong> — aizveriet paneli bez izmaiņām vai saglabājiet ieturējumu.</li>
+</ol>
+
+<div class="notice">Procentuālajam ieturējumam ir īpaši svarīgi izvēlēties pareizo bāzi “Atskaitīt no”: vienāda kopējās algas, pamatalgas un prēmiju procentuālā daļa rada atšķirīgus rezultātus.</div>
+
+<h2 id="settings">12. Iestatījumi</h2>
+
+<p>Atveriet “Iestatījumus”, izmantojot pogu <a href="#main-overview">galvenā ekrāna</a> apakšdaļā. Šajā sadaļā ir ietvertas sistēmas atļaujas, izskats un lietotnes valoda, bezsaistes runas atpazīšana, dokumenti un lietotāja rokasgrāmata, dublēšana, diagnostika un izstrādātāja kontaktinformācijas iespējas.</p>
+
+<h3 id="settings-overview">12.1. Galvenās iestatījumu sadaļas</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_permissions_language.webp" alt="ShiftAlarm iestatījumu augšdaļa: atļaujas, tēma, lietotnes valoda un bezsaistes runas modeļi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Atļaujas</strong> — atver trauksmes atļaujas un uzticamības iestatījumus. Pārbaudiet paziņojumus, precīzus trauksmes signālus, fona aktivitātes un akumulatora ierobežojumus. <a href="#geo">Geo Alarms</a> ir nepieciešama arī piekļuve atrašanās vietai; fona vai “Atļaut visu laiku” atrašanās vietas piekļuve ir nepieciešama, lai aktivizētu, kamēr lietotne ir aizvērta. Vienumu nosaukumi un ceļi atšķiras atkarībā no Android versijas un ierīces ražotāja.</li>
+<li><strong>Tēma</strong> — ļauj izvēlēties gaišu, tumšu vai sistēmas izskatu, izvēlēties saskarnes krāsas variantu un iespējot vai atspējot haptisko atgriezenisko saiti darbībām lietotnē. Sistēmas tēma atbilst tālruņa pašreizējam izskatam.</li>
+<li><strong>Lietotnes valoda</strong> — ļauj izmantot valodu, kas atšķiras no tālruņa sistēmas valodas. ShiftAlarm katalogā ir 108 valodas: atrodiet nepieciešamo valodu, izmantojot meklēšanu, lejupielādējiet valodas pakotni un lietojiet to.</li>
+<li><strong>Bezsaistes runas modeļi</strong> — instalē moduli <a href="#notes-create">runas pārveidošanai tekstā</a>. Bezsaistes atpazīšana pašlaik tiek testēta un ir pieejama aptuveni 20 valodām. Tās kvalitāte var būt zemāka nekā tiešsaistes atpazīšanai un ir atkarīga no valodas, mikrofona, tālruņa veiktspējas un ierakstīšanas apstākļiem.</li>
+</ol>
+
+<div class="warning"><strong>Android atļaujas dažādās ierīcēs atšķiras.</strong> Dažos tālruņos ir jāatļauj arī automātiskā palaišana fonā, jāizvēlas “Neierobežots” vai līdzīgs akumulatora režīms un jāatļauj fona aktivitātes. Šie iestatījumi samazina iespēju, ka sistēma apturēs ShiftAlarm darbību, taču to precīzos nosaukumus nosaka ierīces ražotājs.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_help_backup_diagnostics.webp" alt="ShiftAlarm iestatījumu apakšdaļa: dokumenti, lietotāja rokasgrāmata, dublēšana, diagnostika un izstrādātāja kontaktinformācija">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Dokumenti un palīdzība</strong> — atver lietotnes juridiskos dokumentus: lietošanas noteikumus, konfidencialitātes politiku, atrunu un īso palīdzības lapu.</li>
+<li><strong>Apmācības un lietotāja rokasgrāmata</strong> — atver šo pilnīgo ilustrēto rokasgrāmatu ar detalizētiem ShiftAlarm funkciju aprakstiem.</li>
+<li><strong>Dublēšana un atjaunošana</strong> — izveido failu, kurā ir atbalstītie lietotnes iestatījumi un dati, vai atjauno tos no agrākas dublējuma. Tas ir noderīgi pirms lietotnes atkārtotas instalēšanas, tālruņa atiestatīšanas vai datu pārsūtīšanas uz citu ierīci. Detalizētus norādījumus skatiet sadaļā <a href="#backup">“Dublēšana un atjaunošana”</a>.</li>
+<li><strong>Diagnostikas žurnāls</strong> — atver atsevišķus žurnālus lietotnes funkcijām. Tajos tiek reģistrēti tehniski posmi, piemēram, brīdinājumu plānošana un atkopšana, notikumu apstrāde, atļauju statuss un cita pakalpojuma informācija. Žurnāls palīdz noteikt posmu, kurā radās kļūda. Ierakstus var kopēt vai sagatavot nosūtīšanai pa e-pastu izstrādātājiem. Sīkāku informāciju skatiet sadaļā <a href="#diagnostics">“Diagnostika un problēmu novēršana”</a>.</li>
+<li><strong>Saziņa ar izstrādātājiem</strong> — atver e-pasta lietotni un izveido ziņojumu, kas adresēts atbalsta dienestam. Izmantojiet to, lai ziņotu par problēmu, nosūtītu atsauksmes vai ieteikumu vai uzdotu jautājumu. Tehniskas problēmas gadījumā norādiet tālruņa modeli, Android versiju, problēmas laiku, veiktās darbības un, ja iespējams, attiecīgo diagnostikas žurnālu.</li>
+</ol>
+
+<div class="notice">Diagnostikas žurnāli izstrādātājiem netiek nosūtīti automātiski. Jums ir jākopē nepieciešamā informācija vai jāpieskaras “Sūtīt izstrādātājiem”, jāizvēlas e-pasta lietotne, jāpārskata sagatavotais ziņojums un jāapstiprina tā nosūtīšana.</div>
+
+<h2 id="backup">13. Dublēšana un atjaunošana</h2>
+
+<p>Dublējumā atbalstītie ShiftAlarm iestatījumi un lietotāja dati tiek saglabāti atsevišķā failā. Tas palīdz atjaunot datus pēc lietotnes atkārtotas instalēšanas, tālruņa atiestatīšanas vai pārvietošanas uz citu ierīci.</p>
+<ol class="step-list">
+<li>Atveriet “Iestatījumi → Dublēšana un atjaunošana”.</li>
+<li>Izveidojiet dublējumu un saglabājiet iegūto failu tālrunī vai kopīgojiet to, izmantojot sistēmas izvēlni.</li>
+<li>Lai atjaunotu, atveriet to pašu sadaļu un atlasiet iepriekš izveidotu dublējuma failu.</li>
+<li>Pēc atjaunošanas pārbaudiet svarīgos modinātājus, grafikus un Android atļaujas. Dažas sistēmas drošības atļaujas var būt jāpiešķir atkārtoti jaunā ierīcē vai pēc atkārtotas instalēšanas.</li>
+</ol>
+<p class="tip">Glabājiet pašreizējo kopiju drošā vietā, kas paliek pieejama, ja tālrunis tiek pazaudēts, bojāts vai atiestatīts. Dublējuma fails neaizstāj Android sistēmas atļaujas un nevar automātiski iekļaut datus, kuriem lietotnei nav atļauts piekļūt.</p>
+
+<h2 id="diagnostics">14. Diagnostika un problēmu novēršana</h2>
+
+<p>ShiftAlarm nodrošina atsevišķus diagnostikas žurnālus dažādām funkcijām. Tie saglabā tehnisku notikumu secību un palīdz noteikt, vai brīdinājums tika ieplānots, atjaunots pēc restartēšanas, nodots apstrādei vai apturēts sistēmas iestatījuma dēļ.</p>
+
+<h3 id="diagnostics-control">14.1. Diagnostikas datu apkopošanas kontrole</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_sections.webp" alt="ShiftAlarm diagnostikas žurnāla ekrāns ar galveno slēdzi un individuālu trauksmes žurnālu">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Diagnostikas apkopošana</strong> — galvenais slēdzis katrai diagnostikas sadaļai lietotnē. Izslēdziet to, lai apturētu jaunu notikumu pievienošanu visiem žurnāliem vienlaikus. Jaunu notikumu apkopošana tiek atsākta pēc tam, kad to atkal iespējojat.</li>
+<li><strong>Atsevišķs funkciju žurnāls</strong> — katram modulim ir savs slēdzis un poga “Atvērt”. Piemēram, varat atstāt iespējotu globālo diagnostiku, vienlaikus atspējojot tikai modinātāju, pulksteni vai citu funkciju žurnālu. Ekrānuzņēmumā ir redzams trauksmes žurnāls, kurā tiek reģistrēti piegādes, plānošanas, atkopšanas, aizsargaizsardzības un trauksmes ekrāna notikumi.</li>
+</ol>
+
+<div class="notice">Slēdži kontrolē tikai tehnisko notikumu ierakstīšanu. Modinātāja, pulksteņa vai cita funkciju žurnāla atspējošana pati funkcija netiek atspējota. Iepriekš saglabātos ierakstus var atsevišķi dzēst, izmantojot pogu “Notīrīt” atbilstošajā žurnālā.</div>
+
+<h3 id="diagnostics-log">14.2. Atsevišķu funkciju žurnāls</h3>
+
+<p>Nepieciešamajā diagnostikas sadaļā pieskarieties “Atvērt”. Zemāk redzamajā piemērā ir parādīts trauksmes žurnāls; Citu funkciju žurnāli darbojas līdzīgā veidā.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_alarm_log.webp" alt="ShiftAlarm trauksmes diagnostikas žurnāls ar notikumu skaitu, darbībām un tehniskiem ierakstiem">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Saglabātie notikumi</strong> — parāda atlasītajā žurnālā pašlaik saglabāto ierakstu skaitu.</li>
+<li><strong>Žurnāla darbības</strong>:
+<ul>
+<li><strong>Kopēt</strong> — kopē visus datus no pašreizējā žurnāla uz starpliktuvi. Varat tos ielīmēt e-pastā vai citā lietotnē.</li>
+<li><strong>Notīrīt</strong> — dzēš saglabātos ierakstus šajā žurnālā. Pēc notīrīšanas tiks parādīti tikai vēlāk reģistrētie notikumi, kamēr diagnostika ir iespējota.</li>
+<li><strong>Sūtīt izstrādātājiem</strong> — atver lietotņu atlasītāju e-pasta sūtīšanai. Izvēlieties e-pasta lietotni; izstrādātāja adrese un diagnostikas dati tiek ievietoti automātiski. Pirms nosūtīšanas pievienojiet problēmas aprakstu, pārskatiet ziņojumu un pēc tam apstipriniet tā nosūtīšanu.</li>
+</ul>
+</li>
+<li><strong>Lietotnes notikumi</strong> — paši žurnāla ieraksti. Ierakstā parasti ir datums un laiks, tehniskā notikuma nosaukums un papildu parametri, piemēram, identifikators, stāvoklis vai iemesls. Tehniskie nosaukumi var parādīties angļu valodā; pirms nosūtīšanas tos nerediģējiet un netulkojiet.</li>
+</ol>
+
+<div class="warning">Pirms žurnāla notīrīšanas nokopējiet vai nosūtiet visus nepieciešamos ierakstus. Dzēstos diagnostikas notikumus nevar atgūt.</div>
+
+<div class="tip">Ja problēmu var reproducēt, vispirms iespējojiet globālo diagnostikas datu kolekciju un atbilstošo funkciju žurnālu, pēc tam atkārtojiet darbības, kas izraisīja problēmu. Savā ziņojumā norādiet precīzu problēmas laiku, tālruņa modeli, Android versiju, paredzamo rezultātu un faktisko rezultātu. Tas palīdz saskaņot jūsu aprakstu ar žurnāla notikumiem.</div>
+
+<h2 id="faq">15. Bieži uzdotie jautājumi</h2>
+
+<h3>Trauksmes signāls neaktivizējās laikā</h3>
+<p>Pārbaudiet paziņojumus, precīzas trauksmes atļaujas, fona aktivitātes un akumulatora ierobežojumus.</p>
+<h3>Ģeo trauksmes signāls aktivizējās vēlu</h3>
+<p>Pārbaudiet precīzu un fona atrašanās vietu, akumulatora ierobežojumus un automātisko palaišanu fonā. Izmēģiniet 1300–1500 m rādiusu pilsētā un 4000–5000 m ārpus pilsētas. Faktiskā aktivizēšana var nenotikt precīzi uz rādiusa līnijas.</p>
+<h3>Logrīks netika atjaunināts nekavējoties</h3>
+<p>Atveriet lietotni vai pieskarieties logrīka atsvaidzināšanas pogai. Android var ierobežot biežus logrīku atjauninājumus.</p>
+<h3>Es mainīju valodu, bet dokuments vai ceļvedis vēl nav atjaunināts</h3>
+<p>Pārbaudiet interneta savienojumu un ļaujiet lejupielādei paiet nedaudz laika. Ja attālā versija nav pieejama, lietotne izmanto iebūvēto rezerves versiju.</p>
+
+<div class="footer small">Ceļvedi var atjaunināt, izmantojot GitHub. Ja attālā versija nav pieejama, lietotne izmanto iebūvēto bezsaistes versiju.</div>
+</main>
+</body>
+</html>

@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>„ShiftAlarm“ naudotojo vadovas</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #64748b;
+  --accent: #2563eb;
+  --soft: #e8eef8;
+  --border: #dbe4f0;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.58;
+  margin: 0;
+  padding: 18px;
+  color: var(--text);
+  background: var(--bg);
+}
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+h1 { margin: 0 0 8px; font-size: 28px; line-height: 1.2; }
+h2 { margin: 32px 0 10px; font-size: 21px; line-height: 1.25; }
+h3 { margin: 22px 0 8px; font-size: 17px; }
+p, li { font-size: 16px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul, ol { padding-left: 22px; }
+.notice, .tip, .warning {
+  padding: 14px 16px;
+  border-radius: 16px;
+  margin: 14px 0;
+  border: 1px solid var(--border);
+}
+.notice { background: var(--soft); }
+.tip { background: #ecfdf5; }
+.warning { background: #fff7ed; }
+.small { color: var(--muted); font-size: 14px; }
+.toc {
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 16px;
+  margin: 18px 0 24px;
+}
+.toc ol { margin: 8px 0 0; }
+.step-list li { margin-bottom: 8px; }
+.guide-figure {
+  margin: 18px 0;
+}
+.guide-image {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+}
+.callout-list li {
+  margin-bottom: 10px;
+}
+.guide-caption {
+  max-width: 520px;
+  margin: 10px auto 0;
+  color: var(--text);
+  font-size: 15px;
+}
+.guide-caption strong {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.footer {
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --card: #111827;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --accent: #93c5fd;
+    --soft: #1f2937;
+    --border: #334155;
+  }
+  main { box-shadow: none; }
+  .toc { background: #172033; }
+  .tip { background: #10251f; }
+  .warning { background: #2a1d10; }
+}
+</style>
+</head>
+<body>
+<main>
+<h1>„ShiftAlarm“ naudotojo vadovas</h1>
+<p class="small">14 versija. Data: 2026 m. rugpjūčio 2 d.</p>
+<div class="notice">Šis puslapis yra praktinis „ShiftAlarm“ vadovas. Jame paaiškinama, ką daro kiekviena pagrindinė funkcija, kur ją rasti, ką paliesti ir ką patikrinti, jei funkcija neveikia taip, kaip tikėtasi.</div>
+<nav class="toc">
+<strong>Turinys</strong>
+<ol><li><a href="#start">1. Pirmasis paleidimas</a></li><li><a href="#permissions">2. Leidimai ir patikimumas</a></li><li><a href="#main">3. Pagrindinis ekranas</a></li><li><a href="#shifts">4. Pamainų tvarkaraščiai</a></li><li><a href="#statistics">5. Tvarkaraščio statistika</a></li><li><a href="#alarms">6. Signalai</a></li><li><a href="#geo">7. Geografiniai signalai</a></li><li><a href="#notes">8. Pastabos, įvykiai ir priminimai</a></li><li><a href="#clock">9. Laikrodis, laikmatis ir chronometras</a></li><li><a href="#widgets">10. Valdikliai</a></li><li><a href="#salary">11. Atlyginimo skaičiavimas</a></li><li><a href="#settings">12. Nustatymai</a></li><li><a href="#backup">13. Atsarginių kopijų kūrimas ir atkūrimas</a></li><li><a href="#diagnostics">14. Diagnostika ir trikčių šalinimas</a></li><li><a href="#faq">15. Dažnai užduodami klausimai</a></li></ol>
+</nav>
+<h2 id="start">1. Pirmas paleidimas</h2>
+
+<p>Pirmą kartą paleidus „ShiftAlarm“, rodomas trumpas sąrankos langas. Pagrindinis ekranas jau pasiekiamas fone, tačiau geriausia pirmiausia atlikti pagrindinę sąranką.</p>
+<ol class="step-list">
+<li>Perskaitykite įvadinę informaciją ir palieskite „Tęsti“.</li>
+<li>Dokumentų etape atidarykite dokumentus arba patvirtinkite reikiamus dokumentus, kai būsite pasiruošę tęsti.</li>
+<li>Leidimų etape atidarykite leidimų ekraną ir patikrinkite pranešimus, tikslius signalus, prieigą prie vietos ir akumuliatoriaus apribojimus.</li>
+<li>Palieskite „Baigti sąranką“.</li>
+</ol>
+<p class="tip">Leidimus galite konfigūruoti vėliau skiltyje „Nustatymai → Leidimai ir patikimumas“.</p>
+
+<h2 id="permissions">2. Leidimai ir patikimumas</h2>
+
+<p>Žadintuvai, priminimai ir geolokacijos pavojaus signalai priklauso nuo „Android“ nustatymų ir įrenginio gamintojo programinės įrangos.</p>
+<ul>
+<li><strong>Pranešimai</strong> – būtini žadintuvams, priminimams, laikmačiui ir paslaugų pranešimams.</li>
+<li><strong>Tikslūs pavojaus signalai</strong> – padeda žadintuvui įsijungti reikiamu laiku.</li>
+<li><strong>Vieta</strong> – būtina geolokacijos pavojaus signalams.</li>
+<li><strong>Fono vietos nustatymas</strong> – būtinas, kad geolokacijos pavojaus signalas veiktų, kai programa uždaryta.</li>
+<li><strong>Akumuliatorius ir foninė veikla</strong> – gali turėti įtakos suveikimo patikimumui „Xiaomi“ / „Redmi“ ir kai kuriuose kituose įrenginiuose.</li>
+</ul>
+<p class="warning">„Android“ ne visada garantuoja greitą pranešimų, tikslių pavojaus signalų ar geotvoros įvykių pristatymą. Svarbių įspėjimų lange patikrinkite kiekvieną elementą leidimų ekrane.</p>
+
+<h2 id="main">3. Pagrindinis ekranas</h2>
+
+<p>Pagrindinis ekranas yra jūsų kasdienė ataskaitų sritis. Jame pateikiama tiesioginė prieiga prie kalendoriaus, laikrodžio, „Geo Alarms“, įprastų signalų, pamainų grafikų, pastabų ir nustatymų.</p>
+
+<h3 id="main-overview">3.1. Pagrindinio ekrano elementai</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_screen_overview.png" alt="ShiftAlarm pagrindinis ekranas su sunumeruotais valdikliais">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Rodyklė atgal</strong> – perkelia kalendorių į ankstesnį mėnesį.</li>
+<li><strong>Mėnuo ir metai</strong> – rodo atidarytą mėnesį. Palieskite šią sritį, kad galėtumėte naudoti <a href="#main-date-picker">žingsnis po žingsnio mėnesių ir metų rinkiklį</a>.</li>
+<li><strong>Rodyklė pirmyn</strong> – perkelia kalendorių į kitą mėnesį.</li>
+<li><strong>Kalendorius</strong> – pagrindinė mėnesio sritis. Galite braukti kalendorių. Kiekviena diena gali rodyti datą, priminimus, įvykius, suplanuotą pamainą ir dienos pakeitimus. Įprastu bakstelėjimu pasirenkama data; Ilgai paspaudus atidaroma <a href="#main-day-actions">pasirinktos dienos informacija ir veiksmai</a>.</li>
+<li><strong>Šiandien</strong> – grąžina kalendorių į dabartinę dieną.</li>
+<li><strong>Laikrodis</strong> – atidaro <a href="#clock">pasaulinį laikrodį, chronometrą ir laikmatį</a>.</li>
+<li><strong>Geografinis signalas</strong> – atidaro <a href="#geo">žemėlapį, išsaugotas vietas ir geografinio signalo nustatymus</a>. Įspėjimas gali suveikti, kai įeinate į pasirinktą sritį, išeinate iš jos arba atliekate bet kurį iš šių veiksmų.</li>
+<li><strong>Signalas</strong> – atidaro <a href="#alarms">įprastus, pasikartojančius ir su pamainomis susietus signalus</a>.</li>
+<li><strong>Tvarkaraštis</strong> – atidaro <a href="#shifts">pamainų tvarkaraščius, jų kūrimą ir redagavimą bei statistiką</a>.</li>
+<li><strong>Pastabos</strong> – atidaro <a href="#notes">pastabas, įvykius, priminimus, garso pastabas ir kalbos į tekstą konvertavimą</a>.</li>
+<li><strong>Nustatymai</strong> – atidaro <a href="#settings">leidimus, kalbą, temą, neprisijungus pasiekiamus kalbos modelius, atsarginę kopiją, diagnostiką, dokumentus ir mokymus</a>.</li>
+</ol>
+
+
+<h3 id="main-date-picker">3.2. Mėnesio ir metų pasirinkimas</h3>
+
+<p>Palieskite mėnesį ir metus pagrindinio ekrano viršuje, kad greitai atidarytumėte reikiamą kalendoriaus laikotarpį. Pasirinkimas vyksta etapais: <strong>šimtmetis → dešimtmetis → metai → mėnuo</strong>.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_century.webp" alt="1 veiksmas: šimtmečio pasirinkimas „ShiftAlarm“ kalendoriuje">
+<figcaption class="guide-caption"><strong>1. Pasirinkite šimtmetį.</strong> Palieskite laikotarpį, kuriame yra reikiami metai. Pavyzdyje pasirenkami 2000-ieji.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_decade.webp" alt="2 veiksmas: dešimtmečio pasirinkimas „ShiftAlarm“ kalendoriuje">
+<figcaption class="guide-caption"><strong>2. Pasirinkite dešimtmetį.</strong> Palieskite diapazoną, kuriame yra reikiami metai. 2026 metams pasirinkite „2020–2029“.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_year.webp" alt="3 veiksmas: metų pasirinkimas „ShiftAlarm“ kalendoriuje">
+<figcaption class="guide-caption"><strong>3. Pasirinkite metus.</strong> Palieskite reikiamus metus. Pavyzdyje pasirinkti 2026.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_month.webp" alt="4 veiksmas: mėnesio pasirinkimas „ShiftAlarm“ kalendoriuje">
+<figcaption class="guide-caption"><strong>4. Pasirinkite mėnesį.</strong> Palieskite reikiamą mėnesį. Pavyzdyje pasirinktas liepa.</figcaption>
+</figure>
+
+<div class="tip">Pasirinkus mėnesį, skydelis užsidaro ir pagrindinis kalendorius atsidaro ties pasirinktu mėnesiu ir metais.</div>
+<div class="notice">Mygtukas „Atgal“ grąžina į ankstesnį etapą. Šimtmečio ekrane jis uždaro datos rinkiklį.</div>
+
+<h3 id="main-day-actions">3.3. Informacija ir veiksmai pasirinktai dienai</h3>
+
+<p>Palieskite ir palaikykite reikiamą dieną kalendoriuje. Atsidarys skydelis su informacija ir veiksmais tai datai. Vilkite skydelį aukštyn, kad pamatytumėte visus galimus veiksmus.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_day_actions.webp" alt="Pasirinktos kalendorinės dienos „ShiftAlarm“ informacijos ir veiksmų skydelis">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Data</strong> – rodo savaitės dieną ir pasirinktą datą. Vilkite viršuje esančią rankenėlę aukštyn arba žemyn, kad išplėstumėte arba uždarytumėte skydelį.</li>
+<li><strong>Pamaina</strong> – rodo apskaičiuotą pamainą arba dienos pakeitimą, pvz., laisvą dieną, laisvą laiką, atostogas, nedarbingumo atostogas ar kitą išimtį.</li>
+<li><strong>Šios datos signalai</strong> – rodo pasirinktai dienai priskirtus signalus arba ataskaitas, kad jų nėra.</li>
+<li><strong>Įvykiai ir priminimai</strong> – rodo įrašus, susietus su pasirinkta data.</li>
+<li><strong>Pridėti signalą</strong> – atidaro vienkartinio signalo kūrimą pasirinktai datai.</li>
+<li><strong>Keisti pamainą</strong> – sukuria išimtį vienai dienai arba dienų diapazonui aktyviame tvarkaraštyje.</li>
+<li><strong>Pridėti pastabą</strong> – leidžia pasirinkti įvykį arba priminimą, kurį norite sukurti pasirinktai datai.</li>
+</ol>
+
+<div class="notice">Veiksmas „Keisti pamainą“ galimas norint koreguoti dienas aktyviame pamainų grafike.</div>
+
+<h4 id="main-shift-override">Vienos dienos arba datos intervalo keitimas</h4>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_types.webp" alt="Datos intervalo ir pamainos keitimo tipo pasirinkimas ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Pradžios data</strong> – pirmoji pakeitimo diena. Iš pradžių naudojama kalendoriuje pasirinkta data.</li>
+<li><strong>Pabaigos data</strong> – paskutinė pakeitimo diena. Norėdami pakeisti tik vieną dieną, palikite pasirinktą tą pačią datą.</li>
+<li><strong>Laisvas laikas</strong> — pakeičia apskaičiuotą pamainą laisvu laiku.</li>
+<li><strong>Atostogos</strong> — pažymi pasirinktą dieną arba intervalą kaip atostogas.</li>
+<li><strong>Liga</strong> — pažymi pasirinktą dieną arba intervalą kaip nedarbingumo atostogas.</li>
+<li><strong>Išsaugoti pakeitimą</strong> — pritaiko pasirinktą išimtį kalendoriui.</li>
+</ol>
+
+<h4 id="main-shift-time-adjustment">Darbo laiko koregavimas</h4>
+
+<p>Slinkite žemyn pakeitimų tipų sąrašu ir pasirinkite „Redaguoti pamainą“, kad pakeistumėte apskaičiuotos darbo pamainos trukmę.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_time_adjustment.webp" alt="Pamainos darbo laiko koregavimas ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Redaguoti pamainą</strong> — įjungia pasirinktos pamainos darbo laiko koregavimą.</li>
+<li><strong>+ laikas</strong> — prideda valandas arba minutes prie standartinės pamainos trukmės.</li>
+<li><strong>− laikas</strong> — sumažina pamainos trukmę, pavyzdžiui, kai darbas baigėsi anksčiau.</li>
+<li><strong>Skaičiuoti šį laiką kaip viršvalandžius</strong> — pridėtas laikas laikomas viršvalandžiais. Jei parinktis išjungta, laikas skaičiuojamas kaip įprastas darbo laikas.</li>
+<li><strong>Išsaugoti pakeitimą</strong> – pritaiko pakeitimą pasirinktai dienai arba intervalui.</li>
+</ol>
+
+<div class="tip">Dienos pakeitimas nekeičia pradinio tvarkaraščio šablono. Jis saugomas kaip atskira išimtis ir įtraukiamas į kalendorių, statistiką, atlyginimo skaičiavimą ir ataskaitas.</div>
+
+<h2 id="shifts">4. Pamainų grafikai</h2>
+
+<p>Pamainų grafikas apibrėžia pasikartojantį darbo ciklą ir suteikia pagrindą kitoms „ShiftAlarm“ funkcijoms. Programa jį naudoja kalendoriui užpildyti, signalams susieti su pamainomis, darbo laikui skaičiuoti, statistikai generuoti, atlyginimui įvertinti ir ataskaitoms rengti.</p>
+
+<div class="notice"><strong>Pagrindinis principas.</strong> Pirmiausia sukurkite pagrindinį pasikartojantį grafiką. Pridėkite atostogas, nedarbingumo atostogas, laisvadienius, vienkartinį pakaitinį pamainą arba darbo laiko koregavimą kaip išimtį konkrečioms datoms naudodami <a href="#main-day-actions">pasirinktų dienų veiksmus</a>. Tai išsaugo pradinį ciklą nepakeistą.</div>
+
+<h3 id="shifts-list">4.1. Tvarkaraščių sąrašas ir valdikliai</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedules_overview.webp" alt="ShiftAlarm tvarkaraščio ekranas su aktyvia tvarkaraščio kortele ir sunumeruotais valdikliais">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tvarkaraščio informacija</strong> – pavadinimas, pradžios data, ciklo trukmė ir trumpa dienų seka. Pavyzdyje „D · D · O · O“ reiškia dvi dienos pamainas, po kurių seka dvi laisvos dienos.</li>
+<li><strong>Perjungimas</strong> – laikinai išjungia tvarkaraštį jo neištrindamas. Kai vėl įjungsite, išsaugoti nustatymai ir toliau bus taikomi.</li>
+<li><strong>Tvarkaraščio būsena</strong> – nurodo, kuris tvarkaraštis šiuo metu aktyvus.</li>
+<li><strong>Redaguoti</strong> – atidaro parametrus, kuriuos galima keisti. Po pradinio nustatymo dalis tvarkaraščio pagrindo yra užrakinama, kad būtų išvengta atsitiktinio jau sukurtų kalendoriaus duomenų perskaičiavimo.</li>
+<li><strong>Ištrinti</strong> – ištrina tvarkaraštį po patvirtinimo. Prieš jį ištrindami patikrinkite visus su pamainomis susijusius signalus ir skaičiavimus.</li>
+<li><strong>Atidaryti statistiką</strong> – atidaro šio tvarkaraščio <a href="#statistics">darbo laiko, laikotarpio, atlyginimo ir ataskaitų statistiką</a>.</li>
+<li><strong>Sukurti tvarkaraštį</strong> – leidžia pasirinkti paruoštą šabloną arba sukurti pasirinktinį ciklą.</li>
+</ol>
+
+<h3 id="shifts-create">4.2. Pradinio tvarkaraščio kūrimas</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_create.webp" alt="Tvarkaraščio kūrimo skydelis su pavadinimu, pradžios data, šablonais ir pasirinktiniu tvarkaraščiu">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tvarkaraščio pavadinimas</strong> – įveskite aiškų pavadinimą, pvz., „Pagrindinis 2/2“, „Naktinė pamaina“ arba savo darbovietės pavadinimą.</li>
+<li><strong>Pradžios data</strong> – data, atitinkanti <strong>pirmąją pasikartojančio ciklo dieną</strong>. Galite pasirinkti praeities arba ateities datą; programa pagal ją apskaičiuoja tvarkaraštį pirmyn ir atgal.</li>
+<li><strong>Šablonai</strong> – paruoštos įprastos pamainų sekos. Pavyzdyje naudojamas šablonas „2/2 dienos“.</li>
+<li><strong>Pasirinktinis tvarkaraštis</strong> – sukuria savo darbo dienų ir laisvadienių seką.</li>
+<li><strong>Sukurti tvarkaraštį</strong> – atidaro išsamų pasirinktos parinkties redaktorių.</li>
+</ol>
+
+<div class="tip">Šablono „D · D · O · O“ pradžios data paprastai yra pirmoji iš dviejų darbo dienų. Pasirinktiniame cikle 1 diena taip pat gali būti laisvadienis; svarbu, kad pasirinkta data tiksliai atitiktų jūsų sukurtos sekos 1 dieną.</div>
+
+<h3 id="shifts-template">4.3. Tvarkaraščio kūrimas iš šablono</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_template.webp" alt="Šablono tvarkaraščio redaktorius su pavadinimu, seka, pradžios data ir pamainos laiku">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tvarkaraščio pavadinimas</strong> – palikite siūlomą pavadinimą arba pakeiskite jį savo.</li>
+<li><strong>Šablonas</strong> – rodo raidžių seką ir jos reikšmę. Pavyzdyje „D · D · O · O“ reiškia dieninė pamaina, dieninė pamaina, laisva diena, laisva diena.</li>
+<li><strong>Pradžios data</strong> – pasirinkite pirmos dienos datą rodomoje sekoje.</li>
+<li><strong>Pamainos laikas</strong> – nurodykite kiekvieno darbo pamainos tipo pradžios ir pabaigos laiką. Programėlė rodo apskaičiuotą trukmę.</li>
+<li><strong>Atšaukti</strong> — uždaro redaktorių neišsaugodamas.</li>
+<li><strong>Išsaugoti</strong> — išsaugo tvarkaraštį ir pradeda skaičiuoti pamainas kalendoriuje.</li>
+</ol>
+
+<div class="warning"><strong>Po pirmojo išsaugojimo.</strong> Pradžios data ir ciklo struktūra yra užrakintos, siekiant apsaugoti jau apskaičiuotus kalendoriaus duomenis. Vis tiek galite redaguoti pavadinimą ir kai kuriuos darbo parametrus. Jei jums reikia kito bazinio ciklo arba atskaitos datos, saugiau sukurti naują tvarkaraštį.</div>
+
+<h3 id="shifts-custom">4.4. Pasirinktinio ciklo kūrimas</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_custom.webp" alt="Pasirinktinio tvarkaraščio redaktorius su ciklo trukme, dienos valdikliais, pradžios data ir kiekvienos dienos nustatymais">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tvarkaraščio pavadinimas</strong> – suteikite savo pasirinktai sekai pavadinimą.</li>
+<li><strong>Ciklo trukmė</strong> – rodo, kiek dienų įtraukta į pasikartojančią seką.</li>
+<li><strong>Pašalinti dieną</strong> – sutrumpina ciklą viena diena.</li>
+<li><strong>Pridėti dieną</strong> – prideda dar vieną konfigūruojamą dieną prie ciklo pabaigos.</li>
+<li><strong>Pradžios data</strong> – data, atitinkanti 1 pasirinkto ciklo dieną.</li>
+<li><strong>Dienos nustatymai</strong> – palieskite „Shift“ „tipas“ kortelę ir pasirinkite laisvą dieną arba reikiamą darbo tipą: dieną, naktį, rytą, vakarą, 24 valandų arba pasirinktinę pamainą. Darbo dienai nurodykite pradžios ir pabaigos laiką. Likusias ciklo dienas sukonfigūruokite tokiu pačiu būdu toliau ekrane.</li>
+<li><strong>Atšaukti</strong> – uždaro redaktorių neišsaugodamas.</li>
+<li><strong>Išsaugoti</strong> – išsaugo pasirinktinį ciklą ir apskaičiuoja jį kalendoriuje.</li>
+</ol>
+
+<div class="notice"><strong>Kas yra ciklas?</strong> Ciklas – tai dienų skaičius, po kurio seka prasideda iš naujo. Pavyzdžiui, keturių dienų ciklas gali būti „2 darbo dienos + 2 laisvos dienos“, o šešių dienų ciklas – „3 darbo dienos + 3 laisvos dienos“. Po paskutinės dienos programa grįžta į 1 dieną.</div>
+
+<div class="tip">Nekeiskite bazinio ciklo dėl vienkartinės tvarkaraščio išimties. Ilgai paspauskite kalendoriaus datą ir sukurkite laisvadienį, atostogas, nedarbingumo atostogas, pakaitinį pamainą arba laiko koregavimą.</div>
+
+
+
+<span id="shift-statistics"></span>
+<h2 id="statistics">5. Tvarkaraščio statistika</h2>
+
+<p>Atidarykite „Statistika“ iš tvarkaraščio kortelės naudodami mygtuką <strong>„Atidaryti statistiką“</strong>. Šiame skyriuje pateikiama informacija apie darbo dienas ir laisvas dienas, tvarkaraščio pakeitimus, planuojamą ir faktinį darbo laiką, numatomą atlyginimą ir ataskaitas.</p>
+
+<div class="notice"><strong>Svarbu:</strong> statistika skaičiuojama tik pasirinktam pamainų grafikui. Pasirinktas laikotarpis taikomas visoms po juo esančioms darbo laiko, atlyginimo ir ataskaitų reikšmėms.</div>
+
+<h3 id="statistics-period">5.1. Tvarkaraščio, laikotarpio ir dienos suvestinė</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_period_overview.webp" alt="Statistikos ekranas su tvarkaraščio informacija, laikotarpio pasirinkimu ir dienos sumomis">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tvarkaraščio informacija</strong> – rodo pasirinkto tvarkaraščio pavadinimą, pirmojo ciklo pradžios datą ir pasikartojančio ciklo trukmę. Šiame ekrane rodoma statistika taikoma tik šiam tvarkaraščiui.</li>
+<li><strong>Pasirinkto laikotarpio kortelė</strong> – rodo naudojamą laikotarpį. Palieskite ją arba rodyklę dešinėje, kad pasirinktumėte dabartinį, ankstesnį arba kitą mėnesį, einamuosius metus arba pasirinktinį dienų intervalą.</li>
+<li><strong>Dienos suvestinė</strong> – rodo dienų skaičių laikotarpyje, darbo pamainas, laisvas dienas, atliktas ir būsimas pamainas bei pakeistas dienas. Pakeistos dienos yra bazinio ciklo išimtys: atostogos, nedarbingumo atostogos, laisvas laikas, pakaitinė ar perkelta pamaina, darbo laiko koregavimas ir kiti pakeitimai.</li>
+</ol>
+
+<div class="warning"><strong>Būsimi laikotarpiai yra prognozės.</strong> Ateities mėnesiui programa naudoja sukurtą tvarkaraštį ir jau įvestus duomenis, tačiau negali žinoti būsimų nedarbingumo atostogų, atostogų, laisvo laiko, viršvalandžių, premijų ar atskaitymų. Pasirinkus einamuosius metus, sumos gali būti sujungtos su faktiniais praeities datų duomenimis su prognoze likusiems metams.</div>
+
+<h3 id="statistics-work">5.2. Darbo laikas, atlyginimas ir ataskaitos</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_work_salary_reports.webp" alt="Statistikos ekranas su darbo laiku, pažanga, atlyginimu ir prieiga prie ataskaitų">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Darbo laikas</strong> – valandų ir pažangos suvestinės kortelė. Palieskite, kad atidarytumėte <a href="#statistics-break">pertraukų laiko nustatymus</a>.</li>
+<li><strong>Planuotos valandos</strong> – bendra suplanuotų pamainų ir pakeitimų trukmė per pasirinktą laikotarpį.</li>
+<li><strong>Dirbtos valandos</strong> – laikas pamainose, kurios laikomos atliktomis dabartinę datą, pritaikius pertraukų nustatymus.</li>
+<li><strong>Progresas</strong> – rodo, kiek darbo pamainų iš viso atlikta ir koks pasirinkto laikotarpio procentas yra atliktas.</li>
+<li><strong>Atlyginimas</strong> – atidaro <a href="#salary">atlyginimo skaičiavimo nustatymus</a>. Kortelėje rodomas pasirinkto grafiko ir laikotarpio įvertinimas.</li>
+<li><strong>Iš viso</strong> – iki šiol uždirbta apskaičiuota suma, įskaitant pasirinktą mokėjimo būdą, premijas, viršvalandžius ir atskaitymus.</li>
+<li><strong>Įkainis arba atlyginimas</strong> – šios kortelės turinys priklauso nuo pasirinkto skaičiavimo metodo: valandinis, pamaininis arba mėnesinis atlyginimas. Rodoma atlyginimo nustatymuose įvesta vertė.</li>
+<li><strong>Skaičiavimo informacija</strong> – apmokėtas laikas, viršvalandžiai, premijos ir atskaitymai už pasirinktą laikotarpį.</li>
+<li><strong>Ataskaitos</strong> – atidaro <a href="#reports">išsamias laikotarpių, darbo laiko ir atlyginimo ataskaitas</a>.</li>
+</ol>
+
+<div class="tip">Visos darbo laiko ir atlyginimo skyrių vertės perskaičiuojamos, kai pakeičiate laikotarpį viršutinėje kortelėje.</div>
+
+<h3 id="statistics-break">5.3. Pertraukų apskaita darbo laiku</h3>
+
+<p>Palieskite kortelę „Darbo laikas“, kad nurodytumėte, ar pertrauka pavalgyti ar kita pertrauka turėtų būti įskaičiuota į faktiškai dirbtą ir apmokėtą laiką.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_break_settings.webp" alt="Pertraukų apskaitos ir trukmės nustatymų skydelis">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Dabartinės sumos</strong> – rodomos suplanuotos ir dirbtos valandos pasirinktu laikotarpiu prieš pritaikant naujus nustatymus.</li>
+<li><strong>Skaičiuoti pertrauką kaip darbo laiką</strong> – palikite šią parinktį įjungtą, jei pertrauka yra apmokama ir įtraukta į pamainos trukmę. Išjunkite ją, jei nurodytas laikas turi būti neįtrauktas į dirbtą ir apmokėtą laiką.</li>
+<li><strong>Pertraukos trukmė</strong> – pasirinkite vienos pertraukos valandas ir minutes. Šis nustatymas naudojamas perskaičiuojant taikomas darbo pamainas.</li>
+<li><strong>Bendra pertrauka</strong> – rodo pasirinktą trukmę prieš išsaugojimą.</li>
+<li><strong>Išsaugoti</strong> – pritaiko nustatymą ir perskaičiuoja darbo laiką bei susijusias vertes.</li>
+</ol>
+
+<div class="notice">Pertrauka gali būti pertrauka tarp pietų, pamainos perdavimas arba kitas neapmokamas intervalas pamainos metu. Įveskite trukmę, atitinkančią jūsų darbovietės taisykles.</div>
+
+<h3 id="reports">5.4. Ataskaitos: laikotarpis, būsena ir santrauka</h3>
+
+<p>Atidarykite „Ataskaitos“ iš apatinės kortelės statistikos ekrane. Šiame skyriuje pateikiama išsamesnė informacija apie pasirinktą laikotarpį: darbo laikas, pamainos ir nebuvimai, kalendoriaus koregavimai, atlyginimas, premijos, atskaitymai, laikotarpių palyginimas, išsami informacija pagal dieną ir eksportavimas.</p>
+
+<div class="warning"><strong>Ataskaitos pateikiamos tik informaciniais tikslais.</strong> Skaičiavimai pagrįsti pasirinktu grafiku, atlyginimų nustatymais, pertraukų apskaita ir kalendorinių pamainų pakeitimais. Jūsų darbdavio faktiniai skaičiai gali skirtis dėl skirtingos laiko apskaitos sistemos, apvalinimo, mokesčių, išmokų ar vidaus taisyklių. Jei radote klaidą arba nepalaikomą skaičiavimo metodą, susisiekite su kūrėjais programėlėje nurodytu adresu ir nurodykite įvesties duomenis bei numatomą rezultatą.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_period_salary.webp" alt="Ataskaitų ekranas su laikotarpio pasirinkimu, būsena, santrauka ir išsamiu atlyginimų suskirstymu">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ataskaitos laikotarpis</strong> – palieskite kortelę, kad pasirinktumėte dabartinį, ankstesnį arba kitą mėnesį, iš anksto nustatytą diapazoną arba pasirinktines datas. Visa toliau pateikta informacija taikoma pasirinktam laikotarpiui.</li>
+<li><strong>Laikotarpio būsena</strong> – rodo, ar laikotarpis baigtas, šiuo metu aktyvus, ar dar neprasidėjo. Baigtas laikotarpis apskaičiuojamas pagal išsaugotus faktinius duomenis. Aktyvus laikotarpis sujungia jau dirbtus duomenis pagal dabartinį planą, o būsimas laikotarpis yra prognozė.</li>
+<li><strong>Santrauka</strong> – tekstinė faktinio dirbto laiko, apskaičiuotos sumos ir viršvalandžių santrauka.</li>
+<li><strong>Atlyginimas</strong> – išsamus bazinio atlyginimo, viršvalandžių užmokesčio, premijų, atskaitymų ir galutinio įvertinimo suskirstymas. Vertės priklauso nuo <a href="#salary">atlyginimo nustatymų</a> ir pasirinkto laikotarpio.</li>
+</ol>
+
+<h3 id="reports-work">5.5. Darbo laikas, nedarbingumas ir dienos</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_work_absences.webp" alt="Ataskaitų ekranas su darbo laiku, pertraukomis, atliktomis pamainomis ir nedarbingumu">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Darbo laikas</strong> – rodo suplanuotas ir faktiškai dirbtas valandas, suplanuotas ir faktiškai dirbtas valandas prieš pertraukos išskaičiavimą, atliktų pamainų skaičių, vidutinę pamainos trukmę ir bendrą išskaičiuotą pertrauką. Konfigūruokite pertraukas <a href="#statistics-break">darbo laiko skiltyje</a>.</li>
+<li><strong>Nedarbingumas ir dienos</strong> – rodo laisvų dienų, atostogų dienų, nedarbingumo dienų, laisvų dienų ir pakeistų dienų skaičių per pasirinktą laikotarpį.</li>
+</ol>
+
+<h3 id="reports-charts">5.6. Koregavimai ir diagramos</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_corrections_charts.webp" alt="Ataskaitų ekranas su koregavimais, atlyginimo sudėtimi ir darbo laiko vertėmis">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Koregavimai</strong> — rodo viršvalandžius, bendrą pamainos trukmės pokytį ir dienų, pakeistų nuo bazinio grafiko, skaičių.</li>
+<li><strong>Diagramos</strong> — vizualizuoja atlyginimo ir darbo laiko sudėtį: bazinį atlyginimą, viršvalandžius, premijas, atskaitymus, bendrą ir suplanuotas, dirbtas ir apmokėtas valandas.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_charts_days.webp" alt="Papildomos ataskaitų diagramos su valandomis ir dienos tipo skrituline diagrama">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Valandos</strong> — tęsia vizualinį suplanuotų, dirbtos, apmokėtos ir viršvalandžių valandos. Eilutėje „Faktinis darbo laikas“ rodomas rezultatas pritaikius nustatymus ir koregavimus.</li>
+<li><strong>Dienos tipai</strong> – skritulinė diagrama, kurioje dienos pasirinktame laikotarpyje paskirstomos pagal tipą. Legenda priklauso nuo grafiko ir faktinių pokyčių: dienos, nakties ar kitos pamainos, laisvos dienos, atostogos, nedarbingumo atostogos, nedarbingumas ir kitos būsenos.</li>
+</ol>
+
+<h3 id="reports-comparison">5.7. Laikotarpių palyginimas</h3>
+
+<p>Palyginimo skiltyje galite palyginti atlyginimą, laiką, pamainas ir nebuvimą keliuose laikotarpiuose. Galimų laikotarpių skaičius priklauso nuo išsaugotų duomenų.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_chart.webp" alt="Laikotarpių palyginimo ekranas su diapazono pasirinkimu, atlyginimų lentele ir palyginimo lentelės pradžia">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Palyginti laikotarpius</strong> – palieskite kortelę, kad pasirinktumėte, kiek laikotarpių palyginti ir jų diapazoną.</li>
+<li><strong>Diagrama ir laikotarpių sąrašas</strong> – rodo kiekvieno laikotarpio atlyginimą ir išvardija į palyginimą įtrauktus intervalus kartu su jų būsena.</li>
+<li><strong>Palyginimo lentelė</strong> – pateikia išsamias kiekvieno laikotarpio reikšmes. Braukite lentelę horizontaliai į kairę arba į dešinę, kad peržiūrėtumėte likusius stulpelius.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_table.webp" alt="Palyginimo lentelės tęsinys ir skirtumai tarp gretimų laikotarpių">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Laikotarpio vertės</strong> — bendras atlyginimas, dirbtos ir apmokėtos valandos, viršvalandžiai, premijos, atskaitymai, atliktos pamainos, nebuvimai darbe ir pakeistos dienos.</li>
+<li><strong>Laikotarpių skirtumas</strong> – rodo, kuo kiekvienas laikotarpis skiriasi nuo ankstesnio. Teigiamos ir neigiamos vertės rodo atitinkamo rodiklio padidėjimą arba sumažėjimą. Vien spalva ne visada reiškia naudą ar problemą; pavyzdžiui, padidėję atskaitymai reiškia, kad išskaičiuojama didesnė suma.</li>
+</ol>
+
+<h3 id="reports-details-export">5.8. Dienos informacija ir eksportavimas</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_details_export.webp" alt="Ataskaitų kortelės, skirtos dienos informacijai ir eksportavimui į PDF, HTML, JSON arba CSV">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Dienos informacija</strong> – atidaro visų pasirinkto laikotarpio dienų sąrašą. Galite patikrinti pamainos tipą, suplanuotą ir faktinį laiką, valandų koregavimus, nebuvimus ir kitus konkrečios dienos pakeitimus.</li>
+<li><strong>Eksportuoti</strong> – ataskaita išsaugoma PDF, HTML, JSON arba CSV formatu. Prieš eksportuodami pasirinkite ataskaitos laikotarpį; tada galite atsispausdinti, išsaugoti arba bendrinti failą per „Android“ sistemos meniu.</li>
+</ol>
+
+<div class="tip">Prieš lygindami arba eksportuodami, patikrinkite pasirinktą laikotarpį, tvarkaraštį, pamainos pakeitimus, pertraukas ir atlyginimo nustatymus. Klaida šaltinio duomenyse turės įtakos kiekvienai ataskaitos sumai.</div>
+
+<h2 id="alarms">6. Signalai</h2>
+
+<p>„ShiftAlarm“ leidžia kurti vienkartinius signalus, kartoti juos pasirinktomis savaitės dienomis arba susieti jų laiką su pamainos grafiku.</p>
+
+<h3 id="alarms-list">6.1. Signalų sąrašas</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarms_overview.webp" alt="ShiftAlarm aliarmo ekranas su kitu įspėjimu, rūšiavimu, aliarmo kortele ir pridėjimo mygtuku">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Kitas aliarmas</strong> – rodo kito aktyvaus įspėjimo datą ir laiką.</li>
+<li><strong>Signalų rūšiavimas</strong> – keičia aliarmo kortelių tvarką, pavyzdžiui, pirmiausia rodant įjungtus aliarmus.</li>
+<li><strong>Signalo kortelė</strong> – rodo laiką, datą arba kartojimo režimą, tvarkaraščio tipą ir likusį laiką. Palieskite kortelę, kad ją redaguotumėte.</li>
+<li><strong>Perjungti</strong> – laikinai įjungia arba išjungia žadintuvą neištrindamas jo nustatymų.</li>
+<li><strong>Ištrinti</strong> – ištrina pasirinktą žadintuvą.</li>
+<li><strong>Pridėti žadintuvą</strong> – atidaro ekraną naujam žadintuvui kurti.</li>
+</ol>
+
+<h3 id="alarms-create">6.2. Žadintuvo kūrimas ir redagavimas</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_time_schedule.webp" alt="„ShiftAlarm“ žadintuvo redaktoriaus viršuje: laikas, tvarkaraščio tipas, snaudimo ir išsaugojimo valdikliai">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Laikas</strong> – slinkite valandų ir minučių ratukais, kad nustatytumėte žadintuvo laiką.</li>
+<li><strong>Tvarkaraščio tipas</strong> – pasirinkite vieną iš šių režimų:
+<ul>
+<li><strong>Kartą</strong> – žadintuvas suveikia vieną kartą pasirinktą dieną;</li>
+<li><strong>Pagal dienas</strong> – kartojasi pasirinktomis savaitės dienomis;</li>
+<li><strong>Pagal pamainas</strong> – susieja žadintuvą su pasirinktu tvarkaraščiu ir pamainos tipu.</li>
+</ul>
+</li>
+<li><strong>Snaudimas</strong> – nustato, kiek minučių skambėjimo ekrane palietus snaudimo mygtuką, įspėjimas atidedamas.</li>
+<li><strong>Atšaukti ir išsaugoti</strong> – šie mygtukai yra fiksuoti ekrano apačioje ir lieka pasiekiami slenkant redaktoriuje.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_behavior.webp" alt="ShiftAlarm nustatymai: įspėjimo trukmė, kartojimo įspėjimas, laipsniškas garsumo didinimas ir vibracija">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Signalo trukmė</strong> – nustato, kiek laiko skambės įspėjimas, jei vartotojas jo neišjungs.</li>
+<li><strong>Kartoti, jei įspėjimas ignoruojamas</strong> – įjungia kitą įspėjimą, kai įspėjimas nebuvo nei atmestas, nei atidėtas. Nustatykite intervalą prieš kartojamą įspėjimą po juo.</li>
+<li><strong>Laipsniškas garsumo didinimas</strong> – pradedama tylesniu garsu ir palaipsniui didinamas garsumas per pasirinktą laiką.</li>
+<li><strong>Vibracija</strong> – įjungiama arba išjungiama vibracija įspėjimo metu.</li>
+<li><strong>Atšaukti ir išsaugoti</strong> – fiksuoti redaktoriaus valdikliai.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_sound_name.webp" alt="„ShiftAlarm“ įspėjimo redaktoriaus apačioje: vibracijos, garso, pavadinimo ir išsaugojimo valdikliai">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Vibracija</strong> – įjungiama arba išjungiama vibracijos įspėjimas.</li>
+<li><strong>Garsas</strong> – leidžia pasirinkti integruotą, sistemos arba vartotojo pridėtą garsą. Prie programėlės galite pridėti iki penkių pasirinktinių garsų.</li>
+<li><strong>Pavadinimas</strong> – pasirenkama etiketė, padedanti atskirti signalus.</li>
+<li><strong>Atšaukti ir išsaugoti</strong> – atmesti pakeitimus arba išsaugoti signalą.</li>
+</ol>
+
+<div class="notice">Išsaugojus, signalas rodomas pagrindiniame sąraše. Prieš svarbų įspėjimą įsitikinkite, kad signalas įjungtas, programa turi pranešimų ir tikslių signalų leidimus ir sistema neriboja jos foninės veiklos.</div>
+
+<div class="tip">Norėdami sukurti su pamainomis susietą signalą, pirmiausia sukurkite tinkamą pamainos grafiką. Redaktoriuje pasirinkite fiksuotą suveikimo laiką arba poslinkį, palyginti su pamainos pradžia.</div>
+
+<h2 id="geo">7. Geografiniai signalai</h2>
+
+<p>Geografinis signalas stebi, kada įrenginys įeina į pasirinktą zoną arba išeina iš jos. Sritis apibrėžiama tašku žemėlapyje ir spinduliu aplink tą tašką. Pavyzdžiui, naudokite „Geo Alarm“, kad gautumėte įspėjimą artėjant prie darbo, namų, autobusų stotelės, stoties ar kitos vietos.</p>
+
+<h3 id="geo-overview">7.1. Žemėlapis ir valdikliai</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_overview.webp" alt="ShiftAlarm Geo Alarm pagrindinis ekranas su žemėlapiu ir sunumeruotais valdikliais">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Artinti</strong> – padidina žemėlapį.</li>
+<li><strong>Tolinti</strong> – sumažina žemėlapio mastelį.</li>
+<li><strong>Mano vieta</strong> – perkelia žemėlapį į dabartinę įrenginio vietą. Šiai funkcijai reikalinga prieiga prie vietos nustatymo.</li>
+<li><strong>Išsaugotos vietos</strong> – atidaro išsaugotų geografinių signalų ir vietos taškų sąrašą.</li>
+<li><strong>Atgal</strong> – grįžta į ankstesnį programos ekraną.</li>
+<li><strong>Geografinių signalų skaičius</strong> – rodo, kiek geografinių signalų sukurta.</li>
+<li><strong>Geografinių signalų sąrašas</strong> – atidaro atskirą sukurtų geografinių signalų sąrašą.</li>
+</ol>
+
+<div class="tip">Taip pat galite priartinti žemėlapį gestais. Palieskite žemėlapį dviem pirštais ir išskėskite juos, kad priartintumėte, arba suspauskite juos, kad atitolintumėte.</div>
+<div class="notice">Šoniniai valdikliai gali būti rodomi priešingoje pusėje kalbomis, rašomomis iš dešinės į kairę. Jų funkcijos išlieka tos pačios.</div>
+
+<h3 id="geo-saved-places">7.2. Išsaugoti signalai ir vietos taškai</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_saved_places.webp" alt="Išsaugotų vietų langas su geografiniu signalu ir vietos taškų skirtukais">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Signalizai</strong> – rodo prie išsaugotų vietų pridėtus geografinius signalus.</li>
+<li><strong>Vietos taškai</strong> – rodo išsaugotas koordinates be aktyvaus geografinio signalo.</li>
+<li><strong>Išsaugotų vietų sąrašas</strong> – palieskite kortelę, kad pereitumėte į tą vietą žemėlapyje.</li>
+<li><strong>Uždaryti</strong> – uždaro langą ir grįžta į žemėlapį.</li>
+</ol>
+
+<div class="notice">Jei ištrinate pažymėtą geografinį signalą, jo koordinatės automatiškai išsaugomos skirtuke „Vietos taškai“. Vėliau galėsite vėl panaudoti tašką, kad sukurtumėte kitą geosignalą.</div>
+
+<h3 id="geo-select-point">7.3. Taško ir spindulio pasirinkimas</h3>
+
+<p>Palieskite ir palaikykite reikiamą vietą žemėlapyje. Programa pažymės žymeklį ir atidarys pasirinkto taško skydelį.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_selected_point.webp" alt="Pasirinktas žemėlapio taškas su adresu, spinduliu, žyme ir geosignalo kūrimo mygtuku">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Pasirinkto taško žymeklis</strong> – būsimos geotvoros centras. Žemėlapyje taip pat rodomas pasirinkto spindulio apskritimas.</li>
+<li><strong>Adresas ir koordinatės</strong> – leidžia patikrinti, ar pasirinkta teisinga vieta.</li>
+<li><strong>Įrašyti vietos tašką</strong> – prideda pasirinktas koordinates prie išsaugotų vietų nesukuriant aliarmo.</li>
+<li><strong>Spindulys</strong> – nustato ploto aplink tašką dydį. Judinkite slankiklį, kol pasirinksite tinkamą atstumą.</li>
+<li><strong>Atšaukti</strong> – atšaukia taško pasirinkimą.</li>
+<li><strong>Sukurti čia</strong> – atidaro naują geografinių aliarmų redaktorių pasirinktam taškui.</li>
+</ol>
+
+<div class="warning"><strong>Kaip pasirinkti spindulį.</strong> Telefonas neseka savo koordinačių nuolat. „Android“, įrenginio gamintojas, akumuliatoriaus taupymo režimas, GPS, mobiliojo ryšio tinklo ir „Wi-Fi“ signalo kokybė bei judėjimo greitis turi įtakos ribos aptikimui. Todėl įspėjimas gali suveikti ir toliau nuo nubrėžtos linijos. Pavyzdžiui, esant 800 m spinduliui, įėjimas gali būti aptiktas, kai įrenginys jau yra zonoje – galbūt 700, 600 arba 500 m atstumu nuo taško.</div>
+
+<ul>
+<li><strong>Mieste</strong> paprastai rekomenduojamas <strong>1 300–1 500 m</strong> spindulys.</li>
+<li><strong>Už miesto ribų</strong>, kur vietos atnaujinimas gali būti retesnis, rekomenduojamas <strong>4 000–5 000 m</strong> spindulys.</li>
+<li><strong>Tikslus spindulys</strong> turėtų būti pasirinktas atsižvelgiant į jūsų maršrutą, greitį ir įrenginio elgseną.</li>
+</ul>
+
+<div class="notice">Sistema aptinka, kada įrenginys kerta virtualią zonos ribą. Įėjimo režimu didesnis spindulys paprastai suteikia telefonui daugiau laiko aptikti jūsų artėjimą. „Išėjimo“ režimu riba nustatoma toliau nuo pasirinkto taško.</div>
+
+<h3 id="geo-create">7.4. Geografinio pavojaus signalo kūrimas</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_location_schedule.webp" alt="Geografinio pavojaus signalo redaktoriaus viršuje: parengtis, vieta ir tvarkaraščio tipas">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Geografinio pavojaus signalo parengtis</strong> – rodo, ar sukonfigūruoti reikiami leidimai ir ar programa gali užregistruoti geotvorą.</li>
+<li><strong>Vieta</strong> – nurodo pasirinktą adresą ir koordinates. Adresą galite redaguoti kaip žymą, tačiau žemėlapyje pasirenkamas tikrasis taškas.</li>
+<li><strong>Tvarkaraščio tipas</strong> – nustato dienas ir sąlygas, kuriomis aktyvus geomagnetinis signalas.</li>
+<li><strong>Visada</strong> – geomagnetinis signalas aktyvus kiekvieną dieną, kol jis įjungtas.</li>
+<li><strong>Kartą</strong> – naudojamas kitam vienkartiniam suaktyvinimui, kai įvykdoma pasirinkta sąlyga.</li>
+<li><strong>Pagal dienas</strong> – veikia tik pasirinktomis savaitės dienomis.</li>
+<li><strong>Pagal pamainas</strong> – susieja geomagnetinį signalą su aktyviu pamainos grafiku.</li>
+</ol>
+
+<div class="notice"><strong>Tvarkaraštis „Pagal pamainas“.</strong> Pasirinkite, ar jis veiks pamainos dieną, tik prieš pamainą, ar tik po jos, ir nurodykite reikiamą pamainos tipą: diena, naktis, rytas, vakaras. 24 valandų, pasirinktinė arba bet kokia darbo pamaina.</div>
+<div class="tip">Jei kalendoriaus data pažymėta kaip laisva diena, atostogos, nedarbingumo atostogos arba laisvas laikas, o ne darbo pamaina, su pamainomis susietas „Geo Alarm“ tą dieną nebus aktyvus.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_trigger_settings.webp" alt="„Geo Alarm“ redaktoriaus apačioje: įėjimo arba išėjimo sąlyga, spindulys ir įspėjimo nustatymai">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Suveikimo sąlyga</strong> – nustato, kuris ribos kirtimas įjungia įspėjimą.</li>
+<li><strong>Įeinant</strong> – įjungia įspėjimą, kai įrenginys įeina į pasirinktą spindulį, pavyzdžiui, artėjant prie darbo ar reikiamo sustojimo.</li>
+<li><strong>Išeinant</strong> – įjungia įspėjimą, kai įrenginys išeina iš pasirinkto spindulio, pavyzdžiui, išėjęs iš darbo ar stoties, kad jūs ne... praleisti kitą maršruto dalį.</li>
+<li><strong>Įvažiuojant arba išvažiuojant</strong> – įjungia įspėjimą, kai riba kertama bet kuria kryptimi.</li>
+<li><strong>Spindulys</strong> – geotvoros dydis aplink pasirinktą tašką.</li>
+<li><strong>Signalo trukmė</strong> – nustato, kiek laiko skambės įspėjimas.</li>
+<li><strong>Laipsniškas garsumo didinimas</strong> – nustato sklandų garsumo didėjimą po įspėjimo pradžios.</li>
+<li><strong>Atšaukti ir išsaugoti</strong> – atmesti pakeitimus arba išsaugoti geografinį įspėjimą.</li>
+</ol>
+
+<div class="tip">Likusios parinktys yra panašios į įprastą įspėjimą: garsas, vibracija, įspėjimo trukmė, laipsniškas garsumo didinimas ir pavadinimas.</div>
+
+<h3 id="geo-existing">7.5. Geografinio pavojaus signalas žemėlapyje ir jo valdikliai</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_marker_radius.webp" alt="Sukurtas geoobjekto pavojaus signalo žymeklis ir jo suveikimo spindulio apskritimas žemėlapyje">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Geografinio pavojaus signalo žymeklis</strong> – rodo pasirinktą tašką.</li>
+<li><strong>Spindulio riba</strong> – rodo sritį, į kurią įvažiuojant ar išvažiuojant stebima programėlės.</li>
+</ol>
+
+<p>Palieskite geomagnetinio pavojaus signalo žymeklį. Pirmiausia pasirodys nedidelis informacijos langas. Palieskite tą langą, kad atidarytumėte išsamią kortelę.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_alarm_card.webp" alt="Išsami geosignalizacijos kortelė su informacija, žyme, jungikliu ir valdikliais">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Vardas ir adresas</strong> – identifikuoja pasirinktą geosignalizacijos įrenginį.</li>
+<li><strong>Žymė</strong> – prideda signalą prie išsaugotų vietų arba pašalina jį iš jų.</li>
+<li><strong>Jungiklis</strong> – įjungia arba laikinai išjungia geosignalizacijos įrenginį neištrindamas jo nustatymų.</li>
+<li><strong>Nustatymai ir būsena</strong> – rodo spindulį, įėjimo arba išėjimo sąlygą, tvarkaraštį, geotvoros parengtį ir informaciją apie ankstesnius aktyvavimus.</li>
+<li><strong>Redaguoti</strong> – atidaro geosignalizacijos nustatymus.</li>
+<li><strong>Uždaryti</strong> — uždaro kortelę ir grįžta į žemėlapį.</li>
+<li><strong>Ištrinti</strong> — ištrina „Geo Alarm“ po patvirtinimo.</li>
+</ol>
+
+<div class="warning">Kad veiktų patikimai, leiskite tikslią ir foninę vietos nustatymo funkciją, pašalinkite griežtus „ShiftAlarm“ akumuliatoriaus apribojimus ir patikrinkite automatinio paleidimo fone nustatymus, jei jūsų įrenginys juos teikia. Net ir su teisingais nustatymais „Android“ negarantuoja ribų aptikimo tikslumo kelių metrų tikslumu.</div>
+
+<h2 id="notes">8. Pastabos, įvykiai ir priminimai</h2>
+
+<p>Skyriuje „Pastabos“ saugomas paprastas tekstas, sąrašai, kontroliniai sąrašai, garso įrašai, kalbos į tekstą konvertuotos pastabos, priminimai ir įvykiai.</p>
+
+<h3 id="notes-create">8.1. Pastabos pridėjimas</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_type_picker.webp" alt="Naujo pastabos tipo pasirinkimas programoje „ShiftAlarm“">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Skydelio rankenėlė</strong> – vilkite ją aukštyn, kad būtų parodytas visas pastabų tipų sąrašas, arba žemyn, kad skydelis būtų uždarytas.</li>
+<li><strong>Pastabos tipas</strong> – pasirinkite tinkamą parinktį:
+<ul>
+<li><strong>Teksto pastaba</strong> – paprastas tekstas;</li>
+<li><strong>Kontrolinis sąrašas</strong> – elementų sąrašas su užbaigimo žymimaisiais langeliais;</li>
+<li><strong>Sąrašas</strong> – sąrašas su ženkleliais arba sunumeruotas;</li>
+<li><strong>Garso pastaba</strong> – balso įrašas;</li>
+<li><strong>Kalbos pavertimas tekstu</strong> — sukuria užrašą naudodamas kalbos atpažinimą;</li>
+<li><strong>Priminimas</strong> — įrašas su pranešimu nurodytu laiku;</li>
+<li><strong>Įvykis</strong> — įrašas, susietas su data ir laiku.</li>
+</ul>
+</li>
+<li><strong>Atšaukti</strong> — uždaro rinkiklį nesukurdamas užrašo.</li>
+</ol>
+
+<div class="tip">Pasirinkus tipą, atidaromas atitinkamas redaktorius. Užpildykite privalomus laukus ir išsaugokite įrašą.</div>
+
+<h3 id="notes-list">8.2. Užrašų sąrašas ir valdikliai</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_overview.webp" alt="ShiftAlarm užrašų ekranas su rūšiavimu, aktyviomis ir archyvuotomis pastabomis, paieška ir kortelių veiksmais">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Rūšiuoti</strong> – keičia užrašų tvarką sąraše.</li>
+<li><strong>Aktyvi</strong> – rodo įprastas ir suplanuotas pastabas, kurios nebuvo perkeltos į archyvą.</li>
+<li><strong>Archyvas</strong> – atidaro archyvuotų pastabų sąrašą.</li>
+<li><strong>Ieškoti</strong> – randa atitikmenis užrašų pavadinimuose ir turinyje.</li>
+<li><strong>Užrašų kortelė</strong> – rodo pavadinimą, tipą, būseną ir papildomą informaciją. Palieskite kortelę, kad atidarytumėte užrašą.</li>
+<li><strong>Prisegti</strong> – prisegia užrašą sąrašo viršuje.</li>
+<li><strong>Archyvas</strong> – pašalina užrašą iš aktyvaus sąrašo ir perkelia jį į archyvą.</li>
+<li><strong>Ištrinti</strong> – ištrina užrašą po patvirtinimo.</li>
+<li><strong>Pridėti užrašą</strong> – atidaro naujos užrašo tipo rinkiklį.</li>
+</ol>
+
+<div class="notice">Naudokite archyvą įrašams, kurie nebereikalingi pagrindiniame sąraše, bet turėtų likti išsaugoti. Ištrinkite užrašą tik tada, kai jo visai nebereikia.</div>
+
+<h2 id="clock">9. Laikrodis, chronometras ir laikmatis</h2>
+
+<p>Šiame skyriuje sujungtas vietinis ir pasaulio laikas, chronometras ir laikmatis. Atidarykite jį pagrindiniame ekrane paspausdami mygtuką <strong>„Laikrodis“</strong>.</p>
+
+<div class="notice">Ekrano apačioje rodomi trys skirtukai: „Laikrodis“, „Chronometras“ ir „Laikmatis“. Palieskite skirtuką, kad perjungtumėte režimus.</div>
+
+<h3 id="clock-world">9.1. Laikrodis ir pasaulio laikrodis</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_overview.webp" alt="ShiftAlarm laikrodžio ekranas su vietiniu laiku, pasaulio laikrodžiais, pridėjimo mygtuku ir apatiniais skirtukais">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Vietinis laikas</strong> – rodo dabartinį laiką, datą ir įrenginio sistemos laiko juostą.</li>
+<li><strong>Pasaulio laikrodžiai</strong> – rodo pridėtus miestus ir laiko juostas. Kol sąrašas tuščias, programėlė rodo užuominą.</li>
+<li><strong>Pliuso mygtukas</strong> – atidaro pasaulinio laikrodžio parinkiklį.</li>
+<li><strong>Skilčių skirtukai</strong> – perjungia ekranus „Laikrodis“, „Chronometras“ ir „Laikmatis“.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_add_timezone.webp" alt="Miesto arba laiko juostos pridėjimas prie „ShiftAlarm“ pasaulio laikrodžio">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Paieška</strong> – įveskite miesto arba laiko juostos pavadinimą, kad filtruotumėte sąrašą.</li>
+<li><strong>Miesto ir laiko juostos sąrašas</strong> – palieskite reikiamą parinktį, kad ją pridėtumėte prie pasaulinio laikrodžio ekrano.</li>
+</ol>
+
+<div class="tip">Pirmiausia visada rodoma vietinė laiko juosta. Galite pašalinti pridėtus pasaulio laikrodžius iš sąrašo, bet vietinio laiko pašalinti negalima.</div>
+
+<h3 id="clock-stopwatch">9.2. Chronometras</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_start.webp" alt="ShiftAlarm chronometras prieš jam prasidedant">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Istorija</strong> — atidaro išsaugotas chronometro sesijas.</li>
+<li><strong>Pradėti</strong> — pradeda matuoti laiką.</li>
+<li><strong>Nustatyti iš naujo</strong> — negalima, kol chronometras neprasidės. Sustabdžius chronometrą, jis grąžina jį į nulį ir pašalina dabartinius ratus.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_running.webp" alt="Paleidžiamas „ShiftAlarm“ chronometras su istorijos, išsaugojimo, ratų ir pristabdymo valdikliais">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Istorija</strong> – rodo anksčiau išsaugotas sesijas.</li>
+<li><strong>Išsaugoti</strong> – prašo įvesti pavadinimą ir išsaugo dabartinę chronometro sesiją.</li>
+<li><strong>Ratas</strong> – įrašo tarpinį rezultatą nesustabdydamas bendro laikmačio.</li>
+<li><strong>Pristabdyti</strong> – pristabdo chronometrą. Po pristabdymo galite jį tęsti arba nustatyti iš naujo.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_laps.webp" alt="ShiftAlarm chronometro ratai ir jų rūšiavimo parinktys">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Pradinis, greičiausias ir lėčiausias</strong> – keičia ratų rodymo tvarką: pradinė tvarka, greičiausias pirmiausia arba lėčiausias pirmiausia.</li>
+<li><strong>Ratai</strong> – kiekvienas ratas rodo bendrą laiką, kada jis buvo užfiksuotas, ir individualų rato laiką.</li>
+</ol>
+
+<div class="notice">Palietus „Išsaugoti“, įveskite sesijos pavadinimą ir patvirtinkite. Išsaugotą sesiją galite atidaryti vėliau iš istorijos.</div>
+
+<h3 id="clock-timer">9.3. Laikmatis</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_setup.webp" alt="„ShiftAlarm“ laikmačio nustatymas su valandų, minučių ir sekundžių ratukais">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Valandos</strong> — sukite ratuką ir pasirinkite valandų skaičių.</li>
+<li><strong>Minutės</strong> — sukite ratuką ir pasirinkite minučių skaičių.</li>
+<li><strong>Sekundės</strong> — sukite ratuką ir pasirinkite sekundžių skaičių.</li>
+<li><strong>Pradėti</strong> — paleidžia laikmatį su pasirinkta trukme.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_running.webp" alt="„ShiftAlarm“ laikmačio paleidimas su likusiu laiku, pristabdymo, minučių pridėjimo ir sustabdymo valdikliais">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Likęs laikas</strong> – rodo, kiek laiko liko iki įspėjimo.</li>
+<li><strong>Pabaigos laikas</strong> – rodo apytikslį laiką, kada laikmatis baigs veikti.</li>
+<li><strong>Naujausi laikmačiai</strong> – išsaugotos naujausios trukmės; palieskite vieną iš jų, kad greitai jį pakartotinai panaudotumėte.</li>
+<li><strong>Pauzė</strong> – laikinai sustabdo atgalinį skaičiavimą. Vėliau galite jį tęsti.</li>
+<li><strong>+1 min.</strong> – prideda vieną minutę prie likusio laiko.</li>
+<li><strong>Sustabdyti</strong> – visiškai sustabdo laikmatį.</li>
+</ol>
+
+<div class="tip">Laikmatis ir chronometras toliau veikia fone. Jų būsena gali būti rodoma pranešime, pagrindiniame ekrane ir valdikliuose.</div>
+
+<h2 id="widgets">10. Valdikliai</h2>
+
+<p>„ShiftAlarm“ teikia valdiklius telefono pagrindiniam ekranui.</p>
+<ul>
+<li><strong>„Today 4×2“</strong> – kompaktiškas skydelis su dviem konfigūruojamomis sekcijomis.</li>
+<li><strong>„Today 4×3“</strong> – skydelis su laikrodžiu viršuje ir dviem sekcijomis apačioje.</li>
+<li><strong>Kalendorius 4×4</strong> – kalendoriaus valdikliai su pamainų grafiku.</li>
+</ul>
+<p>Pridėkite valdiklį per „Android“ valdiklio meniu telefono pagrindiniame ekrane.</p>
+
+<h2 id="salary">11. Atlyginimo skaičiavimas</h2>
+
+<p>Atidarykite „Atlyginimo skaičiavimas“ iš atlyginimo kortelės <a href="#statistics-work">pasirinkto grafiko statistikoje</a>. Čia galite nustatyti mokėjimo būdą, tarifą arba mėnesinį atlyginimą, viršvalandžių taisykles, premijas ir atskaitymus. Programa naudoja šiuos nustatymus kartu su pasirinktu laikotarpiu, pamainų grafiku, kalendoriaus pakeitimais ir pertraukų apskaita.</p>
+
+<div class="warning"><strong>Skaičiavimas pateikiamas tik informaciniais tikslais.</strong> Faktinis atlyginimas gali skirtis, jei jūsų darbdavys naudoja kitą laiko apskaitos, apvalinimo, išmokų, mokesčių, premijų, atskaitymų ar mokėjimo už konkrečius pamainų tipus sistemą. Nenaudokite rezultato kaip oficialaus darbo užmokesčio dokumento; palyginkite jį su savo darbdavio algalapiu. Jei pastebėsite, kad skaičiavimo metodas programėlėje veikia netiksliai, rašykite kūrėjams el. laišką programėlėje nurodytu adresu. Aprašykite taisykles, pateikite įvesties duomenų pavyzdžius ir nurodykite laukiamą rezultatą. Tada metodą galima apsvarstyti ateityje atnaujinant.</div>
+
+<h3 id="salary-settings">11.1. Įkainis, viršvalandžiai ir premijos</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_settings_overview.webp" alt="Atlyginimo skaičiavimo ekranas su pasirinktu grafiku, įkainio tipu, viršvalandžiais ir premijomis">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Pasirinktas grafikas</strong> – rodo, kuris pamainos grafikas naudojamas. Atlyginimas skaičiuojamas pagal šį grafiką ir statistikoje pasirinktą laikotarpį.</li>
+<li><strong>Įkainio tipas ir mokėjimo suma</strong> – pasirinkite mokėjimą <strong>per valandą</strong>, <strong>per pamainą</strong> arba <strong>per mėnesį</strong>, tada įveskite atitinkamą sumą. Lauko pavadinimas keičiasi kartu su pasirinktu įkainio tipu.</li>
+<li><strong>Viršvalandžiai</strong> – įjunkite šią skiltį, jei už viršvalandžius mokama kitaip nei už įprastą darbo laiką. Tada nurodykite viršvalandžių mokėjimo daugiklį. Pridėkite papildomas valandas prie kalendoriaus naudodami <a href="#main-shift-time-adjustment">„Keisti pamainą“ → „+ laikas“</a>; įjunkite „Skaičiuoti šį laiką kaip viršvalandžius“, kad valandos būtų laikomos viršvalandžiais.</li>
+<li><strong>Premijos</strong> – rodo dabartinį skaičiavimo metodą ir bendras sumas. Palieskite kortelę, kad atidarytumėte <a href="#salary-bonuses">premijų nustatymus</a>.</li>
+</ol>
+
+<div class="notice">Mygtukas „Išsaugoti“ pritaiko nustatymus pasirinktam grafikui. Išsaugojus, statistikoje ir ataskaitose pateiktos sumos perskaičiuojamos naudojant įvestus duomenis.</div>
+
+<h3 id="salary-summary">11.2. Išskaitymai ir bendros sumos apskaičiavimas</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions_total.webp" alt="Atlyginimo skaičiavimo ekranas su išskaitymais ir galutiniu suskirstymu">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Išskaitymai</strong> – rodo bendrą sukonfigūruotų išskaitymų sumą ir skaičių. Palieskite kortelę, kad atidarytumėte <a href="#salary-deductions">išskaitymų sąrašą</a>.</li>
+<li><strong>Iš viso</strong> – suvestinė išskaidymas: apmokėtas laikas, dirbtos valandos, viršvalandžiai, bazinis atlyginimas, užmokestis už viršvalandžius, premijos, išskaitymai ir galutinis rezultatas.</li>
+</ol>
+
+<div class="tip">Rezultatas priklauso ne tik nuo šio ekrano nustatymų, bet ir nuo pasirinkto statistikos laikotarpio, atliktų pamainų, dienos pakeitimų, viršvalandžių ir neapmokėtų pertraukų nustatymų.</div>
+
+<h3 id="salary-bonuses">11.3. Premijos</h3>
+
+<p>Atlyginimo skaičiavimo ekrane palieskite kortelę „Premijos“. Premiją galite įvesti rankiniu būdu arba apskaičiuoti ją procentais, jei tai atitinka jūsų darbo užmokesčio sistemą.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_bonuses.webp" alt="Premijų nustatymų ekranas su skaičiavimo ir sumos įvedimo parinktimis">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Apibendrinimo informacija</strong> – rodo apskaičiuotą bendrą premijų sumą ir bazinę sumą, naudojamą skaičiavimui.</li>
+<li><strong>Premijų skaičiavimas</strong> – pasirinkite rankinį įvedimą arba procentų skaičiavimą, pvz., pardavimų procentą, jei šis metodas naudojamas jūsų darbovietėje.</li>
+<li><strong>Įvedimo būdas</strong> – „Bendra suma“ tinka vienai galutinei premijai. Atskiros eilutės naudingos, kai yra kelios premijos, kurias reikia skaičiuoti atskirai.</li>
+<li><strong>Suma arba procentai</strong> – įveskite pasirinkto skaičiavimo metodo reikalaujamą reikšmę.</li>
+<li><strong>Atšaukti ir išsaugoti</strong> – atmesti pakeitimus arba pritaikyti juos atlyginimo skaičiavimui.</li>
+</ol>
+
+<h3 id="salary-deductions">11.4. Atskaitymų sąrašas</h3>
+
+<p>Pagrindiniame skaičiavimo ekrane palieskite kortelę „Atskaitymai“. Šiame skyriuje galite saugoti kelis atskaitymus ir valdyti kiekvieną iš jų atskirai.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions.webp" alt="Atskaitymų sąrašo ekranas su bendra suma, atskaitymų eilutėmis ir pridėjimo mygtuku">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Santraukos informacija</strong> – rodo visų įjungtų atskaitymų sumą ir skaičių.</li>
+<li><strong>Atskaitymų eilutė</strong> – rodo pavadinimą, vertę ir tipą. Palieskite eilutę, kad atidarytumėte <a href="#salary-deduction-editor">išskaitymų nustatymus</a>. Šiukšliadėžės piktograma ištrina eilutę.</li>
+<li><strong>Pridėti išskaitymą</strong> – mygtukas „+“ sukuria naują išskaitymų eilutę.</li>
+<li><strong>Atšaukti ir išsaugoti</strong> – atmesti pakeitimus arba išsaugoti visą sąrašą.</li>
+</ol>
+
+<h3 id="salary-deduction-editor">11.5. Individualaus išskaitymo konfigūravimas</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deduction_editor.webp" alt="Individualaus išskaitymo skydelis su pavadinimu, verte, tipu ir išskaitymo baze">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Išskaitymo pavadinimas</strong> – įveskite aiškų pavadinimą, pvz., „Mokestis“, „Išlaikymas vaikui“ arba „Bauda“.</li>
+<li><strong>Vertė</strong> – įveskite sumą arba procentą, atsižvelgdami į toliau pasirinktą vertės tipą.</li>
+<li><strong>Vertės tipas</strong> – pasirinkite fiksuotą sumą arba procentą.</li>
+<li><strong>Išskaitymo tipas</strong> – <strong>kintama</strong> išskaita taikoma konkrečiam skaičiavimo laikotarpiui; <strong>pasikartojantis</strong> išskaitymas taikomas reguliariai, kol jis lieka įjungtas.</li>
+<li><strong>Išskaityti iš</strong> – pasirinkite skaičiavimo bazę: bendras atlyginimas, bazinis atlyginimas, premijos arba kita galima parinktis.</li>
+<li><strong>Įjungta</strong> – laikinai išjungia išskaitymą neištrinant jo nustatymų.</li>
+<li><strong>Atšaukti ir išsaugoti</strong> – uždarykite skydelį be pakeitimų arba išsaugokite išskaitymą.</li>
+</ol>
+
+<div class="notice">Procentiniam išskaitymui ypač svarbu pasirinkti teisingą „Išskaityti iš“ bazę: tas pats viso atlyginimo, bazinio atlyginimo ir premijų procentas duoda skirtingus rezultatus.</div>
+
+<h2 id="settings">12. Nustatymai</h2>
+
+<p>Atidarykite „Nustatymus“ naudodami mygtuką, esantį <a href="#main-overview">pagrindinio ekrano</a> apačioje. Šiame skyriuje pateikiami sistemos leidimai, išvaizda ir programėlės kalba, kalbos atpažinimas neprisijungus, dokumentai ir naudotojo vadovas, atsarginės kopijos kūrimas, diagnostika ir kūrėjo kontaktų parinktys.</p>
+
+<h3 id="settings-overview">12.1. Pagrindiniai nustatymų skyriai</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_permissions_language.webp" alt="„ShiftAlarm“ nustatymų viršuje: leidimai, tema, programėlės kalba ir kalbos neprisijungus modeliai">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Leidimai</strong> – atidaro žadintuvo leidimus ir patikimumo nustatymus. Patikrinkite pranešimus, tikslius žadintuvus, foninę veiklą ir akumuliatoriaus apribojimus. <a href="#geo">Geo aliarmams</a> taip pat reikalinga prieiga prie vietos; norint suaktyvinti, kai programėlė uždaryta, reikia prieigos prie vietos fone arba „Leisti visą laiką“. Elementų pavadinimai ir keliai skiriasi priklausomai nuo „Android“ versijos ir įrenginio gamintojo.</li>
+<li><strong>Tema</strong> – leidžia pasirinkti šviesią, tamsią arba sistemos išvaizdą, pasirinkti sąsajos spalvos variantą ir įjungti arba išjungti haptinį grįžtamąjį ryšį veiksmams programoje. Sistemos tema atitinka dabartinę telefono išvaizdą.</li>
+<li><strong>Programėlės kalba</strong> – leidžia naudoti kalbą, kuri skiriasi nuo telefono sistemos kalbos. „ShiftAlarm“ kataloge yra 108 kalbos: raskite reikiamą kalbą naudodami paiešką, atsisiųskite kalbos paketą ir jį pritaikykite.</li>
+<li><strong>Kalbos neprisijungus modeliai</strong> – įdiegia modulį, skirtą <a href="#notes-create">kalbos pavertimo tekstu užrašams</a>. Atpažinimas neprisijungus šiuo metu yra testuojamas ir pasiekiamas maždaug 20 kalbų. Jo kokybė gali būti žemesnė nei atpažinimo internete ir priklauso nuo kalbos, mikrofono, telefono veikimo ir įrašymo sąlygų.</li>
+</ol>
+
+<div class="warning"><strong>„Android“ leidimai skiriasi skirtinguose įrenginiuose.</strong> Kai kuriuose telefonuose taip pat turite leisti automatinį paleidimą fone, pasirinkti „Neribojamas“ arba panašų akumuliatoriaus režimą ir leisti foninę veiklą. Šie nustatymai sumažina tikimybę, kad sistema sustabdys „ShiftAlarm“, tačiau tikslius jų pavadinimus nustato įrenginio gamintojas.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_help_backup_diagnostics.webp" alt="„ShiftAlarm“ nustatymų apačioje: dokumentai, naudotojo vadovas, atsarginė kopija, diagnostika ir kūrėjo kontaktinė informacija">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Dokumentai ir pagalba</strong> – atidaro programos teisinius dokumentus: naudojimo sąlygas, privatumo politiką, atsakomybės apribojimą ir trumpą pagalbos puslapį.</li>
+<li><strong>Mokymo ir naudotojo vadovas</strong> – atidaro šį išsamų iliustruotą vadovą su išsamiais „ShiftAlarm“ funkcijų aprašymais.</li>
+<li><strong>Atsarginių kopijų kūrimas ir atkūrimas</strong> – sukuria failą, kuriame yra palaikomi programos nustatymai ir duomenys, arba atkuria juos iš ankstesnės atsarginės kopijos. Tai naudinga prieš iš naujo diegiant programą, iš naujo nustatant telefoną arba perkeliant duomenis į kitą įrenginį. Išsamias instrukcijas žr. <a href="#backup">„Atsarginių kopijų kūrimas ir atkūrimas“</a>.</li>
+<li><strong>Diagnostikos žurnalas</strong> – atidaro atskirus programos funkcijų žurnalus. Juose įrašomi techniniai etapai, pvz., įspėjimų planavimas ir atkūrimas, įvykių apdorojimas, leidimų būsena ir kita informacija apie paslaugas. Žurnalas padeda nustatyti etapą, kuriame įvyko klaida. Įrašus galite nukopijuoti arba paruošti juos siųsti el. paštu kūrėjams. Išsamesnės informacijos žr. <a href="#diagnostics">„Diagnostika ir trikčių šalinimas“</a>.</li>
+<li><strong>Susisiekite su kūrėjais</strong> – atidaro el. pašto programėlę ir sukuria pranešimą, skirtą palaikymo tarnybai. Naudokite jį norėdami pranešti apie problemą, siųsti atsiliepimą ar pasiūlymą arba užduoti klausimą. Jei iškilo techninė problema, nurodykite telefono modelį, „Android“ versiją, problemos laiką, atliktus veiksmus ir, jei įmanoma, atitinkamą diagnostikos žurnalą.</li>
+</ol>
+
+<div class="notice">Diagnostikos žurnalai kūrėjams automatiškai nesiunčiami. Turite nukopijuoti reikiamą informaciją arba paliesti „Siųsti kūrėjams“, pasirinkti el. pašto programėlę, peržiūrėti paruoštą pranešimą ir patvirtinti jo siuntimą.</div>
+
+<h2 id="backup">13. Atsarginė kopija ir atkūrimas</h2>
+
+<p>Atsarginė kopija išsaugo palaikomus „ShiftAlarm“ nustatymus ir naudotojo duomenis atskirame faile. Ji padeda atkurti duomenis iš naujo įdiegus programėlę, iš naujo nustačius telefoną arba perkėlus jį į kitą įrenginį.</p>
+<ol class="step-list">
+<li>Atidarykite „Nustatymai → Atsarginė kopija ir atkūrimas“.</li>
+<li>Sukurkite atsarginę kopiją ir išsaugokite gautą failą telefone arba bendrinkite jį per sistemos meniu.</li>
+<li>Norėdami atkurti, atidarykite tą patį skyrių ir pasirinkite anksčiau sukurtą atsarginės kopijos failą.</li>
+<li>Atkūrę patikrinkite svarbius signalus, tvarkaraščius ir „Android“ leidimus. Kai kuriuos sistemos saugumo leidimus gali tekti suteikti iš naujo naujame įrenginyje arba po pakartotinio įdiegimo.</li>
+</ol>
+<p class="tip">Dabartinę kopiją laikykite saugioje vietoje, kuri būtų pasiekiama pametus, sugadinus arba iš naujo nustačius telefoną. Atsarginės kopijos failas nepakeičia „Android“ sistemos leidimų ir negali automatiškai įtraukti duomenų, kurių programai neleidžiama pasiekti.</p>
+
+<h2 id="diagnostics">14. Diagnostika ir trikčių šalinimas</h2>
+
+<p>„ShiftAlarm“ teikia atskirus diagnostikos žurnalus skirtingoms funkcijoms. Juose saugoma techninių įvykių seka ir padedama nustatyti, ar įspėjimas buvo suplanuotas, atkurtas po paleidimo iš naujo, perduotas apdorojimui, ar sustabdytas dėl sistemos nustatymo.</p>
+
+<h3 id="diagnostics-control">14.1. Diagnostikos rinkimo valdymas</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_sections.webp" alt="ShiftAlarm diagnostikos žurnalo ekranas su pagrindiniu jungikliu ir atskiru pavojaus signalų žurnalu">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Diagnostikos rinkimas</strong> – pagrindinis jungiklis kiekvienai diagnostikos sekcijai programoje. Išjunkite jį, kad nauji įvykiai nebūtų pridedami į visus žurnalus vienu metu. Naujų įvykių rinkimas atnaujinamas, kai jį vėl įjungiate.</li>
+<li><strong>Atskiras funkcijų žurnalas</strong> – kiekvienas modulis turi savo jungiklį ir mygtuką „Atidaryti“. Pavyzdžiui, galite palikti įjungtą visuotinę diagnostiką, o išjungti tik žadintuvą, laikrodį ar kitą funkcijų žurnalą. Ekrano kopijoje rodomas žadintuvų žurnalas, kuriame įrašomi pristatymo, planavimo, atkūrimo, apsaugos ir žadintuvo ekrano įvykiai.</li>
+</ol>
+
+<div class="notice">Jungikliai valdo tik techninių įvykių įrašymą. Išjungus žadintuvą, laikrodį ar kitą funkcijų žurnalą, pati funkcija neišjungiama. Anksčiau išsaugotus įrašus galite atskirai ištrinti naudodami mygtuką „Išvalyti“ atitinkamame žurnale.</div>
+
+<h3 id="diagnostics-log">14.2. Individualus funkcijų žurnalas</h3>
+
+<p>Reikalingoje diagnostikos dalyje palieskite „Atidaryti“. Žemiau pateiktame pavyzdyje parodytas aliarmų žurnalas; Kitų funkcijų žurnalai veikia panašiai.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_alarm_log.webp" alt="ShiftAlarm signalizacijos diagnostikos žurnalas su įvykių skaičiumi, veiksmais ir techniniais įrašais">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Išsaugoti įvykiai</strong> – rodo šiuo metu pasirinktame žurnale saugomų įrašų skaičių.</li>
+<li><strong>Žurnalo veiksmai</strong>:
+<ul>
+<li><strong>Kopijuoti</strong> – nukopijuoja visus duomenis iš dabartinio žurnalo į iškarpinę. Galite juos įklijuoti į el. laišką arba kitą programėlę.</li>
+<li><strong>Išvalyti</strong> – ištrina išsaugotus įrašus šiame žurnale. Išvalius bus rodomi tik vėliau įrašyti įvykiai, kai diagnostika įjungta.</li>
+<li><strong>Siųsti kūrėjams</strong> – atidaro programėlių parinkiklį el. laiškams siųsti. Pasirinkite el. pašto programėlę; Kūrėjo adresas ir diagnostikos duomenys įterpiami automatiškai. Prieš siųsdami, pridėkite problemos aprašymą, peržiūrėkite pranešimą ir patvirtinkite jo siuntimą.</li>
+</ul>
+</li>
+<li><strong>Programėlės įvykiai</strong> – patys žurnalo įrašai. Įraše paprastai nurodoma data ir laikas, techninis įvykio pavadinimas ir papildomi parametrai, pvz., identifikatorius, būsena arba priežastis. Techniniai pavadinimai gali būti anglų kalba; prieš siųsdami jų neredaguokite ir neverskite.</li>
+</ol>
+
+<div class="warning">Prieš išvalydami žurnalą, nukopijuokite arba išsiųskite visus reikiamus įrašus. Ištrintų diagnostikos įvykių atkurti negalima.</div>
+
+<div class="tip">Jei problemą galima atkurti, pirmiausia įjunkite visuotinį diagnostikos duomenų rinkimą ir atitinkamą funkcijų žurnalą, tada pakartokite veiksmus, kurie sukėlė problemą. Savo pranešime nurodykite tikslų problemos laiką, telefono modelį, „Android“ versiją, numatomą ir faktinį rezultatą. Tai padės susieti jūsų aprašymą su žurnalo įvykiais.</div>
+
+<h2 id="faq">15. Dažnai užduodami klausimai</h2>
+
+<h3>Signalizatorius nesuveikė laiku</h3>
+<p>Patikrinkite pranešimus, tikslią signalizacijos leidimą, foninę veiklą ir akumuliatoriaus apribojimus.</p>
+<h3>Geografinė signalizacija suveikė per vėlai</h3>
+<p>Patikrinkite tikslią ir foninę vietą, akumuliatoriaus apribojimus ir automatinį paleidimą fone. Pabandykite 1 300–1 500 m spindulį mieste ir 4 000–5 000 m spindulį už miesto ribų. Tikrasis suveikimas gali neįvykti tiksliai spindulio linijoje.</p>
+<h3>Valdiklis nebuvo atnaujintas iš karto</h3>
+<p>Atidarykite programėlę arba palieskite valdiklio atnaujinimo mygtuką. „Android“ gali apriboti dažnus valdiklių atnaujinimus.</p>
+<h3>Pakeičiau kalbą, bet dokumentas arba vadovas dar neatnaujintas</h3>
+<p>Patikrinkite interneto ryšį ir palaukite, kol atsisiuntimas įvyks. Jei nuotolinė versija nepasiekiama, programa naudoja integruotą atsarginį variantą.</p>
+
+<div class="footer small">Vadovą galima atnaujinti naudojant „GitHub“. Jei nuotolinė versija nepasiekiama, programa naudoja integruotą neprisijungus pasiekiamą versiją.</div>
+</main>
+</body>
+</html>

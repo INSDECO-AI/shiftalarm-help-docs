@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Uporabniški priročnik za ShiftAlarm</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #64748b;
+  --accent: #2563eb;
+  --soft: #e8eef8;
+  --border: #dbe4f0;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.58;
+  margin: 0;
+  padding: 18px;
+  color: var(--text);
+  background: var(--bg);
+}
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+h1 { margin: 0 0 8px; font-size: 28px; line-height: 1.2; }
+h2 { margin: 32px 0 10px; font-size: 21px; line-height: 1.25; }
+h3 { margin: 22px 0 8px; font-size: 17px; }
+p, li { font-size: 16px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul, ol { padding-left: 22px; }
+.notice, .tip, .warning {
+  padding: 14px 16px;
+  border-radius: 16px;
+  margin: 14px 0;
+  border: 1px solid var(--border);
+}
+.notice { background: var(--soft); }
+.tip { background: #ecfdf5; }
+.warning { background: #fff7ed; }
+.small { color: var(--muted); font-size: 14px; }
+.toc {
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 16px;
+  margin: 18px 0 24px;
+}
+.toc ol { margin: 8px 0 0; }
+.step-list li { margin-bottom: 8px; }
+.guide-figure {
+  margin: 18px 0;
+}
+.guide-image {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+}
+.callout-list li {
+  margin-bottom: 10px;
+}
+.guide-caption {
+  max-width: 520px;
+  margin: 10px auto 0;
+  color: var(--text);
+  font-size: 15px;
+}
+.guide-caption strong {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.footer {
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --card: #111827;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --accent: #93c5fd;
+    --soft: #1f2937;
+    --border: #334155;
+  }
+  main { box-shadow: none; }
+  .toc { background: #172033; }
+  .tip { background: #10251f; }
+  .warning { background: #2a1d10; }
+}
+</style>
+</head>
+<body>
+<main>
+<h1>Uporabniški priročnik za ShiftAlarm</h1>
+<p class="small">Različica 14. Datum: 2. avgust 2026.</p>
+<div class="notice">Ta stran je praktičen vodnik za ShiftAlarm. Pojasnjuje, kaj počne vsaka glavna funkcija, kje jo najti, kaj se dotakniti in kaj preveriti, če funkcija ne deluje po pričakovanjih.</div>
+<nav class="toc">
+<strong>Vsebina</strong>
+<ol><li><a href="#start">1. Prvi zagon</a></li><li><a href="#permissions">2. Dovoljenja in zanesljivost</a></li><li><a href="#main">3. Glavni zaslon</a></li><li><a href="#shifts">4. Urniki izmen</a></li><li><a href="#statistics">5. Statistika urnikov</a></li><li><a href="#alarms">6. Alarmi</a></li><li><a href="#geo">7. Geo alarmi</a></li><li><a href="#notes">8. Opombe, dogodki in opomniki</a></li><li><a href="#clock">9. Ura, časovnik in štoparica</a></li><li><a href="#widgets">10. Pripomočki</a></li><li><a href="#salary">11. Izračun plače</a></li><li><a href="#settings">12. Nastavitve</a></li><li><a href="#backup">13. Varnostno kopiranje in obnovitev</a></li><li><a href="#diagnostics">14. Diagnostika in odpravljanje težav</a></li><li><a href="#faq">15. Pogosto zastavljena vprašanja</a></li></ol>
+</nav>
+<h2 id="start">1. Prvi zagon</h2>
+
+<p>Ko se ShiftAlarm prvič zažene, prikaže kratek postopek nastavitve. Glavni zaslon je že na voljo v ozadju, vendar je najbolje, da najprej dokončate osnovno nastavitev.</p>
+<ol class="step-list">
+<li>Preberite uvodne informacije in tapnite »Nadaljuj«.</li>
+<li>V koraku z dokumenti odprite dokumente ali sprejmite zahtevane dokumente, ko ste pripravljeni nadaljevati.</li>
+<li>V koraku z dovoljenji odprite zaslon z dovoljenji in preverite obvestila, natančne alarme, dostop do lokacije in omejitve baterije.</li>
+<li>Tapnite »Dokončaj nastavitev«.</li>
+</ol>
+<p class="tip">Dovoljenja lahko konfigurirate pozneje v razdelku »Nastavitve → Dovoljenja in zanesljivost«.</p>
+
+<h2 id="permissions">2. Dovoljenja in zanesljivost</h2>
+
+<p>Alarmi, opomniki in geoalarmi so odvisni od nastavitev sistema Android in programske opreme proizvajalca naprave.</p>
+<ul>
+<li><strong>Obvestila</strong> – potrebna za alarme, opomnike, časovnik in obvestila o storitvah.</li>
+<li><strong>Natančni alarmi</strong> – pomagajo, da se alarm sproži ob želenem času.</li>
+<li><strong>Lokacija</strong> – potrebna za geoalarme.</li>
+<li><strong>Lokacija v ozadju</strong> – potrebna za delovanje geoalarma, ko je aplikacija zaprta.</li>
+<li><strong>Baterija in dejavnost v ozadju</strong> – lahko vplivata na zanesljivost sprožilca na napravah Xiaomi/Redmi in nekaterih drugih.</li>
+</ul>
+<p class="warning">Android ne zagotavlja vedno takojšnje dostave obvestil, natančnih alarmov ali dogodkov geofence. Za pomembna opozorila preverite vse elemente na zaslonu z dovoljenji.</p>
+
+<h2 id="main">3. Glavni zaslon</h2>
+
+<p>Glavni zaslon je vaša dnevna nadzorna plošča. Omogoča neposreden dostop do koledarja, ure, geografskih alarmov, rednih alarmov, urnikov izmen, zapiskov in nastavitev.</p>
+
+<h3 id="main-overview">3.1. Elementi glavnega zaslona</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_screen_overview.png" alt="Glavni zaslon ShiftAlarm z oštevilčenimi kontrolniki">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Puščica nazaj</strong> – premakne koledar na prejšnji mesec.</li>
+<li><strong>Mesec in leto</strong> – prikaže odprt mesec. Dotaknite se tega območja, da uporabite <a href="#main-date-picker">izbirnik meseca in leta po korakih</a>.</li>
+<li><strong>Puščica naprej</strong> – premakne koledar na naslednji mesec.</li>
+<li><strong>Koledar</strong> – glavno območje meseca. Koledar lahko povlečete. Vsak dan lahko prikaže datum, opomnike, dogodke, načrtovano izmeno in spremembe dni. Z običajnim dotikom izberete datum; Dolg pritisk odpre <a href="#main-day-actions">informacije in dejanja za izbrani dan</a>.</li>
+<li><strong>Danes</strong> – vrne koledar na trenutni dan.</li>
+<li><strong>Ura</strong> – odpre <a href="#clock">svetovno uro, štoparico in časovnik</a>.</li>
+<li><strong>Geo alarm</strong> – odpre <a href="#geo">zemljevid, shranjene kraje in nastavitve geo alarma</a>. Opozorilo se lahko sproži, ko vstopite na izbrano območje, ga zapustite ali storite oboje.</li>
+<li><strong>Alarm</strong> – odpre <a href="#alarms">redne, ponavljajoče se in s Shift povezane alarme</a>.</li>
+<li><strong>Urnik</strong> – odpre <a href="#shifts">urnike izmen, njihovo ustvarjanje in urejanje ter statistiko</a>.</li>
+<li><strong>Opombe</strong> – odpre <a href="#notes">opombe, dogodke, opomnike, zvočne zapiske in pretvorbo govora v besedilo</a>.</li>
+<li><strong>Nastavitve</strong> – odpre <a href="#settings">dovoljenja, jezik, temo, modele govora brez povezave, varnostno kopiranje, diagnostiko, dokumente in usposabljanje</a>.</li>
+</ol>
+
+
+<h3 id="main-date-picker">3.2. Izbira meseca in leta</h3>
+
+<p>Dotaknite se meseca in leta na vrhu glavnega zaslona, ​​da hitro odprete želeno koledarsko obdobje. Izbira poteka po fazah: <strong>stoletje → desetletje → leto → mesec</strong>.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_century.webp" alt="1. korak: izbira stoletja v koledarju ShiftAlarm">
+<figcaption class="guide-caption"><strong>1. Izberite stoletje.</strong> Dotaknite se obdobja, ki vsebuje želeno leto. V primeru so izbrana leta 2000.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_decade.webp" alt="2. korak: izbira desetletja v koledarju ShiftAlarm">
+<figcaption class="guide-caption"><strong>2. Izberite desetletje.</strong> Dotaknite se obsega, ki vsebuje želeno leto. Za leto 2026 izberite »2020–2029«.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_year.webp" alt="3. korak: izbira leta v koledarju ShiftAlarm">
+<figcaption class="guide-caption"><strong>3. Izberite leto.</strong> Dotaknite se želenega leta. V primeru je izbrano leto 2026.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_month.webp" alt="4. korak: izbira meseca v koledarju ShiftAlarm">
+<figcaption class="guide-caption"><strong>4. Izberite mesec.</strong> Dotaknite se želenega meseca. Primer izbere julij.</figcaption>
+</figure>
+
+<div class="tip">Ko izberete mesec, se plošča zapre in glavni koledar se odpre ob izbranem mesecu in letu.</div>
+<div class="notice">Gumb »Nazaj« vrne na prejšnjo stopnjo. Na zaslonu stoletja zapre izbirnik datuma.</div>
+
+<h3 id="main-day-actions">3.3. Informacije in dejanja za izbrani dan</h3>
+
+<p>Dotaknite se in pridržite želeni dan v koledarju. Odpre se plošča z informacijami in dejanji za ta datum. Povlecite ploščo navzgor, da si ogledate vsa razpoložljiva dejanja.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_day_actions.webp" alt="ShiftPlošča z informacijami in dejanji alarma za izbrani dan v koledarju">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Datum</strong> – prikazuje dan v tednu in izbrani datum. Povlecite ročico na vrhu navzgor ali navzdol, da razširite ali zaprete ploščo.</li>
+<li><strong>Shift</strong> – prikaže izračunano izmeno ali spremembo dneva, kot je prost dan, dopust, bolniška odsotnost ali druga izjema.</li>
+<li><strong>Alarmi za ta datum</strong> – prikaže alarme, dodeljene izbranemu dnevu, ali poroča, da ne obstajajo.</li>
+<li><strong>Dogodki in opomniki</strong> – prikaže vnose, povezane z izbranim datumom.</li>
+<li><strong>Dodaj alarm</strong> – odpre ustvarjanje enkratnega alarma za izbrani datum.</li>
+<li><strong>Spremeni izmeno</strong> – ustvari izjemo za en dan ali datumsko obdobje v aktivnem urniku.</li>
+<li><strong>Dodaj opombo</strong> – omogoča izbiro dogodka ali opomnika, ki ga želite ustvariti za izbrani datum.</li>
+</ol>
+
+<div class="notice">Dejanje »Spremeni izmeno« je na voljo za prilagajanje dni v aktivnem urniku izmen.</div>
+
+<h4 id="main-shift-override">Spreminjanje enega dneva ali datumskega obdobja</h4>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_types.webp" alt="Izbira datumskega obdobja in vrste spremembe izmene v ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Začetni datum</strong> — prvi dan spremembe. Sprva se uporabi datum, izbran v koledarju.</li>
+<li><strong>Končni datum</strong> — zadnji dan spremembe. Če želite spremeniti samo en dan, pustite izbran isti datum.</li>
+<li><strong>Prosti čas</strong> – zamenja izračunano izmeno s prostim časom.</li>
+<li><strong>Dopust</strong> – označi izbrani dan ali obseg kot dopust.</li>
+<li><strong>Bolniška odsotnost</strong> – označi izbrani dan ali obseg kot bolniško odsotnost.</li>
+<li><strong>Shrani spremembo</strong> – uporabi izbrano izjemo v koledarju.</li>
+</ol>
+
+<h4 id="main-shift-time-adjustment">Prilagajanje delovnega časa</h4>
+
+<p>Pomaknite se navzdol po seznamu vrst sprememb in izberite »Uredi izmeno«, da spremenite trajanje izračunane delovne izmene.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_time_adjustment.webp" alt="Prilagajanje delovnega časa izmene v ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Uredi izmeno</strong> — omogoči prilagoditev delovnega časa za izbrano izmeno.</li>
+<li><strong>+ čas</strong> — standardnemu trajanju izmene doda ure ali minute.</li>
+<li><strong>− čas</strong> — skrajša trajanje izmene, na primer, ko se delo konča predčasno.</li>
+<li><strong>Šteje ta čas kot nadure</strong> — dodani čas obravnava kot nadure. Če je možnost izklopljena, se šteje kot redni delovni čas.</li>
+<li><strong>Shrani spremembo</strong> – prilagoditev uporabi za izbrani dan ali obseg.</li>
+</ol>
+
+<div class="tip">Sprememba dneva ne spremeni prvotne predloge urnika. Shrani se kot ločena izjema in je vključena v koledar, statistiko, izračun plače in poročila.</div>
+
+<h2 id="shifts">4. Urniki izmen</h2>
+
+<p>Urnik izmen določa ponavljajoči se delovni cikel in zagotavlja osnovo za druge funkcije ShiftAlarm. Aplikacija ga uporablja za polnjenje koledarja, povezovanje alarmov z izmenami, štetje delovnega časa, ustvarjanje statistike, oceno plače in pripravo poročil.</p>
+
+<div class="notice"><strong>Osnovno načelo.</strong> Najprej ustvarite osnovni ponavljajoči se urnik. Dodajte dopust, bolniško odsotnost, prosti čas, enkratno nadomestno izmeno ali prilagoditev delovnega časa kot izjemo za določene datume z <a href="#main-day-actions">dejanji izbranega dne</a>. To ohrani prvotni cikel nespremenjen.</div>
+
+<h3 id="shifts-list">4.1. Seznam urnikov in kontrolniki</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedules_overview.webp" alt="Zaslon urnika ShiftAlarm z aktivno kartico urnika in oštevilčenimi kontrolniki">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Podrobnosti urnika</strong> – ime, začetni datum, dolžina cikla in kratko zaporedje dni. V primeru »D · D · O · O« pomeni dve dnevni izmeni, ki jima sledita dva prosta dneva.</li>
+<li><strong>Stikalo</strong> – začasno onemogoči urnik, ne da bi ga izbrisal. Ko ga ponovno omogočite, shranjene nastavitve še naprej veljajo.</li>
+<li><strong>Stanje urnika</strong> – označuje, kateri urnik je trenutno aktiven.</li>
+<li><strong>Uredi</strong> – odpre parametre, ki jih je mogoče spremeniti. Po začetni nastavitvi se del osnove urnika zaklene, da se prepreči nenamerno ponovno izračunavanje že ustvarjenih koledarskih podatkov.</li>
+<li><strong>Izbriši</strong> – po potrditvi izbriše urnik. Preden ga izbrišete, preverite morebitne alarme in izračune, povezane z izmeno.</li>
+<li><strong>Odpri statistiko</strong> – odpre <a href="#statistics">statistiko delovnega časa, obdobja, plače in poročila</a> tega urnika.</li>
+<li><strong>Ustvari urnik</strong> – omogoča izbiro že pripravljene predloge ali ustvarjanje cikla po meri.</li>
+</ol>
+
+<h3 id="shifts-create">4.2. Začetek ustvarjanja urnika</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_create.webp" alt="Plošča za ustvarjanje urnika z imenom, začetnim datumom, predlogami in urnikom po meri">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ime urnika</strong> – vnesite jasno ime, kot je »Glavna 2/2«, »Nočna izmena« ali ime vašega delovnega mesta.</li>
+<li><strong>Začetni datum</strong> – datum, ki ustreza <strong>prvemu dnevu ponavljajočega se cikla</strong>. Izberete lahko pretekli ali prihodnji datum; aplikacija izračuna urnik naprej in nazaj od njega.</li>
+<li><strong>Predloge</strong> – že pripravljena običajna zaporedja izmen. Primer uporablja predlogo »2/2 dneva«.</li>
+<li><strong>Urnik po meri</strong> – ustvari vaše lastno zaporedje delovnih dni in prostih dni.</li>
+<li><strong>Ustvari urnik</strong> – odpre podroben urejevalnik za izbrano možnost.</li>
+</ol>
+
+<div class="tip">Za predlogo »D · D · O · O« je začetni datum običajno prvi od dveh delovnih dni. V ciklu po meri je lahko 1. dan tudi prost dan; pomembno je, da se izbrani datum natančno ujema s 1. dnevom zaporedja, ki ste ga ustvarili.</div>
+
+<h3 id="shifts-template">4.3. Ustvarjanje urnika iz predloge</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_template.webp" alt="Predloga urejevalnika urnika z imenom, zaporedjem, začetnim datumom in časom izmene">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ime urnika</strong> – obdržite predlagano ime ali ga zamenjajte s svojim.</li>
+<li><strong>Predloga</strong> – prikazuje zaporedje črk in njihov pomen. V primeru »D · D · O · O« pomeni dnevna izmena, dnevna izmena, prost dan, prost dan.</li>
+<li><strong>Začetni datum</strong> – izberite datum prvega dne v prikazanem zaporedju.</li>
+<li><strong>Čas izmene</strong> – določite začetni in končni čas za vsako vrsto delovne izmene. Aplikacija prikaže izračunano trajanje.</li>
+<li><strong>Prekliči</strong> – zapre urejevalnik brez shranjevanja.</li>
+<li><strong>Shrani</strong> – shrani urnik in začne izračunavati izmene v koledarju.</li>
+</ol>
+
+<div class="warning"><strong>Po prvem shranjevanju.</strong> Začetni datum in struktura cikla sta zaklenjena, da zaščitita podatke koledarja, ki so že bili izračunani. Še vedno lahko urejate ime in nekatere delovne parametre. Če potrebujete drug osnovni cikel ali referenčni datum, je varneje ustvariti nov urnik.</div>
+
+<h3 id="shifts-custom">4.4. Ustvarjanje cikla po meri</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_custom.webp" alt="Urejevalnik urnikov po meri z dolžino cikla, dnevnimi kontrolami, začetnim datumom in nastavitvami za vsak dan">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ime urnika</strong> – poimenujte zaporedje po meri.</li>
+<li><strong>Dolžina cikla</strong> – prikazuje, koliko dni je vključenih v ponavljajoče se zaporedje.</li>
+<li><strong>Odstrani dan</strong> – skrajša cikel za en dan.</li>
+<li><strong>Dodaj dan</strong> – na konec cikla doda še en nastavljiv dan.</li>
+<li><strong>Začetni datum</strong> – datum, ki ustreza 1. dnevu cikla po meri.</li>
+<li><strong>Nastavitve dneva</strong> – tapnite »Vrsta izmene« kartico in izberite prost dan ali želeno vrsto dela: dan, noč, jutro, večer, 24-urni ali izmena po meri. Za delovni dan določite začetni in končni čas. Preostale dni cikla konfigurirajte na enak način nižje na zaslonu.</li>
+<li><strong>Prekliči</strong> – zapre urejevalnik brez shranjevanja.</li>
+<li><strong>Shrani</strong> – shrani cikel po meri in ga izračuna v koledarju.</li>
+</ol>
+
+<div class="notice"><strong>Kaj je cikel?</strong> Cikel je število dni, po katerem se zaporedje začne znova. Na primer, štiridnevni cikel je lahko »2 delovna dneva + 2 prosta dneva«, šestdnevni cikel pa »3 delovni dnevi + 3 prosti dnevi«. Po zadnjem dnevu se aplikacija vrne na 1. dan.</div>
+
+<div class="tip">Ne spreminjajte osnovnega cikla za enkratno izjemo urnika. Dolgo pritisnite datum v koledarju in ustvarite prost dan, dopust, bolniško odsotnost, nadomestno izmeno ali prilagoditev časa.</div>
+
+
+
+<span id="shift-statistics"></span>
+<h2 id="statistics">5. Statistika urnika</h2>
+
+<p>Odprite »Statistiko« iz kartice urnika z gumbom <strong>»Odpri statistiko«</strong>. Ta razdelek združuje informacije o delovnih dnevih in prostih dneh, spremembah urnika, načrtovanem in dejanskem delovnem času, ocenjeni plači in poročilih.</p>
+
+<div class="notice"><strong>Pomembno:</strong> statistika se izračuna samo za izbrani urnik izmen. Izbrano obdobje velja za vse vrednosti delovnega časa, plače in poročanja pod njim.</div>
+
+<h3 id="statistics-period">5.1. Povzetek urnika, obdobja in dneva</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_period_overview.webp" alt="Zaslon s statistiko z informacijami o urniku, izbiro obdobja in skupnimi zneski za dan">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Informacije o urniku</strong> – prikazuje ime izbranega urnika, začetni datum prvega cikla in dolžino ponavljajočega se cikla. Statistika na tem zaslonu velja samo za ta urnik.</li>
+<li><strong>Kartica izbranega obdobja</strong> – prikazuje obdobje, ki je v uporabi. Dotaknite se je ali puščice na desni, da izberete trenutni, prejšnji ali naslednji mesec, tekoče leto ali prilagojeno obdobje datumov.</li>
+<li><strong>Povzetek dneva</strong> – prikazuje število dni v obdobju, delovne izmene, proste dni, zaključene in prihajajoče izmene ter spremenjene dni. Spremenjeni dnevi so izjeme od osnovnega cikla: dopust, bolniška odsotnost, prosti čas, nadomestna ali premaknjena izmena, prilagoditev delovnega časa in druge spremembe.</li>
+</ol>
+
+<div class="warning"><strong>Prihodnja obdobja so napovedi.</strong> Za prihodnji mesec aplikacija uporablja ustvarjen urnik in že vnesene podatke, vendar ne more poznati prihodnje bolniške odsotnosti, dopusta, prostih ur, nadur, bonusov ali odbitkov. Ko izberete tekoče leto, lahko skupni zneski združijo dejanske podatke za pretekle datume z napovedjo za preostanek leta.</div>
+
+<h3 id="statistics-work">5.2. Delovni čas, plača in poročila</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_work_salary_reports.webp" alt="Zaslon s statistiko z delovnim časom, napredkom, plačo in dostopom do poročil">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Delovni čas</strong> – povzetek ur in napredka. Dotaknite se ga, da odprete <a href="#statistics-break">nastavitve odmorov</a>.</li>
+<li><strong>Načrtovane ure</strong> – skupno trajanje načrtovanih izmen in sprememb v izbranem obdobju.</li>
+<li><strong>Delane ure</strong> – čas v izmenah, ki se štejejo za zaključene na trenutni datum, z uporabljenimi nastavitvami odmorov.</li>
+<li><strong>Napredek</strong> – prikazuje, koliko delovnih izmen je bilo zaključenih od skupnega števila in kolikšen odstotek izbranega obdobja je zaključen.</li>
+<li><strong>Plača</strong> – odpre <a href="#salary">nastavitve izračuna plače</a>. Kartica prikazuje oceno za izbrani urnik in obdobje.</li>
+<li><strong>Skupaj</strong> – ocenjeni znesek zaslužka do sedaj, vključno z izbranim načinom plačila, bonusi, nadurami in odbitki.</li>
+<li><strong>Stavka ali plača</strong> – vsebina te kartice je odvisna od izbranega načina izračuna: plačilo na uro, na izmeno ali na mesec. Prikazuje vrednost, vneseno v nastavitvah plače.</li>
+<li><strong>Podrobnosti izračuna</strong> – plačan čas, nadure, bonusi in odbitki za izbrano obdobje.</li>
+<li><strong>Poročila</strong> – odpre <a href="#reports">podrobna poročila za obdobja, delovni čas in plačo</a>.</li>
+</ol>
+
+<div class="tip">Vse vrednosti v razdelkih delovnega časa in plače se preračunajo, ko spremenite obdobje na zgornji kartici.</div>
+
+<h3 id="statistics-break">5.3. Obračunavanje odmorov v delovnem času</h3>
+
+<p>Dotaknite se kartice »Delovni čas«, da določite, ali naj se odmor za obrok ali drug odmor šteje kot del dejanskega delovnega in plačanega časa.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_break_settings.webp" alt="Plošča z nastavitvami obračunavanja in trajanja odmorov">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Trenutni seštevki</strong> – prikazuje načrtovane in delovne ure za izbrano obdobje, preden se uporabijo nove nastavitve.</li>
+<li><strong>Šteje odmor kot delovni čas</strong> – pustite to možnost vklopljeno, če je odmor plačan in vključen v trajanje izmene. Izklopite jo, če je treba določeni čas izključiti iz delovnega in plačanega časa.</li>
+<li><strong>Trajanje odmora</strong> – izberite ure in minute za en odmor. Ta nastavitev se uporablja pri ponovnem izračunu ustreznih delovnih izmen.</li>
+<li><strong>Skupni odmor</strong> – prikaže izbrano trajanje pred shranjevanjem.</li>
+<li><strong>Shrani</strong> – uporabi nastavitev in ponovno izračuna delovni čas ter povezane vrednosti.</li>
+</ol>
+
+<div class="notice">Odmor lahko predstavlja odmor za obrok, primopredajo izmene ali drug neplačan interval znotraj izmene. Vnesite trajanje, ki ustreza pravilom na vašem delovnem mestu.</div>
+
+<h3 id="reports">5.4. Poročila: obdobje, stanje in povzetek</h3>
+
+<p>Odprite »Poročila« na spodnji kartici na zaslonu s statistiko. Ta razdelek vsebuje podrobnejše informacije za izbrano obdobje: delovni čas, izmene in odsotnosti, prilagoditve koledarja, plača, bonusi, odbitki, primerjava obdobij, podrobnosti po dnevih in izvoz.</p>
+
+<div class="warning"><strong>Poročila so na voljo samo v informativne namene.</strong> Izračuni temeljijo na izbranem urniku, nastavitvah plače, obračunavanju odmorov in spremembah koledarskih izmen. Dejanske številke vašega delodajalca se lahko razlikujejo zaradi drugačnega sistema merjenja delovnega časa, zaokroževanja, davkov, dodatkov ali notranjih pravil. Če najdete napako ali nepodprto metodo izračuna, se obrnite na razvijalce na naslovu, prikazanem v aplikaciji, in vključite vhodne podatke in pričakovani rezultat.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_period_salary.webp" alt="Zaslon s poročili z izbiro obdobja, statusom, povzetkom in podrobno razčlenitvijo plač">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Obdobje poročila</strong> – tapnite kartico, da izberete trenutni, prejšnji ali naslednji mesec, prednastavljeno obdobje ali datume po meri. Vse spodnje informacije veljajo za izbrano obdobje.</li>
+<li><strong>Stanje obdobja</strong> – prikazuje, ali je obdobje končano, trenutno aktivno ali se še ni začelo. Zaključeno obdobje se izračuna iz shranjenih dejanskih podatkov. Aktivno obdobje združuje podatke o že opravljenih delih s trenutnim načrtom, medtem ko je prihodnje obdobje napoved.</li>
+<li><strong>Povzetek</strong> – besedilni povzetek dejanskega delovnega časa, izračunanega zneska in nadur.</li>
+<li><strong>Plača</strong> – podrobna razčlenitev osnovne plače, plačila za nadure, bonusov, odbitkov in končne ocene. Vrednosti so odvisne od <a href="#salary">nastavitev plače</a> in izbranega obdobja.</li>
+</ol>
+
+<h3 id="reports-work">5.5. Delovni čas, odsotnosti in dnevi</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_work_absences.webp" alt="Zaslon s poročili o delovnem času, odmorih, opravljenih izmenah in odsotnostih">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Delovni čas</strong> – prikazuje načrtovane in dejanske delovne ure, načrtovane in dejanske ure pred odbitkom odmora, število opravljenih izmen, povprečno trajanje izmene in skupni odbitek odmora. Odmore konfigurirajte v <a href="#statistics-break">razdelku delovni čas</a>.</li>
+<li><strong>Odsotnosti in dnevi</strong> – prikazuje število prostih dni, dni dopusta, dni bolniške odsotnosti, dni prostih dni in spremenjenih dni v izbranem obdobju.</li>
+</ol>
+
+<h3 id="reports-charts">5.6. Prilagoditve in grafikoni</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_corrections_charts.webp" alt="Zaslon s poročili s prilagoditvami, sestavo plače in vrednostmi delovnega časa">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Prilagoditve</strong> – prikazuje nadure, skupno spremembo trajanja izmene in število dni, ki so se spremenili glede na osnovni urnik.</li>
+<li><strong>Grafikoni</strong> – vizualizira sestavo plače in delovnega časa: osnovno plačilo, nadure, bonuse, odbitke, skupno število ter načrtovane, opravljene in plačane ure.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_charts_days.webp" alt="Dodatni grafikoni poročil z urami in dnevnim tortnim grafikonom">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ure</strong> – nadaljuje vizualno primerjavo načrtovanih, opravljene, plačane in nadurne ure. Vrstica »Dejanski delovni čas« prikazuje rezultat po uporabi nastavitev in prilagoditev.</li>
+<li><strong>Vrste dni</strong> – tortni grafikon, ki razporeja dneve v izbranem obdobju po vrsti. Legenda je odvisna od urnika in dejanskih sprememb: dnevne, nočne ali druge izmene, prosti dnevi, dopust, bolniška odsotnost, prost dan in druga stanja.</li>
+</ol>
+
+<h3 id="reports-comparison">5.7. Primerjava obdobij</h3>
+
+<p>Razdelek za primerjavo vam pomaga primerjati plačo, čas, izmene in odsotnosti v več obdobjih. Število razpoložljivih obdobij je odvisno od shranjenih podatkov.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_chart.webp" alt="Zaslon za primerjavo obdobij z izbiro obsega, grafikonom plač in začetkom primerjalne tabele">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Primerjava obdobij</strong> – tapnite kartico, da izberete, koliko obdobij želite primerjati in njihov obseg.</li>
+<li><strong>Grafikon in seznam obdobij</strong> – prikazuje plačo za vsako obdobje in navaja intervale, vključene v primerjavo, skupaj z njihovim statusom.</li>
+<li><strong>Primerjalna tabela</strong> – vsebuje podrobne vrednosti za vsako obdobje. Za ogled preostalih stolpcev povlecite tabelo vodoravno v levo ali desno.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_table.webp" alt="Nadaljevanje primerjalne tabele in razlike med sosednjimi obdobji">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Vrednosti obdobij</strong> – skupna plača, opravljene in plačane ure, nadure, bonusi, odbitki, opravljene izmene, odsotnosti in spremenjeni dnevi.</li>
+<li><strong>Razlika med obdobji</strong> – prikazuje, kako se vsako obdobje razlikuje od prejšnjega. Pozitivne in negativne vrednosti označujejo povečanje ali zmanjšanje ustrezne metrike. Barva sama po sebi ne pomeni vedno prednosti ali težave; na primer povečanje odbitkov pomeni, da se zadrži večji znesek.</li>
+</ol>
+
+<h3 id="reports-details-export">5.8. Dnevne podrobnosti in izvoz</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_details_export.webp" alt="Poročila za dnevne podrobnosti in izvoz v PDF, HTML, JSON ali CSV">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Dnevne podrobnosti</strong> – odpre seznam vseh dni v izbranem obdobju. Preverite lahko vrsto izmene, načrtovani in dejanski čas, prilagoditve ur, odsotnosti in druge spremembe za določen dan.</li>
+<li><strong>Izvozi</strong> – shrani poročilo kot PDF, HTML, JSON ali CSV. Pred izvozom izberite obdobje poročila; datoteko lahko nato natisnete, shranite ali delite prek sistemskega menija Android.</li>
+</ol>
+
+<div class="tip">Pred primerjavo ali izvozom preverite izbrano obdobje, urnik, spremembe izmen, odmore in nastavitve plače. Napaka v izvornih podatkih bo vplivala na vsak skupni znesek poročila.</div>
+
+<h2 id="alarms">6. Alarmi</h2>
+
+<p>ShiftAlarm vam omogoča ustvarjanje enkratnih alarmov, njihovo ponavljanje na izbrane dni v tednu ali povezovanje njihovega časa z urnikom izmen.</p>
+
+<h3 id="alarms-list">6.1. Seznam alarmov</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarms_overview.webp" alt="Zaslon alarma ShiftAlarm z naslednjim opozorilom, razvrščanjem, kartico alarma in gumbom za dodajanje">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Naslednji alarm</strong> – prikaže datum in čas naslednjega aktivnega opozorila.</li>
+<li><strong>Razvrščanje alarmov</strong> – spremeni vrstni red kartic alarmov, na primer tako, da najprej prikaže omogočene alarme.</li>
+<li><strong>Kartica alarma</strong> – vsebuje čas, datum ali način ponavljanja, vrsto urnika in preostali čas. Dotaknite se kartice, da jo uredite.</li>
+<li><strong>Stikalo</strong> – začasno omogoči ali onemogoči alarm brez brisanja njegovih nastavitev.</li>
+<li><strong>Izbriši</strong> – izbriše izbrani alarm.</li>
+<li><strong>Dodaj alarm</strong> – odpre zaslon za ustvarjanje novega alarma.</li>
+</ol>
+
+<h3 id="alarms-create">6.2. Ustvarjanje in urejanje alarma</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_time_schedule.webp" alt="Vrh urejevalnika alarmov ShiftAlarm: čas, vrsta urnika, dremež in shranjevanje">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Čas</strong> – pomaknite se po kolescih za uro in minuto, da nastavite čas opozorila.</li>
+<li><strong>Vrsta urnika</strong> – izberite enega od teh načinov:
+<ul>
+<li><strong>Enkrat</strong> – alarm se sproži enkrat na izbrani datum;</li>
+<li><strong>Po dnevih</strong> – ponavlja se na izbrane dni v tednu;</li>
+<li><strong>Po izmenah</strong> – poveže alarm z izbranim urnikom in vrsto izmene.</li>
+</ul>
+</li>
+<li><strong>Dremež</strong> – nastavi, za koliko minut je opozorilo prestavljeno ko tapnete gumb za dremež na zaslonu zvonjenja.</li>
+<li><strong>Prekliči in shrani</strong> – ta gumba sta fiksno nameščena na dnu zaslona in ostaneta na voljo med pomikanjem po urejevalniku.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_behavior.webp" alt="ShiftAlarm nastavitve za trajanje alarma, ponavljanje alarma, postopno povečevanje glasnosti in vibriranje">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Trajanje alarma</strong> – določa, kako dolgo se alarm oglaša, če ga uporabnik ne ustavi.</li>
+<li><strong>Ponovi, če je alarm prezrt</strong> – omogoča novo opozorilo, ko alarm ni bil niti opuščen niti dremež. Nastavite interval pred ponavljajočim se opozorilom pod njim.</li>
+<li><strong>Postopno povečevanje glasnosti</strong> – začne se s tišjim zvokom in postopoma povečuje glasnost v izbranem času.</li>
+<li><strong>Vibracija</strong> – omogoči ali onemogoči vibriranje med opozorilom.</li>
+<li><strong>Prekliči in shrani</strong> – fiksni kontrolniki za urejevalnik.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_sound_name.webp" alt="Spodnji del urejevalnika alarmov ShiftAlarm: kontrolniki za vibriranje, zvok, ime in shranjevanje">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Vibracija</strong> – omogoči ali onemogoči vibriranje.</li>
+<li><strong>Zvok</strong> – omogoča izbiro vgrajenega, sistemskega ali uporabniško dodanega zvoka. V aplikacijo lahko dodate do pet zvokov po meri.</li>
+<li><strong>Ime</strong> – neobvezna oznaka, ki vam pomaga razlikovati alarme.</li>
+<li><strong>Prekliči in shrani</strong> – zavrzi spremembe ali shrani alarm.</li>
+</ol>
+
+<div class="notice">Po shranjevanju se alarm prikaže na glavnem seznamu. Pred pomembnim opozorilom se prepričajte, da je alarm omogočen, da ima aplikacija dovoljenja za obvestila in natančen alarm ter da sistem ne omejuje njene dejavnosti v ozadju.</div>
+
+<div class="tip">Če želite ustvariti alarm, povezan z izmeno, najprej ustvarite ustrezen urnik izmene. V urejevalniku izberite fiksni čas sprožitve ali odmik glede na začetek izmene.</div>
+
+<h2 id="geo">7. Geo alarmi</h2>
+
+<p>Geo alarm spremlja, kdaj naprava vstopi ali zapusti izbrano območje. Območje je določeno s točko na zemljevidu in polmerom okoli te točke. Na primer, uporabite Geo Alarm za prejem opozorila, ko se približujete službi, domu, avtobusni postaji, postaji ali drugemu kraju.</p>
+
+<h3 id="geo-overview">7.1. Zemljevid in kontrole</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_overview.webp" alt="Glavni zaslon Geo Alarma ShiftAlarm z zemljevidom in oštevilčenimi kontrolami">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Povečaj</strong> – poveča zemljevid.</li>
+<li><strong>Pomanjšaj</strong> – zmanjša merilo zemljevida.</li>
+<li><strong>Moja lokacija</strong> – premakne zemljevid na trenutno lokacijo naprave. Aplikacija za to funkcijo potrebuje dostop do lokacije.</li>
+<li><strong>Shranjeni kraji</strong> – odpre seznam shranjenih geoalarmov in lokacijskih točk.</li>
+<li><strong>Nazaj</strong> – vrne se na prejšnji zaslon aplikacije.</li>
+<li><strong>Število geoalarmov</strong> – prikazuje, koliko geoalarmov je bilo ustvarjenih.</li>
+<li><strong>Seznam geoalarmov</strong> – odpre ločen seznam ustvarjenih geoalarmov.</li>
+</ol>
+
+<div class="tip">Zemljevid lahko povečate tudi s kretnjami. Dotaknite se zemljevida z dvema prstoma in ju razširite za povečavo ali ju stisnite skupaj za pomanjšavo.</div>
+<div class="notice">Stranski kontrolniki se lahko prikažejo na nasprotni strani v jezikih, ki se pišejo od desne proti levi. Njihove funkcije ostajajo enake.</div>
+
+<h3 id="geo-saved-places">7.2. Shranjeni alarmi in lokacijske točke</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_saved_places.webp" alt="Okno shranjenih krajev z zavihkoma Geo alarm in lokacijske točke">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Alarmi</strong> – prikaže geo alarme, dodane shranjenim krajem.</li>
+<li><strong>Lokacijske točke</strong> – prikaže shranjene koordinate brez aktivnega geo alarma.</li>
+<li><strong>Seznam shranjenih krajev</strong> – dotaknite se kartice, da se premaknete na to mesto na zemljevidu.</li>
+<li><strong>Zapri</strong> – zapre okno in se vrne na zemljevid.</li>
+</ol>
+
+<div class="notice">Če izbrišete zaznamek za geo alarm, se njegove koordinate samodejno ohranijo na zavihku »Lokacijske točke«. Točko lahko pozneje ponovno uporabite za ustvarjanje novega geoalarma.</div>
+
+<h3 id="geo-select-point">7.3. Izbira točke in polmera</h3>
+
+<p>Dotaknite se želenega mesta na zemljevidu in ga pridržite. Aplikacija postavi oznako in odpre ploščo z izbrano točko.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_selected_point.webp" alt="Izbrana točka na zemljevidu z naslovom, polmerom, zaznamkom in gumbom za ustvarjanje geoalarma">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Oznaka izbrane točke</strong> – središče bodoče geoograde. Zemljevid prikazuje tudi krog za izbrani polmer.</li>
+<li><strong>Naslov in koordinate</strong> – omogoča preverjanje, ali je izbran pravilen kraj.</li>
+<li><strong>Shrani lokacijsko točko</strong> – doda izbrane koordinate shranjenim krajem, ne da bi ustvaril alarm.</li>
+<li><strong>Polmer</strong> – nastavi velikost območja okoli točke. Premikajte drsnik, dokler ne izberete ustrezne razdalje.</li>
+<li><strong>Prekliči</strong> – prekliče izbiro točke.</li>
+<li><strong>Ustvari tukaj</strong> – odpre nov urejevalnik geoalarmov za izbrano točko.</li>
+</ol>
+
+<div class="warning"><strong>Kako izbrati polmer.</strong> Telefon ne sledi svojih koordinat neprekinjeno. Android, proizvajalec naprave, način varčevanja z baterijo, GPS, kakovost signala mobilnega omrežja in Wi-Fi ter hitrost gibanja vplivajo na to, kdaj je meja zaznana. Opozorilo se lahko zato sproži zunaj narisane črte. Na primer, pri radiju 800 m se lahko vstop zazna, ko je naprava že znotraj območja – morda 700, 600 ali 500 m od točke.</div>
+
+<ul>
+<li><strong>V mestu</strong> se običajno priporoča radij <strong>1300–1500 m</strong>.</li>
+<li><strong>Zunaj mesta</strong>, kjer so posodobitve lokacije lahko manj pogoste, se priporoča <strong>4000–5000 m</strong>.</li>
+<li><strong>Natančen radij</strong> je treba izbrati glede na vašo pot, hitrost in vedenje naprave.</li>
+</ul>
+
+<div class="notice">Sistem zazna, kdaj naprava prestopi virtualno mejo območja. V načinu »Ob vstopu« večji radij običajno daje telefonu več časa za zaznavanje vašega približevanja. V načinu »Ob izhodu« se meja namesto tega postavi dlje od izbrane točke.</div>
+
+<h3 id="geo-create">7.4. Ustvarjanje geo alarma</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_location_schedule.webp" alt="Vrh urejevalnika geo alarmov: pripravljenost, lokacija in vrsta urnika">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Pripravljenost geo alarma</strong> – prikazuje, ali so konfigurirana potrebna dovoljenja in ali lahko aplikacija registrira geoogajo.</li>
+<li><strong>Lokacija</strong> – vsebuje izbrani naslov in koordinate. Naslov lahko uredite kot oznako, vendar je dejanska točka izbrana na zemljevidu.</li>
+<li><strong>Vrsta urnika</strong> – določa dneve in pogoje, pod katerimi je Geo Alarm aktiven.</li>
+<li><strong>Vedno</strong> – Geo Alarm je aktiven vsak dan, ko je omogočen.</li>
+<li><strong>Enkrat</strong> – uporablja se za naslednji enkratni sprožilec, ko je izpolnjen izbrani pogoj.</li>
+<li><strong>Po dnevih</strong> – deluje samo na izbrane dni v tednu.</li>
+<li><strong>Po izmenah</strong> – povezuje Geo Alarm z aktivnim urnikom izmen.</li>
+</ol>
+
+<div class="notice"><strong>Urnik »Po izmenah«.</strong> Izberite, ali deluje na dan izmene, samo pred izmeno ali samo po njej, in določite želeno vrsto izmene: dnevna, nočna, jutranja, večerna, 24-urna, prilagojena ali katera koli delovna izmena.</div>
+<div class="tip">Če je datum v koledarju označen kot prost dan, dopust, bolniška odsotnost ali prosti čas namesto delovne izmene, geo alarm, povezan z izmeno, ta dan ne bo aktiven.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_trigger_settings.webp" alt="Spodnji del urejevalnika geo alarmov: pogoj vstopa ali izstopa, radij in nastavitve opozoril">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Pogoj sprožilca</strong> – določa, kateri prehod meje sproži opozorilo.</li>
+<li><strong>Ob vstopu</strong> – sproži opozorilo, ko naprava vstopi v izbrani radij, na primer pri približevanju delu ali zahtevanemu postanku.</li>
+<li><strong>Ob izhodu</strong> – sproži opozorilo, ko naprava zapusti izbrani radij, na primer po odhodu iz dela ali postaje, da ne zamudite naslednji del poti.</li>
+<li><strong>Ob vstopu ali izstopu</strong> – sproži opozorilo vsakič, ko je meja prečkana v katero koli smer.</li>
+<li><strong>Polmer</strong> – velikost geomeje okoli izbrane točke.</li>
+<li><strong>Trajanje alarma</strong> – določa, kako dolgo se opozorilo oglaša.</li>
+<li><strong>Postopno povečanje glasnosti</strong> – nastavi gladko povečanje glasnosti po začetku opozorila.</li>
+<li><strong>Prekliči in shrani</strong> – zavrže spremembe ali shrani geo alarm.</li>
+</ol>
+
+<div class="tip">Preostale možnosti spodaj so podobne običajnemu alarmu: zvok, vibracija, trajanje opozorila, postopno povečanje glasnosti in ime.</div>
+
+<h3 id="geo-existing">7.5. Geo alarm na zemljevidu in njegovi gumbi</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_marker_radius.webp" alt="Ustvarjen označevalec geo alarma in njegov krog polmera sprožilca na zemljevidu">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Oznaka geo alarma</strong> – prikazuje izbrano točko.</li>
+<li><strong>Mejni polmer</strong> – prikazuje območje, katerega vstop ali izstop spremlja aplikacija.</li>
+</ol>
+
+<p>Dotaknite se oznake Geo Alarm. Najprej se prikaže majhno okno z informacijami. Dotaknite se tega okna, da odprete podrobno kartico.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_alarm_card.webp" alt="Podrobna kartica Geo Alarm z informacijami, zaznamkom, stikalom in kontrolami">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ime in naslov</strong> – identificira izbrani Geo Alarm.</li>
+<li><strong>Zaznamek</strong> – doda alarm med shranjena mesta ali ga odstrani z njih.</li>
+<li><strong>Stikalo</strong> – omogoči ali začasno onemogoči Geo Alarm brez brisanja njegovih nastavitev.</li>
+<li><strong>Nastavitve in stanje</strong> – prikaže polmer, pogoj vstopa ali izstopa, urnik, pripravljenost na geoograd in informacije o prejšnjih aktivacijah.</li>
+<li><strong>Uredi</strong> – odpre nastavitve Geo Alarm.</li>
+<li><strong>Zapri</strong> – zapre kartico in se vrne na zemljevid.</li>
+<li><strong>Izbriši</strong> – po potrditvi izbriše Geo Alarm.</li>
+</ol>
+
+<div class="warning">Za zanesljivo delovanje omogočite natančno lokacijo v ozadju, odstranite stroge omejitve baterije za ShiftAlarm in preverite nastavitve samodejnega zagona v ozadju, če jih vaša naprava omogoča. Tudi s pravilnimi nastavitvami Android ne zagotavlja zaznavanja meja z natančnostjo nekaj metrov.</div>
+
+<h2 id="notes">8. Opombe, dogodki in opomniki</h2>
+
+<p>V razdelku »Opombe« so shranjeni navadno besedilo, seznami, kontrolni seznami, zvočni posnetki, zapiski za pretvorbo govora v besedilo, opomniki in dogodki.</p>
+
+<h3 id="notes-create">8.1. Dodajanje zapiska</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_type_picker.webp" alt="Izbira nove vrste zapiska v ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ročaj plošče</strong> – povlecite ga navzgor, da prikažete celoten seznam vrst zapiskov, ali navzdol, da zaprete ploščo.</li>
+<li><strong>Vrsta zapiska</strong> – izberite ustrezno možnost:
+<ul>
+<li><strong>Besedilni zapisek</strong> – navadno besedilo;</li>
+<li><strong>Kontrolni seznam</strong> – seznam elementov s potrditvenimi polji za dokončanje;</li>
+<li><strong>Seznam</strong> – seznam z oznakami ali oštevilčenimi seznami;</li>
+<li><strong>Zvočni zapisek</strong> – glasovni posnetek;</li>
+<li><strong>Govor v besedilo</strong> – ustvari zapisek z uporabo prepoznavanja govora;</li>
+<li><strong>Opomnik</strong> – vnos z obvestilom ob določenem času;</li>
+<li><strong>Dogodek</strong> – vnos, povezan z datumom in uro.</li>
+</ul>
+</li>
+<li><strong>Prekliči</strong> – zapre izbirnik brez ustvarjanja zapiska.</li>
+</ol>
+
+<div class="tip">Ko izberete vrsto, se odpre ustrezni urejevalnik. Izpolnite zahtevana polja in shranite vnos.</div>
+
+<h3 id="notes-list">8.2. Seznam zapiskov in kontrolniki</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_overview.webp" alt="Zaslon zapiskov ShiftAlarm z razvrščanjem, aktivnimi in arhiviranimi zapiski, iskanjem in dejanji kartice">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Razvrščanje</strong> – spremeni vrstni red zapiskov na seznamu.</li>
+<li><strong>Aktivno</strong> – prikaže redne in načrtovane zapiske, ki niso bili premaknjeni v arhiv.</li>
+<li><strong>Arhiv</strong> – odpre seznam arhiviranih zapiskov.</li>
+<li><strong>Iskanje</strong> – poišče ujemanja v naslovih in vsebini zapiskov.</li>
+<li><strong>Kartica zapiska</strong> – prikaže naslov, vrsto, stanje in dodatne informacije. Dotaknite se kartice, da odprete zapisek.</li>
+<li><strong>Pripni</strong> – pripne zapisek na vrh seznama.</li>
+<li><strong>Arhiviraj</strong> – odstrani zapisek z aktivnega seznama in ga premakne v arhiv.</li>
+<li><strong>Izbriši</strong> – po potrditvi izbriše zapisek.</li>
+<li><strong>Dodaj zapisek</strong> – odpre izbirnik vrste novega zapiska.</li>
+</ol>
+
+<div class="notice">Arhiv uporabite za vnose, ki niso več potrebni na glavnem seznamu, vendar naj ostanejo shranjeni. Zapisek izbrišite le, če ga sploh ne potrebujete več.</div>
+
+<h2 id="clock">9. Ura, štoparica in časovnik</h2>
+
+<p>Ta razdelek združuje lokalni in svetovni čas, štoparico in časovnik. Odprite ga z gumbom <strong>»Ura«</strong> na glavnem zaslonu.</p>
+
+<div class="notice">Na dnu zaslona se prikažejo trije zavihki: »Ura«, »Štoparica« in »Časovnik«. Dotaknite se zavihka, da preklopite med načini.</div>
+
+<h3 id="clock-world">9.1. Ura in svetovna ura</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_overview.webp" alt="ShiftZaslon budilke z lokalnim časom, svetovnimi urami, gumbom za dodajanje in spodnjimi zavihki">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Lokalni čas</strong> – prikazuje trenutni čas, datum in časovni pas sistema naprave.</li>
+<li><strong>Svetovne ure</strong> – prikazuje dodana mesta in časovne pasove. Ko je seznam prazen, aplikacija prikaže namig.</li>
+<li><strong>Gumb plus</strong> – odpre izbirnik svetovne ure.</li>
+<li><strong>Zavihki razdelkov</strong> – preklapljajte med zasloni »Ura«, »Štoparica« in »Časovnik«.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_add_timezone.webp" alt="Dodajanje mesta ali časovnega pasu svetovni uri ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Iskanje</strong> – vnesite ime mesta ali časovnega pasu za filtriranje seznama.</li>
+<li><strong>Seznam mest in časovnih pasov</strong> – tapnite želeno možnost, da jo dodate na zaslon svetovne ure.</li>
+</ol>
+
+<div class="tip">Lokalni časovni pas je vedno prikazan prvi. Dodane svetovne ure lahko odstranite s seznama, lokalnega časa pa ne morete odstraniti.</div>
+
+<h3 id="clock-stopwatch">9.2. Štoparica</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_start.webp" alt="ShiftAlarm štoparica pred zagonom">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Zgodovina</strong> – odpre shranjene seje štoparice.</li>
+<li><strong>Začni</strong> – zažene merjenje časa.</li>
+<li><strong>Ponastavi</strong> – ni na voljo, preden se štoparica zažene. Po ustavitvi vrne štoparico na ničlo in odstrani trenutne kroge.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_running.webp" alt="Štoparica ShiftAlarm med tekom z zgodovino, shranjevanjem, krogi in nadzorom za premor">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Zgodovina</strong> – prikaže prej shranjene seje.</li>
+<li><strong>Shrani</strong> – pozove k imenu in shrani trenutno sejo štoparice.</li>
+<li><strong>Krog</strong> – zabeleži vmesni rezultat brez ustavitve skupnega števca časa.</li>
+<li><strong>Premor</strong> – začasno ustavi štoparico. Po zaustavitvi ga lahko nadaljujete ali ponastavite.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_laps.webp" alt="Štoparica: krogi in njihove možnosti razvrščanja">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Izvirni, najhitrejši in najpočasnejši</strong> – spremenite vrstni red prikaza krogov: izvirni vrstni red, najprej najhitrejši ali najprej najpočasnejši.</li>
+<li><strong>Krogi</strong> – vsak krog prikazuje skupni čas, ko je bil zabeležen, in čas posameznega kroga.</li>
+</ol>
+
+<div class="notice">Ko tapnete Shrani, vnesite ime seje in potrdite. Shranjeno sejo lahko pozneje odprete iz Zgodovine.</div>
+
+<h3 id="clock-timer">9.3. Časovnik</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_setup.webp" alt="Nastavitev časovnika ShiftAlarm z urnimi, minutnimi in sekundnimi kolesi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ure</strong> – pomaknite kolesce in izberite število ur.</li>
+<li><strong>Minute</strong> – pomaknite kolesce in izberite število minut.</li>
+<li><strong>Sekunde</strong> – pomaknite kolesce in izberite število sekund.</li>
+<li><strong>Zaženi</strong> – zažene časovnik z izbranim trajanjem.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_running.webp" alt="Časovnik ShiftAlarm, ki se izvaja, s preostalim časom, začasno ustavitvijo, dodajanjem minut in zaustavitvijo">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Preostali čas</strong> – prikazuje, koliko časa je še ostalo do opozorila.</li>
+<li><strong>Končni čas</strong> – prikazuje približni čas, ko se bo časovnik končal.</li>
+<li><strong>Nedavni časovniki</strong> – shranjeni nedavni časi trajanja; tapnite enega, da ga hitro ponovno uporabite.</li>
+<li><strong>Premor</strong> – začasno ustavi odštevanje. Pozneje ga lahko nadaljujete.</li>
+<li><strong>+1 min</strong> – doda eno minuto preostalemu času.</li>
+<li><strong>Ustavi</strong> – popolnoma ustavi časovnik.</li>
+</ol>
+
+<div class="tip">Časovnik in štoparica še naprej delujeta v ozadju. Njuno stanje se lahko prikaže v obvestilu, na glavnem zaslonu in v pripomočkih.</div>
+
+<h2 id="widgets">10. Pripomočki</h2>
+
+<p>ShiftAlarm ponuja pripomočke za začetni zaslon telefona.</p>
+<ul>
+<li><strong>Danes 4×2</strong> – kompaktna plošča z dvema nastavljivima razdelkoma.</li>
+<li><strong>Danes 4×3</strong> – plošča z uro na vrhu in dvema razdelkoma spodaj.</li>
+<li><strong>Koledar 4×4</strong> – koledarski pripomočki z urnikom izmen.</li>
+</ul>
+<p>Dodajte pripomoček prek menija pripomočkov Android na začetnem zaslonu telefona.</p>
+
+<h2 id="salary">11. Izračun plače</h2>
+
+<p>Odprite »Izračun plače« na kartici plače v <a href="#statistics-work">statistiki izbranega urnika</a>. Tukaj lahko nastavite način plačila, stopnjo ali mesečno plačo, pravila za nadure, bonuse in odbitke. Aplikacija uporablja te nastavitve skupaj z izbranim obdobjem, urnikom izmen, spremembami koledarja in obračunavanjem odmorov.</p>
+
+<div class="warning"><strong>Izračun je na voljo samo v informativne namene.</strong> Dejanska plača se lahko razlikuje, če vaš delodajalec uporablja drug sistem za merjenje delovnega časa, zaokroževanje, dodatke, davke, bonuse, odbitke ali plačilo za določene vrste izmen. Rezultata ne uporabljajte kot uradni dokument o plači; primerjajte ga s plačilno listo delodajalca. Če najdete metodo izračuna, ki je aplikacija ne obravnava natančno, pišite razvijalcem na naslov, prikazan v aplikaciji. Opišite pravila, navedite vzorčne vhodne podatke in navedite pričakovani rezultat. Metodo lahko nato upoštevate za prihodnjo posodobitev.</div>
+
+<h3 id="salary-settings">11.1. Stopnja, nadure in bonusi</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_settings_overview.webp" alt="Zaslon za izračun plače z izbranim urnikom, vrsto tarife, nadurami in bonusi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Izbrani urnik</strong> – prikazuje, kateri urnik izmen se uporablja. Plača se izračuna iz tega urnika in obdobja, izbranega v statistiki.</li>
+<li><strong>Vrsta tarife in znesek plačila</strong> – izberite plačilo <strong>na uro</strong>, <strong>na izmeno</strong> ali <strong>na mesec</strong>, nato vnesite ustrezen znesek. Ime polja se spremeni glede na izbrano vrsto tarife.</li>
+<li><strong>Nadure</strong> – omogočite ta razdelek, če so dodatne ure plačane drugače kot redni delovni čas. Nato določite množitelj plačila za nadure. Dodatne ure dodajte v koledar prek <a href="#main-shift-time-adjustment">»Spremeni izmeno« → »+ čas«</a>; omogočite »Štej ta čas kot nadure«, da se ure obravnavajo kot nadure.</li>
+<li><strong>Bonusi</strong> – prikazuje trenutno metodo izračuna in skupne zneske. Dotaknite se kartice, da odprete <a href="#salary-bonuses">nastavitve bonusov</a>.</li>
+</ol>
+
+<div class="notice">Gumb »Shrani« uporabi nastavitve za izbrani urnik. Po shranjevanju se skupni zneski v statistiki in poročilih preračunajo z uporabo vnesenih podatkov.</div>
+
+<h3 id="salary-summary">11.2. Odbitki in skupni izračun</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions_total.webp" alt="Zaslon za izračun plače z odbitki in končno razčlenitvijo">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Odbitki</strong> – prikazuje skupni znesek in število konfiguriranih odbitkov. Dotaknite se kartice, da odprete <a href="#salary-deductions">seznam odbitkov</a>.</li>
+<li><strong>Skupaj</strong> – povzetek razčlenitve: plačan čas, opravljene ure, nadure, osnovna plača, plačilo za nadure, bonusi, odbitki in končni rezultat.</li>
+</ol>
+
+<div class="tip">Rezultat ni odvisen le od nastavitev tega zaslona, ​​temveč tudi od izbranega statističnega obdobja, opravljenih izmen, sprememb dni, nadur in nastavitev neplačanega odmora.</div>
+
+<h3 id="salary-bonuses">11.3. Bonusi</h3>
+
+<p>Dotaknite se kartice »Bonusi« na zaslonu za izračun plače. Bonus lahko vnesete ročno ali ga izračunate kot odstotek, če se to ujema z vašim plačilnim sistemom.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_bonuses.webp" alt="Zaslon z nastavitvami bonusa z možnostmi izračuna in vnosa zneska">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Povzetek informacij</strong> – prikazuje izračunani skupni znesek bonusa in osnovni znesek, uporabljen za izračun.</li>
+<li><strong>Izračun bonusa</strong> – izberite ročni vnos ali izračun odstotka, na primer odstotek prodaje, če se ta metoda uporablja na vašem delovnem mestu.</li>
+<li><strong>Način vnosa</strong> – »Skupni znesek« je primeren za en sam končni bonus. Ločene vrstice so uporabne, kadar je treba več bonusov šteti neodvisno.</li>
+<li><strong>Znesek ali odstotek</strong> – vnesite vrednost, ki jo zahteva izbrani način izračuna.</li>
+<li><strong>Prekliči in shrani</strong> – zavrzite spremembe ali jih uporabite pri izračunu plače.</li>
+</ol>
+
+<h3 id="salary-deductions">11.4. Seznam odbitkov</h3>
+
+<p>Na glavnem zaslonu za izračun se dotaknite kartice »Odbitki«. V tem razdelku lahko shranite več odbitkov in upravljate vsakega posebej.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions.webp" alt="Zaslon s seznamom odbitkov s skupnim zneskom, vrsticami odbitkov in gumbom za dodajanje">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Povzetek informacij</strong> – prikazuje znesek in število vseh omogočenih odbitkov.</li>
+<li><strong>Vrstica odbitkov</strong> – prikazuje ime, vrednost in vrsto. Dotaknite se vrstice, da odprete <a href="#salary-deduction-editor">nastavitve odbitkov</a>. Ikona koša izbriše vrstico.</li>
+<li><strong>Dodaj odbitek</strong> – gumb »+« ustvari novo vrstico odbitkov.</li>
+<li><strong>Prekliči in shrani</strong> – zavrzite spremembe ali shranite celoten seznam.</li>
+</ol>
+
+<h3 id="salary-deduction-editor">11.5. Konfiguracija individualnega odbitka</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deduction_editor.webp" alt="Plošča individualnega odbitka z imenom, vrednostjo, vrsto in osnovo za odbitek">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ime odbitka</strong> – vnesite jasno ime, kot je »Davek«, »Preživnina za otroke« ali »Kazen«.</li>
+<li><strong>Vrednost</strong> – vnesite znesek ali odstotek, odvisno od spodaj izbrane vrste vrednosti.</li>
+<li><strong>Vrsta vrednosti</strong> – izberite fiksni znesek ali odstotek.</li>
+<li><strong>Vrsta odbitka</strong> – za določeno obračunsko obdobje velja <strong>spremenljiv</strong> odbitek; <strong>Ponavljajoči se</strong> odbitek se uporablja redno, dokler je omogočen.</li>
+<li><strong>Odbitek od</strong> – izberite osnovo za izračun: skupna plača, osnovna plača, bonusi ali druga razpoložljiva možnost.</li>
+<li><strong>Omogočeno</strong> – začasno onemogoči odbitek brez brisanja njegovih nastavitev.</li>
+<li><strong>Prekliči in shrani</strong> – zaprite ploščo brez sprememb ali shranite odbitek.</li>
+</ol>
+
+<div class="notice">Za odstotni odbitek je še posebej pomembno izbrati pravilno osnovo »Odbitek od«: enak odstotek skupne plače, osnovne plače in bonusov daje različne rezultate.</div>
+
+<h2 id="settings">12. Nastavitve</h2>
+
+<p>Odprite »Nastavitve« z gumbom na dnu <a href="#main-overview">glavnega zaslona</a>. Ta razdelek vsebuje sistemska dovoljenja, videz in jezik aplikacije, prepoznavanje govora brez povezave, dokumente in uporabniški priročnik, varnostno kopiranje, diagnostiko in možnosti stika z razvijalci.</p>
+
+<h3 id="settings-overview">12.1. Glavni razdelki z nastavitvami</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_permissions_language.webp" alt="Vrh nastavitev ShiftAlarm: dovoljenja, tema, jezik aplikacije in modeli govora brez povezave">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Dovoljenja</strong> – odpre nastavitve dovoljenj in zanesljivosti alarmov. Preverite obvestila, natančne alarme, dejavnost v ozadju in omejitve baterije. <a href="#geo">Geo alarmi</a> zahtevajo tudi dostop do lokacije; za sprožitev, ko je aplikacija zaprta, je potreben dostop do lokacije v ozadju ali dostop do lokacije »Dovoli ves čas«. Imena elementov in poti se razlikujejo glede na različico Androida in proizvajalca naprave.</li>
+<li><strong>Tema</strong> – omogoča izbiro svetlega, temnega ali sistemskega videza, izbiro barvne različice vmesnika in omogočanje ali onemogočanje haptičnih povratnih informacij za dejanja v aplikaciji. Sistemska tema sledi trenutnemu videzu telefona.</li>
+<li><strong>Jezik aplikacije</strong> – omogoča uporabo jezika, ki se razlikuje od sistemskega jezika telefona. Katalog ShiftAlarm vsebuje 108 jezikov: poiščite želeni jezik z iskanjem, prenesite jezikovni paket in ga uporabite.</li>
+<li><strong>Modeli govora brez povezave</strong> – namesti modul za <a href="#notes-create">pretvarjanje govora v besedilo</a>. Prepoznavanje brez povezave se trenutno testira in je na voljo za približno 20 jezikov. Njegova kakovost je lahko nižja od spletnega prepoznavanja in je odvisna od jezika, mikrofona, delovanja telefona in pogojev snemanja.</li>
+</ol>
+
+<div class="warning"><strong>Dovoljenja za Android se razlikujejo glede na napravo.</strong> V nekaterih telefonih morate dovoliti tudi samodejni zagon v ozadju, izbrati način »Neomejeno« ali podoben način delovanja baterije in dovoliti dejavnost v ozadju. Te nastavitve zmanjšujejo možnost, da bo sistem ustavil ShiftAlarm, vendar njihova natančna imena določi proizvajalec naprave.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_help_backup_diagnostics.webp" alt="Spodnji del nastavitev ShiftAlarm: dokumenti, uporabniški priročnik, varnostno kopiranje, diagnostika in stik z razvijalcem">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Dokumenti in pomoč</strong> – odpre pravne dokumente aplikacije: pogoje uporabe, pravilnik o zasebnosti, izjavo o omejitvi odgovornosti in stran s kratko pomočjo.</li>
+<li><strong>Usposabljanje in uporabniški priročnik</strong> – odpre ta celoten ilustriran priročnik s podrobnimi opisi funkcij ShiftAlarm.</li>
+<li><strong>Varnostno kopiranje in obnovitev</strong> – ustvari datoteko, ki vsebuje podprte nastavitve in podatke aplikacije, ali pa jih obnovi iz prejšnje varnostne kopije. To je uporabno pred ponovno namestitvijo aplikacije, ponastavitvijo telefona ali prenosom podatkov v drugo napravo. Za podrobna navodila glejte <a href="#backup">»Varnostno kopiranje in obnovitev«</a>.</li>
+<li><strong>Diagnostični dnevnik</strong> – odpre ločene dnevnike za funkcije aplikacije. Zapisujejo tehnične faze, kot so načrtovanje in obnovitev opozoril, obdelava dogodkov, stanje dovoljenj in druge informacije o storitvah. Dnevnik pomaga prepoznati fazo, na kateri je prišlo do napake. Vnose lahko kopirate ali jih pripravite za pošiljanje po e-pošti razvijalcem. Za podrobnosti glejte <a href="#diagnostics">»Diagnostika in odpravljanje težav«</a>.</li>
+<li><strong>Stik z razvijalci</strong> – odpre e-poštno aplikacijo in ustvari sporočilo, naslovljeno na podporo. Uporabite ga za prijavo težave, pošiljanje povratnih informacij ali predloga ali za postavljanje vprašanja. V primeru tehnične težave navedite model telefona, različico Androida, čas težave, izvedene korake in po možnosti ustrezen diagnostični dnevnik.</li>
+</ol>
+
+<div class="notice">Diagnostični dnevniki se razvijalcem ne pošiljajo samodejno. Zahtevane podatke morate kopirati ali tapniti »Pošlji razvijalcem«, izbrati e-poštno aplikacijo, pregledati pripravljeno sporočilo in potrditi pošiljanje.</div>
+
+<h2 id="backup">13. Varnostno kopiranje in obnovitev</h2>
+
+<p>Varnostna kopija shrani podprte nastavitve ShiftAlarm in uporabniške podatke v ločeno datoteko. Pomaga pri obnovi podatkov po ponovni namestitvi aplikacije, ponastavitvi telefona ali prehodu na drugo napravo.</p>
+<ol class="step-list">
+<li>Odprite »Nastavitve → Varnostno kopiranje in obnovitev«.</li>
+<li>Ustvarite varnostno kopijo in nastalo datoteko shranite v telefon ali jo delite prek sistemskega menija.</li>
+<li>Za obnovitev odprite isti razdelek in izberite predhodno ustvarjeno datoteko varnostne kopije.</li>
+<li>Po obnovitvi preverite pomembne alarme, urnike in dovoljenja za Android. Nekatera varnostna dovoljenja sistema bodo morda treba ponovno odobriti v novi napravi ali po ponovni namestitvi.</li>
+</ol>
+<p class="tip">Trenutno kopijo hranite na varnem mestu, ki je dostopno tudi v primeru izgube, poškodbe ali ponastavitve telefona. Varnostna kopija ne nadomešča sistemskih dovoljenj Android in ne more samodejno vključevati podatkov, do katerih aplikacija nima dostopa.</p>
+
+<h2 id="diagnostics">14. Diagnostika in odpravljanje težav</h2>
+
+<p>ShiftAlarm zagotavlja ločene diagnostične dnevnike za različne funkcije. Ohranjajo zaporedje tehničnih dogodkov in pomagajo ugotoviti, ali je bilo opozorilo načrtovano, obnovljeno po ponovnem zagonu, poslano v obdelavo ali ustavljeno zaradi sistemske nastavitve.</p>
+
+<h3 id="diagnostics-control">14.1. Nadzorovanje zbiranja diagnostičnih podatkov</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_sections.webp" alt="Zaslon diagnostičnega dnevnika ShiftAlarm z glavnim stikalom in posameznim dnevnikom alarmov">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Zbiranje diagnostičnih podatkov</strong> – glavno stikalo za vsak diagnostični razdelek v aplikaciji. Izklopite ga, da prenehate dodajati nove dogodke v vse dnevnike hkrati. Zbiranje novih dogodkov se nadaljuje, ko ga ponovno omogočite.</li>
+<li><strong>Dnevnik posameznih funkcij</strong> – vsak modul ima svoje stikalo in gumb »Odpri«. Na primer, lahko pustite globalno diagnostiko omogočeno, medtem ko onemogočite samo dnevnik alarma, ure ali druge funkcije. Posnetek zaslona prikazuje dnevnik alarmov, ki beleži dogodke dostave, razporejanja, obnovitve, zaščite in zaslona alarma.</li>
+</ol>
+
+<div class="notice">Stikala nadzorujejo samo beleženje tehničnih dogodkov. Onemogočanje alarma, ure ali drugega dnevnika funkcij ne onemogoči same funkcije. Predhodno shranjene vnose lahko ločeno izbrišete z gumbom »Počisti« v ustreznem dnevniku.</div>
+
+<h3 id="diagnostics-log">14.2. Dnevnik posameznih funkcij</h3>
+
+<p>V zahtevanem diagnostičnem razdelku se dotaknite »Odpri«. Spodnji primer prikazuje dnevnik alarmov; Dnevniki za druge funkcije delujejo na podoben način.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_alarm_log.webp" alt="Diagnostični dnevnik alarmov ShiftAlarm s številom dogodkov, dejanji in tehničnimi vnosi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Shranjeni dogodki</strong> – prikazuje število vnosov, ki so trenutno shranjeni v izbranem dnevniku.</li>
+<li><strong>Dejanja dnevnika</strong>:
+<ul>
+<li><strong>Kopiraj</strong> – kopira vse podatke iz trenutnega dnevnika v odložišče. Lahko jih prilepite v e-pošto ali drugo aplikacijo.</li>
+<li><strong>Počisti</strong> – izbriše shranjene vnose v tem dnevniku. Po brisanju se prikažejo samo dogodki, zabeleženi pozneje, ko je diagnostika omogočena.</li>
+<li><strong>Pošlji razvijalcem</strong> – odpre izbirnik aplikacij za pošiljanje e-pošte. Izberite e-poštno aplikacijo; Naslov razvijalca in diagnostični podatki se vstavijo samodejno. Pred pošiljanjem dodajte opis težave, preglejte sporočilo in nato potrdite pošiljanje.</li>
+</ul>
+</li>
+<li><strong>Dogodki aplikacije</strong> – sami vnosi v dnevnik. Vnos običajno vsebuje datum in čas, ime tehničnega dogodka in dodatne parametre, kot so identifikator, stanje ali razlog. Tehnična imena se lahko pojavijo v angleščini; pred pošiljanjem jih ne urejajte ali prevajajte.</li>
+</ol>
+
+<div class="warning">Preden izbrišete dnevnik, kopirajte ali pošljite vse zahtevane vnose. Izbrisanih diagnostičnih dogodkov ni mogoče obnoviti.</div>
+
+<div class="tip">Če je težavo mogoče reproducirati, najprej omogočite globalno zbiranje diagnostičnih podatkov in ustrezni dnevnik funkcij, nato pa ponovite dejanja, ki so povzročila težavo. V sporočilu navedite točen čas težave, model telefona, različico Androida, pričakovani rezultat in dejanski rezultat. To pomaga uskladiti vaš opis z dogodki v dnevniku.</div>
+
+<h2 id="faq">15. Pogosto zastavljena vprašanja</h2>
+
+<h3>Alarm se ni sprožil pravočasno</h3>
+<p>Preverite obvestila, dovoljenje za natančen alarm, dejavnost v ozadju in omejitve baterije.</p>
+<h3>Geo alarm se je sprožil pozno</h3>
+<p>Preverite natančno lokacijo in lokacijo v ozadju, omejitve baterije in samodejni zagon v ozadju. Poskusite z radijem 1300–1500 m v mestu in 4000–5000 m zunaj mesta. Dejanski sprožilec se morda ne bo zgodil točno na črti radija.</p>
+<h3>Pripomoček se ni posodobil takoj</h3>
+<p>Odprite aplikacijo ali tapnite gumb za osvežitev v pripomočku. Android lahko omeji pogoste posodobitve gradnikov.</p>
+<h3>Spremenil sem jezik, vendar dokument ali vodnik še ni posodobljen</h3>
+<p>Preverite internetno povezavo in počakajte na prenos. Če oddaljena različica ni na voljo, aplikacija uporabi vgrajeno rezervno različico.</p>
+
+<div class="footer small">Vodnik je mogoče posodobiti prek GitHuba. Če oddaljena različica ni na voljo, aplikacija uporabi vgrajeno različico brez povezave.</div>
+</main>
+</body>
+</html>

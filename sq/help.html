@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Udhëzuesi i Përdoruesit të ShiftAlarm</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #64748b;
+  --accent: #2563eb;
+  --soft: #e8eef8;
+  --border: #dbe4f0;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.58;
+  margin: 0;
+  padding: 18px;
+  color: var(--text);
+  background: var(--bg);
+}
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+h1 { margin: 0 0 8px; font-size: 28px; line-height: 1.2; }
+h2 { margin: 32px 0 10px; font-size: 21px; line-height: 1.25; }
+h3 { margin: 22px 0 8px; font-size: 17px; }
+p, li { font-size: 16px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul, ol { padding-left: 22px; }
+.notice, .tip, .warning {
+  padding: 14px 16px;
+  border-radius: 16px;
+  margin: 14px 0;
+  border: 1px solid var(--border);
+}
+.notice { background: var(--soft); }
+.tip { background: #ecfdf5; }
+.warning { background: #fff7ed; }
+.small { color: var(--muted); font-size: 14px; }
+.toc {
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 16px;
+  margin: 18px 0 24px;
+}
+.toc ol { margin: 8px 0 0; }
+.step-list li { margin-bottom: 8px; }
+.guide-figure {
+  margin: 18px 0;
+}
+.guide-image {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+}
+.callout-list li {
+  margin-bottom: 10px;
+}
+.guide-caption {
+  max-width: 520px;
+  margin: 10px auto 0;
+  color: var(--text);
+  font-size: 15px;
+}
+.guide-caption strong {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.footer {
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --card: #111827;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --accent: #93c5fd;
+    --soft: #1f2937;
+    --border: #334155;
+  }
+  main { box-shadow: none; }
+  .toc { background: #172033; }
+  .tip { background: #10251f; }
+  .warning { background: #2a1d10; }
+}
+</style>
+</head>
+<body>
+<main>
+<h1>Udhëzuesi i Përdoruesit të ShiftAlarm</h1>
+<p class="small">Versioni 14. Data: 2 Gusht 2026.</p>
+<div class="notice">Kjo faqe është një udhëzues praktik për ShiftAlarm. Ajo shpjegon se çfarë bën secila veçori kryesore, ku ta gjeni, çfarë të prekni dhe çfarë të kontrolloni nëse një veçori nuk funksionon siç pritet.</div>
+<nav class="toc">
+<strong>Përmbajtja</strong>
+<ol><li><a href="#start">1. Nisja e parë</a></li><li><a href="#permissions">2. Lejet dhe besueshmëria</a></li><li><a href="#main">3. Ekrani kryesor</a></li><li><a href="#shifts">4. Oraret e ndërrimit</a></li><li><a href="#statistics">5. Statistikat e orarit</a></li><li><a href="#alarms">6. Alarme</a></li><li><a href="#geo">7. Alarme Gjeo</a></li><li><a href="#notes">8. Shënime, ngjarje dhe përkujtesa</a></li><li><a href="#clock">9. Orë, kohëmatës dhe kronometër</a></li><li><a href="#widgets">10. Widget-e</a></li><li><a href="#salary">11. Llogaritja e pagës</a></li><li><a href="#settings">12. Cilësimet</a></li><li><a href="#backup">13. Rezervim dhe rivendosje</a></li><li><a href="#diagnostics">14. Diagnostikim dhe zgjidhje problemesh</a></li><li><a href="#faq">15. Pyetje të shpeshta</a></li></ol>
+</nav>
+<h2 id="start">1. Nisja e parë</h2>
+
+<p>Kur ShiftAlarm fillon për herë të parë, ai shfaq një rrjedhë të shkurtër konfigurimi. Ekrani kryesor është tashmë i disponueshëm në sfond, por është më mirë të përfundoni konfigurimin bazë më parë.</p>
+<ol class="step-list">
+<li>Lexoni informacionin hyrës dhe prekni "Vazhdo".</li>
+<li>Në hapin e dokumenteve, hapni dokumentet ose pranoni dokumentet e kërkuara kur të jeni gati për të vazhduar.</li>
+<li>Në hapin e lejeve, hapni ekranin e lejeve dhe kontrolloni njoftimet, alarmet e sakta, aksesin në vendndodhje dhe kufizimet e baterisë.</li>
+<li>Prekni "Përfundo konfigurimin".</li>
+</ol>
+<p class="tip">Mund të konfiguroni lejet më vonë nën "Cilësimet → Lejet dhe besueshmëria".</p>
+
+<h2 id="permissions">2. Lejet dhe besueshmëria</h2>
+
+<p>Alarmet, përkujtuesit dhe Alarmet Gjeo-Alarme varen nga cilësimet e Android dhe softueri i prodhuesit të pajisjes.</p>
+<ul>
+<li><strong>Njoftimet</strong> — të kërkuara për alarmet, përkujtuesit, kohëmatësin dhe njoftimet e shërbimit.</li>
+<li><strong>Alarmet e sakta</strong> — ndihmojnë që alarmi të fillojë në kohën e kërkuar.</li>
+<li><strong>Vendndodhja</strong> — e nevojshme për Alarmet Gjeo-Alarme.</li>
+<li><strong>Vendndodhja në sfond</strong> — e nevojshme që një Alarm Gjeo-Alarm të funksionojë ndërsa aplikacioni është i mbyllur.</li>
+<li><strong>Aktiviteti i baterisë dhe i sfondit</strong> — mund të ndikojë në besueshmërinë e aktivizimit në Xiaomi/Redmi dhe disa pajisje të tjera.</li>
+</ul>
+<p class="warning">Android nuk garanton gjithmonë dërgimin e menjëhershëm të njoftimeve, alarmeve të sakta ose ngjarjeve të gjeo-gardhit. Për njoftime të rëndësishme, kontrolloni çdo artikull në ekranin e lejeve.</p>
+
+<h2 id="main">3. Ekrani kryesor</h2>
+
+<p>Ekrani kryesor është paneli juaj i përditshëm. Ai ofron qasje të drejtpërdrejtë në kalendar, orë, Alarme Gjeografike, alarme të rregullta, orare turni, shënime dhe cilësime.</p>
+
+<h3 id="main-overview">3.1. Elementet e ekranit kryesor</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_screen_overview.png" alt="Ekrani kryesor i ShiftAlarm me kontrolle të numëruara">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Shigjeta e kthimit</strong> — zhvendos kalendarin në muajin e mëparshëm.</li>
+<li><strong>Muaji dhe viti</strong> — tregon muajin e hapur. Prekni këtë zonë për të përdorur <a href="#main-date-picker">zgjedhësin hap pas hapi të muajit dhe vitit</a>.</li>
+<li><strong>Shigjeta përpara</strong> — zhvendos kalendarin në muajin tjetër.</li>
+<li><strong>Kalendari</strong> — zona kryesore e muajit. Mund ta rrëshqitni kalendarin. Çdo ditë mund të tregojë datën, përkujtuesit, ngjarjet, turnin e planifikuar dhe ndryshimet e ditës. Një prekje e rregullt zgjedh një datë; Një shtypje e gjatë hap <a href="#main-day-actions">informacionet dhe veprimet për ditën e zgjedhur</a>.</li>
+<li><strong>Sot</strong> — kthen kalendarin në ditën aktuale.</li>
+<li><strong>Ora</strong> — hap <a href="#clock">orën botërore, kronometrin dhe kohëmatësin</a>.</li>
+<li><strong>Alarmi Gjeografik</strong> — hap <a href="#geo">hartën, vendet e ruajtura dhe cilësimet e Alarmit Gjeografik</a>. Një alarm mund të aktivizohet kur hyni në zonën e zgjedhur, largoheni prej saj ose bëni ndonjërën prej tyre.</li>
+<li><strong>Alarmi</strong> — hap <a href="#alarms">alarm-et e rregullta, përsëritëse dhe të lidhura me zhvendosjen</a>.</li>
+<li><strong>Orari</strong> — hap <a href="#shifts">oraret e ndërrimeve, krijimin dhe redaktimin e tyre, si dhe statistikat</a>.</li>
+<li><strong>Shënime</strong> — hap <a href="#notes">shënimet, ngjarjet, përkujtuesit, shënimet audio dhe konvertimin e të folurit në tekst</a>.</li>
+<li><strong>Cilësimet</strong> — hap <a href="#settings">lejet, gjuhën, temën, modelet e të folurit jashtë linje, kopjen rezervë, diagnostikimin, dokumentet dhe trajnimin</a>.</li>
+</ol>
+
+
+<h3 id="main-date-picker">3.2. Zgjedhja e një muaji dhe viti</h3>
+
+<p>Prekni muajin dhe vitin në krye të ekranit kryesor për të hapur shpejt periudhën e kërkuar të kalendarit. Përzgjedhja vazhdon në faza: <strong>shekulli → dekada → viti → muaji</strong>.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_century.webp" alt="Hapi 1: zgjedhja e një shekulli në kalendarin ShiftAlarm">
+<figcaption class="guide-caption"><strong>1. Zgjidhni një shekull.</strong> Prekni periudhën që përmban vitin që ju nevojitet. Shembulli zgjedh vitet 2000.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_decade.webp" alt="Hapi 2: zgjedhja e një dekade në kalendarin ShiftAlarm">
+<figcaption class="guide-caption"><strong>2. Zgjidhni një dekadë.</strong> Prekni diapazonin që përmban vitin e kërkuar. Për vitin 2026, zgjidhni “2020–2029.”</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_year.webp" alt="Hapi 3: zgjedhja e një viti në kalendarin ShiftAlarm">
+<figcaption class="guide-caption"><strong>3. Zgjidhni një vit.</strong> Prekni vitin e kërkuar. Shembulli zgjedh vitin 2026.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_month.webp" alt="Hapi 4: zgjedhja e një muaji në kalendarin ShiftAlarm">
+<figcaption class="guide-caption"><strong>4. Zgjidhni një muaj.</strong> Prekni muajin e kërkuar. Shembulli zgjedh korrikun.</figcaption>
+</figure>
+
+<div class="tip">Pasi të zgjidhni një muaj, paneli mbyllet dhe kalendari kryesor hapet në muajin dhe vitin e zgjedhur.</div>
+<div class="notice">Butoni "Kthehu" kthehet në fazën e mëparshme. Në ekranin e shekullit, mbyll zgjedhësin e datës.</div>
+
+<h3 id="main-day-actions">3.3. Informacion dhe veprime për një ditë të zgjedhur</h3>
+
+<p>Prekni dhe mbani shtypur ditën e kërkuar në kalendar. Do të hapet një panel me informacion dhe veprime për atë datë. Zvarrit panelin lart për të parë të gjitha veprimet e disponueshme.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_day_actions.webp" alt="Paneli i informacionit dhe veprimeve të ShiftAlarm për një ditë të zgjedhur kalendarike">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Data</strong> — tregon ditën e javës dhe datën e zgjedhur. Zvarritni dorezën në krye lart ose poshtë për të zgjeruar ose mbyllur panelin.</li>
+<li><strong>Transfer</strong> — tregon ndërrimin e llogaritur ose një ndryshim dite, siç është një ditë pushimi, kohë pushimi, pushime, leje mjekësore ose një përjashtim tjetër.</li>
+<li><strong>Alarme për këtë datë</strong> — tregon alarmet e caktuara për ditën e zgjedhur ose raportet që nuk ekzistojnë.</li>
+<li><strong>Ngjarjet dhe përkujtuesit</strong> — tregon hyrjet e lidhura me datën e zgjedhur.</li>
+<li><strong>Shto alarm</strong> — hap krijimin e një alarmi një herësh për datën e zgjedhur.</li>
+<li><strong>Ndrysho ndërrimin</strong> — krijon një përjashtim për një ditë ose një diapazon datash në orarin aktiv.</li>
+<li><strong>Shto shënim</strong> — ju lejon të zgjidhni një ngjarje ose përkujtues për të krijuar për datën e zgjedhur.</li>
+</ol>
+
+<div class="notice">Veprimi “Ndrysho ndërrimin” është i disponueshëm për rregullimin e ditëve në orarin aktiv të ndërrimit.</div>
+
+<h4 id="main-shift-override">Ndryshimi i një dite ose i një diapazoni datash</h4>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_types.webp" alt="Zgjedhja e një diapazoni datash dhe llojit të ndryshimit të ndërrimit në ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Data e fillimit</strong> — dita e parë e ndryshimit. Fillimisht përdor datën e zgjedhur në kalendar.</li>
+<li><strong>Data e mbarimit</strong> — dita e fundit e ndryshimit. Për të ndryshuar vetëm një ditë, lëreni të njëjtën datë të zgjedhur.</li>
+<li><strong>Kohë pushimi</strong> — zëvendëson turnin e llogaritur me kohën e lirë.</li>
+<li><strong>Pushime</strong> — shënon ditën ose intervalin e zgjedhur si pushim.</li>
+<li><strong>Leje mjekësore</strong> — shënon ditën ose intervalin e zgjedhur si leje mjekësore.</li>
+<li><strong>Ruaj ndryshimin</strong> — zbaton përjashtimin e zgjedhur në kalendar.</li>
+</ol>
+
+<h4 id="main-shift-time-adjustment">Rregullimi i kohës së punës</h4>
+
+<p>Shkoni poshtë listën e llojeve të ndryshimeve dhe zgjidhni "Redakto turnin" për të ndryshuar kohëzgjatjen e turnit të llogaritur të punës.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_time_adjustment.webp" alt="Rregullimi i kohës së punës së turnit në ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Redakto turnin</strong> — mundëson rregullimin e kohës së punës për turnin e zgjedhur.</li>
+<li><strong>+ koha</strong> — shton orë ose minuta në kohëzgjatjen standarde të turnit.</li>
+<li><strong>− koha</strong> — zvogëlon kohëzgjatjen e turnit, për shembull kur puna mbaroi herët.</li>
+<li><strong>Llogarit këtë kohë si orë shtesë</strong> — trajton kohën e shtuar si orë shtesë. Nëse opsioni është i çaktivizuar, ai llogaritet si kohë e rregullt pune.</li>
+<li><strong>Ruaj ndryshimin</strong> — zbaton rregullimin në ditën ose diapazonin e zgjedhur.</li>
+</ol>
+
+<div class="tip">Një ndryshim dite nuk e modifikon shabllonin origjinal të orarit. Ai ruhet si një përjashtim i veçantë dhe përfshihet në kalendar, statistika, llogaritjen e pagës dhe raportet.</div>
+
+<h2 id="shifts">4. Oraret e ndërrimit</h2>
+
+<p>Një orar ndërrimi përcakton një cikël pune përsëritës dhe ofron bazën për veçoritë e tjera të ShiftAlarm. Aplikacioni e përdor atë për të mbushur kalendarin, për të lidhur alarmet me ndërrimet, për të numëruar kohën e punës, për të gjeneruar statistika, për të vlerësuar pagën dhe për të përgatitur raporte.</p>
+
+<div class="notice"><strong>Parimi bazë.</strong> Së pari krijoni orarin bazë përsëritës. Shtoni pushime, leje mjekësore, kohë të lirë, një turn zëvendësues një herësh ose një rregullim të kohës së punës si përjashtim për data specifike përmes <a href="#main-day-actions">veprimeve të ditëve të zgjedhura</a>. Kjo e mban ciklin origjinal të pandryshuar.</div>
+
+<h3 id="shifts-list">4.1. Lista dhe kontrollet e orarit</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedules_overview.webp" alt="ShiftAlarm ekrani i orarit me një kartë orari aktive dhe kontrolle të numëruara">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Detajet e orarit</strong> — emri, data e fillimit, gjatësia e ciklit dhe një sekuencë e shkurtër ditësh. Në shembull, "D · D · O · O" do të thotë dy turne ditore të ndjekura nga dy ditë pushim.</li>
+<li><strong>Ndërroni</strong> — çaktivizon përkohësisht orarin pa e fshirë atë. Kur e aktivizoni përsëri, cilësimet e ruajtura vazhdojnë të zbatohen.</li>
+<li><strong>Statusi i orarit</strong> — tregon se cili orar është aktualisht aktiv.</li>
+<li><strong>Ndrysho</strong> — hap parametrat që mund të ndryshohen. Pas konfigurimit fillestar, një pjesë e bazës së orarit bllokohet për të parandaluar rillogaritjen aksidentale të të dhënave të kalendarit që janë krijuar tashmë.</li>
+<li><strong>Fshij</strong> — fshin orarin pas konfirmimit. Para se ta fshini, kontrolloni çdo alarm dhe llogaritje të lidhura me turnin.</li>
+<li><strong>Hap statistikat</strong> — hap statistikat e këtij orari <a href="#statistics">të kohës së punës, periudhës, pagës dhe raportit</a>.</li>
+<li><strong>Krijo orar</strong> — ju lejon të zgjidhni një shabllon të gatshëm ose të krijoni një cikël të personalizuar.</li>
+</ol>
+
+<h3 id="shifts-create">4.2. Fillimi i krijimit të orarit</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_create.webp" alt="Paneli i krijimit të orarit me një emër, datë fillimi, shabllone dhe orar të personalizuar">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Emri i orarit</strong> — futni një emër të qartë si "Kryesor 2/2", "Turni i natës" ose emri i vendit tuaj të punës.</li>
+<li><strong>Data e fillimit</strong> — data që korrespondon me <strong>ditën e parë të ciklit përsëritës</strong>. Mund të zgjidhni një datë të kaluar ose të ardhshme; aplikacioni llogarit orarin përpara dhe prapa prej saj.</li>
+<li><strong>Shabllone</strong> — sekuenca të zakonshme turni të gatshme. Shembulli përdor shabllonin “2/2 ditë”.</li>
+<li><strong>Orari i personalizuar</strong> — krijon sekuencën tuaj të ditëve të punës dhe ditëve të pushimit.</li>
+<li><strong>Krijo orar</strong> — hap redaktorin e detajuar për opsionin e zgjedhur.</li>
+</ol>
+
+<div class="tip">Për shabllonin “D · D · O · O”, data e fillimit është normalisht e para nga dy ditët e punës. Në një cikël të personalizuar, dita 1 mund të jetë gjithashtu një ditë pushimi; pika e rëndësishme është që data e zgjedhur të përputhet saktësisht me ditën 1 të sekuencës që keni krijuar.</div>
+
+<h3 id="shifts-template">4.3. Krijimi i një orari nga një shabllon</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_template.webp" alt="Redaktor i orarit të shabllonit me një emër, sekuencë, datë fillimi dhe kohë ndërrimi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Emri i orarit</strong> — mbajeni emrin e sugjeruar ose zëvendësojeni atë me tuajin.</li>
+<li><strong>Shabllon</strong> — tregon sekuencën e shkronjave dhe kuptimin e saj. Në shembull, "D · D · O · O" do të thotë ndërrim ditor, ndërrim ditor, ditë pushimi, ditë pushimi.</li>
+<li><strong>Data e fillimit</strong> — zgjidhni datën e ditës së parë në sekuencën e shfaqur.</li>
+<li><strong>Ora e ndërrimit</strong> — specifikoni kohën e fillimit dhe të mbarimit për secilin lloj ndërrimi pune. Aplikacioni shfaq kohëzgjatjen e llogaritur.</li>
+<li><strong>Anulo</strong> — mbyll redaktuesin pa e ruajtur.</li>
+<li><strong>Ruaj</strong> — ruan orarin dhe fillon llogaritjen e ndërrimeve në kalendar.</li>
+</ol>
+
+<div class="warning"><strong>Pas ruajtjes së parë.</strong> Data e fillimit dhe struktura e ciklit janë të bllokuara për të mbrojtur të dhënat e kalendarit që janë llogaritur tashmë. Ju ende mund të modifikoni emrin dhe disa parametra pune. Nëse keni nevojë për një cikël bazë ose datë referimi të ndryshme, është më e sigurt të krijoni një orar të ri.</div>
+
+<h3 id="shifts-custom">4.4. Krijimi i një cikli të personalizuar</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_custom.webp" alt="Redaktor i orarit të personalizuar me gjatësinë e ciklit, kontrollet e ditës, datën e fillimit dhe cilësimet për çdo ditë">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Emri i orarit</strong> — jepini një emër sekuencës suaj të personalizuar.</li>
+<li><strong>Gjatësia e ciklit</strong> — tregon se sa ditë përfshihen në sekuencën përsëritëse.</li>
+<li><strong>Hiq ditën</strong> — shkurton ciklin me një ditë.</li>
+<li><strong>Shto ditë</strong> — shton një ditë tjetër të konfigurueshme në fund të ciklit.</li>
+<li><strong>Data e fillimit</strong> — data që korrespondon me ditën 1 të ciklit të personalizuar.</li>
+<li><strong>Cilësimet e ditës</strong> — prekni Kartën “Lloji i turnit” dhe zgjidhni një ditë pushimi ose llojin e kërkuar të punës: ditë, natë, mëngjes, mbrëmje, 24-orëshe ose turn i personalizuar. Për një ditë pune, specifikoni kohën e fillimit dhe të mbarimit. Konfiguroni ditët e mbetura të ciklit në të njëjtën mënyrë më poshtë ekranit.</li>
+<li><strong>Anulo</strong> — mbyll redaktuesin pa ruajtur.</li>
+<li><strong>Ruaj</strong> — ruan ciklin e personalizuar dhe e llogarit atë në kalendar.</li>
+</ol>
+
+<div class="notice"><strong>Çfarë është një cikël?</strong> Një cikël është numri i ditëve pas të cilave sekuenca fillon përsëri. Për shembull, një cikël katër-ditor mund të jetë “2 ditë pune + 2 ditë pushim”, ndërsa një cikël gjashtë-ditor mund të jetë “3 ditë pune + 3 ditë pushim”. Pas ditës së fundit, aplikacioni kthehet në ditën 1.</div>
+
+<div class="tip">Mos e ndryshoni ciklin bazë për një përjashtim të orarit një herësh. Shtypni gjatë një datë kalendarike dhe krijoni një ditë pushimi, pushim, pushim mjekësor, ndërrim zëvendësues ose rregullim orari.</div>
+
+
+
+<span id="shift-statistics"></span>
+<h2 id="statistics">5. Statistikat e orarit</h2>
+
+<p>Hapni “Statistikat” nga një kartë orari duke përdorur butonin <strong>“Hap statistikat”</strong>. Ky seksion kombinon informacionin rreth ditëve të punës dhe ditëve të pushimit, ndryshimeve të orarit, kohës së planifikuar dhe aktuale të punës, pagën e vlerësuar dhe raportet.</p>
+
+<div class="notice"><strong>E rëndësishme:</strong> statistikat llogariten vetëm për orarin e zgjedhur të ndërrimit. Periudha e zgjedhur vlen për të gjitha vlerat e kohës së punës, pagën dhe raportimit poshtë saj.</div>
+
+<h3 id="statistics-period">5.1. Përmbledhje e orarit, periudhës dhe ditës</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_period_overview.webp" alt="Ekrani i statistikave me informacionin e orarit, përzgjedhjen e periudhës dhe totalet e ditëve">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Informacioni i orarit</strong> — tregon emrin e orarit të zgjedhur, datën e fillimit të ciklit të parë dhe gjatësinë e ciklit përsëritës. Statistikat në këtë ekran zbatohen vetëm për këtë orar.</li>
+<li><strong>Karta e periudhës së zgjedhur</strong> — tregon periudhën në përdorim. Prekni atë ose shigjetën në të djathtë për të zgjedhur muajin aktual, të mëparshëm ose të ardhshëm, vitin aktual ose një diapazon datash të personalizuar.</li>
+<li><strong>Përmbledhje e ditës</strong> — tregon numrin e ditëve në periudhë, ndërrimet e punës, ditët e pushimit, ndërrimet e përfunduara dhe të ardhshme, dhe ditët e ndryshuara. Ditët e ndryshuara janë përjashtime nga cikli bazë: pushimet, lejet mjekësore, koha e lirë, një zëvendësim ose një ndërrim turni i zhvendosur, një rregullim i orarit të punës dhe ndryshime të tjera.</li>
+</ol>
+
+<div class="warning"><strong>Periudhat e ardhshme janë parashikime.</strong> Për një muaj të ardhshëm, aplikacioni përdor orarin e krijuar dhe të dhënat e futura tashmë, por nuk mund të dijë lejet mjekësore, pushimet, kohën e lirë, orët shtesë, bonuset ose zbritjet e ardhshme. Kur zgjidhni vitin aktual, totalet mund të kombinojnë të dhënat aktuale për datat e kaluara me një parashikim për pjesën tjetër të vitit.</div>
+
+<h3 id="statistics-work">5.2. Ora e punës, paga dhe raportet</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_work_salary_reports.webp" alt="Ekrani i statistikave me kohën e punës, progresin, pagën dhe qasjen në raport">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ora e punës</strong> — një kartë përmbledhëse për orët dhe progresin. Prekni atë për të hapur <a href="#statistics-break">cilësimet e pushimit</a>.</li>
+<li><strong>Orët e planifikuara</strong> — kohëzgjatja totale e ndërrimeve të planifikuara dhe ndryshimet gjatë periudhës së zgjedhur.</li>
+<li><strong>Orët e punuara</strong> — koha në ndërrime që konsiderohen të përfunduara që nga data aktuale, me cilësimet e pushimit të aplikuara.</li>
+<li><strong>Progresi</strong> — tregon se sa ndërrime pune janë përfunduar nga totali dhe çfarë përqindjeje e periudhës së zgjedhur është përfunduar.</li>
+<li><strong>Paga</strong> — hap <a href="#salary">cilësimet e llogaritjes së pagës</a>. Karta tregon një vlerësim për orarin dhe periudhën e zgjedhur.</li>
+<li><strong>Totali</strong> — shuma e vlerësuar e fituar deri më tani, duke përfshirë metodën e zgjedhur të pagesës, bonuset, orët shtesë dhe zbritjet.</li>
+<li><strong>Shkalla ose paga</strong> — përmbajtja e kësaj karte varet nga metoda e zgjedhur e llogaritjes: paga për orë, për turn ose për muaj. Shfaq vlerën e futur në cilësimet e pagës.</li>
+<li><strong>Detajet e llogaritjes</strong> — koha e paguar, orët jashtë orarit, shpërblimet dhe zbritjet për periudhën e zgjedhur.</li>
+<li><strong>Raportet</strong> — hap <a href="#reports">raportet e detajuara për periudhat, kohën e punës dhe pagën</a>.</li>
+</ol>
+
+<div class="tip">Të gjitha vlerat në seksionet e kohës së punës dhe pagës rillogariten kur ndryshoni periudhën në kartën e sipërme.</div>
+
+<h3 id="statistics-break">5.3. Kontabilizimi i pushimeve në kohën e punës</h3>
+
+<p>Prekni kartën "Ora e punës" për të specifikuar nëse një pushim për vaktin ose një pushim tjetër duhet të llogaritet si pjesë e kohës aktuale të punuar dhe të paguar.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_break_settings.webp" alt="Panel i cilësimeve të llogaritjes dhe kohëzgjatjes së pushimeve">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Totalet aktuale</strong> — tregon orët e planifikuara dhe të punuara për periudhën e zgjedhur para se të aplikohen cilësimet e reja.</li>
+<li><strong>Numëroni pushimin si kohë pune</strong> — lëreni këtë opsion të aktivizuar nëse pushimi është i paguar dhe përfshihet në kohëzgjatjen e turnit. Çaktivizojeni nëse koha e specifikuar duhet të përjashtohet nga koha e punuar dhe e paguar.</li>
+<li><strong>Kohëzgjatja e pushimit</strong> — zgjidhni orët dhe minutat për një pushim. Ky cilësim përdoret kur rillogariten ndërrimet e punës që zbatohen.</li>
+<li><strong>Pushim total</strong> — tregon kohëzgjatjen e zgjedhur para ruajtjes.</li>
+<li><strong>Ruaj</strong> — zbaton cilësimin dhe rillogarit kohën e punës dhe vlerat përkatëse.</li>
+</ol>
+
+<div class="notice">Një pushim mund të përfaqësojë një pushim vakti, dorëzim ndërrimi ose një interval tjetër të papaguar brenda një ndërrimi. Vendosni kohëzgjatjen që përputhet me rregullat në vendin tuaj të punës.</div>
+
+<h3 id="reports">5.4. Raportet: periudha, statusi dhe përmbledhja</h3>
+
+<p>Hapni "Raportet" nga karta e poshtme në ekranin e statistikave. Ky seksion ofron informacion më të detajuar për periudhën e zgjedhur: kohën e punës, ndërrimet dhe mungesat, rregullimet e kalendarit, paga, shpërblimet, zbritjet, krahasimin e periudhës, detajet ditë për ditë dhe eksportimin.</p>
+
+<div class="warning"><strong>Raportet ofrohen vetëm për qëllime informative.</strong> Llogaritjet bazohen në orarin e zgjedhur, cilësimet e pagave, llogaritjen e pushimeve dhe ndryshimet e ndërrimeve të kalendarit. Shifrat aktuale të punëdhënësit tuaj mund të ndryshojnë për shkak të një sistemi të ndryshëm të llogaritjes së kohës, rrumbullakimit, taksave, lejimeve ose rregullave të brendshme. Nëse gjeni një gabim ose një metodë llogaritjeje të pambështetur, kontaktoni zhvilluesit në adresën e treguar në aplikacion dhe përfshini të dhënat e dhëna dhe rezultatin e pritur.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_period_salary.webp" alt="Ekrani i raporteve me përzgjedhjen e periudhës, statusin, përmbledhjen dhe ndarjen e detajuar të pagave">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Periudha e raportimit</strong> — prekni kartën për të zgjedhur muajin aktual, të mëparshëm ose të ardhshëm, një interval të paracaktuar ose data të personalizuara. I gjithë informacioni më poshtë vlen për periudhën e zgjedhur.</li>
+<li><strong>Statusi i periudhës</strong> — tregon nëse periudha është e përfunduar, aktualisht aktive apo nuk ka filluar ende. Një periudhë e përfunduar llogaritet nga të dhënat aktuale të ruajtura. Një periudhë aktive kombinon të dhënat e punuara tashmë me planin aktual, ndërsa një periudhë e ardhshme është një parashikim.</li>
+<li><strong>Përmbledhje</strong> — një përmbledhje tekstuale e kohës aktuale të punuar, shumës së llogaritur dhe orëve shtesë.</li>
+<li><strong>Paga</strong> — një ndarje e detajuar e pagës bazë, pagës shtesë, bonuseve, zbritjeve dhe vlerësimit përfundimtar. Vlerat varen nga <a href="#salary">cilësimet e pagave</a> dhe periudha e zgjedhur.</li>
+</ol>
+
+<h3 id="reports-work">5.5. Orari i punës, mungesat dhe ditët</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_work_absences.webp" alt="Ekrani i raporteve me kohën e punës, pushimet, turnet e përfunduara dhe mungesat">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ora e punës</strong> — tregon orët e planifikuara dhe aktuale të punës, orët e planifikuara dhe aktuale para zbritjes së pushimit, numrin e turneve të përfunduara, kohëzgjatjen mesatare të turnit dhe pushimin total të zbritur. Konfiguroni pushimet në <a href="#statistics-break">seksionin e kohës së punës</a>.</li>
+<li><strong>Mungesat dhe ditët</strong> — tregon numrin e ditëve të lira, ditëve të pushimeve, ditëve të pushimit mjekësor, ditëve të pushimit dhe ditëve të ndryshuara gjatë periudhës së zgjedhur.</li>
+</ol>
+
+<h3 id="reports-charts">5.6. Rregullime dhe grafikë</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_corrections_charts.webp" alt="Ekrani i raporteve me rregullime, përbërjen e pagave dhe vlerat e kohës së punës">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Rregullime</strong> — tregon orët jashtë orarit, ndryshimin total në kohëzgjatjen e ndërrimit dhe numrin e ditëve të ndryshuara nga orari bazë.</li>
+<li><strong>Grafikët</strong> — vizualizon përbërjen e pagave dhe kohës së punës: paga bazë, orët jashtë orarit, shpërblimet, zbritjet, orët totale dhe të planifikuara, të punuara dhe të paguara.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_charts_days.webp" alt="Grafikë shtesë raportesh me orë dhe një grafik rrethor të tipit ditor">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Orë</strong> — vazhdon krahasimin vizual të orëve të planifikuara, të punuara, të paguara dhe jashtë orarit. Rreshti "Koha aktuale e punës" tregon rezultatin pasi të jenë aplikuar cilësimet dhe rregullimet.</li>
+<li><strong>Llojet e ditëve</strong> — një grafik rrethor që shpërndan ditët në periudhën e zgjedhur sipas llojit. Legjenda varet nga orari dhe ndryshimet aktuale: dita, nata ose turne të tjera, ditë pushimi, pushime, leje mjekësore, kohë pushimi dhe gjendje të tjera.</li>
+</ol>
+
+<h3 id="reports-comparison">5.7. Krahasimi i periudhave</h3>
+
+<p>Seksioni i krahasimit ju ndihmon të krahasoni pagën, kohën, turnet dhe mungesat në disa periudha. Numri i periudhave të disponueshme varet nga të dhënat e ruajtura.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_chart.webp" alt="Ekrani i krahasimit të periudhave me përzgjedhjen e diapazonit, grafikun e pagave dhe fillimin e një tabele krahasimi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Krahaso periudhat</strong> — prek kartën për të zgjedhur se sa periudha të krahasosh dhe diapazonin e tyre.</li>
+<li><strong>Grafiku dhe lista e periudhave</strong> — tregon pagën për secilën periudhë dhe rendit intervalet e përfshira në krahasim së bashku me statusin e tyre.</li>
+<li><strong>Tabela e krahasimit</strong> — përmban vlera të detajuara për secilën periudhë. Rrëshqitni tabelën horizontalisht majtas ose djathtas për të parë kolonat e mbetura.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_table.webp" alt="Vazhdimi i tabelës krahasuese dhe ndryshimet midis periudhave ngjitur">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Vlerat e periudhës</strong> — paga totale, orët e punuara dhe të paguara, orët shtesë, bonuset, zbritjet, ndërrimet e përfunduara, mungesat dhe ditët e ndryshuara.</li>
+<li><strong>Dallimi midis periudhave</strong> — tregon se si ndryshon secila periudhë nga ajo e mëparshmja. Vlerat pozitive dhe negative tregojnë një rritje ose ulje në metrikën përkatëse. Vetëm ngjyra nuk do të thotë gjithmonë një përfitim ose një problem; për shembull, një rritje në zbritje do të thotë që një shumë më e madhe mbahet.</li>
+</ol>
+
+<h3 id="reports-details-export">5.8. Detajet ditore dhe eksportimi</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_details_export.webp" alt="Kartat e raportimit për detajet ditore dhe eksportimin në PDF, HTML, JSON ose CSV">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Detajet ditore</strong> — hap një listë të çdo dite në periudhën e zgjedhur. Mund të kontrolloni llojin e turnit, kohën e planifikuar dhe aktuale, rregullimet e orëve, mungesat dhe ndryshime të tjera për një ditë specifike.</li>
+<li><strong>Eksporto</strong> — ruan raportin si PDF, HTML, JSON ose CSV. Zgjidhni periudhën e raportit para eksportimit; më pas mund ta printoni, ruani ose ndani skedarin përmes menusë së sistemit Android.</li>
+</ol>
+
+<div class="tip">Para krahasimit ose eksportimit, kontrolloni periudhën e zgjedhur, orarin, ndryshimet e turnit, pushimet dhe cilësimet e pagave. Një gabim në të dhënat burimore do të ndikojë në çdo total të raportit.</div>
+
+<h2 id="alarms">6. Alarmet</h2>
+
+<p>ShiftAlarm ju lejon të krijoni alarme një herëshe, t'i përsërisni ato në ditët e zgjedhura të javës ose të lidhni kohën e tyre me një orar turni.</p>
+
+<h3 id="alarms-list">6.1. Lista e alarmeve</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarms_overview.webp" alt="ShiftAlarm ekran alarmi me alarmin tjetër, renditjen, një kartë alarmi dhe butonin e shtimit">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Alarmi tjetër</strong> — tregon datën dhe orën e alarmit tjetër aktiv.</li>
+<li><strong>Renditja e alarmeve</strong> — ndryshon rendin e kartave të alarmeve, për shembull duke shfaqur alarmet e aktivizuara të parat.</li>
+<li><strong>Karta e alarmit</strong> — përmban kohën, datën ose modalitetin e përsëritjes, llojin e orarit dhe kohën e mbetur. Prekni kartën për ta modifikuar.</li>
+<li><strong>Çelës</strong> — aktivizon ose çaktivizon përkohësisht alarmin pa fshirë cilësimet e tij.</li>
+<li><strong>Fshij</strong> — fshin alarmin e zgjedhur.</li>
+<li><strong>Shto alarm</strong> — hap ekranin për krijimin e një alarmi të ri.</li>
+</ol>
+
+<h3 id="alarms-create">6.2. Krijimi dhe redaktimi i një alarmi</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_time_schedule.webp" alt="Kreu i redaktorit të alarmit ShiftAlarm: kontrollet e kohës, llojit të orarit, shtyrjes dhe ruajtjes">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Koha</strong> — lëvizni rrotat e orës dhe minutës për të vendosur kohën e alarmit.</li>
+<li><strong>Lloji i orarit</strong> — zgjidhni një nga këto mënyra:
+<ul>
+<li><strong>Një herë</strong> — alarmi aktivizohet një herë në datën e zgjedhur;</li>
+<li><strong>Sipas ditëve</strong> — përsëritet në ditët e zgjedhura të javës;</li>
+<li><strong>Sipas turneve</strong> — lidh alarmin me një orar dhe lloj turni të zgjedhur.</li>
+</ul>
+</li>
+<li><strong>Shtypje</strong> — cakton numrin e minutave Alarmi shtyhet kur prekni butonin e shtyrjes në ekranin e ziles.</li>
+<li><strong>Anulo dhe Ruaj</strong> — këto butona janë të fiksuar në fund të ekranit dhe mbeten të disponueshëm ndërsa shfletoni nëpër redaktues.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_behavior.webp" alt="ShiftCilësimet e alarmit për kohëzgjatjen e alarmit, përsëritjen e alarmit, rritjen graduale të volumit dhe dridhjen">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Kohëzgjatja e alarmit</strong> — përcakton se sa gjatë tingëllon alarmi nëse përdoruesi nuk e ndalon atë.</li>
+<li><strong>Përsërit nëse alarmi injorohet</strong> — aktivizon një alarm tjetër kur alarmi nuk është shpërfillur dhe as nuk është shtyrë. Vendosni intervalin para alarmit të përsëritur poshtë tij.</li>
+<li><strong>Rritje graduale e volumit</strong> — fillon me audio më të qetë dhe rrit gradualisht volumin gjatë kohës së zgjedhur.</li>
+<li><strong>Dridhje</strong> — aktivizon ose çaktivizon dridhjen gjatë alarmit.</li>
+<li><strong>Anulo dhe Ruaj</strong> — kontrolle fikse për redaktorin.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_sound_name.webp" alt="Fundi i redaktorit të alarmit ShiftAlarm: kontrollet e dridhjes, tingullit, emrit dhe ruajtjes">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Dridhje</strong> — aktivizon ose çaktivizon alarmin e dridhjes.</li>
+<li><strong>Tingulli</strong> — ju lejon të zgjidhni një tingull të integruar, të sistemit ose të shtuar nga përdoruesi. Mund të shtoni deri në pesë tinguj të personalizuar në aplikacion.</li>
+<li><strong>Emri</strong> — një etiketë opsionale që ju ndihmon të dalloni alarmet.</li>
+<li><strong>Anulo dhe Ruaj</strong> — hidhni poshtë ndryshimet ose ruani alarmin.</li>
+</ol>
+
+<div class="notice">Pas ruajtjes, alarmi shfaqet në listën kryesore. Para një alarmi të rëndësishëm, sigurohuni që alarmi të jetë i aktivizuar, aplikacioni ka leje për njoftime dhe alarme të sakta, dhe sistemi nuk po e kufizon aktivitetin e tij në sfond.</div>
+
+<div class="tip">Për të krijuar një alarm të lidhur me ndërrimin, së pari krijoni një orar të përshtatshëm ndërrimi. Në redaktues, zgjidhni një kohë fikse shkaktimi ose një zhvendosje në lidhje me fillimin e ndërrimit.</div>
+
+<h2 id="geo">7. Alarme Gjeografike</h2>
+
+<p>Një Alarm Gjeografik monitoron kur pajisja hyn ose del nga një zonë e zgjedhur. Zona përcaktohet nga një pikë në hartë dhe një rreze rreth asaj pike. Për shembull, përdorni një Alarm Gjeografik për të marrë një alarm kur i afroheni punës, shtëpisë, një stacioni autobusi, një stacioni ose një vendi tjetër.</p>
+
+<h3 id="geo-overview">7.1. Harta dhe kontrollet</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_overview.webp" alt="ShiftAlarm Ekrani kryesor i Alarmit Gjeografik me një hartë dhe kontrolle të numëruara">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Zmadho</strong> — zmadhon hartën.</li>
+<li><strong>Zvogëlo</strong> — zvogëlon shkallën e hartës.</li>
+<li><strong>Vendndodhja ime</strong> — e zhvendos hartën në vendndodhjen aktuale të pajisjes. Aplikacioni ka nevojë për akses në vendndodhje për këtë funksion.</li>
+<li><strong>Vende të ruajtura</strong> — hap listën e Alarmeve Gjeo dhe pikave të vendndodhjes të ruajtura.</li>
+<li><strong>Kthehu</strong> — kthehet në ekranin e mëparshëm të aplikacionit.</li>
+<li><strong>Numri i Alarmeve Gjeo</strong> — tregon se sa Alarme Gjeo janë krijuar.</li>
+<li><strong>Lista e Alarmeve Gjeo</strong> — hap një listë të veçantë të Alarmeve Gjeo të krijuara.</li>
+</ol>
+
+<div class="tip">Ju gjithashtu mund të zmadhoni me gjeste. Prekni hartën me dy gishta dhe hapini ato për të zmadhuar, ose bashkojini ato për të zvogëluar.</div>
+<div class="notice">Kontrollet anësore mund të shfaqen në anën e kundërt në gjuhët nga e djathta në të majtë. Funksionet e tyre mbeten të njëjta.</div>
+
+<h3 id="geo-saved-places">7.2. Alarme të ruajtura dhe pika vendndodhjeje</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_saved_places.webp" alt="Dritarja e vendeve të ruajtura me Alarm Gjeografik dhe skeda të pikave të vendndodhjes">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Alarme</strong> — tregon Alarmet Gjeografike të shtuara në vendet e ruajtura.</li>
+<li><strong>Pikat e vendndodhjes</strong> — tregon koordinatat e ruajtura pa një Alarm Gjeografik aktiv.</li>
+<li><strong>Lista e vendeve të ruajtura</strong> — prekni një kartë për të kaluar në atë vend në hartë.</li>
+<li><strong>Mbyll</strong> — mbyll dritaren dhe kthehet në hartë.</li>
+</ol>
+
+<div class="notice">Nëse fshini një Alarm Gjeografik të shënuar, koordinatat e tij ruhen automatikisht në skedën "Pikat e vendndodhjes". Mund ta përdorni pikën përsëri më vonë për të krijuar një tjetër Alarm Gjeografik.</div>
+
+<h3 id="geo-select-point">7.3. Zgjedhja e një pike dhe rrezeje</h3>
+
+<p>Prekni dhe mbani vendin e kërkuar në hartë. Aplikacioni vendos një shënues dhe hap panelin e pikës së zgjedhur.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_selected_point.webp" alt="Pikë e zgjedhur në hartë me adresë, rreze, faqeshënues dhe buton krijimi të Alarmit Gjeografik">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Shënues i pikës së zgjedhur</strong> — qendra e gjeo-gardhit të ardhshëm. Harta shfaq gjithashtu një rreth për rrezen e zgjedhur.</li>
+<li><strong>Adresa dhe koordinatat</strong> — ju lejon të verifikoni që është zgjedhur vendi i saktë.</li>
+<li><strong>Ruaj pikën e vendndodhjes</strong> — shton koordinatat e zgjedhura në vendet e ruajtura pa krijuar një alarm.</li>
+<li><strong>Rrezja</strong> — përcakton madhësinë e zonës përreth pikës. Lëvizni rrëshqitësin derisa të zgjidhni një distancë të përshtatshme.</li>
+<li><strong>Anulo</strong> — anulon përzgjedhjen e pikës.</li>
+<li><strong>Krijo këtu</strong> — hap redaktorin e ri të Alarmit Gjeografik për pikën e zgjedhur.</li>
+</ol>
+
+<div class="warning"><strong>Si të zgjidhni një rreze.</strong> Një telefon nuk i gjurmon koordinatat e tij vazhdimisht. Android, prodhuesi i pajisjes, modaliteti i kursimit të baterisë, GPS, cilësia e sinjalit të rrjetit celular dhe Wi-Fi, si dhe shpejtësia e lëvizjes, të gjitha ndikojnë kur zbulohet kufiri. Prandaj, alarmi mund të aktivizohet larg vijës së vizatuar. Për shembull, me një rreze prej 800 m, hyrja mund të zbulohet pasi pajisja të jetë tashmë brenda zonës - ndoshta 700, 600 ose 500 m nga pika.</div>
+
+<ul>
+<li><strong>Në një qytet</strong>, në përgjithësi rekomandohet një rreze prej <strong>1,300–1,500 m</strong>.</li>
+<li><strong>Jashtë një qyteti</strong>, ku përditësimet e vendndodhjes mund të jenë më pak të shpeshta, rekomandohet <strong>4,000–5,000 m</strong>.</li>
+<li><strong>Rrezja e saktë</strong> duhet të zgjidhet bazuar në rrugën, shpejtësinë dhe sjelljen e pajisjes suaj.</li>
+</ul>
+
+<div class="notice">Sistemi zbulon kur pajisja kalon kufirin virtual të zonës. Në modalitetin "Në hyrje", një rreze më e madhe zakonisht i jep telefonit më shumë kohë për të zbuluar afrimin tuaj. Në modalitetin "Në dalje", kufiri vendoset më larg nga pika e zgjedhur.</div>
+
+<h3 id="geo-create">7.4. Krijimi i një Alarmi Gjeografik</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_location_schedule.webp" alt="Kreu i redaktorit të Alarmit Gjeografik: gatishmëria, vendndodhja dhe lloji i orarit">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Gatishmëria e Alarmit Gjeografik</strong> — tregon nëse lejet e kërkuara janë konfiguruar dhe nëse aplikacioni mund ta regjistrojë gjeo-gardhin.</li>
+<li><strong>Vendndodhja</strong> — përmban adresën dhe koordinatat e zgjedhura. Mund ta modifikoni adresën si etiketë, por pika aktuale zgjidhet në hartë.</li>
+<li><strong>Lloji i orarit</strong> — përcakton ditët dhe kushtet në të cilat Alarmi Gjeografik është aktiv.</li>
+<li><strong>Gjithmonë</strong> — Alarmi Gjeografik është aktiv çdo ditë ndërsa është i aktivizuar.</li>
+<li><strong>Një herë</strong> — përdoret për aktivizimin e radhës një herësh kur plotësohet kushti i zgjedhur.</li>
+<li><strong>Sipas ditëve</strong> — funksionon vetëm në ditët e zgjedhura të javës.</li>
+<li><strong>Sipas turneve</strong> — lidh Alarmin Gjeografik me orarin aktiv të turnit.</li>
+</ol>
+
+<div class="notice"><strong>Orari "Sipas turneve".</strong> Zgjidhni nëse funksionon në ditën e turnit, vetëm para turnit apo vetëm pas tij, dhe specifikoni llojin e kërkuar të turnit: ditë, natë, mëngjes, mbrëmje, 24-orësh, i personalizuar ose çdo turn pune.</div>
+<div class="tip">Nëse një datë kalendarike shënohet si ditë pushimi, pushim, pushim mjekësor ose kohë pushimi në vend të një turni pune, një Alarm Gjeografik i lidhur me turnin nuk do të jetë aktiv atë ditë.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_trigger_settings.webp" alt="Fundi i redaktorit të Alarmit Gjeografik: kushti i hyrjes ose daljes, rrezja dhe cilësimet e alarmit">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Kushti i aktivizimit</strong> — përcakton se cili kalim kufiri e fillon alarmin.</li>
+<li><strong>Në hyrje</strong> — fillon alarmin kur pajisja hyn në rrezen e zgjedhur, për shembull kur i afrohet punës ose ndalesës së kërkuar.</li>
+<li><strong>Në dalje</strong> — fillon alarmin kur pajisja largohet nga rrezja e zgjedhur, për shembull pas largimit nga puna ose një stacion kështu që të mos e humbisni pjesën tjetër të një itinerari.</li>
+<li><strong>Në hyrje ose dalje</strong> — fillon alarmin sa herë që kufiri kalohet në të dy drejtimet.</li>
+<li><strong>Rrezja</strong> — madhësia e gjeo-gardhit rreth pikës së zgjedhur.</li>
+<li><strong>Kohëzgjatja e alarmit</strong> — përcakton se sa kohë tingëllon alarmi.</li>
+<li><strong>Rritje graduale e volumit</strong> — vendos një rritje të butë të volumit pasi të fillojë alarmi.</li>
+<li><strong>Anulo dhe Ruaj</strong> — hidhni ndryshimet ose ruani Alarmin Gjeografik.</li>
+</ol>
+
+<div class="tip">Opsionet e mbetura më poshtë janë të ngjashme me një alarm të rregullt: tingulli, dridhja, kohëzgjatja e alarmit, rritja graduale e volumit dhe emri.</div>
+
+<h3 id="geo-existing">7.5. Një Alarm Gjeografik në hartë dhe kontrollet e tij</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_marker_radius.webp" alt="Shënuesi i Alarmit Gjeografik të Krijuar dhe rrethi i rrezes së tij shkaktuese në hartë">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Shënuesi i Alarmit Gjeografik</strong> — tregon pikën e zgjedhur.</li>
+<li><strong>Kufiri i rrezes</strong> — tregon zonën hyrja ose dalja e së cilës monitorohet nga aplikacioni.</li>
+</ol>
+
+<p>Prekni shënuesin e Alarmit Gjeografik. Së pari shfaqet një dritare e vogël informacioni. Prekni atë dritare për të hapur kartën e detajuar.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_alarm_card.webp" alt="Karta e detajuar e alarmit gjeo me informacion, faqeshënues, çelës dhe kontrolle">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Emri dhe adresa</strong> — identifikoni Alarmin Gjeo të zgjedhur.</li>
+<li><strong>Shëno faqeshënues</strong> — shton alarmin në vendet e ruajtura ose e heq atë prej tyre.</li>
+<li><strong>Çelës</strong> — aktivizon ose çaktivizon përkohësisht Alarmin Gjeo pa fshirë cilësimet e tij.</li>
+<li><strong>Cilësimet dhe statusi</strong> — tregojnë rrezen, gjendjen e hyrjes ose daljes, orarin, gatishmërinë e gjeo-gardhit dhe informacionin rreth aktivizimeve të mëparshme.</li>
+<li><strong>Ndrysho</strong> — hap cilësimet e Alarmit Gjeo.</li>
+<li><strong>Mbyll</strong> — mbyll kartën dhe kthehet në hartë.</li>
+<li><strong>Fshij</strong> — fshin Alarmin Gjeografik pas konfirmimit.</li>
+</ol>
+
+<div class="warning">Për funksionim të besueshëm, lejoni vendndodhje të saktë dhe në sfond, hiqni kufizimet e rrepta të baterisë për ShiftAlarm dhe kontrolloni cilësimet e nisjes automatike në sfond nëse pajisja juaj i ofron ato. Edhe me cilësimet e sakta, Android nuk garanton zbulimin e kufijve me saktësi brenda pak metrash.</div>
+
+<h2 id="notes">8. Shënime, ngjarje dhe përkujtesa</h2>
+
+<p>Seksioni "Shënime" ruan tekst të thjeshtë, lista, lista kontrolli, regjistrime audio, shënime të të folurit në tekst, përkujtesa dhe ngjarje.</p>
+
+<h3 id="notes-create">8.1. Shtimi i një shënimi</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_type_picker.webp" alt="Zgjedhja e një lloji të ri shënimi në ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Doreza e panelit</strong> — tërhiqeni lart për të zbuluar listën e plotë të llojeve të shënimeve, ose poshtë për të mbyllur panelin.</li>
+<li><strong>Lloji i shënimit</strong> — zgjidhni opsionin e duhur:
+<ul>
+<li><strong>Shënim teksti</strong> — tekst i thjeshtë;</li>
+<li><strong>Lista e kontrollit</strong> — një listë artikujsh me kuti kontrolli për plotësim;</li>
+<li><strong>Listë</strong> — një listë me pika ose numra;</li>
+<li><strong>Shënim audio</strong> — një regjistrim zëri;</li>
+<li><strong>Fjalim për teksti</strong> — krijon një shënim duke përdorur njohjen e të folurit;</li>
+<li><strong>Kujtesë</strong> — një hyrje me një njoftim në një kohë të caktuar;</li>
+<li><strong>Ngjarje</strong> — një hyrje e lidhur me një datë dhe orë.</li>
+</ul>
+</li>
+<li><strong>Anulo</strong> — mbyll zgjedhësin pa krijuar një shënim.</li>
+</ol>
+
+<div class="tip">Pasi të zgjidhni një lloj, hapet redaktori përkatës. Plotësoni fushat e kërkuara dhe ruani hyrjen.</div>
+
+<h3 id="notes-list">8.2. Lista e shënimeve dhe kontrollet</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_overview.webp" alt="Ekrani i shënimeve ShiftAlarm me renditje, shënime aktive dhe të arkivuara, kërkim dhe veprime të kartës">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Rendit</strong> — ndryshon rendin e shënimeve në listë.</li>
+<li><strong>Aktiv</strong> — tregon shënimet e rregullta dhe të planifikuara që nuk janë zhvendosur në arkiv.</li>
+<li><strong>Arkiv</strong> — hap listën e shënimeve të arkivuara.</li>
+<li><strong>Kërko</strong> — gjen përputhje në titujt dhe përmbajtjen e shënimeve.</li>
+<li><strong>Karta e shënimeve</strong> — tregon titullin, llojin, statusin dhe informacione shtesë. Prekni kartën për të hapur shënimin.</li>
+<li><strong>Ngjit</strong> — e fikson shënimin në krye të listës.</li>
+<li><strong>Arkiv</strong> — e heq shënimin nga lista aktive dhe e zhvendos atë në arkiv.</li>
+<li><strong>Fshij</strong> — e fshin shënimin pas konfirmimit.</li>
+<li><strong>Shto shënim</strong> — hap zgjedhësin e llojit të shënimit të ri.</li>
+</ol>
+
+<div class="notice">Përdorni arkivin për hyrjet që nuk nevojiten më në listën kryesore, por duhet të mbeten të ruajtura. Fshini një shënim vetëm kur nuk nevojitet më fare.</div>
+
+<h2 id="clock">9. Ora, kronometri dhe kohëmatësi</h2>
+
+<p>Ky seksion kombinon kohën lokale dhe botërore, një kronometër dhe një kohëmatës. Hapeni atë me butonin <strong>“Ora”</strong> në ekranin kryesor.</p>
+
+<div class="notice">Shfaqen tre skeda në fund të ekranit: “Ora”, “Kronometri” dhe “Kohëmatësi”. Prekni një skedë për të ndërruar modalitetet.</div>
+
+<h3 id="clock-world">9.1. Ora dhe ora botërore</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_overview.webp" alt="Ekrani i orës ShiftAlarm me orën lokale, orët botërore, butonin e shtimit dhe skedat e poshtme">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ora lokale</strong> — tregon orën, datën dhe zonën kohore të sistemit aktual të pajisjes.</li>
+<li><strong>Orët botërore</strong> — shfaq qytetet dhe zonat kohore të shtuara. Ndërsa lista është bosh, aplikacioni shfaq një sugjerim.</li>
+<li><strong>Butoni Plus</strong> — hap zgjedhësin e orës botërore.</li>
+<li><strong>Skedat e seksioneve</strong> — kaloni midis ekraneve “Ora”, “Kronometri” dhe “Kohëmatësi”.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_add_timezone.webp" alt="Shtimi i një qyteti ose zone kohore në orën botërore ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Kërko</strong> — futni një emër qyteti ose zone kohore për të filtruar listën.</li>
+<li><strong>Lista e qyteteve dhe zonave kohore</strong> — prekni opsionin e kërkuar për ta shtuar atë në ekranin e orës botërore.</li>
+</ol>
+
+<div class="tip">Zona kohore lokale shfaqet gjithmonë e para. Mund t’i hiqni orët botërore të shtuara nga lista, por koha lokale nuk mund të hiqet.</div>
+
+<h3 id="clock-stopwatch">9.2. Kronometri</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_start.webp" alt="ShiftAlarm kronometri para se të fillojë">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Historiku</strong> — hap seancat e ruajtura të kronometrit.</li>
+<li><strong>Nisja</strong> — fillon kohëmatjen.</li>
+<li><strong>Rivendosja</strong> — nuk është e disponueshme para se të fillojë kronometri. Pas ndalimit, e kthen kronometrin në zero dhe i heq xhirot aktuale.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_running.webp" alt="Kronometri ShiftAlarm i ekzekutuar me kontrolle historiku, ruajtjeje, xhiroje dhe pauze">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Historiku</strong> — tregon sesionet e ruajtura më parë.</li>
+<li><strong>Ruaj</strong> — kërkon një emër dhe ruan sesionin aktual të kronometrit.</li>
+<li><strong>Xhiro</strong> — regjistron një rezultat të ndërmjetëm pa ndaluar kohëmatësin total.</li>
+<li><strong>Pauze</strong> — e ndal kronometrin. Pas pauzës, mund ta rifilloni ose ta rivendosni atë.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_laps.webp" alt="ShiftAlarm xhirot e kronometrit dhe opsionet e tyre të renditjes">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Origjinale, më e shpejtë dhe më e ngadaltë</strong> — ndryshoni rendin e shfaqjes së xhiros: rendi origjinal, më e shpejta fillimisht ose më e ngadalta fillimisht.</li>
+<li><strong>Xhiro</strong> — çdo xhiro tregon kohën totale në të cilën është regjistruar dhe kohën e xhiros individuale.</li>
+</ol>
+
+<div class="notice">Kur prekni Ruaj, futni një emër sesioni dhe konfirmoni. Mund ta hapni sesionin e ruajtur më vonë nga Historiku.</div>
+
+<h3 id="clock-timer">9.3. Kohëmatësi</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_setup.webp" alt="Vendosja e një kohëmatësi ShiftAlarm me orë, minuta dhe sekonda">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Orë</strong> — lëvizni rrotën dhe zgjidhni numrin e orëve.</li>
+<li><strong>Minuta</strong> — lëvizni rrotën dhe zgjidhni numrin e minutave.</li>
+<li><strong>Sekonda</strong> — lëvizni rrotën dhe zgjidhni numrin e sekondave.</li>
+<li><strong>Nisja</strong> — fillon kohëmatësin me kohëzgjatjen e zgjedhur.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_running.webp" alt="Ekzekutimi i kohëmatësit ShiftAlarm me kohën e mbetur, pauzën, shtimin e minutës dhe ndalimin kontrolle">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Koha e mbetur</strong> — tregon se sa kohë mbetet para alarmit.</li>
+<li><strong>Koha e mbarimit</strong> — tregon kohën e përafërt në të cilën do të përfundojë kohëmatësi.</li>
+<li><strong>Kohëmatësit e fundit</strong> — kohëzgjatjet e ruajtura të fundit; prekni një për ta ripërdorur shpejt.</li>
+<li><strong>Pauzë</strong> — ndalon përkohësisht numërimin mbrapsht. Mund ta rifilloni më vonë.</li>
+<li><strong>+1 min</strong> — shton një minutë në kohën e mbetur.</li>
+<li><strong>Ndalo</strong> — ndalon plotësisht kohëmatësin.</li>
+</ol>
+
+<div class="tip">Kohëmatësi dhe kronometri vazhdojnë të funksionojnë në sfond. Statusi i tyre mund të shfaqet në një njoftim, në ekranin kryesor dhe në vegla.</div>
+
+<h2 id="widgets">10. Veglat</h2>
+
+<p>ShiftAlarm ofron vegla për Ekranin Kryesor të telefonit.</p>
+<ul>
+<li><strong>Sot 4×2</strong> — një panel kompakt me dy seksione të konfigurueshme.</li>
+<li><strong>Sot 4×3</strong> — një panel me një orë në krye dhe dy seksione poshtë.</li>
+<li><strong>Kalendari 4×4</strong> — vegla kalendari me orarin e ndërrimit.</li>
+</ul>
+<p>Shtoni një vegël përmes menusë së vegëlve Android në ekranin kryesor të telefonit.</p>
+
+<h2 id="salary">11. Llogaritja e pagës</h2>
+
+<p>Hapni “Llogaritjen e pagës” nga karta e pagës në <a href="#statistics-work">statistikat e orarit të zgjedhur</a>. Këtu mund të vendosni metodën e pagesës, normën ose pagën mujore, rregullat e orëve shtesë, bonuset dhe zbritjet. Aplikacioni përdor këto cilësime së bashku me periudhën e zgjedhur, orarin e ndërrimit, ndryshimet e kalendarit dhe llogaritjen e pushimeve.</p>
+
+<div class="warning"><strong>Llogaritja ofrohet vetëm për qëllime informative.</strong> Paga aktuale mund të ndryshojë nëse punëdhënësi juaj përdor një sistem tjetër për llogaritjen e kohës, rrumbullakosjen, lejimet, taksat, bonuset, zbritjet ose pagesën për lloje të veçanta ndërrimi. Mos e përdorni rezultatin si një dokument zyrtar të pagave; krahasojeni atë me fletëpagesën e punëdhënësit tuaj. Nëse gjeni një metodë llogaritjeje që aplikacioni nuk e trajton me saktësi, dërgoni një email zhvilluesve në adresën e treguar në aplikacion. Përshkruani rregullat, jepni të dhëna hyrëse shembull dhe deklaroni rezultatin e pritur. Metoda mund të merret në konsideratë për një përditësim të ardhshëm.</div>
+
+<h3 id="salary-settings">11.1. Tarifa, orët shtesë dhe bonuset</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_settings_overview.webp" alt="Ekrani i llogaritjes së pagës me orarin e zgjedhur, llojin e tarifës, orët shtesë dhe bonuset">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Orari i zgjedhur</strong> — tregon se cili orar turni po përdoret. Paga llogaritet nga ky orar dhe periudha e zgjedhur në statistika.</li>
+<li><strong>Lloji i tarifës dhe shuma e pagës</strong> — zgjidhni pagesën <strong>për orë</strong>, <strong>për turn</strong> ose <strong>për muaj</strong>, pastaj futni shumën përkatëse. Emri i fushës ndryshon me llojin e zgjedhur të tarifës.</li>
+<li><strong>Orë shtesë</strong> — aktivizoni këtë seksion nëse orët shtesë paguhen ndryshe nga koha e rregullt e punës. Pastaj specifikoni shumëzuesin e pagës për orët shtesë. Shtoni orët shtesë në kalendar përmes <a href="#main-shift-time-adjustment">“Ndrysho turnin” → “+ kohë”</a>; aktivizoni “Numëroni këtë kohë si orë shtesë” në mënyrë që orët të trajtohen si orë shtesë.</li>
+<li><strong>Bonuse</strong> — tregon metodën aktuale të llogaritjes dhe totalet. Prekni kartën për të hapur <a href="#salary-bonuses">cilësimet e bonusit</a>.</li>
+</ol>
+
+<div class="notice">Butoni "Ruaj" zbaton cilësimet në orarin e zgjedhur. Pas ruajtjes, totalet në statistika dhe raporte rillogariten duke përdorur të dhënat e futura.</div>
+
+<h3 id="salary-summary">11.2. Zbritjet dhe llogaritja e totalit</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions_total.webp" alt="Ekrani i llogaritjes së pagës me zbritjet dhe një ndarje përfundimtare">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Zbritjet</strong> — tregon shumën totale dhe numrin e zbritjeve të konfiguruara. Prekni kartën për të hapur <a href="#salary-deductions">listën e zbritjeve</a>.</li>
+<li><strong>Totali</strong> — një ndarje përmbledhëse: koha e paguar, orët e punuara, orët shtesë, paga bazë, paga shtesë, bonuset, zbritjet dhe rezultati përfundimtar.</li>
+</ol>
+
+<div class="tip">Rezultati varet jo vetëm nga cilësimet e këtij ekrani, por edhe nga periudha e zgjedhur e statistikave, ndërrimet e përfunduara, ndryshimet e ditës, orët shtesë dhe cilësimet e pushimeve të papaguara.</div>
+
+<h3 id="salary-bonuses">11.3. Bonuset</h3>
+
+<p>Prekni kartën "Bonuset" në ekranin e llogaritjes së pagave. Mund të futni një bonus manualisht ose ta llogaritni atë si përqindje nëse kjo përputhet me sistemin tuaj të pagave.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_bonuses.webp" alt="Ekrani i cilësimeve të bonusit me opsione llogaritjeje dhe futjeje shumash">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Informacion përmbledhës</strong> — tregon totalin e llogaritur të bonusit dhe shumën bazë të përdorur për llogaritjen.</li>
+<li><strong>Llogaritja e bonusit</strong> — zgjidhni futjen manuale ose një llogaritje përqindjeje, siç është një përqindje e shitjeve, nëse kjo metodë përdoret në vendin tuaj të punës.</li>
+<li><strong>Metoda e futjes</strong> — "Shuma totale" është e përshtatshme për një bonus të vetëm përfundimtar. Rreshtat e veçantë janë të dobishëm kur ka disa bonuse që duhet të numërohen në mënyrë të pavarur.</li>
+<li><strong>Shuma ose përqindja</strong> — futni vlerën e kërkuar nga metoda e zgjedhur e llogaritjes.</li>
+<li><strong>Anulo dhe Ruaj</strong> — hidhini ndryshimet ose zbatojini ato në llogaritjen e pagës.</li>
+</ol>
+
+<h3 id="salary-deductions">11.4. Lista e zbritjeve</h3>
+
+<p>Prekni kartën "Zbritjet" në ekranin kryesor të llogaritjes. Ky seksion ju lejon të ruani disa zbritje dhe të menaxhoni secilën veçmas.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions.webp" alt="Ekrani i listës së zbritjeve me shumën totale, rreshtat e zbritjeve dhe butonin e shtimit">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Informacion përmbledhës</strong> — tregon shumën dhe numrin e të gjitha zbritjeve të aktivizuara.</li>
+<li><strong>Rreshti i zbritjeve</strong> — tregon emrin, vlerën dhe llojin. Prekni rreshtin për të hapur <a href="#salary-deduction-editor">cilësimet e zbritjes</a>. Ikona e koshit të plehrave e fshin rreshtin.</li>
+<li><strong>Shto zbritje</strong> — butoni “+” krijon një rresht të ri zbritjeje.</li>
+<li><strong>Anulo dhe Ruaj</strong> — hidhni poshtë ndryshimet ose ruani të gjithë listën.</li>
+</ol>
+
+<h3 id="salary-deduction-editor">11.5. Konfigurimi i një zbritjeje individuale</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deduction_editor.webp" alt="Paneli i zbritjes individuale me emër, vlerë, lloj dhe bazë zbritjeje">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Emri i zbritjes</strong> — futni një emër të qartë si "Tatim", "Ndihmë për fëmijë" ose "Gjobë".</li>
+<li><strong>Vlerë</strong> — futni një shumë ose përqindje, varësisht nga lloji i vlerës së zgjedhur më poshtë.</li>
+<li><strong>Lloji i vlerës</strong> — zgjidhni një shumë ose përqindje fikse.</li>
+<li><strong>Lloji i zbritjes</strong> — një zbritje <strong>e ndryshueshme</strong> zbatohet për një periudhë të caktuar llogaritjeje; një zbritje <strong>e përsëritur</strong> zbatohet rregullisht për sa kohë që mbetet e aktivizuar.</li>
+<li><strong>Zbrit nga</strong> — zgjidhni bazën e llogaritjes: pagën totale, pagë bazë, bonuse ose një opsion tjetër të disponueshëm.</li>
+<li><strong>Aktivizuar</strong> — çaktivizon përkohësisht zbritjen pa fshirë cilësimet e saj.</li>
+<li><strong>Anulo dhe Ruaj</strong> — mbyll panelin pa ndryshime ose ruaj zbritjen.</li>
+</ol>
+
+<div class="notice">Për një zbritje përqindjeje, është veçanërisht e rëndësishme të zgjidhni bazën e saktë "Zbrit nga": e njëjta përqindje e pagës totale, pagës bazë dhe bonuseve prodhon rezultate të ndryshme.</div>
+
+<h2 id="settings">12. Cilësimet</h2>
+
+<p>Hapni “Cilësimet” me butonin në fund të <a href="#main-overview">ekranit kryesor</a>. Ky seksion përmban lejet e sistemit, pamjen dhe gjuhën e aplikacionit, njohjen e të folurit jashtë linje, dokumentet dhe udhëzuesin e përdoruesit, kopjen rezervë, diagnostikimin dhe mundësitë për të kontaktuar zhvilluesin.</p>
+
+<h3 id="settings-overview">12.1. Seksionet kryesore të cilësimeve</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_permissions_language.webp" alt="Kreu i cilësimeve të ShiftAlarm: lejet, tema, gjuha e aplikacionit dhe modelet e të folurit jashtë linje">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Lejet</strong> — hap lejet e alarmit dhe cilësimet e besueshmërisë. Kontrolloni njoftimet, alarmet e sakta, aktivitetin në sfond dhe kufizimet e baterisë. <a href="#geo">Alarmet Gjeografike</a> kërkojnë gjithashtu qasje në vendndodhje; nevojitet qasje në sfond ose qasje në vendndodhjen "Lejo gjatë gjithë kohës" për t'u aktivizuar ndërsa aplikacioni është i mbyllur. Emrat dhe shtigjet e artikujve ndryshojnë në varësi të versionit të Android dhe prodhuesit të pajisjes.</li>
+<li><strong>Tema</strong> — ju lejon të zgjidhni pamjen e çelët, të errët ose të sistemit, të zgjidhni një variant ngjyre të ndërfaqes dhe të aktivizoni ose çaktivizoni reagimin haptik për veprimet në aplikacion. Tema e sistemit ndjek pamjen aktuale të telefonit.</li>
+<li><strong>Gjuha e aplikacionit</strong> — ju lejon të përdorni një gjuhë të ndryshme nga gjuha e sistemit të telefonit. Katalogu ShiftAlarm përmban 108 gjuhë: gjeni gjuhën e kërkuar me kërkim, shkarkoni paketën gjuhësore dhe zbatojeni atë.</li>
+<li><strong>Modelet e të folurit jashtë linje</strong> — instalon një modul për <a href="#notes-create">shënimet e të folurit në tekst</a>. Njohja jashtë linje është duke u testuar aktualisht dhe është e disponueshme për afërsisht 20 gjuhë. Cilësia e saj mund të jetë më e ulët se njohja në internet dhe varet nga gjuha, mikrofoni, performanca e telefonit dhe kushtet e regjistrimit.</li>
+</ol>
+
+<div class="warning"><strong>Lejet e Android ndryshojnë në pajisje të ndryshme.</strong> Në disa telefona, duhet të lejoni edhe nisjen automatike në sfond, të zgjidhni "Pa kufizim" ose një modalitet të ngjashëm baterie dhe të lejoni aktivitetin në sfond. Këto cilësime zvogëlojnë mundësinë që sistemi të ndalojë ShiftAlarm, por emrat e tyre të saktë përcaktohen nga prodhuesi i pajisjes.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_help_backup_diagnostics.webp" alt="Fundi i cilësimeve të ShiftAlarm: dokumente, udhëzues përdorimi, kopje rezervë, diagnostikim dhe kontakt me zhvilluesin">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Dokumente dhe ndihmë</strong> — hap dokumentet ligjore të aplikacionit: Kushtet e Përdorimit, Politika e Privatësisë, Mohimi i Përgjegjësisë dhe faqja e shkurtër e ndihmës.</li>
+<li><strong>Trajnim dhe udhëzues përdorimi</strong> — hap këtë udhëzues të plotë të ilustruar me përshkrime të hollësishme të veçorive të ShiftAlarm.</li>
+<li><strong>Krijimi i kopjeve rezervë dhe rivendosja</strong> — krijon një skedar që përmban cilësimet dhe të dhënat e mbështetura të aplikacionit, ose i rikthen ato nga një kopje rezervë e mëparshme. Kjo është e dobishme para se të riinstaloni aplikacionin, të rivendosni telefonin ose të transferoni të dhëna në një pajisje tjetër. Shihni <a href="#backup">“Krijoni kopje rezervë dhe rivendosni”</a> për udhëzime të hollësishme.</li>
+<li><strong>Regjistri diagnostikues</strong> — hap regjistra të veçantë për veçoritë e aplikacionit. Ato regjistrojnë faza teknike siç janë planifikimi dhe rikuperimi i alarmeve, përpunimi i ngjarjeve, gjendja e lejeve dhe informacione të tjera të shërbimit. Një regjistër ndihmon në identifikimin e fazës në të cilën ka ndodhur një gabim. Ju mund të kopjoni hyrjet ose t'i përgatitni ato për t'ua dërguar zhvilluesve me email. Shihni <a href="#diagnostics">“Diagnostika dhe zgjidhja e problemeve”</a> për detaje.</li>
+<li><strong>Kontaktoni zhvilluesit</strong> — hap aplikacionin e email-it dhe krijon një mesazh të adresuar për mbështetje. Përdoreni atë për të raportuar një problem, për të dërguar reagime ose një sugjerim, ose për të bërë një pyetje. Për një problem teknik, përfshini modelin e telefonit, versionin Android, kohën e problemit, hapat e kryer dhe regjistrin përkatës diagnostikues nëse është e mundur.</li>
+</ol>
+
+<div class="notice">Regjistrat diagnostikues nuk u dërgohen zhvilluesve automatikisht. Duhet të kopjoni informacionin e kërkuar ose të prekni "Dërgo te zhvilluesit", të zgjidhni një aplikacion email-i, të rishikoni mesazhin e përgatitur dhe të konfirmoni dërgimin e tij.</div>
+
+<h2 id="backup">13. Rezervimi dhe rivendosja</h2>
+
+<p>Një kopje rezervë ruan cilësimet e mbështetura të ShiftAlarm dhe të dhënat e përdoruesit në një skedar të veçantë. Ndihmon në rivendosjen e të dhënave pas riinstalimit të aplikacionit, rivendosjes së telefonit ose zhvendosjes në një pajisje tjetër.</p>
+<ol class="step-list">
+<li>Hapni "Cilësimet → Rezervimi dhe rivendosja."</li>
+<li>Krijoni një kopje rezervë dhe ruani skedarin që rezulton në telefon ose ndani atë përmes menusë së sistemit.</li>
+<li>Për të rivendosur, hapni të njëjtin seksion dhe zgjidhni një skedar rezervë të krijuar më parë.</li>
+<li>Pas rivendosjes, kontrolloni alarmet, oraret dhe lejet e rëndësishme të Android. Disa leje sigurie të sistemit mund të duhet të jepen përsëri në një pajisje të re ose pas riinstalimit.</li>
+</ol>
+<p class="tip">Mbani një kopje të azhurnuar në një vend të sigurt që mbetet i arritshëm nëse telefoni humbet, dëmtohet ose rivendoset. Një skedar rezervë nuk zëvendëson lejet e sistemit Android dhe nuk mund të përfshijë automatikisht të dhëna që aplikacioni nuk lejohet të ketë qasje.</p>
+
+<h2 id="diagnostics">14. Diagnostika dhe zgjidhja e problemeve</h2>
+
+<p>ShiftAlarm ofron regjistra të veçantë diagnostikues për veçori të ndryshme. Ato ruajnë një sekuencë ngjarjesh teknike dhe ndihmojnë në përcaktimin nëse një alarm është planifikuar, është rivendosur pas një rinisjeje, është kaluar për përpunim ose është ndaluar për shkak të një cilësimi të sistemit.</p>
+
+<h3 id="diagnostics-control">14.1. Kontrollimi i mbledhjes së diagnostikimeve</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_sections.webp" alt="ShiftAlarm ekrani i regjistrit diagnostikues me çelësin kryesor dhe një regjistër individual alarmi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Mbledhja e diagnostikimeve</strong> — çelësi kryesor për çdo seksion diagnostikues në aplikacion. Çaktivizojeni për të ndaluar shtimin e ngjarjeve të reja në të gjitha regjistrat menjëherë. Mbledhja e ngjarjeve të reja rifillon pasi ta aktivizoni përsëri.</li>
+<li><strong>Regjistri individual i veçorive</strong> — çdo modul ka çelësin e vet dhe butonin "Hap". Për shembull, mund ta lini të aktivizuar diagnostikimin global ndërsa çaktivizoni vetëm alarmin, orën ose një regjistër tjetër veçorie. Pamja e ekranit tregon regjistrin e alarmeve, i cili regjistron ngjarjet e dorëzimit, planifikimit, rikuperimit, mbrojtjes nga rojet dhe ekranit të alarmit.</li>
+</ol>
+
+<div class="notice">Çelësat kontrollojnë vetëm regjistrimin e ngjarjeve teknike. Çaktivizimi i një regjistri alarmi, ore ose ndonjë funksioni tjetër nuk e çaktivizon vetë funksionin. Fshini hyrjet e ruajtura më parë veçmas me butonin "Pastro" brenda regjistrit përkatës.</div>
+
+<h3 id="diagnostics-log">14.2. Regjistri individual i funksioneve</h3>
+
+<p>Prekni "Hap" në seksionin e kërkuar diagnostikues. Shembulli më poshtë tregon regjistrin e alarmit; Regjistrat për veçoritë e tjera funksionojnë në një mënyrë të ngjashme.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_alarm_log.webp" alt="Regjistri diagnostikues i alarmit ShiftAlarm me numërimin e ngjarjeve, veprimet dhe hyrjet teknike">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ngjarjet e ruajtura</strong> — tregon numrin e hyrjeve të ruajtura aktualisht në regjistrin e zgjedhur.</li>
+<li><strong>Veprimet e regjistrit</strong>:
+<ul>
+<li><strong>Kopjo</strong> — kopjon të gjitha të dhënat nga regjistri aktual në kujtesën e përkohshme. Mund ta ngjisni në një email ose në një aplikacion tjetër.</li>
+<li><strong>Pastro</strong> — fshin hyrjet e ruajtura në këtë regjistër. Pas pastrimit, do të shfaqen vetëm ngjarjet e regjistruara më vonë ndërsa diagnostikimi është i aktivizuar.</li>
+<li><strong>Dërgo te zhvilluesit</strong> — hap zgjedhësin e aplikacionit për dërgimin e një email-i. Zgjidhni një aplikacion email-i; Adresa e zhvilluesit dhe të dhënat diagnostikuese futen automatikisht. Para dërgimit, shtoni një përshkrim të problemit, rishikoni mesazhin dhe më pas konfirmoni dërgimin e tij.</li>
+</ul>
+</li>
+<li><strong>Ngjarjet e aplikacionit</strong> — vetë hyrjet e regjistrit. Një hyrje normalisht përmban një datë dhe orë, një emër ngjarjeje teknike dhe parametra shtesë si një identifikues, gjendje ose arsye. Emrat teknikë mund të shfaqen në anglisht; mos i modifikoni ose përktheni ato para dërgimit.</li>
+</ol>
+
+<div class="warning">Para se të pastroni një regjistër, kopjoni ose dërgoni çdo hyrje të kërkuar. Ngjarjet diagnostikuese të fshira nuk mund të rikuperohen.</div>
+
+<div class="tip">Nëse problemi mund të riprodhohet, së pari aktivizoni mbledhjen globale diagnostikuese dhe regjistrin përkatës të veçorive, pastaj përsëritni veprimet që shkaktuan problemin. Në mesazhin tuaj, jepni kohën e saktë të problemit, modelin e telefonit, versionin Android, rezultatin e pritur dhe rezultatin aktual. Kjo ndihmon në përputhjen e përshkrimit tuaj me ngjarjet e regjistrit.</div>
+
+<h2 id="faq">15. Pyetje të shpeshta</h2>
+
+<h3>Alarmi nuk u aktivizua në kohë</h3>
+<p>Kontrolloni njoftimet, lejen e saktë të alarmit, aktivitetin në sfond dhe kufizimet e baterisë.</p>
+<h3>Alarmi Gjeografik u aktivizua vonë</h3>
+<p>Kontrolloni vendndodhjen e saktë dhe në sfond, kufizimet e baterisë dhe nisjen automatike në sfond. Provoni një rreze prej 1,300–1,500 m në një qytet dhe 4,000–5,000 m jashtë një qyteti. Aktivizuesi aktual mund të mos ndodhë saktësisht në vijën e rrezes.</p>
+<h3>Vidget-i nuk u përditësua menjëherë</h3>
+<p>Hapni aplikacionin ose prekni butonin e rifreskimit në vegël. Android mund të kufizojë përditësimet e shpeshta të widget-eve.</p>
+<h3>E ndryshova gjuhën, por një dokument ose udhëzuesi nuk është përditësuar ende</h3>
+<p>Kontrolloni lidhjen tuaj të internetit dhe prisni kohë për shkarkim. Nëse versioni i largët nuk është i disponueshëm, aplikacioni përdor opsionin e tij rezervë të integruar.</p>
+
+<div class="footer small">Udhëzuesi mund të përditësohet përmes GitHub. Nëse versioni i largët nuk është i disponueshëm, aplikacioni përdor versionin e tij të integruar jashtë linje.</div>
+</main>
+</body>
+</html>
