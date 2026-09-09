@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ShiftAlarm İstifadəçi Təlimatı</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #64748b;
+  --accent: #2563eb;
+  --soft: #e8eef8;
+  --border: #dbe4f0;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.58;
+  margin: 0;
+  padding: 18px;
+  color: var(--text);
+  background: var(--bg);
+}
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+h1 { margin: 0 0 8px; font-size: 28px; line-height: 1.2; }
+h2 { margin: 32px 0 10px; font-size: 21px; line-height: 1.25; }
+h3 { margin: 22px 0 8px; font-size: 17px; }
+p, li { font-size: 16px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul, ol { padding-left: 22px; }
+.notice, .tip, .warning {
+  padding: 14px 16px;
+  border-radius: 16px;
+  margin: 14px 0;
+  border: 1px solid var(--border);
+}
+.notice { background: var(--soft); }
+.tip { background: #ecfdf5; }
+.warning { background: #fff7ed; }
+.small { color: var(--muted); font-size: 14px; }
+.toc {
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 16px;
+  margin: 18px 0 24px;
+}
+.toc ol { margin: 8px 0 0; }
+.step-list li { margin-bottom: 8px; }
+.guide-figure {
+  margin: 18px 0;
+}
+.guide-image {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+}
+.callout-list li {
+  margin-bottom: 10px;
+}
+.guide-caption {
+  max-width: 520px;
+  margin: 10px auto 0;
+  color: var(--text);
+  font-size: 15px;
+}
+.guide-caption strong {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.footer {
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --card: #111827;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --accent: #93c5fd;
+    --soft: #1f2937;
+    --border: #334155;
+  }
+  main { box-shadow: none; }
+  .toc { background: #172033; }
+  .tip { background: #10251f; }
+  .warning { background: #2a1d10; }
+}
+</style>
+</head>
+<body>
+<main>
+<h1>ShiftAlarm İstifadəçi Təlimatı</h1>
+<p class="small">Versiya 14. Tarix: 2 Avqust 2026.</p>
+<div class="notice">Bu səhifə ShiftAlarm üçün praktik bir bələdçidir. Hər bir əsas xüsusiyyətin nə etdiyini, harada tapılacağını, nəyə toxunacağını və bir xüsusiyyətin gözlənildiyi kimi işləmədiyi təqdirdə nəyi yoxlamaq lazım olduğunu izah edir.</div>
+<nav class="toc">
+<strong>Məzmun</strong>
+<ol><li><a href="#start">1. İlk işə salma</a></li><li><a href="#permissions">2. İcazələr və etibarlılıq</a></li><li><a href="#main">3. Əsas ekran</a></li><li><a href="#shifts">4. Növbə cədvəlləri</a></li><li><a href="#statistics">5. Cədvəl statistikası</a></li><li><a href="#alarms">6. Siqnallar</a></li><li><a href="#geo">7. Coğrafi Siqnallar</a></li><li><a href="#notes">8. Qeydlər, hadisələr və xatırlatmalar</a></li><li><a href="#clock">9. Saat, taymer və saniyəölçən</a></li><li><a href="#widgets">10. Vidjetlər</a></li><li><a href="#salary">11. Əmək haqqının hesablanması</a></li><li><a href="#settings">12. Parametrlər</a></li><li><a href="#backup">13. Yedəkləmə və bərpa</a></li><li><a href="#diagnostics">14. Diaqnostika və problemlərin aradan qaldırılması</a></li><li><a href="#faq">15. Tez-tez verilən suallar</a></li></ol>
+</nav>
+<h2 id="start">1. İlk işə salma</h2>
+
+<p>ShiftAlarm ilk dəfə işə salındıqda, qısa bir quraşdırma axını göstərir. Əsas ekran artıq arxa planda mövcuddur, lakin əvvəlcə əsas quraşdırmanı tamamlamaq ən yaxşısıdır.</p>
+<ol class="step-list">
+<li>Giriş məlumatlarını oxuyun və “Davam et” düyməsini basın.</li>
+<li>Sənədlər addımında sənədləri açın və ya davam etməyə hazır olduqda tələb olunan sənədləri qəbul edin.</li>
+<li>İcazələr addımında icazələr ekranını açın və bildirişləri, dəqiq siqnalları, yerə girişi və batareya məhdudiyyətlərini yoxlayın.</li>
+<li>“Quraşdırmanı bitir” düyməsini basın.</li>
+</ol>
+<p class="tip">Daha sonra “Parametrlər → İcazələr və etibarlılıq” bölməsində icazələri konfiqurasiya edə bilərsiniz.</p>
+
+<h2 id="permissions">2. İcazələr və etibarlılıq</h2>
+
+<p>Siqnallar, xatırlatmalar və Geo Siqnallar Android parametrlərindən və cihaz istehsalçısının proqram təminatından asılıdır.</p>
+<ul>
+<li><strong>Bildirişlər</strong> — siqnallar, xatırlatmalar, taymer və xidmət bildirişləri üçün tələb olunur.</li>
+<li><strong>Dəqiq alarmlar</strong> — siqnalın tələb olunan vaxtda başlamasına kömək edir.</li>
+<li><strong>Məkan</strong> — Geo Siqnallar üçün tələb olunur.</li>
+<li><strong>Arxa plan məkanı</strong> — tətbiq bağlı olduqda Geo Siqnalın işləməsi üçün tələb olunur.</li>
+<li><strong>Batareya və fon fəaliyyəti</strong> — Xiaomi/Redmi və bəzi digər cihazlarda tetikleyicinin etibarlılığına təsir göstərə bilər.</li>
+</ul>
+<p class="warning">Android həmişə bildirişlərin, dəqiq siqnalların və ya geohasar hadisələrinin dərhal çatdırılmasına zəmanət vermir. Vacib xəbərdarlıqlar üçün icazələr ekranındakı hər bir elementi yoxlayın.</p>
+
+<h2 id="main">3. Əsas ekran</h2>
+
+<p>Əsas ekran gündəlik idarəetmə panelinizdir. O, təqvimə, saata, Coğrafi Siqnallara, müntəzəm siqnallara, növbə cədvəllərinə, qeydlərə və parametrlərə birbaşa giriş təmin edir.</p>
+
+<h3 id="main-overview">3.1. Əsas ekran elementləri</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_screen_overview.png" alt="Nömrələnmiş idarəetmə elementləri olan ShiftAlarmının əsas ekranı">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Geri ox</strong> — təqvimi əvvəlki aya keçirir.</li>
+<li><strong>Ay və il</strong> — açıq ayı göstərir. <a href="#main-date-picker">addım-addım ay və il seçicisindən</a> istifadə etmək üçün bu sahəyə toxunun.</li>
+<li><strong>İrəli ox</strong> — təqvimi növbəti aya keçirir.</li>
+<li><strong>Təqvim</strong> — əsas ay sahəsi. Təqvimi sürüşdürə bilərsiniz. Hər gün tarixi, xatırlatmaları, tədbirləri, planlaşdırılmış növbəni və gün dəyişikliklərini göstərə bilər. Mütəmadi toxunuş bir tarix seçir; Uzun bir basış seçilmiş gün üçün <a href="#main-day-actions">məlumat və hərəkətləri</a> açır.</li>
+<li><strong>Bu gün</strong> — təqvimi cari günə qaytarır.</li>
+<li><strong>Saat</strong> — <a href="#clock">dünya saatını, saniyəölçəni və taymeri</a> açır.</li>
+<li><strong>Geo Siqnalizasiya</strong> — <a href="#geo">xəritəni, yadda saxlanılan yerləri və Geo Siqnalizasiya parametrlərini</a> açır. Seçilmiş əraziyə daxil olduqda, oradan çıxdıqda və ya hər ikisini etdikdə siqnal işə düşə bilər.</li>
+<li><strong>Alarm</strong> — <a href="#alarms">müntəzəm, təkrarlanan və növbə ilə əlaqəli siqnalları</a> açır.</li>
+<li><strong>Qrafik</strong> — <a href="#shifts">növbə cədvəllərini, onların yaradılması və redaktəsini və statistikasını</a> açır.</li>
+<li><strong>Qeydlər</strong> — <a href="#notes">qeydləri, tədbirləri, xatırlatmaları, audio qeydləri və nitqdən mətnə</a> açır.</li>
+<li><strong>Parametrlər</strong> — <a href="#settings">icazələri, dili, mövzunu, oflayn nitq modellərini, ehtiyat nüsxəni, diaqnostikanı, sənədləri və təlimi</a> açır.</li>
+</ol>
+
+
+<h3 id="main-date-picker">3.2. Ay və ili seçmək</h3>
+
+<p>Tələb olunan təqvim dövrünü tez bir zamanda açmaq üçün əsas ekranın yuxarısındakı ay və ili vurun. Seçim mərhələlərlə davam edir: <strong>əsr → onillik → il → ay</strong>.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_century.webp" alt="Addım 1: ShiftAlarm təqvimində əsrin seçilməsi">
+<figcaption class="guide-caption"><strong>1. Əsr seçin.</strong> Lazım olan ili ehtiva edən dövrə vurun. Nümunə 2000-ci illəri seçir.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_decade.webp" alt="Addım 2: ShiftAlarm təqvimində onillikin seçilməsi">
+<figcaption class="guide-caption"><strong>2. Onillik seçin.</strong> Lazım olan ili ehtiva edən aralığa vurun. 2026-cı il üçün “2020–2029” seçin.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_year.webp" alt="Addım 3: ShiftAlarm təqvimində il seçmək">
+<figcaption class="guide-caption"><strong>3. Bir il seçin.</strong> Tələb olunan ili vurun. Nümunə 2026-cı ili seçir.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_month.webp" alt="Addım 4: ShiftAlarm təqvimində ay seçmək">
+<figcaption class="guide-caption"><strong>4. Bir ay seçin.</strong> Tələb olunan aya vurun. Nümunə iyul ayını seçir.</figcaption>
+</figure>
+
+<div class="tip">Bir ay seçdikdən sonra panel bağlanır və əsas təqvim seçilmiş ay və ildə açılır.</div>
+<div class="notice">“Geri” düyməsi əvvəlki mərhələyə qayıdır. Əsr ekranında tarix seçicisini bağlayır.</div>
+
+<h3 id="main-day-actions">3.3. Seçilmiş gün üçün məlumat və hərəkətlər</h3>
+
+<p>Təqvimdə tələb olunan günə toxunub saxlayın. Həmin tarix üçün məlumat və hərəkətlər olan panel açılacaq. Bütün mövcud hərəkətləri görmək üçün paneli yuxarı sürüşdürün.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_day_actions.webp" alt="Seçilmiş təqvim günü üçün ShiftAlarm məlumatı və hərəkətlər paneli">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tarix</strong> — həftənin gününü və seçilmiş tarixi göstərir. Paneli genişləndirmək və ya bağlamaq üçün yuxarıdakı sapı yuxarı və ya aşağı sürüşdürün.</li>
+<li><strong>Növbə</strong> — hesablanmış növbəni və ya istirahət günü, istirahət vaxtı, məzuniyyət, xəstəlik məzuniyyəti və ya digər istisna kimi gün dəyişikliyini göstərir.</li>
+<li><strong>Bu tarix üçün alarmlar</strong> — seçilmiş günə təyin edilmiş siqnalları və ya mövcud olmayan siqnalları göstərir.</li>
+<li><strong>Hadisələr və xatırlatmalar</strong> — seçilmiş tarixə bağlı girişləri göstərir.</li>
+<li><strong>Alarm əlavə et</strong> — seçilmiş tarix üçün birdəfəlik siqnalın yaradılmasını açır.</li>
+<li><strong>Növbəni dəyiş</strong> — aktiv cədvəldə bir gün və ya tarix diapazonu üçün istisna yaradır.</li>
+<li><strong>Qeyd əlavə et</strong> — seçilmiş tarix üçün yaratmaq üçün bir hadisə və ya xatırlatma seçməyə imkan verir.</li>
+</ol>
+
+<div class="notice">Aktiv növbə cədvəlində günləri tənzimləmək üçün "Növbəni Dəyişdir" əməliyyatı mövcuddur.</div>
+
+<h4 id="main-shift-override">Bir gün və ya tarix aralığının dəyişdirilməsi</h4>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_types.webp" alt="ShiftAlarm-da tarix aralığının və növbə dəyişikliyi növünün seçilməsi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Başlanğıc tarixi</strong> — dəyişikliyin ilk günü. Əvvəlcə təqvimdə seçilmiş tarixdən istifadə edir.</li>
+<li><strong>Bitmə tarixi</strong> — dəyişikliyin son günü. Yalnız bir günü dəyişdirmək üçün eyni tarixi seçilmiş saxlayın.</li>
+<li><strong>İcazəli gün</strong> — hesablanmış növbəni istirahət vaxtı ilə əvəz edir.</li>
+<li><strong>Məzuniyyət</strong> — seçilmiş günü və ya diapazonu tətil kimi qeyd edir.</li>
+<li><strong>Xəstəlik vərəqəsi</strong> — seçilmiş günü və ya diapazonu xəstəlik məzuniyyəti kimi qeyd edir.</li>
+<li><strong>Dəyişikliyi saxla</strong> — seçilmiş istisnanı təqvimə tətbiq edir.</li>
+</ol>
+
+<h4 id="main-shift-time-adjustment">İş vaxtının tənzimlənməsi</h4>
+
+<p>Dəyişiklik növlərinin siyahısını aşağı sürüşdürün və hesablanmış iş növbəsinin müddətini dəyişdirmək üçün “Növbəni redaktə et” seçin.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_time_adjustment.webp" alt="ShiftAlarm-da növbə iş vaxtının tənzimlənməsi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Növbəni redaktə et</strong> — seçilmiş növbə üçün iş vaxtının tənzimlənməsini aktivləşdirir.</li>
+<li><strong>+ vaxt</strong> — standart növbə müddətinə saatlar və ya dəqiqələr əlavə edir.</li>
+<li><strong>− vaxt</strong> — növbə müddətini azaldır, məsələn, iş erkən bitdikdə.</li>
+<li><strong>Bu vaxtı əlavə iş kimi hesabla</strong> — əlavə olunmuş vaxtı əlavə iş kimi qəbul edir. Əgər seçim söndürülübsə, o, adi iş vaxtı kimi hesablanır.</li>
+<li><strong>Dəyişikliyi saxla</strong> — düzəliş seçilmiş günə və ya diapazona tətbiq olunur.</li>
+</ol>
+
+<div class="tip">Gün dəyişikliyi orijinal cədvəl şablonunu dəyişdirmir. O, ayrıca istisna kimi saxlanılır və təqvimə, statistikaya, əmək haqqı hesablanmasına və hesabatlara daxil edilir.</div>
+
+<h2 id="shifts">4. Növbə cədvəlləri</h2>
+
+<p>Növbə cədvəli təkrarlanan iş dövrünü müəyyən edir və digər ShiftAlarm funksiyaları üçün əsas təmin edir. Tətbiq ondan təqvimi doldurmaq, siqnalları növbələrə bağlamaq, iş vaxtını saymaq, statistika yaratmaq, əmək haqqını qiymətləndirmək və hesabatlar hazırlamaq üçün istifadə edir.</p>
+
+<div class="notice"><strong>Əsas prinsip.</strong> Əvvəlcə baza təkrarlanan cədvəl yaradın. <a href="#main-day-actions">seçilmiş gün hərəkətləri</a> vasitəsilə müəyyən tarixlər üçün istisna olaraq məzuniyyət, xəstəlik məzuniyyəti, istirahət vaxtı, birdəfəlik əvəzedici növbə və ya iş vaxtı tənzimləməsini əlavə edin. Bu, orijinal dövrü dəyişməz saxlayır.</div>
+
+<h3 id="shifts-list">4.1. Cədvəl siyahısı və nəzarət elementləri</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedules_overview.webp" alt="Aktiv cədvəl kartı və nömrələnmiş nəzarət elementləri olan ShiftAlarm cədvəli ekranı">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Cədvəl detalları</strong> — ad, başlama tarixi, dövr uzunluğu və qısa gün ardıcıllığı. Nümunədə, “G · G · O · O” iki günlük növbədən sonra iki günlük istirahət deməkdir.</li>
+<li><strong>Keçid</strong> — cədvəli silmədən müvəqqəti olaraq deaktiv edir. Yenidən aktivləşdirdiyiniz zaman yadda saxlanılan parametrlər tətbiq olunmağa davam edir.</li>
+<li><strong>Cədvəl statusu</strong> — hazırda hansı cədvəlin aktiv olduğunu göstərir.</li>
+<li><strong>Redaktə et</strong> — dəyişdirilə bilən parametrləri açır. İlkin quraşdırmadan sonra, artıq yaradılmış təqvim məlumatlarının təsadüfən yenidən hesablanmasının qarşısını almaq üçün cədvəl bazasının bir hissəsi kilidlənir.</li>
+<li><strong>Sil</strong> — təsdiqdən sonra cədvəli silir. Silməzdən əvvəl, növbə ilə əlaqəli hər hansı bir siqnalizasiyanı və hesablamanı yoxlayın.</li>
+<li><strong>Statistikanı aç</strong> — bu cədvəlin <a href="#statistics">iş vaxtı, dövr, əmək haqqı və hesabat statistikasını</a> açır.</li>
+<li><strong>Qrafik yarat</strong> — hazır şablon seçməyə və ya xüsusi dövr yaratmağa imkan verir.</li>
+</ol>
+
+<h3 id="shifts-create">4.2. Cədvəl yaradılmasına başlayır</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_create.webp" alt="Ad, başlama tarixi, şablonlar və xüsusi cədvəl ilə cədvəl yaradılması paneli">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Qrafikin adı</strong> — “Əsas 2/2”, “Gecə növbəsi” və ya iş yerinizin adı kimi aydın bir ad daxil edin.</li>
+<li><strong>Başlanğıc tarixi</strong> — <strong>təkrarlanan dövrün ilk gününə</strong> uyğun gələn tarix. Keçmiş və ya gələcək tarix seçə bilərsiniz; tətbiq cədvəli irəli və geriyə hesablayır.</li>
+<li><strong>Şablonlar</strong> — hazır ümumi növbə ardıcıllığı. Nümunədə “2/2 gün” şablonundan istifadə olunur.</li>
+<li><strong>Fərdi qrafik</strong> — öz iş günləri və istirahət günləri ardıcıllığını yaradır.</li>
+<li><strong>Qrafik yarat</strong> — seçilmiş seçim üçün ətraflı redaktoru açır.</li>
+</ol>
+
+<div class="tip">“G · G · O · O” şablonu üçün başlanğıc tarixi adətən iki iş günündən birincisidir. Xüsusi dövrdə 1-ci gün də istirahət günü ola bilər; vacib məqam seçilmiş tarixin yaratdığınız ardıcıllığın 1-ci gününə tam uyğun gəlməsidir.</div>
+
+<h3 id="shifts-template">4.3. Şablondan cədvəl yaratmaq</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_template.webp" alt="Adı, ardıcıllığı, başlama tarixi və növbə vaxtı olan şablon cədvəl redaktoru">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Qrafikin adı</strong> — təklif olunan adı saxlayın və ya özünüzünkü ilə əvəz edin.</li>
+<li><strong>Şablon</strong> — hərf ardıcıllığını və onun mənasını göstərir. Nümunədə, “G · D · O · O” gün növbəsi, gün növbəsi, istirahət günü, istirahət günü deməkdir.</li>
+<li><strong>Başlanğıc tarixi</strong> — göstərilən ardıcıllıqda ilk günün tarixini seçin.</li>
+<li><strong>Növbə vaxtı</strong> — hər bir iş növbəsi növü üçün başlanğıc və bitmə vaxtını göstərin. Tətbiq hesablanmış müddəti göstərir.</li>
+<li><strong>Ləğv et</strong> — redaktoru yadda saxlamadan bağlayır.</li>
+<li><strong>Yadda saxla</strong> — cədvəli yadda saxlayır və təqvimdə növbələri hesablamağa başlayır.</li>
+</ol>
+
+<div class="warning"><strong>İlk yadda saxlamadan sonra.</strong> Başlama tarixi və dövr strukturu artıq hesablanmış təqvim məlumatlarını qorumaq üçün kilidlənir. Siz hələ də adı və bəzi iş parametrlərini redaktə edə bilərsiniz. Əgər fərqli bir baza dövrü və ya istinad tarixinə ehtiyacınız varsa, yeni bir cədvəl yaratmaq daha təhlükəsizdir.</div>
+
+<h3 id="shifts-custom">4.4. Xüsusi dövr yaratmaq</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_custom.webp" alt="Dövr uzunluğu, gün nəzarətləri, başlama tarixi və hər gün üçün parametrləri olan xüsusi cədvəl redaktoru">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Qrafikin adı</strong> — xüsusi ardıcıllığınıza ad verin.</li>
+<li><strong>Dövr uzunluğu</strong> — təkrarlanan ardıcıllığa neçə günün daxil olduğunu göstərir.</li>
+<li><strong>Günü sil</strong> — dövrü bir gün qısaldır.</li>
+<li><strong>Gün əlavə et</strong> — dövrün sonuna başqa bir konfiqurasiya edilə bilən gün əlavə edir.</li>
+<li><strong>Başlanğıc tarixi</strong> — xüsusi dövrün 1-ci gününə uyğun gələn tarix.</li>
+<li><strong>Gün parametrləri</strong> — “Növbə növü”nə toxunun kartı açın və istirahət günü və ya tələb olunan iş növünü seçin: gündüz, gecə, səhər, axşam, 24 saatlıq və ya xüsusi növbə. İş günü üçün başlanğıc və bitmə vaxtını göstərin. Dövrün qalan günlərini ekranın aşağısında eyni şəkildə konfiqurasiya edin.</li>
+<li><strong>Ləğv et</strong> — redaktoru saxlamadan bağlayır.</li>
+<li><strong>Saxla</strong> — xüsusi dövrü saxlayır və təqvimdə hesablayır.</li>
+</ol>
+
+<div class="notice"><strong>Dövr nədir?</strong> Dövr ardıcıllığın yenidən başladığı günlərin sayıdır. Məsələn, dörd günlük dövr "2 iş günü + 2 istirahət günü", altı günlük dövr isə "3 iş günü + 3 istirahət günü" ola bilər. Son gündən sonra tətbiq 1-ci günə qayıdır.</div>
+
+<div class="tip">Birdəfəlik cədvəl istisnası üçün əsas dövrü dəyişdirməyin. Təqvim tarixinə uzun basın və istirahət günü, məzuniyyət, xəstəlik məzuniyyəti, əvəzedici növbə və ya vaxt tənzimləməsi yaradın.</div>
+
+
+
+<span id="shift-statistics"></span>
+<h2 id="statistics">5. Cədvəl statistikası</h2>
+
+<p>“Statistika” bölməsini cədvəl kartındakı <strong>“Statistikanı aç”</strong> düyməsi ilə açın. Bu bölmə iş və istirahət günləri, cədvəl dəyişiklikləri, planlaşdırılmış və faktiki iş vaxtı, təxmini əməkhaqqı və hesabatlar haqqında məlumatları birləşdirir.</p>
+
+<div class="notice"><strong>Vacibdir:</strong> statistika yalnız seçilmiş növbə cədvəli üçün hesablanır. Seçilmiş dövr onun altındakı bütün iş vaxtı, əmək haqqı və hesabat dəyərlərinə tətbiq olunur.</div>
+
+<h3 id="statistics-period">5.1. Cədvəl, dövr və günün xülasəsi</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_period_overview.webp" alt="Cədvəl məlumatları, dövr seçimi və gün cəmləri ilə statistika ekranı">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Cədvəl məlumatı</strong> — seçilmiş cədvəlin adını, ilk dövrün başlama tarixini və təkrarlanan dövrün uzunluğunu göstərir. Bu ekrandakı statistika yalnız bu cədvələ aiddir.</li>
+<li><strong>Seçilmiş dövr kartı</strong> — istifadədə olan dövrü göstərir. Cari, əvvəlki və ya növbəti ayı, cari ili və ya xüsusi tarix aralığını seçmək üçün ona və ya sağdakı oxa vurun.</li>
+<li><strong>Günün xülasəsi</strong> — dövrdəki günlərin sayını, iş növbələrini, istirahət günlərini, tamamlanmış və qarşıdakı növbələri, eləcə də dəyişdirilmiş günləri göstərir. Dəyişdirilmiş günlər əsas dövrdən istisnalardır: məzuniyyət, xəstəlik məzuniyyəti, istirahət, əvəzedici və ya köçürülmüş növbə, iş vaxtı düzəlişi və digər dəyişikliklər.</li>
+</ol>
+
+<div class="warning"><strong>Gələcək dövrlər proqnozlardır.</strong> Gələcək ay üçün tətbiq yaradılmış cədvəldən və artıq daxil edilmiş məlumatlardan istifadə edir, lakin gələcək xəstəlik məzuniyyəti, məzuniyyət, istirahət vaxtı, əlavə iş saatları, bonuslar və ya çıxılmalar barədə məlumat verə bilmir. Cari ili seçdiyiniz zaman cəmlər keçmiş tarixlər üçün faktiki məlumatları ilin qalan hissəsi üçün proqnozla birləşdirə bilər.</div>
+
+<h3 id="statistics-work">5.2. İş vaxtı, əmək haqqı və hesabatlar</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_work_salary_reports.webp" alt="İş vaxtı, irəliləyiş, əmək haqqı və hesabata giriş imkanı olan statistika ekranı">
+</figure>
+
+<ol class="callout-list">
+<li><strong>İş vaxtı</strong> — saatlar və irəliləyiş üçün xülasə kartı. <a href="#statistics-break">fasilə vaxtı parametrlərini</a> açmaq üçün ona toxunun.</li>
+<li><strong>Planlaşdırılmış saatlar</strong> — seçilmiş dövrdə planlaşdırılmış növbələrin və dəyişikliklərin ümumi müddəti.</li>
+<li><strong>İşlənmiş saatlar</strong> — fasilə parametrləri tətbiq olunmaqla cari tarixə qədər tamamlanmış hesab edilən növbələrdəki vaxt.</li>
+<li><strong>İrəliləyiş</strong> — ümumi iş növbəsindən neçəsinin tamamlandığını və seçilmiş dövrün neçə faizinin tamamlandığını göstərir.</li>
+<li><strong>Əməkhaqqı</strong> — <a href="#salary">əmək haqqı hesablama parametrlərini</a> açır. Kartda seçilmiş cədvəl və dövr üçün təxmini məbləğ göstərilir.</li>
+<li><strong>Cəmi</strong> — seçilmiş ödəniş metodu, bonuslar, əlavə iş saatları və tutulmalar daxil olmaqla, indiyə qədər qazanılmış təxmini məbləğ.</li>
+<li><strong>Dərəcə və ya əmək haqqı</strong> — bu kartın məzmunu seçilmiş hesablama metodundan asılıdır: saatlıq, növbəlik və ya aylıq ödəniş. Əmək haqqı parametrlərinə daxil edilmiş dəyəri göstərir.</li>
+<li><strong>Hesablama detalları</strong> — seçilmiş dövr üçün ödənilən vaxt, əlavə iş saatları, bonuslar və tutulmalar.</li>
+<li><strong>Hesabatlar</strong> — <a href="#reports">dövrlər, iş vaxtı və əmək haqqı üçün ətraflı hesabatlar</a> açır.</li>
+</ol>
+
+<div class="tip">İş vaxtı və əmək haqqı bölmələrindəki bütün dəyərlər yuxarı kartdakı dövrü dəyişdirdiyiniz zaman yenidən hesablanır.</div>
+
+<h3 id="statistics-break">5.3. İş vaxtında fasilələrin uçotu</h3>
+
+<p>Nahar fasiləsinin və ya başqa bir fasilənin faktiki işlənmiş və ödənişli vaxtın bir hissəsi kimi hesablanıb-hesablanmadığını müəyyən etmək üçün “İş vaxtı” kartına toxunun.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_break_settings.webp" alt="Fasilə uçotu və müddəti parametrləri paneli">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Cari cəmlər</strong> — yeni parametrlər tətbiq olunmazdan əvvəl seçilmiş dövr üçün planlaşdırılmış və işlənmiş saatları göstərir.</li>
+<li><strong>Fasiləni iş vaxtı kimi hesablayın</strong> — fasilə ödənilibsə və növbə müddətinə daxil edilibsə, bu seçimi aktiv saxlayın. Göstərilən vaxt işlənmiş və ödənişli vaxtdan çıxarılmalıdırsa, onu söndürün.</li>
+<li><strong>Fasilə müddəti</strong> — bir fasilə üçün saatları və dəqiqələri seçin. Bu parametr müvafiq iş növbələrini yenidən hesablayarkən istifadə olunur.</li>
+<li><strong>Ümumi fasilə</strong> — saxlamadan əvvəl seçilmiş müddəti göstərir.</li>
+<li><strong>Saxla</strong> — parametri tətbiq edir və iş vaxtını və əlaqəli dəyərləri yenidən hesablayır.</li>
+</ol>
+
+<div class="notice">Fasilə, növbə daxilində yemək fasiləsini, növbənin təhvil verilməsini və ya başqa bir ödənilməmiş intervalı təmsil edə bilər. İş yerinizdəki qaydalara uyğun müddəti daxil edin.</div>
+
+<h3 id="reports">5.4. Hesabatlar: dövr, status və xülasə</h3>
+
+<p>Statistika ekranında aşağı kartdan "Hesabatlar"ı açın. Bu bölmə seçilmiş dövr üçün daha ətraflı məlumat verir: iş vaxtı, növbələr və məzuniyyətlər, təqvim düzəlişləri, əmək haqqı, bonuslar, çıxılmalar, dövr müqayisəsi, gündəlik məlumatlar və ixrac.</p>
+
+<div class="warning"><strong>Hesabatlar yalnız məlumatlandırma məqsədi ilə təqdim olunur.</strong> Hesablamalar seçilmiş cədvələ, əmək haqqı parametrlərinə, fasilələrin uçotuna və təqvim növbəsindəki dəyişikliklərə əsaslanır. İşəgötürəninizin faktiki rəqəmləri fərqli vaxt hesablama sistemi, yuvarlaqlaşdırma, vergilər, müavinətlər və ya daxili qaydalar səbəbindən fərqlənə bilər. Səhv və ya dəstəklənməyən hesablama metodu tapsanız, tətbiqdə göstərilən ünvanda tərtibatçılarla əlaqə saxlayın və giriş məlumatlarını və gözlənilən nəticəni daxil edin.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_period_salary.webp" alt="Dövr seçimi, statusu, xülasəsi və ətraflı əmək haqqı bölgüsü ilə hesabat ekranı">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Hesabat dövrü</strong> — cari, əvvəlki və ya növbəti ayı, əvvəlcədən təyin edilmiş diapazonu və ya xüsusi tarixləri seçmək üçün karta toxunun. Aşağıdakı bütün məlumatlar seçilmiş dövrə aiddir.</li>
+<li><strong>Dövr statusu</strong> — dövrün tamamlandığını, hazırda aktiv olduğunu və ya hələ başlamadığını göstərir. Tamamlanmış dövr yadda saxlanılan faktiki məlumatlardan hesablanır. Aktiv dövr artıq işlənmiş məlumatları cari planla birləşdirir, gələcək dövr isə proqnozdur.</li>
+<li><strong>Xülasə</strong> — faktiki işlənmiş vaxtın, hesablanmış məbləğin və əlavə iş vaxtının mətn xülasəsi.</li>
+<li><strong>Əməkhaqqı</strong> — əsas maaşın, əlavə iş haqqının, bonusların, tutulmaların və yekun hesablamanın ətraflı bölgüsü. Dəyərlər <a href="#salary">əməkhaqqı parametrlərindən</a> və seçilmiş dövrdən asılıdır.</li>
+</ol>
+
+<h3 id="reports-work">5.5. İş vaxtı, məzuniyyət günləri və işdən çıxılmalar</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_work_absences.webp" alt="İş vaxtı, fasilələr, tamamlanmış növbələr və məzuniyyətlər ilə hesabat ekranı">
+</figure>
+
+<ol class="callout-list">
+<li><strong>İş vaxtı</strong> — planlaşdırılmış və faktiki işlənmiş saatları, fasilə çıxılmadan əvvəl planlaşdırılmış və faktiki saatları, tamamlanmış növbələrin sayını, orta növbə müddəti və çıxılan ümumi fasiləni göstərir. Fasilələri <a href="#statistics-break">iş vaxtı bölməsində</a> konfiqurasiya edin.</li>
+<li><strong>Yoxluqlar və günlər</strong> — seçilmiş dövrdə istirahət günlərinin, məzuniyyət günlərinin, xəstəlik məzuniyyəti günlərinin, məzuniyyət günlərinin və dəyişdirilmiş günlərin sayını göstərir.</li>
+</ol>
+
+<h3 id="reports-charts">5.6. Düzəlişlər və qrafiklər</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_corrections_charts.webp" alt="Düzəlişlər, əmək haqqı tərkibi və iş vaxtı dəyərləri ilə hesabat ekranı">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Düzəlişlər</strong> — əlavə iş saatlarını, növbə müddətindəki ümumi dəyişikliyi və əsas cədvəldən dəyişdirilmiş günlərin sayını göstərir.</li>
+<li><strong>Qrafiklər</strong> — əmək haqqı və iş vaxtı tərkibini vizuallaşdırır: əsas əmək haqqı, əlavə iş saatı, bonuslar, çıxılmalar, ümumi və planlaşdırılmış, işlənmiş və ödənişli saatlar.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_charts_days.webp" alt="Saatlar və gün tipli dairəvi qrafik ilə əlavə hesabat qrafikləri">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Saatlar</strong> — planlaşdırılmış, işlənmiş, ödənişli və əlavə iş saatları. “Faktiki iş vaxtı” sətri parametrlər və düzəlişlər tətbiq edildikdən sonra nəticəni göstərir.</li>
+<li><strong>Gün növləri</strong> — seçilmiş dövrdə günləri növə görə paylayan dairəvi diaqram. Əfsanə cədvəldən və faktiki dəyişikliklərdən asılıdır: gündüz, gecə və ya digər növbələr, istirahət günləri, məzuniyyət, xəstəlik məzuniyyəti, istirahət vaxtı və digər hallar.</li>
+</ol>
+
+<h3 id="reports-comparison">5.7. Dövrlərin müqayisəsi</h3>
+
+<p>Müqayisə bölməsi bir neçə dövrdə əmək haqqını, vaxtı, növbələri və məzuniyyətləri müqayisə etməyə kömək edir. Mövcud dövrlərin sayı yadda saxlanılan məlumatlardan asılıdır.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_chart.webp" alt="Dərəcə seçimi, əmək haqqı cədvəli və müqayisə cədvəlinin başlanğıcı ilə dövr müqayisə ekranı">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Dövrləri müqayisə et</strong> — neçə dövrün müqayisə ediləcəyini və onların diapazonunu seçmək üçün karta toxunun.</li>
+<li><strong>Diaqram və dövr siyahısı</strong> — hər dövr üçün əmək haqqını göstərir və müqayisəyə daxil olan intervalları statusları ilə birlikdə sadalayır.</li>
+<li><strong>Müqayisə cədvəli</strong> — hər dövr üçün ətraflı dəyərləri ehtiva edir. Qalan sütunları görmək üçün cədvəli üfüqi olaraq sola və ya sağa sürüşdürün.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_table.webp" alt="Müqayisə cədvəlinin davamı və bitişik dövrlər arasındakı fərqlər">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Dövr dəyərləri</strong> — ümumi əmək haqqı, işlənmiş və ödənilmiş saatlar, əlavə iş saatları, bonuslar, tutulmalar, tamamlanmış növbələr, məzuniyyətlər və dəyişdirilmiş günlər.</li>
+<li><strong>Dövrlər arasındakı fərq</strong> — hər bir dövrün əvvəlkindən necə fərqləndiyini göstərir. Müsbət və mənfi dəyərlər müvafiq metrikada artım və ya azalma göstərir. Təkcə rəng həmişə fayda və ya problem demək deyil; məsələn, çıxılmaların artması daha böyük məbləğin tutulması deməkdir.</li>
+</ol>
+
+<h3 id="reports-details-export">5.8. Gündəlik məlumatlar və ixrac</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_details_export.webp" alt="Gündəlik məlumatlar və PDF, HTML, JSON və ya CSV-yə ixrac üçün hesabat kartları">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Günlük təfərrüatlar</strong> — seçilmiş dövrdəki hər günün siyahısını açır. Müəyyən bir gün üçün növbə növünü, planlaşdırılmış və faktiki vaxtı, saat tənzimləmələrini, işə gəlməmələri və digər dəyişiklikləri yoxlaya bilərsiniz.</li>
+<li><strong>İxrac</strong> — hesabatı PDF, HTML, JSON və ya CSV kimi saxlayır. İxrac etməzdən əvvəl hesabat dövrünü seçin; daha sonra faylı Android sistem menyusu vasitəsilə çap edə, saxlaya və ya paylaşa bilərsiniz.</li>
+</ol>
+
+<div class="tip">Müqayisə etməzdən və ya ixrac etməzdən əvvəl seçilmiş dövrü, cədvəli, növbə dəyişikliklərini, fasilələri və əmək haqqı parametrlərini yoxlayın. Mənbə məlumatlarında səhv hər hesabatın ümumi sayına təsir edəcək.</div>
+
+<h2 id="alarms">6. Siqnallar</h2>
+
+<p>ShiftAlarm birdəfəlik siqnallar yaratmağa, onları həftənin seçilmiş günlərində təkrarlamağa və ya onların vaxtını növbə cədvəli ilə əlaqələndirməyə imkan verir.</p>
+
+<h3 id="alarms-list">6.1. Siqnal siyahısı</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarms_overview.webp" alt="Növbəti siqnal, çeşidləmə, siqnal kartı və əlavə düyməsi ilə ShiftAlarm siqnal ekranı">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Növbəti alarm</strong> — növbəti aktiv siqnalın tarixini və vaxtını göstərir.</li>
+<li><strong>Siqnal çeşidləmə</strong> — siqnal kartlarının sırasını dəyişdirir, məsələn, əvvəlcə aktiv siqnalları göstərməklə.</li>
+<li><strong>Siqnal kartı</strong> — vaxtı, tarixi və ya təkrar rejimini, cədvəl növünü və qalan vaxtı ehtiva edir. Kartı redaktə etmək üçün üzərinə toxunun.</li>
+<li><strong>Keçid</strong> — siqnalı parametrlərini silmədən müvəqqəti olaraq aktivləşdirir və ya deaktiv edir.</li>
+<li><strong>Sil</strong> — seçilmiş siqnalı silir.</li>
+<li><strong>Alarm əlavə et</strong> — yeni siqnal yaratmaq üçün ekranı açır.</li>
+</ol>
+
+<h3 id="alarms-create">6.2. Siqnal yaratmaq və redaktə etmək</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_time_schedule.webp" alt="ShiftAlarmizasiyası redaktorunun yuxarı hissəsi: vaxt, cədvəl növü, mürgüləmə və idarəetmələri yadda saxla">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Vaxt</strong> — xəbərdarlıq vaxtını təyin etmək üçün saat və dəqiqə çarxlarını fırladın.</li>
+<li><strong>Plan növü</strong> — bu rejimlərdən birini seçin:
+<ul>
+<li><strong>Bir dəfə</strong> — siqnal seçilmiş tarixdə bir dəfə işə düşür;</li>
+<li><strong>Günlər üzrə</strong> — həftənin seçilmiş günlərində təkrarlanır;</li>
+<li><strong>Növbələr üzrə</strong> — siqnalı seçilmiş cədvəl və növbə növü ilə əlaqələndirir.</li>
+</ul>
+</li>
+<li><strong>Təxirə sal</strong> — xəbərdarlıq neçə dəqiqə olduğunu təyin edir Zəng ekranındakı mürgüləmə düyməsinə toxunduğunuz zaman təxirə salınır.</li>
+<li><strong>Ləğv et və Yadda saxla</strong> — bu düymələr ekranın alt hissəsində sabitlənir və redaktorda hərəkət edərkən mövcud qalır.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_behavior.webp" alt="ShiftAlarm — Siqnal müddəti, təkrar siqnal, tədricən səs artırılması və vibrasiya üçün Shift Siqnal parametrləri">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Alarm müddəti</strong> — istifadəçi siqnalı dayandırmadığı təqdirdə siqnalın nə qədər səslənəcəyini müəyyən edir.</li>
+<li><strong>Siqnal nəzərə alınmazsa təkrarlayın</strong> — siqnal nə rədd edildiyi, nə də mürgüləmə edildiyi zaman başqa bir siqnalı aktivləşdirir. Təkrar siqnaldan əvvəlki intervalı onun altında təyin edin.</li>
+<li><strong>Tədricən səs artırılması</strong> — daha sakit səslə başlayır və seçilmiş vaxt ərzində səsi tədricən artırır.</li>
+<li><strong>Vibrasiya</strong> — siqnal zamanı vibrasiyanı aktivləşdirir və ya söndürür.</li>
+<li><strong>Ləğv et və saxla</strong> — redaktor üçün sabit idarəetmə elementləri.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_sound_name.webp" alt="ShiftAlarm siqnal redaktorunun alt hissəsi: vibrasiya, səs, ad və saxla idarəetmə elementləri">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Vibrasiya</strong> — vibrasiya siqnalını aktivləşdirir və ya söndürür.</li>
+<li><strong>Səs</strong> — daxili, sistem və ya istifadəçi tərəfindən əlavə edilmiş səsi seçməyə imkan verir. Tətbiqə beşə qədər xüsusi səs əlavə edə bilərsiniz.</li>
+<li><strong>Ad</strong> — siqnalları ayırd etməyə kömək edən isteğe bağlı etiket.</li>
+<li><strong>Ləğv et və saxla</strong> — dəyişiklikləri ləğv et və ya siqnalı saxla.</li>
+</ol>
+
+<div class="notice">Yadda saxladıqdan sonra siqnal əsas siyahıda görünür. Vacib bir siqnaldan əvvəl, siqnalın aktiv olduğundan, tətbiqin bildiriş və dəqiq siqnal icazələrinin olduğundan və sistemin fon fəaliyyətini məhdudlaşdırmadığından əmin olun.</div>
+
+<div class="tip">Sürüşmə ilə əlaqəli siqnal yaratmaq üçün əvvəlcə müvafiq növbə cədvəli yaradın. Redaktorda sabit bir tetikleme vaxtı və ya növbənin başlanğıcına nisbətən ofset seçin.</div>
+
+<h2 id="geo">7. Geo Siqnalları</h2>
+
+<p>Geo Siqnal cihazın seçilmiş əraziyə daxil olub-olmadığını izləyir. Ərazi xəritədəki bir nöqtə və həmin nöqtənin ətrafındakı radiusla müəyyən edilir. Məsələn, işə, evə, avtobus dayanacağına, stansiyaya və ya başqa yerə yaxınlaşarkən xəbərdarlıq almaq üçün Geo Siqnalizasiyasından istifadə edin.</p>
+
+<h3 id="geo-overview">7.1. Xəritə və idarəetmə elementləri</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_overview.webp" alt="ShiftAlarm Xəritə və nömrələnmiş idarəetmə elementləri olan Geo Siqnalizasiyasının əsas ekranı">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Yaxınlaşdır</strong> — xəritəni böyüdür.</li>
+<li><strong>Uzaqlaşdır</strong> — xəritənin miqyasını azaldır.</li>
+<li><strong>Mənim məkanım</strong> — xəritəni cihazın cari yerinə köçürür. Tətbiqin bu xüsusiyyət üçün məkan girişi lazımdır.</li>
+<li><strong>Yadda saxlanmış yerlər</strong> — yadda saxlanılan Coğrafi Siqnalların və məkan nöqtələrinin siyahısını açır.</li>
+<li><strong>Geri</strong> — əvvəlki tətbiq ekranına qayıdır.</li>
+<li><strong>Coğrafi Siqnal sayı</strong> — neçə Coğrafi Siqnalın yaradıldığını göstərir.</li>
+<li><strong>Coğrafi Siqnal siyahısı</strong> — yaradılmış Coğrafi Siqnalların ayrıca siyahısını açır.</li>
+</ol>
+
+<div class="tip">Həmçinin jestlərlə böyüdə bilərsiniz. Xəritəyə iki barmağınızla toxunun və böyütmək üçün onları bir-birindən ayırın, ya da kiçiltmək üçün bir-birinə sıxın.</div>
+<div class="notice">Yan idarəetmə düymələri sağdan sola dillərdə əks tərəfdə görünə bilər. Onların funksiyaları eyni qalır.</div>
+
+<h3 id="geo-saved-places">7.2. Yadda saxlanılan siqnallar və yer nöqtələri</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_saved_places.webp" alt="Geo Siqnalizasiyası və yer nöqtəsi nişanları olan yadda saxlanılan yerlər pəncərəsi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Alarmlar</strong> — yadda saxlanılan yerlərə əlavə edilmiş Geo Siqnallarını göstərir.</li>
+<li><strong>Yer nöqtələri</strong> — aktiv Geo Siqnalizasiyası olmadan yadda saxlanılan koordinatları göstərir.</li>
+<li><strong>Yadda saxlanılan yerlər siyahısı</strong> — xəritədə həmin yerə keçmək üçün karta toxunun.</li>
+<li><strong>Bağla</strong> — pəncərəni bağlayır və xəritəyə qayıdır.</li>
+</ol>
+
+<div class="notice">Əgər əlfəcin edilmiş Geo Siqnalizasiyasını silsəniz, onun koordinatları avtomatik olaraq "Yer nöqtələri" nişanında saxlanılır. Başqa bir Geo Siqnalizasiyası yaratmaq üçün nöqtədən daha sonra yenidən istifadə edə bilərsiniz.</div>
+
+<h3 id="geo-select-point">7.3. Nöqtə və radiusun seçilməsi</h3>
+
+<p>Xəritədə tələb olunan yerə toxunub saxlayın. Tətbiq marker qoyur və seçilmiş nöqtə panelini açır.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_selected_point.webp" alt="Ünvan, radius, əlfəcin və Geo Siqnalizasiyası yaratma düyməsi ilə seçilmiş xəritə nöqtəsi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Seçilmiş nöqtə marker</strong> — gələcək geoçəpərin mərkəzi. Xəritədə həmçinin seçilmiş radius üçün dairə göstərilir.</li>
+<li><strong>Ünvan və koordinatlar</strong> — düzgün yerin seçildiyini yoxlamağa imkan verir.</li>
+<li><strong>Yer nöqtəsini yadda saxla</strong> — seçilmiş koordinatları siqnalizasiya yaratmadan yadda saxlanılan yerlərə əlavə edir.</li>
+<li><strong>Radius</strong> — nöqtənin ətrafındakı sahənin ölçüsünü təyin edir. Müvafiq məsafəni seçənə qədər sürgünü hərəkət etdirin.</li>
+<li><strong>Ləğv et</strong> — nöqtə seçimini ləğv edir.</li>
+<li><strong>Burada yarat</strong> — seçilmiş nöqtə üçün yeni Geo Siqnalizasiya redaktorunu açır.</li>
+</ol>
+
+<div class="warning"><strong>Radius necə seçilir.</strong> Telefon koordinatlarını davamlı olaraq izləmir. Android, cihaz istehsalçısı, batareyaya qənaət rejimi, GPS, mobil şəbəkə və Wi-Fi siqnal keyfiyyəti və hərəkət sürəti sərhəd aşkar edildikdə təsir göstərir. Buna görə də siqnal çəkilən xəttdən kənara çıxa bilər. Məsələn, 800 m radiusda, cihaz artıq ərazinin içərisində olduqdan sonra — nöqtədən 700, 600 və ya 500 m məsafədə — giriş aşkarlana bilər.</div>
+
+<ul>
+<li><strong>Şəhərdə</strong> adətən <strong>1,300–1,500 m</strong> radius tövsiyə olunur.</li>
+<li><strong>Şəhər xaricində</strong>, yer yeniləmələrinin daha az tez-tez baş verə biləcəyi yerlərdə <strong>4000–5000 m</strong> tövsiyə olunur.</li>
+<li><strong>Dəqiq radius</strong> marşrutunuza, sürətinizə və cihazın davranışına əsasən seçilməlidir.</li>
+</ul>
+
+<div class="notice">Sistem cihaz ərazinin virtual sərhədini keçdikdə aşkar edir. "Giriş zamanı" rejimində daha böyük radius adətən telefona yaxınlaşmanızı aşkar etmək üçün daha çox vaxt verir. “Çıxışda” rejimində sərhəd seçilmiş nöqtədən daha uzaqda yerləşdirilir.</div>
+
+<h3 id="geo-create">7.4. Geo Siqnalizasiyasının Yaradılması</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_location_schedule.webp" alt="Geo Siqnalizasiya redaktorunun üstü: hazırlıq, yer və cədvəl növü">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Geo Siqnalizasiyasının hazırlığı</strong> — tələb olunan icazələrin konfiqurasiya edilib-edilmədiyini və tətbiqin geosəthi qeydiyyatdan keçirə biləcəyini göstərir.</li>
+<li><strong>Məkan</strong> — seçilmiş ünvanı və koordinatları ehtiva edir. Ünvanı etiket kimi redaktə edə bilərsiniz, lakin xəritədə faktiki nöqtə seçilir.</li>
+<li><strong>Plan növü</strong> — Geo Siqnalının aktiv olduğu günləri və şərtləri müəyyən edir.</li>
+<li><strong>Həmişə</strong> — Geo Siqnal aktiv olduğu müddətdə hər gün aktivdir.</li>
+<li><strong>Bir dəfə</strong> — seçilmiş şərt yerinə yetirildikdə növbəti birdəfəlik tetikleyici üçün istifadə olunur.</li>
+<li><strong>Günlər üzrə</strong> — yalnız həftənin seçilmiş günlərində işləyir.</li>
+<li><strong>Növbələr üzrə</strong> — Geo Siqnalını aktiv növbə cədvəlinə bağlayır.</li>
+</ol>
+
+<div class="notice"><strong>“Növbələrə görə” cədvəli.</strong> Növbə günündə, yalnız növbədən əvvəl və ya yalnız ondan sonra işlədiyini seçin və tələb olunan növbə növünü göstərin: gündüz, gecə, səhər, axşam, 24 saatlıq, xüsusi və ya istənilən iş növbəsi.</div>
+<div class="tip">Əgər təqvim tarixi iş növbəsi əvəzinə istirahət günü, məzuniyyət, xəstəlik məzuniyyəti və ya istirahət günü kimi qeyd olunubsa, növbə ilə əlaqəli Geo Siqnalizasiya həmin gün aktiv olmayacaq.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_trigger_settings.webp" alt="Geo Siqnalizasiya redaktorunun alt hissəsi: giriş və ya çıxış şərti, radius və xəbərdarlıq parametrləri">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tetikləmə şərti</strong> — hansı sərhəd keçidinin xəbərdarlığı başlatdığını müəyyən edir.</li>
+<li><strong>Girişdə</strong> — cihaz seçilmiş radiusa daxil olduqda, məsələn, işə və ya tələb olunan dayanacağa yaxınlaşdıqda xəbərdarlığı işə salır.</li>
+<li><strong>Çıxdıqda</strong> — cihaz seçilmiş radiusdan çıxdıqda, məsələn, işdən və ya stansiyadan çıxdıqdan sonra xəbərdarlığı işə salır ki, siz Marşrutun növbəti hissəsini qaçırmayın.</li>
+<li><strong>Giriş və ya çıxış zamanı</strong> — sərhəd hər iki istiqamətdə keçildikdə siqnalı işə salır.</li>
+<li><strong>Radius</strong> — seçilmiş nöqtə ətrafındakı geohasarın ölçüsü.</li>
+<li><strong>Alarm müddəti</strong> — siqnalın nə qədər səsləndiyini müəyyən edir.</li>
+<li><strong>Səsin tədricən artması</strong> — siqnal başladıqdan sonra səsin hamar bir şəkildə artmasına səbəb olur.</li>
+<li><strong>Ləğv et və saxla</strong> — dəyişiklikləri ləğv et və ya Coğrafi Siqnalı saxla.</li>
+</ol>
+
+<div class="tip">Aşağıdakı qalan seçimlər adi siqnala bənzəyir: səs, vibrasiya, siqnal müddəti, səsin tədricən artması və ad.</div>
+
+<h3 id="geo-existing">7.5. Xəritədə Geo Siqnalizasiya və onun idarəetmə elementləri</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_marker_radius.webp" alt="Yaradılmış Geo Siqnalizasiya marker və onun xəritədə tetikleyici radius dairəsi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Geo Siqnalizasiya marker</strong> — seçilmiş nöqtəni göstərir.</li>
+<li><strong>Radius sərhədi</strong> — tətbiq tərəfindən giriş və çıxışının izlənildiyi ərazini göstərir.</li>
+</ol>
+
+<p>Geo Siqnalizasiya işarəsinə toxunun. Əvvəlcə kiçik bir məlumat pəncərəsi görünür. Ətraflı kartı açmaq üçün həmin pəncərəyə toxunun.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_alarm_card.webp" alt="Məlumat, əlfəcin, açar və idarəetmə elementləri olan Ətraflı Geo Siqnalizasiya kartı">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ad və ünvan</strong> — seçilmiş Geo Siqnalizasiyasını müəyyən edin.</li>
+<li><strong>Əlfəcin</strong> — siqnalizasiyanı yadda saxlanılan yerlərə əlavə edir və ya onlardan silir.</li>
+<li><strong>Keçid</strong> — parametrlərini silmədən Geo Siqnalizasiyasını aktivləşdirir və ya müvəqqəti olaraq deaktiv edir.</li>
+<li><strong>Parametrlər və status</strong> — radiusu, giriş və ya çıxış vəziyyətini, cədvəli, geohasar hazırlığını və əvvəlki aktivləşdirmələr haqqında məlumatları göstərir.</li>
+<li><strong>Redaktə et</strong> — Geo Siqnalizasiya parametrlərini açır.</li>
+<li><strong>Bağla</strong> — kartı bağlayır və xəritəyə qaytarır.</li>
+<li><strong>Sil</strong> — təsdiqdən sonra Geo Siqnalını silir.</li>
+</ol>
+
+<div class="warning">Etibarlı işləmə üçün dəqiq və arxa plan yerini təyin edin, ShiftAlarm üçün ciddi batareya məhdudiyyətlərini aradan qaldırın və cihazınız təmin edirsə, fon rejimində avtomatik başlatma parametrlərini yoxlayın. Düzgün parametrlərlə belə, Android bir neçə metrə qədər dəqiq sərhəd aşkarlamasına zəmanət vermir.</div>
+
+<h2 id="notes">8. Qeydlər, hadisələr və xatırlatmalar</h2>
+
+<p>“Qeydlər” bölməsi sadə mətni, siyahıları, yoxlama siyahılarını, səs yazılarını, nitqdən mətnə ​​qeydləri, xatırlatmaları və hadisələri saxlayır.</p>
+
+<h3 id="notes-create">8.1. Qeyd əlavə etmək</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_type_picker.webp" alt="ShiftAlarm-da yeni qeyd növünün seçilməsi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Panel tutacağı</strong> — qeyd növlərinin tam siyahısını göstərmək üçün onu yuxarıya, paneli bağlamaq üçün isə aşağıya sürüşdürün.</li>
+<li><strong>Qeyd növü</strong> — uyğun seçimi seçin:
+<ul>
+<li><strong>Mətn qeydi</strong> — düz mətn;</li>
+<li><strong>Yoxlama siyahısı</strong> — tamamlama işarələri olan elementlərin siyahısı;</li>
+<li><strong>Siyahı</strong> — markerlənmiş və ya nömrələnmiş siyahı;</li>
+<li><strong>Audio qeyd</strong> — səs yazısı;</li>
+<li><strong>Nitqdən mətnə</strong> — yaradır nitq tanıma funksiyasından istifadə edən qeyd;</li>
+<li><strong>Xatırlatma</strong> — müəyyən bir vaxtda bildiriş olan qeyd;</li>
+<li><strong>Hadisə</strong> — tarix və vaxtla əlaqəli qeyd.</li>
+</ul>
+</li>
+<li><strong>Ləğv et</strong> — qeyd yaratmadan seçicini bağlayır.</li>
+</ol>
+
+<div class="tip">Növ seçdikdən sonra müvafiq redaktor açılır. Tələb olunan sahələri doldurun və qeydi yadda saxlayın.</div>
+
+<h3 id="notes-list">8.2. Qeyd siyahısı və idarəetmə elementləri</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_overview.webp" alt="Sıralama, aktiv və arxivləşdirilmiş qeydlər, axtarış və kart əməliyyatları ilə ShiftAlarm qeydləri ekranı">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Sıralama</strong> — siyahıdakı qeydlərin sırasını dəyişdirir.</li>
+<li><strong>Aktiv</strong> — arxivə köçürülməmiş müntəzəm və planlaşdırılmış qeydləri göstərir.</li>
+<li><strong>Arxiv</strong> — arxivləşdirilmiş qeydlərin siyahısını açır.</li>
+<li><strong>Axtarış</strong> — qeyd başlıqlarında və məzmununda uyğunluqlar tapır.</li>
+<li><strong>Qeyd kartı</strong> — başlığı, növünü, statusunu və əlavə məlumatları göstərir. Qeydi açmaq üçün karta toxunun.</li>
+<li><strong>Sink</strong> — qeydi siyahının yuxarısına sancır.</li>
+<li><strong>Arxiv</strong> — qeydi aktiv siyahıdan silir və arxivə köçürür.</li>
+<li><strong>Sil</strong> — təsdiqdən sonra qeydi silir.</li>
+<li><strong>Qeyd əlavə et</strong> — yeni qeyd növü seçicisini açır.</li>
+</ol>
+
+<div class="notice">Arxivdən əsas siyahıda artıq lazım olmayan, lakin yadda saxlanılmalı olan qeydlər üçün istifadə edin. Qeydi yalnız artıq ehtiyac olmadığı zaman silin.</div>
+
+<h2 id="clock">9. Saat, saniyəölçən və taymer</h2>
+
+<p>Bu bölmə yerli və dünya vaxtını, saniyəölçəni və taymeri birləşdirir. Əsas ekrandakı <strong>“Saat”</strong> düyməsi ilə açın.</p>
+
+<div class="notice">Ekranın altında üç sekme görünür: “Saat”, “Saniyəölçən” və “Taymer”. Rejimləri dəyişdirmək üçün sekmeye toxunun.</div>
+
+<h3 id="clock-world">9.1. Saat və dünya saatı</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_overview.webp" alt="Yerli vaxt, dünya saatları, əlavə etmə düyməsi və aşağı nişanları olan ShiftAlarm saat ekranı">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Yerli vaxt</strong> — cari vaxtı, tarixi və cihaz sisteminin saat qurşağını göstərir.</li>
+<li><strong>Dünya saatları</strong> — əlavə edilmiş şəhərləri və saat qurşaqlarını göstərir. Siyahı boş olsa da, tətbiq işarə göstərir.</li>
+<li><strong>Əlavə düyməsi</strong> — dünya saatı seçicisini açır.</li>
+<li><strong>Bölmə sekmeleri</strong> — “Saat”, “Saniyəölçən” və “Taymer” ekranları arasında keçid.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_add_timezone.webp" alt="ShiftAlarm dünya saatına şəhər və ya saat qurşağının əlavə edilməsi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Axtarış</strong> — siyahını süzgəcdən keçirmək üçün şəhər və ya saat qurşağının adını daxil edin.</li>
+<li><strong>Şəhər və saat qurşağı siyahısı</strong> — dünya saatı ekranına əlavə etmək üçün tələb olunan seçimə toxunun.</li>
+</ol>
+
+<div class="tip">Yerli saat qurşağı həmişə birinci göstərilir. Əlavə edilmiş dünya saatlarını siyahıdan silə bilərsiniz, lakin yerli vaxt silinə bilməz.</div>
+
+<h3 id="clock-stopwatch">9.2. Saniyəölçən</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_start.webp" alt="ShiftAlarm saniyəölçəni başlamazdan əvvəl">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tarixçə</strong> — yadda saxlanılan saniyəölçən sessiyalarını açır.</li>
+<li><strong>Başlat</strong> — vaxtı ölçməyə başlayır.</li>
+<li><strong>Sıfırla</strong> — saniyəölçən başlamazdan əvvəl mövcud deyil. Dayandırıldıqdan sonra, saniyəölçəni sıfıra qaytarır və cari dövrələri silir.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_running.webp" alt="Tarixçə, saxlama, dövrə və pauza idarəetmələri ilə ShiftAlarm saniyəölçənini işlədir">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tarixçə</strong> — əvvəllər yadda saxlanılan sessiyaları göstərir.</li>
+<li><strong>Saxla</strong> — ad soruşur və cari saniyəölçən sessiyasını yadda saxlayır.</li>
+<li><strong>Dövrə</strong> — ümumi taymeri dayandırmadan ara nəticəni qeyd edir.</li>
+<li><strong>Fasilə</strong> — saniyəölçəni dayandırır. Fasilə verdikdən sonra onu davam etdirə və ya yenidən qura bilərsiniz.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_laps.webp" alt="ShiftAlarm saniyəölçən dövrələr və onların çeşidləmə seçimləri">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Orijinal, ən sürətli və ən yavaş</strong> — dövrənin ekran sırasını dəyişdirin: orijinal sıra, əvvəlcə ən sürətli, sonra isə ən yavaş.</li>
+<li><strong>Dövrələr</strong> — hər dövrənin qeydə alındığı ümumi vaxtı və fərdi dövrə vaxtını göstərir.</li>
+</ol>
+
+<div class="notice">Saxla düyməsini basdığınız zaman sessiya adını daxil edin və təsdiqləyin. Yadda saxlanılan sessiyanı daha sonra Tarixçədən aça bilərsiniz.</div>
+
+<h3 id="clock-timer">9.3. Taymer</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_setup.webp" alt="Saat, dəqiqə və saniyə təkərləri ilə ShiftAlarm taymerinin qurulması">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Saatlar</strong> — çarxı fırladın və saatların sayını seçin.</li>
+<li><strong>Dəqiqə</strong> — çarxı fırladın və dəqiqələrin sayını seçin.</li>
+<li><strong>Saniyə</strong> — çarxı fırladın və saniyələrin sayını seçin.</li>
+<li><strong>Başlat</strong> — taymeri seçilmiş müddətlə işə salır.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_running.webp" alt="Qalan vaxt, fasilə, dəqiqə əlavə etmə və dayandırma idarəetmələri ilə ShiftAlarm taymerinin işə salınması">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Qalan vaxt</strong> — xəbərdarlıqdan əvvəl nə qədər vaxt qaldığını göstərir.</li>
+<li><strong>Bitmə vaxtı</strong> — taymerin təxmini bitmə vaxtını göstərir.</li>
+<li><strong>Son taymerlər</strong> — yadda saxlanılan son müddətlər; tez bir zamanda yenidən istifadə etmək üçün birinə toxunun.</li>
+<li><strong>Fasilə</strong> — geri sayımı müvəqqəti olaraq dayandırır. Daha sonra davam etdirə bilərsiniz.</li>
+<li><strong>+1 dəq</strong> — qalan vaxta bir dəqiqə əlavə edir.</li>
+<li><strong>Dayandır</strong> — taymeri tamamilə dayandırır.</li>
+</ol>
+
+<div class="tip">Taymer və saniyəölçən arxa planda işləməyə davam edir. Onların statusu bildirişdə, əsas ekranda və vidjetlərdə görünə bilər.</div>
+
+<h2 id="widgets">10. Vidjetlər</h2>
+
+<p>ShiftAlarm telefonun Əsas ekranı üçün vidjetlər təqdim edir.</p>
+<ul>
+<li><strong>Bu gün 4×2</strong> — iki konfiqurasiya edilə bilən bölməsi olan kompakt panel.</li>
+<li><strong>Bu gün 4×3</strong> — yuxarıda saatı və aşağıda iki bölməsi olan panel.</li>
+<li><strong>Təqvim 4×4</strong> — növbə cədvəli olan təqvim vidjetləri.</li>
+</ul>
+<p>Telefonun Ana ekranındakı Android vidjet menyusu vasitəsilə vidjet əlavə edin.</p>
+
+<h2 id="salary">11. Əmək haqqının hesablanması</h2>
+
+<p><a href="#statistics-work">Seçilmiş cədvəlin statistikasındakı</a> əməkhaqqı kartından “Əməkhaqqının hesablanması” bölməsini açın. Burada ödəniş üsulunu, tarifi və ya aylıq əməkhaqqını, əlavə iş qaydalarını, bonusları və tutulmaları təyin edə bilərsiniz. Tətbiq bu parametrləri seçilmiş dövr, növbə cədvəli, təqvim dəyişiklikləri və fasilələrin uçotu ilə birlikdə istifadə edir.</p>
+
+<div class="warning"><strong>Hesablama yalnız məlumatlandırma məqsədləri üçün təqdim olunur.</strong> İşəgötürəniniz müəyyən növbə növləri üçün vaxt ölçmə, yuvarlaqlaşdırma, müavinətlər, vergilər, bonuslar, tutulmalar və ya ödəniş üçün başqa bir sistemdən istifadə edərsə, faktiki əmək haqqı fərqli ola bilər. Nəticəni rəsmi əmək haqqı sənədi kimi istifadə etməyin; Bunu işəgötürəninizin əmək haqqı vərəqəsi ilə müqayisə edin. Tətbiqin dəqiq işlətmədiyi bir hesablama metodu tapsanız, tətbiqdə göstərilən ünvana tərtibatçılara e-poçt göndərin. Qaydaları təsvir edin, nümunə giriş məlumatlarını təqdim edin və gözlənilən nəticəni bildirin. Daha sonra metod gələcək yeniləmə üçün nəzərdən keçirilə bilər.</div>
+
+<h3 id="salary-settings">11.1. Tarif, əlavə iş saatı və bonuslar</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_settings_overview.webp" alt="Seçilmiş cədvəl, tarif növü, əlavə iş saatı və bonuslarla əmək haqqı hesablama ekranı">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Seçilmiş qrafik</strong> — hansı növbə cədvəlindən istifadə olunduğunu göstərir. Əmək haqqı bu cədvələ və statistikada seçilmiş dövrə əsasən hesablanır.</li>
+<li><strong>Tarif növü və ödəniş məbləği</strong> — <strong>saatlıq</strong>, <strong>növbəlik</strong> və ya <strong>aylıq</strong> ödənişi seçin, sonra müvafiq məbləği daxil edin. Sahənin adı seçilmiş tarif növü ilə dəyişir.</li>
+<li><strong>Əlavə iş</strong> — əlavə saatlar adi iş vaxtından fərqli ödənilirsə, bu bölməni aktivləşdirin. Sonra əlavə iş vaxtı üçün ödəniş vurucusunu göstərin. <a href="#main-shift-time-adjustment">“Növbəni dəyişdir” → “+ vaxt”</a> vasitəsilə təqvimə əlavə saatlar əlavə edin; saatlar əlavə iş kimi qəbul edilməsi üçün “Bu vaxtı əlavə iş kimi hesablayın” funksiyasını aktivləşdirin.</li>
+<li><strong>Bonuslar</strong> — cari hesablama metodunu və cəmi göstərir. <a href="#salary-bonuses">bonus parametrlərini</a> açmaq üçün karta toxunun.</li>
+</ol>
+
+<div class="notice">“Saxla” düyməsi parametrləri seçilmiş cədvələ tətbiq edir. Yadda saxladıqdan sonra statistika və hesabatlardakı cəmlər daxil edilmiş məlumatlardan istifadə edərək yenidən hesablanır.</div>
+
+<h3 id="salary-summary">11.2. Çıxarışlar və hesablama cəmi</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions_total.webp" alt="Çıxarışlar və yekun təhlil ilə əmək haqqı hesablama ekranı">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tutulmalar</strong> — konfiqurasiya edilmiş çıxılmaların ümumi məbləğini və sayını göstərir. <a href="#salary-deductions">çıxarılma siyahısını</a> açmaq üçün karta toxunun.</li>
+<li><strong>Cəmi</strong> — xülasə təhlili: ödənilmiş vaxt, işlənmiş saatlar, əlavə iş saatları, əsas əmək haqqı, əlavə iş saatları, bonuslar, çıxılmalar və son nəticə.</li>
+</ol>
+
+<div class="tip">Nəticə yalnız bu ekranın parametrlərindən deyil, həm də seçilmiş statistika dövründən, tamamlanmış növbələrdən, gün dəyişikliklərindən, əlavə iş vaxtından və ödənilməmiş fasilə parametrlərindən asılıdır.</div>
+
+<h3 id="salary-bonuses">11.3. Bonuslar</h3>
+
+<p>Əmək haqqı hesablama ekranında "Bonuslar" kartına toxunun. Bonusu əl ilə daxil edə və ya ödəniş sisteminizə uyğun gəlirsə, faiz kimi hesablaya bilərsiniz.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_bonuses.webp" alt="Hesablama və məbləğ girişi seçimləri ilə bonus parametrləri ekranı">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Xülasə məlumatı</strong> — hesablanmış bonus cəmini və hesablama üçün istifadə olunan baza məbləğini göstərir.</li>
+<li><strong>Bonus hesablaması</strong> — iş yerinizdə istifadə olunursa, əl ilə daxil etmə və ya satış faizi kimi faiz hesablamasını seçin.</li>
+<li><strong>Daxil etmə metodu</strong> — "Ümumi məbləğ" tək bir yekun bonus üçün uyğundur. Ayrı-ayrı sətirlər müstəqil şəkildə sayılmalı olan bir neçə bonus olduqda faydalıdır.</li>
+<li><strong>Məbləğ və ya faiz</strong> — seçilmiş hesablama metodu ilə tələb olunan dəyəri daxil edin.</li>
+<li><strong>Ləğv et və saxla</strong> — dəyişiklikləri ləğv et və ya əmək haqqı hesablanmasına tətbiq et.</li>
+</ol>
+
+<h3 id="salary-deductions">11.4. Çıxarış siyahısı</h3>
+
+<p>Əsas hesablama ekranında “Çıxarışlar” kartına toxunun. Bu bölmə bir neçə çıxılmanı saxlamağa və hər birini ayrıca idarə etməyə imkan verir.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions.webp" alt="Ümumi məbləğ, çıxılma sətirləri və əlavə düyməsi olan çıxılma siyahısı ekranı">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Xülasə məlumatı</strong> — bütün aktivləşdirilmiş çıxılmaların məbləğini və sayını göstərir.</li>
+<li><strong>Çıxarış sətri</strong> — adını, dəyərini və növünü göstərir. <a href="#salary-deduction-editor">çıxarılma parametrlərini</a> açmaq üçün sətirə toxunun. Zibil qutusu işarəsi sətri silir.</li>
+<li><strong>Tutulma əlavə et</strong> — “+” düyməsi yeni çıxılma sətri yaradır.</li>
+<li><strong>Ləğv et və saxla</strong> — dəyişiklikləri ləğv et və ya bütün siyahını saxla.</li>
+</ol>
+
+<h3 id="salary-deduction-editor">11.5. Fərdi çıxılmanın konfiqurasiyası</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deduction_editor.webp" alt="Adı, dəyəri, növü və çıxılma bazası olan fərdi çıxılma paneli">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tutulmanın adı</strong> — "Vergi", "Uşaq alimenti" və ya "Cərimə" kimi aydın bir ad daxil edin.</li>
+<li><strong>Dəyər</strong> — aşağıda seçilmiş dəyər növündən asılı olaraq məbləğ və ya faiz daxil edin.</li>
+<li><strong>Dəyər növü</strong> — sabit məbləğ və ya faiz seçin.</li>
+<li><strong>Tutulma növü</strong> — müəyyən bir hesablama dövrünə <strong>dəyişkən</strong> çıxılma tətbiq olunur; <strong>Təkrarlanan</strong> çıxılma aktiv qaldığı müddətdə müntəzəm olaraq tətbiq olunur.</li>
+<li><strong>Nədən tutulsun</strong> — hesablama bazasını seçin: ümumi əmək haqqı, baza əmək haqqı, bonuslar və ya digər mövcud seçim.</li>
+<li><strong>Aktivdir</strong> — parametrlərini silmədən çıxılmanı müvəqqəti olaraq deaktiv edir.</li>
+<li><strong>Ləğv et və saxla</strong> — paneli dəyişdirmədən bağlayın və ya çıxılmanı yadda saxlayın.</li>
+</ol>
+
+<div class="notice">Faiz çıxılması üçün düzgün "Çıxarış" bazasını seçmək xüsusilə vacibdir: ümumi əmək haqqının, baza əmək haqqının və bonusların eyni faizi fərqli nəticələr verir.</div>
+
+<h2 id="settings">12. Parametrlər</h2>
+
+<p><a href="#main-overview">Əsas ekranın</a> altındakı düymə ilə “Parametrlər”i açın. Bu bölmədə sistem icazələri, görünüş və tətbiq dili, oflayn nitqin tanınması, sənədlər və istifadəçi təlimatı, ehtiyat nüsxə, diaqnostika və tərtibatçı ilə əlaqə seçimləri yerləşir.</p>
+
+<h3 id="settings-overview">12.1. Əsas parametrlər bölmələri</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_permissions_language.webp" alt="ShiftAlarm parametrlərinin üstü: icazələr, mövzu, tətbiq dili və oflayn nitq modelləri">
+</figure>
+
+<ol class="callout-list">
+<li><strong>İcazələr</strong> — siqnal icazələrini və etibarlılıq parametrlərini açır. Bildirişləri, dəqiq siqnalları, fon fəaliyyətini və batareya məhdudiyyətlərini yoxlayın. <a href="#geo">Geo Siqnalları</a> həmçinin məkan girişi tələb edir; tətbiq bağlı olduqda işə salmaq üçün fon və ya "Həmişə icazə ver" məkan girişi tələb olunur. Element adları və yolları Android versiyasına və cihaz istehsalçısına görə dəyişir.</li>
+<li><strong>Tema</strong> — sizə açıq, qaranlıq və ya sistem görünüşünü seçməyə, interfeys rəng variantını seçməyə və tətbiqdəki hərəkətlər üçün toxunma rəyini aktivləşdirməyə və ya söndürməyə imkan verir. Sistem mövzusu telefonun cari görünüşünü izləyir.</li>
+<li><strong>Tətbiq dili</strong> — telefonun sistem dilindən fərqli bir dil istifadə etməyə imkan verir. ShiftAlarm kataloqu 108 dildən ibarətdir: axtarışla tələb olunan dili tapın, dil paketini yükləyin və tətbiq edin.</li>
+<li><strong>Oflayn nitq modelləri</strong> — <a href="#notes-create">nitqdən mətnə ​​qeydlər</a> üçün modul quraşdırır. Oflayn tanınma hazırda sınaqdan keçirilir və təxminən 20 dil üçün mövcuddur. Onun keyfiyyəti onlayn tanınmadan daha aşağı ola bilər və dildən, mikrofondan, telefonun performansından və qeyd şərtlərindən asılıdır.</li>
+</ol>
+
+<div class="warning"><strong>Android icazələri cihazlar arasında fərqlidir.</strong> Bəzi telefonlarda fon rejimində avtomatik başlatmanı da aktivləşdirməli, "Məhdudiyyətsiz" və ya oxşar batareya rejimini seçməli və fon fəaliyyətinə icazə verməlisiniz. Bu parametrlər sistemin ShiftAlarm-ı dayandırma ehtimalını azaldır, lakin onların dəqiq adları cihaz istehsalçısı tərəfindən müəyyən edilir.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_help_backup_diagnostics.webp" alt="ShiftAlarm parametrlərinin alt hissəsi: sənədlər, istifadəçi təlimatı, ehtiyat nüsxə, diaqnostika və geliştirici əlaqəsi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Sənədlər və kömək</strong> — tətbiqin hüquqi sənədlərini açır: İstifadə Şərtləri, Məxfilik Siyasəti, Məsuliyyətdən İmtina və qısa kömək səhifəsi.</li>
+<li><strong>Təlim və istifadəçi təlimatı</strong> — ShiftAlarm xüsusiyyətlərinin ətraflı təsvirləri ilə bu tam təsvirli təlimatı açır.</li>
+<li><strong>Ehtiyat nüsxə və bərpa</strong> — dəstəklənən tətbiq parametrlərini və məlumatlarını ehtiva edən bir fayl yaradır və ya onları əvvəlki ehtiyat nüsxəsindən bərpa edir. Bu, tətbiqi yenidən quraşdırmadan, telefonu sıfırlamadan və ya məlumatları başqa bir cihaza ötürməzdən əvvəl faydalıdır. Ətraflı təlimatlar üçün <a href="#backup">“Yedəkləmə və bərpa”</a> bölməsinə baxın.</li>
+<li><strong>Diaqnostika jurnalı</strong> — tətbiq xüsusiyyətləri üçün ayrıca jurnallar açır. Onlar xəbərdarlıq planlaşdırması və bərpası, hadisənin emalı, icazə vəziyyəti və digər xidmət məlumatları kimi texniki mərhələləri qeyd edir. Jurnal xətanın baş verdiyi mərhələni müəyyən etməyə kömək edir. Girişləri kopyalaya və ya onları tərtibatçılara e-poçtla göndərmək üçün hazırlaya bilərsiniz. Ətraflı məlumat üçün <a href="#diagnostics">“Diaqnostika və problemlərin aradan qaldırılması”</a> bölməsinə baxın.</li>
+<li><strong>Tərtibatçılarla əlaqə</strong> — e-poçt tətbiqini açır və dəstəyə ünvanlanan mesaj yaradır. Problemi bildirmək, rəy və ya təklif göndərmək və ya sual vermək üçün istifadə edin. Texniki problem üçün telefon modelini, Android versiyasını, problemin vaxtını, yerinə yetirilən addımları və mümkün olduqda müvafiq diaqnostika jurnalını daxil edin.</li>
+</ol>
+
+<div class="notice">Diaqnostika jurnalları tərtibatçılara avtomatik olaraq göndərilmir. Tələb olunan məlumatları kopyalamalı və ya "Tərtibatçılara göndər" düyməsini basmalı, e-poçt tətbiqini seçməli, hazırlanmış mesajı nəzərdən keçirməli və göndərilməsini təsdiqləməlisiniz.</div>
+
+<h2 id="backup">13. Yedəkləmə və bərpa</h2>
+
+<p>Yedəkləmə dəstəklənən ShiftAlarm parametrlərini və istifadəçi məlumatlarını ayrı bir faylda saxlayır. Bu, tətbiqi yenidən quraşdırdıqdan, telefonu sıfırladıqdan və ya başqa bir cihaza keçdikdən sonra məlumatları bərpa etməyə kömək edir.</p>
+<ol class="step-list">
+<li>"Parametrlər → Yedəkləmə və bərpa" bölməsini açın.</li>
+<li>Yedəkləmə yaradın və nəticədə yaranan faylı telefonda saxlayın və ya sistem menyusu vasitəsilə paylaşın.</li>
+<li>Bərpa etmək üçün eyni bölməni açın və əvvəllər yaradılmış yedəkləmə faylını seçin.</li>
+<li>Bərpa etdikdən sonra vacib siqnalları, cədvəlləri və Android icazələrini yoxlayın. Bəzi sistem təhlükəsizlik icazələrinin yeni cihazda və ya yenidən quraşdırıldıqdan sonra yenidən verilməsi lazım ola bilər.</li>
+</ol>
+<p class="tip">Telefon itirildikdə, zədələndikdə və ya sıfırlandıqda cari nüsxəni əlçatan olan təhlükəsiz yerdə saxlayın. Yedək faylı Android sistem icazələrini əvəz etmir və tətbiqin daxil olmasına icazə verilməyən məlumatları avtomatik olaraq daxil edə bilməz.</p>
+
+<h2 id="diagnostics">14. Diaqnostika və problemlərin aradan qaldırılması</h2>
+
+<p>ShiftAlarm müxtəlif xüsusiyyətlər üçün ayrıca diaqnostik qeydlər təqdim edir. Onlar texniki hadisələr ardıcıllığını saxlayır və siqnalın planlaşdırıldığını, yenidən başladıqdan sonra bərpa olunduğunu, emal üçün ötürüldüyünü və ya sistem parametrlərinə görə dayandırıldığını müəyyən etməyə kömək edir.</p>
+
+<h3 id="diagnostics-control">14.1. Diaqnostik toplanmanın idarə edilməsi</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_sections.webp" alt="Əsas açar və fərdi siqnalizasiya qeydi ilə ShiftAlarmizasiyası diaqnostik jurnal ekranı">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Diaqnostika topla</strong> — tətbiqdəki hər bir diaqnostik bölmə üçün əsas açar. Bütün qeydlərə birdən yeni hadisələr əlavə etməyi dayandırmaq üçün onu söndürün. Yeni hadisələrin toplanması yenidən aktivləşdirildikdən sonra davam edir.</li>
+<li><strong>Fərdi xüsusiyyət qeydi</strong> — hər modulun öz açarı və "Aç" düyməsi var. Məsələn, yalnız zəngli saatı, saatı və ya digər xüsusiyyət qeydini deaktiv edərkən qlobal diaqnostikanı aktiv saxlaya bilərsiniz. Ekran görüntüsü çatdırılma, planlaşdırma, bərpa, mühafizə və siqnalizasiya ekranı hadisələrini qeyd edən siqnalizasiya qeydini göstərir.</li>
+</ol>
+
+<div class="notice">Açarlar yalnız texniki hadisələrin qeydini idarə edir. Zəngli saatı, saatı və ya digər xüsusiyyət jurnalını deaktiv etmək funksiyanın özünü deaktiv etmir. Əvvəllər yadda saxlanılan qeydləri müvafiq jurnalın içərisindəki "Sil" düyməsi ilə ayrıca silin.</div>
+
+<h3 id="diagnostics-log">14.2. Fərdi xüsusiyyət jurnalı</h3>
+
+<p>Tələb olunan diaqnostika bölməsində "Aç" düyməsinə vurun. Aşağıdakı nümunə siqnal jurnalını göstərir; digər funksiyalar üçün qeydlər də oxşar şəkildə işləyir.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_alarm_log.webp" alt="Hadisə sayı, hərəkətlər və texniki qeydlərlə ShiftAlarm siqnalizasiyası diaqnostik qeydi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Yadda saxlanılan hadisələr</strong> — seçilmiş qeyddə hazırda saxlanılan qeydlərin sayını göstərir.</li>
+<li><strong>Qeydiyyat hərəkətləri</strong>:
+<ul>
+<li><strong>Kopyala</strong> — cari qeyddəki bütün məlumatları panoya kopyalayır. Onu e-poçta və ya başqa bir tətbiqə yapışdıra bilərsiniz.</li>
+<li><strong>Təmizlə</strong> — bu qeyddə saxlanılan qeydləri silir. Təmizlədikdən sonra, yalnız diaqnostika aktiv olduqda sonradan qeydə alınan hadisələr görünəcək.</li>
+<li><strong>Tərtibatçılara göndər</strong> — e-poçt göndərmək üçün tətbiq seçicisini açır. E-poçt tətbiqi seçin; geliştiricinin ünvanı və diaqnostik məlumatlar avtomatik olaraq daxil edilir. Göndərməzdən əvvəl problemin təsvirini əlavə edin, mesajı nəzərdən keçirin və sonra göndərilməsini təsdiqləyin.</li>
+</ul>
+</li>
+<li><strong>Tətbiq hadisələri</strong> — jurnal girişlərinin özləri. Bir giriş adətən tarix və vaxt, texniki hadisə adı və identifikator, vəziyyət və ya səbəb kimi əlavə parametrləri ehtiva edir. Texniki adlar ingilis dilində görünə bilər; göndərməzdən əvvəl onları redaktə etməyin və ya tərcümə etməyin.</li>
+</ol>
+
+<div class="warning">Gündəliyi silməzdən əvvəl tələb olunan hər hansı bir girişi kopyalayın və ya göndərin. Silinmiş diaqnostik hadisələr bərpa edilə bilməz.</div>
+
+<div class="tip">Problem təkrarlana bilərsə, əvvəlcə qlobal diaqnostik kolleksiyanı və müvafiq xüsusiyyət jurnalını aktivləşdirin, sonra problemə səbəb olan hərəkətləri təkrarlayın. Mesajınızda problemin dəqiq vaxtını, telefon modelini, Android versiyasını, gözlənilən nəticəni və faktiki nəticəni qeyd edin. Bu, təsvirinizi jurnal hadisələri ilə uyğunlaşdırmağa kömək edir.</div>
+
+<h2 id="faq">15. Tez-tez verilən suallar</h2>
+
+<h3>Siqnal vaxtında işə düşmədi</h3>
+<p>Bildirişləri, dəqiq siqnal icazəsini, fon fəaliyyətini və batareya məhdudiyyətlərini yoxlayın.</p>
+<h3>Geo Siqnal gec işə düşdü</h3>
+<p>Dəqiq və fon yerini, batareya məhdudiyyətlərini və fon rejimində avtomatik başlatmanı yoxlayın. Şəhərdə 1300–1500 m radiusda və şəhər xaricində 4000–5000 m radiusda sınayın. Əsl tetikleme radius xəttində tam olaraq baş verməyə bilər.</p>
+<h3>Vidcet dərhal yenilənmədi</h3>
+<p>Tətbiqi açın və ya vidcetdəki yeniləmə düyməsinə vurun. Android tez-tez vidjet yeniləmələrini məhdudlaşdıra bilər.</p>
+<h3>Dili dəyişdirdim, amma sənəd və ya təlimat hələ yenilənməyib</h3>
+<p>İnternet bağlantınızı yoxlayın və yükləmə üçün vaxt ayırın. Uzaq versiya mövcud deyilsə, tətbiq daxili ehtiyat versiyasından istifadə edir.</p>
+
+<div class="footer small">Təlimat GitHub vasitəsilə yenilənə bilər. Uzaq versiya mövcud deyilsə, tətbiq daxili oflayn versiyasından istifadə edir.</div>
+</main>
+</body>
+</html>

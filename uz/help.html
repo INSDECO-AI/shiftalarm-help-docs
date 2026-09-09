@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ShiftAlarm foydalanuvchi qo&#x27;llanmasi</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #64748b;
+  --accent: #2563eb;
+  --soft: #e8eef8;
+  --border: #dbe4f0;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.58;
+  margin: 0;
+  padding: 18px;
+  color: var(--text);
+  background: var(--bg);
+}
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+h1 { margin: 0 0 8px; font-size: 28px; line-height: 1.2; }
+h2 { margin: 32px 0 10px; font-size: 21px; line-height: 1.25; }
+h3 { margin: 22px 0 8px; font-size: 17px; }
+p, li { font-size: 16px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul, ol { padding-left: 22px; }
+.notice, .tip, .warning {
+  padding: 14px 16px;
+  border-radius: 16px;
+  margin: 14px 0;
+  border: 1px solid var(--border);
+}
+.notice { background: var(--soft); }
+.tip { background: #ecfdf5; }
+.warning { background: #fff7ed; }
+.small { color: var(--muted); font-size: 14px; }
+.toc {
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 16px;
+  margin: 18px 0 24px;
+}
+.toc ol { margin: 8px 0 0; }
+.step-list li { margin-bottom: 8px; }
+.guide-figure {
+  margin: 18px 0;
+}
+.guide-image {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+}
+.callout-list li {
+  margin-bottom: 10px;
+}
+.guide-caption {
+  max-width: 520px;
+  margin: 10px auto 0;
+  color: var(--text);
+  font-size: 15px;
+}
+.guide-caption strong {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.footer {
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --card: #111827;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --accent: #93c5fd;
+    --soft: #1f2937;
+    --border: #334155;
+  }
+  main { box-shadow: none; }
+  .toc { background: #172033; }
+  .tip { background: #10251f; }
+  .warning { background: #2a1d10; }
+}
+</style>
+</head>
+<body>
+<main>
+<h1>ShiftAlarm foydalanuvchi qo'llanmasi</h1>
+<p class="small">14-versiya. Sana: 2026-yil 2-avgust.</p>
+<div class="notice">Ushbu sahifa ShiftAlarm uchun amaliy qo'llanmadir. Unda har bir asosiy funksiya nima qilishi, uni qaerdan topish, nimaga teginish va funksiya kutilganidek ishlamasa, nimani tekshirish kerakligi tushuntiriladi.</div>
+<nav class="toc">
+<strong>Mundarija</strong>
+<ol><li><a href="#start">1. Birinchi ishga tushirish</a></li><li><a href="#permissions">2. Ruxsatnomalar va ishonchlilik</a></li><li><a href="#main">3. Asosiy ekran</a></li><li><a href="#shifts">4. Shift jadvallari</a></li><li><a href="#statistics">5. Jadval statistikasi</a></li><li><a href="#alarms">6. Signallar</a></li><li><a href="#geo">7. Geo Signallar</a></li><li><a href="#notes">8. Eslatmalar, hodisalar va eslatmalar</a></li><li><a href="#clock">9. Soat, taymer va sekundomer</a></li><li><a href="#widgets">10. Vidjetlar</a></li><li><a href="#salary">11. Ish haqini hisoblash</a></li><li><a href="#settings">12. Sozlamalar</a></li><li><a href="#backup">13. Zaxiralash va tiklash</a></li><li><a href="#diagnostics">14. Diagnostika va muammolarni bartaraf etish</a></li><li><a href="#faq">15. Tez-tez so'raladigan savollar</a></li></ol>
+</nav>
+<h2 id="start">1. Birinchi marta ishga tushirish</h2>
+
+<p>ShiftAlarm birinchi marta ishga tushganda, u qisqa sozlash oqimini ko'rsatadi. Asosiy ekran allaqachon fonda mavjud, ammo avval asosiy sozlashni yakunlash yaxshiroqdir.</p>
+<ol class="step-list">
+<li>Kirish ma'lumotlarini o'qing va “Davom etish” tugmasini bosing.</li>
+<li>Hujjatlar bosqichida hujjatlarni oching yoki davom etishga tayyor bo'lganingizda kerakli hujjatlarni qabul qiling.</li>
+<li>Ruxsatnomalar bosqichida ruxsatnomalar ekranini oching va bildirishnomalar, aniq signallar, joylashuvga kirish va batareya cheklovlarini tekshiring.</li>
+<li>“Sozlashni tugatish” tugmasini bosing.</li>
+</ol>
+<p class="tip">Keyinroq “Sozlamalar → Ruxsatnomalar va ishonchlilik” ostida ruxsatnomalarni sozlashingiz mumkin.</p>
+
+<h2 id="permissions">2. Ruxsatnomalar va ishonchlilik</h2>
+
+<p>Signallar, eslatmalar va Geo Signallar Android sozlamalariga va qurilma ishlab chiqaruvchisining dasturiy ta'minotiga bog'liq.</p>
+<ul>
+<li><strong>Bildirishnomalar</strong> — signallar, eslatmalar, taymer va xizmat bildirishnomalari uchun talab qilinadi.</li>
+<li><strong>Aniq budilniklar</strong> — signalni kerakli vaqtda ishga tushirishga yordam beradi.</li>
+<li><strong>Joylashuv</strong> — Geo Signallar uchun talab qilinadi.</li>
+<li><strong>Fon joylashuvi</strong> — ilova yopilganda Geo Signalning ishlashi uchun talab qilinadi.</li>
+<li><strong>Batareya va fon faoliyati</strong> — Xiaomi/Redmi va boshqa ba'zi qurilmalarda trigger ishonchliligiga ta'sir qilishi mumkin.</li>
+</ul>
+<p class="warning">Android har doim ham bildirishnomalar, aniq signallar yoki geodeziya hodisalarining darhol yetkazib berilishini kafolatlamaydi. Muhim ogohlantirishlar uchun ruxsatnomalar ekranidagi har bir elementni tekshiring.</p>
+
+<h2 id="main">3. Asosiy ekran</h2>
+
+<p>Asosiy ekran sizning kundalik boshqaruv panelingizdir. U taqvim, soat, Geo signalizatsiyalari, oddiy signalizatsiyalar, smena jadvallari, eslatmalar va sozlamalarga to'g'ridan-to'g'ri kirish imkonini beradi.</p>
+
+<h3 id="main-overview">3.1. Asosiy ekran elementlari</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_screen_overview.png" alt="Raqamlangan boshqaruv elementlari bilan ShiftAlarm asosiy ekrani">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Orqaga o'q</strong> — taqvimni oldingi oyga o'tkazadi.</li>
+<li><strong>Oy va yil</strong> — ochiq oyni ko'rsatadi. <a href="#main-date-picker">bosqichma-bosqich oy va yil tanlagichidan</a> foydalanish uchun ushbu maydonga teging.</li>
+<li><strong>Oldinga strelka</strong> — taqvimni keyingi oyga o'tkazadi.</li>
+<li><strong>Taqvim</strong> — asosiy oy maydoni. Siz taqvimni surishingiz mumkin. Har bir kun sana, eslatmalar, tadbirlar, rejalashtirilgan smena va kun o'zgarishlarini ko'rsatishi mumkin. Muntazam teginish sanani tanlaydi; Uzoq bosish tanlangan kun uchun <a href="#main-day-actions">ma'lumotlar va harakatlar</a> ni ochadi.</li>
+<li><strong>Bugun</strong> — taqvimni joriy kunga qaytaradi.</li>
+<li><strong>Soat</strong> — <a href="#clock">dunyo soati, sekundomer va taymer</a> ni ochadi.</li>
+<li><strong>Geo signalizatsiyasi</strong> — <a href="#geo">xaritani, saqlangan joylarni va Geo signalizatsiya sozlamalarini</a> ochadi. Tanlangan hududga kirganingizda, undan chiqqaningizda yoki ikkalasini qilganingizda signal ishga tushishi mumkin.</li>
+<li><strong>Budilnik</strong> — <a href="#alarms">muntazam, takrorlanuvchi va smenali signalizatsiyalarni</a> ochadi.</li>
+<li><strong>Jadval</strong> — <a href="#shifts">smena jadvallarini, ularni yaratish va tahrirlash hamda statistikani</a> ochadi.</li>
+<li><strong>Qaydlar</strong> — <a href="#notes">eslatmalar, tadbirlar, eslatmalar, audio eslatmalar va nutqdan matnga</a> ochadi.</li>
+<li><strong>Sozlamalar</strong> — <a href="#settings">ruxsatnomalar, til, mavzu, oflayn nutq modellari, zaxira nusxasi, diagnostika, hujjatlar va treninglarni</a> ochadi.</li>
+</ol>
+
+
+<h3 id="main-date-picker">3.2. Oy va yilni tanlash</h3>
+
+<p>Kerakli taqvim davrini tezda ochish uchun asosiy ekranning yuqori qismidagi oy va yilga teging. Tanlov bosqichma-bosqich amalga oshiriladi: <strong>asr → o'n yillik → yil → oy</strong>.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_century.webp" alt="1-qadam: ShiftAlarm taqvimida asrni tanlash">
+<figcaption class="guide-caption"><strong>1. Asrni tanlang.</strong> Kerakli yilni o'z ichiga olgan davrga teging. Misol 2000-yillarni tanlaydi.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_decade.webp" alt="2-qadam: ShiftAlarm taqvimida o&#x27;n yillikni tanlash">
+<figcaption class="guide-caption"><strong>2. O'n yillikni tanlang.</strong> Kerakli yilni o'z ichiga olgan diapazonga teging. 2026-yil uchun “2020–2029” ni tanlang.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_year.webp" alt="3-qadam: ShiftAlarm taqvimida yilni tanlash">
+<figcaption class="guide-caption"><strong>3. Yilni tanlang.</strong> Kerakli yilni bosing. Misol 2026-yilni tanlaydi.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_month.webp" alt="4-qadam: ShiftAlarm taqvimida oyni tanlash">
+<figcaption class="guide-caption"><strong>4. Oyni tanlang.</strong> Kerakli oyni bosing. Misol iyulni tanlaydi.</figcaption>
+</figure>
+
+<div class="tip">Oyni tanlaganingizdan so'ng, panel yopiladi va asosiy taqvim tanlangan oy va yilda ochiladi.</div>
+<div class="notice">“Orqaga” tugmasi oldingi bosqichga qaytadi. Asr ekranida u sana tanlagichni yopadi.</div>
+
+<h3 id="main-day-actions">3.3. Tanlangan kun uchun ma'lumot va harakatlar</h3>
+
+<p>Taqvimda kerakli kunni bosib turing. Ushbu sana uchun ma'lumot va harakatlar mavjud panel ochiladi. Barcha mavjud amallarni ko'rish uchun panelni yuqoriga torting.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_day_actions.webp" alt="Tanlangan kalendar kuni uchun ShiftAlarm ma&#x27;lumotlari va amallar paneli">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Sana</strong> — haftaning kuni va tanlangan sanani ko'rsatadi. Panelni kengaytirish yoki yopish uchun yuqoridagi tutqichni yuqoriga yoki pastga torting.</li>
+<li><strong>Smena</strong> — hisoblangan smenani yoki dam olish kuni, ta'til, ta'til, kasallik ta'tili yoki boshqa istisno kabi kun o'zgarishini ko'rsatadi.</li>
+<li><strong>Ushbu sana uchun budilniklar</strong> — tanlangan kunga tayinlangan signallarni yoki ularning mavjud emasligi haqida xabarlarni ko'rsatadi.</li>
+<li><strong>Tadbirlar va eslatmalar</strong> — tanlangan sanaga bog'langan yozuvlarni ko'rsatadi.</li>
+<li><strong>Budilnik qoʻshish</strong> — tanlangan sana uchun bir martalik signal yaratishni ochadi.</li>
+<li><strong>Smenani oʻzgartirish</strong> — faol jadvalda bir kun yoki sana oralig'i uchun istisno yaratadi.</li>
+<li><strong>Qayd qoʻshish</strong> — tanlangan sana uchun yaratish uchun tadbir yoki eslatmani tanlash imkonini beradi.</li>
+</ol>
+
+<div class="notice">“Smenani oʻzgartirish” amali faol smena jadvalidagi kunlarni sozlash uchun mavjud.</div>
+
+<h4 id="main-shift-override">Bir kunni yoki sana oraligʻini oʻzgartirish</h4>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_types.webp" alt="ShiftAlarm’da sana oraligʻini va smenani oʻzgartirish turini tanlash">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Boshlanish sanasi</strong> — oʻzgarishning birinchi kuni. Dastlab u taqvimda tanlangan sanadan foydalanadi.</li>
+<li><strong>Tugash sanasi</strong> — oʻzgarishning oxirgi kuni. Faqat bir kunni o'zgartirish uchun o'sha sanani tanlangan holda qoldiring.</li>
+<li><strong>Ruxsatli kun</strong> — hisoblangan smenani dam olish vaqti bilan almashtiradi.</li>
+<li><strong>Taʼtil</strong> — tanlangan kun yoki diapazonni ta'til sifatida belgilaydi.</li>
+<li><strong>Kasallik taʼtili</strong> — tanlangan kun yoki diapazonni kasallik ta'tili sifatida belgilaydi.</li>
+<li><strong>Oʻzgarishni saqlash</strong> — tanlangan istisnoni taqvimga qo'llaydi.</li>
+</ol>
+
+<h4 id="main-shift-time-adjustment">Ish vaqtini sozlash</h4>
+
+<p>O'zgartirish turlari ro'yxatini pastga aylantiring va hisoblangan ish smenasining davomiyligini o'zgartirish uchun “Smenani tahrirlash” ni tanlang.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_time_adjustment.webp" alt="ShiftAlarm da smena ish vaqtini sozlash">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Smenani tahrirlash</strong> — tanlangan smena uchun ish vaqtini sozlashni yoqadi.</li>
+<li><strong>+ vaqt</strong> — standart smena davomiyligiga soatlar yoki daqiqalar qo'shadi.</li>
+<li><strong>− vaqt</strong> — smena davomiyligini qisqartiradi, masalan, ish erta tugaganda.</li>
+<li><strong>Bu vaqtni ortiqcha ish sifatida hisoblash</strong> — qo'shilgan vaqtni ortiqcha ish sifatida qabul qiladi. Agar parametr o'chirilgan bo'lsa, u oddiy ish vaqti sifatida hisoblanadi.</li>
+<li><strong>Oʻzgarishni saqlash</strong> — tanlangan kun yoki diapazonga sozlashni qo'llaydi.</li>
+</ol>
+
+<div class="tip">Kun o'zgarishi asl jadval shablonini o'zgartirmaydi. U alohida istisno sifatida saqlanadi va taqvim, statistika, ish haqi hisob-kitobi va hisobotlarga kiritiladi.</div>
+
+<h2 id="shifts">4. Smena jadvallari</h2>
+
+<p>Smena jadvali takrorlanuvchi ish siklini belgilaydi va boshqa ShiftAlarm xususiyatlari uchun asos yaratadi. Ilova undan taqvimni to'ldirish, signallarni smenalarga bog'lash, ish vaqtini hisoblash, statistika yaratish, ish haqini taxmin qilish va hisobotlarni tayyorlash uchun foydalanadi.</p>
+
+<div class="notice"><strong>Asosiy tamoyil.</strong> Avval bazaviy takrorlanuvchi jadvalni yarating. <a href="#main-day-actions">tanlangan kunlik harakatlar</a> orqali ma'lum sanalar uchun istisno sifatida ta'til, kasallik ta'tili, dam olish vaqti, bir martalik almashtirish smenasi yoki ish vaqtini sozlashni qo'shing. Bu asl tsiklni o'zgarishsiz saqlaydi.</div>
+
+<h3 id="shifts-list">4.1. Jadval ro'yxati va boshqaruv elementlari</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedules_overview.webp" alt="Faol jadval kartasi va raqamlangan boshqaruv elementlari bilan ShiftAlarm jadval ekrani">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Jadval tafsilotlari</strong> — nomi, boshlanish sanasi, tsikl davomiyligi va kunlarning qisqa ketma-ketligi. Misolda, "D · D · O · O" ikki kunlik smenadan keyin ikki kunlik dam olish kunini anglatadi.</li>
+<li><strong>Switch</strong> — jadvalni o'chirmasdan vaqtincha o'chiradi. Uni yana yoqsangiz, saqlangan sozlamalar qo'llanilaveradi.</li>
+<li><strong>Jadval holati</strong> — hozirda qaysi jadval faol ekanligini ko'rsatadi.</li>
+<li><strong>Tahrirlash</strong> — o'zgartirilishi mumkin bo'lgan parametrlarni ochadi. Dastlabki sozlashdan so'ng, allaqachon yaratilgan taqvim ma'lumotlarining tasodifiy qayta hisoblanishining oldini olish uchun jadval bazasining bir qismi qulflanadi.</li>
+<li><strong>Oʻchirish</strong> — tasdiqlangandan so'ng jadvalni o'chiradi. Uni o'chirishdan oldin, smenaga bog'langan har qanday signallar va hisob-kitoblarni tekshiring.</li>
+<li><strong>Statistikani ochish</strong> — ushbu jadvalning <a href="#statistics">ish vaqti, davri, ish haqi va hisobot statistikasini</a> ochadi.</li>
+<li><strong>Jadval yaratish</strong> — tayyor shablonni tanlash yoki maxsus tsikl yaratish imkonini beradi.</li>
+</ol>
+
+<h3 id="shifts-create">4.2. Jadval yaratishni boshlash</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_create.webp" alt="Nomi, boshlanish sanasi, shablonlari va maxsus jadvali bilan jadval yaratish paneli">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Jadval nomi</strong> — “Asosiy 2/2”, “Tungi smena” yoki ish joyingiz nomi kabi aniq nom kiriting.</li>
+<li><strong>Boshlanish sanasi</strong> — takroriy siklning <strong>birinchi kuniga</strong> mos keladigan sana. O‘tgan yoki kelajakdagi sanani tanlashingiz mumkin; ilova jadvalni shu sanadan oldinga va orqaga hisoblaydi.</li>
+<li><strong>Shablonlar</strong> — tayyor umumiy smena ketma-ketliklari. Misolda “2/2 kun” shabloni ishlatilgan.</li>
+<li><strong>Shaxsiy jadval</strong> — oʻzingizning ish kunlaringiz va dam olish kunlaringiz ketma-ketligini yaratadi.</li>
+<li><strong>Jadval yaratish</strong> — tanlangan variant uchun batafsil muharrirni ochadi.</li>
+</ol>
+
+<div class="tip">“D · D · O · O” shabloni uchun boshlanish sanasi odatda ikkita ish kunining birinchisi boʻladi. Maxsus siklda 1-kun dam olish kuni ham boʻlishi mumkin; muhim jihat shundaki, tanlangan sana siz yaratgan ketma-ketlikning 1-kuniga toʻliq mos keladi.</div>
+
+<h3 id="shifts-template">4.3. Shablondan jadval yaratish</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_template.webp" alt="Nomi, ketma-ketligi, boshlanish sanasi va smena vaqti bilan shablon jadval muharriri">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Jadval nomi</strong> — taklif qilingan nomni saqlang yoki uni o'zingizniki bilan almashtiring.</li>
+<li><strong>Shablon</strong> — harflar ketma-ketligini va uning ma'nosini ko'rsatadi. Misolda, “D · D · O · O” kunduzgi smena, kunduzgi smena, dam olish kuni, dam olish kuni degan ma'noni anglatadi.</li>
+<li><strong>Boshlanish sanasi</strong> — ko'rsatilgan ketma-ketlikdagi birinchi kunning sanasini tanlang.</li>
+<li><strong>Smena vaqti</strong> — har bir ish smenasi turi uchun boshlanish va tugash vaqtini belgilang. Ilova hisoblangan davomiylikni ko'rsatadi.</li>
+<li><strong>Bekor qilish</strong> — muharrirni saqlamasdan yopadi.</li>
+<li><strong>Saqlash</strong> — jadvalni saqlaydi va taqvimdagi smenalarni hisoblashni boshlaydi.</li>
+</ol>
+
+<div class="warning"><strong>Birinchi saqlashdan so'ng.</strong> Boshlanish sanasi va tsikl tuzilishi allaqachon hisoblangan taqvim ma'lumotlarini himoya qilish uchun qulflangan. Siz hali ham nomni va ba'zi ish parametrlarini tahrirlashingiz mumkin. Agar sizga boshqa asosiy tsikl yoki ma'lumotnoma sanasi kerak bo'lsa, yangi jadval yaratish xavfsizroq.</div>
+
+<h3 id="shifts-custom">4.4. Maxsus sikl yaratish</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_custom.webp" alt="Sikl uzunligi, kun boshqaruv elementlari, boshlanish sanasi va har bir kun uchun sozlamalar bilan maxsus jadval muharriri">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Jadval nomi</strong> — maxsus ketma-ketligingizga nom bering.</li>
+<li><strong>Sikl uzunligi</strong> — takrorlanuvchi ketma-ketlikka nechta kun kiritilganligini ko'rsatadi.</li>
+<li><strong>Kunni olib tashlash</strong> — siklni bir kunga qisqartiradi.</li>
+<li><strong>Kun qoʻshish</strong> — sikl oxiriga yana bir sozlanishi mumkin bo'lgan kun qo'shadi.</li>
+<li><strong>Boshlanish sanasi</strong> — maxsus siklning 1-kuniga mos keladigan sana.</li>
+<li><strong>Kun sozlamalari</strong> — “Shift turi” ga teging. kartani tanlang va dam olish kunini yoki kerakli ish turini tanlang: kunduzgi, tungi, ertalabki, kechqurungi, 24 soatlik yoki maxsus smena. Ish kuni uchun boshlanish va tugash vaqtini belgilang. Siklning qolgan kunlarini ekranning pastki qismida xuddi shu tarzda sozlang.</li>
+<li><strong>Bekor qilish</strong> — muharrirni saqlamasdan yopadi.</li>
+<li><strong>Saqlash</strong> — maxsus siklni saqlaydi va uni taqvimda hisoblaydi.</li>
+</ol>
+
+<div class="notice"><strong>Sikl nima?</strong> Sikl - bu ketma-ketlik qayta boshlanadigan kunlar soni. Masalan, to'rt kunlik sikl "2 ish kuni + 2 kun dam olish" bo'lishi mumkin, olti kunlik sikl esa "3 ish kuni + 3 kun dam olish" bo'lishi mumkin. Oxirgi kundan keyin ilova 1-kunga qaytadi.</div>
+
+<div class="tip">Bir martalik jadval istisnosi uchun asosiy siklni o'zgartirmang. Kalendar sanasini uzoq bosib turing va dam olish kuni, ta'til, kasallik ta'tili, almashtirish smenasi yoki vaqtni sozlashni yarating.</div>
+
+
+
+<span id="shift-statistics"></span>
+<h2 id="statistics">5. Jadval statistikasi</h2>
+
+<p>Jadval kartasidan “Statistika” bo‘limini <strong>“Statistikani ochish”</strong> tugmasi orqali oching. Bu bo‘lim ish va dam olish kunlari, jadval o‘zgarishlari, rejalashtirilgan va haqiqiy ish vaqti, taxminiy ish haqi hamda hisobotlar haqidagi ma’lumotlarni birlashtiradi.</p>
+
+<div class="notice"><strong>Muhim:</strong> statistika faqat tanlangan smena jadvali uchun hisoblanadi. Tanlangan davr uning ostidagi barcha ish vaqti, ish haqi va hisobot qiymatlariga tegishli.</div>
+
+<h3 id="statistics-period">5.1. Jadval, davr va kun xulosasi</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_period_overview.webp" alt="Jadval ma&#x27;lumotlari, davr tanlovi va kun jami statistikasi ekrani">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Jadval ma'lumotlari</strong> — tanlangan jadval nomini, birinchi tsiklning boshlanish sanasini va takroriy tsiklning davomiyligini ko'rsatadi. Ushbu ekrandagi statistika faqat ushbu jadvalga tegishli.</li>
+<li><strong>Tanlangan davr kartasi</strong> — ishlatilayotgan davrni ko'rsatadi. Joriy, oldingi yoki keyingi oyni, joriy yilni yoki maxsus sana oralig'ini tanlash uchun unga yoki o'ngdagi strelkaga bosing.</li>
+<li><strong>Kun xulosasi</strong> — davrdagi kunlar sonini, ish smenalarini, dam olish kunlarini, tugallangan va kelgusi smenalarni hamda o‘zgartirilgan kunlarni ko‘rsatadi. O‘zgartirilgan kunlar asosiy sikldan istisnolardir: ta’til, kasallik ta’tili, dam olish, almashtirilgan yoki ko‘chirilgan smena, ish vaqtini tuzatish va boshqa o‘zgarishlar.</li>
+</ol>
+
+<div class="warning"><strong>Kelajak davrlari prognozlardir.</strong> Kelajak oyi uchun ilova yaratilgan jadval va allaqachon kiritilgan ma'lumotlardan foydalanadi, lekin kelajakdagi kasallik ta'tili, ta'til, dam olish vaqti, qo'shimcha ish vaqti, bonuslar yoki chegirmalarni bila olmaydi. Joriy yilni tanlaganingizda, jami natijalar o'tgan sanalar uchun haqiqiy ma'lumotlarni yilning qolgan qismi uchun prognoz bilan birlashtirishi mumkin.</div>
+
+<h3 id="statistics-work">5.2. Ish vaqti, ish haqi va hisobotlar</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_work_salary_reports.webp" alt="Ish vaqti, taraqqiyot, ish haqi va hisobotga kirish imkoniyati bilan statistika ekrani">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ish vaqti</strong> — soatlar va taraqqiyot uchun xulosa kartasi. <a href="#statistics-break">tanaffus vaqti sozlamalarini</a> ochish uchun unga teging.</li>
+<li><strong>Rejalashtirilgan soatlar</strong> — tanlangan davrdagi rejalashtirilgan smenalar va o'zgarishlarning umumiy davomiyligi.</li>
+<li><strong>Ishlangan soatlar</strong> — joriy sanada tugallangan deb hisoblangan smenalardagi vaqt, tanaffus sozlamalari qo'llanilgan holda.</li>
+<li><strong>Jarayon</strong> — umumiy ish smenasidan nechtasi bajarilganligini va tanlangan davrning necha foizi bajarilganligini ko'rsatadi.</li>
+<li><strong>Ish haqi</strong> — <a href="#salary">ish haqini hisoblash sozlamalarini</a> ochadi. Kartada tanlangan jadval va davr uchun taxminiy ma'lumotlar ko'rsatilgan.</li>
+<li><strong>Jami</strong> — tanlangan to'lov usuli, bonuslar, qo'shimcha ish vaqti va chegirmalar bilan birga hozirgacha olingan taxminiy summa.</li>
+<li><strong>Stavka yoki ish haqi</strong> — ushbu kartaning tarkibi tanlangan hisoblash usuliga bog'liq: soatiga, smenasiga yoki oyiga to'lov. Unda ish haqi sozlamalariga kiritilgan qiymat ko'rsatiladi.</li>
+<li><strong>Hisoblash tafsilotlari</strong> — tanlangan davr uchun to'langan vaqt, qo'shimcha ish vaqti, bonuslar va chegirmalar.</li>
+<li><strong>Hisobotlar</strong> — <a href="#reports">davrlar, ish vaqti va ish haqi uchun batafsil hisobotlarni ochadi</a>.</li>
+</ol>
+
+<div class="tip">Ish vaqti va ish haqi bo'limlaridagi barcha qiymatlar yuqori kartadagi davrni o'zgartirganingizda qayta hisoblanadi.</div>
+
+<h3 id="statistics-break">5.3. Ish vaqtidagi tanaffuslarni hisobga olish</h3>
+
+<p>Ovqatlanish tanaffusi yoki boshqa tanaffus haqiqiy ishlangan va haq to'lanadigan vaqtning bir qismi sifatida hisoblanishi kerakligini belgilash uchun “Ish vaqti” kartasiga teging.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_break_settings.webp" alt="Tanaffusni hisobga olish va davomiylik sozlamalari paneli">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Joriy jami</strong> — yangi sozlamalar qo'llanilishidan oldin tanlangan davr uchun rejalashtirilgan va ishlangan soatlarni ko'rsatadi.</li>
+<li><strong>Tanaffusni ish vaqti sifatida hisoblash</strong> — agar tanaffus haq to'langan bo'lsa va smena davomiyligiga kiritilgan bo'lsa, bu parametrni yoqing. Agar belgilangan vaqt ishlangan va haq to'lanadigan vaqtdan chiqarib tashlanishi kerak bo'lsa, uni o'chirib qo'ying.</li>
+<li><strong>Tanaffus davomiyligi</strong> — bitta tanaffus uchun soat va daqiqalarni tanlang. Ushbu sozlama tegishli ish smenalarini qayta hisoblashda ishlatiladi.</li>
+<li><strong>Umumiy tanaffus</strong> — saqlashdan oldin tanlangan davomiylikni ko'rsatadi.</li>
+<li><strong>Saqlash</strong> — sozlamani qo'llaydi va ish vaqtini va unga bog'liq qiymatlarni qayta hisoblaydi.</li>
+</ol>
+
+<div class="notice">Tanaffus ovqatlanish tanaffusini, smena topshirilishini yoki smena ichidagi boshqa to'lanmagan oraliqni anglatishi mumkin. Ish joyingizdagi qoidalarga mos keladigan davomiylikni kiriting.</div>
+
+<h3 id="reports">5.4. Hisobotlar: davr, holat va xulosa</h3>
+
+<p>Statistika ekranidagi pastki kartadan "Hisobotlar" ni oching. Ushbu bo'lim tanlangan davr uchun batafsilroq ma'lumot beradi: ish vaqti, smenalar va yo'qliklar, taqvimdagi o'zgarishlar, ish haqi, bonuslar, chegirmalar, davr taqqoslashi, kunlik tafsilotlar va eksport.</p>
+
+<div class="warning"><strong>Hisobotlar faqat axborot maqsadida taqdim etiladi.</strong> Hisob-kitoblar tanlangan jadval, ish haqi sozlamalari, tanaffuslarni hisobga olish va taqvim smenalaridagi o'zgarishlarga asoslangan. Ish beruvchingizning haqiqiy ko'rsatkichlari vaqtni hisoblash tizimi, yaxlitlash, soliqlar, nafaqalar yoki ichki qoidalar tufayli farq qilishi mumkin. Agar siz xato yoki qo'llab-quvvatlanmaydigan hisoblash usulini topsangiz, ilovada ko'rsatilgan manzil bo'yicha ishlab chiquvchilar bilan bog'laning va kirish ma'lumotlari va kutilgan natijani kiriting.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_period_salary.webp" alt="Davr tanlovi, holati, xulosasi va batafsil ish haqi taqsimoti bilan hisobotlar ekrani">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Hisobot davri</strong> — joriy, oldingi yoki keyingi oyni, oldindan belgilangan diapazonni yoki maxsus sanalarni tanlash uchun kartaga teging. Quyidagi barcha ma'lumotlar tanlangan davrga tegishli.</li>
+<li><strong>Davr holati</strong> — davr tugaganmi, hozirda faolmi yoki hali boshlanmaganmi, ko'rsatadi. Tugallangan davr saqlangan haqiqiy ma'lumotlardan hisoblanadi. Faol davr allaqachon ishlangan ma'lumotlarni joriy reja bilan birlashtiradi, kelajak davr esa prognozdir.</li>
+<li><strong>Xulosa</strong> — haqiqiy ishlangan vaqt, hisoblangan miqdor va qo'shimcha ish vaqtining matnli xulosasi.</li>
+<li><strong>Ish haqi</strong> — asosiy ish haqi, qo'shimcha ish vaqti uchun to'lov, bonuslar, chegirmalar va yakuniy smetaning batafsil taqsimoti. Qiymatlar <a href="#salary">ish haqi sozlamalari</a> va tanlangan davrga bog'liq.</li>
+</ol>
+
+<h3 id="reports-work">5.5. Ish vaqti, yo'qliklar va kunlar</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_work_absences.webp" alt="Ish vaqti, tanaffuslar, bajarilgan smenalar va yo&#x27;qliklar ko&#x27;rsatilgan hisobotlar ekrani">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ish vaqti</strong> — rejalashtirilgan va haqiqiy ishlagan soatlarni, tanaffusdan oldingi rejalashtirilgan va haqiqiy soatlarni, bajarilgan smenalar sonini, o'rtacha smena davomiyligini va chegirib tashlangan umumiy tanaffusni ko'rsatadi. <a href="#statistics-break">ish vaqti bo'limida</a> tanaffuslarni sozlang.</li>
+<li><strong>Yoʻqliklar va kunlar</strong> — tanlangan davrda dam olish kunlari, ta'til kunlari, kasallik ta'tili kunlari, dam olish kunlari va o'zgartirilgan kunlar sonini ko'rsatadi.</li>
+</ol>
+
+<h3 id="reports-charts">5.6. Tuzatishlar va jadvallar</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_corrections_charts.webp" alt="Tuzatishlar, ish haqi tarkibi va ish vaqti qiymatlari bilan hisobotlar ekrani">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tuzatishlar</strong> — qo'shimcha ish vaqti soatlarini, smena davomiyligidagi umumiy o'zgarishni va asosiy jadvaldan o'zgartirilgan kunlar sonini ko'rsatadi.</li>
+<li><strong>Diagrammalar</strong> — ish haqi va ish vaqti tarkibini vizualizatsiya qiladi: asosiy ish haqi, qo'shimcha ish vaqti, bonuslar, chegirmalar, umumiy va rejalashtirilgan, ishlangan va to'langan soatlar.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_charts_days.webp" alt="Soatlar va kunlik turdagi doiraviy jadval bilan qo&#x27;shimcha hisobot jadvallari">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Soatlar</strong> — rejalashtirilgan, ishlangan, vizual taqqoslashni davom ettiradi. haq to'lanadigan va qo'shimcha ish vaqti. “Haqiqiy ish vaqti” qatori sozlamalar va tuzatishlar qo'llanilgandan keyingi natijani ko'rsatadi.</li>
+<li><strong>Kun turlari</strong> — tanlangan davrdagi kunlarni turiga qarab taqsimlaydigan doiraviy diagramma. Afsona jadvalga va haqiqiy o'zgarishlarga bog'liq: kunduzgi, tungi yoki boshqa smenalar, dam olish kunlari, ta'til, kasallik ta'tili, dam olish vaqti va boshqa holatlar.</li>
+</ol>
+
+<h3 id="reports-comparison">5.7. Davrlarni taqqoslash</h3>
+
+<p>Taqqoslash bo'limi sizga bir nechta davrlar bo'yicha ish haqi, vaqt, smenalar va yo'qliklarni taqqoslashga yordam beradi. Mavjud davrlar soni saqlangan ma'lumotlarga bog'liq.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_chart.webp" alt="Davrlarni taqqoslash ekrani, diapazon tanlash, ish haqi jadvali va taqqoslash jadvalining boshlanishi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Davrlarni taqqoslash</strong> — taqqoslash uchun nechta davr va ularning diapazonini tanlash uchun kartaga teging.</li>
+<li><strong>Grafik va davrlar ro'yxati</strong> — har bir davr uchun ish haqini ko'rsatadi va taqqoslashga kiritilgan intervallarni ularning holati bilan birga ro'yxatlaydi.</li>
+<li><strong>Taqqoslash jadvali</strong> — har bir davr uchun batafsil qiymatlarni o'z ichiga oladi. Qolgan ustunlarni ko'rish uchun jadvalni gorizontal ravishda chapga yoki o'ngga suring.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_table.webp" alt="Taqqoslash jadvalining davomi va qo&#x27;shni davrlar orasidagi farqlar">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Davr qiymatlari</strong> — umumiy ish haqi, ishlagan va to'langan soatlar, qo'shimcha ish vaqti, bonuslar, chegirmalar, bajarilgan smenalar, yo'qliklar va o'zgartirilgan kunlar.</li>
+<li><strong>Davrlar orasidagi farq</strong> — har bir davr oldingisidan qanday farq qilishini ko'rsatadi. Ijobiy va salbiy qiymatlar mos keladigan metrikaning oshishini yoki kamayishini ko'rsatadi. Rangning o'zi har doim ham foyda yoki muammo degani emas; masalan, chegirmalarning ko'payishi katta miqdor ushlab qolinishini anglatadi.</li>
+</ol>
+
+<h3 id="reports-details-export">5.8. Kundalik tafsilotlar va eksport</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_details_export.webp" alt="Kundalik tafsilotlar va PDF, HTML, JSON yoki CSV ga eksport qilish uchun hisobot kartalari">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Kunlik tafsilotlar</strong> — tanlangan davrdagi har bir kunning ro'yxatini ochadi. Siz smena turini, rejalashtirilgan va haqiqiy vaqtni, soat sozlamalarini, yo'qliklarni va ma'lum bir kun uchun boshqa o'zgarishlarni tekshirishingiz mumkin.</li>
+<li><strong>Eksport</strong> — hisobotni PDF, HTML, JSON yoki CSV sifatida saqlaydi. Eksport qilishdan oldin hisobot davrini tanlang; keyin faylni Android tizim menyusi orqali chop etishingiz, saqlashingiz yoki ulashishingiz mumkin.</li>
+</ol>
+
+<div class="tip">Taqqoslash yoki eksport qilishdan oldin tanlangan davr, jadval, smena o'zgarishlari, tanaffuslar va ish haqi sozlamalarini tekshiring. Manba ma'lumotlaridagi xato har bir hisobotning umumiy miqdoriga ta'sir qiladi.</div>
+
+<h2 id="alarms">6. Signallar</h2>
+
+<p>ShiftAlarm sizga bir martalik signallarni yaratish, ularni haftaning tanlangan kunlarida takrorlash yoki ularning vaqtini smena jadvaliga bog'lash imkonini beradi.</p>
+
+<h3 id="alarms-list">6.1. Signal ro'yxati</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarms_overview.webp" alt="ShiftAlarm — Keyingi ogohlantirish, saralash, signal kartasi va qo&#x27;shish tugmasi bilan ShiftSignal signal ekrani">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Keyingi budilnik</strong> — keyingi faol ogohlantirishning sanasi va vaqtini ko'rsatadi.</li>
+<li><strong>Signal saralash</strong> — signal kartalarining tartibini o'zgartiradi, masalan, avval yoqilgan signallarni ko'rsatish orqali.</li>
+<li><strong>Signal kartasi</strong> — vaqt, sana yoki takrorlash rejimi, jadval turi va qolgan vaqtni o'z ichiga oladi. Tahrirlash uchun kartaga teging.</li>
+<li><strong>Kalit</strong> — signal sozlamalarini o'chirmasdan uni vaqtincha yoqadi yoki o'chiradi.</li>
+<li><strong>Oʻchirish</strong> — tanlangan signalni o'chiradi.</li>
+<li><strong>Budilnik qoʻshish</strong> — yangi signal yaratish uchun ekranni ochadi.</li>
+</ol>
+
+<h3 id="alarms-create">6.2. Budilnik yaratish va tahrirlash</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_time_schedule.webp" alt="ShiftAlarm budilnik muharririning yuqori qismi: vaqt, jadval turi, takrorlash va boshqaruv elementlarini saqlash">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Vaqt</strong> — ogohlantirish vaqtini belgilash uchun soat va daqiqa g'ildiraklarini aylantiring.</li>
+<li><strong>Reja turi</strong> — quyidagi rejimlardan birini tanlang:
+<ul>
+<li><strong>Bir marta</strong> — budilnik tanlangan sanada bir marta ishga tushadi;</li>
+<li><strong>Kunlar boʻyicha</strong> — haftaning tanlangan kunlarida takrorlanadi;</li>
+<li><strong>Smenalar boʻyicha</strong> — budilnikni tanlangan jadval va smena turiga bog'laydi.</li>
+</ul>
+</li>
+<li><strong>Keyinga qoldirish</strong> — ogohlantirish necha daqiqa davom etishini belgilaydi jiringlayotgan ekrandagi takrorlash tugmasini bosganingizda kechiktiriladi.</li>
+<li><strong>Bekor qilish va Saqlash</strong> — bu tugmalar ekranning pastki qismida o'rnatilgan va muharrirni aylantirayotganingizda mavjud bo'ladi.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_behavior.webp" alt="Budilnik davomiyligi, takrorlash signali, asta-sekin ovoz balandligini oshirish va tebranish uchun ShiftAlarm sozlamalari">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Budilnik davomiyligi</strong> — foydalanuvchi ogohlantirishni to'xtatmasa, uning qancha vaqt davomida chalinishini belgilaydi.</li>
+<li><strong>Agar signal e'tiborsiz qoldirilsa, takrorlash</strong> — signal na o'chirilgan, na kechiktirilgan bo'lsa, yana bir ogohlantirishni yoqadi. Takrorlash ogohlantirishidan oldingi intervalni uning ostida o'rnating.</li>
+<li><strong>Ovoz balandligini asta-sekin oshirish</strong> — jimroq ovoz bilan boshlanadi va tanlangan vaqt davomida ovoz balandligini asta-sekin oshiradi.</li>
+<li><strong>Vibratsiya</strong> — ogohlantirish paytida tebranishni yoqadi yoki o'chiradi.</li>
+<li><strong>Bekor qilish va saqlash</strong> — muharrir uchun o'rnatilgan boshqaruv elementlari.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_sound_name.webp" alt="ShiftAlarm signal muharririning pastki qismi: tebranish, ovoz, nom va saqlash boshqaruv elementlari">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Vibratsiya</strong> — tebranish ogohlantirishini yoqadi yoki o'chiradi.</li>
+<li><strong>Ovoz</strong> — o'rnatilgan, tizimli yoki foydalanuvchi tomonidan qo'shilgan ovozni tanlash imkonini beradi. Ilovaga beshtagacha maxsus tovush qo'shishingiz mumkin.</li>
+<li><strong>Nom</strong> — signallarni farqlashga yordam beradigan ixtiyoriy yorliq.</li>
+<li><strong>Bekor qilish va saqlash</strong> — o'zgarishlarni bekor qilish yoki signalni saqlash.</li>
+</ol>
+
+<div class="notice">Saqlagandan so'ng, signal asosiy ro'yxatda paydo bo'ladi. Muhim signaldan oldin, signal yoqilganligiga, ilova bildirishnoma va aniq signal ruxsatlariga ega ekanligiga va tizim uning fon faoliyatini cheklamasligiga ishonch hosil qiling.</div>
+
+<div class="tip">Smena bilan bog'langan signalni yaratish uchun avval tegishli smena jadvalini yarating. Muharrirda belgilangan tetiklash vaqtini yoki smena boshlanishiga nisbatan ofsetni tanlang.</div>
+
+<h2 id="geo">7. Geo signallari</h2>
+
+<p>Geo signal qurilma tanlangan hududga kirganda yoki chiqqanda kuzatadi. Hudud xaritadagi nuqta va shu nuqta atrofidagi radius bilan belgilanadi. Masalan, ish, uy, avtobus bekatiga, bekatga yoki boshqa joyga yaqinlashganda ogohlantirish olish uchun Geo Signalizatsiyasidan foydalaning.</p>
+
+<h3 id="geo-overview">7.1. Xarita va boshqaruv elementlari</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_overview.webp" alt="ShiftAlarm Geo Signalizatsiyasining asosiy ekrani, xarita va raqamlangan boshqaruv elementlari bilan">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Yaqinlashtirish</strong> — xaritani kattalashtiradi.</li>
+<li><strong>Uzoqlashtirish</strong> — xarita masshtabini kamaytiradi.</li>
+<li><strong>Mening joylashuvim</strong> — xaritani qurilmaning joriy joylashuviga ko'chiradi. Ilova ushbu funksiya uchun joylashuvga kirish huquqiga ega.</li>
+<li><strong>Saqlangan joylar</strong> — saqlangan Geo signalizatsiyalari va joylashuv nuqtalari ro'yxatini ochadi.</li>
+<li><strong>Orqaga</strong> — oldingi ilova ekraniga qaytadi.</li>
+<li><strong>Geo signalizatsiya soni</strong> — nechta Geo signalizatsiya yaratilganligini ko'rsatadi.</li>
+<li><strong>Geo signalizatsiya ro'yxati</strong> — yaratilgan Geo signalizatsiyalarining alohida ro'yxatini ochadi.</li>
+</ol>
+
+<div class="tip">Shuningdek, imo-ishoralar bilan kattalashtirishingiz mumkin. Xaritani ikki barmog'ingiz bilan bosing va kattalashtirish uchun ularni bir-biridan ajrating yoki kattalashtirish uchun ularni bir-biriga chimchilang.</div>
+<div class="notice">Yon boshqaruv elementlari o'ngdan chapga yo'naltirilgan tillarda qarama-qarshi tomonda ko'rinishi mumkin. Ularning funktsiyalari bir xil bo'lib qoladi.</div>
+
+<h3 id="geo-saved-places">7.2. Saqlangan signallar va joylashuv nuqtalari</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_saved_places.webp" alt="Geo signalizatsiyasi va joylashuv nuqtasi yorliqlari bilan saqlangan joylar oynasi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Budilniklar</strong> — saqlangan joylarga qo'shilgan Geo signalizatsiyalarini ko'rsatadi.</li>
+<li><strong>Joylashuv nuqtalari</strong> — faol Geo signalizatsiyasisiz saqlangan koordinatalarni ko'rsatadi.</li>
+<li><strong>Saqlangan joylar ro'yxati</strong> — xaritadagi o'sha joyga o'tish uchun kartaga teging.</li>
+<li><strong>Yopish</strong> — oynani yopadi va xaritaga qaytadi.</li>
+</ol>
+
+<div class="notice">Agar siz xatcho'pga qo'yilgan Geo signalizatsiyasini o'chirsangiz, uning koordinatalari avtomatik ravishda "Joylashuv nuqtalari" yorlig'ida saqlanadi. Keyinroq boshqa Geo Signalizatsiya yaratish uchun nuqtadan yana foydalanishingiz mumkin.</div>
+
+<h3 id="geo-select-point">7.3. Nuqta va radiusni tanlash</h3>
+
+<p>Xaritada kerakli joyni bosib turing. Ilova markerni qo'yadi va tanlangan nuqta panelini ochadi.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_selected_point.webp" alt="Manzil, radius, xatcho&#x27;p va Geo Signalizatsiya yaratish tugmasi bilan tanlangan xarita nuqtasi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tanlangan nuqta belgisi</strong> — kelajakdagi geodeziyaning markazi. Xaritada tanlangan radius uchun aylana ham ko'rsatiladi.</li>
+<li><strong>Manzil va koordinatalar</strong> — to'g'ri joy tanlanganligini tekshirishga imkon beradi.</li>
+<li><strong>Joylashuv nuqtasini saqlash</strong> — tanlangan koordinatalarni signal yaratmasdan saqlangan joylarga qo'shadi.</li>
+<li><strong>Radius</strong> — nuqta atrofidagi maydon o'lchamini o'rnatadi. Tegishli masofani tanlamaguningizcha slayderni harakatlantiring.</li>
+<li><strong>Bekor qilish</strong> — nuqta tanlashni bekor qiladi.</li>
+<li><strong>Shu yerda yaratish</strong> — tanlangan nuqta uchun yangi Geo Signal muharririni ochadi.</li>
+</ol>
+
+<div class="warning"><strong>Radiusni qanday tanlash mumkin.</strong> Telefon o'z koordinatalarini uzluksiz kuzatib bormaydi. Android, qurilma ishlab chiqaruvchisi, batareyani tejash rejimi, GPS, mobil tarmoq va Wi-Fi signal sifati va harakat tezligi chegara aniqlanganda ta'sir qiladi. Shuning uchun ogohlantirish chizilgan chiziqdan uzoqda ishga tushishi mumkin. Masalan, 800 m radiusda, qurilma allaqachon hudud ichida bo'lganidan keyin kirish aniqlanishi mumkin - ehtimol nuqtadan 700, 600 yoki 500 m.</div>
+
+<ul>
+<li><strong>Shaharda</strong> odatda <strong>1300–1500 m</strong> radius tavsiya etiladi.</li>
+<li><strong>Shahar tashqarisida</strong>, joylashuv yangilanishlari kamroq bo'lishi mumkin bo'lgan joylarda <strong>4000–5000 m</strong> tavsiya etiladi.</li>
+<li><strong>Aniq radius</strong> sizning marshrutingiz, tezligingiz va qurilmangizning xatti-harakatlariga qarab tanlanishi kerak.</li>
+</ul>
+
+<div class="notice">Tizim qurilma hududning virtual chegarasini kesib o'tganda aniqlaydi. "Kirishda" rejimida kattaroq radius odatda telefonga sizning yondashuvingizni aniqlash uchun ko'proq vaqt beradi. “Chiqishda” rejimida chegara tanlangan nuqtadan uzoqroqqa joylashtiriladi.</div>
+
+<h3 id="geo-create">7.4. Geo signalizatsiyasini yaratish</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_location_schedule.webp" alt="Geo signalizatsiya muharririning yuqori qismi: tayyorlik, joylashuv va jadval turi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Geo signalizatsiyasiga tayyorlik</strong> — kerakli ruxsatnomalar sozlanganligini va ilova geodeziyani ro'yxatdan o'tkaza olishini ko'rsatadi.</li>
+<li><strong>Joylashuv</strong> — tanlangan manzil va koordinatalarni o'z ichiga oladi. Siz manzilni yorliq sifatida tahrirlashingiz mumkin, ammo xaritada haqiqiy nuqta tanlanadi.</li>
+<li><strong>Reja turi</strong> — Geo signalizatsiyasi faol bo'lgan kunlar va sharoitlarni belgilaydi.</li>
+<li><strong>Har doim</strong> — Geo signalizatsiyasi yoqilgan paytda har kuni faol bo'ladi.</li>
+<li><strong>Bir marta</strong> — tanlangan shart bajarilganda keyingi bir martalik ishga tushirish uchun ishlatiladi.</li>
+<li><strong>Kunlar boʻyicha</strong> — faqat haftaning tanlangan kunlarida ishlaydi.</li>
+<li><strong>Smenalar boʻyicha</strong> — Geo signalizatsiyasini faol smena jadvaliga bog'laydi.</li>
+</ol>
+
+<div class="notice"><strong>“Smenalar bo'yicha” jadvali.</strong> Smena kuni, faqat smenadan oldin yoki faqat undan keyin ishlashini tanlang va kerakli smena turini belgilang: kunduzgi, tungi, ertalabki, kechqurun, 24 soatlik, maxsus yoki istalgan ish smenasi.</div>
+<div class="tip">Agar taqvim sanasi ish smenasi o'rniga dam olish kuni, ta'til, kasallik ta'tili yoki dam olish vaqti sifatida belgilangan bo'lsa, smenaga bog'langan Geo Signalizatsiya o'sha kuni faol bo'lmaydi.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_trigger_settings.webp" alt="Geo Signalizatsiya muharririning pastki qismi: kirish yoki chiqish holati, radius va ogohlantirish sozlamalari">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tetiklash holati</strong> — qaysi chegara o'tish joyi ogohlantirishni boshlashini belgilaydi.</li>
+<li><strong>Kirishda</strong> — qurilma tanlangan radiusga kirganda, masalan, ishga yoki kerakli to'xtash joyiga yaqinlashganda ogohlantirishni ishga tushiradi.</li>
+<li><strong>Chiqqanda</strong> — qurilma tanlangan radiusdan chiqqanda, masalan, ishdan yoki stansiyadan chiqqandan keyin ogohlantirishni ishga tushiradi, shunda siz Marshrutning keyingi qismini o'tkazib yubormang.</li>
+<li><strong>Kirish yoki chiqishda</strong> — chegara har ikki yo'nalishda ham kesib o'tilganda ogohlantirishni ishga tushiradi.</li>
+<li><strong>Radius</strong> — tanlangan nuqta atrofidagi geodeziyaning o'lchami.</li>
+<li><strong>Budilnik davomiyligi</strong> — ogohlantirish qancha vaqt chalinishini belgilaydi.</li>
+<li><strong>Ovoz balandligini asta-sekin oshirish</strong> — ogohlantirish boshlanganidan keyin ovoz balandligini silliq oshirishni o'rnatadi.</li>
+<li><strong>Bekor qilish va saqlash</strong> — o'zgarishlarni bekor qilish yoki Geo signalizatsiyasini saqlash.</li>
+</ol>
+
+<div class="tip">Quyidagi qolgan variantlar oddiy signalizatsiyaga o'xshaydi: ovoz, tebranish, ogohlantirish davomiyligi, ovoz balandligini asta-sekin oshirish va nom.</div>
+
+<h3 id="geo-existing">7.5. Xaritadagi Geo Signalizatsiya va uning boshqaruv elementlari</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_marker_radius.webp" alt="Yaratilgan Geo Signalizatsiya marker va uning xaritadagi trigger-radius doirasi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Geo Signalizatsiya marker</strong> — tanlangan nuqtani ko'rsatadi.</li>
+<li><strong>Radius chegarasi</strong> — ilova tomonidan kirish yoki chiqish kuzatiladigan hududni ko'rsatadi.</li>
+</ol>
+
+<p>Geo signalizatsiya belgisiga teging. Avval kichik ma'lumot oynasi paydo bo'ladi. Batafsil kartani ochish uchun ushbu oynaga teging.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_alarm_card.webp" alt="Ma&#x27;lumotlar, xatcho&#x27;plar, kalitlar va boshqaruv elementlari bilan batafsil geo signalizatsiya kartasi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ism va manzil</strong> — tanlangan geo signalizatsiyani aniqlang.</li>
+<li><strong>Xatcho'p</strong> — signalizatsiyani saqlangan joylarga qo'shadi yoki ulardan olib tashlaydi.</li>
+<li><strong>Kalit</strong> — sozlamalarini o'chirmasdan geo signalizatsiyani yoqadi yoki vaqtincha o'chiradi.</li>
+<li><strong>Sozlamalar va holat</strong> — radius, kirish yoki chiqish holati, jadval, geodeziya tayyorligi va oldingi faollashtirishlar haqidagi ma'lumotlarni ko'rsatadi.</li>
+<li><strong>Tahrirlash</strong> — Geo signalizatsiya sozlamalarini ochadi.</li>
+<li><strong>Yopish</strong> — kartani yopadi va xaritaga qaytadi.</li>
+<li><strong>Oʻchirish</strong> — tasdiqlangandan so'ng Geo Signalni o'chiradi.</li>
+</ol>
+
+<div class="warning">Ishonchli ishlashi uchun aniq va fon joylashuviga ruxsat bering, ShiftAlarm uchun qattiq batareya cheklovlarini olib tashlang va agar qurilmangiz ularni taqdim etsa, fon rejimida fon rejimida avtomatik ishga tushirish sozlamalarini tekshiring. To'g'ri sozlamalar bilan ham, Android bir necha metr ichida chegaralarni aniq aniqlashni kafolatlamaydi.</div>
+
+<h2 id="notes">8. Eslatmalar, voqealar va eslatmalar</h2>
+
+<p>“Eslatmalar” bo'limi oddiy matn, ro'yxatlar, nazorat ro'yxatlari, audio yozuvlar, nutqdan matnga eslatmalar, eslatmalar va voqealarni saqlaydi.</p>
+
+<h3 id="notes-create">8.1. Eslatma qo'shish</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_type_picker.webp" alt="ShiftAlarm&#x27;da yangi eslatma turini tanlash">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Panel tutqichi</strong> — eslatma turlarining to'liq ro'yxatini ko'rsatish uchun uni yuqoriga yoki panelni yopish uchun pastga torting.</li>
+<li><strong>Eslatma turi</strong> — tegishli variantni tanlang:
+<ul>
+<li><strong>Matnli qayd</strong> — oddiy matn;</li>
+<li><strong>Tekshiruv roʻyxati</strong> — to'ldirish katakchalari bo'lgan elementlar ro'yxati;</li>
+<li><strong>Roʻyxat</strong> — markerlangan yoki raqamlangan ro'yxat;</li>
+<li><strong>Audio qayd</strong> — ovozli yozuv;</li>
+<li><strong>Nutqni matnga aylantirish</strong> — yaratadi Nutqni aniqlash funksiyasidan foydalangan holda eslatma;</li>
+<li><strong>Eslatma</strong> — belgilangan vaqtda bildirishnoma yuboriladigan yozuv;</li>
+<li><strong>Tadbir</strong> — sana va vaqtga bog'langan yozuv.</li>
+</ul>
+</li>
+<li><strong>Bekor qilish</strong> — eslatma yaratmasdan tanlovchini yopadi.</li>
+</ol>
+
+<div class="tip">Turni tanlaganingizdan so'ng, tegishli muharrir ochiladi. Kerakli maydonlarni to'ldiring va yozuvni saqlang.</div>
+
+<h3 id="notes-list">8.2. Eslatmalar ro'yxati va boshqaruv elementlari</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_overview.webp" alt="Saralash, faol va arxivlangan eslatmalar, qidiruv va karta amallari bilan ShiftAlarm eslatmalari ekrani">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Saralash</strong> — ro'yxatdagi eslatmalar tartibini o'zgartiradi.</li>
+<li><strong>Faol</strong> — arxivga ko'chirilmagan muntazam va rejalashtirilgan eslatmalarni ko'rsatadi.</li>
+<li><strong>Arxiv</strong> — arxivlangan eslatmalar ro'yxatini ochadi.</li>
+<li><strong>Qidiruv</strong> — eslatma sarlavhalari va tarkibidagi mosliklarni topadi.</li>
+<li><strong>Eslatma kartasi</strong> — sarlavha, tur, holat va qo'shimcha ma'lumotlarni ko'rsatadi. Qaydni ochish uchun kartaga teging.</li>
+<li><strong>Pin</strong> — qaydni ro'yxatning yuqori qismiga mahkamlaydi.</li>
+<li><strong>Arxiv</strong> — qaydni faol ro'yxatdan olib tashlaydi va arxivga ko'chiradi.</li>
+<li><strong>Oʻchirish</strong> — tasdiqlangandan so'ng qaydni o'chiradi.</li>
+<li><strong>Qayd qoʻshish</strong> — yangi qayd turini tanlash vositasini ochadi.</li>
+</ol>
+
+<div class="notice">Asosiy ro'yxatda endi kerak bo'lmagan, ammo saqlanib qolishi kerak bo'lgan yozuvlar uchun arxivdan foydalaning. Qaydni faqat umuman kerak bo'lmaganda o'chiring.</div>
+
+<h2 id="clock">9. Soat, sekundomer va taymer</h2>
+
+<p>Ushbu bo'lim mahalliy va jahon vaqtini, sekundomerni va taymerni birlashtiradi. Uni asosiy ekrandagi <strong>“Soat”</strong> tugmasi bilan oching.</p>
+
+<div class="notice">Ekranning pastki qismida uchta yorliq paydo bo'ladi: “Soat”, “Sekundomer” va “Taymer”. Rejimlarni almashtirish uchun yorliqqa teging.</div>
+
+<h3 id="clock-world">9.1. Soat va jahon vaqti</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_overview.webp" alt="Mahalliy vaqt, jahon soatlari, qoʻshish tugmasi va pastki varaqlari mavjud ShiftAlarm soat ekrani">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Mahalliy vaqt</strong> — joriy vaqt, sana va qurilma tizimining vaqt mintaqasini ko'rsatadi.</li>
+<li><strong>Jahon soatlari</strong> — qo'shilgan shaharlar va vaqt mintaqalarini ko'rsatadi. Ro'yxat bo'sh bo'lsa-da, ilova ishora ko'rsatadi.</li>
+<li><strong>Plyus tugmasi</strong> — jahon soati tanlagichini ochadi.</li>
+<li><strong>Bo'lim yorliqlari</strong> — “Soat”, “Sekundomer” va “Taymer” ekranlari o'rtasida almashinish.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_add_timezone.webp" alt="ShiftAlarm jahon soatiga shahar yoki vaqt mintaqasini qo&#x27;shish">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Qidiruv</strong> — ro'yxatni filtrlash uchun shahar yoki vaqt mintaqasi nomini kiriting.</li>
+<li><strong>Shahar va vaqt mintaqasi ro'yxati</strong> — uni jahon soati ekraniga qo'shish uchun kerakli variantni bosing.</li>
+</ol>
+
+<div class="tip">Mahalliy vaqt mintaqasi har doim birinchi bo'lib ko'rsatiladi. Qo'shilgan dunyo soatlarini ro'yxatdan olib tashlashingiz mumkin, ammo mahalliy vaqtni olib tashlab bo'lmaydi.</div>
+
+<h3 id="clock-stopwatch">9.2. Sekundomer</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_start.webp" alt="ShiftAlarm sekundomeri ishga tushishidan oldin">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tarix</strong> — saqlangan sekundomer sessiyalarini ochadi.</li>
+<li><strong>Boshlash</strong> — vaqtni belgilashni boshlaydi.</li>
+<li><strong>Nollash</strong> — sekundomer ishga tushishidan oldin mavjud emas. To'xtagandan so'ng, u sekundomerni nolga qaytaradi va joriy aylanishlarni olib tashlaydi.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_running.webp" alt="Tarix, saqlash, aylanish va pauza boshqaruvlari bilan ShiftAlarm sekundomerini ishga tushirish">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tarix</strong> — avval saqlangan sessiyalarni ko'rsatadi.</li>
+<li><strong>Saqlash</strong> — nom so'raydi va joriy sekundomer sessiyasini saqlaydi.</li>
+<li><strong>Aylana</strong> — umumiy taymerni to'xtatmasdan oraliq natijani qayd etadi.</li>
+<li><strong>Pauza</strong> — sekundomerni to'xtatadi. To'xtatib qo'ygandan so'ng, uni davom ettirishingiz yoki qayta o'rnatishingiz mumkin.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_laps.webp" alt="ShiftAlarm sekundomer aylanalari va ularni saralash imkoniyatlari">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Asl, eng tez va eng sekin</strong> — aylana ko'rsatish tartibini o'zgartiring: asl tartib, avval eng tez yoki avval eng sekin.</li>
+<li><strong>Aylanalar</strong> — har bir aylana yozib olingan umumiy vaqtni va individual aylana vaqtini ko'rsatadi.</li>
+</ol>
+
+<div class="notice">Saqlash tugmasini bosganingizda, sessiya nomini kiriting va tasdiqlang. Saqlangan sessiyani keyinroq Tarixdan ochishingiz mumkin.</div>
+
+<h3 id="clock-timer">9.3. Taymer</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_setup.webp" alt="ShiftAlarm taymerini soat, daqiqa va soniya g&#x27;ildiraklari bilan o&#x27;rnatish">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Soatlar</strong> — g'ildirakni aylantiring va soatlar sonini tanlang.</li>
+<li><strong>Daqiqalar</strong> — g'ildirakni aylantiring va daqiqalar sonini tanlang.</li>
+<li><strong>Soniyalar</strong> — g'ildirakni aylantiring va soniyalar sonini tanlang.</li>
+<li><strong>Boshlash</strong> — taymerni tanlangan davomiylik bilan ishga tushiradi.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_running.webp" alt="ShiftAlarm taymerini qolgan vaqt, pauza, daqiqa qo&#x27;shish va to&#x27;xtatish boshqaruvlari bilan ishga tushirish">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Qolgan vaqt</strong> — ogohlantirishdan oldin qancha vaqt qolganini ko'rsatadi.</li>
+<li><strong>Tugatish vaqti</strong> — taymer tugashining taxminiy vaqtini ko'rsatadi.</li>
+<li><strong>Soʻnggi taymerlar</strong> — saqlangan so'nggi vaqtlar; uni tezda qayta ishlatish uchun bittasiga teging.</li>
+<li><strong>Pauza</strong> — ortga hisoblashni vaqtincha to'xtatadi. Keyinroq uni davom ettirishingiz mumkin.</li>
+<li><strong>+1 daq</strong> — qolgan vaqtga bir daqiqa qo'shadi.</li>
+<li><strong>Toʻxtatish</strong> — taymerni butunlay to'xtatadi.</li>
+</ol>
+
+<div class="tip">Taymer va sekundomer fonda ishlashda davom etadi. Ularning holati bildirishnomada, asosiy ekranda va vidjetlarda ko'rinishi mumkin.</div>
+
+<h2 id="widgets">10. Vidjetlar</h2>
+
+<p>ShiftAlarm telefonning bosh ekrani uchun vidjetlarni taqdim etadi.</p>
+<ul>
+<li><strong>Bugungi 4×2</strong> — ikkita sozlanishi mumkin bo'lgan bo'limga ega ixcham panel.</li>
+<li><strong>Bugungi 4×3</strong> — yuqori qismida soat va pastda ikkita bo'limga ega panel.</li>
+<li><strong>4×4 taqvim</strong> — smena jadvali bilan taqvim vidjetlari.</li>
+</ul>
+<p>Telefonning bosh ekranidagi Android vidjet menyusi orqali vidjet qo'shing.</p>
+
+<h2 id="salary">11. Ish haqini hisoblash</h2>
+
+<p><a href="#statistics-work">Tanlangan jadval statistikasidagi</a> ish haqi kartasidan “Ish haqini hisoblash” bo‘limini oching. Bu yerda to‘lov usuli, stavka yoki oylik ish haqi, qo‘shimcha ish qoidalari, bonuslar va chegirmalarni belgilashingiz mumkin. Ilova bu sozlamalarni tanlangan davr, smena jadvali, taqvim o‘zgarishlari va tanaffuslar hisobi bilan birga qo‘llaydi.</p>
+
+<div class="warning"><strong>Hisoblash faqat axborot maqsadida taqdim etiladi.</strong> Agar ish beruvchingiz vaqtni hisoblash, yaxlitlash, nafaqalar, soliqlar, bonuslar, chegirmalar yoki ma'lum smena turlari uchun to'lov uchun boshqa tizimdan foydalansa, haqiqiy ish haqi farq qilishi mumkin. Natijani rasmiy ish haqi hujjati sifatida ishlatmang; Uni ish beruvchingizning ish haqi varaqasi bilan taqqoslang. Agar ilova aniq ishlamaydigan hisoblash usulini topsangiz, dasturchilarga ilovada ko'rsatilgan manzilga elektron pochta xabarini yuboring. Qoidalarni tavsiflang, namunaviy kirish ma'lumotlarini taqdim eting va kutilgan natijani ko'rsating. Keyin usul kelajakda yangilanish uchun ko'rib chiqilishi mumkin.</div>
+
+<h3 id="salary-settings">11.1. Stavka, qo'shimcha ish vaqti va bonuslar</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_settings_overview.webp" alt="Tanlangan jadval, stavka turi, qo&#x27;shimcha ish vaqti va bonuslar bilan ish haqini hisoblash ekrani">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tanlangan jadval</strong> — qaysi smena jadvalidan foydalanilayotganini ko'rsatadi. Ish haqi ushbu jadval va statistikada tanlangan davr asosida hisoblanadi.</li>
+<li><strong>Tarif turi va to'lov miqdori</strong> — to'lovni <strong>soatiga</strong>, <strong>smenasiga</strong> yoki <strong>oyiga</strong> tanlang, so'ngra tegishli miqdorni kiriting. Maydon nomi tanlangan tarif turi bilan o'zgaradi.</li>
+<li><strong>Ortiqcha ish</strong> — agar qo'shimcha soatlar oddiy ish vaqtidan farqli ravishda to'lansa, ushbu bo'limni yoqing. Keyin qo'shimcha ish haqi koeffitsientini ko'rsating. Taqvimga <a href="#main-shift-time-adjustment">“Smenani o'zgartirish” → “+ vaqt”</a> orqali qo'shimcha soatlarni qo'shing; soatlar qo'shimcha ish vaqti sifatida hisoblanishi uchun “Bu vaqtni qo'shimcha ish vaqti sifatida hisoblash” ni yoqing.</li>
+<li><strong>Ustamalar</strong> — joriy hisoblash usuli va jami ma'lumotlarni ko'rsatadi. <a href="#salary-bonuses">bonus sozlamalarini</a> ochish uchun kartaga teging.</li>
+</ol>
+
+<div class="notice">“Saqlash” tugmasi sozlamalarni tanlangan jadvalga qo'llaydi. Saqlagandan so'ng, statistika va hisobotlardagi jami summalar kiritilgan ma'lumotlar yordamida qayta hisoblanadi.</div>
+
+<h3 id="salary-summary">11.2. Chegirmalar va hisoblash jami summasi</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions_total.webp" alt="Chegirmalar va yakuniy taqsimot bilan ish haqini hisoblash ekrani">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Chegirmalar</strong> — sozlangan chegirmalarning umumiy miqdori va sonini ko'rsatadi. <a href="#salary-deductions">chegirmalar ro'yxatini</a> ochish uchun kartaga teging.</li>
+<li><strong>Jami</strong> — qisqacha ma'lumot: to'langan vaqt, ishlagan soatlar, qo'shimcha ish vaqti, asosiy ish haqi, qo'shimcha ish vaqti uchun to'lov, bonuslar, chegirmalar va yakuniy natija.</li>
+</ol>
+
+<div class="tip">Natija nafaqat ushbu ekran sozlamalariga, balki tanlangan statistik davrga, bajarilgan smenalarga, kunlik o'zgarishlarga, qo'shimcha ish vaqtiga va to'lanmagan tanaffus sozlamalariga ham bog'liq.</div>
+
+<h3 id="salary-bonuses">11.3. Bonuslar</h3>
+
+<p>Ish haqini hisoblash ekranidagi "Bonuslar" kartasiga teging. Bonusni qo'lda kiritishingiz yoki agar u sizning to'lov tizimingizga mos kelsa, uni foiz sifatida hisoblashingiz mumkin.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_bonuses.webp" alt="Hisoblash va miqdor kiritish imkoniyatlari bilan bonus sozlamalari ekrani">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Xulosa ma'lumotlari</strong> — hisoblangan bonus summasi va hisoblash uchun ishlatiladigan asosiy miqdorni ko'rsatadi.</li>
+<li><strong>Ustamani hisoblash</strong> — agar bu usul sizning ish joyingizda qo'llanilsa, qo'lda kiritishni yoki foiz hisobini, masalan, savdo foizini tanlang.</li>
+<li><strong>Kirish usuli</strong> — "Umumiy miqdor" bitta yakuniy bonus uchun mos keladi. Alohida qatorlar mustaqil ravishda hisoblanishi kerak bo'lgan bir nechta bonuslar mavjud bo'lganda foydalidir.</li>
+<li><strong>Miqdor yoki foiz</strong> — tanlangan hisoblash usuli tomonidan talab qilinadigan qiymatni kiriting.</li>
+<li><strong>Bekor qilish va saqlash</strong> — o'zgarishlarni bekor qilish yoki ularni ish haqi hisob-kitobiga qo'llash.</li>
+</ol>
+
+<h3 id="salary-deductions">11.4. Chegirmalar ro'yxati</h3>
+
+<p>Asosiy hisoblash ekranidagi “Chegirmalar” kartasiga teging. Ushbu bo'lim sizga bir nechta chegirmalarni saqlash va har birini alohida boshqarish imkonini beradi.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions.webp" alt="Umumiy summa, chegirma qatorlari va qo&#x27;shish tugmasi bilan chegirmalar ro&#x27;yxati ekrani">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Xulosa ma'lumotlari</strong> — barcha yoqilgan chegirmalarning miqdori va sonini ko'rsatadi.</li>
+<li><strong>Chegirma qatori</strong> — nomi, qiymati va turini ko'rsatadi. <a href="#salary-deduction-editor">chegirma sozlamalarini</a> ochish uchun qatorga bosing. Axlat qutisi belgisi qatorni o'chiradi.</li>
+<li><strong>Chegirma qoʻshish</strong> — “+” tugmasi yangi chegirma qatorini yaratadi.</li>
+<li><strong>Bekor qilish va saqlash</strong> — o'zgarishlarni bekor qilish yoki butun ro'yxatni saqlash.</li>
+</ol>
+
+<h3 id="salary-deduction-editor">11.5. Shaxsiy chegirmani sozlash</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deduction_editor.webp" alt="Nomi, qiymati, turi va chegirma bazasi bilan individual chegirma paneli">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Chegirma nomi</strong> — "Soliq", "Bolalar uchun aliment" yoki "Jazo" kabi aniq nom kiriting.</li>
+<li><strong>Qiymat</strong> — quyida tanlangan qiymat turiga qarab miqdor yoki foiz kiriting.</li>
+<li><strong>Qiymat turi</strong> — belgilangan miqdor yoki foizni tanlang.</li>
+<li><strong>Chegirma turi</strong> — <strong>o'zgaruvchan</strong> chegirma ma'lum bir hisoblash davriga qo'llaniladi; <strong>takrorlanuvchi</strong> chegirma yoqilgan holda muntazam ravishda qo'llaniladi.</li>
+<li><strong>Nimadan ayirish</strong> — hisoblash bazasini tanlang: umumiy ish haqi, asosiy ish haqi, bonuslar yoki boshqa mavjud variant.</li>
+<li><strong>Yoqilgan</strong> — sozlamalarini o'chirmasdan chegirmani vaqtincha o'chiradi.</li>
+<li><strong>Bekor qilish va saqlash</strong> — panelni o'zgartirishsiz yopish yoki chegirmani saqlash.</li>
+</ol>
+
+<div class="notice">Foizli chegirma uchun to'g'ri "Chegirma" bazasini tanlash ayniqsa muhimdir: umumiy ish haqi, asosiy ish haqi va bonuslarning bir xil foizi turli natijalarni beradi.</div>
+
+<h2 id="settings">12. Sozlamalar</h2>
+
+<p>“Sozlamalar”ni <a href="#main-overview">asosiy ekranning</a> pastki qismidagi tugma orqali oching. Bu bo‘limda tizim ruxsatlari, ilovaning ko‘rinishi va tili, oflayn nutqni aniqlash, hujjatlar va foydalanuvchi qo‘llanmasi, zaxira nusxasi, diagnostika hamda dasturchi bilan bog‘lanish imkoniyatlari mavjud.</p>
+
+<h3 id="settings-overview">12.1. Asosiy sozlamalar bo'limlari</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_permissions_language.webp" alt="ShiftAlarm sozlamalarining yuqori qismi: ruxsatnomalar, mavzu, ilova tili va oflayn nutq modellari">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ruxsatlar</strong> — signal ruxsatnomalari va ishonchlilik sozlamalarini ochadi. Bildirishnomalar, aniq signallar, fon faolligi va batareya cheklovlarini tekshiring. <a href="#geo">Geo signallari</a> shuningdek, joylashuvga kirishni talab qiladi; ilova yopilganda ishga tushirish uchun fon yoki "Har doim ruxsat berish" joylashuvga kirish kerak. Element nomlari va yo'llari Android versiyasi va qurilma ishlab chiqaruvchisiga qarab farq qiladi.</li>
+<li><strong>Mavzu</strong> — sizga yorug'lik, qorong'i yoki tizim ko'rinishini tanlash, interfeys rang variantini tanlash va ilovadagi harakatlar uchun sensorli teskari aloqani yoqish yoki o'chirish imkonini beradi. Tizim mavzusi telefonning joriy ko'rinishiga mos keladi.</li>
+<li><strong>Ilova tili</strong> — sizga telefonning tizim tilidan boshqa tildan foydalanish imkonini beradi. ShiftAlarm katalogida 108 ta til mavjud: qidiruv orqali kerakli tilni toping, til paketini yuklab oling va uni qo'llang.</li>
+<li><strong>Oflayn nutq modellari</strong> — <a href="#notes-create">nutqdan matnga yozuvlar</a> uchun modul o'rnatadi. Oflayn aniqlash hozirda sinovdan o'tkazilmoqda va taxminan 20 ta til uchun mavjud. Uning sifati onlayn aniqlashdan pastroq bo'lishi mumkin va til, mikrofon, telefon ishlashi va yozib olish sharoitlariga bog'liq.</li>
+</ol>
+
+<div class="warning"><strong>Android ruxsatnomalari qurilmalarda farq qiladi.</strong> Ba'zi telefonlarda siz fon rejimida fon rejimida avtomatik ishga tushirishni yoqishingiz, "Cheklanmagan" yoki shunga o'xshash batareya rejimini tanlashingiz va fon faoliyatiga ruxsat berishingiz kerak. Ushbu sozlamalar tizimning ShiftAlarm-ni to'xtatish ehtimolini kamaytiradi, ammo ularning aniq nomlari qurilma ishlab chiqaruvchisi tomonidan belgilanadi.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_help_backup_diagnostics.webp" alt="ShiftAlarm sozlamalarining pastki qismi: hujjatlar, foydalanuvchi qo&#x27;llanmasi, zaxira nusxasi, diagnostika va ishlab chiquvchi bilan bog&#x27;lanish">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Hujjatlar va yordam</strong> — ilovaning huquqiy hujjatlarini ochadi: Foydalanish shartlari, Maxfiylik siyosati, Ogohlantirish va qisqacha yordam sahifasi.</li>
+<li><strong>O'qitish va foydalanuvchi qo'llanmasi</strong> — ShiftAlarm xususiyatlarining batafsil tavsiflari bilan ushbu to'liq tasvirlangan qo'llanmani ochadi.</li>
+<li><strong>Zaxira nusxasi va tiklash</strong> — qo'llab-quvvatlanadigan ilova sozlamalari va ma'lumotlarini o'z ichiga olgan faylni yaratadi yoki ularni avvalgi zaxira nusxasidan tiklaydi. Bu ilovani qayta o'rnatishdan, telefonni qayta o'rnatishdan yoki ma'lumotlarni boshqa qurilmaga o'tkazishdan oldin foydalidir. Batafsil ko'rsatmalar uchun <a href="#backup">“Zaxiralash va tiklash”</a> ga qarang.</li>
+<li><strong>Diagnostika jurnali</strong> — ilova funksiyalari uchun alohida jurnallarni ochadi. Ular ogohlantirishlarni rejalashtirish va tiklash, hodisalarni qayta ishlash, ruxsat holati va boshqa xizmat ma'lumotlari kabi texnik bosqichlarni qayd etadi. Jurnal xatolik yuzaga kelgan bosqichni aniqlashga yordam beradi. Siz yozuvlarni nusxalashingiz yoki ularni ishlab chiquvchilarga elektron pochta orqali yuborish uchun tayyorlashingiz mumkin. Batafsil ma'lumot uchun <a href="#diagnostics">“Diagnostika va muammolarni bartaraf etish”</a> ga qarang.</li>
+<li><strong>Dizaynchilar bilan bog'lanish</strong> — elektron pochta ilovasini ochadi va qo'llab-quvvatlashga yo'naltirilgan xabar yaratadi. Undan muammo haqida xabar berish, fikr-mulohaza yoki taklif yuborish yoki savol berish uchun foydalaning. Texnik muammo uchun telefon modelini, Android versiyasini, muammoning vaqtini, bajarilgan qadamlarni va iloji bo'lsa, tegishli diagnostika jurnalini kiriting.</li>
+</ol>
+
+<div class="notice">Diagnostika jurnallari ishlab chiquvchilarga avtomatik ravishda yuborilmaydi. Kerakli ma'lumotlarni nusxalashingiz yoki "Dasturchilarga yuborish" tugmasini bosishingiz, elektron pochta ilovasini tanlashingiz, tayyorlangan xabarni ko'rib chiqishingiz va uni yuborishni tasdiqlashingiz kerak.</div>
+
+<h2 id="backup">13. Zaxiralash va tiklash</h2>
+
+<p>Zaxira nusxasi qo'llab-quvvatlanadigan ShiftAlarm sozlamalarini va foydalanuvchi ma'lumotlarini alohida faylda saqlaydi. Bu ilovani qayta o'rnatgandan, telefonni qayta ishga tushirgandan yoki boshqa qurilmaga o'tgandan so'ng ma'lumotlarni tiklashga yordam beradi.</p>
+<ol class="step-list">
+<li>"Sozlamalar → Zaxiralash va tiklash" ni oching.</li>
+<li>Zaxira nusxasini yarating va natijada olingan faylni telefonda saqlang yoki uni tizim menyusi orqali ulashing.</li>
+<li>Tiklash uchun xuddi shu bo'limni oching va avval yaratilgan zaxira faylini tanlang.</li>
+<li>Tiklagandan so'ng, muhim signallarni, jadvallarni va Android ruxsatnomalarini tekshiring. Ba'zi tizim xavfsizlik ruxsatnomalari yangi qurilmada yoki qayta o'rnatilgandan so'ng yana berilishi kerak bo'lishi mumkin.</li>
+</ol>
+<p class="tip">Agar telefon yo'qolsa, shikastlangan bo'lsa yoki qayta o'rnatilsa, joriy nusxasini xavfsiz joyda saqlang. Zaxira fayli Android tizim ruxsatnomalarini almashtirmaydi va ilova kirish huquqiga ega bo'lmagan ma'lumotlarni avtomatik ravishda o'z ichiga olmaydi.</p>
+
+<h2 id="diagnostics">14. Diagnostika va muammolarni bartaraf etish</h2>
+
+<p>ShiftAlarm turli funksiyalar uchun alohida diagnostika jurnallarini taqdim etadi. Ular texnik hodisalar ketma-ketligini saqlaydi va ogohlantirish rejalashtirilganmi, qayta ishga tushirilgandan keyin tiklanganmi, qayta ishlash uchun o'tkazilganmi yoki tizim sozlamalari tufayli to'xtatilganmi yoki yo'qligini aniqlashga yordam beradi.</p>
+
+<h3 id="diagnostics-control">14.1. Diagnostika to'plamini boshqarish</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_sections.webp" alt="ShiftAlarm diagnostika jurnali ekrani, asosiy tugma va alohida signal jurnali bilan">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Diagnostikani yigʻish</strong> — ilovadagi har bir diagnostika bo'limi uchun asosiy tugma. Barcha jurnallarga bir vaqtning o'zida yangi hodisalar qo'shishni to'xtatish uchun uni o'chiring. Yangi hodisalar to'plami uni qayta yoqgandan so'ng qayta boshlanadi.</li>
+<li><strong>Alohida xususiyatlar jurnali</strong> — har bir modulning o'z tugmasi va "Ochish" tugmasi mavjud. Masalan, siz faqat budilnik, soat yoki boshqa xususiyatlar jurnalini o'chirib qo'ygan holda global diagnostikani yoqib qo'yishingiz mumkin. Skrinshotda yetkazib berish, rejalashtirish, tiklash, himoya qilish va signal ekrani hodisalarini qayd etadigan signal jurnali ko'rsatilgan.</li>
+</ol>
+
+<div class="notice">Kalitlar faqat texnik hodisalarni yozib olishni boshqaradi. Budilnik, soat yoki boshqa funksiya jurnalini o'chirib qo'yish funksiyaning o'zini o'chirib qo'ymaydi. Tegishli jurnal ichidagi "Tozalash" tugmasi yordamida avval saqlangan yozuvlarni alohida o'chiring.</div>
+
+<h3 id="diagnostics-log">14.2. Alohida funksiya jurnali</h3>
+
+<p>Kerakli diagnostika bo'limida "Ochish" tugmasini bosing. Quyidagi misolda signal jurnali ko'rsatilgan; boshqa funksiyalar uchun jurnallar ham shunga o'xshash tarzda ishlaydi.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_alarm_log.webp" alt="ShiftAlarm signalizatsiya diagnostika jurnali, hodisalar soni, harakatlar va texnik yozuvlar bilan">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Saqlangan hodisalar</strong> — tanlangan jurnalda hozirda saqlangan yozuvlar sonini ko'rsatadi.</li>
+<li><strong>Jurnal harakatlari</strong>:
+<ul>
+<li><strong>Nusxalash</strong> — joriy jurnaldagi barcha ma'lumotlarni buferga nusxalaydi. Siz uni elektron pochtaga yoki boshqa ilovaga joylashtirishingiz mumkin.</li>
+<li><strong>Tozalash</strong> — ushbu jurnalda saqlangan yozuvlarni o'chiradi. Tozalashdan so'ng, faqat diagnostika yoqilgan paytda keyinroq qayd etilgan hodisalar paydo bo'ladi.</li>
+<li><strong>Dasturchilarga yuborish</strong> — elektron pochta xabarini yuborish uchun ilova tanlagichini ochadi. Elektron pochta ilovasini tanlang; Ishlab chiquvchi manzili va diagnostika ma'lumotlari avtomatik ravishda kiritiladi. Yuborishdan oldin muammoning tavsifini qo'shing, xabarni ko'rib chiqing va keyin uni yuborishni tasdiqlang.</li>
+</ul>
+</li>
+<li><strong>Ilova hodisalari</strong> — jurnal yozuvlarining o'zlari. Yozuv odatda sana va vaqt, texnik hodisa nomi va identifikator, holat yoki sabab kabi qo'shimcha parametrlarni o'z ichiga oladi. Texnik nomlar ingliz tilida paydo bo'lishi mumkin; yuborishdan oldin ularni tahrirlamang yoki tarjima qilmang.</li>
+</ol>
+
+<div class="warning">Jurnalni tozalashdan oldin, kerakli yozuvlarni nusxalash yoki yuborish. O'chirilgan diagnostika hodisalarini tiklab bo'lmaydi.</div>
+
+<div class="tip">Agar muammoni qayta tiklash mumkin bo'lsa, avval global diagnostika to'plamini va tegishli xususiyatlar jurnalini yoqing, keyin muammoga sabab bo'lgan amallarni takrorlang. Xabaringizda muammoning aniq vaqtini, telefon modelini, Android versiyasini, kutilgan natijani va haqiqiy natijani ko'rsating. Bu sizning tavsifingizni jurnal hodisalariga moslashtirishga yordam beradi.</div>
+
+<h2 id="faq">15. Tez-tez so'raladigan savollar</h2>
+
+<h3>Signal o'z vaqtida ishga tushmadi</h3>
+<p>Bildirishnomalarni, aniq signal ruxsatini, fon faolligini va batareya cheklovlarini tekshiring.</p>
+<h3>Geo signal kech ishga tushdi</h3>
+<p>Aniq va fon joylashuvini, batareya cheklovlarini va fon rejimida avtomatik ishga tushirishni tekshiring. Shaharda 1300–1500 m radiusda va shahar tashqarisida 4000–5000 m radiusda sinab ko'ring. Haqiqiy ishga tushirish radius chizig'ida aniq sodir bo'lmasligi mumkin.</p>
+<h3>Vidjet darhol yangilanmadi</h3>
+<p>Ilovani oching yoki vidjetdagi yangilash tugmasini bosing. Android vidjetlarning tez-tez yangilanishini cheklashi mumkin.</p>
+<h3>Men tilni o'zgartirdim, lekin hujjat yoki qo'llanma hali yangilanmagan</h3>
+<p>Internet ulanishingizni tekshiring va yuklab olish uchun vaqt bering. Agar masofaviy versiya mavjud bo'lmasa, ilova o'zining o'rnatilgan zaxira nusxasidan foydalanadi.</p>
+
+<div class="footer small">Qo'llanmani GitHub orqali yangilash mumkin. Agar masofaviy versiya mavjud bo'lmasa, ilova o'zining o'rnatilgan oflayn versiyasidan foydalanadi.</div>
+</main>
+</body>
+</html>
