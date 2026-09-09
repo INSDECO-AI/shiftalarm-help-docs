@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panduan Pengguna ShiftAlarm</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #64748b;
+  --accent: #2563eb;
+  --soft: #e8eef8;
+  --border: #dbe4f0;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.58;
+  margin: 0;
+  padding: 18px;
+  color: var(--text);
+  background: var(--bg);
+}
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+h1 { margin: 0 0 8px; font-size: 28px; line-height: 1.2; }
+h2 { margin: 32px 0 10px; font-size: 21px; line-height: 1.25; }
+h3 { margin: 22px 0 8px; font-size: 17px; }
+p, li { font-size: 16px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul, ol { padding-left: 22px; }
+.notice, .tip, .warning {
+  padding: 14px 16px;
+  border-radius: 16px;
+  margin: 14px 0;
+  border: 1px solid var(--border);
+}
+.notice { background: var(--soft); }
+.tip { background: #ecfdf5; }
+.warning { background: #fff7ed; }
+.small { color: var(--muted); font-size: 14px; }
+.toc {
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 16px;
+  margin: 18px 0 24px;
+}
+.toc ol { margin: 8px 0 0; }
+.step-list li { margin-bottom: 8px; }
+.guide-figure {
+  margin: 18px 0;
+}
+.guide-image {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+}
+.callout-list li {
+  margin-bottom: 10px;
+}
+.guide-caption {
+  max-width: 520px;
+  margin: 10px auto 0;
+  color: var(--text);
+  font-size: 15px;
+}
+.guide-caption strong {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.footer {
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --card: #111827;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --accent: #93c5fd;
+    --soft: #1f2937;
+    --border: #334155;
+  }
+  main { box-shadow: none; }
+  .toc { background: #172033; }
+  .tip { background: #10251f; }
+  .warning { background: #2a1d10; }
+}
+</style>
+</head>
+<body>
+<main>
+<h1>Panduan Pengguna ShiftAlarm</h1>
+<p class="small">Versi 14. Tarikh: 2 Ogos 2026.</p>
+<div class="notice">Halaman ini ialah panduan praktikal untuk ShiftAlarm. Ia menerangkan fungsi setiap ciri utama, di mana untuk mencarinya, apa yang perlu diketik dan apa yang perlu disemak jika sesuatu ciri tidak berfungsi seperti yang dijangkakan.</div>
+<nav class="toc">
+<strong>Kandungan</strong>
+<ol><li><a href="#start">1. Pelancaran pertama</a></li><li><a href="#permissions">2. Kebenaran dan kebolehpercayaan</a></li><li><a href="#main">3. Skrin utama</a></li><li><a href="#shifts">4. Jadual syif</a></li><li><a href="#statistics">5. Statistik jadual</a></li><li><a href="#alarms">6. Penggera</a></li><li><a href="#geo">7. Penggera Geo</a></li><li><a href="#notes">8. Nota, peristiwa dan peringatan</a></li><li><a href="#clock">9. Jam, pemasa dan jam randik</a></li><li><a href="#widgets">10. Widget</a></li><li><a href="#salary">11. Pengiraan gaji</a></li><li><a href="#settings">12. Tetapan</a></li><li><a href="#backup">13. Sandaran dan pemulihan</a></li><li><a href="#diagnostics">14. Diagnostik dan penyelesaian masalah</a></li><li><a href="#faq">15. Soalan Lazim</a></li></ol>
+</nav>
+<h2 id="start">1. Pelancaran pertama</h2>
+
+<p>Apabila ShiftAlarm bermula buat kali pertama, ia memaparkan aliran persediaan yang pendek. Skrin utama sudah tersedia di latar belakang, tetapi adalah lebih baik untuk menyelesaikan persediaan asas terlebih dahulu.</p>
+<ol class="step-list">
+<li>Baca maklumat pengenalan dan ketik “Teruskan.”</li>
+<li>Pada langkah dokumen, buka dokumen atau terima dokumen yang diperlukan apabila anda bersedia untuk meneruskan.</li>
+<li>Pada langkah kebenaran, buka skrin kebenaran dan semak pemberitahuan, penggera tepat, akses lokasi dan sekatan bateri.</li>
+<li>Ketik “Selesaikan persediaan.”</li>
+</ol>
+<p class="tip">Anda boleh mengkonfigurasi kebenaran kemudian di bawah “Tetapan → Kebenaran dan kebolehpercayaan.”</p>
+
+<h2 id="permissions">2. Kebenaran dan kebolehpercayaan</h2>
+
+<p>Penggera, peringatan dan Penggera Geo bergantung pada tetapan Android dan perisian pengeluar peranti.</p>
+<ul>
+<li><strong>Pemberitahuan</strong> — diperlukan untuk penggera, peringatan, pemasa dan pemberitahuan perkhidmatan.</li>
+<li><strong>Penggera tepat</strong> — membantu penggera bermula pada masa yang diperlukan.</li>
+<li><strong>Lokasi</strong> — diperlukan untuk Penggera Geo.</li>
+<li><strong>Lokasi latar belakang</strong> — diperlukan untuk Penggera Geo berfungsi semasa aplikasi ditutup.</li>
+<li><strong>Aktiviti bateri dan latar belakang</strong> — mungkin menjejaskan kebolehpercayaan pencetus pada Xiaomi/Redmi dan beberapa peranti lain.</li>
+</ul>
+<p class="warning">Android tidak selalu menjamin penghantaran segera pemberitahuan, penggera tepat atau peristiwa geofensi. Untuk makluman penting, semak setiap item pada skrin kebenaran.</p>
+
+<h2 id="main">3. Skrin utama</h2>
+
+<p>Skrin utama ialah papan pemuka harian anda. Ia menyediakan akses terus kepada kalendar, jam, Penggera Geo, penggera biasa, jadual syif, nota dan tetapan.</p>
+
+<h3 id="main-overview">3.1. Elemen skrin utama</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_screen_overview.png" alt="Skrin utama ShiftAlarm dengan kawalan bernombor">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Anak panah ke belakang</strong> — mengalihkan kalendar ke bulan sebelumnya.</li>
+<li><strong>Bulan dan tahun</strong> — menunjukkan bulan yang dibuka. Ketik kawasan ini untuk menggunakan <a href="#main-date-picker">pemilih bulan dan tahun langkah demi langkah</a>.</li>
+<li><strong>Anak panah ke hadapan</strong> — mengalihkan kalendar ke bulan seterusnya.</li>
+<li><strong>Kalendar</strong> — kawasan bulan utama. Anda boleh meleret kalendar. Setiap hari boleh menunjukkan tarikh, peringatan, acara, syif berjadual dan perubahan hari. Ketik biasa memilih tarikh; Tekan lama akan membuka <a href="#main-day-actions">maklumat dan tindakan untuk hari yang dipilih</a>.</li>
+<li><strong>Hari ini</strong> — mengembalikan kalendar ke hari semasa.</li>
+<li><strong>Jam</strong> — membuka <a href="#clock">jam dunia, jam randik dan pemasa</a>.</li>
+<li><strong>Geo Alarm</strong> — membuka <a href="#geo">peta, tempat yang disimpan dan tetapan Geo Alarm</a>. Amaran boleh dicetuskan apabila anda memasuki kawasan yang dipilih, meninggalkannya atau melakukan salah satu daripadanya.</li>
+<li><strong>Alarm</strong> — membuka <a href="#alarms">penggera biasa, berulang dan berkaitan syif</a>.</li>
+<li><strong>Jadual</strong> — membuka <a href="#shifts">jadual syif, penciptaan dan penyuntingannya, serta statistik</a>.</li>
+<li><strong>Nota</strong> — membuka <a href="#notes">nota, acara, peringatan, nota audio dan pertuturan-ke-teks</a>.</li>
+<li><strong>Tetapan</strong> — membuka <a href="#settings">kebenaran, bahasa, tema, model pertuturan luar talian, sandaran, diagnostik, dokumen dan latihan</a>.</li>
+</ol>
+
+
+<h3 id="main-date-picker">3.2. Memilih bulan dan tahun</h3>
+
+<p>Ketik bulan dan tahun di bahagian atas skrin utama untuk membuka tempoh kalendar yang diperlukan dengan cepat. Pemilihan dijalankan secara berperingkat: <strong>abad → dekad → tahun → bulan</strong>.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_century.webp" alt="Langkah 1: memilih abad dalam kalendar ShiftAlarm">
+<figcaption class="guide-caption"><strong>1. Pilih abad.</strong> Ketik tempoh yang mengandungi tahun yang anda perlukan. Contoh memilih tahun 2000-an.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_decade.webp" alt="Langkah 2: memilih dekad dalam kalendar ShiftAlarm">
+<figcaption class="guide-caption"><strong>2. Pilih dekad.</strong> Ketik julat yang mengandungi tahun yang diperlukan. Untuk tahun 2026, pilih “2020–2029.”</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_year.webp" alt="Langkah 3: memilih tahun dalam kalendar ShiftAlarm">
+<figcaption class="guide-caption"><strong>3. Pilih tahun.</strong> Ketik tahun yang diperlukan. Contoh memilih 2026.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_month.webp" alt="Langkah 4: memilih bulan dalam kalendar ShiftAlarm">
+<figcaption class="guide-caption"><strong>4. Pilih bulan.</strong> Ketik bulan yang diperlukan. Contoh memilih Julai.</figcaption>
+</figure>
+
+<div class="tip">Selepas anda memilih bulan, panel akan ditutup dan kalendar utama dibuka pada bulan dan tahun yang dipilih.</div>
+<div class="notice">Butang “Kembali” kembali ke peringkat sebelumnya. Pada skrin abad, ia menutup pemilih tarikh.</div>
+
+<h3 id="main-day-actions">3.3. Maklumat dan tindakan untuk hari yang dipilih</h3>
+
+<p>Sentuh dan tahan hari yang diperlukan dalam kalendar. Panel dengan maklumat dan tindakan untuk tarikh tersebut akan dibuka. Seret panel ke atas untuk melihat semua tindakan yang tersedia.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_day_actions.webp" alt="Panel maklumat dan tindakan ShiftAlarm untuk hari kalendar yang dipilih">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tarikh</strong> — menunjukkan hari dalam seminggu dan tarikh yang dipilih. Seret pemegang di bahagian atas ke atas atau ke bawah untuk mengembangkan atau menutup panel.</li>
+<li><strong>Shift</strong> — menunjukkan syif yang dikira atau perubahan hari seperti hari cuti, cuti, cuti sakit atau pengecualian lain.</li>
+<li><strong>Penggera untuk tarikh ini</strong> — menunjukkan penggera yang diberikan pada hari yang dipilih atau melaporkan bahawa tiada penggera yang wujud.</li>
+<li><strong>Acara dan peringatan</strong> — menunjukkan entri yang dipautkan ke tarikh yang dipilih.</li>
+<li><strong>Tambah penggera</strong> — membuka penciptaan penggera sekali sahaja untuk tarikh yang dipilih.</li>
+<li><strong>Tukar syif</strong> — mencipta pengecualian untuk satu hari atau julat tarikh dalam jadual aktif.</li>
+<li><strong>Tambah nota</strong> — membolehkan anda memilih acara atau peringatan untuk dicipta untuk tarikh yang dipilih.</li>
+</ol>
+
+<div class="notice">Tindakan “Tukar syif” tersedia untuk melaraskan hari dalam jadual syif aktif.</div>
+
+<h4 id="main-shift-override">Menukar satu hari atau julat tarikh</h4>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_types.webp" alt="Memilih julat tarikh dan jenis perubahan syif dalam ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tarikh mula</strong> — hari pertama perubahan. Ia pada mulanya menggunakan tarikh yang dipilih dalam kalendar.</li>
+<li><strong>Tarikh tamat</strong> — hari terakhir perubahan. Untuk menukar hanya satu hari, biarkan tarikh yang sama dipilih.</li>
+<li><strong>Waktu cuti</strong> — menggantikan syif yang dikira dengan waktu cuti.</li>
+<li><strong>Cuti</strong> — menandakan hari atau julat yang dipilih sebagai cuti.</li>
+<li><strong>Cuti sakit</strong> — menandakan hari atau julat yang dipilih sebagai cuti sakit.</li>
+<li><strong>Simpan perubahan</strong> — menggunakan pengecualian yang dipilih pada kalendar.</li>
+</ol>
+
+<h4 id="main-shift-time-adjustment">Melaraskan masa bekerja</h4>
+
+<p>Tatal ke bawah senarai jenis perubahan dan pilih “Edit syif” untuk menukar tempoh syif kerja yang dikira.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_time_adjustment.webp" alt="Melaraskan masa bekerja syif dalam ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Edit syif</strong> — mendayakan pelarasan masa bekerja untuk syif yang dipilih.</li>
+<li><strong>+ masa</strong> — menambah jam atau minit pada tempoh syif standard.</li>
+<li><strong>− masa</strong> — mengurangkan tempoh syif, contohnya apabila kerja tamat lebih awal.</li>
+<li><strong>Kira masa ini sebagai kerja lebih masa</strong> — menganggap masa tambahan sebagai kerja lebih masa. Jika pilihan dimatikan, ia dikira sebagai waktu bekerja biasa.</li>
+<li><strong>Simpan perubahan</strong> — menggunakan pelarasan pada hari atau julat yang dipilih.</li>
+</ol>
+
+<div class="tip">Perubahan hari tidak mengubah suai templat jadual asal. Ia disimpan sebagai pengecualian berasingan dan disertakan dalam kalendar, statistik, pengiraan gaji dan laporan.</div>
+
+<h2 id="shifts">4. Jadual syif</h2>
+
+<p>Jadual syif mentakrifkan kitaran kerja berulang dan menyediakan asas untuk ciri ShiftAlarm yang lain. Aplikasi ini menggunakannya untuk mengisi kalendar, menghubungkan penggera kepada syif, mengira waktu bekerja, menjana statistik, menganggarkan gaji dan menyediakan laporan.</p>
+
+<div class="notice"><strong>Prinsip asas.</strong> Mula-mula cipta jadual pengulangan asas. Tambahkan cuti, cuti sakit, cuti rehat, syif gantian sekali sahaja atau pelarasan waktu bekerja sebagai pengecualian untuk tarikh tertentu melalui <a href="#main-day-actions">tindakan hari terpilih</a>. Ini memastikan kitaran asal tidak berubah.</div>
+
+<h3 id="shifts-list">4.1. Senarai dan kawalan jadual</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedules_overview.webp" alt="Skrin jadual ShiftAlarm dengan kad jadual aktif dan kawalan bernombor">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Butiran jadual</strong> — nama, tarikh mula, tempoh kitaran dan urutan hari yang pendek. Dalam contoh, “D · D · O · O” bermaksud syif dua hari diikuti dengan dua hari cuti.</li>
+<li><strong>Tukar</strong> — melumpuhkan jadual buat sementara waktu tanpa memadamkannya. Apabila anda mendayakannya semula, tetapan yang disimpan akan terus digunakan.</li>
+<li><strong>Status jadual</strong> — menunjukkan jadual yang sedang aktif.</li>
+<li><strong>Edit</strong> — membuka parameter yang boleh diubah. Selepas persediaan awal, sebahagian daripada asas jadual dikunci untuk mengelakkan pengiraan semula data kalendar yang telah dibuat secara tidak sengaja.</li>
+<li><strong>Padam</strong> — memadam jadual selepas pengesahan. Sebelum memadamkannya, semak sebarang penggera dan pengiraan yang berkaitan dengan syif.</li>
+<li><strong>Buka statistik</strong> — membuka <a href="#statistics">statistik masa bekerja, tempoh, gaji dan laporan</a> jadual ini.</li>
+<li><strong>Cipta jadual</strong> — membolehkan anda memilih templat sedia ada atau mencipta kitaran tersuai.</li>
+</ol>
+
+<h3 id="shifts-create">4.2. Penciptaan jadual permulaan</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_create.webp" alt="Panel penciptaan jadual dengan nama, tarikh mula, templat dan jadual tersuai">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Nama jadual</strong> — masukkan nama yang jelas seperti “2/2 Utama,” “Syif malam,” atau nama tempat kerja anda.</li>
+<li><strong>Tarikh mula</strong> — tarikh yang sepadan dengan <strong>hari pertama kitaran berulang</strong>. Anda boleh memilih tarikh lalu atau akan datang; aplikasi mengira jadual ke hadapan dan ke belakang daripadanya.</li>
+<li><strong>Templat</strong> — urutan syif biasa yang sedia ada. Contoh ini menggunakan templat “2/2 hari”.</li>
+<li><strong>Jadual tersuai</strong> — mencipta urutan hari bekerja dan hari cuti anda sendiri.</li>
+<li><strong>Cipta jadual</strong> — membuka editor terperinci untuk pilihan yang dipilih.</li>
+</ol>
+
+<div class="tip">Untuk templat “D · D · O · O”, tarikh mula biasanya merupakan hari pertama daripada dua hari bekerja. Dalam kitaran tersuai, hari 1 juga mungkin merupakan hari cuti; perkara penting ialah tarikh yang dipilih sepadan dengan hari 1 urutan yang anda cipta.</div>
+
+<h3 id="shifts-template">4.3. Mencipta jadual daripada templat</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_template.webp" alt="Editor jadual templat dengan nama, jujukan, tarikh mula dan masa syif">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Nama jadual</strong> — kekalkan nama yang dicadangkan atau gantikannya dengan nama anda sendiri.</li>
+<li><strong>Templat</strong> — menunjukkan jujukan huruf dan maksudnya. Dalam contoh, “D · D · O · O” bermaksud syif siang, syif siang, hari cuti, hari cuti.</li>
+<li><strong>Tarikh mula</strong> — pilih tarikh hari pertama dalam jujukan yang dipaparkan.</li>
+<li><strong>Masa syif</strong> — nyatakan masa mula dan tamat untuk setiap jenis syif kerja. Aplikasi memaparkan tempoh yang dikira.</li>
+<li><strong>Batal</strong> — menutup editor tanpa menyimpan.</li>
+<li><strong>Simpan</strong> — menyimpan jadual dan mula mengira syif dalam kalendar.</li>
+</ol>
+
+<div class="warning"><strong>Selepas penyimpanan pertama.</strong> Tarikh mula dan struktur kitaran dikunci untuk melindungi data kalendar yang telah dikira. Anda masih boleh mengedit nama dan beberapa parameter kerja. Jika anda memerlukan kitaran asas atau tarikh rujukan yang berbeza, adalah lebih selamat untuk mencipta jadual baharu.</div>
+
+<h3 id="shifts-custom">4.4. Mencipta kitaran tersuai</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_custom.webp" alt="Editor jadual tersuai dengan panjang kitaran, kawalan hari, tarikh mula dan tetapan untuk setiap hari">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Nama jadual</strong> — berikan nama kepada urutan tersuai anda.</li>
+<li><strong>Panjang kitaran</strong> — menunjukkan berapa hari yang disertakan dalam urutan berulang.</li>
+<li><strong>Alih keluar hari</strong> — memendekkan kitaran sebanyak satu hari.</li>
+<li><strong>Tambah hari</strong> — menambah satu lagi hari yang boleh dikonfigurasikan pada akhir kitaran.</li>
+<li><strong>Tarikh mula</strong> — tarikh yang sepadan dengan hari 1 kitaran tersuai.</li>
+<li><strong>Tetapan hari</strong> — ketik “Shift "type" dan pilih hari cuti atau jenis kerja yang diperlukan: siang, malam, pagi, petang, 24 jam atau syif tersuai. Untuk hari bekerja, tentukan masa mula dan tamat. Konfigurasikan baki hari kitaran dengan cara yang sama di bahagian bawah skrin.</li>
+<li><strong>Batal</strong> — menutup editor tanpa menyimpan.</li>
+<li><strong>Simpan</strong> — menyimpan kitaran tersuai dan mengiranya dalam kalendar.</li>
+</ol>
+
+<div class="notice"><strong>Apakah kitaran?</strong> Kitaran ialah bilangan hari selepas urutan bermula semula. Contohnya, kitaran empat hari mungkin "2 hari bekerja + 2 hari cuti," manakala kitaran enam hari mungkin "3 hari bekerja + 3 hari cuti." Selepas hari terakhir, aplikasi kembali ke hari 1.</div>
+
+<div class="tip">Jangan ubah kitaran asas untuk pengecualian jadual sekali sahaja. Tekan lama tarikh kalendar dan cipta hari cuti, cuti sakit, syif gantian atau pelarasan masa.</div>
+
+
+
+<span id="shift-statistics"></span>
+<h2 id="statistics">5. Statistik jadual</h2>
+
+<p>Buka “Statistik” daripada kad jadual menggunakan butang <strong>“Buka statistik”</strong>. Bahagian ini menggabungkan maklumat tentang hari bekerja dan hari cuti, perubahan jadual, masa bekerja yang dirancang dan sebenar, gaji anggaran dan laporan.</p>
+
+<div class="notice"><strong>Penting:</strong> statistik dikira hanya untuk jadual syif yang dipilih. Tempoh yang dipilih terpakai kepada semua nilai masa bekerja, gaji dan pelaporan di bawahnya.</div>
+
+<h3 id="statistics-period">5.1. Ringkasan jadual, tempoh dan hari</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_period_overview.webp" alt="Skrin statistik dengan maklumat jadual, pemilihan tempoh dan jumlah hari">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Maklumat jadual</strong> — menunjukkan nama jadual yang dipilih, tarikh mula kitaran pertama dan tempoh kitaran berulang. Statistik pada skrin ini hanya terpakai pada jadual ini.</li>
+<li><strong>Kad tempoh yang dipilih</strong> — menunjukkan tempoh yang sedang digunakan. Ketik padanya atau anak panah di sebelah kanan untuk memilih bulan semasa, sebelumnya atau seterusnya, tahun semasa atau julat tarikh tersuai.</li>
+<li><strong>Ringkasan hari</strong> — menunjukkan bilangan hari dalam tempoh tersebut, syif kerja, hari cuti, syif yang telah siap dan akan datang serta hari yang diubah. Hari yang diubah adalah pengecualian kepada kitaran asas: cuti, cuti sakit, cuti panjang, penggantian atau perpindahan syif, pelarasan waktu kerja dan perubahan lain.</li>
+</ol>
+
+<div class="warning"><strong>Tempoh masa hadapan adalah ramalan.</strong> Untuk bulan hadapan, aplikasi menggunakan jadual yang dibuat dan data yang telah dimasukkan, tetapi ia tidak dapat mengetahui cuti sakit, percutian, cuti, kerja lebih masa, bonus atau potongan masa hadapan. Apabila anda memilih tahun semasa, jumlah mungkin menggabungkan data sebenar untuk tarikh lalu dengan ramalan untuk sepanjang tahun.</div>
+
+<h3 id="statistics-work">5.2. Masa bekerja, gaji dan laporan</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_work_salary_reports.webp" alt="Skrin statistik dengan masa bekerja, kemajuan, gaji dan akses laporan">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Masa bekerja</strong> — kad ringkasan untuk jam dan kemajuan. Ketik untuk membuka <a href="#statistics-break">tetapan masa rehat</a>.</li>
+<li><strong>Jam yang dirancang</strong> — jumlah tempoh syif yang dijadualkan dan perubahan semasa tempoh yang dipilih.</li>
+<li><strong>Jam bekerja</strong> — masa dalam syif yang dianggap selesai pada tarikh semasa, dengan tetapan rehat digunakan.</li>
+<li><strong>Kemajuan</strong> — menunjukkan berapa banyak syif kerja yang telah diselesaikan daripada jumlah keseluruhan dan berapa peratus tempoh yang dipilih telah selesai.</li>
+<li><strong>Gaji</strong> — membuka <a href="#salary">tetapan pengiraan gaji</a>. Kad tersebut menunjukkan anggaran untuk jadual dan tempoh yang dipilih.</li>
+<li><strong>Jumlah</strong> — jumlah anggaran yang diperoleh setakat ini, termasuk kaedah pembayaran yang dipilih, bonus, kerja lebih masa dan potongan.</li>
+<li><strong>Kadar atau gaji</strong> — kandungan kad ini bergantung pada kaedah pengiraan yang dipilih: gaji sejam, setiap syif atau sebulan. Ia memaparkan nilai yang dimasukkan dalam tetapan gaji.</li>
+<li><strong>Butiran pengiraan</strong> — masa berbayar, waktu kerja lebih masa, bonus dan potongan untuk tempoh yang dipilih.</li>
+<li><strong>Laporan</strong> — membuka <a href="#reports">laporan terperinci untuk tempoh, masa bekerja dan gaji</a>.</li>
+</ol>
+
+<div class="tip">Semua nilai dalam bahagian masa bekerja dan gaji dikira semula apabila anda menukar tempoh dalam kad atas.</div>
+
+<h3 id="statistics-break">5.3. Kira waktu rehat dalam waktu bekerja</h3>
+
+<p>Ketik kad “Waktu bekerja” untuk menentukan sama ada waktu rehat makan atau waktu rehat lain harus dikira sebagai sebahagian daripada waktu bekerja dan bergaji sebenar.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_break_settings.webp" alt="Panel tetapan perakaunan dan tempoh rehat">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Jumlah semasa</strong> — menunjukkan waktu yang dirancang dan waktu bekerja untuk tempoh yang dipilih sebelum tetapan baharu digunakan.</li>
+<li><strong>Kira waktu rehat sebagai waktu bekerja</strong> — biarkan pilihan ini hidup jika waktu rehat dibayar dan termasuk dalam tempoh syif. Matikannya jika waktu yang ditentukan mesti dikecualikan daripada waktu bekerja dan bergaji.</li>
+<li><strong>Tempoh rehat</strong> — pilih jam dan minit untuk satu waktu rehat. Tetapan ini digunakan semasa mengira semula syif kerja yang berkenaan.</li>
+<li><strong>Jumlah rehat</strong> — menunjukkan tempoh yang dipilih sebelum menyimpan.</li>
+<li><strong>Simpan</strong> — menggunakan tetapan dan mengira semula masa bekerja dan nilai yang berkaitan.</li>
+</ol>
+
+<div class="notice">Rehat mungkin mewakili rehat makan, penyerahan syif atau selang masa tanpa gaji lain dalam syif. Masukkan tempoh yang sepadan dengan peraturan di tempat kerja anda.</div>
+
+<h3 id="reports">5.4. Laporan: tempoh, status dan ringkasan</h3>
+
+<p>Buka “Laporan” daripada kad bawah pada skrin statistik. Bahagian ini memberikan maklumat yang lebih terperinci untuk tempoh yang dipilih: masa bekerja, syif dan ketidakhadiran, pelarasan kalendar, gaji, bonus, potongan, perbandingan tempoh, butiran harian dan eksport.</p>
+
+<div class="warning"><strong>Laporan disediakan untuk tujuan maklumat sahaja.</strong> Pengiraan adalah berdasarkan jadual yang dipilih, tetapan gaji, perakaunan rehat dan perubahan syif kalendar. Angka sebenar majikan anda mungkin berbeza kerana sistem pengaturan masa, pembundaran, cukai, elaun atau peraturan dalaman yang berbeza. Jika anda menemui ralat atau kaedah pengiraan yang tidak disokong, hubungi pembangun di alamat yang ditunjukkan dalam aplikasi dan sertakan data input dan hasil yang dijangkakan.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_period_salary.webp" alt="Skrin laporan dengan pemilihan tempoh, status, ringkasan dan pecahan gaji terperinci">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tempoh laporan</strong> — ketik kad untuk memilih bulan semasa, sebelumnya atau seterusnya, julat pratetap atau tarikh tersuai. Semua maklumat di bawah terpakai pada tempoh yang dipilih.</li>
+<li><strong>Status tempoh</strong> — menunjukkan sama ada tempoh tersebut selesai, sedang aktif atau belum bermula. Tempoh yang telah selesai dikira daripada data sebenar yang disimpan. Tempoh aktif menggabungkan data yang telah diusahakan dengan pelan semasa, manakala tempoh akan datang ialah ramalan.</li>
+<li><strong>Ringkasan</strong> — ringkasan teks masa bekerja sebenar, jumlah yang dikira dan kerja lebih masa.</li>
+<li><strong>Gaji</strong> — pecahan terperinci gaji pokok, gaji lebih masa, bonus, potongan dan anggaran akhir. Nilai bergantung pada <a href="#salary">tetapan gaji</a> dan tempoh yang dipilih.</li>
+</ol>
+
+<h3 id="reports-work">5.5. Masa bekerja, ketidakhadiran dan hari</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_work_absences.webp" alt="Skrin laporan dengan masa bekerja, rehat, syif yang telah siap dan ketidakhadiran">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Masa bekerja</strong> — menunjukkan waktu bekerja yang dirancang dan sebenar, potongan waktu bekerja yang dirancang dan sebenar sebelum rehat, bilangan syif yang telah siap, purata tempoh syif dan jumlah rehat yang ditolak. Konfigurasikan rehat dalam <a href="#statistics-break">bahagian masa bekerja</a>.</li>
+<li><strong>Ketidakhadiran dan hari</strong> — menunjukkan bilangan hari cuti, hari cuti, hari cuti sakit, hari cuti dan hari yang diubah semasa tempoh yang dipilih.</li>
+</ol>
+
+<h3 id="reports-charts">5.6. Pelarasan dan carta</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_corrections_charts.webp" alt="Skrin laporan dengan pelarasan, komposisi gaji dan nilai masa bekerja">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Pelarasan</strong> — menunjukkan waktu kerja lebih masa, jumlah perubahan dalam tempoh syif dan bilangan hari yang diubah daripada jadual asas.</li>
+<li><strong>Carta</strong> — menggambarkan komposisi gaji dan masa bekerja: gaji asas, kerja lebih masa, bonus, potongan, jumlah dan waktu yang dirancang, bekerja dan berbayar.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_charts_days.webp" alt="Carta laporan tambahan dengan waktu dan carta pai jenis hari">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Waktu</strong> — meneruskan perbandingan visual waktu yang dirancang, bekerja, bergaji dan lebih masa. Baris "Masa bekerja sebenar" menunjukkan hasil selepas tetapan dan pelarasan digunakan.</li>
+<li><strong>Jenis hari</strong> — carta pai yang mengagihkan hari dalam tempoh yang dipilih mengikut jenis. Legenda bergantung pada jadual dan perubahan sebenar: siang, malam atau syif lain, hari cuti, cuti, cuti sakit, cuti dan keadaan lain.</li>
+</ol>
+
+<h3 id="reports-comparison">5.7. Membandingkan tempoh</h3>
+
+<p>Bahagian perbandingan membantu anda membandingkan gaji, masa, syif dan ketidakhadiran merentasi beberapa tempoh. Bilangan tempoh yang tersedia bergantung pada data yang disimpan.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_chart.webp" alt="Skrin perbandingan tempoh dengan pemilihan julat, carta gaji dan permulaan jadual perbandingan">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Bandingkan tempoh</strong> — ketik kad untuk memilih berapa banyak tempoh yang hendak dibandingkan dan julatnya.</li>
+<li><strong>Carta dan senarai tempoh</strong> — menunjukkan gaji untuk setiap tempoh dan menyenaraikan selang masa yang termasuk dalam perbandingan bersama-sama dengan statusnya.</li>
+<li><strong>Jadual perbandingan</strong> — mengandungi nilai terperinci untuk setiap tempoh. Leret jadual secara mendatar ke kiri atau kanan untuk melihat lajur yang tinggal.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_table.webp" alt="Sambungan jadual perbandingan dan perbezaan antara tempoh bersebelahan">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Nilai tempoh</strong> — jumlah gaji, jam bekerja dan bergaji, kerja lebih masa, bonus, potongan, syif yang telah siap, ketidakhadiran dan hari yang diubah.</li>
+<li><strong>Perbezaan antara tempoh</strong> — menunjukkan bagaimana setiap tempoh berbeza daripada yang sebelumnya. Nilai positif dan negatif menunjukkan peningkatan atau penurunan dalam metrik yang sepadan. Warna sahaja tidak selalunya bermaksud manfaat atau masalah; contohnya, peningkatan potongan bermakna jumlah yang lebih besar ditahan.</li>
+</ol>
+
+<h3 id="reports-details-export">5.8. Butiran harian dan eksport</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_details_export.webp" alt="Kad laporan untuk butiran harian dan eksport ke PDF, HTML, JSON atau CSV">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Butiran harian</strong> — membuka senarai setiap hari dalam tempoh yang dipilih. Anda boleh menyemak jenis syif, masa yang dirancang dan sebenar, pelarasan jam, ketidakhadiran dan perubahan lain untuk hari tertentu.</li>
+<li><strong>Eksport</strong> — menyimpan laporan sebagai PDF, HTML, JSON atau CSV. Pilih tempoh laporan sebelum mengeksport; anda kemudian boleh mencetak, menyimpan atau berkongsi fail melalui menu sistem Android.</li>
+</ol>
+
+<div class="tip">Sebelum membandingkan atau mengeksport, semak tempoh, jadual, perubahan syif, rehat dan tetapan gaji yang dipilih. Ralat dalam data sumber akan menjejaskan setiap jumlah laporan.</div>
+
+<h2 id="alarms">6. Penggera</h2>
+
+<p>ShiftAlarm membolehkan anda mencipta penggera sekali sahaja, mengulanginya pada hari terpilih dalam seminggu atau memautkan masanya dengan jadual syif.</p>
+
+<h3 id="alarms-list">6.1. Senarai penggera</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarms_overview.webp" alt="Skrin penggera ShiftAlarm dengan isyarat seterusnya, pengisihan, kad penggera dan butang tambah">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Penggera seterusnya</strong> — menunjukkan tarikh dan masa isyarat aktif seterusnya.</li>
+<li><strong>Pengisihan penggera</strong> — mengubah susunan kad penggera, contohnya dengan menunjukkan penggera yang diaktifkan terlebih dahulu.</li>
+<li><strong>Kad penggera</strong> — mengandungi masa, tarikh atau mod ulangan, jenis jadual dan baki masa. Ketik kad untuk mengeditnya.</li>
+<li><strong>Tukar</strong> — mendayakan atau melumpuhkan penggera buat sementara waktu tanpa memadam tetapannya.</li>
+<li><strong>Padam</strong> — memadam penggera yang dipilih.</li>
+<li><strong>Tambah penggera</strong> — membuka skrin untuk mencipta penggera baharu.</li>
+</ol>
+
+<h3 id="alarms-create">6.2. Mencipta dan mengedit penggera</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_time_schedule.webp" alt="Bahagian atas ShiftEditor penggera Alarm: masa, jenis jadual, tunda dan simpan kawalan">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Masa</strong> — tatal roda jam dan minit untuk menetapkan masa amaran.</li>
+<li><strong>Jenis jadual</strong> — pilih salah satu mod ini:
+<ul>
+<li><strong>Sekali</strong> — penggera dicetuskan sekali pada tarikh yang dipilih;</li>
+<li><strong>Mengikut hari</strong> — berulang pada hari yang dipilih dalam seminggu;</li>
+<li><strong>Mengikut syif</strong> — memautkan penggera kepada jadual dan jenis syif yang dipilih.</li>
+</ul>
+</li>
+<li><strong>Tunda</strong> — menetapkan berapa minit amaran ditangguhkan apabila anda mengetik butang tunda pada skrin yang berdering.</li>
+<li><strong>Batal dan Simpan</strong> — butang ini ditetapkan di bahagian bawah skrin dan kekal tersedia semasa anda menatal melalui editor.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_behavior.webp" alt="Tetapan ShiftAlarm untuk tempoh penggera, amaran ulangan, peningkatan kelantangan secara beransur-ansur dan getaran">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tempoh penggera</strong> — menentukan berapa lama amaran berbunyi jika pengguna tidak menghentikannya.</li>
+<li><strong>Ulang jika penggera diabaikan</strong> — mendayakan amaran lain apabila penggera tidak ditolak mahupun ditunda. Tetapkan selang masa sebelum amaran ulangan di bawahnya.</li>
+<li><strong>Peningkatan kelantangan secara beransur-ansur</strong> — bermula dengan audio yang lebih senyap dan secara beransur-ansur meningkatkan kelantangan sepanjang masa yang dipilih.</li>
+<li><strong>Getaran</strong> — mendayakan atau melumpuhkan getaran semasa amaran.</li>
+<li><strong>Batal dan Simpan</strong> — kawalan tetap untuk editor.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_sound_name.webp" alt="Bahagian bawah editor penggera ShiftAlarm: kawalan getaran, bunyi, nama dan simpan">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Getaran</strong> — mendayakan atau melumpuhkan amaran getaran.</li>
+<li><strong>Bunyi</strong> — membolehkan anda memilih bunyi terbina dalam, sistem atau bunyi yang ditambah pengguna. Anda boleh menambah sehingga lima bunyi tersuai pada aplikasi.</li>
+<li><strong>Nama</strong> — label pilihan yang membantu anda membezakan penggera.</li>
+<li><strong>Batal dan Simpan</strong> — buang perubahan atau simpan penggera.</li>
+</ol>
+
+<div class="notice">Selepas menyimpan, penggera akan muncul dalam senarai utama. Sebelum amaran penting, pastikan penggera diaktifkan, aplikasi mempunyai kebenaran pemberitahuan dan penggera tepat, dan sistem tidak menyekat aktiviti latar belakangnya.</div>
+
+<div class="tip">Untuk mencipta penggera berkaitan syif, mula-mula cipta jadual syif yang sesuai. Dalam editor, pilih masa pencetus tetap atau ofset relatif kepada permulaan syif.</div>
+
+<h2 id="geo">7. Penggera Geo</h2>
+
+<p>Penggera Geo memantau apabila peranti memasuki atau meninggalkan kawasan yang dipilih. Kawasan tersebut ditakrifkan oleh titik pada peta dan jejari di sekeliling titik tersebut. Contohnya, gunakan Geo Alarm untuk menerima amaran apabila menghampiri tempat kerja, rumah, perhentian bas, stesen atau tempat lain.</p>
+
+<h3 id="geo-overview">7.1. Peta dan kawalan</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_overview.webp" alt="ShiftAlarm Geo Alarm skrin utama dengan peta dan kawalan bernombor">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Zum masuk</strong> — membesarkan peta.</li>
+<li><strong>Zum keluar</strong> — mengurangkan skala peta.</li>
+<li><strong>Lokasi saya</strong> — mengalihkan peta ke lokasi semasa peranti. Aplikasi ini memerlukan akses lokasi untuk ciri ini.</li>
+<li><strong>Tempat yang disimpan</strong> — membuka senarai Penggera Geo dan titik lokasi yang disimpan.</li>
+<li><strong>Kembali</strong> — kembali ke skrin aplikasi sebelumnya.</li>
+<li><strong>Kiraan Penggera Geo</strong> — menunjukkan berapa banyak Penggera Geo yang telah dicipta.</li>
+<li><strong>Senarai Penggera Geo</strong> — membuka senarai berasingan Penggera Geo yang dicipta.</li>
+</ol>
+
+<div class="tip">Anda juga boleh zum dengan gerak isyarat. Sentuh peta dengan dua jari dan rentangkannya untuk zum masuk, atau cubitkannya bersama untuk zum keluar.</div>
+<div class="notice">Kawalan sisi mungkin muncul di sebelah bertentangan dalam bahasa kanan ke kiri. Fungsinya kekal sama.</div>
+
+<h3 id="geo-saved-places">7.2. Penggera dan titik lokasi yang disimpan</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_saved_places.webp" alt="Tetingkap tempat yang disimpan dengan tab Geo Alarm dan titik lokasi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Penggera</strong> — menunjukkan Geo Alarm yang ditambahkan pada tempat yang disimpan.</li>
+<li><strong>Titik lokasi</strong> — menunjukkan koordinat yang disimpan tanpa Geo Alarm yang aktif.</li>
+<li><strong>Senarai tempat yang disimpan</strong> — ketik kad untuk beralih ke tempat tersebut pada peta.</li>
+<li><strong>Tutup</strong> — menutup tetingkap dan kembali ke peta.</li>
+</ol>
+
+<div class="notice">Jika anda memadam Geo Alarm yang ditanda buku, koordinatnya akan disimpan secara automatik dalam tab “Titik lokasi”. Anda boleh menggunakan titik itu sekali lagi kemudian untuk mencipta Penggera Geo yang lain.</div>
+
+<h3 id="geo-select-point">7.3. Memilih titik dan jejari</h3>
+
+<p>Sentuh dan tahan tempat yang diperlukan pada peta. Aplikasi ini meletakkan penanda dan membuka panel titik yang dipilih.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_selected_point.webp" alt="Titik peta yang dipilih dengan alamat, jejari, penanda buku dan butang penciptaan Penggera Geo">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Penanda titik yang dipilih</strong> — pusat geofensi masa hadapan. Peta juga memaparkan bulatan untuk jejari yang dipilih.</li>
+<li><strong>Alamat dan koordinat</strong> — membolehkan anda mengesahkan bahawa tempat yang betul telah dipilih.</li>
+<li><strong>Simpan titik lokasi</strong> — menambah koordinat yang dipilih ke tempat yang disimpan tanpa mencipta penggera.</li>
+<li><strong>Jejari</strong> — menetapkan saiz kawasan di sekitar titik tersebut. Gerakkan gelangsar sehingga anda memilih jarak yang sesuai.</li>
+<li><strong>Batal</strong> — membatalkan pemilihan titik.</li>
+<li><strong>Cipta di sini</strong> — membuka editor Geo Alarm baharu untuk titik yang dipilih.</li>
+</ol>
+
+<div class="warning"><strong>Cara memilih jejari.</strong> Telefon tidak menjejaki koordinatnya secara berterusan. Android, pengeluar peranti, mod penjimatan bateri, GPS, rangkaian mudah alih dan kualiti isyarat Wi-Fi, serta kelajuan pergerakan semuanya mempengaruhi bila sempadan dikesan. Oleh itu, amaran mungkin tercetus daripada garisan yang dilukis. Contohnya, dengan jejari 800 m, kemasukan mungkin dikesan selepas peranti sudah berada di dalam kawasan tersebut—mungkin 700, 600, atau 500 m dari titik tersebut.</div>
+
+<ul>
+<li><strong>Di bandar</strong>, jejari <strong>1,300–1,500 m</strong> biasanya disyorkan.</li>
+<li><strong>Di luar bandar</strong>, di mana kemas kini lokasi mungkin kurang kerap, <strong>4,000–5,000 m</strong> disyorkan.</li>
+<li><strong>Jejari yang tepat</strong> harus dipilih berdasarkan laluan, kelajuan dan tingkah laku peranti anda.</li>
+</ul>
+
+<div class="notice">Sistem mengesan apabila peranti melintasi sempadan maya kawasan tersebut. Dalam mod “Semasa masuk”, jejari yang lebih besar biasanya memberi telefon lebih banyak masa untuk mengesan pendekatan anda. Dalam mod “Semasa keluar”, sempadan diletakkan lebih jauh dari titik yang dipilih.</div>
+
+<h3 id="geo-create">7.4. Mencipta Penggera Geo</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_location_schedule.webp" alt="Bahagian atas editor Penggera Geo: kesediaan, lokasi dan jenis jadual">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Kesediaan Penggera Geo</strong> — menunjukkan sama ada kebenaran yang diperlukan dikonfigurasikan dan sama ada aplikasi boleh mendaftarkan geofensi.</li>
+<li><strong>Lokasi</strong> — mengandungi alamat dan koordinat yang dipilih. Anda boleh mengedit alamat sebagai label, tetapi titik sebenar dipilih pada peta.</li>
+<li><strong>Jenis jadual</strong> — menentukan hari dan keadaan di mana Penggera Geo aktif.</li>
+<li><strong>Sentiasa</strong> — Penggera Geo aktif setiap hari semasa ia diaktifkan.</li>
+<li><strong>Sekali</strong> — digunakan untuk pencetus sekali sahaja seterusnya apabila keadaan yang dipilih dipenuhi.</li>
+<li><strong>Mengikut hari</strong> — hanya berfungsi pada hari terpilih dalam seminggu.</li>
+<li><strong>Mengikut syif</strong> — memautkan Penggera Geo kepada jadual syif aktif.</li>
+</ol>
+
+<div class="notice"><strong>Jadual “Mengikut syif”.</strong> Pilih sama ada ia berfungsi pada hari syif, hanya sebelum syif, atau hanya selepasnya, dan nyatakan jenis syif yang diperlukan: siang, malam, pagi, petang, 24 jam, khas atau sebarang syif kerja.</div>
+<div class="tip">Jika tarikh kalendar ditandakan sebagai hari cuti, percutian, cuti sakit atau cuti dan bukannya syif kerja, Penggera Geo berkaitan syif tidak akan aktif pada hari tersebut.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_trigger_settings.webp" alt="Bahagian bawah editor Penggera Geo: keadaan masuk atau keluar, jejari dan tetapan amaran">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Keadaan pencetus</strong> — menentukan lintasan sempadan yang memulakan amaran.</li>
+<li><strong>Semasa masuk</strong> — memulakan amaran apabila peranti memasuki jejari yang dipilih, contohnya apabila menghampiri tempat kerja atau perhentian yang diperlukan.</li>
+<li><strong>Semasa keluar</strong> — memulakan amaran apabila peranti meninggalkan jejari yang dipilih, contohnya selepas meninggalkan tempat kerja atau stesen supaya anda melakukannya tidak terlepas bahagian laluan seterusnya.</li>
+<li><strong>Semasa masuk atau keluar</strong> — memulakan amaran apabila sempadan dilintasi dalam mana-mana arah.</li>
+<li><strong>Jejari</strong> — saiz geofensi di sekitar titik yang dipilih.</li>
+<li><strong>Tempoh penggera</strong> — menentukan berapa lama amaran berbunyi.</li>
+<li><strong>Peningkatan kelantangan secara beransur-ansur</strong> — menetapkan peningkatan kelantangan yang lancar selepas amaran bermula.</li>
+<li><strong>Batal dan Simpan</strong> — buang perubahan atau simpan Penggera Geo.</li>
+</ol>
+
+<div class="tip">Pilihan selebihnya di bawah adalah serupa dengan penggera biasa: bunyi, getaran, tempoh amaran, peningkatan kelantangan secara beransur-ansur dan nama.</div>
+
+<h3 id="geo-existing">7.5. Penggera Geo pada peta dan kawalannya</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_marker_radius.webp" alt="Penanda Penggera Geo dan bulatan jejari pencetusnya telah dicipta pada peta">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Penanda Penggera Geo</strong> — menunjukkan titik yang dipilih.</li>
+<li><strong>Sempadan jejari</strong> — menunjukkan kawasan yang kemasukan atau keluarnya dipantau oleh aplikasi.</li>
+</ol>
+
+<p>Ketik penanda Geo Alarm. Tetingkap maklumat kecil akan muncul dahulu. Ketik tetingkap itu untuk membuka kad terperinci.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_alarm_card.webp" alt="Kad Penggera Geo terperinci dengan maklumat, penanda buku, suis dan kawalan">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Nama dan alamat</strong> — kenal pasti Penggera Geo yang dipilih.</li>
+<li><strong>Penanda Halaman</strong> — menambah penggera pada tempat yang disimpan atau mengalih keluarnya daripadanya.</li>
+<li><strong>Suis</strong> — mendayakan atau melumpuhkan Penggera Geo buat sementara waktu tanpa memadam tetapannya.</li>
+<li><strong>Tetapan dan status</strong> — menunjukkan jejari, keadaan masuk atau keluar, jadual, kesediaan geofensi dan maklumat tentang pengaktifan sebelumnya.</li>
+<li><strong>Edit</strong> — membuka tetapan Penggera Geo.</li>
+<li><strong>Tutup</strong> — menutup kad dan kembali ke peta.</li>
+<li><strong>Padam</strong> — memadam Penggera Geo selepas pengesahan.</li>
+</ol>
+
+<div class="warning">Untuk operasi yang andal, benarkan lokasi yang tepat dan latar belakang, alih keluar sekatan bateri yang ketat untuk ShiftAlarm dan semak mula automatik di latar belakang jika peranti anda menyediakannya. Walaupun dengan tetapan yang betul, Android tidak menjamin pengesanan sempadan tepat sehingga beberapa meter.</div>
+
+<h2 id="notes">8. Nota, peristiwa dan peringatan</h2>
+
+<p>Bahagian “Nota” menyimpan teks biasa, senarai, senarai semak, rakaman audio, nota pertuturan-ke-teks, peringatan dan peristiwa.</p>
+
+<h3 id="notes-create">8.1. Menambah nota</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_type_picker.webp" alt="Memilih jenis nota baharu dalam ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Pemegang panel</strong> — seretnya ke atas untuk mendedahkan senarai penuh jenis nota, atau ke bawah untuk menutup panel.</li>
+<li><strong>Jenis nota</strong> — pilih pilihan yang sesuai:
+<ul>
+<li><strong>Nota teks</strong> — teks biasa;</li>
+<li><strong>Senarai semak</strong> — senarai item dengan kotak semak penyiapan;</li>
+<li><strong>Senarai</strong> — senarai berbulet atau bernombor;</li>
+<li><strong>Nota audio</strong> — rakaman suara;</li>
+<li><strong>Pertuturan ke teks</strong> — mencipta nota menggunakan pengecaman pertuturan;</li>
+<li><strong>Peringatan</strong> — entri dengan pemberitahuan pada masa yang ditentukan;</li>
+<li><strong>Acara</strong> — entri yang dipautkan ke tarikh dan masa.</li>
+</ul>
+</li>
+<li><strong>Batal</strong> — menutup pemilih tanpa mencipta nota.</li>
+</ol>
+
+<div class="tip">Selepas anda memilih jenis, editor yang sesuai akan dibuka. Lengkapkan medan yang diperlukan dan simpan entri tersebut.</div>
+
+<h3 id="notes-list">8.2. Senarai dan kawalan nota</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_overview.webp" alt="Skrin nota ShiftAlarm dengan pengisihan, nota aktif dan arkib, carian dan tindakan kad">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Isih</strong> — mengubah susunan nota dalam senarai.</li>
+<li><strong>Aktif</strong> — menunjukkan nota biasa dan berjadual yang belum dipindahkan ke arkib.</li>
+<li><strong>Arkib</strong> — membuka senarai nota arkib.</li>
+<li><strong>Carian</strong> — mencari padanan dalam tajuk dan kandungan nota.</li>
+<li><strong>Kad nota</strong> — menunjukkan tajuk, jenis, status dan maklumat tambahan. Ketik kad untuk membuka nota.</li>
+<li><strong>Pin</strong> — pin nota ke bahagian atas senarai.</li>
+<li><strong>Arkib</strong> — alih keluar nota daripada senarai aktif dan alihkannya ke arkib.</li>
+<li><strong>Padam</strong> — padam nota selepas pengesahan.</li>
+<li><strong>Tambah nota</strong> — membuka pemilih jenis nota baharu.</li>
+</ol>
+
+<div class="notice">Gunakan arkib untuk entri yang tidak lagi diperlukan dalam senarai utama tetapi sepatutnya kekal disimpan. Padam nota hanya apabila ia tidak lagi diperlukan langsung.</div>
+
+<h2 id="clock">9. Jam, jam randik dan pemasa</h2>
+
+<p>Bahagian ini menggabungkan masa tempatan dan dunia, jam randik dan pemasa. Bukanya dengan butang <strong>“Jam”</strong> pada skrin utama.</p>
+
+<div class="notice">Tiga tab muncul di bahagian bawah skrin: “Jam,” “Jam randik,” dan “Pemasa.” Ketik tab untuk menukar mod.</div>
+
+<h3 id="clock-world">9.1. Jam dan jam dunia</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_overview.webp" alt="ShiftSkrin jam penggera dengan waktu tempatan, jam dunia, butang tambah dan tab bawah">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Waktu tempatan</strong> — menunjukkan waktu, tarikh dan zon waktu sistem peranti semasa.</li>
+<li><strong>Jam dunia</strong> — memaparkan bandar dan zon waktu yang ditambah. Semasa senarai kosong, aplikasi menunjukkan petunjuk.</li>
+<li><strong>Butang tambah</strong> — membuka pemilih jam dunia.</li>
+<li><strong>Tab bahagian</strong> — bertukar antara skrin “Jam”, “Jam randik” dan “Pemasa”.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_add_timezone.webp" alt="Menambah bandar atau zon waktu pada jam dunia ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Carian</strong> — masukkan nama bandar atau zon waktu untuk menapis senarai.</li>
+<li><strong>Senarai bandar dan zon waktu</strong> — ketik pilihan yang diperlukan untuk menambahkannya pada skrin jam dunia.</li>
+</ol>
+
+<div class="tip">Zon waktu setempat sentiasa ditunjukkan dahulu. Anda boleh mengalih keluar jam dunia yang ditambah daripada senarai, tetapi waktu tempatan tidak boleh dialih keluar.</div>
+
+<h3 id="clock-stopwatch">9.2. Jam randik</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_start.webp" alt="Jam randik ShiftAlarm sebelum ia bermula">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Sejarah</strong> — membuka sesi jam randik yang disimpan.</li>
+<li><strong>Mula</strong> — memulakan pemasaan.</li>
+<li><strong>Tetapkan Semula</strong> — tidak tersedia sebelum jam randik bermula. Selepas berhenti, ia mengembalikan jam randik kepada sifar dan mengalih keluar pusingan semasa.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_running.webp" alt="Menjalankan jam randik ShiftAlarm dengan kawalan sejarah, simpan, pusingan dan jeda">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Sejarah</strong> — menunjukkan sesi yang disimpan sebelum ini.</li>
+<li><strong>Simpan</strong> — meminta nama dan menyimpan sesi jam randik semasa.</li>
+<li><strong>Pusingan</strong> — merekodkan hasil pertengahan tanpa menghentikan pemasa keseluruhan.</li>
+<li><strong>Jeda</strong> — menjeda jam randik. Selepas berhenti seketika, anda boleh menyambung semula atau menetapkannya semula.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_laps.webp" alt="Pusingan jam randik ShiftAlarm dan pilihan pengisihannya">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Asal, terpantas dan paling perlahan</strong> — tukar susunan paparan pusingan: susunan asal, terpantas dahulu atau paling perlahan dahulu.</li>
+<li><strong>Pusingan</strong> — setiap pusingan menunjukkan jumlah masa ia dirakam dan masa pusingan individu.</li>
+</ol>
+
+<div class="notice">Apabila anda mengetik Simpan, masukkan nama sesi dan sahkan. Anda boleh membuka sesi yang disimpan kemudian daripada Sejarah.</div>
+
+<h3 id="clock-timer">9.3. Pemasa</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_setup.webp" alt="Menetapkan pemasa ShiftAlarm dengan roda jam, minit dan saat">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Jam</strong> — tatal roda dan pilih bilangan jam.</li>
+<li><strong>Minit</strong> — tatal roda dan pilih bilangan minit.</li>
+<li><strong>Saat</strong> — tatal roda dan pilih bilangan saat.</li>
+<li><strong>Mula</strong> — memulakan pemasa dengan tempoh yang dipilih.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_running.webp" alt="Menjalankan pemasa ShiftAlarm dengan baki masa, jeda, tambah minit dan henti controls">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Masa yang tinggal</strong> — menunjukkan berapa banyak masa yang tinggal sebelum amaran.</li>
+<li><strong>Masa tamat</strong> — menunjukkan anggaran masa pemasa akan tamat.</li>
+<li><strong>Pemasa terkini</strong> — tempoh terkini yang disimpan; ketik satu untuk menggunakannya semula dengan cepat.</li>
+<li><strong>Jeda</strong> — menghentikan undur buat sementara waktu. Anda boleh menyambungnya semula selepas itu.</li>
+<li><strong>+1 min</strong> — menambah satu minit kepada masa yang tinggal.</li>
+<li><strong>Berhenti</strong> — menghentikan pemasa sepenuhnya.</li>
+</ol>
+
+<div class="tip">Pemasa dan jam randik terus berjalan di latar belakang. Status mereka mungkin muncul dalam pemberitahuan, pada skrin utama dan dalam widget.</div>
+
+<h2 id="widgets">10. Widget</h2>
+
+<p>ShiftAlarm menyediakan widget untuk Skrin Utama telefon.</p>
+<ul>
+<li><strong>Today 4×2</strong> — panel padat dengan dua bahagian yang boleh dikonfigurasikan.</li>
+<li><strong>Today 4×3</strong> — panel dengan jam di bahagian atas dan dua bahagian di bawah.</li>
+<li><strong>Kalendar 4×4</strong> — widget kalendar dengan jadual syif.</li>
+</ul>
+<p>Tambah widget melalui menu widget Android pada Skrin Utama telefon.</p>
+
+<h2 id="salary">11. Pengiraan gaji</h2>
+
+<p>Buka “Pengiraan gaji” daripada kad gaji dalam <a href="#statistics-work">statistik jadual yang dipilih</a>. Di sini anda boleh menetapkan kaedah gaji, kadar atau gaji bulanan, peraturan kerja lebih masa, bonus dan potongan. Aplikasi ini menggunakan tetapan ini bersama-sama dengan tempoh yang dipilih, jadual syif, perubahan kalendar dan perakaunan rehat.</p>
+
+<div class="warning"><strong>Pengiraan disediakan untuk tujuan maklumat sahaja.</strong> Gaji sebenar mungkin berbeza jika majikan anda menggunakan sistem lain untuk penyimpanan masa, pembundaran, elaun, cukai, bonus, potongan atau pembayaran untuk jenis syif tertentu. Jangan gunakan keputusan tersebut sebagai dokumen gaji rasmi; bandingkannya dengan slip gaji majikan anda. Jika anda menemui kaedah pengiraan yang tidak dikendalikan oleh aplikasi dengan tepat, emel pembangun di alamat yang ditunjukkan dalam aplikasi. Huraikan peraturan, berikan data input sampel dan nyatakan keputusan yang dijangkakan. Kaedah tersebut kemudiannya boleh dipertimbangkan untuk kemas kini masa hadapan.</div>
+
+<h3 id="salary-settings">11.1. Kadar, kerja lebih masa dan bonus</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_settings_overview.webp" alt="Skrin pengiraan gaji dengan jadual, jenis kadar, kerja lebih masa dan bonus yang dipilih">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Jadual yang dipilih</strong> — menunjukkan jadual syif yang sedang digunakan. Gaji dikira daripada jadual ini dan tempoh yang dipilih dalam statistik.</li>
+<li><strong>Jenis kadar dan jumlah gaji</strong> — pilih bayaran <strong>sejam</strong>, <strong>setiap syif</strong>, atau <strong>sebulan</strong>, kemudian masukkan jumlah yang sepadan. Nama medan berubah dengan jenis kadar yang dipilih.</li>
+<li><strong>Lebih Masa</strong> — dayakan bahagian ini jika jam tambahan dibayar secara berbeza daripada waktu kerja biasa. Kemudian nyatakan pengganda gaji lebih masa. Tambahkan jam tambahan pada kalendar melalui <a href="#main-shift-time-adjustment">“Tukar syif” → “+ masa”</a>; dayakan “Kira masa ini sebagai lebih masa” supaya jam dianggap sebagai lebih masa.</li>
+<li><strong>Bonus</strong> — menunjukkan kaedah pengiraan semasa dan jumlah. Ketik kad untuk membuka <a href="#salary-bonuses">tetapan bonus</a>.</li>
+</ol>
+
+<div class="notice">Butang “Simpan” menggunakan tetapan pada jadual yang dipilih. Selepas menyimpan, jumlah dalam statistik dan laporan dikira semula menggunakan data yang dimasukkan.</div>
+
+<h3 id="salary-summary">11.2. Potongan dan jumlah pengiraan</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions_total.webp" alt="Skrin pengiraan gaji dengan potongan dan pecahan akhir">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Potongan</strong> — menunjukkan jumlah keseluruhan dan bilangan potongan yang dikonfigurasikan. Ketik kad untuk membuka <a href="#salary-deductions">senarai potongan</a>.</li>
+<li><strong>Jumlah</strong> — pecahan ringkasan: masa berbayar, jam bekerja, kerja lebih masa, gaji pokok, gaji lebih masa, bonus, potongan dan keputusan akhir.</li>
+</ol>
+
+<div class="tip">Hasilnya bukan sahaja bergantung pada tetapan skrin ini, tetapi juga pada tempoh statistik yang dipilih, syif yang telah diselesaikan, perubahan hari, kerja lebih masa dan tetapan rehat tanpa gaji.</div>
+
+<h3 id="salary-bonuses">11.3. Bonus</h3>
+
+<p>Ketik kad “Bonus” pada skrin pengiraan gaji. Anda boleh memasukkan bonus secara manual atau mengiranya sebagai peratusan jika sepadan dengan sistem pembayaran anda.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_bonuses.webp" alt="Skrin tetapan bonus dengan pengiraan dan pilihan kemasukan amaun">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Maklumat ringkasan</strong> — menunjukkan jumlah bonus yang dikira dan amaun asas yang digunakan untuk pengiraan.</li>
+<li><strong>Pengiraan bonus</strong> — pilih kemasukan manual atau pengiraan peratusan, seperti peratusan jualan, jika kaedah tersebut digunakan di tempat kerja anda.</li>
+<li><strong>Kaedah kemasukan</strong> — “Jumlah keseluruhan” sesuai untuk bonus akhir tunggal. Baris berasingan berguna apabila terdapat beberapa bonus yang mesti dikira secara berasingan.</li>
+<li><strong>Jumlah atau peratusan</strong> — masukkan nilai yang diperlukan oleh kaedah pengiraan yang dipilih.</li>
+<li><strong>Batal dan Simpan</strong> — buang perubahan atau gunakannya pada pengiraan gaji.</li>
+</ol>
+
+<h3 id="salary-deductions">11.4. Senarai potongan</h3>
+
+<p>Ketik kad “Potongan” pada skrin pengiraan utama. Bahagian ini membolehkan anda menyimpan beberapa potongan dan mengurus setiap satunya secara berasingan.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions.webp" alt="Skrin senarai potongan dengan jumlah keseluruhan, baris potongan dan butang tambah">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Maklumat ringkasan</strong> — menunjukkan jumlah dan bilangan semua potongan yang didayakan.</li>
+<li><strong>Baris potongan</strong> — menunjukkan nama, nilai dan jenis. Ketik baris untuk membuka <a href="#salary-deduction-editor">tetapan potongan</a>. Ikon sampah memadam baris tersebut.</li>
+<li><strong>Tambah potongan</strong> — butang “+” mencipta baris potongan baharu.</li>
+<li><strong>Batal dan Simpan</strong> — buang perubahan atau simpan keseluruhan senarai.</li>
+</ol>
+
+<h3 id="salary-deduction-editor">11.5. Mengkonfigurasi potongan individu</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deduction_editor.webp" alt="Panel potongan individu dengan nama, nilai, jenis dan asas potongan">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Nama potongan</strong> — masukkan nama yang jelas seperti “Cukai,” “Nafkah anak,” atau “Penalti.”</li>
+<li><strong>Nilai</strong> — masukkan amaun atau peratusan, bergantung pada jenis nilai yang dipilih di bawah.</li>
+<li><strong>Jenis nilai</strong> — pilih amaun atau peratusan tetap.</li>
+<li><strong>Jenis potongan</strong> — potongan <strong>boleh ubah</strong> terpakai untuk tempoh pengiraan tertentu; potongan <strong>berulang</strong> dikenakan secara berkala semasa ia kekal diaktifkan.</li>
+<li><strong>Potong daripada</strong> — pilih asas pengiraan: jumlah gaji, gaji pokok, bonus atau pilihan lain yang tersedia.</li>
+<li><strong>Didayakan</strong> — melumpuhkan potongan sementara tanpa memadam tetapannya.</li>
+<li><strong>Batal dan Simpan</strong> — tutup panel tanpa perubahan atau simpan potongan.</li>
+</ol>
+
+<div class="notice">Untuk potongan peratusan, adalah amat penting untuk memilih asas “Potong daripada” yang betul: peratusan yang sama daripada jumlah gaji, gaji pokok dan bonus menghasilkan keputusan yang berbeza.</div>
+
+<h2 id="settings">12. Tetapan</h2>
+
+<p>Buka “Tetapan” dengan butang di bahagian bawah skrin utama <a href="#main-overview"></a>. Bahagian ini mengandungi kebenaran sistem, rupa dan bahasa aplikasi, pengecaman pertuturan luar talian, dokumen dan panduan pengguna, sandaran, diagnostik dan pilihan hubungan pembangun.</p>
+
+<h3 id="settings-overview">12.1. Bahagian tetapan utama</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_permissions_language.webp" alt="Bahagian atas tetapan ShiftAlarm: kebenaran, tema, bahasa aplikasi dan model pertuturan luar talian">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Kebenaran</strong> — membuka kebenaran penggera dan tetapan kebolehpercayaan. Semak pemberitahuan, penggera tepat, aktiviti latar belakang dan sekatan bateri. <a href="#geo">Geo Alarm</a> juga memerlukan akses lokasi; akses lokasi latar belakang atau “Benarkan sepanjang masa” diperlukan untuk diaktifkan semasa aplikasi ditutup. Nama dan laluan item berbeza mengikut versi Android dan pengeluar peranti.</li>
+<li><strong>Tema</strong> — membolehkan anda memilih penampilan terang, gelap atau sistem, memilih varian warna antara muka dan mendayakan atau melumpuhkan maklum balas haptik untuk tindakan dalam aplikasi. Tema sistem mengikuti penampilan semasa telefon.</li>
+<li><strong>Bahasa aplikasi</strong> — membolehkan anda menggunakan bahasa yang berbeza daripada bahasa sistem telefon. Katalog ShiftAlarm mengandungi 108 bahasa: cari bahasa yang diperlukan dengan carian, muat turun pek bahasa dan gunakannya.</li>
+<li><strong>Model pertuturan luar talian</strong> — memasang modul untuk <a href="#notes-create">nota pertuturan-ke-teks</a>. Pengecaman luar talian sedang diuji dan tersedia untuk kira-kira 20 bahasa. Kualitinya mungkin lebih rendah daripada pengecaman dalam talian dan bergantung pada bahasa, mikrofon, prestasi telefon dan keadaan rakaman.</li>
+</ol>
+
+<div class="warning"><strong>Kebenaran Android berbeza mengikut peranti.</strong> Pada sesetengah telefon, anda juga mesti membenarkan automula, pilih “Tanpa Sekatan” atau mod bateri yang serupa dan membenarkan aktiviti latar belakang. Tetapan ini mengurangkan kemungkinan sistem akan menghentikan ShiftAlarm, tetapi nama tepatnya ditentukan oleh pengilang peranti.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_help_backup_diagnostics.webp" alt="Bahagian bawah tetapan ShiftAlarm: dokumen, panduan pengguna, sandaran, diagnostik dan hubungan pembangun">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Dokumen dan bantuan</strong> — membuka dokumen undang-undang aplikasi: Syarat Penggunaan, Dasar Privasi, Penafian dan halaman bantuan ringkas.</li>
+<li><strong>Latihan dan panduan pengguna</strong> — membuka panduan berilustrasi lengkap ini dengan penerangan terperinci tentang ciri ShiftAlarm.</li>
+<li><strong>Sandaran dan pemulihan</strong> — mencipta fail yang mengandungi tetapan dan data aplikasi yang disokong atau memulihkannya daripada sandaran terdahulu. Ini berguna sebelum memasang semula aplikasi, menetapkan semula telefon atau memindahkan data ke peranti lain. Lihat <a href="#backup">“Sandarkan dan pulihkan”</a> untuk arahan terperinci.</li>
+<li><strong>Log diagnostik</strong> — membuka log berasingan untuk ciri aplikasi. Ia merekodkan peringkat teknikal seperti penjadualan dan pemulihan amaran, pemprosesan peristiwa, keadaan kebenaran dan maklumat perkhidmatan lain. Log membantu mengenal pasti peringkat di mana ralat berlaku. Anda boleh menyalin entri atau menyediakannya untuk dihantar melalui e-mel kepada pembangun. Lihat <a href="#diagnostics">“Diagnostik dan penyelesaian masalah”</a> untuk butiran.</li>
+<li><strong>Hubungi pembangun</strong> — membuka aplikasi e-mel dan mencipta mesej yang ditujukan kepada sokongan. Gunakannya untuk melaporkan masalah, menghantar maklum balas atau cadangan atau bertanya soalan. Untuk isu teknikal, sertakan model telefon, versi Android, masa masalah, langkah yang dilakukan dan log diagnostik yang berkaitan jika boleh.</li>
+</ol>
+
+<div class="notice">Log diagnostik tidak dihantar kepada pembangun secara automatik. Anda mesti menyalin maklumat yang diperlukan atau mengetik “Hantar kepada pembangun,” pilih aplikasi e-mel, semak mesej yang disediakan dan sahkan penghantarannya.</div>
+
+<h2 id="backup">13. Sandaran dan pemulihan</h2>
+
+<p>Sandaran menyimpan tetapan ShiftAlarm dan data pengguna yang disokong dalam fail berasingan. Ia membantu memulihkan data selepas memasang semula aplikasi, menetapkan semula telefon atau berpindah ke peranti lain.</p>
+<ol class="step-list">
+<li>Buka “Tetapan → Sandaran dan pemulihan.”</li>
+<li>Cipta sandaran dan simpan fail yang terhasil pada telefon atau kongsikannya melalui menu sistem.</li>
+<li>Untuk memulihkan, buka bahagian yang sama dan pilih fail sandaran yang dibuat sebelum ini.</li>
+<li>Selepas memulihkan, semak penggera, jadual dan kebenaran Android yang penting. Sesetengah kebenaran keselamatan sistem mungkin perlu diberikan semula pada peranti baharu atau selepas pemasangan semula.</li>
+</ol>
+<p class="tip">Simpan salinan semasa di tempat yang selamat yang boleh diakses jika telefon hilang, rosak atau ditetapkan semula. Fail sandaran tidak menggantikan kebenaran sistem Android dan tidak boleh memasukkan data yang tidak dibenarkan diakses oleh aplikasi secara automatik.</p>
+
+<h2 id="diagnostics">14. Diagnostik dan penyelesaian masalah</h2>
+
+<p>ShiftAlarm menyediakan log diagnostik berasingan untuk ciri yang berbeza. Ia mengekalkan urutan peristiwa teknikal dan membantu menentukan sama ada amaran dijadualkan, dipulihkan selepas dimulakan semula, diluluskan untuk pemprosesan atau dihentikan kerana tetapan sistem.</p>
+
+<h3 id="diagnostics-control">14.1. Mengawal pengumpulan diagnostik</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_sections.webp" alt="Skrin log diagnostik ShiftAlarm dengan suis induk dan log penggera individu">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Kumpul diagnostik</strong> — suis induk untuk setiap bahagian diagnostik dalam aplikasi. Matikannya untuk berhenti menambah peristiwa baharu pada semua log sekaligus. Pengumpulan peristiwa baharu disambung semula selepas anda mendayakannya semula.</li>
+<li><strong>Log ciri individu</strong> — setiap modul mempunyai suis dan butang “Buka” tersendiri. Contohnya, anda boleh membiarkan diagnostik global diaktifkan sambil melumpuhkan hanya penggera, jam atau log ciri lain. Tangkapan skrin menunjukkan log penggera, yang merekodkan peristiwa penghantaran, penjadualan, pemulihan, perlindungan pengawal dan skrin penggera.</li>
+</ol>
+
+<div class="notice">Suis hanya mengawal rakaman peristiwa teknikal. Melumpuhkan penggera, jam atau log ciri lain tidak akan melumpuhkan ciri itu sendiri. Padam entri yang disimpan sebelum ini secara berasingan dengan butang “Kosongkan” di dalam log yang sepadan.</div>
+
+<h3 id="diagnostics-log">14.2. Log ciri individu</h3>
+
+<p>Ketik “Buka” dalam bahagian diagnostik yang diperlukan. Contoh di bawah menunjukkan log penggera; Log untuk ciri-ciri lain berfungsi dengan cara yang serupa.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_alarm_log.webp" alt="Log diagnostik penggera ShiftAlarm dengan kiraan peristiwa, tindakan dan entri teknikal">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Peristiwa yang disimpan</strong> — menunjukkan bilangan entri yang disimpan pada masa ini dalam log yang dipilih.</li>
+<li><strong>Tindakan log</strong>:
+<ul>
+<li><strong>Salin</strong> — menyalin semua data daripada log semasa ke papan keratan. Anda boleh menampalnya ke dalam e-mel atau aplikasi lain.</li>
+<li><strong>Kosongkan</strong> — memadam entri yang disimpan dalam log ini. Selepas mengosongkan, hanya peristiwa yang direkodkan kemudian semasa diagnostik didayakan akan muncul.</li>
+<li><strong>Hantar kepada pembangun</strong> — membuka pemilih aplikasi untuk menghantar e-mel. Pilih aplikasi e-mel; Alamat pembangun dan data diagnostik dimasukkan secara automatik. Sebelum menghantar, tambahkan penerangan masalah, semak mesej, dan kemudian sahkan penghantarannya.</li>
+</ul>
+</li>
+<li><strong>Peristiwa aplikasi</strong> — entri log itu sendiri. Entri biasanya mengandungi tarikh dan masa, nama peristiwa teknikal dan parameter tambahan seperti pengecam, keadaan atau sebab. Nama teknikal mungkin muncul dalam bahasa Inggeris; jangan edit atau terjemahkannya sebelum menghantar.</li>
+</ol>
+
+<div class="warning">Sebelum mengosongkan log, salin atau hantar sebarang entri yang diperlukan. Peristiwa diagnostik yang dipadam tidak boleh dipulihkan.</div>
+
+<div class="tip">Jika masalah boleh dihasilkan semula, dayakan pengumpulan diagnostik global dan log ciri yang berkaitan terlebih dahulu, kemudian ulangi tindakan yang menyebabkan masalah tersebut. Dalam mesej anda, berikan masa tepat masalah, model telefon, versi Android, hasil yang dijangkakan dan hasil sebenar. Ini membantu memadankan penerangan anda dengan peristiwa log.</div>
+
+<h2 id="faq">15. Soalan Lazim</h2>
+
+<h3>Penggera tidak berfungsi tepat pada masanya</h3>
+<p>Semak pemberitahuan, kebenaran penggera tepat, aktiviti latar belakang dan sekatan bateri.</p>
+<h3>Geo Alarm berfungsi lewat</h3>
+<p>Semak lokasi tepat dan latar belakang, sekatan bateri dan mula automatik di latar belakang. Cuba jejari 1,300–1,500 m di bandar dan 4,000–5,000 m di luar bandar. Pencetus sebenar mungkin tidak berlaku tepat pada garis jejari.</p>
+<h3>Widget tidak dikemas kini serta-merta</h3>
+<p>Buka aplikasi atau ketik butang muat semula pada widget. Android mungkin menyekat kemas kini widget yang kerap.</p>
+<h3>Saya telah menukar bahasa, tetapi dokumen atau panduan belum dikemas kini lagi</h3>
+<p>Semak sambungan internet anda dan berikan masa untuk muat turun. Jika versi jauh tidak tersedia, aplikasi akan menggunakan sandaran terbina dalamnya.</p>
+
+<div class="footer small">Panduan boleh dikemas kini melalui GitHub. Jika versi jauh tidak tersedia, aplikasi akan menggunakan versi luar talian terbina dalamnya.</div>
+</main>
+</body>
+</html>

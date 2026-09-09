@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ShiftAlarm-käyttöopas</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #64748b;
+  --accent: #2563eb;
+  --soft: #e8eef8;
+  --border: #dbe4f0;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.58;
+  margin: 0;
+  padding: 18px;
+  color: var(--text);
+  background: var(--bg);
+}
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+h1 { margin: 0 0 8px; font-size: 28px; line-height: 1.2; }
+h2 { margin: 32px 0 10px; font-size: 21px; line-height: 1.25; }
+h3 { margin: 22px 0 8px; font-size: 17px; }
+p, li { font-size: 16px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul, ol { padding-left: 22px; }
+.notice, .tip, .warning {
+  padding: 14px 16px;
+  border-radius: 16px;
+  margin: 14px 0;
+  border: 1px solid var(--border);
+}
+.notice { background: var(--soft); }
+.tip { background: #ecfdf5; }
+.warning { background: #fff7ed; }
+.small { color: var(--muted); font-size: 14px; }
+.toc {
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 16px;
+  margin: 18px 0 24px;
+}
+.toc ol { margin: 8px 0 0; }
+.step-list li { margin-bottom: 8px; }
+.guide-figure {
+  margin: 18px 0;
+}
+.guide-image {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+}
+.callout-list li {
+  margin-bottom: 10px;
+}
+.guide-caption {
+  max-width: 520px;
+  margin: 10px auto 0;
+  color: var(--text);
+  font-size: 15px;
+}
+.guide-caption strong {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.footer {
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --card: #111827;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --accent: #93c5fd;
+    --soft: #1f2937;
+    --border: #334155;
+  }
+  main { box-shadow: none; }
+  .toc { background: #172033; }
+  .tip { background: #10251f; }
+  .warning { background: #2a1d10; }
+}
+</style>
+</head>
+<body>
+<main>
+<h1>ShiftAlarm-käyttöopas</h1>
+<p class="small">Versio 14. Päivämäärä: 2. elokuuta 2026.</p>
+<div class="notice">Tämä sivu on käytännönläheinen opas ShiftAlarmiin. Se selittää, mitä kukin pääominaisuus tekee, mistä se löytyy, mitä napauttaa ja mitä tarkistaa, jos ominaisuus ei toimi odotetulla tavalla.</div>
+<nav class="toc">
+<strong>Sisältö</strong>
+<ol><li><a href="#start">1. Ensimmäinen käynnistys</a></li><li><a href="#permissions">2. Käyttöoikeudet ja luotettavuus</a></li><li><a href="#main">3. Päänäyttö</a></li><li><a href="#shifts">4. Vuoroaikataulut</a></li><li><a href="#statistics">5. Aikataulutilastot</a></li><li><a href="#alarms">6. Hälytykset</a></li><li><a href="#geo">7. Geohälytykset</a></li><li><a href="#notes">8. Muistiinpanot, tapahtumat ja muistutukset</a></li><li><a href="#clock">9. Kello, ajastin ja sekuntikello</a></li><li><a href="#widgets">10. Widgetit</a></li><li><a href="#salary">11. Palkanlaskenta</a></li><li><a href="#settings">12. Asetukset</a></li><li><a href="#backup">13. Varmuuskopiointi ja palautus</a></li><li><a href="#diagnostics">14. Diagnostiikka ja vianmääritys</a></li><li><a href="#faq">15. Usein kysytyt kysymykset</a></li></ol>
+</nav>
+<h2 id="start">1. Ensimmäinen käynnistys</h2>
+
+<p>Kun ShiftAlarm käynnistyy ensimmäisen kerran, se näyttää lyhyen asennusprosessin. Päänäyttö on jo käytettävissä taustalla, mutta on parasta suorittaa perusasetukset ensin.</p>
+<ol class="step-list">
+<li>Lue johdantotiedot ja napauta "Jatka".</li>
+<li>Avaa asiakirjat tai hyväksy vaaditut asiakirjat asiakirjavaiheessa, kun olet valmis jatkamaan.</li>
+<li>Käyttöoikeudet-vaiheessa avaa käyttöoikeusnäyttö ja tarkista ilmoitukset, tarkat hälytykset, sijainnin käyttöoikeudet ja akun rajoitukset.</li>
+<li>Napauta "Viimeistele asennus".</li>
+</ol>
+<p class="tip">Voit määrittää käyttöoikeudet myöhemmin kohdassa "Asetukset → Käyttöoikeudet ja luotettavuus".</p>
+
+<h2 id="permissions">2. Käyttöoikeudet ja luotettavuus</h2>
+
+<p>Hälytykset, muistutukset ja geohälytykset riippuvat Android-asetuksista ja laitteen valmistajan ohjelmistosta.</p>
+<ul>
+<li><strong>Ilmoitukset</strong> – vaaditaan hälytyksille, muistutuksille, ajastimelle ja palveluilmoituksille.</li>
+<li><strong>Tarkat hälytykset</strong> – auttavat hälytystä käynnistymään haluttuun aikaan.</li>
+<li><strong>Sijainti</strong> – vaaditaan geohälytyksille.</li>
+<li><strong>Taustasijainti</strong> – vaaditaan, jotta geohälytys toimii sovelluksen ollessa suljettuna.</li>
+<li><strong>Akku ja taustatoiminta</strong> – voivat vaikuttaa laukaisimen luotettavuuteen Xiaomissa/Redmissä ja joissakin muissa laitteissa.</li>
+</ul>
+<p class="warning">Android ei aina takaa ilmoitusten, tarkkojen hälytysten tai geoaitatapahtumien välitöntä toimittamista. Tarkista kaikki tärkeät hälytykset käyttöoikeusnäytöltä.</p>
+
+<h2 id="main">3. Päänäyttö</h2>
+
+<p>Päänäyttö on päivittäinen kojelautasi. Se tarjoaa suoran pääsyn kalenteriin, kelloon, Geo Alarmiin, tavallisiin hälytyksiin, vuoroaikatauluihin, muistiinpanoihin ja asetuksiin.</p>
+
+<h3 id="main-overview">3.1. Päänäytön elementit</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_screen_overview.png" alt="ShiftAlarm-päänäyttö numeroiduilla säätimillä">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Takaisin-nuoli</strong> — siirtää kalenterin edelliseen kuukauteen.</li>
+<li><strong>Kuukausi ja vuosi</strong> — näyttää avoimen kuukauden. Napauta tätä aluetta käyttääksesi <a href="#main-date-picker">vaiheittaista kuukausi- ja vuosivalitsinta</a>.</li>
+<li><strong>Nuoli eteenpäin</strong> — siirtää kalenterin seuraavaan kuukauteen.</li>
+<li><strong>Kalenteri</strong> — kuukauden pääalue. Voit pyyhkäistä kalenteria. Jokainen päivä voi näyttää päivämäärän, muistutukset, tapahtumat, aikataulun mukaiset työvuorot ja päivän muutokset. Tavallinen napautus valitsee päivämäärän; pitkä painallus avaa <a href="#main-day-actions">valitun päivän tiedot ja toiminnot</a>.</li>
+<li><strong>Tänään</strong> — palauttaa kalenterin nykyiseen päivään.</li>
+<li><strong>Kello</strong> — avaa <a href="#clock">maailmankellon, sekuntikellon ja ajastimen</a>.</li>
+<li><strong>Geohälytys</strong> — avaa <a href="#geo">kartan, tallennetut paikat ja Geohälytysten asetukset</a>. Hälytys voi laueta, kun saavut valitulle alueelle, poistut sieltä tai teet jommankumman näistä.</li>
+<li><strong>Hälytys</strong> — avaa <a href="#alarms">tavalliset, toistuvat ja vuoroihin linkitetyt hälytykset</a>.</li>
+<li><strong>Aikataulu</strong> — avaa <a href="#shifts">vuoroaikataulut, niiden luomisen ja muokkaamisen sekä tilastot</a>.</li>
+<li><strong>Muistiinpanot</strong> — avaa <a href="#notes">muistiinpanot, tapahtumat, muistutukset, äänimuistiinpanot ja puheesta tekstiksi -toiminnon</a>.</li>
+<li><strong>Asetukset</strong> — avaa <a href="#settings">käyttöoikeudet, kielen, teeman, offline-puhemallit, varmuuskopioinnin, diagnostiikan, dokumentit ja koulutuksen</a>.</li>
+</ol>
+
+
+<h3 id="main-date-picker">3.2. Kuukauden ja vuoden valitseminen</h3>
+
+<p>Napauta kuukautta ja vuotta päänäytön yläreunassa avataksesi haluamasi kalenterijakson nopeasti. Valinta etenee vaiheittain: <strong>vuosisata → vuosikymmen → vuosi → kuukausi</strong>.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_century.webp" alt="Vaihe 1: vuosisadan valitseminen ShiftAlarm-kalenterista">
+<figcaption class="guide-caption"><strong>1. Valitse vuosisata.</strong> Napauta ajanjaksoa, joka sisältää haluamasi vuoden. Esimerkissä valitaan 2000-luku.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_decade.webp" alt="Vaihe 2: vuosikymmenen valitseminen ShiftAlarm-kalenterista">
+<figcaption class="guide-caption"><strong>2. Valitse vuosikymmen.</strong> Napauta aluetta, joka sisältää haluamasi vuoden. Vuodelle 2026 valitse ”2020–2029”.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_year.webp" alt="Vaihe 3: vuoden valitseminen ShiftAlarm-kalenterista">
+<figcaption class="guide-caption"><strong>3. Valitse vuosi.</strong> Napauta haluttua vuotta. Esimerkissä valitaan vuosi 2026.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_month.webp" alt="Vaihe 4: kuukauden valitseminen ShiftAlarm-kalenterista">
+<figcaption class="guide-caption"><strong>4. Valitse kuukausi.</strong> Napauta haluttua kuukautta. Esimerkissä valitaan heinäkuu.</figcaption>
+</figure>
+
+<div class="tip">Kun olet valinnut kuukauden, paneeli sulkeutuu ja pääkalenteri avautuu valitun kuukauden ja vuoden kohdalle.</div>
+<div class="notice">"Takaisin"-painike palaa edelliseen vaiheeseen. Vuosisadan näytössä se sulkee päivämäärävalitsimen.</div>
+
+<h3 id="main-day-actions">3.3. Valitun päivän tiedot ja toiminnot</h3>
+
+<p>Kosketa ja pidä haluttua päivää kalenterissa painettuna. Näyttöön avautuu paneeli, jossa on kyseisen päivämäärän tiedot ja toiminnot. Vedä paneelia ylöspäin nähdäksesi kaikki käytettävissä olevat toiminnot.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_day_actions.webp" alt="ShiftAlarm-tietojen ja toimintojen paneeli valitulle kalenteripäivälle">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Päivämäärä</strong> — näyttää viikonpäivän ja valitun päivämäärän. Vedä yläosassa olevaa kahvaa ylös- tai alaspäin laajentaaksesi tai sulkeaksesi paneelin.</li>
+<li><strong>Vuoro</strong> — näyttää lasketun työvuoron tai päivän muutoksen, kuten vapaapäivän, poissaolon, loman, sairausloman tai muun poikkeuksen.</li>
+<li><strong>Tämän päivämäärän hälytykset</strong> — näyttää valitulle päivälle määritetyt hälytykset tai raportit, joita ei ole olemassa.</li>
+<li><strong>Tapahtumat ja muistutukset</strong> — näyttää valittuun päivämäärään linkitetyt merkinnät.</li>
+<li><strong>Lisää hälytys</strong> — avaa kertahälytyksen luomisen valitulle päivämäärälle.</li>
+<li><strong>Vaihda työvuoroa</strong> — luo poikkeuksen yhdelle päivälle tai päivämäärävälille aktiivisessa aikataulussa.</li>
+<li><strong>Lisää muistiinpano</strong> — antaa sinun valita luotavan tapahtuman tai muistutuksen valitulle päivämäärälle.</li>
+</ol>
+
+<div class="notice">”Vaihda vuoro” -toiminto on käytettävissä aktiivisen vuoroluettelon päivien muuttamiseen.</div>
+
+<h4 id="main-shift-override">Yhden päivän tai päivämääräalueen muuttaminen</h4>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_types.webp" alt="Ajanjakson ja vuoronvaihtotyypin valitseminen ShiftAlarmissa">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Alkamispäivä</strong> — muutoksen ensimmäinen päivä. Aluksi käytetään kalenterista valittua päivämäärää.</li>
+<li><strong>Päättymispäivä</strong> — muutoksen viimeinen päivä. Jos haluat muuttaa vain yhden päivän, jätä sama päivämäärä valituksi.</li>
+<li><strong>Pois-aika</strong> — korvaa lasketun työvuoron poissaoloajalla.</li>
+<li><strong>Loma</strong> — merkitsee valitun päivän tai aikavälin lomaksi.</li>
+<li><strong>Sairasloma</strong> — merkitsee valitun päivän tai aikavälin sairauslomaksi.</li>
+<li><strong>Tallenna muutos</strong> — ottaa valitun poikkeuksen käyttöön kalenterissa.</li>
+</ol>
+
+<h4 id="main-shift-time-adjustment">Työajan muuttaminen</h4>
+
+<p>Selaa muutostyyppien luetteloa alaspäin ja valitse ”Muokkaa vuoroa” muuttaaksesi lasketun työvuoron kestoa.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_time_adjustment.webp" alt="Vuoron työajan muuttaminen ShiftAlarmissa">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Muokkaa vuoroa</strong> — ottaa käyttöön työajan muuttamisen valitulle vuorolle.</li>
+<li><strong>+ aika</strong> — lisää tunteja tai minuutteja vuoron vakiokestoon.</li>
+<li><strong>− aika</strong> — lyhentää vuoron kestoa, esimerkiksi kun työ päättyi aikaisemmin.</li>
+<li><strong>Laske tämä aika ylityöksi</strong> — käsittelee lisättyä aikaa ylityönä. Jos asetus on pois päältä, se lasketaan normaaliksi työajaksi.</li>
+<li><strong>Tallenna muutos</strong> — ottaa muutoksen käyttöön valittuna päivänä tai alueella.</li>
+</ol>
+
+<div class="tip">Päivän muutos ei muuta alkuperäistä aikataulumallia. Se tallennetaan erillisenä poikkeuksena ja sisällytetään kalenteriin, tilastoihin, palkkalaskentaan ja raportteihin.</div>
+
+<h2 id="shifts">4. Vuoroaikataulut</h2>
+
+<p>Vuoroaikataulu määrittelee toistuvan työsyklin ja tarjoaa perustan muille ShiftAlarm-ominaisuuksille. Sovellus käyttää sitä kalenterin täyttämiseen, hälytysten linkittämiseen vuoroihin, työajan laskemiseen, tilastojen luomiseen, palkan arvioimiseen ja raporttien laatimiseen.</p>
+
+<div class="notice"><strong>Perusperiaate.</strong> Luo ensin toistuva perusaikataulu. Lisää loma, sairausloma, vapaapäivä, kertaluonteinen korvaava vuoro tai työajan muutos poikkeuksena tietyille päivämäärille <a href="#main-day-actions">valittujen päivien toimintojen</a> kautta. Tämä pitää alkuperäisen syklin muuttumattomana.</div>
+
+<h3 id="shifts-list">4.1. Aikataululuettelo ja -säätimet</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedules_overview.webp" alt="ShiftAlarm-aikataulunäyttö, jossa on aktiivinen aikataulukortti ja numeroidut säätimet">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Aikataulun tiedot</strong> — nimi, aloituspäivämäärä, syklin pituus ja lyhyt päivien sarja. Esimerkissä "D · D · O · O" tarkoittaa kahta päivävuoroa, joita seuraa kaksi vapaapäivää.</li>
+<li><strong>Vaihda</strong> — poistaa aikataulun väliaikaisesti käytöstä poistamatta sitä. Kun otat sen uudelleen käyttöön, tallennetut asetukset pysyvät voimassa.</li>
+<li><strong>Aikataulun tila</strong> — ilmaisee, mikä aikataulu on tällä hetkellä aktiivinen.</li>
+<li><strong>Muokkaa</strong> — avaa muutettavat parametrit. Alkuasetusten jälkeen osa aikataulun pohjasta lukitaan, jotta jo luotuja kalenteritietoja ei lasketa vahingossa uudelleen.</li>
+<li><strong>Poista</strong> — poistaa aikataulun vahvistuksen jälkeen. Ennen sen poistamista tarkista kaikki vuoroon liittyvät hälytykset ja laskelmat.</li>
+<li><strong>Avaa tilastot</strong> — avaa tämän aikataulun <a href="#statistics">työaika-, jakso-, palkka- ja raporttitilastot</a>.</li>
+<li><strong>Luo aikataulu</strong> — voit valita valmiin mallin tai luoda mukautetun syklin.</li>
+</ol>
+
+<h3 id="shifts-create">4.2. Aikataulun luomisen aloittaminen</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_create.webp" alt="Aikataulun luontipaneeli, jossa on nimi, aloituspäivämäärä, mallit ja mukautettu aikataulu">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Aikataulun nimi</strong> — anna selkeä nimi, kuten "Päävuoro 2/2", "Yövuoro" tai työpaikkasi nimi.</li>
+<li><strong>Aloituspäivämäärä</strong> — päivämäärä, joka vastaa <strong>toistuvan syklin ensimmäistä päivää</strong>. Voit valita menneen tai tulevan päivämäärän; sovellus laskee aikataulun eteen- ja taaksepäin siitä.</li>
+<li><strong>Mallit</strong> — valmiita yleisiä vuorosarjoja. Esimerkissä käytetään mallia ”2/2 päivää”.</li>
+<li><strong>Mukautettu aikataulu</strong> — luo oman työpäivien ja vapaapäivien sarjan.</li>
+<li><strong>Luo aikataulu</strong> — avaa valitun vaihtoehdon yksityiskohtaisen editorin.</li>
+</ol>
+
+<div class="tip">Mallissa ”D · D · O · O” aloituspäivämäärä on yleensä ensimmäinen kahdesta työpäivästä. Mukautetussa syklissä päivä 1 voi myös olla vapaapäivä; tärkeintä on, että valittu päivämäärä vastaa täsmälleen luomasi sarjan päivää 1.</div>
+
+<h3 id="shifts-template">4.3. Aikataulun luominen mallista</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_template.webp" alt="Mallipohjainen aikataulueditori, jossa on nimi, sarja, aloituspäivämäärä ja vuoroaika">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Aikataulun nimi</strong> — säilytä ehdotettu nimi tai korvaa se omalla nimelläsi.</li>
+<li><strong>Mallipohja</strong> — näyttää kirjainsarjan ja sen merkityksen. Esimerkissä ”D · D · O · O” tarkoittaa päivävuoroa, päivävuoroa, vapaapäivää, vapaapäivää.</li>
+<li><strong>Alkamispäivämäärä</strong> — valitse näytetyn sarjan ensimmäisen päivän päivämäärä.</li>
+<li><strong>Vuoroaika</strong> — määritä kunkin työvuorotyypin aloitus- ja päättymisaika. Sovellus näyttää lasketun keston.</li>
+<li><strong>Peruuta</strong> — sulkee editorin tallentamatta.</li>
+<li><strong>Tallenna</strong> — tallentaa aikataulun ja aloittaa vuorojen laskemisen kalenterissa.</li>
+</ol>
+
+<div class="warning"><strong>Ensimmäisen tallennuksen jälkeen.</strong> Aloituspäivämäärä ja syklirakenne on lukittu jo laskettujen kalenteritietojen suojaamiseksi. Voit edelleen muokata nimeä ja joitakin työparametreja. Jos tarvitset eri perussyklin tai viitepäivämäärän, on turvallisempaa luoda uusi aikataulu.</div>
+
+<h3 id="shifts-custom">4.4. Mukautetun syklin luominen</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_custom.webp" alt="Mukautettu aikataulueditori, jossa on syklin pituus, päivän säätimet, aloituspäivämäärä ja asetukset kullekin päivälle">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Aikataulun nimi</strong> — anna mukautetulle sekvenssille nimi.</li>
+<li><strong>Syklin pituus</strong> — näyttää, kuinka monta päivää toistuvaan sekvenssiin sisältyy.</li>
+<li><strong>Poista päivä</strong> — lyhentää sykliä yhdellä päivällä.</li>
+<li><strong>Lisää päivä</strong> — lisää toisen määritettävän päivän syklin loppuun.</li>
+<li><strong>Aloituspäivämäärä</strong> — päivämäärä, joka vastaa mukautetun syklin ensimmäistä päivää.</li>
+<li><strong>Päivän asetukset</strong> — napauta ”Vaihto” "tyyppi" -kortti ja valitse vapaapäivä tai haluttu työtyyppi: päivä, yö, aamu, ilta, 24 tunnin vuoro tai mukautettu vuoro. Määritä työpäivälle aloitus- ja päättymisaika. Määritä syklin jäljellä olevat päivät samalla tavalla näytön alareunassa.</li>
+<li><strong>Peruuta</strong> — sulkee editorin tallentamatta.</li>
+<li><strong>Tallenna</strong> — tallentaa mukautetun syklin ja laskee sen kalenteriin.</li>
+</ol>
+
+<div class="notice"><strong>Mikä on sykli?</strong> Sykli on päivien lukumäärä, jonka jälkeen sekvenssi alkaa alusta. Esimerkiksi neljän päivän sykli voi olla "2 työpäivää + 2 vapaapäivää", kun taas kuuden päivän sykli voi olla "3 työpäivää + 3 vapaapäivää". Viimeisen päivän jälkeen sovellus palaa päivään 1.</div>
+
+<div class="tip">Älä muuta perussykliä kertaluonteisen aikataulupoikkeuksen vuoksi. Paina kalenteripäivämäärää pitkään ja luo vapaapäivä, loma, sairausloma, sijaisvuoro tai aikamuutos.</div>
+
+
+
+<span id="shift-statistics"></span>
+<h2 id="statistics">5. Aikataulun tilastot</h2>
+
+<p>Avaa "Tilastot"-osio aikataulukortista käyttämällä <strong>"Avaa tilastot"</strong>-painiketta. Tämä osio yhdistää tietoja työpäivistä ja vapaapäivistä, aikataulun muutoksista, suunnitellusta ja toteutuneesta työajasta, arvioidusta palkasta ja raporteista.</p>
+
+<div class="notice"><strong>Tärkeää:</strong> tilastot lasketaan vain valitulle vuoroluettelolle. Valittu ajanjakso koskee kaikkia sen alapuolella olevia työaika-, palkka- ja raportointiarvoja.</div>
+
+<h3 id="statistics-period">5.1. Aikataulu, jakso ja päivän yhteenveto</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_period_overview.webp" alt="Tilastonäyttö, jossa on aikataulutiedot, jakson valinta ja päivän kokonaismäärät">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Aikataulun tiedot</strong> — näyttää valitun aikataulun nimen, ensimmäisen syklin alkamispäivämäärän ja toistuvan syklin pituuden. Tämän näytön tilastot koskevat vain tätä aikataulua.</li>
+<li><strong>Valitun jakson kortti</strong> — näyttää käytössä olevan jakson. Napauta sitä tai oikealla olevaa nuolta valitaksesi kuluvan, edellisen tai seuraavan kuukauden, kuluvan vuoden tai mukautetun päivämäärävälin.</li>
+<li><strong>Päivän yhteenveto</strong> — näyttää jakson päivien lukumäärän, työvuorot, vapaapäivät, suoritetut ja tulevat vuorot sekä muuttuneet päivät. Muutetut päivät ovat poikkeuksia perussyklistä: loma, sairausloma, vapaa-aika, korvaava tai siirretty työvuoro, työajan muutos ja muut muutokset.</li>
+</ol>
+
+<div class="warning"><strong>Tulevat jaksot ovat ennusteita.</strong> Tulevan kuukauden osalta sovellus käyttää luotua työaikataulua ja jo syötettyjä tietoja, mutta se ei voi tietää tulevia sairauspoissaoloja, lomia, poissaoloja, ylitöitä, bonuksia tai vähennyksiä. Kun valitset kuluvan vuoden, kokonaissummat saattavat yhdistää menneiden päivämäärien todelliset tiedot loppuvuoden ennusteeseen.</div>
+
+<h3 id="statistics-work">5.2. Työaika, palkka ja raportit</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_work_salary_reports.webp" alt="Tilastonäyttö, jossa on työaika, edistyminen, palkka ja raporttioikeudet">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Työaika</strong> — yhteenvetokortti tunneille ja edistymiselle. Napauta sitä avataksesi <a href="#statistics-break">taukoasetukset</a>.</li>
+<li><strong>Suunnitellut tunnit</strong> — aikataulun mukaisten työvuorojen ja muutosten kokonaiskesto valitulla ajanjaksolla.</li>
+<li><strong>Työtunnit</strong> — nykyiseen päivämäärään mennessä suoritetuiksi katsottujen työvuorojen aika taukoasetukset käytössä.</li>
+<li><strong>Edistyminen</strong> — näyttää, kuinka monta työvuoroa on suoritettu kokonaismäärästä ja kuinka suuri prosenttiosuus valitusta ajanjaksosta on suoritettu.</li>
+<li><strong>Palkka</strong> — avaa <a href="#salary">palkanlaskenta-asetukset</a>. Kortti näyttää arvion valitulle aikataululle ja jaksolle.</li>
+<li><strong>Yhteensä</strong> — arvioitu tähän mennessä ansaittu summa, mukaan lukien valittu maksutapa, bonukset, ylityöt ja vähennykset.</li>
+<li><strong>Palkka</strong> — tämän kortin sisältö riippuu valitusta laskentatavasta: tuntipalkka, vuoropalkka tai kuukausipalkka. Se näyttää palkka-asetuksiin syötetyn arvon.</li>
+<li><strong>Laskelman tiedot</strong> — palkallinen aika, ylityötunnit, bonukset ja vähennykset valitulta jaksolta.</li>
+<li><strong>Raportit</strong> — avaa <a href="#reports">yksityiskohtaiset raportit jaksoista, työajasta ja palkasta</a>.</li>
+</ol>
+
+<div class="tip">Kaikki työaika- ja palkkaosioiden arvot lasketaan uudelleen, kun muutat jaksoa ylimmässä kortissa.</div>
+
+<h3 id="statistics-break">5.3. Taukojen laskeminen työajassa</h3>
+
+<p>Napauta ”Työaika”-korttia määrittääksesi, lasketaanko ateriatauko vai jokin muu tauko osaksi todellista työ- ja palkallista aikaa.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_break_settings.webp" alt="Taukojen laskennan ja keston asetuspaneeli">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Nykyiset kokonaismäärät</strong> — näyttää valitun ajanjakson suunnitellut ja työtunnit ennen uusien asetusten käyttöönottoa.</li>
+<li><strong>Laske tauko työajaksi</strong> — jätä tämä asetus päälle, jos tauko on palkallinen ja sisältyy työvuoron kestoon. Poista se käytöstä, jos määritetty aika on jätettävä pois työ- ja palkallisesta ajasta.</li>
+<li><strong>Tauon kesto</strong> — valitse yhden tauon tunnit ja minuutit. Tätä asetusta käytetään sovellettavien työvuorojen uudelleenlaskennassa.</li>
+<li><strong>Kokonaistauko</strong> — näyttää valitun keston ennen tallennusta.</li>
+<li><strong>Tallenna</strong> — ottaa asetuksen käyttöön ja laskee työajan ja siihen liittyvät arvot uudelleen.</li>
+</ol>
+
+<div class="notice">Tauko voi edustaa ruokailutaukoa, vuoron luovutusta tai muuta palkatonta taukoa vuoron sisällä. Syötä kesto, joka vastaa työpaikkasi sääntöjä.</div>
+
+<h3 id="reports">5.4. Raportit: jakso, tila ja yhteenveto</h3>
+
+<p>Avaa "Raportit" tilastonäytön alemmasta kortista. Tässä osiossa on tarkempia tietoja valitulta ajanjaksolta: työaika, vuorot ja poissaolot, kalenterimuutokset, palkka, bonukset, vähennykset, jaksojen vertailu, päiväkohtaiset tiedot ja vienti.</p>
+
+<div class="warning"><strong>Raportit ovat vain tiedoksi.</strong> Laskelmat perustuvat valittuun työvuoroluetteloon, palkka-asetuksiin, taukolaskentaan ja kalenterivuorojen muutoksiin. Työnantajasi todelliset luvut voivat poiketa näistä erilaisen työajanlaskentajärjestelmän, pyöristyksen, verojen, korvausten tai sisäisten sääntöjen vuoksi. Jos löydät virheen tai ei-tuetun laskentamenetelmän, ota yhteyttä kehittäjiin sovelluksessa näkyvässä osoitteessa ja liitä mukaan syöttötiedot ja odotettu tulos.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_period_salary.webp" alt="Raporttinäyttö, jossa on kauden valinta, tila, yhteenveto ja yksityiskohtainen palkkaerittely">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Raporttikausi</strong> — napauta korttia valitaksesi kuluvan, edellisen tai seuraavan kuukauden, ennalta määritetyn aikavälin tai mukautetut päivämäärät. Kaikki alla olevat tiedot koskevat valittua kautta.</li>
+<li><strong>Jakson tila</strong> — näyttää, onko jakso valmis, tällä hetkellä aktiivinen vai ei ole vielä alkanut. Valmis jakso lasketaan tallennetuista todellisista tiedoista. Aktiivinen jakso yhdistää jo työskennellyn datan nykyisen suunnitelman kanssa, kun taas tuleva jakso on ennuste.</li>
+<li><strong>Yhteenveto</strong> — tekstimuotoinen yhteenveto todellisesta työajasta, lasketusta määrästä ja ylityöstä.</li>
+<li><strong>Palkka</strong> — yksityiskohtainen erittely peruspalkasta, ylityökorvauksista, bonuksista, vähennyksistä ja lopullisesta arviosta. Arvot riippuvat <a href="#salary">palkka-asetuksista</a> ja valitusta jaksosta.</li>
+</ol>
+
+<h3 id="reports-work">5.5. Työaika, poissaolot ja päivät</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_work_absences.webp" alt="Raporttinäyttö, jossa näkyvät työaika, tauot, suoritetut työvuorot ja poissaolot">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Työaika</strong> — näyttää suunnitellut ja toteutuneet työtunnit, suunnitellut ja toteutuneet työtunnit ennen taukovähennystä, suoritettujen työvuorojen määrän, työvuoron keskimääräisen keston ja vähennettyjen taukojen kokonaismäärän. Määritä tauot <a href="#statistics-break">työaika-osiossa</a>.</li>
+<li><strong>Poissaolot ja päivät</strong> — näyttää valitun ajanjakson aikana poissaolopäivien, lomapäivien, sairauspoissaolopäivien, vapaapäivien ja muuttuneiden päivien määrän.</li>
+</ol>
+
+<h3 id="reports-charts">5.6. Säädöt ja kaaviot</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_corrections_charts.webp" alt="Raporttinäyttö, jossa näkyvät säädykset, palkan koostumus ja työaika-arvot">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Säädöt</strong> — näyttää ylityötunnit, työvuoron kokonaismuutoksen ja perusaikataulusta muuttuneiden päivien määrän.</li>
+<li><strong>Kaaviot</strong> — visualisoi palkan ja työajan koostumuksen: peruspalkka, ylityöt, bonukset, vähennykset, kokonaismäärän sekä suunnitellut, tehdyt ja palkatut tunnit.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_charts_days.webp" alt="Lisäraporttikaavioita tunneilla ja päivätyyppisellä ympyrädiagrammilla">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tunnit</strong> — jatkaa suunniteltujen, työskennellyt, palkatut ja ylityötunnit. ”Toteutunut työaika” -rivi näyttää tuloksen asetusten ja säätöjen jälkeen.</li>
+<li><strong>Päivätyypit</strong> — ympyrädiagrammi, joka jakaa valitun ajanjakson päivät tyypin mukaan. Selite riippuu aikataulusta ja todellisista muutoksista: päivä-, yö- tai muut vuorot, vapaapäivät, loma, sairausloma, poissaolo ja muut tilat.</li>
+</ol>
+
+<h3 id="reports-comparison">5.7. Jaksojen vertailu</h3>
+
+<p>Vertailuosio auttaa vertailemaan palkkaa, aikaa, vuoroja ja poissaoloja useiden ajanjaksojen välillä. Käytettävissä olevien jaksojen määrä riippuu tallennetuista tiedoista.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_chart.webp" alt="Jaksojen vertailunäyttö, jossa on vaihteluvälin valinta, palkkakaavio ja vertailutaulukon alku">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Vertaile jaksoja</strong> — napauta korttia valitaksesi vertailtavien jaksojen määrän ja niiden vaihteluvälin.</li>
+<li><strong>Kaavio ja jaksoluettelo</strong> — näyttää kunkin jakson palkan ja listaa vertailuun sisältyvät aikavälit sekä niiden tilan.</li>
+<li><strong>Vertailutaulukko</strong> — sisältää yksityiskohtaiset arvot kullekin jaksolle. Pyyhkäise taulukkoa vaakasuunnassa vasemmalle tai oikealle nähdäksesi jäljellä olevat sarakkeet.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_table.webp" alt="Vertailutaulukon jatkoa ja vierekkäisten ajanjaksojen väliset erot">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Jakson arvot</strong> — kokonaispalkka, tehdyt ja palkalliset tunnit, ylityöt, bonukset, vähennykset, tehdyt työvuorot, poissaolot ja muuttuneet päivät.</li>
+<li><strong>Jaksojen välinen ero</strong> — näyttää, miten kukin jakso eroaa edellisestä. Positiiviset ja negatiiviset arvot osoittavat vastaavan mittarin kasvua tai laskua. Pelkkä väri ei aina tarkoita hyötyä tai ongelmaa; esimerkiksi vähennysten kasvu tarkoittaa, että pidätetään suurempi summa.</li>
+</ol>
+
+<h3 id="reports-details-export">5.8. Päivittäiset tiedot ja vienti</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_details_export.webp" alt="Raporttikortit päivittäisille tiedoille ja vienti PDF-, HTML-, JSON- tai CSV-muotoon">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Päivittäiset tiedot</strong> — avaa luettelon valitun ajanjakson jokaisesta päivästä. Voit tarkistaa tietyn päivän vuorotyypin, suunnitellun ja toteutuneen ajan, tuntimuutokset, poissaolot ja muut muutokset.</li>
+<li><strong>Vie</strong> — tallentaa raportin PDF-, HTML-, JSON- tai CSV-muodossa. Valitse raporttijakso ennen vientiä; voit sitten tulostaa, tallentaa tai jakaa tiedoston Android-järjestelmävalikon kautta.</li>
+</ol>
+
+<div class="tip">Ennen vertailua tai vientiä tarkista valittu jakso, aikataulu, vuoromuutokset, tauot ja palkka-asetukset. Lähdetietojen virhe vaikuttaa kaikkiin raportin kokonaissummiin.</div>
+
+<h2 id="alarms">6. Hälytykset</h2>
+
+<p>ShiftAlarmin avulla voit luoda kertaluonteisia hälytyksiä, toistaa niitä valittuina viikonpäivinä tai linkittää niiden ajan vuoroaikatauluun.</p>
+
+<h3 id="alarms-list">6.1. Hälytysluettelo</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarms_overview.webp" alt="ShiftAlarm-hälytysnäyttö, jossa on seuraava hälytys, lajittelu, hälytyskortti ja lisäyspainike">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Seuraava hälytys</strong> — näyttää seuraavan aktiivisen hälytyksen päivämäärän ja kellonajan.</li>
+<li><strong>Hälytysten lajittelu</strong> — muuttaa hälytyskorttien järjestystä, esimerkiksi näyttämällä käytössä olevat hälytykset ensin.</li>
+<li><strong>Hälytyskortti</strong> — sisältää kellonajan, päivämäärän tai toistotilan, aikataulutyypin ja jäljellä olevan ajan. Napauta korttia muokataksesi sitä.</li>
+<li><strong>Vaihda</strong> — ottaa hälytyksen tilapäisesti käyttöön tai poistaa sen käytöstä poistamatta sen asetuksia.</li>
+<li><strong>Poista</strong> — poistaa valitun hälytyksen.</li>
+<li><strong>Lisää hälytys</strong> — avaa näytön uuden hälytyksen luomista varten.</li>
+</ol>
+
+<h3 id="alarms-create">6.2. Hälytyksen luominen ja muokkaaminen</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_time_schedule.webp" alt="ShiftAlarm-hälytyseditorin yläreuna: aika, aikataulutyyppi, torkku ja tallennussäätimet">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Aika</strong> — aseta hälytysaika vierittämällä tunti- ja minuuttipyöriä.</li>
+<li><strong>Aikataulutyyppi</strong> — valitse jokin näistä tiloista:
+<ul>
+<li><strong>Kerran</strong> — hälytys laukeaa kerran valittuna päivänä;</li>
+<li><strong>Päivittäin</strong> — toistuu valittuina viikonpäivinä;</li>
+<li><strong>Vuoroittain</strong> — linkittää hälytyksen valittuun aikatauluun ja vuorotyyppiin.</li>
+</ul>
+</li>
+<li><strong>Torkku</strong> — määrittää, kuinka monta minuuttia hälytys lykätään, kun napautat torkkupainiketta soittoäänen näytöllä.</li>
+<li><strong>Peruuta ja tallenna</strong> — nämä painikkeet ovat kiinteästi näytön alareunassa ja pysyvät käytettävissä, kun selaat editoria.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_behavior.webp" alt="ShiftAlarm-asetukset hälytyksen kestolle, toistohälytykselle, asteittaiselle äänenvoimakkuuden lisäykselle ja värinälle">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Hälytyksen kesto</strong> — määrittää, kuinka kauan hälytys soi, jos käyttäjä ei pysäytä sitä.</li>
+<li><strong>Toista, jos hälytys ohitetaan</strong> — ottaa käyttöön toisen hälytyksen, kun hälytystä ei ole hylätty eikä torkutettu. Aseta aikaväli ennen sen alla olevaa toistettavaa hälytystä.</li>
+<li><strong>Asteittainen äänenvoimakkuuden lisäys</strong> — aloittaa hiljaisemmalla äänellä ja lisää äänenvoimakkuutta vähitellen valitun ajan kuluessa.</li>
+<li><strong>Värinä</strong> — ottaa värinän käyttöön tai poistaa sen käytöstä hälytyksen aikana.</li>
+<li><strong>Peruuta ja tallenna</strong> — editorin kiinteät säätimet.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_sound_name.webp" alt="ShiftAlarm-hälytyseditorin alaosa: värinä-, ääni-, nimi- ja tallennussäätimet">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Värinä</strong> — ottaa värinähälytyksen käyttöön tai poistaa sen käytöstä.</li>
+<li><strong>Ääni</strong> — antaa sinun valita sisäänrakennetun, järjestelmä- tai käyttäjän lisäämän äänen. Voit lisätä sovellukseen jopa viisi mukautettua ääntä.</li>
+<li><strong>Nimi</strong> — valinnainen nimi, joka auttaa erottamaan hälytykset.</li>
+<li><strong>Peruuta ja tallenna</strong> — hylkää muutokset tai tallenna hälytys.</li>
+</ol>
+
+<div class="notice">Tallentamisen jälkeen hälytys näkyy pääluettelossa. Ennen tärkeää hälytystä varmista, että hälytys on käytössä, sovelluksella on ilmoitus- ja tarkan hälytyksen käyttöoikeudet ja että järjestelmä ei rajoita sen taustatoimintaa.</div>
+
+<div class="tip">Luo vuoroon liittyvä hälytys luomalla ensin sopiva vuoroaikataulu. Valitse editorissa kiinteä laukaisuaika tai siirtymä suhteessa vuoron alkuun.</div>
+
+<h2 id="geo">7. Maantieteelliset hälytykset</h2>
+
+<p>Maantieteellinen hälytys valvoo, milloin laite saapuu valitulle alueelle tai poistuu sieltä. Alue määritellään kartalla olevalla pisteellä ja sen ympärillä olevalla säteellä. Käytä esimerkiksi Geo Alarmia saadaksesi hälytyksen lähestyessäsi työpaikkaa, kotia, bussipysäkkiä, asemaa tai muuta paikkaa.</p>
+
+<h3 id="geo-overview">7.1. Kartta ja säätimet</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_overview.webp" alt="ShiftAlarm Geo Alarmin päänäyttö, jossa on kartta ja numeroidut säätimet">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Lähennä</strong> — suurentaa karttaa.</li>
+<li><strong>Loitonna</strong> — pienentää kartan mittakaavaa.</li>
+<li><strong>Oma sijainti</strong> — siirtää kartan laitteen nykyiseen sijaintiin. Sovellus tarvitsee sijaintitietojen käyttöoikeuden tätä ominaisuutta varten.</li>
+<li><strong>Tallennetut paikat</strong> — avaa tallennettujen geohälytysten ja sijaintipisteiden luettelon.</li>
+<li><strong>Takaisin</strong> — palaa edelliseen sovellusnäyttöön.</li>
+<li><strong>Geohälytysten määrä</strong> — näyttää, kuinka monta geohälytystä on luotu.</li>
+<li><strong>Geohälytysten luettelo</strong> — avaa erillisen luettelon luoduista geohälytyksistä.</li>
+</ol>
+
+<div class="tip">Voit myös zoomata eleillä. Kosketa karttaa kahdella sormella ja levitä niitä erilleen zoomataksesi sisään tai nipistä niitä yhteen zoomataksesi ulos.</div>
+<div class="notice">Sivusäätimet saattavat näkyä vastakkaisella puolella oikealta vasemmalle luettavissa kielissä. Niiden toiminnot pysyvät samoina.</div>
+
+<h3 id="geo-saved-places">7.2. Tallennetut hälytykset ja sijaintipisteet</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_saved_places.webp" alt="Tallennetut paikat -ikkuna, jossa on Geo Alarm ja sijaintipistevälilehdet">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Hälytykset</strong> — näyttää tallennettuihin paikkoihin lisätyt Geo-hälytykset.</li>
+<li><strong>Sijaintipisteet</strong> — näyttää tallennetut koordinaatit ilman aktiivista Geo-hälytystä.</li>
+<li><strong>Tallennettujen paikkojen luettelo</strong> — napauta korttia siirtyäksesi kyseiseen paikkaan kartalla.</li>
+<li><strong>Sulje</strong> — sulkee ikkunan ja palaa karttaan.</li>
+</ol>
+
+<div class="notice">Jos poistat kirjanmerkkeihin lisätyn Geo-hälytyksen, sen koordinaatit säilyvät automaattisesti "Sijaintipisteet"-välilehdellä. Voit käyttää pistettä myöhemmin uudelleen luodaksesi uuden geohälytyksen.</div>
+
+<h3 id="geo-select-point">7.3. Pisteen ja säteen valinta</h3>
+
+<p>Kosketa ja pidä painettuna haluttua paikkaa kartalla. Sovellus lisää merkin ja avaa valitun pisteen paneelin.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_selected_point.webp" alt="Valittu karttapiste osoitteella, säteellä, kirjanmerkillä ja geohälytyksen luontipainikkeella">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Valitun pisteen merkki</strong> — tulevan geoaidan keskipiste. Kartassa näkyy myös ympyrä valitulle säteelle.</li>
+<li><strong>Osoite ja koordinaatit</strong> — voit varmistaa, että oikea paikka on valittu.</li>
+<li><strong>Tallenna sijaintipiste</strong> — lisää valitut koordinaatit tallennettuihin paikkoihin luomatta hälytystä.</li>
+<li><strong>Säde</strong> — asettaa pisteen ympärillä olevan alueen koon. Siirrä liukusäädintä, kunnes valitset sopivan etäisyyden.</li>
+<li><strong>Peruuta</strong> — peruuttaa pisteen valinnan.</li>
+<li><strong>Luo tähän</strong> — avaa uuden Geo Alarm -editorin valitulle pisteelle.</li>
+</ol>
+
+<div class="warning"><strong>Säteen valitseminen.</strong> Puhelin ei seuraa koordinaattejaan jatkuvasti. Android, laitteen valmistaja, akunsäästötila, GPS, mobiiliverkon ja Wi-Fi-signaalin laatu sekä liikkumisnopeus vaikuttavat kaikki rajan havaitsemiseen. Hälytys voi siksi laueta myös piirretyn viivan ulkopuolella. Esimerkiksi 800 metrin säteellä sisäänpääsy voidaan havaita vasta sen jälkeen, kun laite on jo alueen sisällä – ehkä 700, 600 tai 500 metrin päässä pisteestä.</div>
+
+<ul>
+<li><strong>Kaupungissa</strong> suositellaan yleensä <strong>1 300–1 500 metrin</strong> sädettä.</li>
+<li><strong>Kaupungin ulkopuolella</strong>, jossa sijaintipäivitykset saattavat olla harvempia, suositellaan <strong>4 000–5 000 metrin</strong> sädettä.</li>
+<li><strong>Tarkka säde</strong> tulee valita reitin, nopeutesi ja laitteen toiminnan perusteella.</li>
+</ul>
+
+<div class="notice">Järjestelmä havaitsee, kun laite ylittää alueen virtuaalisen rajan. ”Sisäänpääsy”-tilassa suurempi säde antaa puhelimelle yleensä enemmän aikaa havaita lähestymisesi. ”Poistuessa”-tilassa raja sijoitetaan sen sijaan kauemmas valitusta pisteestä.</div>
+
+<h3 id="geo-create">7.4. Geohälytyksen luominen</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_location_schedule.webp" alt="Geohälytyseditorin yläreuna: valmius, sijainti ja aikataulutyyppi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Geohälytyksen valmius</strong> — näyttää, onko tarvittavat käyttöoikeudet määritetty ja voiko sovellus rekisteröidä geoaidan.</li>
+<li><strong>Sijainti</strong> — sisältää valitun osoitteen ja koordinaatit. Voit muokata osoitetta tunnisteena, mutta varsinainen piste valitaan kartalla.</li>
+<li><strong>Aikataulutyyppi</strong> — määrittää päivät ja ehdot, jolloin Geo Alarm on aktiivinen.</li>
+<li><strong>Aina</strong> — Geo Alarm on aktiivinen joka päivä, kun se on käytössä.</li>
+<li><strong>Kerran</strong> — käytetään seuraavaan kertakäyttöiseen laukaisun, kun valittu ehto täyttyy.</li>
+<li><strong>Päivittäin</strong> — toimii vain valittuina viikonpäivinä.</li>
+<li><strong>Vuoroittain</strong> — linkittää Geo Alarmin aktiiviseen vuoroaikatauluun.</li>
+</ol>
+
+<div class="notice"><strong>"Vuoroittain"-aikataulu.</strong> Valitse, toimiiko se vuoropäivänä, vain ennen vuoroa vai vain sen jälkeen, ja määritä haluttu vuorotyyppi: päivä, yö, aamu, ilta, 24 tunnin, mukautettu tai mikä tahansa työvuoro.</div>
+<div class="tip">Jos kalenteripäivämäärä on merkitty vapaapäiväksi, lomaksi, sairauslomaksi tai vapaa-ajaksi työvuoron sijaan, vuoroon linkitetty Geo Alarm ei ole aktiivinen sinä päivänä.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_trigger_settings.webp" alt="Geo Alarm -editorin alaosa: saapumis- tai poistumisehto, säde ja hälytysasetukset">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Laukaisuehto</strong> — määrittää, mikä rajanylitys käynnistää hälytyksen.</li>
+<li><strong>Sisään tultaessa</strong> — käynnistää hälytyksen, kun laite saapuu valitulle säteelle, esimerkiksi työpaikalle tai vaaditulle pysähdykselle lähdettyään.</li>
+<li><strong>Poistuessa</strong> — käynnistää hälytyksen, kun laite poistuu valitulta säteeltä, esimerkiksi työpaikalta tai asemalta poistumisen jälkeen, jotta et ohittaa reitin seuraavan osan.</li>
+<li><strong>Sisään- tai uloskäynnillä</strong> — käynnistää hälytyksen aina, kun raja ylitetään jompaankumpaan suuntaan.</li>
+<li><strong>Säde</strong> — valitun pisteen ympärillä olevan geoaidan koko.</li>
+<li><strong>Hälytyksen kesto</strong> — määrittää hälytyksen keston.</li>
+<li><strong>Asteittainen äänenvoimakkuuden lisäys</strong> — asettaa tasaisen äänenvoimakkuuden lisäyksen hälytyksen alkamisen jälkeen.</li>
+<li><strong>Peruuta ja tallenna</strong> — hylkää muutokset tai tallenna geohälytys.</li>
+</ol>
+
+<div class="tip">Alla olevat loput vaihtoehdot ovat samanlaisia ​​kuin tavallisessa hälytyksessä: ääni, värinä, hälytyksen kesto, asteittainen äänenvoimakkuuden lisäys ja nimi.</div>
+
+<h3 id="geo-existing">7.5. Geohälytys kartalla ja sen säätimet</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_marker_radius.webp" alt="Luotu geohälytysmerkki ja sen laukaisusädeympyrä kartalla">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Geohälytysmerkki</strong> — näyttää valitun pisteen.</li>
+<li><strong>Säteen raja</strong> — näyttää alueen, jonka sisään- tai uloskäyntiä sovellus valvoo.</li>
+</ol>
+
+<p>Napauta maantieteellisen hälytyksen merkkiä. Näyttöön tulee ensin pieni tietoikkuna. Napauta kyseistä ikkunaa avataksesi yksityiskohtaisen kortin.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_alarm_card.webp" alt="Yksityiskohtainen geohälytyskortti, jossa on tiedot, kirjanmerkki, kytkin ja säätimet">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Nimi ja osoite</strong> — tunnistaa valitun geohälytyksen.</li>
+<li><strong>Kirjanmerkki</strong> — lisää hälytyksen tallennettuihin paikkoihin tai poistaa sen niistä.</li>
+<li><strong>Kytkin</strong> — ottaa geohälytyksen käyttöön tai poistaa sen tilapäisesti käytöstä poistamatta sen asetuksia.</li>
+<li><strong>Asetukset ja tila</strong> — näyttävät säteen, sisään- tai ulostulon ehdon, aikataulun, geoaidan valmiuden ja tiedot aiemmista aktivoinneista.</li>
+<li><strong>Muokkaa</strong> — avaa geohälytyksen asetukset.</li>
+<li><strong>Sulje</strong> — sulkee kortin ja palaa karttaan.</li>
+<li><strong>Poista</strong> — poistaa Geo Alarmin vahvistuksen jälkeen.</li>
+</ol>
+
+<div class="warning">Luotettavan toiminnan varmistamiseksi salli tarkka ja taustalla tapahtuva paikannus, poista ShiftAlarmin tiukat akkurajoitukset ja tarkista automaattisen taustakäynnistyksen asetukset, jos laitteesi tarjoaa ne. Vaikka asetukset olisivat oikein, Android ei takaa rajojen havaitsemista muutaman metrin tarkkuudella.</div>
+
+<h2 id="notes">8. Muistiinpanot, tapahtumat ja muistutukset</h2>
+
+<p>"Muistiinpanot"-osio tallentaa pelkkää tekstiä, luetteloita, tarkistuslistoja, äänitallenteita, puheesta tekstiksi -muistiinpanoja, muistutuksia ja tapahtumia.</p>
+
+<h3 id="notes-create">8.1. Muistiinpanon lisääminen</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_type_picker.webp" alt="Uuden muistiinpanotyypin valitseminen ShiftAlarmissa">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Paneelin kahva</strong> — vedä sitä ylöspäin näyttääksesi muistiinpanotyyppien täydellisen luettelon tai alaspäin sulkeaksesi paneelin.</li>
+<li><strong>Muistiinpanotyyppi</strong> — valitse sopiva vaihtoehto:
+<ul>
+<li><strong>Tekstimuistiinpano</strong> — pelkkää tekstiä;</li>
+<li><strong>Tarkistuslista</strong> — luettelo kohteista, joissa on täydennysvalintaruudut;</li>
+<li><strong>Luettelo</strong> — luettelomerkeillä varustettu tai numeroitu luettelo;</li>
+<li><strong>Äänimuistiinpano</strong> — äänitallenne;</li>
+<li><strong>Puheesta tekstiksi</strong> — luo muistiinpanon puheentunnistuksen avulla;</li>
+<li><strong>Muistutus</strong> — merkintä, josta on ilmoitus tiettynä ajankohtana;</li>
+<li><strong>Tapahtuma</strong> — päivämäärään ja kellonaikaan linkitetty merkintä.</li>
+</ul>
+</li>
+<li><strong>Peruuta</strong> — sulkee valitsimen luomatta muistiinpanoa.</li>
+</ol>
+
+<div class="tip">Kun olet valinnut tyypin, sopiva editori avautuu. Täytä pakolliset kentät ja tallenna merkintä.</div>
+
+<h3 id="notes-list">8.2. Muistiinpanoluettelo ja -säätimet</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_overview.webp" alt="ShiftAlarm-muistiinpanonäyttö, jossa on lajittelu, aktiiviset ja arkistoidut muistiinpanot, haku ja korttitoiminnot">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Lajittele</strong> — muuttaa muistiinpanojen järjestystä luettelossa.</li>
+<li><strong>Aktiivinen</strong> — näyttää tavalliset ja ajoitetut muistiinpanot, joita ei ole siirretty arkistoon.</li>
+<li><strong>Arkisto</strong> — avaa arkistoitujen muistiinpanojen luettelon.</li>
+<li><strong>Haku</strong> — löytää osumia muistiinpanojen otsikoista ja sisällöstä.</li>
+<li><strong>Muistiinpanokortti</strong> — näyttää otsikon, tyypin, tilan ja lisätietoja. Napauta korttia avataksesi muistiinpanon.</li>
+<li><strong>Kiinnitä</strong> — kiinnittää muistiinpanon listan alkuun.</li>
+<li><strong>Arkistoi</strong> — poistaa muistiinpanon aktiivisten listasta ja siirtää sen arkistoon.</li>
+<li><strong>Poista</strong> — poistaa muistiinpanon vahvistuksen jälkeen.</li>
+<li><strong>Lisää muistiinpano</strong> — avaa uuden muistiinpanotyypin valitsimen.</li>
+</ol>
+
+<div class="notice">Käytä arkistoa merkinnöille, joita ei enää tarvita päälistassa, mutta jotka tulisi säilyttää tallennettuina. Poista muistiinpano vain, kun sitä ei enää tarvita ollenkaan.</div>
+
+<h2 id="clock">9. Kello, sekuntikello ja ajastin</h2>
+
+<p>Tämä osio yhdistää paikallisen ja maailmanajan, sekuntikelloa ja ajastinta. Avaa se päänäytön <strong>“Kello”</strong>-painikkeella.</p>
+
+<div class="notice">Näytön alareunaan ilmestyy kolme välilehteä: “Kello”, “Sekuntikello” ja “Ajastin”. Vaihda tiloja napauttamalla välilehteä.</div>
+
+<h3 id="clock-world">9.1. Kello ja maailmankello</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_overview.webp" alt="ShiftAlarm-kellonäyttö, jossa on paikallinen aika, maailmankellot, lisäyspainike ja alareunassa olevat välilehdet">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Paikallinen aika</strong> — näyttää nykyisen ajan, päivämäärän ja laitteen järjestelmän aikavyöhykkeen.</li>
+<li><strong>Maailmankellot</strong> — näyttää lisätyt kaupungit ja aikavyöhykkeet. Kun luettelo on tyhjä, sovellus näyttää vihjeen.</li>
+<li><strong>Plus-painike</strong> — avaa maailmankellon valitsimen.</li>
+<li><strong>Osioiden välilehdet</strong> — vaihtaa "Kello", "Sekuntikello" ja "Ajastin" -näyttöjen välillä.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_add_timezone.webp" alt="Kaupungin tai aikavyöhykkeen lisääminen ShiftAlarm-maailmankelloon">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Haku</strong> — anna kaupungin tai aikavyöhykkeen nimi suodattaaksesi luetteloa.</li>
+<li><strong>Kaupunki- ja aikavyöhykeluettelo</strong> — napauta haluttua vaihtoehtoa lisätäksesi sen maailmankellon näyttöön.</li>
+</ol>
+
+<div class="tip">Paikallinen aikavyöhyke näkyy aina ensin. Voit poistaa lisättyjä maailmankelloja luettelosta, mutta paikallista aikaa ei voi poistaa.</div>
+
+<h3 id="clock-stopwatch">9.2. Sekuntikello</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_start.webp" alt="ShiftAlarm sekuntikello ennen sen käynnistymistä">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Historia</strong> — avaa tallennetut sekuntikelloistunnot.</li>
+<li><strong>Käynnistä</strong> — aloittaa ajanoton.</li>
+<li><strong>Nollaa</strong> — ei käytettävissä ennen sekuntikello käynnistymistä. Pysäytyksen jälkeen se palauttaa sekuntikellon nollaan ja poistaa nykyiset kierrokset.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_running.webp" alt="ShiftAlarm-sekuntikellon suorittaminen historia-, tallennus-, kierros- ja taukosäätimillä">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Historia</strong> — näyttää aiemmin tallennetut harjoitukset.</li>
+<li><strong>Tallenna</strong> — pyytää nimeä ja tallentaa nykyisen sekuntikellon harjoituksen.</li>
+<li><strong>Kierros</strong> — tallentaa välituloksen pysäyttämättä kokonaisaikaa.</li>
+<li><strong>Tauko</strong> — keskeyttää sekuntikellon. Tauon jälkeen voit jatkaa sitä tai nollata sen.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_laps.webp" alt="ShiftAlarm sekuntikellon kierrokset ja niiden lajitteluasetukset">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Alkuperäinen, nopein ja hitain</strong> — muuta kierrosten näyttöjärjestystä: alkuperäinen järjestys, nopein ensin tai hitain ensin.</li>
+<li><strong>Kierrokset</strong> — jokainen kierros näyttää kokonaisaikansa, jolloin se on tallennettu, ja yksittäisen kierrosajan.</li>
+</ol>
+
+<div class="notice">Kun napautat Tallenna, anna istunnon nimi ja vahvista. Voit avata tallennetun istunnon myöhemmin Historiasta.</div>
+
+<h3 id="clock-timer">9.3. Ajastin</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_setup.webp" alt="ShiftAlarm-ajastimen asettaminen tunti-, minuutti- ja sekuntipyörillä">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tunnit</strong> — vieritä kiekkoa ja valitse tuntien määrä.</li>
+<li><strong>Minuutit</strong> — vieritä kiekkoa ja valitse minuuttimäärä.</li>
+<li><strong>Sekunnit</strong> — vieritä kiekkoa ja valitse sekuntien määrä.</li>
+<li><strong>Käynnistä</strong> — käynnistää ajastimen valitulla kestolla.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_running.webp" alt="ShiftAlarm-ajastimen suorittaminen jäljellä olevan ajan, tauon, minuutin lisäyksen ja pysäytyksen säätimillä">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Jäljellä oleva aika</strong> — näyttää, kuinka paljon aikaa on jäljellä ennen hälytystä.</li>
+<li><strong>Päättymisaika</strong> — näyttää likimääräisen ajan, jolloin ajastin päättyy.</li>
+<li><strong>Viimeaikaiset ajastimet</strong> — tallennetut viimeaikaiset kestot; napauta yhtä ajastinta käyttääksesi sitä nopeasti uudelleen.</li>
+<li><strong>Tauko</strong> — pysäyttää lähtölaskennan väliaikaisesti. Voit jatkaa sitä myöhemmin.</li>
+<li><strong>+1 min</strong> — lisää yhden minuutin jäljellä olevaan aikaan.</li>
+<li><strong>Pysäytys</strong> — pysäyttää ajastimen kokonaan.</li>
+</ol>
+
+<div class="tip">Ajastin ja sekuntikello jatkavat toimintaansa taustalla. Niiden tila voi näkyä ilmoituksessa, päänäytössä ja widgeteissä.</div>
+
+<h2 id="widgets">10. Widgetit</h2>
+
+<p>ShiftAlarm tarjoaa widgetejä puhelimen aloitusnäyttöön.</p>
+<ul>
+<li><strong>Today 4×2</strong> — kompakti paneeli, jossa on kaksi konfiguroitavaa osiota.</li>
+<li><strong>Today 4×3</strong> — paneeli, jossa on kello yläosassa ja kaksi osiota alapuolella.</li>
+<li><strong>Kalenteri 4×4</strong> — kalenteriwidgetit, joissa on työvuoroluettelo.</li>
+</ul>
+<p>Lisää widget Android-widget-valikosta puhelimen aloitusnäytöltä.</p>
+
+<h2 id="salary">11. Palkanlaskenta</h2>
+
+<p>Avaa ”Palkanlaskenta” palkkakortilta <a href="#statistics-work">valitun työvuoroluettelon tilastoissa</a>. Täällä voit asettaa maksutavan, hinnan tai kuukausipalkan, ylityösäännöt, bonukset ja vähennykset. Sovellus käyttää näitä asetuksia yhdessä valitun ajanjakson, työvuoroluettelon, kalenterimuutosten ja taukojen laskennan kanssa.</p>
+
+<div class="warning"><strong>Laskelma on tarkoitettu vain tiedoksi.</strong> Todellinen palkka voi poiketa, jos työnantajasi käyttää toista järjestelmää työajan seurantaan, pyöristämiseen, korvauksiin, veroihin, bonuksiin, vähennyksiin tai tiettyjen työvuorotyyppien maksamiseen. Älä käytä tulosta virallisena palkkalaskelmana; vertaa sitä työnantajasi palkkalaskelmaan. Jos löydät laskentamenetelmän, jota sovellus ei käsittele tarkasti, lähetä sähköpostia kehittäjille sovelluksessa näkyvään osoitteeseen. Kuvaile säännöt, anna esimerkkisyötteitä ja ilmoita odotettu tulos. Menetelmää voidaan sitten harkita tulevaa päivitystä varten.</div>
+
+<h3 id="salary-settings">11.1. Palkka, ylityöt ja bonukset</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_settings_overview.webp" alt="Palkkalaskentanäyttö, jossa on valittu aikataulu, hintatyyppi, ylityöt ja bonukset">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Valittu aikataulu</strong> — näyttää, mitä vuoroaikataulua käytetään. Palkka lasketaan tämän taulukon ja tilastoissa valitun ajanjakson perusteella.</li>
+<li><strong>Hinnatyyppi ja maksumäärä</strong> — valitse maksu <strong>tunnilta</strong>, <strong>vuorolta</strong> tai <strong>kuukaudelta</strong> ja anna sitten vastaava summa. Kentän nimi muuttuu valitun hinnoittelutyypin mukaan.</li>
+<li><strong>Ylityöt</strong> — ota tämä osio käyttöön, jos lisätunnit maksetaan eri tavalla kuin normaali työaika. Määritä sitten ylityökorvauksen kerroin. Lisää lisätunnit kalenteriin valitsemalla <a href="#main-shift-time-adjustment">“Vaihda vuoroa” → “+ aika”</a>; ota käyttöön “Laske tämä aika ylityöksi”, jotta tunnit käsitellään ylityönä.</li>
+<li><strong>Bonukset</strong> — näyttää nykyisen laskentatavan ja kokonaissummat. Napauta korttia avataksesi <a href="#salary-bonuses">bonusasetukset</a>.</li>
+</ol>
+
+<div class="notice">Tallenna-painike ottaa asetukset käyttöön valittuun aikatauluun. Tallentamisen jälkeen tilastojen ja raporttien kokonaissummat lasketaan uudelleen syötettyjen tietojen perusteella.</div>
+
+<h3 id="salary-summary">11.2. Vähennykset ja laskennan kokonaissumma</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions_total.webp" alt="Palkkalaskelman näyttö vähennyksillä ja lopullisella erittelyllä">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Vähennykset</strong> — näyttää määritettyjen vähennysten kokonaissumman ja lukumäärän. Napauta korttia avataksesi <a href="#salary-deductions">vähennysluettelon</a>.</li>
+<li><strong>Yhteensä</strong> — yhteenvetoerittely: palkallinen aika, työtunnit, ylityöt, peruspalkka, ylityökorvaukset, bonukset, vähennykset ja lopputulos.</li>
+</ol>
+
+<div class="tip">Tulos riippuu paitsi tämän näytön asetuksista myös valitusta tilastojaksosta, tehdyistä työvuoroista, päivänvaihdoista, ylityöstä ja palkattomien taukojen asetuksista.</div>
+
+<h3 id="salary-bonuses">11.3. Bonukset</h3>
+
+<p>Napauta "Bonukset"-korttia palkkalaskentanäytössä. Voit syöttää bonuksen manuaalisesti tai laskea sen prosentteina, jos se vastaa palkkajärjestelmääsi.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_bonuses.webp" alt="Bonusasetusten näyttö laskenta- ja summan syöttövaihtoehdoilla">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Yhteenvetotiedot</strong> — näyttää lasketun bonussumman ja laskennassa käytetyn perussumman.</li>
+<li><strong>Bonuslaskenta</strong> — valitse manuaalinen syöttö tai prosenttilaskenta, kuten myynnin prosenttiosuus, jos työpaikallasi käytetään kyseistä menetelmää.</li>
+<li><strong>Syöttötapa</strong> — ”Kokonaissumma” sopii yhdelle lopulliselle bonukselle. Erilliset rivit ovat hyödyllisiä, kun useita bonuksia on laskettava erikseen.</li>
+<li><strong>Summa tai prosenttiosuus</strong> — anna valitun laskentatavan vaatima arvo.</li>
+<li><strong>Peruuta ja tallenna</strong> — hylkää muutokset tai käytä niitä palkkalaskelmassa.</li>
+</ol>
+
+<h3 id="salary-deductions">11.4. Vähennysluettelo</h3>
+
+<p>Napauta ”Vähennykset”-korttia päälaskennan näytössä. Tässä osiossa voit tallentaa useita vähennyksiä ja hallita kutakin niistä erikseen.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions.webp" alt="Vähennysluettelonäyttö, jossa on kokonaissumma, vähennysrivit ja lisäyspainike">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Yhteenvetotiedot</strong> — näyttää kaikkien käytössä olevien vähennysten määrän ja lukumäärän.</li>
+<li><strong>Vähennysrivi</strong> — näyttää nimen, arvon ja tyypin. Napauta riviä avataksesi <a href="#salary-deduction-editor">vähennysasetukset</a>. Roskakorikuvake poistaa rivin.</li>
+<li><strong>Lisää vähennys</strong> — ”+”-painike luo uuden vähennysrivin.</li>
+<li><strong>Peruuta ja tallenna</strong> — hylkää muutokset tai tallenna koko luettelo.</li>
+</ol>
+
+<h3 id="salary-deduction-editor">11.5. Yksittäisen vähennyksen määrittäminen</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deduction_editor.webp" alt="Yksittäisen vähennyksen paneeli, jossa on nimi, arvo, tyyppi ja vähennyksen peruste">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Vähennyksen nimi</strong> — anna selkeä nimi, kuten ”Vero”, ”Elatusapu” tai ”Sakko”.</li>
+<li><strong>Arvo</strong> — anna summa tai prosenttiosuus alla valitun arvotyypin mukaan.</li>
+<li><strong>Arvon tyyppi</strong> — valitse kiinteä summa tai prosenttiosuus.</li>
+<li><strong>Vähennyksen tyyppi</strong> — <strong>muuttuva</strong> vähennys koskee tiettyä laskentajaksoa; <strong>toistuva</strong> vähennys tehdään säännöllisesti sen ollessa käytössä.</li>
+<li><strong>Vähennä tästä</strong> — valitse laskentaperuste: kokonaispalkka, peruspalkka, bonukset tai muu käytettävissä oleva vaihtoehto.</li>
+<li><strong>Käytössä</strong> — poistaa vähennyksen väliaikaisesti käytöstä poistamatta sen asetuksia.</li>
+<li><strong>Peruuta ja tallenna</strong> — sulje paneeli ilman muutoksia tai tallenna vähennys.</li>
+</ol>
+
+<div class="notice">Prosenttivähennyksen kohdalla on erityisen tärkeää valita oikea "Vähennä tästä" -peruste: sama prosenttiosuus kokonaispalkasta, peruspalkasta ja bonuksista tuottaa erilaisia ​​tuloksia.</div>
+
+<h2 id="settings">12. Asetukset</h2>
+
+<p>Avaa "Asetukset" <a href="#main-overview">päänäytön</a> alareunassa olevalla painikkeella. Tämä osio sisältää järjestelmän käyttöoikeudet, ulkoasun ja sovelluksen kielen, offline-puheentunnistuksen, dokumentit ja käyttöoppaan, varmuuskopioinnin, diagnostiikan ja kehittäjän yhteydenottovaihtoehdot.</p>
+
+<h3 id="settings-overview">12.1. Pääasetukset</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_permissions_language.webp" alt="ShiftAlarm-asetusten yläosa: käyttöoikeudet, teema, sovelluksen kieli ja offline-puhemallit">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Käyttöoikeudet</strong> — avaa hälytysten käyttöoikeudet ja luotettavuusasetukset. Tarkista ilmoitukset, tarkat hälytykset, taustatoiminta ja akun rajoitukset. <a href="#geo">Geo-hälytykset</a> vaativat myös sijaintitietojen käyttöoikeuden; taustalla tapahtuva sijaintitietojen käyttöoikeus tai "Salli aina" -sijaintitietojen käyttöoikeus tarvitaan käynnistymään, kun sovellus on suljettu. Kohteiden nimet ja polut vaihtelevat Android-version ja laitevalmistajan mukaan.</li>
+<li><strong>Teema</strong> — Voit valita vaalean, tumman tai järjestelmäulkoasun, käyttöliittymän värivaihtoehdon ja ottaa käyttöön tai poistaa käytöstä haptisen palautteen sovelluksen toiminnoille. Järjestelmäteema noudattaa puhelimen nykyistä ulkoasua.</li>
+<li><strong>Sovelluksen kieli</strong> — Voit käyttää eri kieltä kuin puhelimen järjestelmäkieli. ShiftAlarm-luettelo sisältää 108 kieltä: etsi tarvittava kieli haulla, lataa kielipaketti ja ota se käyttöön.</li>
+<li><strong>Offline-puhemallit</strong> — Asentaa moduulin <a href="#notes-create">puheesta tekstiksi -muistiinpanoille</a>. Offline-tunnistusta testataan parhaillaan, ja se on saatavilla noin 20 kielelle. Sen laatu voi olla heikompi kuin online-tunnistuksen ja riippuu kielestä, mikrofonista, puhelimen suorituskyvystä ja tallennusolosuhteista.</li>
+</ol>
+
+<div class="warning"><strong>Androidin käyttöoikeudet vaihtelevat laitteiden välillä.</strong> Joissakin puhelimissa sinun on myös sallittava automaattinen käynnistys, valittava ”Rajoittamaton” tai vastaava akkutila ja sallittava taustatoiminta. Nämä asetukset vähentävät mahdollisuutta, että järjestelmä pysäyttää ShiftAlarmin, mutta niiden tarkat nimet määrittää laitteen valmistaja.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_help_backup_diagnostics.webp" alt="ShiftAlarm-asetusten alareunassa: dokumentit, käyttöopas, varmuuskopiointi, diagnostiikka ja kehittäjän yhteystiedot">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Dokumentit ja ohjeet</strong> — avaa sovelluksen lakiasiakirjat: käyttöehdot, tietosuojakäytännön, vastuuvapauslausekkeen ja lyhyen ohjesivun.</li>
+<li><strong>Koulutus- ja käyttöopas</strong> — avaa tämän täydellisen kuvitetun oppaan, jossa on yksityiskohtaiset kuvaukset ShiftAlarmin ominaisuuksista.</li>
+<li><strong>Varmuuskopiointi ja palautus</strong> — luo tiedoston, joka sisältää tuetut sovellusasetukset ja -tiedot, tai palauttaa ne aiemmasta varmuuskopiosta. Tämä on hyödyllistä ennen sovelluksen uudelleenasentamista, puhelimen asetusten palauttamista tai tietojen siirtämistä toiseen laitteeseen. Katso tarkemmat ohjeet kohdasta <a href="#backup">”Varmuuskopiointi ja palautus”</a>.</li>
+<li><strong>Diagnostinen loki</strong> — avaa erilliset lokit sovelluksen ominaisuuksille. Ne tallentavat teknisiä vaiheita, kuten hälytysten ajoituksen ja palautuksen, tapahtumien käsittelyn, käyttöoikeuksien tilan ja muita palvelutietoja. Loki auttaa tunnistamaan vaiheen, jossa virhe tapahtui. Voit kopioida merkintöjä tai valmistella ne lähetettäväksi sähköpostitse kehittäjille. Lisätietoja on kohdassa <a href="#diagnostics">”Diagnostiikka ja vianmääritys”</a>.</li>
+<li><strong>Ota yhteyttä kehittäjiin</strong> — avaa sähköpostisovelluksen ja luo tuelle osoitetun viestin. Käytä sitä ongelman ilmoittamiseen, palautteen tai ehdotuksen lähettämiseen tai kysymyksen esittämiseen. Teknisen ongelman osalta liitä mukaan puhelimen malli, Android-versio, ongelman ajankohta, suoritetut vaiheet ja asiaankuuluva diagnostiikkaloki, jos mahdollista.</li>
+</ol>
+
+<div class="notice">Diagnostisia lokeja ei lähetetä kehittäjille automaattisesti. Sinun on kopioitava tarvittavat tiedot tai napautettava ”Lähetä kehittäjille”, valittava sähköpostisovellus, tarkistettava valmis viesti ja vahvistettava sen lähettäminen.</div>
+
+<h2 id="backup">13. Varmuuskopiointi ja palautus</h2>
+
+<p>Varmuuskopio tallentaa tuetut ShiftAlarm-asetukset ja käyttäjätiedot erilliseen tiedostoon. Se auttaa palauttamaan tiedot sovelluksen uudelleenasennuksen, puhelimen nollauksen tai toiseen laitteeseen siirtymisen jälkeen.</p>
+<ol class="step-list">
+<li>Avaa ”Asetukset → Varmuuskopiointi ja palautus”.</li>
+<li>Luo varmuuskopio ja tallenna tuloksena oleva tiedosto puhelimeen tai jaa se järjestelmävalikon kautta.</li>
+<li>Palauttaaksesi avaa sama osio ja valitse aiemmin luotu varmuuskopiotiedosto.</li>
+<li>Palautuksen jälkeen tarkista tärkeät hälytykset, aikataulut ja Android-käyttöoikeudet. Jotkin järjestelmän käyttöoikeudet on ehkä myönnettävä uudelleen uudella laitteella tai uudelleenasennuksen jälkeen.</li>
+</ol>
+<p class="tip">Säilytä ajantasainen kopio turvallisessa paikassa, johon se on edelleen saatavilla, jos puhelin katoaa, vahingoittuu tai sen tehdasasetukset nollataan. Varmuuskopiotiedosto ei korvaa Android-järjestelmän käyttöoikeuksia, eikä se voi automaattisesti sisältää tietoja, joihin sovelluksella ei ole oikeutta käyttää.</p>
+
+<h2 id="diagnostics">14. Diagnostiikka ja vianmääritys</h2>
+
+<p>ShiftAlarm tarjoaa erilliset diagnostiikkalokit eri ominaisuuksille. Ne säilyttävät teknisten tapahtumien sarjan ja auttavat määrittämään, onko hälytys ajoitettu, palautettu uudelleenkäynnistyksen jälkeen, lähetetty käsiteltäväksi vai pysäytetty järjestelmäasetuksen vuoksi.</p>
+
+<h3 id="diagnostics-control">14.1. Diagnostiikkatietojen keräämisen hallinta</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_sections.webp" alt="ShiftAlarm-diagnostiikkalokin näyttö pääkytkimellä ja yksittäisellä hälytyslokilla">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Kerää diagnostiikka</strong> — pääkytkin jokaiselle sovelluksen diagnostiikkaosiolle. Poista se käytöstä, jos et halua enää lisätä uusia tapahtumia kaikkiin lokeihin kerralla. Uusien tapahtumien kerääminen jatkuu, kun otat sen uudelleen käyttöön.</li>
+<li><strong>Yksittäinen ominaisuusloki</strong> — jokaisella moduulilla on oma kytkin ja "Avaa"-painike. Voit esimerkiksi pitää yleisen diagnostiikan käytössä ja poistaa käytöstä vain hälytyksen, kellon tai jonkin muun ominaisuuslokin. Kuvakaappaus näyttää hälytyslokin, joka tallentaa toimitus-, aikataulutus-, palautus-, suojaus- ja hälytysnäyttötapahtumat.</li>
+</ol>
+
+<div class="notice">Kytkimet ohjaavat vain teknisten tapahtumien tallennusta. Hälytyksen, kellon tai muun ominaisuuslokin poistaminen käytöstä ei poista itse ominaisuutta käytöstä. Poista aiemmin tallennetut merkinnät erikseen vastaavan lokin sisällä olevalla "Tyhjennä"-painikkeella.</div>
+
+<h3 id="diagnostics-log">14.2. Yksittäisen ominaisuuden loki</h3>
+
+<p>Napauta "Avaa" halutussa diagnostiikkaosiossa. Alla oleva esimerkki näyttää hälytyslokin; Muiden ominaisuuksien lokit toimivat samalla tavalla.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_alarm_log.webp" alt="ShiftAlarm-hälytyksen diagnostiikkaloki tapahtumien lukumäärällä, toiminnoilla ja teknisillä merkinnöillä">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tallennetut tapahtumat</strong> — näyttää valitussa lokissa tällä hetkellä tallennettujen merkintöjen määrän.</li>
+<li><strong>Lokitoiminnot</strong>:
+<ul>
+<li><strong>Kopioi</strong> — kopioi kaikki tiedot nykyisestä lokista leikepöydälle. Voit liittää ne sähköpostiin tai toiseen sovellukseen.</li>
+<li><strong>Tyhjennä</strong> — poistaa tallennetut merkinnät tästä lokista. Tyhjentämisen jälkeen näkyviin tulevat vain myöhemmin diagnostiikan ollessa käytössä tallennetut tapahtumat.</li>
+<li><strong>Lähetä kehittäjille</strong> — avaa sovellusvalitsimen sähköpostin lähettämistä varten. Valitse sähköpostisovellus; Kehittäjän osoite ja diagnostiikkatiedot lisätään automaattisesti. Ennen lähettämistä lisää ongelman kuvaus, tarkista viesti ja vahvista sitten sen lähettäminen.</li>
+</ul>
+</li>
+<li><strong>Sovellustapahtumat</strong> — itse lokimerkinnät. Merkintä sisältää yleensä päivämäärän ja kellonajan, teknisen tapahtuman nimen ja lisäparametreja, kuten tunnisteen, tilan tai syyn. Tekniset nimet voivat olla englanniksi; älä muokkaa tai käännä niitä ennen lähettämistä.</li>
+</ol>
+
+<div class="warning">Ennen lokin tyhjentämistä kopioi tai lähetä kaikki tarvittavat merkinnät. Poistettuja diagnostiikkatapahtumia ei voida palauttaa.</div>
+
+<div class="tip">Jos ongelma voidaan toistaa, ota ensin käyttöön yleinen diagnostiikkatietojen kerääminen ja asiaankuuluva ominaisuusloki ja toista sitten ongelman aiheuttaneet toimenpiteet. Anna viestissäsi ongelman tarkka aika, puhelimen malli, Android-versio, odotettu tulos ja todellinen tulos. Tämä auttaa yhdistämään kuvauksesi lokitapahtumiin.</div>
+
+<h2 id="faq">15. Usein kysytyt kysymykset</h2>
+
+<h3>Hälytys ei lauennut ajoissa</h3>
+<p>Tarkista ilmoitukset, tarkka hälytyslupa, taustatoiminta ja akun rajoitukset.</p>
+<h3>Geohälytys laukesi myöhässä</h3>
+<p>Tarkista tarkka ja taustasijainti, akun rajoitukset ja automaattinen taustakäynnistys. Kokeile 1 300–1 500 metrin sädettä kaupungissa ja 4 000–5 000 metrin sädettä kaupungin ulkopuolella. Todellinen laukaisu ei välttämättä tapahdu täsmälleen säteen linjalla.</p>
+<h3>Widget ei päivittynyt välittömästi</h3>
+<p>Avaa sovellus tai napauta widgetin päivityspainiketta. Android saattaa rajoittaa widgetien tiheitä päivityksiä.</p>
+<h3>Vaihdoin kielen, mutta dokumentti tai opas ei ole vielä päivittynyt</h3>
+<p>Tarkista internetyhteytesi ja odota lataukselle aikaa. Jos etäversio ei ole käytettävissä, sovellus käyttää sisäänrakennettua varaversiotaan.</p>
+
+<div class="footer small">Opasta voidaan päivittää GitHubin kautta. Jos etäversio ei ole käytettävissä, sovellus käyttää sisäänrakennettua offline-versiotaan.</div>
+</main>
+</body>
+</html>

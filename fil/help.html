@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="fil">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gabay sa Paggamit ng ShiftAlarm</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #64748b;
+  --accent: #2563eb;
+  --soft: #e8eef8;
+  --border: #dbe4f0;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.58;
+  margin: 0;
+  padding: 18px;
+  color: var(--text);
+  background: var(--bg);
+}
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+h1 { margin: 0 0 8px; font-size: 28px; line-height: 1.2; }
+h2 { margin: 32px 0 10px; font-size: 21px; line-height: 1.25; }
+h3 { margin: 22px 0 8px; font-size: 17px; }
+p, li { font-size: 16px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul, ol { padding-left: 22px; }
+.notice, .tip, .warning {
+  padding: 14px 16px;
+  border-radius: 16px;
+  margin: 14px 0;
+  border: 1px solid var(--border);
+}
+.notice { background: var(--soft); }
+.tip { background: #ecfdf5; }
+.warning { background: #fff7ed; }
+.small { color: var(--muted); font-size: 14px; }
+.toc {
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 16px;
+  margin: 18px 0 24px;
+}
+.toc ol { margin: 8px 0 0; }
+.step-list li { margin-bottom: 8px; }
+.guide-figure {
+  margin: 18px 0;
+}
+.guide-image {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+}
+.callout-list li {
+  margin-bottom: 10px;
+}
+.guide-caption {
+  max-width: 520px;
+  margin: 10px auto 0;
+  color: var(--text);
+  font-size: 15px;
+}
+.guide-caption strong {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.footer {
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --card: #111827;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --accent: #93c5fd;
+    --soft: #1f2937;
+    --border: #334155;
+  }
+  main { box-shadow: none; }
+  .toc { background: #172033; }
+  .tip { background: #10251f; }
+  .warning { background: #2a1d10; }
+}
+</style>
+</head>
+<body>
+<main>
+<h1>Gabay sa Paggamit ng ShiftAlarm</h1>
+<p class="small">Bersyon 14. Petsa: 2 Agosto 2026.</p>
+<div class="notice">Ang pahinang ito ay isang praktikal na gabay sa ShiftAlarm. Ipinapaliwanag nito kung ano ang ginagawa ng bawat pangunahing tampok, kung saan ito mahahanap, ano ang ita-tap, at ano ang susuriin kung ang isang tampok ay hindi gumagana gaya ng inaasahan.</div>
+<nav class="toc">
+<strong>Mga Nilalaman</strong>
+<ol><li><a href="#start">1. Unang paglulunsad</a></li><li><a href="#permissions">2. Mga Pahintulot at pagiging maaasahan</a></li><li><a href="#main">3. Pangunahing screen</a></li><li><a href="#shifts">4. Mga iskedyul ng shift</a></li><li><a href="#statistics">5. Mga istatistika ng iskedyul</a></li><li><a href="#alarms">6. Mga Alarma</a></li><li><a href="#geo">7. Mga Geo Alarms</a></li><li><a href="#notes">8. Mga tala, kaganapan, at paalala</a></li><li><a href="#clock">9. Orasan, timer, at stopwatch</a></li><li><a href="#widgets">10. Mga Widget</a></li><li><a href="#salary">11. Pagkalkula ng suweldo</a></li><li><a href="#settings">12. Mga Setting</a></li><li><a href="#backup">13. Pag-backup at pagpapanumbalik</a></li><li><a href="#diagnostics">14. Mga diagnostic at pag-troubleshoot</a></li><li><a href="#faq">15. Mga Madalas Itanong</a></li></ol>
+</nav>
+<h2 id="start">1. Unang paglulunsad</h2>
+
+<p>Kapag nagsimula ang ShiftAlarm sa unang pagkakataon, ipinapakita nito ang isang maikling daloy ng pag-setup. Ang pangunahing screen ay magagamit na sa background, ngunit pinakamahusay na kumpletuhin muna ang pangunahing pag-setup.</p>
+<ol class="step-list">
+<li>Basahin ang panimulang impormasyon at i-tap ang “Magpatuloy.”</li>
+<li>Sa hakbang ng mga dokumento, buksan ang mga dokumento o tanggapin ang mga kinakailangang dokumento kapag handa ka nang magpatuloy.</li>
+<li>Sa hakbang ng mga pahintulot, buksan ang screen ng mga pahintulot at tingnan ang mga notification, eksaktong mga alarma, access sa lokasyon, at mga paghihigpit sa baterya.</li>
+<li>I-tap ang “Tapusin ang pag-setup.”</li>
+</ol>
+<p class="tip">Maaari mong i-configure ang mga pahintulot sa ibang pagkakataon sa ilalim ng “Mga Setting → Mga Pahintulot at pagiging maaasahan.”</p>
+
+<h2 id="permissions">2. Mga Pahintulot at Pagiging Maaasahan</h2>
+
+<p>Ang mga alarma, paalala, at Geo Alarms ay nakadepende sa mga setting ng Android at sa software ng gumawa ng device.</p>
+<ul>
+<li><strong>Mga Notification</strong> — kinakailangan para sa mga alarma, paalala, timer, at mga notification ng serbisyo.</li>
+<li><strong>Mga Eksaktong Alarm</strong> — tumutulong sa alarma na magsimula sa kinakailangang oras.</li>
+<li><strong>Lokasyon</strong> — kinakailangan para sa Geo Alarms.</li>
+<li><strong>Lokasyon sa background</strong> — kinakailangan para gumana ang isang Geo Alarm habang nakasara ang app.</li>
+<li><strong>Aktibidad ng baterya at background</strong> — maaaring makaapekto sa pagiging maaasahan ng trigger sa Xiaomi/Redmi at ilang iba pang device.</li>
+</ul>
+<p class="warning">Hindi palaging ginagarantiyahan ng Android ang agarang paghahatid ng mga notification, eksaktong alarma, o mga kaganapan sa geofence. Para sa mahahalagang alerto, tingnan ang bawat item sa screen ng mga pahintulot.</p>
+
+<h2 id="main">3. Pangunahing screen</h2>
+
+<p>Ang pangunahing screen ay ang iyong pang-araw-araw na dashboard. Nagbibigay ito ng direktang access sa kalendaryo, orasan, Geo Alarms, mga regular na alarma, iskedyul ng shift, mga tala, at mga setting.</p>
+
+<h3 id="main-overview">3.1. Mga elemento ng pangunahing screen</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_screen_overview.png" alt="ShiftAlarm pangunahing screen na may mga numerong kontrol">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Pabalik na arrow</strong> — inililipat ang kalendaryo sa nakaraang buwan.</li>
+<li><strong>Buwan at taon</strong> — ipinapakita ang bukas na buwan. I-tap ang bahaging ito para gamitin ang <a href="#main-date-picker">sunud-sunod na tagapili ng buwan at taon</a>.</li>
+<li><strong>Pasulong na palaso</strong> — inililipat ang kalendaryo sa susunod na buwan.</li>
+<li><strong>Kalendaryo</strong> — ang pangunahing bahagi ng buwan. Maaari mong i-swipe ang kalendaryo. Maaaring ipakita ng bawat araw ang petsa, mga paalala, mga kaganapan, naka-iskedyul na shift, at mga pagbabago sa araw. Ang isang regular na pag-tap ay pumipili ng petsa; Ang isang mahabang pagpindot ay magbubukas ng <a href="#main-day-actions">impormasyon at mga aksyon para sa napiling araw</a>.</li>
+<li><strong>Ngayon</strong> — ibabalik ang kalendaryo sa kasalukuyang araw.</li>
+<li><strong>Orasan</strong> — magbubukas ng <a href="#clock">orasan ng mundo, stopwatch, at timer</a>.</li>
+<li><strong>Geo Alarm</strong> — magbubukas ng <a href="#geo">mapa, mga naka-save na lugar, at mga setting ng Geo Alarm</a>. Maaaring mag-trigger ang isang alerto kapag pumasok ka sa napiling lugar, iniwan ito, o ginawa ang alinman.</li>
+<li><strong>Alarm</strong> — magbubukas ng <a href="#alarms">mga regular, paulit-ulit, at mga alarma na naka-link sa shift</a>.</li>
+<li><strong>Iskedyul</strong> — nagbubukas ng <a href="#shifts">mga iskedyul ng shift, ang kanilang paggawa at pag-eedit, at mga istatistika</a>.</li>
+<li><strong>Mga Tala</strong> — nagbubukas ng <a href="#notes">mga tala, kaganapan, paalala, audio note, at speech-to-text</a>.</li>
+<li><strong>Mga Setting</strong> — nagbubukas ng <a href="#settings">mga pahintulot, wika, tema, mga offline na modelo ng pagsasalita, backup, mga diagnostic, mga dokumento, at pagsasanay</a>.</li>
+</ol>
+
+
+<h3 id="main-date-picker">3.2. Pagpili ng buwan at taon</h3>
+
+<p>I-tap ang buwan at taon sa itaas ng pangunahing screen upang mabilis na mabuksan ang kinakailangang panahon sa kalendaryo. Ang pagpili ay isinasagawa sa mga yugto: <strong>siglo → dekada → taon → buwan</strong>.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_century.webp" alt="Hakbang 1: pagpili ng isang siglo sa kalendaryo ng ShiftAlarm">
+<figcaption class="guide-caption"><strong>1. Pumili ng isang siglo.</strong> I-tap ang panahon na naglalaman ng taon na kailangan mo. Ang halimbawa ay pumipili ng mga taong 2000.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_decade.webp" alt="Hakbang 2: pagpili ng isang dekada sa kalendaryo ng ShiftAlarm">
+<figcaption class="guide-caption"><strong>2. Pumili ng isang dekada.</strong> I-tap ang saklaw na naglalaman ng kinakailangang taon. Para sa 2026, piliin ang “2020–2029.”</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_year.webp" alt="Hakbang 3: pagpili ng taon sa kalendaryo ng ShiftAlarm">
+<figcaption class="guide-caption"><strong>3. Pumili ng taon.</strong> I-tap ang kinakailangang taon. Ang halimbawa ay pumipili ng 2026.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_month.webp" alt="Hakbang 4: pagpili ng buwan sa kalendaryo ng ShiftAlarm">
+<figcaption class="guide-caption"><strong>4. Pumili ng buwan.</strong> I-tap ang kinakailangang buwan. Ang halimbawa ay pumipili ng Hulyo.</figcaption>
+</figure>
+
+<div class="tip">Pagkatapos mong pumili ng buwan, magsasara ang panel at magbubukas ang pangunahing kalendaryo sa napiling buwan at taon.</div>
+<div class="notice">Ang button na “Balik” ay babalik sa nakaraang yugto. Sa screen ng siglo, isasara nito ang tagapili ng petsa.</div>
+
+<h3 id="main-day-actions">3.3. Impormasyon at mga aksyon para sa isang napiling araw</h3>
+
+<p>Pindutin nang matagal ang kinakailangang araw sa kalendaryo. Magbubukas ang isang panel na may impormasyon at mga aksyon para sa petsang iyon. I-drag ang panel pataas upang makita ang lahat ng magagamit na aksyon.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_day_actions.webp" alt="ShiftAlarm information and actions panel para sa isang napiling araw ng kalendaryo">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Petsa</strong> — ipinapakita ang araw ng linggo at ang napiling petsa. I-drag ang hawakan sa itaas pataas o pababa upang palawakin o isara ang panel.</li>
+<li><strong>Shift</strong> — ipinapakita ang kinakalkulang shift o pagbabago ng araw tulad ng day off, time off, bakasyon, sick leave, o iba pang exception.</li>
+<li><strong>Mga alarma para sa petsang ito</strong> — ipinapakita ang mga alarma na nakatalaga sa napiling araw o nag-uulat na wala.</li>
+<li><strong>Mga kaganapan at paalala</strong> — ipinapakita ang mga entry na naka-link sa napiling petsa.</li>
+<li><strong>Magdagdag ng alarma</strong> — binubuksan ang paglikha ng isang beses na alarma para sa napiling petsa.</li>
+<li><strong>Baguhin ang shift</strong> — lumilikha ng exception para sa isang araw o isang hanay ng petsa sa aktibong iskedyul.</li>
+<li><strong>Magdagdag ng tala</strong> — hinahayaan kang pumili ng isang kaganapan o paalala na gagawin para sa napiling petsa.</li>
+</ol>
+
+<div class="notice">Ang aksyong "Baguhin ang shift" ay magagamit para sa pagsasaayos ng mga araw sa aktibong iskedyul ng shift.</div>
+
+<h4 id="main-shift-override">Pagbabago ng isang araw o hanay ng petsa</h4>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_types.webp" alt="Pagpili ng hanay ng petsa at uri ng pagbabago ng shift sa ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Petsa ng pagsisimula</strong> — ang unang araw ng pagbabago. Sa simula ay ginagamit nito ang petsang napili sa kalendaryo.</li>
+<li><strong>Petsa ng pagtatapos</strong> — ang huling araw ng pagbabago. Para magpalit lang ng isang araw, iwanang nakapili ang parehong petsa.</li>
+<li><strong>Oras ng pahinga</strong> — pinapalitan ang kinakalkulang shift ng oras ng pahinga.</li>
+<li><strong>Bakasyon</strong> — minamarkahan ang napiling araw o saklaw bilang bakasyon.</li>
+<li><strong>Sick leave</strong> — minamarkahan ang napiling araw o saklaw bilang sick leave.</li>
+<li><strong>I-save ang pagbabago</strong> — inilalapat ang napiling exception sa kalendaryo.</li>
+</ol>
+
+<h4 id="main-shift-time-adjustment">Pagsasaayos ng oras ng pagtatrabaho</h4>
+
+<p>Mag-scroll pababa sa listahan ng mga uri ng pagbabago at piliin ang “I-edit ang shift” upang baguhin ang tagal ng kinakalkulang shift ng trabaho.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_time_adjustment.webp" alt="Pagsasaayos ng oras ng pagtatrabaho sa shift sa ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>I-edit ang shift</strong> — nagbibigay-daan sa pagsasaayos ng oras ng pagtatrabaho para sa napiling shift.</li>
+<li><strong>+ oras</strong> — nagdaragdag ng mga oras o minuto sa karaniwang tagal ng shift.</li>
+<li><strong>− oras</strong> — binabawasan ang tagal ng shift, halimbawa kapag maagang natapos ang trabaho.</li>
+<li><strong>Bilangin ang oras na ito bilang overtime</strong> — itinuturing ang idinagdag na oras bilang overtime. Kung naka-off ang opsyon, ito ay bibilangin bilang regular na oras ng pagtatrabaho.</li>
+<li><strong>I-save ang pagbabago</strong> — inilalapat ang pagsasaayos sa napiling araw o saklaw.</li>
+</ol>
+
+<div class="tip">Hindi binabago ng pagbabago ng araw ang orihinal na template ng iskedyul. Ito ay iniimbak bilang isang hiwalay na eksepsiyon at kasama sa kalendaryo, istatistika, pagkalkula ng suweldo, at mga ulat.</div>
+
+<h2 id="shifts">4. Mga iskedyul ng shift</h2>
+
+<p>Tinutukoy ng iskedyul ng shift ang isang paulit-ulit na siklo ng trabaho at nagbibigay ng batayan para sa iba pang mga tampok ng ShiftAlarm. Ginagamit ito ng app upang punan ang kalendaryo, iugnay ang mga alarma sa mga shift, bilangin ang oras ng pagtatrabaho, bumuo ng mga istatistika, tantyahin ang suweldo, at maghanda ng mga ulat.</p>
+
+<div class="notice"><strong>Pangunahing prinsipyo.</strong> Una, lumikha ng batayang iskedyul ng paulit-ulit. Magdagdag ng bakasyon, sick leave, time off, isang beses na kapalit na shift, o pagsasaayos ng oras ng pagtatrabaho bilang eksepsiyon para sa mga partikular na petsa sa pamamagitan ng <a href="#main-day-actions">mga aksyon na napiling araw</a>. Pinapanatili nitong hindi nagbabago ang orihinal na cycle.</div>
+
+<h3 id="shifts-list">4.1. Listahan at mga kontrol ng iskedyul</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedules_overview.webp" alt="ShiftAlarm schedule screen na may aktibong schedule card at mga kontrol na may numero">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Mga detalye ng iskedyul</strong> — ang pangalan, petsa ng pagsisimula, haba ng cycle, at isang maikling pagkakasunod-sunod ng mga araw. Sa halimbawa, ang "D · D · O · O" ay nangangahulugang dalawang shift sa araw na sinusundan ng dalawang araw na pahinga.</li>
+<li><strong>Switch</strong> — pansamantalang hindi pinapagana ang iskedyul nang hindi ito binubura. Kapag pinagana mo itong muli, patuloy na magagamit ang mga naka-save na setting.</li>
+<li><strong>Katayuan ng iskedyul</strong> — ipinapahiwatig kung aling iskedyul ang kasalukuyang aktibo.</li>
+<li><strong>I-edit</strong> — binubuksan ang mga parameter na maaaring baguhin. Pagkatapos ng unang pag-setup, ang bahagi ng batayan ng iskedyul ay naka-lock upang maiwasan ang aksidenteng muling pagkalkula ng data ng kalendaryo na nagawa na.</li>
+<li><strong>Tanggalin</strong> — binubura ang iskedyul pagkatapos ng kumpirmasyon. Bago ito burahin, suriin ang anumang mga alarma at kalkulasyon na naka-link sa shift.</li>
+<li><strong>Buksan ang mga istatistika</strong> — binubuksan ang <a href="#statistics">mga istatistika ng oras ng pagtatrabaho, panahon, suweldo, at ulat</a> ng iskedyul na ito.</li>
+<li><strong>Gumawa ng iskedyul</strong> — hinahayaan kang pumili ng isang handa nang template o lumikha ng isang pasadyang cycle.</li>
+</ol>
+
+<h3 id="shifts-create">4.2. Paglikha ng panimulang iskedyul</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_create.webp" alt="Panel ng paglikha ng iskedyul na may pangalan, petsa ng pagsisimula, mga template, at pasadyang iskedyul">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Pangalan ng iskedyul</strong> — maglagay ng malinaw na pangalan tulad ng “Pangunahing 2/2,” “Night shift,” o ang pangalan ng iyong lugar ng trabaho.</li>
+<li><strong>Petsa ng pagsisimula</strong> — ang petsa na tumutugma sa <strong>unang araw ng paulit-ulit na siklo</strong>. Maaari kang pumili ng nakaraan o hinaharap na petsa; kinakalkula ng app ang iskedyul pasulong at paatras mula rito.</li>
+<li><strong>Mga Template</strong> — mga handa nang karaniwang pagkakasunud-sunod ng shift. Ginagamit ng halimbawa ang template na “2/2 araw”.</li>
+<li><strong>Pasadyang iskedyul</strong> — lumilikha ng sarili mong pagkakasunod-sunod ng mga araw ng trabaho at mga araw na walang pasok.</li>
+<li><strong>Gumawa ng iskedyul</strong> — nagbubukas ng detalyadong editor para sa napiling opsyon.</li>
+</ol>
+
+<div class="tip">Para sa template na “D · D · O · O”, ang petsa ng pagsisimula ay karaniwang ang una sa dalawang araw ng trabaho. Sa isang pasadyang cycle, ang unang araw ay maaari ding maging isang araw na walang pasok; ang mahalagang punto ay ang napiling petsa ay eksaktong tumutugma sa unang araw ng pagkakasunod-sunod na iyong nilikha.</div>
+
+<h3 id="shifts-template">4.3. Paggawa ng iskedyul mula sa isang template</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_template.webp" alt="Template schedule editor na may pangalan, sequence, petsa ng pagsisimula, at oras ng shift">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Pangalan ng iskedyul</strong> — panatilihin ang iminungkahing pangalan o palitan ito ng sarili mo.</li>
+<li><strong>Template</strong> — ipinapakita ang sequence ng letra at ang kahulugan nito. Sa halimbawa, ang “D · D · O · O” ay nangangahulugang day shift, day shift, day off, day off.</li>
+<li><strong>Petsa ng pagsisimula</strong> — piliin ang petsa ng unang araw sa ipinapakitang sequence.</li>
+<li><strong>Oras ng shift</strong> — tukuyin ang oras ng pagsisimula at pagtatapos para sa bawat uri ng work-shift. Ipinapakita ng app ang kinakalkulang tagal.</li>
+<li><strong>Kanselahin</strong> — isinasara ang editor nang hindi nagse-save.</li>
+<li><strong>I-save</strong> — sine-save ang iskedyul at sinisimulan ang pagkalkula ng mga shift sa kalendaryo.</li>
+</ol>
+
+<div class="warning"><strong>Pagkatapos ng unang pag-save.</strong> Ang petsa ng pagsisimula at istruktura ng cycle ay naka-lock upang protektahan ang data ng kalendaryo na nakalkula na. Maaari mo pa ring i-edit ang pangalan at ilang mga parameter ng trabaho. Kung kailangan mo ng ibang base cycle o petsa ng sanggunian, mas ligtas na lumikha ng bagong iskedyul.</div>
+
+<h3 id="shifts-custom">4.4. Paggawa ng custom na cycle</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_custom.webp" alt="Custom na editor ng iskedyul na may haba ng cycle, mga kontrol sa araw, petsa ng pagsisimula, at mga setting para sa bawat araw">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Pangalan ng iskedyul</strong> — bigyan ng pangalan ang iyong custom na sequence.</li>
+<li><strong>Haba ng cycle</strong> — ipinapakita kung ilang araw ang kasama sa paulit-ulit na sequence.</li>
+<li><strong>Alisin ang araw</strong> — pinapaikli ang cycle ng isang araw.</li>
+<li><strong>Magdagdag ng araw</strong> — nagdaragdag ng isa pang maaaring i-configure na araw sa dulo ng cycle.</li>
+<li><strong>Petsa ng pagsisimula</strong> — ang petsa na tumutugma sa unang araw ng custom na cycle.</li>
+<li><strong>Mga setting ng araw</strong> — i-tap ang “Shift "type" card at pumili ng day off o ang kinakailangang uri ng trabaho: araw, gabi, umaga, gabi, 24-oras, o custom shift. Para sa isang araw ng trabaho, tukuyin ang oras ng pagsisimula at pagtatapos. I-configure ang mga natitirang araw ng cycle sa parehong paraan sa mas mababang bahagi ng screen.</li>
+<li><strong>Kanselahin</strong> — isinasara ang editor nang hindi nagse-save.</li>
+<li><strong>I-save</strong> — sine-save ang custom cycle at kinakalkula ito sa kalendaryo.</li>
+</ol>
+
+<div class="notice"><strong>Ano ang isang cycle?</strong> Ang cycle ay ang bilang ng mga araw pagkatapos magsimula muli ang sequence. Halimbawa, ang isang apat na araw na cycle ay maaaring "2 araw ng trabaho + 2 araw na pahinga," habang ang isang anim na araw na cycle ay maaaring "3 araw ng trabaho + 3 araw na pahinga." Pagkatapos ng huling araw, babalik ang app sa araw 1.</div>
+
+<div class="tip">Huwag baguhin ang base cycle para sa isang minsanang eksepsiyon sa iskedyul. Pindutin nang matagal ang isang petsa sa kalendaryo at lumikha ng isang araw na walang pasok, bakasyon, sick leave, kapalit na shift, o pagsasaayos ng oras.</div>
+
+
+
+<span id="shift-statistics"></span>
+<h2 id="statistics">5. Mga istatistika ng iskedyul</h2>
+
+<p>Buksan ang "Mga Istatistika" mula sa isang schedule card gamit ang button na <strong>"Buksan ang mga istatistika"</strong>. Pinagsasama ng seksyong ito ang impormasyon tungkol sa mga araw ng trabaho at mga araw na walang pasok, mga pagbabago sa iskedyul, nakaplano at aktwal na oras ng pagtatrabaho, tinantyang suweldo, at mga ulat.</p>
+
+<div class="notice"><strong>Mahalaga:</strong> ang mga istatistika ay kinakalkula lamang para sa napiling iskedyul ng shift. Ang napiling panahon ay nalalapat sa lahat ng mga halaga ng oras ng pagtatrabaho, suweldo, at pag-uulat sa ibaba nito.</div>
+
+<h3 id="statistics-period">5.1. Buod ng Iskedyul, panahon, at araw</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_period_overview.webp" alt="Screen ng istatistika na may impormasyon sa iskedyul, pagpili ng panahon, at mga kabuuan ng araw">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Impormasyon ng iskedyul</strong> — ipinapakita ang pangalan ng napiling iskedyul, ang petsa ng pagsisimula ng unang siklo, at ang haba ng paulit-ulit na siklo. Ang mga istatistika sa screen na ito ay nalalapat lamang sa iskedyul na ito.</li>
+<li><strong>Kard ng napiling panahon</strong> — ipinapakita ang panahong ginagamit. I-tap ito o ang arrow sa kanan upang piliin ang kasalukuyan, nakaraan, o susunod na buwan, ang kasalukuyang taon, o isang custom na hanay ng petsa.</li>
+<li><strong>Buod ng araw</strong> — ipinapakita ang bilang ng mga araw sa panahon, mga shift sa trabaho, mga araw na walang pasok, mga natapos at paparating na shift, at mga binagong araw. Ang mga binagong araw ay mga eksepsiyon sa base cycle: bakasyon, sick leave, oras ng pahinga, kapalit o paglipat ng shift, pagsasaayos ng oras ng pagtatrabaho, at iba pang mga pagbabago.</li>
+</ol>
+
+<div class="warning"><strong>Ang mga panahon sa hinaharap ay mga pagtataya.</strong> Para sa isang buwan sa hinaharap, ginagamit ng app ang nilikhang iskedyul at datos na naipasok na, ngunit hindi nito malalaman ang mga hinaharap na sick leave, bakasyon, oras ng pahinga, overtime, mga bonus, o mga bawas. Kapag pinili mo ang kasalukuyang taon, maaaring pagsamahin ng mga kabuuan ang aktwal na datos para sa mga nakaraang petsa sa isang pagtataya para sa natitirang bahagi ng taon.</div>
+
+<h3 id="statistics-work">5.2. Oras ng pagtatrabaho, suweldo, at mga ulat</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_work_salary_reports.webp" alt="Screen ng istatistika na may oras ng pagtatrabaho, progreso, suweldo, at access sa ulat">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Oras ng pagtatrabaho</strong> — isang buod ng card para sa mga oras at progreso. I-tap ito para buksan ang <a href="#statistics-break">mga setting ng oras ng pahinga</a>.</li>
+<li><strong>Mga nakaplanong oras</strong> — ang kabuuang tagal ng mga naka-iskedyul na shift at mga pagbabago sa napiling panahon.</li>
+<li><strong>Mga oras na nagtrabaho</strong> — ang oras sa mga shift na itinuturing na nakumpleto sa kasalukuyang petsa, kasama ang mga setting ng pahinga na inilapat.</li>
+<li><strong>Pag-usad</strong> — ipinapakita kung ilang shift ng trabaho ang nakumpleto mula sa kabuuan at kung ilang porsyento ng napiling panahon ang nakumpleto.</li>
+<li><strong>Sahod</strong> — nagbubukas ng <a href="#salary">mga setting ng pagkalkula ng suweldo</a>. Ang card ay nagpapakita ng isang pagtatantya para sa napiling iskedyul at panahon.</li>
+<li><strong>Kabuuan</strong> — ang tinantyang halagang kinita sa ngayon, kabilang ang napiling paraan ng pagbabayad, mga bonus, overtime, at mga bawas.</li>
+<li><strong>Rate o suweldo</strong> — ang mga nilalaman ng card na ito ay nakadepende sa napiling paraan ng pagkalkula: bayad kada oras, kada shift, o kada buwan. Ipinapakita nito ang halagang ipinasok sa mga setting ng suweldo.</li>
+<li><strong>Mga detalye ng pagkalkula</strong> — oras na binayaran, oras ng overtime, mga bonus, at mga bawas para sa napiling panahon.</li>
+<li><strong>Mga Ulat</strong> — nagbubukas ng <a href="#reports">mga detalyadong ulat para sa mga panahon, oras ng pagtatrabaho, at suweldo</a>.</li>
+</ol>
+
+<div class="tip">Muling kinakalkula ang lahat ng halaga sa mga seksyon ng oras ng pagtatrabaho at suweldo kapag binago mo ang panahon sa itaas na card.</div>
+
+<h3 id="statistics-break">5.3. Pagtutuos ng mga pahinga sa oras ng pagtatrabaho</h3>
+
+<p>I-tap ang card na “Oras ng pagtatrabaho” upang tukuyin kung ang isang pahinga para sa pagkain o isa pang pahinga ay dapat ibilang bilang bahagi ng aktwal na oras ng pagtatrabaho at bayad.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_break_settings.webp" alt="Panel ng mga setting ng pagtutuos at tagal ng pahinga">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Kasalukuyang mga kabuuan</strong> — ipinapakita ang mga nakaplano at oras ng pagtatrabaho para sa napiling panahon bago ilapat ang mga bagong setting.</li>
+<li><strong>Bilangin ang pahinga bilang oras ng pagtatrabaho</strong> — iwanan ang opsyong ito kung ang pahinga ay bayad at kasama sa tagal ng shift. I-off ito kung ang tinukoy na oras ay dapat ibukod mula sa oras ng pagtatrabaho at bayad.</li>
+<li><strong>Tagal ng pahinga</strong> — piliin ang mga oras at minuto para sa isang pahinga. Ginagamit ang setting na ito kapag muling kinakalkula ang mga naaangkop na shift sa trabaho.</li>
+<li><strong>Kabuuang pahinga</strong> — ipinapakita ang napiling tagal bago i-save.</li>
+<li><strong>I-save</strong> — inilalapat ang setting at muling kinakalkula ang oras ng pagtatrabaho at mga kaugnay na halaga.</li>
+</ol>
+
+<div class="notice">Ang isang pahinga ay maaaring kumakatawan sa isang pahinga sa pagkain, paglilipat ng shift, o isa pang hindi bayad na agwat sa loob ng isang shift. Ilagay ang tagal na tumutugma sa mga patakaran sa iyong lugar ng trabaho.</div>
+
+<h3 id="reports">5.4. Mga Ulat: panahon, katayuan, at buod</h3>
+
+<p>Buksan ang “Mga Ulat” mula sa ibabang card sa screen ng mga istatistika. Ang seksyong ito ay nagbibigay ng mas detalyadong impormasyon para sa napiling panahon: oras ng pagtatrabaho, mga shift at pagliban, mga pagsasaayos sa kalendaryo, suweldo, mga bonus, mga bawas, paghahambing ng panahon, mga detalye sa bawat araw, at pag-export.</p>
+
+<div class="warning"><strong>Ang mga ulat ay ibinibigay para sa mga layuning pang-impormasyon lamang.</strong> Ang mga kalkulasyon ay batay sa napiling iskedyul, mga setting ng suweldo, pagtutuos ng pahinga, at mga pagbabago sa shift sa kalendaryo. Ang aktwal na mga numero ng iyong employer ay maaaring magkaiba dahil sa ibang sistema ng pag-iingat ng oras, pag-round, mga buwis, mga allowance, o mga panloob na panuntunan. Kung makakita ka ng error o isang hindi sinusuportahang paraan ng pagkalkula, makipag-ugnayan sa mga developer sa address na ipinapakita sa app at isama ang input data at inaasahang resulta.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_period_salary.webp" alt="Screen ng mga ulat na may napiling panahon, katayuan, buod, at detalyadong pagkasira ng suweldo">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Panahon ng ulat</strong> — i-tap ang card upang piliin ang kasalukuyan, nakaraan, o susunod na buwan, isang naka-set na saklaw, o mga custom na petsa. Ang lahat ng impormasyon sa ibaba ay nalalapat sa napiling panahon.</li>
+<li><strong>Katayuan ng panahon</strong> — ipinapakita kung ang panahon ay kumpleto na, kasalukuyang aktibo, o hindi pa nagsisimula. Ang isang nakumpletong panahon ay kinakalkula mula sa naka-save na aktwal na data. Pinagsasama ng isang aktibong panahon ang datos na nagamit na sa kasalukuyang plano, habang ang isang hinaharap na panahon ay isang pagtataya.</li>
+<li><strong>Buod</strong> — isang buod ng teksto ng aktwal na oras ng pagtatrabaho, ang kinakalkulang halaga, at overtime.</li>
+<li><strong>Sahod</strong> — isang detalyadong pagkasira ng base pay, overtime pay, mga bonus, mga bawas, at ang pangwakas na pagtatantya. Ang mga halaga ay nakadepende sa <a href="#salary">mga setting ng suweldo</a> at napiling panahon.</li>
+</ol>
+
+<h3 id="reports-work">5.5. Oras ng pagtatrabaho, mga pagliban, at mga araw</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_work_absences.webp" alt="Screen ng mga ulat na may oras ng pagtatrabaho, mga pahinga, mga natapos na shift, at mga pagliban">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Oras ng pagtatrabaho</strong> — ipinapakita ang mga nakaplano at aktwal na oras ng pagtatrabaho, mga nakaplano at aktwal na oras bago ang bawas sa pahinga, ang bilang ng mga natapos na shift, average na tagal ng shift, at ang kabuuang bawas sa pahinga. I-configure ang mga pahinga sa <a href="#statistics-break">seksyon ng oras ng pagtatrabaho</a>.</li>
+<li><strong>Mga pagliban at araw</strong> — ipinapakita ang bilang ng mga araw ng pahinga, mga araw ng bakasyon, mga araw ng sick-leave, mga araw ng time-off, at mga binagong araw sa napiling panahon.</li>
+</ol>
+
+<h3 id="reports-charts">5.6. Mga Pagsasaayos at mga Tsart</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_corrections_charts.webp" alt="Screen ng mga ulat na may mga pagsasaayos, komposisyon ng suweldo, at mga halaga ng oras ng pagtatrabaho">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Mga Pagsasaayos</strong> — ipinapakita ang mga oras ng overtime, ang kabuuang pagbabago sa tagal ng shift, at ang bilang ng mga araw na binago mula sa base schedule.</li>
+<li><strong>Mga Tsart</strong> — ipinapakita ang komposisyon ng suweldo at oras ng pagtatrabaho: base pay, overtime, mga bonus, mga bawas, kabuuan, at mga oras na nakaplano, nagtrabaho, at bayad.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_charts_days.webp" alt="Mga karagdagang tsart ng ulat na may mga oras at isang pie chart na uri ng araw">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Mga Oras</strong> — ipinagpapatuloy ang visual na paghahambing ng mga oras na nakaplano, nagtrabaho, binabayaran, at overtime. Ipinapakita ng hilerang “Aktwal na oras ng pagtatrabaho” ang resulta pagkatapos mailapat ang mga setting at pagsasaayos.</li>
+<li><strong>Mga uri ng araw</strong> — isang pie chart na namamahagi ng mga araw sa napiling panahon ayon sa uri. Ang legend ay nakadepende sa iskedyul at mga aktwal na pagbabago: araw, gabi, o iba pang mga shift, mga araw na walang pasok, bakasyon, sick leave, oras na walang pasok, at iba pang mga estado.</li>
+</ol>
+
+<h3 id="reports-comparison">5.7. Paghahambing ng mga panahon</h3>
+
+<p>Tinutulungan ka ng seksyon ng paghahambing na ihambing ang suweldo, oras, mga shift, at mga pagliban sa ilang mga panahon. Ang bilang ng mga magagamit na panahon ay nakadepende sa naka-save na data.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_chart.webp" alt="Screen ng paghahambing ng panahon na may seleksyon ng saklaw, tsart ng suweldo, at ang simula ng isang talahanayan ng paghahambing">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Paghambingin ang mga panahon</strong> — i-tap ang card upang piliin kung ilang panahon ang ihahambing at ang kanilang saklaw.</li>
+<li><strong>Listahan ng tsart at panahon</strong> — ipinapakita ang suweldo para sa bawat panahon at inililista ang mga pagitan na kasama sa paghahambing kasama ang kanilang katayuan.</li>
+<li><strong>Talahanayan ng paghahambing</strong> — naglalaman ng mga detalyadong halaga para sa bawat panahon. I-swipe ang talahanayan nang pahalang pakaliwa o pakanan upang tingnan ang mga natitirang hanay.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_table.webp" alt="Pagpapatuloy ng talahanayan ng paghahambing at mga pagkakaiba sa pagitan ng magkatabing mga panahon">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Mga halaga ng panahon</strong> — kabuuang suweldo, oras na nagtrabaho at binayaran, overtime, mga bonus, mga bawas, mga natapos na shift, mga pagliban, at mga nabagong araw.</li>
+<li><strong>Pagkakaiba sa pagitan ng mga panahon</strong> — ipinapakita kung paano naiiba ang bawat panahon mula sa nauna. Ang mga positibo at negatibong halaga ay nagpapahiwatig ng pagtaas o pagbaba sa katumbas na sukatan. Ang kulay lamang ay hindi palaging nangangahulugan ng benepisyo o problema; halimbawa, ang pagtaas sa mga bawas ay nangangahulugan ng mas malaking halaga na ibinabawas.</li>
+</ol>
+
+<h3 id="reports-details-export">5.8. Pang-araw-araw na detalye at pag-export</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_details_export.webp" alt="Mga report card para sa pang-araw-araw na detalye at pag-export sa PDF, HTML, JSON, o CSV">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Pang-araw-araw na detalye</strong> — nagbubukas ng listahan ng bawat araw sa napiling panahon. Maaari mong suriin ang uri ng shift, planado at aktwal na oras, mga pagsasaayos ng oras, mga pagliban, at iba pang mga pagbabago para sa isang partikular na araw.</li>
+<li><strong>I-export</strong> — sine-save ang ulat bilang PDF, HTML, JSON, o CSV. Piliin ang panahon ng ulat bago i-export; pagkatapos ay maaari mong i-print, i-save, o ibahagi ang file sa pamamagitan ng menu ng Android system.</li>
+</ol>
+
+<div class="tip">Bago ihambing o i-export, suriin ang napiling panahon, iskedyul, mga pagbabago sa shift, mga pahinga, at mga setting ng suweldo. Ang isang error sa pinagmulang data ay makakaapekto sa bawat kabuuang ulat.</div>
+
+<h2 id="alarms">6. Mga Alarma</h2>
+
+<p>Binibigyang-daan ka ng ShiftAlarm na lumikha ng mga minsanang alarma, ulitin ang mga ito sa mga piling araw ng linggo, o i-link ang kanilang oras sa isang iskedyul ng shift.</p>
+
+<h3 id="alarms-list">6.1. Listahan ng alarma</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarms_overview.webp" alt="ShiftAlarm alarm screen na may susunod na alerto, pag-uuri, isang alarm card, at ang add button">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Susunod na alarma</strong> — ipinapakita ang petsa at oras ng susunod na aktibong alerto.</li>
+<li><strong>Pag-uuri ng alarma</strong> — binabago ang pagkakasunod-sunod ng mga alarm card, halimbawa sa pamamagitan ng pagpapakita muna ng mga pinaganang alarma.</li>
+<li><strong>Alarm card</strong> — naglalaman ng oras, petsa o repeat mode, uri ng iskedyul, at natitirang oras. I-tap ang card para i-edit ito.</li>
+<li><strong>Switch</strong> — pansamantalang pinapagana o pinapagana ang alarma nang hindi binubura ang mga setting nito.</li>
+<li><strong>Delete</strong> — binubura ang napiling alarma.</li>
+<li><strong>Magdagdag ng alarma</strong> — magbubukas ng screen para sa paggawa ng bagong alarma.</li>
+</ol>
+
+<h3 id="alarms-create">6.2. Paglikha at pag-eedit ng alarma</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_time_schedule.webp" alt="Tuktok ng ShiftAlarm alarm editor: oras, uri ng iskedyul, mga kontrol sa pag-snooze, at pag-save">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Oras</strong> — i-scroll ang mga gulong ng oras at minuto upang itakda ang oras ng alerto.</li>
+<li><strong>Uri ng iskedyul</strong> — pumili ng isa sa mga mode na ito:
+<ul>
+<li><strong>Isang beses</strong> — ang alarma ay nagti-trigger nang isang beses sa napiling petsa;</li>
+<li><strong>Ayon sa mga araw</strong> — umuulit sa mga napiling araw ng linggo;</li>
+<li><strong>Ayon sa mga shift</strong> — iniuugnay ang alarma sa isang napiling iskedyul at uri ng shift.</li>
+</ul>
+</li>
+<li><strong>I-snooze</strong> — nagtatakda kung ilang minuto ang alerto naantala kapag pinindot mo ang snooze button sa ringing screen.</li>
+<li><strong>Kanselahin at I-save</strong> — ang mga button na ito ay nakapirmi sa ibaba ng screen at mananatiling available habang nag-i-scroll ka sa editor.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_behavior.webp" alt="Mga setting ng ShiftAlarm para sa tagal ng alarma, alerto sa pag-uulit, unti-unting pagtaas ng volume, at vibration">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tagal ng alarma</strong> — tinutukoy kung gaano katagal tutunog ang alerto kung hindi ito ititigil ng user.</li>
+<li><strong>Ulitin kung hindi pinansin ang alarma</strong> — pinapagana ang isa pang alerto kapag ang alarma ay hindi na-dismiss o na-snooze. Itakda ang pagitan bago ang paulit-ulit na alerto sa ibaba nito.</li>
+<li><strong>Unti-unting pagtaas ng volume</strong> — nagsisimula sa mas mahinang audio at unti-unting pinapataas ang volume sa napiling oras.</li>
+<li><strong>Vibration</strong> — pinapagana o hindi pinapagana ang vibration habang naka-alerto.</li>
+<li><strong>Kanselahin at I-save</strong> — mga nakapirming kontrol para sa editor.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_sound_name.webp" alt="Ibaba ng editor ng alarma ng ShiftAlarm: mga kontrol sa vibration, tunog, pangalan, at pag-save">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Vibration</strong> — pinapagana o hindi pinapagana ang alerto sa vibration.</li>
+<li><strong>Tunog</strong> — hinahayaan kang pumili ng built-in, system, o tunog na idinagdag ng user. Maaari kang magdagdag ng hanggang limang pasadyang tunog sa app.</li>
+<li><strong>Pangalan</strong> — isang opsyonal na label na tumutulong sa iyong makilala ang mga alarma.</li>
+<li><strong>Kanselahin at I-save</strong> — itapon ang mga pagbabago o i-save ang alarma.</li>
+</ol>
+
+<div class="notice">Pagkatapos i-save, lilitaw ang alarma sa pangunahing listahan. Bago ang isang mahalagang alerto, siguraduhing naka-enable ang alarma, may mga pahintulot sa notification at eksaktong alarma ang app, at hindi nililimitahan ng system ang aktibidad sa background nito.</div>
+
+<div class="tip">Para lumikha ng shift-linked alarm, lumikha muna ng naaangkop na iskedyul ng shift. Sa editor, pumili ng isang nakapirming oras ng pag-trigger o isang offset na may kaugnayan sa simula ng shift.</div>
+
+<h2 id="geo">7. Mga Geo Alarms</h2>
+
+<p>Sinusubaybayan ng isang Geo Alarm kung kailan pumapasok o lumalabas ang device sa isang napiling lugar. Ang lugar ay tinukoy ng isang punto sa mapa at isang radius sa paligid ng puntong iyon. Halimbawa, gumamit ng Geo Alarm para makatanggap ng alerto kapag papalapit sa trabaho, bahay, hintuan ng bus, istasyon, o ibang lugar.</p>
+
+<h3 id="geo-overview">7.1. Mapa at mga kontrol</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_overview.webp" alt="ShiftAlarm Geo Alarm main screen na may mapa at mga kontrol na may numero">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Mag-zoom in</strong> — pinapalaki ang mapa.</li>
+<li><strong>Mag-zoom out</strong> — binabawasan ang laki ng mapa.</li>
+<li><strong>Aking lokasyon</strong> — inililipat ang mapa sa kasalukuyang lokasyon ng device. Kailangan ng app ng access sa lokasyon para sa feature na ito.</li>
+<li><strong>Mga naka-save na lugar</strong> — magbubukas ng listahan ng mga naka-save na Geo Alarms at mga location point.</li>
+<li><strong>Bumalik</strong> — babalik sa nakaraang screen ng app.</li>
+<li><strong>Bilang ng Geo Alarm</strong> — ipinapakita kung ilang Geo Alarms ang nagawa.</li>
+<li><strong>Listahan ng Geo Alarm</strong> — magbubukas ng hiwalay na listahan ng mga nagawang Geo Alarms.</li>
+</ol>
+
+<div class="tip">Maaari ka ring mag-zoom gamit ang mga galaw. Pindutin ang mapa gamit ang dalawang daliri at ibuka ang mga ito para mag-zoom in, o kurutin ang mga ito para mag-zoom out.</div>
+<div class="notice">Maaaring lumitaw ang mga kontrol sa gilid sa kabilang panig sa mga wikang mula kanan pakaliwa. Ang kanilang mga function ay mananatiling pareho.</div>
+
+<h3 id="geo-saved-places">7.2. Mga naka-save na alarma at mga punto ng lokasyon</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_saved_places.webp" alt="Window ng mga naka-save na lugar na may Geo Alarm at mga tab ng location-point">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Mga Alarma</strong> — ipinapakita ang mga Geo Alarms na idinagdag sa mga naka-save na lugar.</li>
+<li><strong>Mga punto ng lokasyon</strong> — ipinapakita ang mga naka-save na coordinate nang walang aktibong Geo Alarm.</li>
+<li><strong>Listahan ng mga naka-save na lugar</strong> — mag-tap ng card upang lumipat sa lugar na iyon sa mapa.</li>
+<li><strong>Isara</strong> — isinasara ang window at babalik sa mapa.</li>
+</ol>
+
+<div class="notice">Kung tatanggalin mo ang isang naka-bookmark na Geo Alarm, awtomatikong mananatili ang mga coordinate nito sa tab na "Mga punto ng lokasyon". Maaari mong gamitin muli ang punto sa ibang pagkakataon upang lumikha ng isa pang Geo Alarm.</div>
+
+<h3 id="geo-select-point">7.3. Pagpili ng punto at radius</h3>
+
+<p>Pindutin nang matagal ang kinakailangang lugar sa mapa. Maglalagay ang app ng marker at bubuksan ang panel ng napiling punto.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_selected_point.webp" alt="Napiling punto sa mapa na may address, radius, bookmark, at button sa paglikha ng Geo Alarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Marker ng napiling punto</strong> — ang sentro ng geofence sa hinaharap. Nagpapakita rin ang mapa ng bilog para sa napiling radius.</li>
+<li><strong>Address at mga coordinate</strong> — hinahayaan kang i-verify na ang tamang lugar ay napili.</li>
+<li><strong>I-save ang punto ng lokasyon</strong> — idinaragdag ang mga napiling coordinate sa mga naka-save na lugar nang hindi lumilikha ng alarma.</li>
+<li><strong>Radius</strong> — itinatakda ang laki ng lugar sa paligid ng punto. Igalaw ang slider hanggang sa pumili ka ng naaangkop na distansya.</li>
+<li><strong>Kanselahin</strong> — kinakansela ang pagpili ng punto.</li>
+<li><strong>Lumikha dito</strong> — binubuksan ang bagong Geo Alarm editor para sa napiling punto.</li>
+</ol>
+
+<div class="warning"><strong>Paano pumili ng radius.</strong> Hindi tuluy-tuloy na sinusubaybayan ng isang telepono ang mga coordinate nito. Ang Android, ang tagagawa ng device, battery-saving mode, GPS, mobile-network at kalidad ng signal ng Wi‑Fi, at bilis ng paggalaw ay pawang nakakaapekto kapag natukoy ang hangganan. Samakatuwid, maaaring mag-trigger ang alerto palayo sa iginuhit na linya. Halimbawa, sa radius na 800 m, maaaring matukoy ang pagpasok pagkatapos na ang device ay nasa loob na ng lugar—marahil 700, 600, o 500 m mula sa punto.</div>
+
+<ul>
+<li><strong>Sa isang lungsod</strong>, ang radius na <strong>1,300–1,500 m</strong> ay karaniwang inirerekomenda.</li>
+<li><strong>Sa labas ng lungsod</strong>, kung saan maaaring hindi gaanong madalas ang mga pag-update ng lokasyon, inirerekomenda ang <strong>4,000–5,000 m</strong>.</li>
+<li><strong>Ang eksaktong radius</strong> ay dapat piliin batay sa iyong ruta, bilis, at gawi ng device.</li>
+</ul>
+
+<div class="notice">Natutukoy ng system kapag ang device ay tumatawid sa virtual na hangganan ng lugar. Sa mode na "On entry", ang mas malaking radius ay karaniwang nagbibigay sa telepono ng mas maraming oras upang matukoy ang iyong paglapit. Sa mode na “On exit”, ang hangganan ay inilalagay sa halip na mas malayo mula sa napiling punto.</div>
+
+<h3 id="geo-create">7.4. Paggawa ng Geo Alarm</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_location_schedule.webp" alt="Tuktok ng editor ng Geo Alarm: kahandaan, lokasyon, at uri ng iskedyul">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Kahandaan ng Geo Alarm</strong> — ipinapakita kung ang mga kinakailangang pahintulot ay na-configure at kung maaaring irehistro ng app ang geofence.</li>
+<li><strong>Lokasyon</strong> — naglalaman ng napiling address at mga coordinate. Maaari mong i-edit ang address bilang isang label, ngunit ang aktwal na punto ay napili sa mapa.</li>
+<li><strong>Uri ng iskedyul</strong> — tinutukoy ang mga araw at kundisyon kung saan aktibo ang Geo Alarm.</li>
+<li><strong>Palagi</strong> — ang Geo Alarm ay aktibo araw-araw habang ito ay naka-enable.</li>
+<li><strong>Minsan</strong> — ginagamit para sa susunod na minsanang pag-trigger kapag natugunan ang napiling kundisyon.</li>
+<li><strong>Ayon sa mga araw</strong> — gumagana lamang sa mga piling araw ng linggo.</li>
+<li><strong>Ayon sa mga shift</strong> — iniuugnay ang Geo Alarm sa aktibong iskedyul ng shift.</li>
+</ol>
+
+<div class="notice"><strong>Iskedyul na “Ayon sa mga shift”.</strong> Piliin kung ito ay gumagana sa araw ng shift, bago lamang ang shift, o pagkatapos lamang nito, at tukuyin ang kinakailangang uri ng shift: araw, gabi, umaga, gabi, 24-oras, pasadya, o anumang shift sa trabaho.</div>
+<div class="tip">Kung ang isang petsa sa kalendaryo ay minarkahan bilang isang day off, bakasyon, sick leave, o time off sa halip na isang shift sa trabaho, ang isang shift-linked Geo Alarm ay hindi magiging aktibo sa araw na iyon.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_trigger_settings.webp" alt="Ibaba ng editor ng Geo Alarm: kondisyon ng pagpasok o paglabas, radius, at mga setting ng alerto">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Kondisyon ng pag-trigger</strong> — tinutukoy kung aling tawiran sa hangganan ang nagsisimula ng alerto.</li>
+<li><strong>Sa pagpasok</strong> — sinisimulan ang alerto kapag ang device ay pumasok sa napiling radius, halimbawa kapag papalapit sa trabaho o sa kinakailangang hintuan.</li>
+<li><strong>Sa paglabas</strong> — sinisimulan ang alerto kapag ang device ay umalis sa napiling radius, halimbawa pagkatapos umalis sa trabaho o isang istasyon upang gawin mo huwag palampasin ang susunod na bahagi ng ruta.</li>
+<li><strong>Sa pagpasok o paglabas</strong> — sinisimulan ang alerto tuwing tatawid ang hangganan sa alinmang direksyon.</li>
+<li><strong>Radius</strong> — ang laki ng geofence sa paligid ng napiling punto.</li>
+<li><strong>Tagal ng alarma</strong> — tinutukoy kung gaano katagal tumutunog ang alerto.</li>
+<li><strong>Unti-unting pagtaas ng volume</strong> — nagtatakda ng maayos na pagtaas ng volume pagkatapos magsimula ang alerto.</li>
+<li><strong>Kanselahin at I-save</strong> — itapon ang mga pagbabago o i-save ang Geo Alarm.</li>
+</ol>
+
+<div class="tip">Ang mga natitirang opsyon sa ibaba ay katulad ng isang regular na alarma: tunog, panginginig ng boses, tagal ng alerto, unti-unting pagtaas ng volume, at pangalan.</div>
+
+<h3 id="geo-existing">7.5. Isang Geo Alarm sa mapa at ang mga kontrol nito</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_marker_radius.webp" alt="Ginawa ang Geo Alarm marker at ang trigger-radius circle nito sa mapa">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Geo Alarm marker</strong> — ipinapakita ang napiling punto.</li>
+<li><strong>Hangganan ng radius</strong> — ipinapakita ang lugar na ang pagpasok o paglabas ay minomonitor ng app.</li>
+</ol>
+
+<p>I-tap ang Geo Alarm marker. Lilitaw muna ang isang maliit na window ng impormasyon. I-tap ang window na iyon para buksan ang detalyadong card.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_alarm_card.webp" alt="Detalyadong Geo Alarm card na may impormasyon, bookmark, switch, at mga kontrol">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Pangalan at address</strong> — tukuyin ang napiling Geo Alarm.</li>
+<li><strong>Bookmark</strong> — idinaragdag ang alarma sa mga naka-save na lugar o inaalis ito sa mga ito.</li>
+<li><strong>Switch</strong> — pinapagana o pansamantalang hindi pinapagana ang Geo Alarm nang hindi binubura ang mga setting nito.</li>
+<li><strong>Mga setting at katayuan</strong> — ipinapakita ang radius, kondisyon ng pagpasok o paglabas, iskedyul, kahandaan ng geofence, at impormasyon tungkol sa mga nakaraang pag-activate.</li>
+<li><strong>Edit</strong> — binubuksan ang mga setting ng Geo Alarm.</li>
+<li><strong>Isara</strong> — isinasara ang card at babalik sa mapa.</li>
+<li><strong>Tanggalin</strong> — tinatanggal ang Geo Alarm pagkatapos ng kumpirmasyon.</li>
+</ol>
+
+<div class="warning">Para sa maaasahang operasyon, payagan ang tumpak at lokasyon sa background, alisin ang mahigpit na mga paghihigpit sa baterya para sa ShiftAlarm, at suriin ang awtomatikong pagsisimula sa background kung ibinibigay ito ng iyong device. Kahit na may mga tamang setting, hindi ginagarantiyahan ng Android ang tumpak na pagtukoy sa hangganan sa loob ng ilang metro.</div>
+
+<h2 id="notes">8. Mga Tala, kaganapan, at paalala</h2>
+
+<p>Ang seksyong "Mga Tala" ay nag-iimbak ng plain text, mga listahan, mga checklist, mga audio recording, mga speech-to-text na tala, mga paalala, at mga kaganapan.</p>
+
+<h3 id="notes-create">8.1. Pagdaragdag ng tala</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_type_picker.webp" alt="Pagpili ng bagong uri ng tala sa ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Panel handle</strong> — i-drag ito pataas upang ipakita ang buong listahan ng mga uri ng tala, o pababa upang isara ang panel.</li>
+<li><strong>Uri ng tala</strong> — piliin ang naaangkop na opsyon:
+<ul>
+<li><strong>Tala bilang teksto</strong> — payak na teksto;</li>
+<li><strong>Checklist</strong> — isang listahan ng mga item na may mga checkbox ng pagkumpleto;</li>
+<li><strong>List</strong> — isang listahan na may bullet o numero;</li>
+<li><strong>Audio note</strong> — isang recording ng boses;</li>
+<li><strong>Pagsasalita sa teksto</strong> — lumilikha ng tala gamit ang pagkilala sa pagsasalita;</li>
+<li><strong>Paalala</strong> — isang entry na may abiso sa isang tinukoy na oras;</li>
+<li><strong>Kaganapan</strong> — isang entry na naka-link sa isang petsa at oras.</li>
+</ul>
+</li>
+<li><strong>Kanselahin</strong> — isinasara ang picker nang hindi lumilikha ng tala.</li>
+</ol>
+
+<div class="tip">Pagkatapos mong pumili ng isang uri, magbubukas ang naaangkop na editor. Kumpletuhin ang mga kinakailangang field at i-save ang entry.</div>
+
+<h3 id="notes-list">8.2. Listahan at mga kontrol ng tala</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_overview.webp" alt="ShiftAlarm notes screen na may pag-uuri, aktibo at naka-archive na mga tala, paghahanap, at mga aksyon sa card">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Pag-uuri</strong> — binabago ang pagkakasunud-sunod ng mga tala sa listahan.</li>
+<li><strong>Aktibo</strong> — ipinapakita ang mga regular at naka-iskedyul na tala na hindi pa nailipat sa archive.</li>
+<li><strong>Archive</strong> — binubuksan ang listahan ng mga naka-archive na tala.</li>
+<li><strong>Paghahanap</strong> — hinahanap ang mga tugma sa mga pamagat at nilalaman ng tala.</li>
+<li><strong>Note card</strong> — ipinapakita ang pamagat, uri, katayuan, at karagdagang impormasyon. I-tap ang card para buksan ang tala.</li>
+<li><strong>I-pin</strong> — ipin ang tala sa itaas ng listahan.</li>
+<li><strong>I-archive</strong> — inaalis ang tala mula sa aktibong listahan at inililipat ito sa archive.</li>
+<li><strong>I-delete</strong> — binubura ang tala pagkatapos ng kumpirmasyon.</li>
+<li><strong>Magdagdag ng tala</strong> — binubuksan ang picker ng uri ng bagong tala.</li>
+</ol>
+
+<div class="notice">Gamitin ang archive para sa mga entry na hindi na kailangan sa pangunahing listahan ngunit dapat manatiling naka-save. Burahin lamang ang isang tala kapag hindi na ito kailangan.</div>
+
+<h2 id="clock">9. Orasan, stopwatch, at timer</h2>
+
+<p>Pinagsasama ng seksyong ito ang lokal at pandaigdigang oras, isang stopwatch, at isang timer. Buksan ito gamit ang buton na <strong>“Orasan”</strong> sa pangunahing screen.</p>
+
+<div class="notice">Lumalabas ang tatlong tab sa ibaba ng screen: “Orasan,” “Stopwatch,” at “Timer.” Mag-tap ng tab para magpalit ng mga mode.</div>
+
+<h3 id="clock-world">9.1. Orasan at orasan sa mundo</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_overview.webp" alt="ShiftAlarm clock screen na may lokal na oras, mga orasan sa mundo, button na magdagdag, at mga tab sa ibaba">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Lokal na oras</strong> — ipinapakita ang kasalukuyang oras, petsa, at time zone ng sistema ng device.</li>
+<li><strong>Mga orasan sa mundo</strong> — ipinapakita ang mga idinagdag na lungsod at time zone. Habang walang laman ang listahan, magpapakita ang app ng pahiwatig.</li>
+<li><strong>Plus button</strong> — magbubukas sa world-clock picker.</li>
+<li><strong>Mga tab ng seksyon</strong> — magpalipat-lipat sa pagitan ng mga screen na “Orasan,” “Stopwatch,” at “Timer”.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_add_timezone.webp" alt="Pagdaragdag ng lungsod o time zone sa ShiftAlarm world clock">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Paghahanap</strong> — maglagay ng pangalan ng lungsod o time-zone para i-filter ang listahan.</li>
+<li><strong>Listahan ng lungsod at time-zone</strong> — i-tap ang kinakailangang opsyon para idagdag ito sa screen ng world-clock.</li>
+</ol>
+
+<div class="tip">Ang lokal na time zone ang laging unang ipinapakita. Maaari mong alisin ang mga idinagdag na orasan ng mundo mula sa listahan, ngunit hindi maaaring alisin ang lokal na oras.</div>
+
+<h3 id="clock-stopwatch">9.2. Stopwatch</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_start.webp" alt="ShiftAlarm stopwatch bago ito magsimula">
+</figure>
+
+<ol class="callout-list">
+<li><strong>History</strong> — nagbubukas ng mga naka-save na sesyon ng stopwatch.</li>
+<li><strong>Start</strong> — sinisimulan ang pag-timing.</li>
+<li><strong>Reset</strong> — hindi magagamit bago magsimula ang stopwatch. Pagkatapos huminto, ibinabalik nito ang stopwatch sa zero at inaalis ang mga kasalukuyang lap.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_running.webp" alt="Pagpapatakbo ng ShiftAlarm stopwatch na may history, save, lap, at pause controls">
+</figure>
+
+<ol class="callout-list">
+<li><strong>History</strong> — ipinapakita ang mga naunang na-save na session.</li>
+<li><strong>Save</strong> — hinihingi ang pangalan at sine-save ang kasalukuyang session ng stopwatch.</li>
+<li><strong>Lap</strong> — nagtatala ng intermediate na resulta nang hindi hinihinto ang kabuuang timer.</li>
+<li><strong>Pause</strong> — hinihinto ang stopwatch. Pagkatapos mag-pause, maaari mo itong ipagpatuloy o i-reset.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_laps.webp" alt="ShiftAlarm stopwatch laps at ang kanilang mga opsyon sa pag-uuri">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Orihinal, pinakamabilis, at pinakamabagal</strong> — baguhin ang pagkakasunud-sunod ng pagpapakita ng lap: orihinal na pagkakasunud-sunod, pinakamabilis muna, o pinakamabagal muna.</li>
+<li><strong>Laps</strong> — ipinapakita ng bawat lap ang kabuuang oras kung kailan ito naitala at ang indibidwal na oras ng lap.</li>
+</ol>
+
+<div class="notice">Kapag pinindot mo ang Save, maglagay ng pangalan ng session at kumpirmahin. Maaari mong buksan ang naka-save na session sa ibang pagkakataon mula sa History.</div>
+
+<h3 id="clock-timer">9.3. Timer</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_setup.webp" alt="Pagtatakda ng timer ng ShiftAlarm na may mga gulong ng oras, minuto, at segundo">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Mga Oras</strong> — i-scroll ang gulong at piliin ang bilang ng mga oras.</li>
+<li><strong>Mga Minuto</strong> — i-scroll ang gulong at piliin ang bilang ng mga minuto.</li>
+<li><strong>Mga Segundo</strong> — i-scroll ang gulong at piliin ang bilang ng mga segundo.</li>
+<li><strong>Simulan</strong> — sinisimulan ang timer gamit ang napiling tagal.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_running.webp" alt="Pagpapatakbo ng timer ng ShiftAlarm na may natitirang oras, pag-pause, pagdaragdag ng minuto, at paghinto controls">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Oras na natitira</strong> — ipinapakita kung gaano karaming oras ang natitira bago ang alerto.</li>
+<li><strong>Oras ng pagtatapos</strong> — ipinapakita ang tinatayang oras kung kailan matatapos ang timer.</li>
+<li><strong>Mga kamakailang timer</strong> — na-save ang mga kamakailang tagal; i-tap ang isa para mabilis itong magamit muli.</li>
+<li><strong>I-pause</strong> — pansamantalang ihihinto ang countdown. Maaari mo itong ipagpatuloy pagkatapos.</li>
+<li><strong>+1 min</strong> — nagdaragdag ng isang minuto sa natitirang oras.</li>
+<li><strong>Ihinto</strong> — tuluyang ihihinto ang timer.</li>
+</ol>
+
+<div class="tip">Patuloy na tumatakbo ang timer at stopwatch sa background. Maaaring lumabas ang kanilang status sa isang notification, sa pangunahing screen, at sa mga widget.</div>
+
+<h2 id="widgets">10. Mga Widget</h2>
+
+<p>Nagbibigay ang ShiftAlarm ng mga widget para sa Home screen ng telepono.</p>
+<ul>
+<li><strong>Today 4×2</strong> — isang compact panel na may dalawang seksyong maaaring i-configure.</li>
+<li><strong>Today 4×3</strong> — isang panel na may orasan sa itaas at dalawang seksyon sa ibaba.</li>
+<li><strong>Kalendaryo 4×4</strong> — mga widget sa kalendaryo na may iskedyul ng shift.</li>
+</ul>
+<p>Magdagdag ng widget sa pamamagitan ng menu ng widget ng Android sa Home screen ng telepono.</p>
+
+<h2 id="salary">11. Pagkalkula ng suweldo</h2>
+
+<p>Buksan ang “Pagkalkula ng suweldo” mula sa salary card sa <a href="#statistics-work">mga istatistika ng napiling iskedyul</a>. Dito mo maaaring itakda ang paraan ng pagbabayad, rate o buwanang suweldo, mga panuntunan sa overtime, mga bonus, at mga bawas. Ginagamit ng app ang mga setting na ito kasama ang napiling panahon, iskedyul ng shift, mga pagbabago sa kalendaryo, at pagtutuos ng pahinga.</p>
+
+<div class="warning"><strong>Ang pagkalkula ay ibinibigay para sa mga layuning pang-impormasyon lamang.</strong> Maaaring mag-iba ang aktwal na bayad kung ang iyong employer ay gumagamit ng ibang sistema para sa pagpapanatili ng oras, pag-round, mga allowance, buwis, bonus, bawas, o pagbabayad para sa mga partikular na uri ng shift. Huwag gamitin ang resulta bilang opisyal na dokumento ng payroll; ihambing ito sa payslip ng iyong employer. Kung makakita ka ng paraan ng pagkalkula na hindi tumpak na nahawakan ng app, mag-email sa mga developer sa address na ipinapakita sa app. Ilarawan ang mga patakaran, magbigay ng sample na input data, at sabihin ang inaasahang resulta. Pagkatapos ay maaaring isaalang-alang ang paraan para sa isang update sa hinaharap.</div>
+
+<h3 id="salary-settings">11.1. Rate, overtime, at mga bonus</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_settings_overview.webp" alt="Screen ng pagkalkula ng suweldo na may napiling iskedyul, uri ng rate, overtime, at mga bonus">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Napiling iskedyul</strong> — ipinapakita kung aling iskedyul ng shift ang ginagamit. Ang suweldo ay kinakalkula mula sa iskedyul na ito at sa panahong napili sa mga istatistika.</li>
+<li><strong>Uri ng rate at halaga ng bayad</strong> — piliin ang bayad <strong>kada oras</strong>, <strong>kada shift</strong>, o <strong>kada buwan</strong>, pagkatapos ay ilagay ang katumbas na halaga. Ang pangalan ng field ay magbabago kasabay ng napiling uri ng rate.</li>
+<li><strong>Overtime</strong> — paganahin ang seksyong ito kung ang mga karagdagang oras ay binabayaran nang iba mula sa regular na oras ng pagtatrabaho. Pagkatapos ay tukuyin ang multiplier ng bayad sa overtime. Magdagdag ng mga karagdagang oras sa kalendaryo sa pamamagitan ng <a href="#main-shift-time-adjustment">“Baguhin ang shift” → “+ oras”</a>; paganahin ang “Bilangin ang oras na ito bilang overtime” upang ang mga oras ay ituring bilang overtime.</li>
+<li><strong>Mga Bonus</strong> — ipinapakita ang kasalukuyang paraan ng pagkalkula at mga kabuuan. I-tap ang card para buksan ang <a href="#salary-bonuses">mga setting ng bonus</a>.</li>
+</ol>
+
+<div class="notice">Ilalapat ng button na “I-save” ang mga setting sa napiling iskedyul. Pagkatapos i-save, ang mga kabuuan sa mga istatistika at ulat ay muling kinakalkula gamit ang ipinasok na data.</div>
+
+<h3 id="salary-summary">11.2. Mga bawas at kabuuang kalkulasyon</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions_total.webp" alt="Screen ng pagkalkula ng suweldo na may mga bawas at isang pangwakas na breakdown">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Mga Bawas</strong> — ipinapakita ang kabuuang halaga at bilang ng mga na-configure na bawas. I-tap ang card para buksan ang <a href="#salary-deductions">listahan ng mga bawas</a>.</li>
+<li><strong>Kabuuan</strong> — isang buod ng pagsusuri: bayad na oras, oras na nagtrabaho, overtime, base pay, overtime pay, mga bonus, mga bawas, at ang huling resulta.</li>
+</ol>
+
+<div class="tip">Ang resulta ay hindi lamang nakasalalay sa mga setting ng screen na ito, kundi pati na rin sa napiling panahon ng istatistika, mga natapos na shift, mga pagbabago sa araw, overtime, at mga setting ng hindi bayad na pahinga.</div>
+
+<h3 id="salary-bonuses">11.3. Mga Bonus</h3>
+
+<p>I-tap ang card na “Mga Bonus” sa screen ng pagkalkula ng suweldo. Maaari kang maglagay ng bonus nang manu-mano o kalkulahin ito bilang porsyento kung tumutugma ito sa iyong sistema ng pagbabayad.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_bonuses.webp" alt="Screen ng mga setting ng bonus na may mga opsyon sa pagkalkula at pagpasok ng halaga">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Impormasyon sa buod</strong> — ipinapakita ang kabuuang nakalkulang bonus at ang base na halagang ginamit para sa pagkalkula.</li>
+<li><strong>Pagkalkula ng bonus</strong> — piliin ang manu-manong pagpasok o isang pagkalkula ng porsyento, tulad ng porsyento ng mga benta, kung ang pamamaraang iyon ay ginagamit sa iyong lugar ng trabaho.</li>
+<li><strong>Paraan ng pagpasok</strong> — Ang “Kabuuang halaga” ay angkop para sa isang pangwakas na bonus. Ang magkakahiwalay na hanay ay kapaki-pakinabang kapag mayroong ilang mga bonus na dapat bilangin nang hiwalay.</li>
+<li><strong>Halaga o porsyento</strong> — ilagay ang halagang kinakailangan ng napiling paraan ng pagkalkula.</li>
+<li><strong>Kanselahin at I-save</strong> — itapon ang mga pagbabago o ilapat ang mga ito sa pagkalkula ng suweldo.</li>
+</ol>
+
+<h3 id="salary-deductions">11.4. Listahan ng mga bawas</h3>
+
+<p>I-tap ang card na “Mga Bawas” sa pangunahing screen ng pagkalkula. Ang seksyong ito ay nagbibigay-daan sa iyong mag-imbak ng ilang mga bawas at pamahalaan ang bawat isa nang hiwalay.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions.webp" alt="Screen ng listahan ng mga bawas na may kabuuang halaga, mga hilera ng bawas, at button na idagdag">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Impormasyon sa buod</strong> — ipinapakita ang halaga at bilang ng lahat ng pinaganang mga bawas.</li>
+<li><strong>Hilirang bawas</strong> — ipinapakita ang pangalan, halaga, at uri. I-tap ang hilera upang buksan ang <a href="#salary-deduction-editor">mga setting ng pagbawas</a>. Binubura ng icon ng basurahan ang hilera.</li>
+<li><strong>Magdagdag ng pagbawas</strong> — ang buton na “+” ay lumilikha ng isang bagong hilera ng pagbawas.</li>
+<li><strong>Kanselahin at I-save</strong> — itapon ang mga pagbabago o i-save ang buong listahan.</li>
+</ol>
+
+<h3 id="salary-deduction-editor">11.5. Pag-configure ng indibidwal na bawas</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deduction_editor.webp" alt="Panel ng indibidwal na bawas na may pangalan, halaga, uri, at base ng bawas">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Pangalan ng bawas</strong> — maglagay ng malinaw na pangalan tulad ng “Buwis,” “Suporta sa bata,” o “Parusa.”</li>
+<li><strong>Halaga</strong> — maglagay ng halaga o porsyento, depende sa uri ng halagang napili sa ibaba.</li>
+<li><strong>Uri ng halaga</strong> — pumili ng takdang halaga o porsyento.</li>
+<li><strong>Uri ng bawas</strong> — ang isang <strong>variable</strong> na bawas ay nalalapat sa isang partikular na panahon ng pagkalkula; ang isang <strong>paulit-ulit</strong> na bawas ay regular na inilalapat habang ito ay nananatiling pinagana.</li>
+<li><strong>Magbawas mula sa</strong> — piliin ang base ng kalkulasyon: kabuuang suweldo, base pay, mga bonus, o iba pang magagamit na opsyon.</li>
+<li><strong>Naka-enable</strong> — pansamantalang hindi pinapagana ang bawas nang hindi binubura ang mga setting nito.</li>
+<li><strong>Kanselahin at I-save</strong> — isara ang panel nang walang mga pagbabago o i-save ang bawas.</li>
+</ol>
+
+<div class="notice">Para sa isang porsyento ng bawas, lalong mahalaga na piliin ang tamang base ng "Magbawas mula sa": ang parehong porsyento ng kabuuang suweldo, base pay, at mga bonus ay nagbubunga ng iba't ibang resulta.</div>
+
+<h2 id="settings">12. Mga Setting</h2>
+
+<p>Buksan ang "Mga Setting" gamit ang button sa ibaba ng <a href="#main-overview">pangunahing screen</a>. Ang seksyong ito ay naglalaman ng mga pahintulot ng system, hitsura at wika ng app, offline na pagkilala sa pagsasalita, mga dokumento at gabay sa gumagamit, backup, diagnostics, at mga opsyon sa pakikipag-ugnayan sa developer.</p>
+
+<h3 id="settings-overview">12.1. Mga pangunahing seksyon ng setting</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_permissions_language.webp" alt="Tuktok ng mga setting ng ShiftAlarm: mga pahintulot, tema, wika ng app, at mga offline na modelo ng pagsasalita">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Mga Pahintulot</strong> — nagbubukas ng mga pahintulot sa alarma at mga setting ng pagiging maaasahan. Suriin ang mga notification, eksaktong mga alarma, aktibidad sa background, at mga paghihigpit sa baterya. Ang <a href="#geo">Geo Alarms</a> ay nangangailangan din ng access sa lokasyon; kinakailangan ang access sa lokasyon sa background o "Payagan ang lahat ng oras" upang mag-trigger habang nakasara ang app. Nag-iiba-iba ang mga pangalan at path ng item depende sa bersyon ng Android at tagagawa ng device.</li>
+<li><strong>Tema</strong> — hinahayaan kang pumili ng maliwanag, madilim, o hitsura ng system, pumili ng variant ng kulay ng interface, at paganahin o huwag paganahin ang haptic feedback para sa mga aksyon sa app. Sinusundan ng tema ng system ang kasalukuyang hitsura ng telepono.</li>
+<li><strong>Wika ng app</strong> — hinahayaan kang gumamit ng wikang naiiba sa wika ng system ng telepono. Ang katalogo ng ShiftAlarm ay naglalaman ng 108 na wika: hanapin ang kinakailangang wika gamit ang paghahanap, i-download ang language pack, at ilapat ito.</li>
+<li><strong>Mga offline na modelo ng pagsasalita</strong> — nag-i-install ng module para sa <a href="#notes-create">mga tala ng speech-to-text</a>. Kasalukuyang sinusubukan ang offline na pagkilala at available para sa humigit-kumulang 20 wika. Ang kalidad nito ay maaaring mas mababa kaysa sa online na pagkilala at depende sa wika, mikropono, pagganap ng telepono, at mga kondisyon ng pagre-record.</li>
+</ol>
+
+<div class="warning"><strong>Nagkakaiba ang mga pahintulot sa Android sa iba't ibang device.</strong> Sa ilang telepono, dapat mo ring payagan ang autostart, piliin ang "Unrestricted" o katulad na battery mode, at payagan ang aktibidad sa background. Binabawasan ng mga setting na ito ang posibilidad na ihinto ng system ang ShiftAlarm, ngunit ang eksaktong pangalan ng mga ito ay tinutukoy ng tagagawa ng device.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_help_backup_diagnostics.webp" alt="Ibaba ng mga setting ng ShiftAlarm: mga dokumento, gabay sa gumagamit, backup, diagnostics, at contact ng developer">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Mga Dokumento at Tulong</strong> — binubuksan ang mga legal na dokumento ng app: Mga Tuntunin ng Paggamit, Patakaran sa Pagkapribado, Pagtatanggi, at ang maikling pahina ng tulong.</li>
+<li><strong>Pagsasanay at gabay sa gumagamit</strong> — binubuksan ang kumpletong gabay na may larawan na may detalyadong paglalarawan ng mga tampok ng ShiftAlarm.</li>
+<li><strong>Pag-backup at pagpapanumbalik</strong> — lumilikha ng isang file na naglalaman ng mga sinusuportahang setting at data ng app, o ibinabalik ang mga ito mula sa isang naunang backup. Ito ay kapaki-pakinabang bago muling i-install ang app, i-reset ang telepono, o ilipat ang data sa ibang device. Tingnan ang <a href="#backup">“Pag-backup at pagpapanumbalik”</a> para sa detalyadong mga tagubilin.</li>
+<li><strong>Diagnostic log</strong> — nagbubukas ng magkakahiwalay na log para sa mga tampok ng app. Itinatala nito ang mga teknikal na yugto tulad ng pag-iiskedyul at pagbawi ng alerto, pagproseso ng kaganapan, estado ng pahintulot, at iba pang impormasyon ng serbisyo. Nakakatulong ang isang log na matukoy ang yugto kung saan naganap ang isang error. Maaari mong kopyahin ang mga entry o ihanda ang mga ito para sa pag-email sa mga developer. Tingnan ang <a href="#diagnostics">“Diagnostics at pag-troubleshoot”</a> para sa mga detalye.</li>
+<li><strong>Makipag-ugnayan sa mga developer</strong> — nagbubukas ng email app at lumilikha ng mensaheng naka-address sa suporta. Gamitin ito upang mag-ulat ng problema, magpadala ng feedback o mungkahi, o magtanong. Para sa isang teknikal na isyu, isama ang modelo ng telepono, bersyon ng Android, oras ng problema, mga hakbang na isinagawa, at ang nauugnay na diagnostic log kung maaari.</li>
+</ol>
+
+<div class="notice">Ang mga diagnostic log ay hindi awtomatikong ipinapadala sa mga developer. Dapat mong kopyahin ang kinakailangang impormasyon o i-tap ang “Ipadala sa mga developer,” pumili ng email app, suriin ang inihandang mensahe, at kumpirmahin ang pagpapadala nito.</div>
+
+<h2 id="backup">13. Pag-backup at pagpapanumbalik</h2>
+
+<p>Sine-save ng backup ang mga sinusuportahang setting ng ShiftAlarm at data ng user sa isang hiwalay na file. Nakakatulong ito sa pagpapanumbalik ng data pagkatapos muling i-install ang app, pag-reset ng telepono, o paglipat sa ibang device.</p>
+<ol class="step-list">
+<li>Buksan ang “Mga Setting → Pag-backup at pagpapanumbalik.”</li>
+<li>Gumawa ng backup at i-save ang nagresultang file sa telepono o ibahagi ito sa pamamagitan ng menu ng system.</li>
+<li>Para magpanumbalik, buksan ang parehong seksyon at pumili ng dati nang ginawang backup file.</li>
+<li>Pagkatapos magpanumbalik, suriin ang mahahalagang alarma, iskedyul, at mga pahintulot sa Android. Maaaring kailanganing ibigay muli ang ilang pahintulot sa seguridad ng system sa isang bagong device o pagkatapos ng muling pag-install.</li>
+</ol>
+<p class="tip">Itago ang isang kasalukuyang kopya sa isang ligtas na lugar na mananatiling naa-access kung ang telepono ay nawala, nasira, o na-reset. Ang isang backup file ay hindi pinapalitan ang mga pahintulot sa system ng Android at hindi maaaring awtomatikong magsama ng data na hindi pinapayagang ma-access ng app.</p>
+
+<h2 id="diagnostics">14. Diagnostics at pag-troubleshoot</h2>
+
+<p>Ang ShiftAlarm ay nagbibigay ng magkakahiwalay na diagnostic log para sa iba't ibang feature. Pinapanatili nila ang isang pagkakasunud-sunod ng mga teknikal na kaganapan at tumutulong na matukoy kung ang isang alerto ay naka-iskedyul, naibalik pagkatapos ng isang pag-restart, naipasa para sa pagproseso, o huminto dahil sa isang setting ng system.</p>
+
+<h3 id="diagnostics-control">14.1. Pagkontrol sa koleksyon ng diagnostic</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_sections.webp" alt="ShiftAlarm diagnostic log screen na may master switch at isang indibidwal na alarm log">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Kolektahin ang mga diagnostic</strong> — ang master switch para sa bawat seksyon ng diagnostic sa app. I-off ito upang ihinto ang pagdaragdag ng mga bagong kaganapan sa lahat ng log nang sabay-sabay. Magpapatuloy ang koleksyon ng mga bagong kaganapan pagkatapos mo itong paganahin muli.</li>
+<li><strong>Indibidwal na feature log</strong> — ang bawat module ay may sariling switch at button na "Buksan". Halimbawa, maaari mong iwanang naka-enable ang mga global diagnostic habang hindi pinapagana lamang ang alarm, orasan, o iba pang feature log. Ipinapakita ng screenshot ang alarm log, na nagtatala ng mga kaganapan sa paghahatid, pag-iiskedyul, pagbawi, proteksyon ng guard, at alarm screen.</li>
+</ol>
+
+<div class="notice">Kinokontrol lamang ng mga switch ang pagtatala ng mga teknikal na kaganapan. Ang pag-disable ng alarm, orasan, o iba pang feature log ay hindi nagdi-disable sa mismong feature. Hiwalay na burahin ang mga naunang naka-save na entry gamit ang button na “Clear” sa loob ng kaukulang log.</div>
+
+<h3 id="diagnostics-log">14.2. Indibidwal na feature log</h3>
+
+<p>I-tap ang “Buksan” sa kinakailangang seksyon ng diagnostic. Ipinapakita ng halimbawa sa ibaba ang alarm log; Ang mga log para sa iba pang mga tampok ay gumagana sa katulad na paraan.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_alarm_log.webp" alt="ShiftAlarm alarm diagnostic log na may bilang ng kaganapan, mga aksyon, at mga teknikal na entry">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Mga kaganapang na-save</strong> — ipinapakita ang bilang ng mga entry na kasalukuyang nakaimbak sa napiling log.</li>
+<li><strong>Mga aksyon sa log</strong>:
+<ul>
+<li><strong>Kopyahin</strong> — kinokopya ang lahat ng data mula sa kasalukuyang log papunta sa clipboard. Maaari mo itong i-paste sa isang email o ibang app.</li>
+<li><strong>I-clear</strong> — tinatanggal ang mga naka-save na entry sa log na ito. Pagkatapos i-clear, tanging ang mga kaganapang naitala sa ibang pagkakataon habang naka-enable ang mga diagnostic ang lilitaw.</li>
+<li><strong>Ipadala sa mga developer</strong> — binubuksan ang app picker para sa pagpapadala ng email. Pumili ng email app; Awtomatikong ipinapasok ang address ng developer at diagnostic data. Bago ipadala, magdagdag ng paglalarawan ng problema, suriin ang mensahe, at pagkatapos ay kumpirmahin ang pagpapadala nito.</li>
+</ul>
+</li>
+<li><strong>Mga kaganapan sa app</strong> — ang mga entry sa log mismo. Ang isang entry ay karaniwang naglalaman ng petsa at oras, isang teknikal na pangalan ng kaganapan, at mga karagdagang parameter tulad ng isang identifier, estado, o dahilan. Ang mga teknikal na pangalan ay maaaring lumitaw sa Ingles; huwag i-edit o isalin ang mga ito bago ipadala.</li>
+</ol>
+
+<div class="warning">Bago linisin ang isang log, kopyahin o ipadala ang anumang kinakailangang entry. Hindi na mababawi ang mga tinanggal na diagnostic event.</div>
+
+<div class="tip">Kung maaaring kopyahin ang problema, paganahin muna ang global diagnostic collection at ang nauugnay na feature log, pagkatapos ay ulitin ang mga aksyon na naging sanhi ng isyu. Sa iyong mensahe, ibigay ang eksaktong oras ng problema, modelo ng telepono, bersyon ng Android, inaasahang resulta, at aktwal na resulta. Nakakatulong ito na itugma ang iyong paglalarawan sa mga kaganapan sa log.</div>
+
+<h2 id="faq">15. Mga Madalas Itanong</h2>
+
+<h3>Hindi nag-trigger ang alarma sa tamang oras</h3>
+<p>Suriin ang mga notification, pahintulot sa eksaktong alarma, aktibidad sa background, at mga paghihigpit sa baterya.</p>
+<h3>Nahuli ang pag-trigger ng Geo Alarm</h3>
+<p>Suriin ang eksaktong lokasyon at lokasyon sa background, mga paghihigpit sa baterya, at awtomatikong pagsisimula sa background. Subukan ang radius na 1,300–1,500 m sa isang lungsod at 4,000–5,000 m sa labas ng isang lungsod. Ang aktwal na pag-trigger ay maaaring hindi eksaktong mangyari sa linya ng radius.</p>
+<h3>Hindi agad na-update ang widget</h3>
+<p>Buksan ang app o i-tap ang refresh button sa widget. Maaaring paghigpitan ng Android ang madalas na pag-update ng widget.</p>
+<h3>Binago ko ang wika, ngunit hindi pa na-update ang isang dokumento o ang gabay</h3>
+<p>Suriin ang iyong koneksyon sa internet at maglaan ng oras para sa pag-download. Kung hindi magagamit ang remote na bersyon, gagamitin ng app ang built-in na fallback nito.</p>
+
+<div class="footer small">Maaaring i-update ang gabay sa pamamagitan ng GitHub. Kung hindi magagamit ang remote na bersyon, gagamitin ng app ang built-in na offline na bersyon nito.</div>
+</main>
+</body>
+</html>

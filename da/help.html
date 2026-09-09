@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brugervejledning til ShiftAlarm</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #64748b;
+  --accent: #2563eb;
+  --soft: #e8eef8;
+  --border: #dbe4f0;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.58;
+  margin: 0;
+  padding: 18px;
+  color: var(--text);
+  background: var(--bg);
+}
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+h1 { margin: 0 0 8px; font-size: 28px; line-height: 1.2; }
+h2 { margin: 32px 0 10px; font-size: 21px; line-height: 1.25; }
+h3 { margin: 22px 0 8px; font-size: 17px; }
+p, li { font-size: 16px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul, ol { padding-left: 22px; }
+.notice, .tip, .warning {
+  padding: 14px 16px;
+  border-radius: 16px;
+  margin: 14px 0;
+  border: 1px solid var(--border);
+}
+.notice { background: var(--soft); }
+.tip { background: #ecfdf5; }
+.warning { background: #fff7ed; }
+.small { color: var(--muted); font-size: 14px; }
+.toc {
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 16px;
+  margin: 18px 0 24px;
+}
+.toc ol { margin: 8px 0 0; }
+.step-list li { margin-bottom: 8px; }
+.guide-figure {
+  margin: 18px 0;
+}
+.guide-image {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+}
+.callout-list li {
+  margin-bottom: 10px;
+}
+.guide-caption {
+  max-width: 520px;
+  margin: 10px auto 0;
+  color: var(--text);
+  font-size: 15px;
+}
+.guide-caption strong {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.footer {
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --card: #111827;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --accent: #93c5fd;
+    --soft: #1f2937;
+    --border: #334155;
+  }
+  main { box-shadow: none; }
+  .toc { background: #172033; }
+  .tip { background: #10251f; }
+  .warning { background: #2a1d10; }
+}
+</style>
+</head>
+<body>
+<main>
+<h1>Brugervejledning til ShiftAlarm</h1>
+<p class="small">Version 14. Dato: 2. august 2026.</p>
+<div class="notice">Denne side er en praktisk guide til ShiftAlarm. Den forklarer, hvad hver hovedfunktion gør, hvor den findes, hvad man skal trykke på, og hvad man skal kontrollere, hvis en funktion ikke fungerer som forventet.</div>
+<nav class="toc">
+<strong>Indhold</strong>
+<ol><li><a href="#start">1. Første opstart</a></li><li><a href="#permissions">2. Tilladelser og pålidelighed</a></li><li><a href="#main">3. Hovedskærm</a></li><li><a href="#shifts">4. Vagtplaner</a></li><li><a href="#statistics">5. Planlægningsstatistik</a></li><li><a href="#alarms">6. Alarmer</a></li><li><a href="#geo">7. Geo-alarmer</a></li><li><a href="#notes">8. Noter, begivenheder og påmindelser</a></li><li><a href="#clock">9. Ur, timer og stopur</a></li><li><a href="#widgets">10. Widgets</a></li><li><a href="#salary">11. Lønberegning</a></li><li><a href="#settings">12. Indstillinger</a></li><li><a href="#backup">13. Sikkerhedskopiering og gendannelse</a></li><li><a href="#diagnostics">14. Diagnostik og fejlfinding</a></li><li><a href="#faq">15. Ofte stillede spørgsmål</a></li></ol>
+</nav>
+<h2 id="start">1. Første opstart</h2>
+
+<p>Når ShiftAlarm starter for første gang, vises en kort opsætningsproces. Hovedskærmen er allerede tilgængelig i baggrunden, men det er bedst at gennemføre den grundlæggende opsætning først.</p>
+<ol class="step-list">
+<li>Læs de indledende oplysninger, og tryk på "Fortsæt".</li>
+<li>Åbn dokumenterne eller accepter de nødvendige dokumenter i dokumenttrinnet, når du er klar til at fortsætte.</li>
+<li>Åbn tilladelsesskærmen i tilladelsestrinnet, og tjek notifikationer, præcise alarmer, placeringsadgang og batteribegrænsninger.</li>
+<li>Tryk på "Afslut opsætning".</li>
+</ol>
+<p class="tip">Du kan konfigurere tilladelser senere under "Indstillinger → Tilladelser og pålidelighed".</p>
+
+<h2 id="permissions">2. Tilladelser og pålidelighed</h2>
+
+<p>Alarmer, påmindelser og Geo-alarmer afhænger af Android-indstillinger og enhedsproducentens software.</p>
+<ul>
+<li><strong>Notifikationer</strong> — påkrævet for alarmer, påmindelser, timeren og servicenotifikationer.</li>
+<li><strong>Præcise alarmer</strong> — hjælper med at starte alarmen på det ønskede tidspunkt.</li>
+<li><strong>Placering</strong> — påkrævet for Geo-alarmer.</li>
+<li><strong>Baggrundsplacering</strong> — påkrævet for at en Geo-alarm kan fungere, mens appen er lukket.</li>
+<li><strong>Batteri og baggrundsaktivitet</strong> — kan påvirke udløserpålideligheden på Xiaomi/Redmi og nogle andre enheder.</li>
+</ul>
+<p class="warning">Android garanterer ikke altid øjeblikkelig levering af notifikationer, præcise alarmer eller geofence-hændelser. For vigtige advarsler skal du kontrollere alle elementer på tilladelsesskærmen.</p>
+
+<h2 id="main">3. Hovedskærm</h2>
+
+<p>Hovedskærmen er dit daglige dashboard. Det giver direkte adgang til kalender, ur, Geo Alarms, almindelige alarmer, vagtplaner, noter og indstillinger.</p>
+
+<h3 id="main-overview">3.1. Elementer på hovedskærmen</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_screen_overview.png" alt="ShiftAlarm hovedskærm med nummererede kontroller">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tilbagepil</strong> — flytter kalenderen til den forrige måned.</li>
+<li><strong>Måned og år</strong> — viser den åbne måned. Tryk på dette område for at bruge <a href="#main-date-picker">den trinvise måneds- og årsvælger</a>.</li>
+<li><strong>Pil fremad</strong> — flytter kalenderen til den næste måned.</li>
+<li><strong>Kalender</strong> — det primære månedsområde. Du kan swipe i kalenderen. Hver dag kan vise datoen, påmindelser, begivenheder, planlagt vagt og dagsændringer. Et almindeligt tryk vælger en dato; Et langt tryk åbner <a href="#main-day-actions">information og handlinger for den valgte dag</a>.</li>
+<li><strong>I dag</strong> — vender tilbage til den aktuelle dag i kalenderen.</li>
+<li><strong>Ur</strong> — åbner <a href="#clock">verdensuret, stopuret og timeren</a>.</li>
+<li><strong>Geo Alarm</strong> — åbner <a href="#geo">kortet, gemte steder og indstillinger for Geo Alarm</a>. En alarm kan udløses, når du går ind i det valgte område, forlader det eller gør en af ​​delene.</li>
+<li><strong>Alarm</strong> — åbner <a href="#alarms">almindelige, gentagne og vagtforbundne alarmer</a>.</li>
+<li><strong>Tidsplan</strong> — åbner <a href="#shifts">vagtplaner, deres oprettelse og redigering samt statistik</a>.</li>
+<li><strong>Noter</strong> — åbner <a href="#notes">noter, begivenheder, påmindelser, lydnoter og tale-til-tekst</a>.</li>
+<li><strong>Indstillinger</strong> — åbner <a href="#settings">tilladelser, sprog, tema, offline talemodeller, backup, diagnosticering, dokumenter og træning</a>.</li>
+</ol>
+
+
+<h3 id="main-date-picker">3.2. Valg af måned og år</h3>
+
+<p>Tryk på måneden og året øverst på hovedskærmen for hurtigt at åbne den ønskede kalenderperiode. Valget foregår i etaper: <strong>århundrede → årti → år → måned</strong>.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_century.webp" alt="Trin 1: valg af et århundrede i ShiftAlarm-kalenderen">
+<figcaption class="guide-caption"><strong>1. Vælg et århundrede.</strong> Tryk på den periode, der indeholder det år, du har brug for. Eksemplet vælger 2000'erne.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_decade.webp" alt="Trin 2: valg af et årti i ShiftAlarm-kalenderen">
+<figcaption class="guide-caption"><strong>2. Vælg et årti.</strong> Tryk på det område, der indeholder det ønskede år. For 2026 skal du vælge "2020-2029."</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_year.webp" alt="Trin 3: valg af et år i ShiftAlarm-kalenderen">
+<figcaption class="guide-caption"><strong>3. Vælg et år.</strong> Tryk på det ønskede år. Eksemplet vælger 2026.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_month.webp" alt="Trin 4: valg af en måned i ShiftAlarm-kalenderen">
+<figcaption class="guide-caption"><strong>4. Vælg en måned.</strong> Tryk på den ønskede måned. Eksemplet vælger juli.</figcaption>
+</figure>
+
+<div class="tip">Når du har valgt en måned, lukkes panelet, og hovedkalenderen åbnes i den valgte måned og år.</div>
+<div class="notice">Knappen "Tilbage" vender tilbage til det forrige trin. På århundredeskærmen lukkes datovælgeren.</div>
+
+<h3 id="main-day-actions">3.3. Information og handlinger for en valgt dag</h3>
+
+<p>Tryk og hold på den ønskede dag i kalenderen. Et panel med information og handlinger for den pågældende dato åbnes. Træk panelet opad for at se alle tilgængelige handlinger.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_day_actions.webp" alt="ShiftAlarm-information og handlingspanel for en valgt kalenderdag">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Dato</strong> — viser ugedagen og den valgte dato. Træk håndtaget øverst opad eller nedad for at udvide eller lukke panelet.</li>
+<li><strong>Vagt</strong> — viser den beregnede vagt eller en dagsændring, f.eks. en fridag, fritid, ferie, sygeorlov eller en anden undtagelse.</li>
+<li><strong>Alarmer for denne dato</strong> — viser alarmer, der er tildelt den valgte dag, eller rapporterer, at der ikke findes nogen.</li>
+<li><strong>Begivenheder og påmindelser</strong> — viser poster, der er knyttet til den valgte dato.</li>
+<li><strong>Tilføj alarm</strong> — åbner oprettelsen af ​​en engangsalarm for den valgte dato.</li>
+<li><strong>Skift vagt</strong> — opretter en undtagelse for én dag eller et datointerval i den aktive tidsplan.</li>
+<li><strong>Tilføj note</strong> — lader dig vælge en begivenhed eller påmindelse, der skal oprettes for den valgte dato.</li>
+</ol>
+
+<div class="notice">Handlingen "Ændr vagt" er tilgængelig for at justere dage i den aktive vagtplan.</div>
+
+<h4 id="main-shift-override">Ændring af én dag eller et datointerval</h4>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_types.webp" alt="Valg af et datointerval og vagtændringstype i ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Startdato</strong> — den første dag for ændringen. Den bruger i første omgang den dato, der er valgt i kalenderen.</li>
+<li><strong>Slutdato</strong> — den sidste dag for ændringen. Hvis du kun vil ændre én dag, skal du lade den samme dato være valgt.</li>
+<li><strong>Fri</strong> — erstatter den beregnede vagt med fri.</li>
+<li><strong>Ferie</strong> — markerer den valgte dag eller det valgte interval som ferie.</li>
+<li><strong>Sygeorlov</strong> — markerer den valgte dag eller det valgte interval som sygeorlov.</li>
+<li><strong>Gem ændring</strong> — anvender den valgte undtagelse i kalenderen.</li>
+</ol>
+
+<h4 id="main-shift-time-adjustment">Justering af arbejdstid</h4>
+
+<p>Rul ned i listen over ændringstyper, og vælg "Rediger vagt" for at ændre varigheden af ​​den beregnede arbejdsvagt.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_time_adjustment.webp" alt="Justering af vagtarbejdstid i ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Rediger vagt</strong> — aktiverer justering af arbejdstid for den valgte vagt.</li>
+<li><strong>+ tid</strong> — tilføjer timer eller minutter til standardvagtens varighed.</li>
+<li><strong>− tid</strong> — reducerer vagtens varighed, for eksempel når arbejdet sluttede tidligt.</li>
+<li><strong>Tæl denne tid som overtid</strong> — behandler den tilføjede tid som overtid. Hvis indstillingen er slået fra, tælles den som normal arbejdstid.</li>
+<li><strong>Gem ændring</strong> — anvender justeringen på den valgte dag eller det valgte interval.</li>
+</ol>
+
+<div class="tip">En dagsændring ændrer ikke den oprindelige tidsplanskabelon. Den gemmes som en separat undtagelse og er inkluderet i kalenderen, statistikken, lønberegningen og rapporterne.</div>
+
+<h2 id="shifts">4. Vagter</h2>
+
+<p>En vagtplan definerer en gentagende arbejdscyklus og danner grundlag for andre ShiftAlarm-funktioner. Appen bruger den til at udfylde kalenderen, linke alarmer til vagter, tælle arbejdstid, generere statistik, estimere løn og udarbejde rapporter.</p>
+
+<div class="notice"><strong>Grundlæggende princip.</strong> Opret først den grundlæggende gentagne tidsplan. Tilføj ferie, sygeorlov, fritid, en engangsvagt eller en justering af arbejdstiden som en undtagelse for bestemte datoer via <a href="#main-day-actions">handlinger for udvalgte dage</a>. Dette holder den oprindelige cyklus uændret.</div>
+
+<h3 id="shifts-list">4.1. Tidsplanliste og -kontroller</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedules_overview.webp" alt="Vagtalarm-tidsplanskærm med et aktivt tidsplankort og nummererede kontroller">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tidsplandetaljer</strong> — navn, startdato, cykluslængde og en kort rækkefølge af dage. I eksemplet betyder "D · D · O · O" to dagvagter efterfulgt af to fridage.</li>
+<li><strong>Skift</strong> — deaktiverer midlertidigt tidsplanen uden at slette den. Når du aktiverer den igen, fortsætter de gemte indstillinger med at gælde.</li>
+<li><strong>Tidsplanstatus</strong> — angiver, hvilken tidsplan der er aktiv i øjeblikket.</li>
+<li><strong>Rediger</strong> — åbner de parametre, der kan ændres. Efter den første opsætning låses en del af tidsplangrundlaget for at forhindre utilsigtet genberegning af kalenderdata, der allerede er oprettet.</li>
+<li><strong>Slet</strong> — sletter tidsplanen efter bekræftelse. Før du sletter den, skal du kontrollere eventuelle vagtforbundne alarmer og beregninger.</li>
+<li><strong>Åbn statistik</strong> — åbner denne tidsplans <a href="#statistics">arbejdstid, periode, løn og rapportstatistik</a>.</li>
+<li><strong>Opret tidsplan</strong> — giver dig mulighed for at vælge en færdiglavet skabelon eller oprette en brugerdefineret cyklus.</li>
+</ol>
+
+<h3 id="shifts-create">4.2. Start af oprettelse af tidsplan</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_create.webp" alt="Panel til oprettelse af tidsplan med navn, startdato, skabeloner og brugerdefineret tidsplan">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tidsplannavn</strong> — indtast et tydeligt navn, f.eks. "Hovedvagt 2/2", "Nattevagt" eller navnet på din arbejdsplads.</li>
+<li><strong>Startdato</strong> — den dato, der svarer til den <strong>første dag i den gentagne cyklus</strong>. Du kan vælge en tidligere eller fremtidig dato; appen beregner tidsplanen fremad og bagud ud fra den.</li>
+<li><strong>Skabeloner</strong> — færdige almindelige vagtsekvenser. Eksemplet bruger skabelonen "2/2 dag".</li>
+<li><strong>Brugerdefineret tidsplan</strong> — opretter din egen rækkefølge af arbejdsdage og fridage.</li>
+<li><strong>Opret tidsplan</strong> — åbner den detaljerede editor for den valgte mulighed.</li>
+</ol>
+
+<div class="tip">For skabelonen "D · D · O · O" er startdatoen normalt den første af de to arbejdsdage. I en brugerdefineret cyklus kan dag 1 også være en fridag; det vigtige er, at den valgte dato præcist matcher dag 1 i den rækkefølge, du oprettede.</div>
+
+<h3 id="shifts-template">4.3. Oprettelse af en tidsplan fra en skabelon</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_template.webp" alt="Skabelon til tidsplanredigering med navn, sekvens, startdato og vagttidspunkt">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tidsplannavn</strong> — behold det foreslåede navn eller erstat det med dit eget.</li>
+<li><strong>Skabelon</strong> — viser bogstavsekvensen og dens betydning. I eksemplet betyder "D · D · O · O" dagvagt, dagvagt, fridag, fridag.</li>
+<li><strong>Startdato</strong> — vælg datoen for den første dag i den viste sekvens.</li>
+<li><strong>Vagttidspunkt</strong> — angiv start- og sluttidspunktet for hver vagttype. Appen viser den beregnede varighed.</li>
+<li><strong>Annuller</strong> — lukker editoren uden at gemme.</li>
+<li><strong>Gem</strong> — gemmer tidsplanen og begynder at beregne vagter i kalenderen.</li>
+</ol>
+
+<div class="warning"><strong>Efter den første lagring.</strong> Startdatoen og cyklusstrukturen er låst for at beskytte kalenderdata, der allerede er beregnet. Du kan stadig redigere navnet og nogle arbejdsparametre. Hvis du har brug for en anden basiscyklus eller referencedato, er det sikrere at oprette en ny tidsplan.</div>
+
+<h3 id="shifts-custom">4.4. Oprettelse af en brugerdefineret cyklus</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_custom.webp" alt="Brugerdefineret tidsplanredigeringsprogram med cykluslængde, dagskontroller, startdato og indstillinger for hver dag">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tidsplannavn</strong> — giv din brugerdefinerede sekvens et navn.</li>
+<li><strong>Cykluslængde</strong> — viser, hvor mange dage der er inkluderet i den gentagne sekvens.</li>
+<li><strong>Fjern dag</strong> — forkorter cyklussen med én dag.</li>
+<li><strong>Tilføj dag</strong> — tilføjer en anden konfigurerbar dag til slutningen af ​​cyklussen.</li>
+<li><strong>Startdato</strong> — den dato, der svarer til dag 1 i den brugerdefinerede cyklus.</li>
+<li><strong>Dagindstillinger</strong> — tryk på “Shift "type"-kortet og vælg en fridag eller den ønskede arbejdstype: dag, nat, morgen, aften, 24-timers eller brugerdefineret vagt. For en arbejdsdag skal du angive start- og sluttidspunktet. Konfigurer de resterende dage i cyklussen på samme måde længere nede på skærmen.</li>
+<li><strong>Annuller</strong> — lukker editoren uden at gemme.</li>
+<li><strong>Gem</strong> — gemmer den brugerdefinerede cyklus og beregner den i kalenderen.</li>
+</ol>
+
+<div class="notice"><strong>Hvad er en cyklus?</strong> En cyklus er antallet af dage, hvorefter sekvensen starter igen. For eksempel kan en firedages cyklus være "2 arbejdsdage + 2 fridage", mens en seksdages cyklus kan være "3 arbejdsdage + 3 fridage". Efter den sidste dag vender appen tilbage til dag 1.</div>
+
+<div class="tip">Ændr ikke basiscyklussen for en engangsplanundtagelse. Tryk længe på en kalenderdato, og opret en fridag, ferie, sygeorlov, erstatningsvagt eller tidsjustering.</div>
+
+
+
+<span id="shift-statistics"></span>
+<h2 id="statistics">5. Planlægningsstatistik</h2>
+
+<p>Åbn "Statistik" fra et planlægningskort ved hjælp af knappen <strong>"Åbn statistik"</strong>. Dette afsnit kombinerer oplysninger om arbejdsdage og fridage, planlægningsændringer, planlagt og faktisk arbejdstid, estimeret løn og rapporter.</p>
+
+<div class="notice"><strong>Vigtigt:</strong> Statistik beregnes kun for den valgte vagtplan. Den valgte periode gælder for alle arbejdstids-, løn- og rapporteringsværdier under den.</div>
+
+<h3 id="statistics-period">5.1. Oversigt over tidsplan, periode og dag</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_period_overview.webp" alt="Statistikskærm med tidsplanoplysninger, valg af periode og dagtotaler">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tidsplanoplysninger</strong> — viser den valgte tidsplans navn, startdatoen for den første cyklus og længden af ​​den gentagne cyklus. Statistikkerne på denne skærm gælder kun for denne tidsplan.</li>
+<li><strong>Kort over valgte perioder</strong> — viser den periode, der er i brug. Tryk på det eller pilen til højre for at vælge den aktuelle, forrige eller næste måned, det aktuelle år eller et brugerdefineret datointerval.</li>
+<li><strong>Dagoversigt</strong> — viser antallet af dage i perioden, arbejdsvagter, fridage, afsluttede og kommende vagter og ændrede dage. Ændrede dage er undtagelser fra basiscyklussen: ferie, sygeorlov, afspadsering, en erstatnings- eller flyttevagt, en arbejdstidsjustering og andre ændringer.</li>
+</ol>
+
+<div class="warning"><strong>Fremtidige perioder er prognoser.</strong> For en fremtidig måned bruger appen den oprettede tidsplan og allerede indtastede data, men den kan ikke kende fremtidig sygeorlov, ferie, fritid, overarbejde, bonusser eller fradrag. Når du vælger det aktuelle år, kan totaler kombinere faktiske data for tidligere datoer med en prognose for resten af ​​året.</div>
+
+<h3 id="statistics-work">5.2. Arbejdstid, løn og rapporter</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_work_salary_reports.webp" alt="Statistikskærm med arbejdstid, status, løn og rapportadgang">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Arbejdstid</strong> — et oversigtskort for timer og status. Tryk på den for at åbne <a href="#statistics-break">indstillingerne for pausetid</a>.</li>
+<li><strong>Planlagte timer</strong> — den samlede varighed af planlagte vagter og ændringer i den valgte periode.</li>
+<li><strong>Arbejdstimer</strong> — tiden i vagter, der betragtes som afsluttede pr. dags dato, med pauseindstillinger anvendt.</li>
+<li><strong>Status</strong> — viser, hvor mange arbejdsvagter der er afsluttet ud af det samlede antal, og hvilken procentdel af den valgte periode der er afsluttet.</li>
+<li><strong>Løn</strong> — åbner <a href="#salary">indstillingerne for lønberegning</a>. Kortet viser et estimat for den valgte tidsplan og periode.</li>
+<li><strong>Total</strong> — det anslåede beløb, der er optjent indtil videre, inklusive den valgte lønmetode, bonusser, overarbejde og fradrag.</li>
+<li><strong>Sats eller løn</strong> — indholdet af dette kort afhænger af den valgte beregningsmetode: løn pr. time, pr. vagt eller pr. måned. Den viser den værdi, der er indtastet i lønindstillingerne.</li>
+<li><strong>Beregningsdetaljer</strong> — betalt tid, overarbejdstimer, bonusser og fradrag for den valgte periode.</li>
+<li><strong>Rapporter</strong> — åbner <a href="#reports">detaljerede rapporter for perioder, arbejdstid og løn</a>.</li>
+</ol>
+
+<div class="tip">Alle værdier i afsnittene om arbejdstid og løn genberegnes, når du ændrer perioden i det øverste kort.</div>
+
+<h3 id="statistics-break">5.3. Medregning af pauser i arbejdstiden</h3>
+
+<p>Tryk på kortet "Arbejdstid" for at angive, om en spisepause eller en anden pause skal tælle som en del af den faktiske arbejdstid og betalte tid.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_break_settings.webp" alt="Panel med indstillinger for pauseregnskab og varighed">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Aktuelle totaler</strong> — viser planlagte og arbejdste timer for den valgte periode, før de nye indstillinger anvendes.</li>
+<li><strong>Tæl pause som arbejdstid</strong> — lad denne indstilling være aktiveret, hvis pausen er betalt og inkluderet i vagtens varighed. Slå den fra, hvis den angivne tid skal udelukkes fra den arbejdstid og betalte tid.</li>
+<li><strong>Pausevarighed</strong> — vælg timer og minutter for én pause. Denne indstilling bruges ved genberegnelse af relevante arbejdsvagter.</li>
+<li><strong>Total pause</strong> — viser den valgte varighed før lagring.</li>
+<li><strong>Gem</strong> — anvender indstillingen og genberegner arbejdstid og relaterede værdier.</li>
+</ol>
+
+<div class="notice">En pause kan repræsentere en spisepause, vagtoverdragelse eller et andet ubetalt interval inden for en vagt. Indtast den varighed, der matcher reglerne på din arbejdsplads.</div>
+
+<h3 id="reports">5.4. Rapporter: periode, status og opsummering</h3>
+
+<p>Åbn "Rapporter" fra det nederste kort på statistikskærmen. Dette afsnit indeholder mere detaljerede oplysninger for den valgte periode: arbejdstid, vagter og fravær, kalenderjusteringer, løn, bonusser, fradrag, periodesammenligning, daglige detaljer og eksport.</p>
+
+<div class="warning"><strong>Rapporter leveres kun til orientering.</strong> Beregninger er baseret på den valgte tidsplan, lønindstillinger, pauseregnskab og ændringer i kalendervagt. Din arbejdsgivers faktiske tal kan afvige på grund af et andet tidssystem, afrunding, skatter, godtgørelser eller interne regler. Hvis du finder en fejl eller en ikke-understøttet beregningsmetode, skal du kontakte udviklerne på den adresse, der vises i appen, og inkludere inputdataene og det forventede resultat.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_period_salary.webp" alt="Rapportskærm med periodevalg, status, oversigt og detaljeret lønfordeling">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Rapportperiode</strong> — tryk på kortet for at vælge den aktuelle, forrige eller næste måned, et forudindstillet interval eller brugerdefinerede datoer. Alle oplysninger nedenfor gælder for den valgte periode.</li>
+<li><strong>Periodestatus</strong> — viser, om perioden er afsluttet, aktiv i øjeblikket eller endnu ikke er startet. En afsluttet periode beregnes ud fra gemte faktiske data. En aktiv periode kombinerer data, der allerede er arbejdet med den aktuelle plan, mens en fremtidig periode er en prognose.</li>
+<li><strong>Oversigt</strong> — en tekstoversigt over faktisk arbejdet tid, det beregnede beløb og overtid.</li>
+<li><strong>Løn</strong> — en detaljeret oversigt over grundløn, overtidsbetaling, bonusser, fradrag og det endelige estimat. Værdierne afhænger af <a href="#salary">lønindstillingerne</a> og den valgte periode.</li>
+</ol>
+
+<h3 id="reports-work">5.5. Arbejdstid, fravær og dage</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_work_absences.webp" alt="Rapportskærm med arbejdstid, pauser, gennemførte vagter og fravær">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Arbejdstid</strong> — viser planlagte og faktiske arbejdstimer, planlagte og faktiske timer før pausefradrag, antallet af gennemførte vagter, gennemsnitlig vagtvarighed og den samlede fratrukket pause. Konfigurer pauser i <a href="#statistics-break">arbejdstidsafsnittet</a>.</li>
+<li><strong>Fravær og dage</strong> — viser antallet af fridage, feriedage, sygedage, afspadseringsdage og ændrede dage i den valgte periode.</li>
+</ol>
+
+<h3 id="reports-charts">5.6. Justeringer og diagrammer</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_corrections_charts.webp" alt="Rapportskærm med justeringer, lønsammensætning og arbejdstidsværdier">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Justeringer</strong> — viser overtidstimer, den samlede ændring i vagtens varighed og antallet af dage ændret fra basisplanen.</li>
+<li><strong>Diagrammer</strong> — visualiserer løn- og arbejdstidssammensætning: basisløn, overtid, bonusser, fradrag, samlede og planlagte, arbejdede og betalte timer.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_charts_days.webp" alt="Yderligere rapportdiagrammer med timer og et dagslignende cirkeldiagram">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Timer</strong> — fortsætter den visuelle sammenligning af planlagte, arbejdede, betalte og overarbejdstimer. Rækken "Faktisk arbejdstid" viser resultatet efter indstillinger og justeringer er anvendt.</li>
+<li><strong>Dagstyper</strong> — et cirkeldiagram, der fordeler dage i den valgte periode efter type. Forklaringen afhænger af tidsplanen og faktiske ændringer: dag-, nat- eller andre vagter, fridage, ferie, sygeorlov, fritid og andre tilstande.</li>
+</ol>
+
+<h3 id="reports-comparison">5.7. Sammenligning af perioder</h3>
+
+<p>Sammenligningssektionen hjælper dig med at sammenligne løn, tid, vagter og fravær på tværs af flere perioder. Antallet af tilgængelige perioder afhænger af de gemte data.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_chart.webp" alt="Skærmbillede til sammenligning af perioder med intervalvalg, løndiagram og starten af ​​en sammenligningstabel">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Sammenlign perioder</strong> — tryk på kortet for at vælge, hvor mange perioder der skal sammenlignes, og deres interval.</li>
+<li><strong>Diagram og periodeliste</strong> — viser lønnen for hver periode og angiver de intervaller, der er inkluderet i sammenligningen, sammen med deres status.</li>
+<li><strong>Sammenligningstabel</strong> — indeholder detaljerede værdier for hver periode. Stryg tabellen vandret til venstre eller højre for at se de resterende kolonner.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_table.webp" alt="Fortsættelse af sammenligningstabellen og forskelle mellem tilstødende perioder">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Periodeværdier</strong> — samlet løn, arbejdede og betalte timer, overarbejde, bonusser, fradrag, gennemførte vagter, fravær og ændrede dage.</li>
+<li><strong>Forskel mellem perioder</strong> — viser, hvordan hver periode adskiller sig fra den foregående. Positive og negative værdier angiver en stigning eller et fald i den tilsvarende metrik. Farve alene betyder ikke altid en fordel eller et problem; for eksempel betyder en stigning i fradrag, at et større beløb tilbageholdes.</li>
+</ol>
+
+<h3 id="reports-details-export">5.8. Daglige detaljer og eksport</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_details_export.webp" alt="Rapportkort for daglige detaljer og eksport til PDF, HTML, JSON eller CSV">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Daglige detaljer</strong> — åbner en liste over hver dag i den valgte periode. Du kan kontrollere vagttype, planlagt og faktisk tid, timejusteringer, fravær og andre ændringer for en bestemt dag.</li>
+<li><strong>Eksporter</strong> — gemmer rapporten som PDF, HTML, JSON eller CSV. Vælg rapportperioden før eksport; du kan derefter udskrive, gemme eller dele filen via Android-systemmenuen.</li>
+</ol>
+
+<div class="tip">Før sammenligning eller eksport skal du kontrollere den valgte periode, tidsplan, vagtskift, pauser og lønindstillinger. En fejl i kildedataene vil påvirke alle rapporttotaler.</div>
+
+<h2 id="alarms">6. Alarmer</h2>
+
+<p>ShiftAlarm giver dig mulighed for at oprette engangsalarmer, gentage dem på udvalgte ugedage eller knytte deres tid til en vagtplan.</p>
+
+<h3 id="alarms-list">6.1. Alarmliste</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarms_overview.webp" alt="ShiftAlarm alarmskærm med den næste alarm, sortering, et alarmkort og knappen Tilføj">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Næste alarm</strong> — viser dato og klokkeslæt for den næste aktive alarm.</li>
+<li><strong>Alarmsortering</strong> — ændrer rækkefølgen af ​​alarmkort, for eksempel ved at vise aktiverede alarmer først.</li>
+<li><strong>Alarmkort</strong> — indeholder klokkeslæt, dato eller gentagelsestilstand, tidsplantype og resterende tid. Tryk på kortet for at redigere det.</li>
+<li><strong>Skift</strong> — aktiverer eller deaktiverer midlertidigt alarmen uden at slette dens indstillinger.</li>
+<li><strong>Slet</strong> — sletter den valgte alarm.</li>
+<li><strong>Tilføj alarm</strong> — åbner skærmen til oprettelse af en ny alarm.</li>
+</ol>
+
+<h3 id="alarms-create">6.2. Oprettelse og redigering af en alarm</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_time_schedule.webp" alt="Øverst i ShiftAlarm-alarmeditoren: kontrolelementer for tid, tidsplantype, snooze og lagring">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tid</strong> — rul time- og minuthjulene for at indstille alarmtidspunktet.</li>
+<li><strong>Tidsplantype</strong> — vælg en af ​​disse tilstande:
+<ul>
+<li><strong>Én gang</strong> — alarmen udløses én gang på den valgte dato;</li>
+<li><strong>Efter dage</strong> — gentages på udvalgte ugedage;</li>
+<li><strong>Efter vagter</strong> — forbinder alarmen med en valgt tidsplan og vagttype.</li>
+</ul>
+</li>
+<li><strong>Snooze</strong> — angiver, hvor mange minutter alarmen udskydes, når Du trykker på snooze-knappen på ringeskærmen.</li>
+<li><strong>Annuller og Gem</strong> — disse knapper er faste nederst på skærmen og forbliver tilgængelige, mens du ruller gennem editoren.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_behavior.webp" alt="ShiftAlarm-indstillinger for alarmvarighed, gentagne alarmer, gradvis stigning i lydstyrken og vibration">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Alarmvarighed</strong> — bestemmer, hvor længe alarmen lyder, hvis brugeren ikke stopper den.</li>
+<li><strong>Gentag, hvis alarm ignoreres</strong> — aktiverer en anden alarm, når alarmen hverken blev afvist eller slumret. Indstil intervallet før gentagelsesalarmen nedenunder.</li>
+<li><strong>Gradvis stigning i lydstyrken</strong> — starter med en mere dæmpet lyd og hæver gradvist lydstyrken over den valgte tid.</li>
+<li><strong>Vibration</strong> — aktiverer eller deaktiverer vibration under alarmen.</li>
+<li><strong>Annuller og gem</strong> — faste kontroller for editoren.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_sound_name.webp" alt="Nederst i ShiftAlarm-alarmeditoren: vibration, lyd, navn og gem-kontroller">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Vibration</strong> — aktiverer eller deaktiverer vibrationsalarmen.</li>
+<li><strong>Lyd</strong> — lader dig vælge en indbygget, system- eller brugertilføjet lyd. Du kan tilføje op til fem brugerdefinerede lyde til appen.</li>
+<li><strong>Navn</strong> — en valgfri etiket, der hjælper dig med at skelne mellem alarmer.</li>
+<li><strong>Annuller og gem</strong> — kasser ændringer eller gem alarmen.</li>
+</ol>
+
+<div class="notice">Efter gemning vises alarmen på hovedlisten. Før en vigtig alarm skal du sørge for, at alarmen er aktiveret, at appen har tilladelser til notifikationer og præcise alarmer, og at systemet ikke begrænser sin baggrundsaktivitet.</div>
+
+<div class="tip">For at oprette en vagtforbundet alarm skal du først oprette en passende vagtplan. I editoren skal du vælge et fast udløsningstidspunkt eller en forskydning i forhold til vagtens start.</div>
+
+<h2 id="geo">7. Geo-alarmer</h2>
+
+<p>En Geo-alarm overvåger, når enheden går ind i eller forlader et valgt område. Området er defineret af et punkt på kortet og en radius omkring dette punkt. Brug f.eks. en Geo Alarm til at modtage en advarsel, når du nærmer dig arbejde, hjem, et busstoppested, en station eller et andet sted.</p>
+
+<h3 id="geo-overview">7.1. Kort og kontroller</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_overview.webp" alt="ShiftAlarm Geo Alarms hovedskærm med et kort og nummererede kontroller">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Zoom ind</strong> — forstørrer kortet.</li>
+<li><strong>Zoom ud</strong> — reducerer kortets skala.</li>
+<li><strong>Min placering</strong> — flytter kortet til enhedens aktuelle placering. Appen skal have adgang til lokation for at kunne bruge denne funktion.</li>
+<li><strong>Gemte steder</strong> — åbner listen over gemte geoalarmer og lokationspunkter.</li>
+<li><strong>Tilbage</strong> — vender tilbage til den forrige appskærm.</li>
+<li><strong>Antal geoalarmer</strong> — viser, hvor mange geoalarmer der er oprettet.</li>
+<li><strong>Liste over geoalarmer</strong> — åbner en separat liste over oprettede geoalarmer.</li>
+</ol>
+
+<div class="tip">Du kan også zoome med bevægelser. Berør kortet med to fingre, og spred dem for at zoome ind, eller knib dem sammen for at zoome ud.</div>
+<div class="notice">Sidekontrollerne kan vises på den modsatte side i sprog, der skrives fra højre mod venstre. Deres funktioner forbliver de samme.</div>
+
+<h3 id="geo-saved-places">7.2. Gemte alarmer og positionspunkter</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_saved_places.webp" alt="Vindue med gemte steder med fanerne Geo Alarm og positionspunkter">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Alarmer</strong> — viser geoalarmer, der er tilføjet til gemte steder.</li>
+<li><strong>Positionspunkter</strong> — viser gemte koordinater uden en aktiv Geo Alarm.</li>
+<li><strong>Liste over gemte steder</strong> — tryk på et kort for at flytte til det pågældende sted på kortet.</li>
+<li><strong>Luk</strong> — lukker vinduet og vender tilbage til kortet.</li>
+</ol>
+
+<div class="notice">Hvis du sletter en bogmærket Geo Alarm, bevares dens koordinater automatisk i fanen "Positionspunkter". Du kan bruge punktet igen senere til at oprette en anden Geo-alarm.</div>
+
+<h3 id="geo-select-point">7.3. Valg af et punkt og en radius</h3>
+
+<p>Tryk og hold på det ønskede sted på kortet. Appen placerer en markør og åbner panelet med valgte punkter.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_selected_point.webp" alt="Valgt kortpunkt med adresse, radius, bogmærke og knap til oprettelse af Geo-alarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Markør for valgte punkter</strong> — midten af ​​det fremtidige geofence. Kortet viser også en cirkel for den valgte radius.</li>
+<li><strong>Adresse og koordinater</strong> — giver dig mulighed for at bekræfte, at det korrekte sted er valgt.</li>
+<li><strong>Gem positionspunkt</strong> — tilføjer de valgte koordinater til gemte steder uden at oprette en alarm.</li>
+<li><strong>Radius</strong> — angiver størrelsen på området omkring punktet. Flyt skyderen, indtil du vælger en passende afstand.</li>
+<li><strong>Annuller</strong> — annullerer punktvalg.</li>
+<li><strong>Opret her</strong> — åbner den nye Geo Alarm-editor for det valgte punkt.</li>
+</ol>
+
+<div class="warning"><strong>Sådan vælger du en radius.</strong> En telefon sporer ikke sine koordinater kontinuerligt. Android, enhedens producent, batterisparetilstand, GPS, mobilnetværks- og Wi-Fi-signalkvalitet samt bevægelseshastighed påvirker alle, hvornår grænsen registreres. Alarmen kan derfor udløses uden for den tegnede linje. For eksempel, med en radius på 800 m, kan indtrængen registreres, efter at enheden allerede er inden for området – måske 700, 600 eller 500 m fra punktet.</div>
+
+<ul>
+<li><strong>I en by</strong> anbefales generelt en radius på <strong>1.300-1.500 m</strong>.</li>
+<li><strong>Uden for en by</strong>, hvor placeringsopdateringer kan være mindre hyppige, anbefales <strong>4.000-5.000 m</strong>.</li>
+<li><strong>Den nøjagtige radius</strong> bør vælges baseret på din rute, hastighed og enhedens adfærd.</li>
+</ul>
+
+<div class="notice">Systemet registrerer, når enheden krydser områdets virtuelle grænse. I tilstanden "Ved indtrængen" giver en større radius normalt telefonen mere tid til at registrere din tilgang. I tilstanden "Ved udgang" placeres grænsen i stedet længere væk fra det valgte punkt.</div>
+
+<h3 id="geo-create">7.4. Oprettelse af en geoalarm</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_location_schedule.webp" alt="Øverst i geoalarmeditoren: beredskab, placering og tidsplantype">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Geoalarmberedskab</strong> — viser, om de nødvendige tilladelser er konfigureret, og om appen kan registrere geofencen.</li>
+<li><strong>Placering</strong> — indeholder den valgte adresse og koordinater. Du kan redigere adressen som en etiket, men det faktiske punkt er valgt på kortet.</li>
+<li><strong>Tidsplantype</strong> — bestemmer de dage og betingelser, hvorunder Geo-alarmen er aktiv.</li>
+<li><strong>Altid</strong> — Geo-alarmen er aktiv hver dag, mens den er aktiveret.</li>
+<li><strong>Én gang</strong> — bruges til den næste engangsudløser, når den valgte betingelse er opfyldt.</li>
+<li><strong>Efter dage</strong> — fungerer kun på udvalgte ugedage.</li>
+<li><strong>Efter vagter</strong> — forbinder Geo-alarmen med den aktive vagtplan.</li>
+</ol>
+
+<div class="notice"><strong>"Efter vagter"-plan.</strong> Vælg, om den fungerer på vagtdagen, kun før vagten eller kun efter den, og angiv den ønskede vagttype: dag, nat, morgen, aften, 24-timers, brugerdefineret eller enhver arbejdsvagt.</div>
+<div class="tip">Hvis en kalenderdato er markeret som en fridag, ferie, sygeorlov eller fritid i stedet for en arbejdsvagt, vil en vagtforbundet Geo Alarm ikke være aktiv den dag.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_trigger_settings.webp" alt="Nederst i Geo Alarm-editoren: ind- eller udgangsbetingelse, radius og alarmindstillinger">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Udløserbetingelse</strong> — bestemmer, hvilken grænseovergang der starter alarmen.</li>
+<li><strong>Ved indkørsel</strong> — starter alarmen, når enheden kommer ind i den valgte radius, f.eks. når den nærmer sig arbejde eller det ønskede stop.</li>
+<li><strong>Ved udkørsel</strong> — starter alarmen, når enheden forlader den valgte radius, f.eks. efter at have forladt arbejde eller en station, så du ikke misse den næste del af en rute.</li>
+<li><strong>Ved indkørsel eller udkørsel</strong> — starter alarmen, når grænsen krydses i begge retninger.</li>
+<li><strong>Radius</strong> — størrelsen på geofence omkring det valgte punkt.</li>
+<li><strong>Alarmvarighed</strong> — bestemmer, hvor længe alarmen lyder.</li>
+<li><strong>Gradvis lydstyrkeforøgelse</strong> — indstiller en jævn stigning i lydstyrken, efter at alarmen starter.</li>
+<li><strong>Annuller og gem</strong> — kasser ændringer eller gem Geo-alarmen.</li>
+</ol>
+
+<div class="tip">De resterende muligheder nedenfor ligner en almindelig alarm: lyd, vibration, alarmvarighed, gradvis lydstyrkeforøgelse og navn.</div>
+
+<h3 id="geo-existing">7.5. En Geo-alarm på kortet og dens kontroller</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_marker_radius.webp" alt="Oprettet Geo-alarmmarkør og dens triggerradiuscirkel på kortet">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Geo-alarmmarkør</strong> — viser det valgte punkt.</li>
+<li><strong>Radiusgrænse</strong> — viser det område, hvis ind- eller udgang overvåges af appen.</li>
+</ol>
+
+<p>Tryk på markøren for geoalarm. Et lille informationsvindue vises først. Tryk på det vindue for at åbne det detaljerede kort.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_alarm_card.webp" alt="Detaljeret Geo Alarm-kort med information, bogmærke, kontakt og kontroller">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Navn og adresse</strong> — identificer den valgte Geo Alarm.</li>
+<li><strong>Bogmærke</strong> — tilføjer alarmen til gemte steder eller fjerner den fra dem.</li>
+<li><strong>Kontakt</strong> — aktiverer eller deaktiverer midlertidigt Geo Alarm uden at slette dens indstillinger.</li>
+<li><strong>Indstillinger og status</strong> — viser radius, indgangs- eller udgangsforhold, tidsplan, geofence-beredskab og information om tidligere aktiveringer.</li>
+<li><strong>Rediger</strong> — åbner indstillingerne for Geo Alarm.</li>
+<li><strong>Luk</strong> — lukker kortet og vender tilbage til kortet.</li>
+<li><strong>Slet</strong> — sletter Geo Alarm efter bekræftelse.</li>
+</ol>
+
+<div class="warning">For pålidelig drift skal du tillade præcis placering og placering i baggrunden, fjerne strenge batterirestriktioner for ShiftAlarm, og kontrollere autostart i baggrunden, hvis din enhed har dem. Selv med korrekte indstillinger garanterer Android ikke grænsedetektion med en nøjagtighed på få meter.</div>
+
+<h2 id="notes">8. Noter, begivenheder og påmindelser</h2>
+
+<p>Afsnittet "Noter" gemmer almindelig tekst, lister, tjeklister, lydoptagelser, tale-til-tekst-noter, påmindelser og begivenheder.</p>
+
+<h3 id="notes-create">8.1. Tilføjelse af en note</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_type_picker.webp" alt="Valg af en ny notetype i ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Panelhåndtag</strong> — træk det opad for at se den fulde liste over notetyper eller nedad for at lukke panelet.</li>
+<li><strong>Notetype</strong> — vælg den relevante indstilling:
+<ul>
+<li><strong>Tekstnote</strong> — almindelig tekst;</li>
+<li><strong>Tjekliste</strong> — en liste over elementer med afkrydsningsfelter til udfyldelse;</li>
+<li><strong>Liste</strong> — en punktopstillet eller nummereret liste;</li>
+<li><strong>Lydnote</strong> — en stemmeoptagelse;</li>
+<li><strong>Tale til tekst</strong> — opretter en note ved hjælp af talegenkendelse;</li>
+<li><strong>Påmindelse</strong> — en post med en notifikation på et bestemt tidspunkt;</li>
+<li><strong>Begivenhed</strong> — en post knyttet til en dato og et tidspunkt.</li>
+</ul>
+</li>
+<li><strong>Annuller</strong> — lukker vælgeren uden at oprette en note.</li>
+</ol>
+
+<div class="tip">Når du har valgt en type, åbnes den relevante editor. Udfyld de obligatoriske felter, og gem posten.</div>
+
+<h3 id="notes-list">8.2. Noteliste og kontrolelementer</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_overview.webp" alt="ShiftAlarm-noteskærm med sortering, aktive og arkiverede noter, søgning og korthandlinger">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Sortér</strong> — ændrer rækkefølgen af ​​noter på listen.</li>
+<li><strong>Aktiv</strong> — viser almindelige og planlagte noter, der ikke er flyttet til arkivet.</li>
+<li><strong>Arkiv</strong> — åbner listen over arkiverede noter.</li>
+<li><strong>Søgning</strong> — finder matches i notititler og indhold.</li>
+<li><strong>Notekort</strong> — viser titel, type, status og yderligere oplysninger. Tryk på kortet for at åbne noten.</li>
+<li><strong>Fastgør</strong> — fastgør noten øverst på listen.</li>
+<li><strong>Arkiv</strong> — fjerner noten fra den aktive liste og flytter den til arkivet.</li>
+<li><strong>Slet</strong> — sletter noten efter bekræftelse.</li>
+<li><strong>Tilføj note</strong> — åbner vælgeren for nye notetyper.</li>
+</ol>
+
+<div class="notice">Brug arkivet til poster, der ikke længere er nødvendige på hovedlisten, men som skal forblive gemt. Slet kun en note, når den slet ikke længere er nødvendig.</div>
+
+<h2 id="clock">9. Ur, stopur og timer</h2>
+
+<p>Dette afsnit kombinerer lokal og global tid, et stopur og en timer. Åbn den med knappen <strong>“Ur”</strong> på hovedskærmen.</p>
+
+<div class="notice">Tre faner vises nederst på skærmen: “Ur”, “Stopur” og “Timer”. Tryk på en fane for at skifte tilstand.</div>
+
+<h3 id="clock-world">9.1. Ur og verdensur</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_overview.webp" alt="ShiftAlarm-skærm med lokal tid, verdensure, tilføjelsesknap og nederste faner">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Lokal tid</strong> — viser det aktuelle tidspunkt, dato og enhedens systemtidszone.</li>
+<li><strong>Verdensure</strong> — viser tilføjede byer og tidszoner. Mens listen er tom, viser appen et hint.</li>
+<li><strong>Plusknap</strong> — åbner verdensurvælgeren.</li>
+<li><strong>Sektionsfaner</strong> — skift mellem skærmene "Ur", "Stopur" og "Timer".</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_add_timezone.webp" alt="Tilføjelse af en by eller tidszone til ShiftAlarm-verdensuret">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Søg</strong> — indtast et by- eller tidszonenavn for at filtrere listen.</li>
+<li><strong>Liste over byer og tidszoner</strong> — tryk på den ønskede mulighed for at føje den til verdensurskærmen.</li>
+</ol>
+
+<div class="tip">Den lokale tidszone vises altid først. Du kan fjerne tilføjede verdensure fra listen, men lokal tid kan ikke fjernes.</div>
+
+<h3 id="clock-stopwatch">9.2. Stopur</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_start.webp" alt="ShiftAlarm stopur før det starter">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Historik</strong> — åbner gemte stopurssessioner.</li>
+<li><strong>Start</strong> — starter tidtagningen.</li>
+<li><strong>Nulstil</strong> — utilgængelig før stopuret starter. Efter stop nulstilles stopuret, og de aktuelle omgange slettes.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_running.webp" alt="Stopur med ShiftAlarm-start med historik, gem, omgang og pause">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Historik</strong> — viser tidligere gemte sessioner.</li>
+<li><strong>Gem</strong> — beder om et navn og gemmer den aktuelle stopursession.</li>
+<li><strong>Omgang</strong> — registrerer et mellemresultat uden at stoppe den samlede timer.</li>
+<li><strong>Pause</strong> — sætter stopuret på pause. Efter pause kan du genoptage eller nulstille den.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_laps.webp" alt="ShiftAlarm stopur omgange og deres sorteringsmuligheder">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Oprindelig, hurtigst og langsomst</strong> — skift rækkefølgen for visning af omgange: oprindelig rækkefølge, hurtigst først eller langsomst først.</li>
+<li><strong>Omgange</strong> — hver omgang viser den samlede tid, den blev registreret på, og den individuelle omgangstid.</li>
+</ol>
+
+<div class="notice">Når du trykker på Gem, skal du indtaste et sessionsnavn og bekræfte. Du kan åbne den gemte session senere fra Historik.</div>
+
+<h3 id="clock-timer">9.3. Timer</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_setup.webp" alt="Indstilling af en ShiftAlarm-timer med time-, minut- og sekundhjul">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Timer</strong> — rul med hjulet og vælg antallet af timer.</li>
+<li><strong>Minutter</strong> — rul med hjulet og vælg antallet af minutter.</li>
+<li><strong>Sekunder</strong> — rul med hjulet og vælg antallet af sekunder.</li>
+<li><strong>Start</strong> — starter timeren med den valgte varighed.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_running.webp" alt="Kørende ShiftAlarm-timer med resterende tid, pause, tilføj minut og stop-kontroller">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tid tilbage</strong> — viser, hvor meget tid der er tilbage før alarmen.</li>
+<li><strong>Sluttidspunkt</strong> — viser det omtrentlige tidspunkt, hvor timeren slutter.</li>
+<li><strong>Seneste timere</strong> — gemte seneste varigheder; tryk på en for at genbruge den hurtigt.</li>
+<li><strong>Pause</strong> — stopper nedtællingen midlertidigt. Du kan genoptage den bagefter.</li>
+<li><strong>+1 min</strong> — tilføjer et minut til den resterende tid.</li>
+<li><strong>Stop</strong> — stopper timeren helt.</li>
+</ol>
+
+<div class="tip">Timeren og stopuret fortsætter med at køre i baggrunden. Deres status kan vises i en notifikation, på hovedskærmen og i widgets.</div>
+
+<h2 id="widgets">10. Widgets</h2>
+
+<p>ShiftAlarm leverer widgets til telefonens startskærm.</p>
+<ul>
+<li><strong>Today 4×2</strong> — et kompakt panel med to konfigurerbare sektioner.</li>
+<li><strong>Today 4×3</strong> — et panel med et ur øverst og to sektioner nedenunder.</li>
+<li><strong>Kalender 4×4</strong> — kalenderwidgets med vagtplanen.</li>
+</ul>
+<p>Tilføj en widget via Android-widgetmenuen på telefonens startskærm.</p>
+
+<h2 id="salary">11. Lønberegning</h2>
+
+<p>Åbn “Lønberegning” fra lønkortet i den <a href="#statistics-work">valgte vagts statistikker</a>. Her kan du indstille lønmetode, sats eller månedsløn, overtidsregler, bonusser og fradrag. Appen bruger disse indstillinger sammen med den valgte periode, vagtplan, kalenderændringer og pauseregnskab.</p>
+
+<div class="warning"><strong>Beregningen er kun til orientering.</strong> Den faktiske løn kan afvige, hvis din arbejdsgiver bruger et andet system til tidsregistrering, afrunding, tillæg, skatter, bonusser, fradrag eller betaling for bestemte vagttyper. Brug ikke resultatet som et officielt løndokument; sammenlign det med din arbejdsgivers lønseddel. Hvis du finder en beregningsmetode, som appen ikke håndterer præcist, skal du sende en e-mail til udviklerne på den adresse, der vises i appen. Beskriv reglerne, angiv eksempler på inputdata, og angiv det forventede resultat. Metoden kan derefter overvejes til en fremtidig opdatering.</div>
+
+<h3 id="salary-settings">11.1. Sats, overtid og bonusser</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_settings_overview.webp" alt="Lønberegningsskærm med valgt vagtplan, satstype, overtid og bonusser">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Valgt vagtplan</strong> — viser, hvilken vagtplan der bruges. Lønnen beregnes ud fra denne tidsplan og den periode, der er valgt i statistikken.</li>
+<li><strong>Satstype og lønbeløb</strong> — vælg betaling <strong>pr. time</strong>, <strong>pr. vagt</strong> eller <strong>pr. måned</strong>, og indtast derefter det tilsvarende beløb. Feltnavnet ændres med den valgte satstype.</li>
+<li><strong>Overtid</strong> — aktiver dette afsnit, hvis ekstra timer betales anderledes end den normale arbejdstid. Angiv derefter multiplikatoren for overtidsbetaling. Tilføj ekstra timer til kalenderen via <a href="#main-shift-time-adjustment">"Ændr vagt" → "+ tid"</a>; aktiver "Tæl denne tid som overtid", så timerne behandles som overtid.</li>
+<li><strong>Bonusser</strong> — viser den aktuelle beregningsmetode og totaler. Tryk på kortet for at åbne <a href="#salary-bonuses">bonusindstillingerne</a>.</li>
+</ol>
+
+<div class="notice">Knappen "Gem" anvender indstillingerne på den valgte tidsplan. Efter gemning genberegnes totaler i statistikker og rapporter ved hjælp af de indtastede data.</div>
+
+<h3 id="salary-summary">11.2. Fradrag og beregning af total</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions_total.webp" alt="Lønberegningsskærm med fradrag og en endelig opdeling">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Fradrag</strong> — viser det samlede beløb og antallet af konfigurerede fradrag. Tryk på kortet for at åbne <a href="#salary-deductions">fradragslisten</a>.</li>
+<li><strong>Total</strong> — en oversigt over: betalt tid, arbejdstimer, overtid, grundløn, overtidsbetaling, bonusser, fradrag og det endelige resultat.</li>
+</ol>
+
+<div class="tip">Resultatet afhænger ikke kun af indstillingerne på denne skærm, men også af den valgte statistikperiode, gennemførte vagter, dagskift, overtid og indstillinger for ubetalt pause.</div>
+
+<h3 id="salary-bonuses">11.3. Bonusser</h3>
+
+<p>Tryk på kortet "Bonusser" på lønberegningsskærmen. Du kan indtaste en bonus manuelt eller beregne den som en procentdel, hvis det passer til dit lønsystem.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_bonuses.webp" alt="Bonusindstillinger med beregnings- og beløbsindtastningsmuligheder">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Oversigtsoplysninger</strong> — viser den beregnede bonustotal og det basisbeløb, der bruges til beregningen.</li>
+<li><strong>Bonusberegning</strong> — vælg manuel indtastning eller en procentberegning, f.eks. en procentdel af salget, hvis denne metode bruges på din arbejdsplads.</li>
+<li><strong>Indtastningsmetode</strong> — "Totalbeløb" er egnet til en enkelt slutbonus. Separate rækker er nyttige, når der er flere bonusser, der skal tælles uafhængigt af hinanden.</li>
+<li><strong>Beløb eller procentdel</strong> — indtast den værdi, der kræves af den valgte beregningsmetode.</li>
+<li><strong>Annuller og gem</strong> — annuller ændringerne eller anvend dem i lønberegningen.</li>
+</ol>
+
+<h3 id="salary-deductions">11.4. Fradragsliste</h3>
+
+<p>Tryk på kortet "Fradrag" på hovedberegningsskærmen. I dette afsnit kan du gemme flere fradrag og administrere hvert enkelt separat.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions.webp" alt="Skærmbillede med fradragsliste med samlet beløb, fradragsrækker og tilføj-knap">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Oversigtsoplysninger</strong> — viser beløbet og antallet af alle aktiverede fradrag.</li>
+<li><strong>Fradragsrække</strong> — viser navn, værdi og type. Tryk på rækken for at åbne <a href="#salary-deduction-editor">fradragsindstillingerne</a>. Papirkurvsikonet sletter rækken.</li>
+<li><strong>Tilføj fradrag</strong> — knappen "+" opretter en ny fradragsrække.</li>
+<li><strong>Annuller og gem</strong> — kasser ændringer eller gem hele listen.</li>
+</ol>
+
+<h3 id="salary-deduction-editor">11.5. Konfiguration af et individuelt fradrag</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deduction_editor.webp" alt="Panel for individuelt fradrag med navn, værdi, type og fradragsgrundlag">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Fradragsnavn</strong> — indtast et tydeligt navn, f.eks. "Skat", "Børnebidrag" eller "Bøde".</li>
+<li><strong>Værdi</strong> — indtast et beløb eller en procentdel, afhængigt af den valgte værditype nedenfor.</li>
+<li><strong>Værditype</strong> — vælg et fast beløb eller en fast procentdel.</li>
+<li><strong>Fradragstype</strong> — et <strong>variabelt</strong> fradrag gælder for en bestemt beregningsperiode; Et <strong>tilbagevendende</strong> fradrag anvendes regelmæssigt, mens det forbliver aktiveret.</li>
+<li><strong>Træk fra</strong> — vælg beregningsgrundlaget: samlet løn, grundløn, bonusser eller en anden tilgængelig mulighed.</li>
+<li><strong>Aktiveret</strong> — deaktiverer midlertidigt fradraget uden at slette dets indstillinger.</li>
+<li><strong>Annuller og gem</strong> — luk panelet uden ændringer eller gem fradraget.</li>
+</ol>
+
+<div class="notice">For et procentfradrag er det især vigtigt at vælge det korrekte "Træk fra"-grundlag: den samme procentdel af samlet løn, grundløn og bonusser giver forskellige resultater.</div>
+
+<h2 id="settings">12. Indstillinger</h2>
+
+<p>Åbn "Indstillinger" med knappen nederst på <a href="#main-overview">hovedskærmen</a>. Dette afsnit indeholder systemtilladelser, udseende og appsprog, offline talegenkendelse, dokumenter og brugervejledning, backup, diagnosticering og kontaktmuligheder for udviklere.</p>
+
+<h3 id="settings-overview">12.1. Hovedindstillinger</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_permissions_language.webp" alt="Top af ShiftAlarm-indstillinger: tilladelser, tema, appsprog og offline talemodeller">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tilladelser</strong> — åbner alarmtilladelser og pålidelighedsindstillinger. Tjek notifikationer, præcise alarmer, baggrundsaktivitet og batteribegrænsninger. <a href="#geo">Geo-alarmer</a> kræver også adgang til lokation; baggrundsadgang eller "Tillad altid"-lokation er nødvendig for at udløses, mens appen er lukket. Elementnavne og stier varierer afhængigt af Android-version og enhedsproducent.</li>
+<li><strong>Tema</strong> — giver dig mulighed for at vælge lyst, mørkt eller systemudseende, vælge en grænsefladefarvevariant og aktivere eller deaktivere haptisk feedback for handlinger i appen. Systemtemaet følger telefonens aktuelle udseende.</li>
+<li><strong>Appsprog</strong> — giver dig mulighed for at bruge et andet sprog end telefonens systemsprog. ShiftAlarm-kataloget indeholder 108 sprog: find det ønskede sprog med søgning, download sprogpakken, og anvend den.</li>
+<li><strong>Offline talemodeller</strong> — installerer et modul til <a href="#notes-create">tale-til-tekst-noter</a>. Offline genkendelse testes i øjeblikket og er tilgængelig for cirka 20 sprog. Dens kvalitet kan være lavere end online genkendelse og afhænger af sprog, mikrofon, telefonydelse og optageforhold.</li>
+</ol>
+
+<div class="warning"><strong>Android-tilladelser varierer på tværs af enheder.</strong> På nogle telefoner skal du også tillade automatisk start, vælge "Ubegrænset" eller en lignende batteritilstand og tillade baggrundsaktivitet. Disse indstillinger reducerer risikoen for, at systemet stopper ShiftAlarm, men deres nøjagtige navne bestemmes af enhedsproducenten.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_help_backup_diagnostics.webp" alt="Nederst i ShiftAlarm-indstillingerne: dokumenter, brugervejledning, backup, diagnosticering og udviklerkontakt">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Dokumenter og hjælp</strong> — åbner appens juridiske dokumenter: Brugsbetingelser, privatlivspolitik, ansvarsfraskrivelse og den korte hjælpeside.</li>
+<li><strong>Trænings- og brugervejledning</strong> — åbner denne komplette illustrerede vejledning med detaljerede beskrivelser af ShiftAlarm-funktioner.</li>
+<li><strong>Sikkerhedskopiering og gendannelse</strong> — opretter en fil, der indeholder understøttede appindstillinger og data, eller gendanner dem fra en tidligere backup. Dette er nyttigt, før du geninstallerer appen, nulstiller telefonen eller overfører data til en anden enhed. Se <a href="#backup">“Sikkerhedskopiering og gendannelse”</a> for detaljerede instruktioner.</li>
+<li><strong>Diagnostisk log</strong> — åbner separate logfiler for appfunktioner. De registrerer tekniske stadier såsom planlægning og gendannelse af alarmer, hændelsesbehandling, tilladelsesstatus og andre serviceoplysninger. En logfil hjælper med at identificere det stadie, hvor en fejl opstod. Du kan kopiere poster eller forberede dem til at blive sendt via e-mail til udviklerne. Se <a href="#diagnostics">“Diagnostic og fejlfinding”</a> for detaljer.</li>
+<li><strong>Kontakt udviklere</strong> — åbner e-mail-appen og opretter en besked adresseret til support. Brug den til at rapportere et problem, sende feedback eller et forslag eller stille et spørgsmål. Ved tekniske problemer skal du inkludere telefonmodel, Android-version, tidspunkt for problemet, udførte trin og den relevante diagnostiske logfil, hvis det er muligt.</li>
+</ol>
+
+<div class="notice">Diagnostiske logfiler sendes ikke automatisk til udviklerne. Du skal kopiere de nødvendige oplysninger eller trykke på "Send til udviklere", vælge en e-mail-app, gennemgå den forberedte besked og bekræfte afsendelsen.</div>
+
+<h2 id="backup">13. Sikkerhedskopiering og gendannelse</h2>
+
+<p>En sikkerhedskopi gemmer understøttede ShiftAlarm-indstillinger og brugerdata i en separat fil. Det hjælper med at gendanne data efter geninstallation af appen, nulstilling af telefonen eller flytning til en anden enhed.</p>
+<ol class="step-list">
+<li>Åbn "Indstillinger → Sikkerhedskopiering og gendannelse."</li>
+<li>Opret en sikkerhedskopi, og gem den resulterende fil på telefonen, eller del den via systemmenuen.</li>
+<li>For at gendanne skal du åbne den samme sektion og vælge en tidligere oprettet sikkerhedskopifil.</li>
+<li>Efter gendannelse skal du kontrollere vigtige alarmer, tidsplaner og Android-tilladelser. Nogle systemsikkerhedstilladelser skal muligvis gives igen på en ny enhed eller efter geninstallation.</li>
+</ol>
+<p class="tip">Opbevar en aktuel kopi et sikkert sted, der forbliver tilgængelig, hvis telefonen mistes, beskadiges eller nulstilles. En sikkerhedskopifil erstatter ikke Android-systemtilladelser og kan ikke automatisk indeholde data, som appen ikke har adgang til.</p>
+
+<h2 id="diagnostics">14. Diagnostik og fejlfinding</h2>
+
+<p>ShiftAlarm leverer separate diagnostiske logfiler for forskellige funktioner. De bevarer en række tekniske hændelser og hjælper med at bestemme, om en alarm blev planlagt, gendannet efter en genstart, godkendt til behandling eller stoppet på grund af en systemindstilling.</p>
+
+<h3 id="diagnostics-control">14.1. Styring af diagnostisk indsamling</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_sections.webp" alt="ShiftAlarm diagnostisk logskærm med hovedafbryderen og en individuel alarmlog">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Indsaml diagnostik</strong> — hovedafbryderen for hver diagnostisk sektion i appen. Slå den fra for at stoppe med at tilføje nye hændelser til alle logfiler på én gang. Indsamling af nye hændelser genoptages, når du aktiverer den igen.</li>
+<li><strong>Individuel funktionslog</strong> — hvert modul har sin egen kontakt og "Åbn"-knap. For eksempel kan du lade global diagnostik være aktiveret, mens du kun deaktiverer alarmen, uret eller en anden funktionslog. Skærmbilledet viser alarmloggen, som registrerer levering, planlægning, genoprettelse, vagtbeskyttelse og alarmskærmhændelser.</li>
+</ol>
+
+<div class="notice">Kontakterne styrer kun optagelsen af ​​tekniske hændelser. Deaktivering af en alarm, et ur eller en anden funktionslog deaktiverer ikke selve funktionen. Slet tidligere gemte poster separat med knappen "Ryd" i den tilsvarende log.</div>
+
+<h3 id="diagnostics-log">14.2. Individuel funktionslog</h3>
+
+<p>Tryk på "Åbn" i det ønskede diagnostiske afsnit. Eksemplet nedenfor viser alarmloggen; Logfiler for andre funktioner fungerer på en lignende måde.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_alarm_log.webp" alt="ShiftAlarm alarmdiagnosticlog med hændelsesantal, handlinger og tekniske poster">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Gemte hændelser</strong> — viser antallet af poster, der aktuelt er gemt i den valgte log.</li>
+<li><strong>Loghandlinger</strong>:
+<ul>
+<li><strong>Kopier</strong> — kopierer alle data fra den aktuelle log til udklipsholderen. Du kan indsætte dem i en e-mail eller en anden app.</li>
+<li><strong>Ryd</strong> — sletter de gemte poster i denne log. Efter rydning vises kun hændelser, der er registreret senere, mens diagnosticering er aktiveret.</li>
+<li><strong>Send til udviklere</strong> — åbner appvælgeren til afsendelse af en e-mail. Vælg en e-mail-app; Udvikleradressen og diagnosticeringsdataene indsættes automatisk. Før du sender, skal du tilføje en beskrivelse af problemet, gennemgå meddelelsen og derefter bekræfte afsendelsen.</li>
+</ul>
+</li>
+<li><strong>App-hændelser</strong> — selve logposterne. En post indeholder normalt en dato og et klokkeslæt, et navn på en teknisk begivenhed og yderligere parametre såsom et id, en tilstand eller en årsag. Tekniske navne kan forekomme på engelsk; rediger eller oversæt dem ikke før afsendelse.</li>
+</ol>
+
+<div class="warning">Før du rydder en log, skal du kopiere eller sende alle nødvendige poster. Slettede diagnosticeringshændelser kan ikke gendannes.</div>
+
+<div class="tip">Hvis problemet kan reproduceres, skal du først aktivere global diagnosticeringsindsamling og den relevante funktionslog og derefter gentage de handlinger, der forårsagede problemet. Angiv det nøjagtige tidspunkt for problemet, telefonmodel, Android-version, forventet resultat og faktisk resultat i din besked. Dette hjælper med at matche din beskrivelse med loghændelser.</div>
+
+<h2 id="faq">15. Ofte stillede spørgsmål</h2>
+
+<h3>Alarmen blev ikke udløst til tiden</h3>
+<p>Kontroller notifikationer, tilladelse til præcis alarm, baggrundsaktivitet og batteribegrænsninger.</p>
+<h3>Geo-alarmen blev udløst sent</h3>
+<p>Kontroller præcis placering og baggrundsplacering, batteribegrænsninger og autostart i baggrunden. Prøv en radius på 1.300-1.500 m i en by og 4.000-5.000 m uden for en by. Den faktiske udløsning forekommer muligvis ikke præcist på radiuslinjen.</p>
+<h3>Widgetten blev ikke opdateret med det samme</h3>
+<p>Åbn appen, eller tryk på opdateringsknappen på widgetten. Android kan begrænse hyppige widgetopdateringer.</p>
+<h3>Jeg har ændret sproget, men et dokument eller guiden er endnu ikke opdateret</h3>
+<p>Tjek din internetforbindelse, og giv den tid til download. Hvis fjernversionen ikke er tilgængelig, bruger appen dens indbyggede reserveversion.</p>
+
+<div class="footer small">Guiden kan opdateres via GitHub. Hvis fjernversionen ikke er tilgængelig, bruger appen dens indbyggede offlineversion.</div>
+</main>
+</body>
+</html>

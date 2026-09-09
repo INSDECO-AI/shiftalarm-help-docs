@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ShiftAlarm felhasználói útmutató</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #64748b;
+  --accent: #2563eb;
+  --soft: #e8eef8;
+  --border: #dbe4f0;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.58;
+  margin: 0;
+  padding: 18px;
+  color: var(--text);
+  background: var(--bg);
+}
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+h1 { margin: 0 0 8px; font-size: 28px; line-height: 1.2; }
+h2 { margin: 32px 0 10px; font-size: 21px; line-height: 1.25; }
+h3 { margin: 22px 0 8px; font-size: 17px; }
+p, li { font-size: 16px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul, ol { padding-left: 22px; }
+.notice, .tip, .warning {
+  padding: 14px 16px;
+  border-radius: 16px;
+  margin: 14px 0;
+  border: 1px solid var(--border);
+}
+.notice { background: var(--soft); }
+.tip { background: #ecfdf5; }
+.warning { background: #fff7ed; }
+.small { color: var(--muted); font-size: 14px; }
+.toc {
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 16px;
+  margin: 18px 0 24px;
+}
+.toc ol { margin: 8px 0 0; }
+.step-list li { margin-bottom: 8px; }
+.guide-figure {
+  margin: 18px 0;
+}
+.guide-image {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+}
+.callout-list li {
+  margin-bottom: 10px;
+}
+.guide-caption {
+  max-width: 520px;
+  margin: 10px auto 0;
+  color: var(--text);
+  font-size: 15px;
+}
+.guide-caption strong {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.footer {
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --card: #111827;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --accent: #93c5fd;
+    --soft: #1f2937;
+    --border: #334155;
+  }
+  main { box-shadow: none; }
+  .toc { background: #172033; }
+  .tip { background: #10251f; }
+  .warning { background: #2a1d10; }
+}
+</style>
+</head>
+<body>
+<main>
+<h1>ShiftAlarm felhasználói útmutató</h1>
+<p class="small">14-es verzió. Dátum: 2026. augusztus 2.</p>
+<div class="notice">Ez az oldal egy gyakorlati útmutató a ShiftAlarmhoz. Elmagyarázza, hogy mit csinálnak az egyes fő funkciók, hol találhatók, mire kell koppintani, és mit kell ellenőrizni, ha egy funkció nem a várt módon működik.</div>
+<nav class="toc">
+<strong>Tartalomjegyzék</strong>
+<ol><li><a href="#start">1. Első indítás</a></li><li><a href="#permissions">2. Engedélyek és megbízhatóság</a></li><li><a href="#main">3. Főképernyő</a></li><li><a href="#shifts">4. Műszakbeosztások</a></li><li><a href="#statistics">5. Ütemezési statisztikák</a></li><li><a href="#alarms">6. Ébresztők</a></li><li><a href="#geo">7. Geo riasztások</a></li><li><a href="#notes">8. Jegyzetek, események és emlékeztetők</a></li><li><a href="#clock">9. Óra, időzítő és stopperóra</a></li><li><a href="#widgets">10. Widgetek</a></li><li><a href="#salary">11. Fizetésszámítás</a></li><li><a href="#settings">12. Beállítások</a></li><li><a href="#backup">13. Biztonsági mentés és visszaállítás</a></li><li><a href="#diagnostics">14. Diagnosztika és hibaelhárítás</a></li><li><a href="#faq">15. Gyakran ismételt kérdések</a></li></ol>
+</nav>
+<h2 id="start">1. Első indítás</h2>
+
+<p>Amikor a ShiftAlarm először elindul, egy rövid beállítási folyamatot jelenít meg. A főképernyő már elérhető a háttérben, de a legjobb, ha először elvégezzük az alapvető beállításokat.</p>
+<ol class="step-list">
+<li>Olvassa el a bevezető információkat, és koppintson a „Folytatás” gombra.</li>
+<li>A dokumentumok lépésében nyissa meg a dokumentumokat, vagy fogadja el a szükséges dokumentumokat, amikor készen áll a folytatásra.</li>
+<li>Az engedélyek lépésében nyissa meg az engedélyek képernyőjét, és ellenőrizze az értesítéseket, a pontos riasztásokat, a helyhozzáférést és az akkumulátorkorlátozásokat.</li>
+<li>Koppintson a „Beállítás befejezése” gombra.</li>
+</ol>
+<p class="tip">Az engedélyeket később is konfigurálhatja a „Beállítások → Engedélyek és megbízhatóság” alatt.</p>
+
+<h2 id="permissions">2. Engedélyek és megbízhatóság</h2>
+
+<p>Az ébresztések, emlékeztetők és a Geo-riasztások az Android beállításaitól és az eszköz gyártójának szoftverétől függenek.</p>
+<ul>
+<li><strong>Értesítések</strong> – szükségesek az ébresztésekhez, emlékeztetőkhöz, az időzítőhöz és a szolgáltatásértesítésekhez.</li>
+<li><strong>Pontos ébresztések</strong> – segítenek az ébresztésnek a kívánt időben elindulni.</li>
+<li><strong>Helyszín</strong> – szükséges a Geo-riasztásokhoz.</li>
+<li><strong>Háttérbeli helymeghatározás</strong> – szükséges ahhoz, hogy a Geo-riasztás működjön, miközben az alkalmazás be van zárva.</li>
+<li><strong>Akkumulátor és a háttértevékenység</strong> – befolyásolhatja az indító megbízhatóságát Xiaomi/Redmi és néhány más eszközön.</li>
+</ul>
+<p class="warning">Az Android nem mindig garantálja az értesítések, a pontos riasztások vagy a geofence-események azonnali kézbesítését. Fontos riasztások esetén ellenőrizze az engedélyek képernyőjének minden elemét.</p>
+
+<h2 id="main">3. Főképernyő</h2>
+
+<p>A főképernyő a napi irányítópult. Közvetlen hozzáférést biztosít a naptárhoz, az órához, a Geo Alarms-hoz, a szokásos riasztásokhoz, a műszakbeosztásokhoz, a jegyzetekhez és a beállításokhoz.</p>
+
+<h3 id="main-overview">3.1. Főképernyő elemei</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_screen_overview.png" alt="ShiftAlarm főképernyő számozott vezérlőkkel">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Vissza nyíl</strong> — az előző hónapra mozgatja a naptárat.</li>
+<li><strong>Hónap és év</strong> — a megnyitott hónapot mutatja. Koppintson erre a területre a <a href="#main-date-picker">lépésenkénti hónap- és évválasztó</a> használatához.</li>
+<li><strong>Előre nyíl</strong> – a naptárat a következő hónapra mozgatja.</li>
+<li><strong>Naptár</strong> – a hónap fő területe. A naptárat elhúzhatja. Minden nap megjelenítheti a dátumot, az emlékeztetőket, az eseményeket, az ütemezett műszakot és a napváltásokat. Egy hagyományos koppintással kiválaszthat egy dátumot; hosszan megnyomva megnyitja a <a href="#main-day-actions">kiválasztott napra vonatkozó információkat és műveleteket</a>.</li>
+<li><strong>Ma</strong> — visszaállítja a naptárat az aktuális napra.</li>
+<li><strong>Óra</strong> — megnyitja a <a href="#clock">világórát, stopperórát és időzítőt</a>.</li>
+<li><strong>Földrajzi riasztás</strong> — megnyitja a <a href="#geo">térképet, a mentett helyeket és a Földrajzi riasztás beállításait</a>. Riasztás aktiválódhat, amikor belép a kiválasztott területre, elhagyja azt, vagy mindkettőt teszi.</li>
+<li><strong>Riasztás</strong> — megnyitja a <a href="#alarms">rendszeres, ismétlődő és műszakhoz kötött riasztásokat</a>.</li>
+<li><strong>Ütemterv</strong> — megnyitja a <a href="#shifts">műszakbeosztásokat, azok létrehozását és szerkesztését, valamint a statisztikákat</a>.</li>
+<li><strong>Jegyzetek</strong> — megnyitja a <a href="#notes">jegyzeteket, eseményeket, emlékeztetőket, hangjegyzeteket és a beszéd szöveggé alakítását</a>.</li>
+<li><strong>Beállítások</strong> — megnyitja az <a href="#settings">engedélyeket, nyelvet, témát, offline beszédmodelleket, biztonsági mentést, diagnosztikát, dokumentumokat és képzést</a>.</li>
+</ol>
+
+
+<h3 id="main-date-picker">3.2. Hónap és év kiválasztása</h3>
+
+<p>Koppintson a hónapra és az évre a főképernyő tetején a kívánt naptári időszak gyors megnyitásához. A kijelölés szakaszokban történik: <strong>évszázad → évtized → év → hónap</strong>.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_century.webp" alt="1. lépés: évszázad kiválasztása a ShiftAlarm naptárban">
+<figcaption class="guide-caption"><strong>1. Válasszon ki egy évszázadot.</strong> Koppintson arra az időszakra, amely a kívánt évet tartalmazza. A példa a 2000-es éveket jelöli ki.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_decade.webp" alt="2. lépés: évtized kiválasztása a ShiftAlarm naptárban">
+<figcaption class="guide-caption"><strong>2. Válasszon ki egy évtizedet.</strong> Koppintson arra a tartományra, amely a kívánt évet tartalmazza. 2026-hoz válassza a „2020–2029” lehetőséget.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_year.webp" alt="3. lépés: év kiválasztása a ShiftAlarm naptárban">
+<figcaption class="guide-caption"><strong>3. Válasszon ki egy évet.</strong> Koppintson a kívánt évre. A példában 2026 van kiválasztva.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_month.webp" alt="4. lépés: hónap kiválasztása a ShiftAlarm naptárban">
+<figcaption class="guide-caption"><strong>4. Válasszon ki egy hónapot.</strong> Koppintson a kívánt hónapra. A példa júliust választja ki.</figcaption>
+</figure>
+
+<div class="tip">Miután kiválasztott egy hónapot, a panel bezárul, és a fő naptár megnyílik a kiválasztott hónapnál és évben.</div>
+<div class="notice">A „Vissza” gomb visszatér az előző szakaszba. Az évszázad képernyőn bezárja a dátumválasztót.</div>
+
+<h3 id="main-day-actions">3.3. Információk és műveletek egy kiválasztott naphoz</h3>
+
+<p>Érintse meg és tartsa lenyomva a kívánt napot a naptárban. Megnyílik egy panel az adott dátumra vonatkozó információkkal és műveletekkel. Húzza felfelé a panelt az összes elérhető művelet megtekintéséhez.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_day_actions.webp" alt="ShiftAlarm információk és műveletek panelje egy kiválasztott naptári naphoz">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Dátum</strong> — a hét napját és a kiválasztott dátumot mutatja. A panel kibontásához vagy bezárásához húzza felfelé vagy lefelé a tetején található fogantyút.</li>
+<li><strong>Műszak</strong> — megjeleníti a kiszámított műszakot vagy egy napi változást, például szabadnapot, távollétet, szabadságot, betegszabadságot vagy más kivételt.</li>
+<li><strong>Riasztások erre a dátumra</strong> — megjeleníti a kiválasztott naphoz rendelt riasztásokat, vagy a nem létező jelentéseket.</li>
+<li><strong>Események és emlékeztetők</strong> — megjeleníti a kiválasztott dátumhoz kapcsolódó bejegyzéseket.</li>
+<li><strong>Riasztás hozzáadása</strong> — megnyitja az egyszeri riasztás létrehozását a kiválasztott dátumhoz.</li>
+<li><strong>Műszak módosítása</strong> — kivételt hoz létre egy napra vagy egy dátumtartományra az aktív ütemezésben.</li>
+<li><strong>Megjegyzés hozzáadása</strong> — lehetővé teszi egy esemény vagy emlékeztető kiválasztását a kiválasztott dátumhoz.</li>
+</ol>
+
+<div class="notice">A „Műszakváltás” művelet elérhető az aktív műszakbeosztás napjainak módosításához.</div>
+
+<h4 id="main-shift-override">Egy nap vagy dátumtartomány módosítása</h4>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_types.webp" alt="Dátumtartomány és műszakváltási típus kiválasztása a ShiftAlarmban">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Kezdő dátum</strong> — a változás első napja. Kezdetben a naptárban kiválasztott dátumot használja.</li>
+<li><strong>Befejező dátum</strong> — a változás utolsó napja. Ha csak egy napot szeretne módosítani, hagyja kijelölve ugyanazt a dátumot.</li>
+<li><strong>Szabadidő</strong> — a kiszámított műszakot szabadidővel helyettesíti.</li>
+<li><strong>Szabadság</strong> — a kiválasztott napot vagy tartományt szabadságként jelöli meg.</li>
+<li><strong>Betegszabadság</strong> — a kiválasztott napot vagy tartományt betegszabadságként jelöli meg.</li>
+<li><strong>Módosítás mentése</strong> — a kiválasztott kivételt alkalmazza a naptárra.</li>
+</ol>
+
+<h4 id="main-shift-time-adjustment">Munkaidő módosítása</h4>
+
+<p>Görgessen lefelé a módosítástípusok listájában, és válassza a „Műszak szerkesztése” lehetőséget a kiszámított műszak időtartamának módosításához.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_time_adjustment.webp" alt="Műszak munkaidejének módosítása a ShiftAlarmban">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Műszak szerkesztése</strong> — engedélyezi a munkaidő módosítását a kiválasztott műszakban.</li>
+<li><strong>+ idő</strong> — órákat vagy perceket ad hozzá a standard műszak időtartamához.</li>
+<li><strong>− idő</strong> — csökkenti a műszak időtartamát, például ha a munka korábban véget ért.</li>
+<li><strong>Ezt az időt túlórának számolja</strong> — a hozzáadott időt túlóraként kezeli. Ha a beállítás ki van kapcsolva, akkor a rendszer rendes munkaidőnek számít.</li>
+<li><strong>Módosítás mentése</strong> — a módosítást a kiválasztott napra vagy tartományra alkalmazza.</li>
+</ol>
+
+<div class="tip">A nap módosítása nem módosítja az eredeti ütemterv sablont. Külön kivételként tárolódik, és szerepel a naptárban, a statisztikákban, a bérszámításban és a jelentésekben.</div>
+
+<h2 id="shifts">4. Műszakbeosztások</h2>
+
+<p>A műszakbeosztás egy ismétlődő munkaciklust határoz meg, és alapot biztosít a többi ShiftAlarm funkcióhoz. Az alkalmazás ezt használja a naptár kitöltésére, a riasztások műszakokhoz kapcsolására, a munkaidő számlálására, statisztikák generálására, a fizetés becslésére és a jelentések elkészítésére.</p>
+
+<div class="notice"><strong>Alapelv.</strong> Először hozza létre az alap ismétlődő ütemtervet. Adjon hozzá szabadságot, betegszabadságot, szabadságot, egyszeri helyettesítő műszakot vagy munkaidő-módosítást kivételként adott dátumokra a <a href="#main-day-actions">kiválasztott napokra vonatkozó műveleteken</a> keresztül. Ez változatlanul hagyja az eredeti ciklust.</div>
+
+<h3 id="shifts-list">4.1. Ütemezési lista és vezérlők</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedules_overview.webp" alt="ShiftAlarm ütemezési képernyő aktív ütemezési kártyával és számozott vezérlőkkel">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ütemezés részletei</strong> — a név, a kezdési dátum, a ciklus hossza és a napok rövid sorozata. A példában a „D · D · O · O” két nappali műszakot, majd két szabadnapot jelent.</li>
+<li><strong>Váltás</strong> — ideiglenesen letiltja az ütemezést anélkül, hogy törölné azt. Amikor újra engedélyezi, a mentett beállítások továbbra is érvényben maradnak.</li>
+<li><strong>Ütemterv állapota</strong> — jelzi, hogy melyik ütemterv aktív.</li>
+<li><strong>Szerkesztés</strong> — megnyitja a módosítható paramétereket. A kezdeti beállítás után az ütemterv alapjának egy része zárolva van, hogy megakadályozza a már létrehozott naptáradatok véletlen újraszámítását.</li>
+<li><strong>Törlés</strong> — a megerősítés után törli az ütemtervet. Törlés előtt ellenőrizze az összes műszakhoz kapcsolódó riasztást és számítást.</li>
+<li><strong>Statisztikák megnyitása</strong> — megnyitja az ütemterv <a href="#statistics">munkaidő-, időszak-, fizetés- és jelentésstatisztikáit</a>.</li>
+<li><strong>Ütemterv létrehozása</strong> — lehetővé teszi egy kész sablon kiválasztását vagy egyéni ciklus létrehozását.</li>
+</ol>
+
+<h3 id="shifts-create">4.2. Ütemterv létrehozásának indítása</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_create.webp" alt="Ütemterv-létrehozó panel névvel, kezdési dátummal, sablonokkal és egyéni ütemtervvel">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ütemterv neve</strong> — adjon meg egy egyértelmű nevet, például „Fő 2/2”, „Éjszakai műszak” vagy a munkahelye nevét.</li>
+<li><strong>Kezdő dátum</strong> — az a dátum, amely megfelel az <strong>ismétlődő ciklus első napjának</strong>. Választhat múltbeli vagy jövőbeli dátumot; az alkalmazás ebből kiszámítja az ütemtervet előre és visszafelé.</li>
+<li><strong>Sablonok</strong> — előre elkészített, gyakori műszaksorozatok. A példa a „2/2 nap” sablont használja.</li>
+<li><strong>Egyéni beosztás</strong> — létrehozza a saját munkanapok és szabadnapok sorozatát.</li>
+<li><strong>Beosztás létrehozása</strong> — megnyitja a kiválasztott opció részletes szerkesztőjét.</li>
+</ol>
+
+<div class="tip">A „D · D · O · O” sablon esetében a kezdő dátum általában a két munkanap közül az első. Egyéni ciklusban az 1. nap is lehet szabadnap; a lényeg az, hogy a kiválasztott dátum pontosan megegyezzen a létrehozott sorozat 1. napjával.</div>
+
+<h3 id="shifts-template">4.3. Beosztás létrehozása sablonból</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_template.webp" alt="Sablon ütemezésszerkesztő névvel, sorrenddel, kezdési dátummal és műszakidővel">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ütemterv neve</strong> — tartsa meg a javasolt nevet, vagy cserélje ki a sajátjára.</li>
+<li><strong>Sablon</strong> — megjeleníti a betűsorozatot és jelentését. A példában a „D · D · O · O” jelentése nappali műszak, nappali műszak, szabadnap, szabadnap.</li>
+<li><strong>Kezdő dátum</strong> — válassza ki a megjelenített sorrend első napjának dátumát.</li>
+<li><strong>Műszakidő</strong> — adja meg az egyes műszaktípusok kezdési és befejezési időpontját. Az alkalmazás megjeleníti a kiszámított időtartamot.</li>
+<li><strong>Mégse</strong> — mentés nélkül bezárja a szerkesztőt.</li>
+<li><strong>Mentés</strong> — menti az ütemtervet, és megkezdi a műszakok kiszámítását a naptárban.</li>
+</ol>
+
+<div class="warning"><strong>Az első mentés után.</strong> A kezdési dátum és a ciklusszerkezet zárolva van a már kiszámított naptáradatok védelme érdekében. A nevet és néhány munkaparamétert továbbra is szerkesztheti. Ha más alapciklusra vagy referenciadátumra van szüksége, biztonságosabb új ütemtervet létrehozni.</div>
+
+<h3 id="shifts-custom">4.4. Egyéni ciklus létrehozása</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_custom.webp" alt="Egyéni ütemterv-szerkesztő ciklushosszal, napvezérlőkkel, kezdési dátummal és az egyes napok beállításaival">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ütemterv neve</strong> — adjon nevet az egyéni sorozatnak.</li>
+<li><strong>Ciklus hossza</strong> — megmutatja, hogy hány nap szerepel az ismétlődő sorozatban.</li>
+<li><strong>Nap eltávolítása</strong> — egy nappal lerövidíti a ciklust.</li>
+<li><strong>Nap hozzáadása</strong> — egy másik konfigurálható napot ad hozzá a ciklus végéhez.</li>
+<li><strong>Kezdő dátum</strong> — az egyéni ciklus 1. napjának megfelelő dátum.</li>
+<li><strong>Napbeállítások</strong> — koppintson a „Shift „típus” kártyára, és válasszon ki egy szabadnapot vagy a kívánt munkatípust: nappali, éjszakai, délelőtti, esti, 24 órás vagy egyéni műszak. Munkanap esetén adja meg a kezdési és befejezési időpontot. A ciklus fennmaradó napjait ugyanígy konfigurálja a képernyőn lejjebb.</li>
+<li><strong>Mégse</strong> — mentés nélkül bezárja a szerkesztőt.</li>
+<li><strong>Mentés</strong> — menti az egyéni ciklust, és kiszámítja azt a naptárban.</li>
+</ol>
+
+<div class="notice"><strong>Mi a ciklus?</strong> A ciklus az a napok száma, amelyek után a sorozat újraindul. Például egy négynapos ciklus lehet „2 munkanap + 2 szabadnap”, míg egy hatnapos ciklus lehet „3 munkanap + 3 szabadnap”. Az utolsó nap után az alkalmazás visszatér az 1. napra.</div>
+
+<div class="tip">Ne módosítsa az alapciklust egy egyszeri ütemezési kivétel miatt. Hosszan nyomjon meg egy naptári dátumot, és hozzon létre egy szabadnapot, szabadságot, betegszabadságot, helyettesítő műszakot vagy időbeosztást.</div>
+
+
+
+<span id="shift-statistics"></span>
+<h2 id="statistics">5. Ütemezési statisztikák</h2>
+
+<p>Nyissa meg a „Statisztikák” részt egy ütemezési kártyáról a <strong>„Statisztikák megnyitása”</strong> gombbal. Ez a rész információkat tartalmaz a munkanapokról és a szabadnapokról, a beosztásváltozásokról, a tervezett és tényleges munkaidőről, a becsült fizetésről és a jelentésekről.</p>
+
+<div class="notice"><strong>Fontos:</strong> a statisztikák csak a kiválasztott műszakbeosztásra vonatkoznak. A kiválasztott időszak az alatta lévő összes munkaidőre, fizetésre és jelentési értékre vonatkozik.</div>
+
+<h3 id="statistics-period">5.1. Ütemterv, időszak és napi összefoglaló</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_period_overview.webp" alt="Statisztikai képernyő ütemterv-információkkal, időszakkiválasztással és napi összesítésekkel">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ütemterv-információk</strong> — megjeleníti a kiválasztott ütemterv nevét, az első ciklus kezdési dátumát és az ismétlődő ciklus hosszát. Az ezen a képernyőn látható statisztikák csak erre az ütemtervre vonatkoznak.</li>
+<li><strong>Kiválasztott időszak kártya</strong> — megjeleníti a használatban lévő időszakot. Koppintson rá vagy a jobb oldali nyílra az aktuális, előző vagy következő hónap, az aktuális év vagy egy egyéni dátumtartomány kiválasztásához.</li>
+<li><strong>Napi összefoglaló</strong> — megjeleníti az időszak napjainak számát, a munkaműszakokat, a szabadnapokat, a befejezett és a közelgő műszakokat, valamint a módosított napokat. A módosított napok kivételt képeznek az alapciklus alól: szabadság, betegszabadság, szabadidő, helyettesítés vagy áthelyezett műszak, munkaidő-módosítás és egyéb változások.</li>
+</ol>
+
+<div class="warning"><strong>A jövőbeli időszakok előrejelzések.</strong> Egy jövőbeli hónap esetében az alkalmazás a létrehozott beosztást és a már megadott adatokat használja, de nem ismerheti a jövőbeli betegszabadságot, szabadságot, túlórát, bónuszokat vagy levonásokat. Amikor kiválasztja az aktuális évet, az összesítések kombinálhatják a múltbeli dátumok tényleges adatait az év hátralévő részére vonatkozó előrejelzéssel.</div>
+
+<h3 id="statistics-work">5.2. Munkaidő, fizetés és jelentések</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_work_salary_reports.webp" alt="Statisztikai képernyő munkaidővel, előrehaladással, fizetéssel és jelentéshozzáféréssel">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Munkaidő</strong> — egy összefoglaló kártya az órákról és az előrehaladásról. Koppintson rá a <a href="#statistics-break">szünetbeállítások</a> megnyitásához.</li>
+<li><strong>Tervezett órák</strong> — a kiválasztott időszakban beütemezett műszakok és változások teljes időtartama.</li>
+<li><strong>Ledolgozott órák</strong> — az aktuális dátumon befejezettnek tekintett műszakokban eltöltött idő, a szünetbeállítások alkalmazásával.</li>
+<li><strong>Előrehaladás</strong> — megmutatja, hogy az összes műszakból hány műszak fejeződött be, és a kiválasztott időszak hány százaléka fejeződött be.</li>
+<li><strong>Fizetés</strong> — megnyitja a <a href="#salary">bérszámítási beállításokat</a>. A kártya a kiválasztott beosztásra és időszakra vonatkozó becslést jelenít meg.</li>
+<li><strong>Összesen</strong> — az eddig keresett becsült összeg, beleértve a kiválasztott fizetési módot, a bónuszokat, a túlórákat és a levonásokat.</li>
+<li><strong>Bér vagy fizetés</strong> — a kártya tartalma a kiválasztott számítási módtól függ: órabér, műszakbér vagy havi fizetés. Megjeleníti a fizetési beállításokban megadott értéket.</li>
+<li><strong>Számítás részletei</strong> — fizetett idő, túlórák, bónuszok és levonások a kiválasztott időszakra vonatkozóan.</li>
+<li><strong>Jelentések</strong> — megnyitja a <a href="#reports">részletes jelentéseket az időszakokról, a munkaidőről és a fizetésről</a>.</li>
+</ol>
+
+<div class="tip">A munkaidő és a fizetés szakaszokban található összes érték újraszámításra kerül, amikor a felső kártyán módosítja az időszakot.</div>
+
+<h3 id="statistics-break">5.3. Szünetek elszámolása a munkaidőben</h3>
+
+<p>Koppintson a „Munkaidő” kártyára annak megadásához, hogy az étkezési szünet vagy más szünet beleszámítson-e a ténylegesen ledolgozott és fizetett időbe.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_break_settings.webp" alt="Szünetelszámolás és időtartam beállítások panel">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Aktuális összesítések</strong> — a kiválasztott időszakra tervezett és ledolgozott órákat mutatja az új beállítások alkalmazása előtt.</li>
+<li><strong>Szünet számolása munkaidőként</strong> — hagyja bekapcsolva ezt az opciót, ha a szünet fizetett és beleszámít a műszak időtartamába. Kapcsolja ki, ha a megadott időt ki kell zárni a ledolgozott és fizetett időből.</li>
+<li><strong>Szünet időtartama</strong> — válassza ki az órákat és perceket egy szünethez. Ez a beállítás a vonatkozó műszakok újraszámításakor használatos.</li>
+<li><strong>Teljes szünet</strong> — a mentés előtti kiválasztott időtartamot mutatja.</li>
+<li><strong>Mentés</strong> — alkalmazza a beállítást, és újraszámítja a munkaidőt és a kapcsolódó értékeket.</li>
+</ol>
+
+<div class="notice">A szünet jelenthet étkezési szünetet, műszakátadást vagy más, nem fizetett intervallumot egy műszakon belül. Adja meg a munkahelyén érvényes szabályoknak megfelelő időtartamot.</div>
+
+<h3 id="reports">5.4. Jelentések: időszak, állapot és összefoglaló</h3>
+
+<p>Nyissa meg a „Jelentések” menüpontot a statisztikai képernyő alsó kártyájáról. Ez a szakasz részletesebb információkat nyújt a kiválasztott időszakról: munkaidő, műszakok és távollétek, naptári módosítások, fizetés, bónuszok, levonások, időszak-összehasonlítás, napi részletek és export.</p>
+
+<div class="warning"><strong>A jelentések csak tájékoztató jellegűek.</strong> A számítások a kiválasztott beosztáson, a fizetési beállításokon, a szünetszámvitelen és a naptári műszakváltozásokon alapulnak. A munkáltató tényleges adatai eltérhetnek az eltérő munkaidő-nyilvántartási rendszer, kerekítés, adók, juttatások vagy belső szabályok miatt. Ha hibát vagy nem támogatott számítási módszert talál, vegye fel a kapcsolatot a fejlesztőkkel az alkalmazásban feltüntetett címen, és adja meg a bemeneti adatokat és a várható eredményt.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_period_salary.webp" alt="Jelentések képernyője időszak kiválasztásával, állapotával, összefoglalójával és részletes fizetési bontással">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Jelentési időszak</strong> — koppintson a kártyára az aktuális, előző vagy következő hónap, egy előre beállított tartomány vagy egyéni dátumok kiválasztásához. Az alábbi összes információ a kiválasztott időszakra vonatkozik.</li>
+<li><strong>Időszak állapota</strong> — megmutatja, hogy az időszak befejeződött, jelenleg aktív, vagy még nem kezdődött el. A befejezett időszakot a mentett tényleges adatokból számítja ki a rendszer. Egy aktív időszak a már feldolgozott adatokat ötvözi az aktuális tervvel, míg egy jövőbeli időszak egy előrejelzés.</li>
+<li><strong>Összefoglaló</strong> – a ténylegesen ledolgozott idő, a kiszámított összeg és a túlóra szöveges összefoglalása.</li>
+<li><strong>Fizetés</strong> – az alapbér, a túlórapénz, a bónuszok, a levonások és a végső becslés részletes lebontása. Az értékek a <a href="#salary">bérbeállításoktól</a> és a kiválasztott időszaktól függenek.</li>
+</ol>
+
+<h3 id="reports-work">5.5. Munkaidő, távollétek és napok</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_work_absences.webp" alt="Jelentések képernyője munkaidővel, szünetekkel, befejezett műszakokkal és távollétekkel">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Munkaidő</strong> — megjeleníti a tervezett és ténylegesen ledolgozott órákat, a szünet levonása előtti tervezett és tényleges órákat, a befejezett műszakok számát, az átlagos műszakidőt és a levont szünetek teljes számát. A szüneteket a <a href="#statistics-break">munkaidő részben</a> konfigurálhatja.</li>
+<li><strong>Távollétek és napok</strong> — megjeleníti a szabadnapok, a nyaralási napok, a betegszabadság napjai, a szabadnapok és a módosított napok számát a kiválasztott időszakban.</li>
+</ol>
+
+<h3 id="reports-charts">5.6. Kiigazítások és diagramok</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_corrections_charts.webp" alt="Jelentések képernyője kiigazításokkal, fizetési összetétellel és munkaidő-értékekkel">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Kiigazítások</strong> — megjeleníti a túlórákat, a műszak időtartamának teljes változását és az alapbeosztáshoz képest eltérített napok számát.</li>
+<li><strong>Diagramok</strong> — megjeleníti a fizetés és a munkaidő összetételét: alapfizetés, túlóra, bónuszok, levonások, összesen, valamint tervezett, ledolgozott és kifizetett órák.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_charts_days.webp" alt="További jelentésdiagramok órákkal és naptípusú kördiagrammal">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Órák</strong> — folytatja a tervezett, ledolgozott, kifizetett és túlórák. A „Tényleges munkaidő” sor a beállítások és módosítások alkalmazása utáni eredményt mutatja.</li>
+<li><strong>Naptípusok</strong> — egy kördiagram, amely típus szerint osztja el a kiválasztott időszak napjait. A jelmagyarázat a beosztástól és a tényleges változásoktól függ: nappali, éjszakai vagy egyéb műszakok, szabadnapok, vakáció, betegszabadság, kiesés és egyéb állapotok.</li>
+</ol>
+
+<h3 id="reports-comparison">5.7. Időszakok összehasonlítása</h3>
+
+<p>Az összehasonlító rész segít összehasonlítani a fizetést, az időt, a műszakokat és a távolléteket több időszak között. Az elérhető időszakok száma a mentett adatoktól függ.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_chart.webp" alt="Időszak-összehasonlító képernyő tartományválasztással, fizetési táblázattal és összehasonlító táblázat kezdetével">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Időszakok összehasonlítása</strong> — koppintson a kártyára az összehasonlítandó időszakok számának és tartományának kiválasztásához.</li>
+<li><strong>Diagram és időszaklista</strong> — megjeleníti az egyes időszakok fizetését, és felsorolja az összehasonlításban szereplő intervallumokat azok állapotával együtt.</li>
+<li><strong>Összehasonlító táblázat</strong> — részletes értékeket tartalmaz az egyes időszakokhoz. A fennmaradó oszlopok megtekintéséhez húzza az ujját vízszintesen balra vagy jobbra a táblázatban.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_table.webp" alt="Az összehasonlító táblázat folytatása és a szomszédos időszakok közötti különbségek">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Időszakértékek</strong> — teljes fizetés, ledolgozott és kifizetett órák, túlórák, bónuszok, levonások, elvégzett műszakok, hiányzások és módosított napok.</li>
+<li><strong>Időszakok közötti különbség</strong> — megmutatja, hogy az egyes időszakok hogyan térnek el az előzőtől. A pozitív és negatív értékek a megfelelő mutató növekedését vagy csökkenését jelzik. A szín önmagában nem mindig jelent előnyt vagy problémát; például a levonások növekedése nagyobb összeg visszatartását jelenti.</li>
+</ol>
+
+<h3 id="reports-details-export">5.8. Napi részletek és exportálás</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_details_export.webp" alt="Jelentéskártyák a napi részletekhez és exportálás PDF, HTML, JSON vagy CSV formátumba">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Napi részletek</strong> — megnyitja a kiválasztott időszak minden napjának listáját. Ellenőrizheti a műszak típusát, a tervezett és a tényleges időt, az óraszám-korrekciókat, a hiányzásokat és az egyéb változásokat egy adott napra vonatkozóan.</li>
+<li><strong>Exportálás</strong> — PDF, HTML, JSON vagy CSV formátumban menti a jelentést. Az exportálás előtt válassza ki a jelentési időszakot; ezután kinyomtathatja, mentheti vagy megoszthatja a fájlt az Android rendszermenüjén keresztül.</li>
+</ol>
+
+<div class="tip">Összehasonlítás vagy exportálás előtt ellenőrizze a kiválasztott időszakot, a beosztást, a műszakváltozásokat, a szüneteket és a fizetési beállításokat. A forrásadatokban lévő hiba minden jelentésösszeget érint.</div>
+
+<h2 id="alarms">6. Riasztások</h2>
+
+<p>A ShiftAlarm lehetővé teszi egyszeri riasztások létrehozását, a hét kiválasztott napjain történő megismétlését, vagy az idejük összekapcsolását egy műszakbeosztással.</p>
+
+<h3 id="alarms-list">6.1. Riasztáslista</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarms_overview.webp" alt="ShiftAlarm riasztási képernyő a következő riasztással, rendezéssel, egy riasztási kártyával és a hozzáadás gombbal">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Következő riasztás</strong> — a következő aktív riasztás dátumát és időpontját mutatja.</li>
+<li><strong>Riasztás rendezése</strong> — megváltoztatja a riasztási kártyák sorrendjét, például az engedélyezett riasztások elsőként való megjelenítésével.</li>
+<li><strong>Riasztási kártya</strong> — tartalmazza az időt, a dátumot vagy az ismétlési módot, az ütemezés típusát és a fennmaradó időt. Koppintson a kártyára a szerkesztéshez.</li>
+<li><strong>Váltás</strong> — ideiglenesen engedélyezi vagy letiltja az ébresztőt a beállításainak törlése nélkül.</li>
+<li><strong>Törlés</strong> — törli a kiválasztott ébresztőt.</li>
+<li><strong>Ébresztő hozzáadása</strong> — megnyitja az új ébresztő létrehozására szolgáló képernyőt.</li>
+</ol>
+
+<h3 id="alarms-create">6.2. Ébresztés létrehozása és szerkesztése</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_time_schedule.webp" alt="A ShiftAlarm ébresztésszerkesztő teteje: idő, ütemezés típusa, szundi és mentés vezérlők">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Idő</strong> — görgesse az óra és perc kerekeket az ébresztési idő beállításához.</li>
+<li><strong>Ütemezés típusa</strong> — válasszon az alábbi módok közül:
+<ul>
+<li><strong>Egyszer</strong> — az ébresztés egyszer aktiválódik a kiválasztott dátumon;</li>
+<li><strong>Napok szerint</strong> — ismétlődik a hét kiválasztott napjain;</li>
+<li><strong>Műszakok szerint</strong> — összekapcsolja az ébresztést egy kiválasztott ütemtervvel és műszaktípussal.</li>
+</ul>
+</li>
+<li><strong>Szundi</strong> — beállítja, hogy hány percig legyen a A riasztás elhalasztásra kerül, ha a csengő képernyőn a szundi gombra koppintasz.</li>
+<li><strong>Mégse és Mentés</strong> — ezek a gombok a képernyő alján vannak rögzítve, és a szerkesztő görgetése közben is elérhetők maradnak.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_behavior.webp" alt="ShiftAlarm beállításai a riasztás időtartamához, az ismétlődő riasztáshoz, a fokozatos hangerőnövekedéshez és a rezgéshez">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Riasztás időtartama</strong> — meghatározza, hogy mennyi ideig szóljon a riasztás, ha a felhasználó nem állítja le.</li>
+<li><strong>Ismétlés, ha a riasztást figyelmen kívül hagyod</strong> — engedélyez egy másik riasztást, ha a riasztást sem el nem utasították, sem el nem halasztották. Állítsa be az alatta lévő ismétlési riasztás előtti intervallumot.</li>
+<li><strong>Fokozatos hangerőnövelés</strong> — halkabb hanggal indul, és a kiválasztott idő alatt fokozatosan növeli a hangerőt.</li>
+<li><strong>Rezgés</strong> — engedélyezi vagy letiltja a rezgést a riasztás alatt.</li>
+<li><strong>Mégse és mentés</strong> — fix vezérlők a szerkesztőhöz.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_sound_name.webp" alt="A ShiftAlarm riasztásszerkesztő alja: rezgés, hang, név és mentés vezérlők">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Rezgés</strong> — engedélyezi vagy letiltja a rezgéses riasztást.</li>
+<li><strong>Hang</strong> — lehetővé teszi beépített, rendszerhang vagy felhasználó által hozzáadott hang kiválasztását. Legfeljebb öt egyéni hangot adhatsz hozzá az alkalmazáshoz.</li>
+<li><strong>Név</strong> — egy opcionális címke, amely segít megkülönböztetni a riasztásokat.</li>
+<li><strong>Mégse és mentés</strong> — a változtatások elvetése vagy a riasztás mentése.</li>
+</ol>
+
+<div class="notice">A mentés után a riasztás megjelenik a fő listában. Fontos riasztás előtt győződjön meg arról, hogy a riasztás engedélyezve van, az alkalmazás rendelkezik értesítési és pontos riasztási engedélyekkel, és a rendszer nem korlátozza a háttértevékenységét.</div>
+
+<div class="tip">Műszakhoz kötött riasztás létrehozásához először hozzon létre egy megfelelő műszakbeosztást. A szerkesztőben válasszon egy fix aktiválási időt vagy a műszak kezdetéhez viszonyított eltolódást.</div>
+
+<h2 id="geo">7. Geo-riasztások</h2>
+
+<p>A Geo-riasztás figyeli, hogy az eszköz mikor lép be vagy távozik a kiválasztott területről. A területet a térképen egy pont és a pont körüli sugár határozza meg. Például használjon Geo Alarm-ot, hogy riasztást kapjon, amikor közeledik a munkahelyéhez, otthonához, buszmegállóhoz, állomáshoz vagy más helyhez.</p>
+
+<h3 id="geo-overview">7.1. Térkép és vezérlők</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_overview.webp" alt="ShiftAlarm Geo Alarm főképernyő térképpel és számozott vezérlőkkel">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Nagyítás</strong> — nagyítja a térképet.</li>
+<li><strong>Kicsinyítés</strong> — csökkenti a térkép méretarányát.</li>
+<li><strong>Saját hely</strong> — a térképet az eszköz aktuális helyére mozgatja. Az alkalmazásnak helymeghatározási hozzáférésre van szüksége ehhez a funkcióhoz.</li>
+<li><strong>Mentett helyek</strong> — megnyitja a mentett georiasztások és helymeghatározó pontok listáját.</li>
+<li><strong>Vissza</strong> — visszatér az alkalmazás előző képernyőjére.</li>
+<li><strong>Geo-riasztások száma</strong> — megmutatja, hogy hány geo-riasztás lett létrehozva.</li>
+<li><strong>Geo-riasztások listája</strong> — megnyitja a létrehozott geo-riasztások külön listáját.</li>
+</ol>
+
+<div class="tip">Gesztusokkal is nagyíthat. Érintse meg a térképet két ujjal, és húzza szét őket a nagyításhoz, vagy csípje össze őket a kicsinyítéshez.</div>
+<div class="notice">Az oldalsó vezérlők jobbról balra író nyelveken az ellenkező oldalon jelenhetnek meg. Funkcióik ugyanazok maradnak.</div>
+
+<h3 id="geo-saved-places">7.2. Mentett riasztások és helymeghatározó pontok</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_saved_places.webp" alt="Mentett helyek ablak Geo Alarm és helymeghatározó pontok fülekkel">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Riasztások</strong> — megjeleníti a mentett helyekhez hozzáadott Geo Riasztásokat.</li>
+<li><strong>Helymeghatározó pontok</strong> — megjeleníti a mentett koordinátákat aktív Geo Riasztás nélkül.</li>
+<li><strong>Mentett helyek listája</strong> — koppintson egy kártyára, hogy az adott helyre lépjen a térképen.</li>
+<li><strong>Bezárás</strong> — bezárja az ablakot és visszatér a térképhez.</li>
+</ol>
+
+<div class="notice">Ha töröl egy könyvjelzővel ellátott Geo Riasztást, a koordinátái automatikusan megmaradnak a „Helymeghatározó pontok” fülön. A pontot később újra felhasználhatja egy másik Geo-riasztás létrehozásához.</div>
+
+<h3 id="geo-select-point">7.3. Pont és sugár kiválasztása</h3>
+
+<p>Érintse meg és tartsa lenyomva a kívánt helyet a térképen. Az alkalmazás elhelyez egy jelölőt, és megnyitja a kiválasztott pont panelt.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_selected_point.webp" alt="Kiválasztott térképpont címmel, sugárral, könyvjelzővel és Geo-riasztás létrehozása gombbal">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Kiválasztott pont jelölője</strong> — a jövőbeli geofence középpontja. A térkép egy kört is megjelenít a kiválasztott sugárhoz.</li>
+<li><strong>Cím és koordináták</strong> — segítségével ellenőrizheti, hogy a megfelelő helyet választotta-e ki.</li>
+<li><strong>Helypont mentése</strong> — a kiválasztott koordinátákat hozzáadja a mentett helyekhez riasztás létrehozása nélkül.</li>
+<li><strong>Sugár</strong> — beállítja a pont körüli terület méretét. Mozgassa a csúszkát, amíg ki nem választja a megfelelő távolságot.</li>
+<li><strong>Mégse</strong> — megszakítja a pont kiválasztását.</li>
+<li><strong>Létrehozás itt</strong> — megnyitja a kiválasztott pont új Geo Alarm szerkesztőjét.</li>
+</ol>
+
+<div class="warning"><strong>Hogyan válasszunk sugarat.</strong> A telefon nem követi folyamatosan a koordinátáit. Az Android, az eszköz gyártója, az akkumulátorkímélő mód, a GPS, a mobilhálózat és a Wi-Fi jel minősége, valamint a mozgási sebesség mind befolyásolja, hogy mikor észlelhető a határ. A riasztás ezért a megrajzolt vonaltól távol is aktiválódhat. Például 800 méteres sugarú kör esetén a belépés észlelhető, miután az eszköz már a területen belül van – esetleg 700, 600 vagy 500 méterre a ponttól.</div>
+
+<ul>
+<li><strong>Egy városban</strong> általában <strong>1300–1500 m</strong> sugarú kör ajánlott.</li>
+<li><strong>Városon kívül</strong>, ahol a helyfrissítések ritkábbak lehetnek, <strong>4000–5000 m</strong> ajánlott.</li>
+<li><strong>A pontos sugarat</strong> az útvonal, a sebesség és az eszköz viselkedése alapján kell kiválasztani.</li>
+</ul>
+
+<div class="notice">A rendszer érzékeli, amikor az eszköz átlépi a terület virtuális határát. „Belépéskor” módban a nagyobb sugár általában több időt biztosít a telefonnak a közeledés észlelésére. „Kilépéskor” módban a határvonal ehelyett távolabb kerül a kiválasztott ponttól.</div>
+
+<h3 id="geo-create">7.4. Geo-riasztás létrehozása</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_location_schedule.webp" alt="A Geo-riasztás szerkesztőjének teteje: készenlét, helyszín és ütemezés típusa">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Geo-riasztás készenléte</strong> — megmutatja, hogy a szükséges engedélyek konfigurálva vannak-e, és hogy az alkalmazás regisztrálhatja-e a geofence-t.</li>
+<li><strong>Helyszín</strong> — tartalmazza a kiválasztott címet és koordinátákat. A címet címkeként szerkesztheti, de a tényleges pont a térképen van kiválasztva.</li>
+<li><strong>Ütemezés típusa</strong> — meghatározza azokat a napokat és feltételeket, amelyek között a Geo Alarm aktív.</li>
+<li><strong>Mindig</strong> — a Geo Alarm minden nap aktív, amíg engedélyezve van.</li>
+<li><strong>Egyszer</strong> — a következő egyszeri aktiváláshoz használatos, amikor a kiválasztott feltétel teljesül.</li>
+<li><strong>Napok szerint</strong> — csak a hét kiválasztott napjain működik.</li>
+<li><strong>Műszakok szerint</strong> — összekapcsolja a Geo Alarm-ot az aktív műszakbeosztással.</li>
+</ol>
+
+<div class="notice"><strong>„Műszakok szerint” ütemezés.</strong> Válassza ki, hogy a műszak napján, csak a műszak előtt vagy csak utána működjön, és adja meg a kívánt műszaktípust: nappal, éjszaka, reggel, este, 24 órás, egyéni vagy bármilyen műszak.</div>
+<div class="tip">Ha egy naptári dátumot szabadnapként, szabadságként, betegszabadságként vagy kiesőként jelöltek meg munkaműszak helyett, akkor a műszakhoz kapcsolt Geo Alarm aznap nem lesz aktív.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_trigger_settings.webp" alt="A Geo Alarm szerkesztő alja: belépési vagy kilépési feltétel, sugár és riasztási beállítások">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Kiváltó feltétel</strong> — meghatározza, hogy melyik határátlépés indítja el a riasztást.</li>
+<li><strong>Belépéskor</strong> — elindítja a riasztást, amikor a készülék belép a kiválasztott sugárba, például munkahely vagy a szükséges megálló közeledtével.</li>
+<li><strong>Kilépéskor</strong> — elindítja a riasztást, amikor a készülék elhagyja a kiválasztott sugarat, például munkahely vagy állomás elhagyása után, hogy ne elmulasztja az útvonal következő szakaszát.</li>
+<li><strong>Belépéskor vagy kilépéskor</strong> — elindítja a riasztást, amikor a határt bármelyik irányban átlépik.</li>
+<li><strong>Sugár</strong> — a kiválasztott pont körüli geofence mérete.</li>
+<li><strong>Riasztás időtartama</strong> — meghatározza, hogy mennyi ideig szóljon a riasztás.</li>
+<li><strong>Fokozatos hangerőnövelés</strong> — a riasztás kezdete utáni hangerő egyenletes emelkedését állítja be.</li>
+<li><strong>Mégse és mentés</strong> — elveti a változtatásokat vagy menti a Geo-riasztást.</li>
+</ol>
+
+<div class="tip">Az alábbi további lehetőségek hasonlóak a hagyományos riasztásokhoz: hang, rezgés, riasztás időtartama, fokozatos hangerőnövelés és név.</div>
+
+<h3 id="geo-existing">7.5. Geo Alarm a térképen és annak vezérlői</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_marker_radius.webp" alt="Létrehozott Geo Alarm marker és annak kiváltó sugarú köre a térképen">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Geo Alarm marker</strong> — a kiválasztott pontot mutatja.</li>
+<li><strong>Sugárhatár</strong> — azt a területet mutatja, amelynek belépését vagy kilépését az alkalmazás figyeli.</li>
+</ol>
+
+<p>Koppintson a Geo Alarm jelölőre. Először egy kis információs ablak jelenik meg. Koppintson az ablakra a részletes kártya megnyitásához.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_alarm_card.webp" alt="Részletes Geo Alarm kártya információkkal, könyvjelzővel, kapcsolóval és vezérlőkkel">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Név és cím</strong> — azonosítja a kiválasztott Geo Alarm-ot.</li>
+<li><strong>Könyvjelző</strong> — hozzáadja a riasztást a mentett helyekhez, vagy eltávolítja azokat onnan.</li>
+<li><strong>Kapcsoló</strong> — engedélyezi vagy ideiglenesen letiltja a Geo Alarm-ot a beállításainak törlése nélkül.</li>
+<li><strong>Beállítások és állapot</strong> — megjeleníti a sugarat, a belépés vagy kilépés állapotát, az ütemtervet, a geofence készenlétét és a korábbi aktiválásokra vonatkozó információkat.</li>
+<li><strong>Szerkesztés</strong> — megnyitja a Geo Alarm beállításait.</li>
+<li><strong>Bezárás</strong> — bezárja a kártyát és visszatér a térképhez.</li>
+<li><strong>Törlés</strong> — törli a Geo Alarm-ot a megerősítés után.</li>
+</ol>
+
+<div class="warning">A megbízható működés érdekében engedélyezze a pontos és háttérben történő helymeghatározást, távolítsa el a szigorú akkumulátorkorlátozásokat a ShiftAlarm esetében, és ellenőrizze az háttérben történő automatikus indítást, ha az eszköze biztosítja ezeket. Még a helyes beállítások esetén sem garantálja az Android a határok néhány méteres pontosságú észlelését.</div>
+
+<h2 id="notes">8. Jegyzetek, események és emlékeztetők</h2>
+
+<p>A „Jegyzetek” rész egyszerű szöveget, listákat, ellenőrzőlistákat, hangfelvételeket, beszédfelismerő jegyzeteket, emlékeztetőket és eseményeket tárol.</p>
+
+<h3 id="notes-create">8.1. Jegyzet hozzáadása</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_type_picker.webp" alt="Új jegyzettípus kiválasztása a ShiftAlarmban">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Panel fogantyúja</strong> — húzza felfelé a jegyzettípusok teljes listájának megjelenítéséhez, vagy lefelé a panel bezárásához.</li>
+<li><strong>Jegyzettípus</strong> — válassza ki a megfelelő lehetőséget:
+<ul>
+<li><strong>Szöveges jegyzet</strong> — sima szöveg;</li>
+<li><strong>Ellenőrzőlista</strong> — elemek listája kitöltési jelölőnégyzetekkel;</li>
+<li><strong>Lista</strong> — felsorolásjeles vagy számozott lista;</li>
+<li><strong>Hangjegyzet</strong> — hangfelvétel;</li>
+<li><strong>Beszéd szöveggé alakítása</strong> — beszédfelismerés segítségével létrehoz egy jegyzetet;</li>
+<li><strong>Emlékeztető</strong> — egy megadott időpontban értesítést tartalmazó bejegyzés;</li>
+<li><strong>Esemény</strong> — dátumhoz és időponthoz kapcsolódó bejegyzés.</li>
+</ul>
+</li>
+<li><strong>Mégsem</strong> — jegyzet létrehozása nélkül bezárja a választót.</li>
+</ol>
+
+<div class="tip">Miután kiválasztott egy típust, megnyílik a megfelelő szerkesztő. Töltse ki a kötelező mezőket, és mentse a bejegyzést.</div>
+
+<h3 id="notes-list">8.2. Jegyzetlista és vezérlők</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_overview.webp" alt="ShiftAlarm jegyzetek képernyője rendezéssel, aktív és archivált jegyzetekkel, kereséssel és kártyaműveletekkel">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Rendezés</strong> — megváltoztatja a jegyzetek sorrendjét a listában.</li>
+<li><strong>Aktív</strong> — megjeleníti a szokásos és ütemezett jegyzeteket, amelyeket nem helyeztek át az archívumba.</li>
+<li><strong>Archívum</strong> — megnyitja az archivált jegyzetek listáját.</li>
+<li><strong>Keresés</strong> — találatokat talál a jegyzetek címében és tartalmában.</li>
+<li><strong>Jegyzetkártya</strong> — megjeleníti a címet, típust, állapotot és további információkat. Koppintson a kártyára a jegyzet megnyitásához.</li>
+<li><strong>Rögzítés</strong> – a jegyzetet a lista tetejére rögzíti.</li>
+<li><strong>Archívum</strong> – eltávolítja a jegyzetet az aktív listából, és áthelyezi az archívumba.</li>
+<li><strong>Törlés</strong> – a megerősítés után törli a jegyzetet.</li>
+<li><strong>Jegyzet hozzáadása</strong> – megnyitja az új jegyzettípus-választót.</li>
+</ol>
+
+<div class="notice">Használja az archívumot azokhoz a bejegyzésekhez, amelyekre már nincs szükség a fő listában, de mentve kell maradniuk. Csak akkor töröljön egy jegyzetet, ha már egyáltalán nincs rá szükség.</div>
+
+<h2 id="clock">9. Óra, stopperóra és időzítő</h2>
+
+<p>Ez a szakasz a helyi és a világidőt, a stopperórát és az időzítőt ötvözi. Nyissa meg a főképernyőn található <strong>„Óra”</strong> gombbal.</p>
+
+<div class="notice">Három fül jelenik meg a képernyő alján: „Óra”, „Stopperóra” és „Időzítő”. Koppintson egy fülre a módok közötti váltáshoz.</div>
+
+<h3 id="clock-world">9.1. Óra és világóra</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_overview.webp" alt="ShiftAlarm óra képernyő helyi idővel, világórákkal, hozzáadás gombbal és alsó fülekkel">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Helyi idő</strong> — megjeleníti az aktuális időt, dátumot és az eszköz rendszeridőzónáját.</li>
+<li><strong>Világórák</strong> — megjeleníti a hozzáadott városokat és időzónákat. Amíg a lista üres, az alkalmazás egy tippet jelenít meg.</li>
+<li><strong>Plusz gomb</strong> — megnyitja a világóra-választót.</li>
+<li><strong>Szakasz fülek</strong> — váltás az „Óra”, „Stopperóra” és „Időzítő” képernyők között.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_add_timezone.webp" alt="Város vagy időzóna hozzáadása a ShiftAlarm világórához">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Keresés</strong> — adjon meg egy város vagy időzóna nevét a lista szűréséhez.</li>
+<li><strong>Város és időzóna lista</strong> — koppintson a kívánt opcióra a világóra képernyőjéhez való hozzáadáshoz.</li>
+</ol>
+
+<div class="tip">A helyi időzóna mindig először jelenik meg. Eltávolíthatja a hozzáadott világórákat a listából, de a helyi időt nem.</div>
+
+<h3 id="clock-stopwatch">9.2. Stopperóra</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_start.webp" alt="ShiftAlarm stopperóra indítása előtt">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Előzmények</strong> — megnyitja a mentett stopperóra-munkameneteket.</li>
+<li><strong>Indítás</strong> — elindítja az időmérés.</li>
+<li><strong>Visszaállítás</strong> — nem érhető el a stopperóra indítása előtt. Leállítás után a stopperóra nullázódik, és eltávolítja az aktuális köröket.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_running.webp" alt="ShiftAlarm stopperóra futtatása előzményekkel, mentéssel, körökkel és szüneteltetéssel">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Előzmények</strong> — megjeleníti a korábban mentett edzéseket.</li>
+<li><strong>Mentés</strong> — nevet kér, és menti az aktuális stopperóra-edzést.</li>
+<li><strong>Kör</strong> — részeredményt rögzít az összesített időzítő leállítása nélkül.</li>
+<li><strong>Szünet</strong> — szünetelteti a stopperórát. Szüneteltetés után folytathatja vagy visszaállíthatja.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_laps.webp" alt="ShiftAlarm stopperóra körei és rendezési beállításaik">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Eredeti, leggyorsabb és leglassabb</strong> — a körök megjelenítési sorrendjének módosítása: eredeti sorrend, leggyorsabb először vagy leglassabb először.</li>
+<li><strong>Körök</strong> — minden kör mutatja a rögzítés teljes idejét és az egyes körök idejét.</li>
+</ol>
+
+<div class="notice">Amikor a Mentés gombra koppint, adjon meg egy edzésnevet, és erősítse meg. A mentett edzést később megnyithatja az Előzmények menüpontból.</div>
+
+<h3 id="clock-timer">9.3. Időzítő</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_setup.webp" alt="ShiftAlarm időzítő beállítása óra, perc és másodperc kerekekkel">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Órák</strong> — görgesse a kereket, és válassza ki az órák számát.</li>
+<li><strong>Percek</strong> — görgesse a kereket, és válassza ki a percek számát.</li>
+<li><strong>Másodperc</strong> — görgesse a kereket, és válassza ki a másodpercek számát.</li>
+<li><strong>Indítás</strong> — elindítja az időzítőt a kiválasztott időtartammal.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_running.webp" alt="ShiftAlarm időzítő futtatása hátralévő idővel, szüneteltetéssel, perc hozzáadásával és leállítással">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Hátralévő idő</strong> — megmutatja, hogy mennyi idő van még hátra a riasztásig.</li>
+<li><strong>Befejezési idő</strong> — megmutatja az időzítő befejezésének hozzávetőleges időpontját.</li>
+<li><strong>Legutóbbi időzítők</strong> — mentett legutóbbi időtartamok; koppintson rájuk a gyors újrafelhasználáshoz.</li>
+<li><strong>Szünet</strong> — ideiglenesen leállítja a visszaszámlálást. Később folytathatja.</li>
+<li><strong>+1 perc</strong> — egy percet ad hozzá a fennmaradó időhöz.</li>
+<li><strong>Leállítás</strong> — teljesen leállítja az időzítőt.</li>
+</ol>
+
+<div class="tip">Az időzítő és a stopperóra továbbra is fut a háttérben. Állapotuk megjelenhet egy értesítésben, a főképernyőn és a widgeteken.</div>
+
+<h2 id="widgets">10. Widgetek</h2>
+
+<p>A ShiftAlarm widgeteket biztosít a telefon kezdőképernyőjéhez.</p>
+<ul>
+<li><strong>Today 4×2</strong> — egy kompakt panel két konfigurálható résszel.</li>
+<li><strong>Today 4×3</strong> — egy panel, amelynek tetején egy óra, alatta pedig két résszel rendelkezik.</li>
+<li><strong>Naptár 4×4</strong> — naptár widgetek a műszakbeosztással.</li>
+</ul>
+<p>Widget hozzáadása a telefon kezdőképernyőjén található Android widget menün keresztül.</p>
+
+<h2 id="salary">11. Bérszámítás</h2>
+
+<p>Nyissa meg a „Bérszámítás” lehetőséget a fizetési kártyáról a <a href="#statistics-work">kiválasztott beosztás statisztikáiban</a>. Itt beállíthatja a fizetési módot, a díjazást vagy a havi fizetést, a túlóraszabályokat, a bónuszokat és a levonásokat. Az alkalmazás ezeket a beállításokat a kiválasztott időszakkal, a műszakbeosztással, a naptárváltozásokkal és a szünetszámvitellel együtt használja.</p>
+
+<div class="warning"><strong>A számítás csak tájékoztató jellegű.</strong> A tényleges fizetés eltérhet, ha a munkáltatója más rendszert használ az időméréshez, kerekítéshez, juttatásokhoz, adókhoz, bónuszokhoz, levonásokhoz vagy bizonyos műszaktípusok kifizetéséhez. Ne használja az eredményt hivatalos bérszámfejtési dokumentumként; hasonlítsa össze a munkáltatója fizetési jegyzékével. Ha olyan számítási módszert talál, amelyet az alkalmazás nem kezel pontosan, küldjön e-mailt a fejlesztőknek az alkalmazásban feltüntetett címre. Írja le a szabályokat, adjon meg minta bemeneti adatokat, és adja meg a várható eredményt. A módszert ezután figyelembe lehet venni egy jövőbeli frissítéshez.</div>
+
+<h3 id="salary-settings">11.1. Bér, túlóra és bónuszok</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_settings_overview.webp" alt="Bérszámítási képernyő a kiválasztott ütemtervvel, díjtípussal, túlórával és bónuszokkal">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Kiválasztott ütemterv</strong> — mutatja, hogy melyik műszakbeosztást használják. A fizetést ez a táblázat és a statisztikákban kiválasztott időszak alapján számítják ki.</li>
+<li><strong>Díjtípus és fizetési összeg</strong> — válassza ki az <strong>óránként</strong>, <strong>műszakonként</strong> vagy <strong>havonta</strong> fizetést, majd adja meg a megfelelő összeget. A mező neve a kiválasztott díjtípussal együtt változik.</li>
+<li><strong>Túlóra</strong> — engedélyezze ezt a részt, ha a túlórákat a rendes munkaidőtől eltérően fizetik. Ezután adja meg a túlórabér-szorzót. Adjon hozzá plusz órákat a naptárhoz a <a href="#main-shift-time-adjustment">„Műszakváltás” → „+ idő”</a> menüpontban; engedélyezze a „Túlóraként számolás” lehetőséget, hogy az órákat túlóraként kezelje a rendszer.</li>
+<li><strong>Bónuszok</strong> — megjeleníti az aktuális számítási módszert és az összesítéseket. Koppintson a kártyára a <a href="#salary-bonuses">bónuszbeállítások</a> megnyitásához.</li>
+</ol>
+
+<div class="notice">A „Mentés” gomb alkalmazza a beállításokat a kiválasztott ütemezésre. A mentés után a statisztikákban és jelentésekben szereplő összegek újraszámításra kerülnek a megadott adatok alapján.</div>
+
+<h3 id="salary-summary">11.2. Levonások és a számítás összege</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions_total.webp" alt="Fizetésszámítási képernyő levonásokkal és végső bontással">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Levonások</strong> — a konfigurált levonások teljes összegét és számát mutatja. Koppintson a kártyára a <a href="#salary-deductions">levonási lista</a> megnyitásához.</li>
+<li><strong>Összesen</strong> — összesített bontás: fizetett idő, ledolgozott órák, túlóra, alapbér, túlórapénz, bónuszok, levonások és a végeredmény.</li>
+</ol>
+
+<div class="tip">Az eredmény nemcsak a képernyő beállításaitól függ, hanem a kiválasztott statisztikai időszaktól, a befejezett műszakoktól, a napi változtatásoktól, a túlórától és a fizetetlen szünetek beállításaitól is.</div>
+
+<h3 id="salary-bonuses">11.3. Bónuszok</h3>
+
+<p>Koppintson a „Bónuszok” kártyára a fizetésszámítási képernyőn. A bónuszt manuálisan is megadhatja, vagy százalékban is kiszámíthatja, ha ez megfelel a fizetési rendszerének.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_bonuses.webp" alt="Bónuszbeállítások képernyője számítási és összegbeviteli lehetőségekkel">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Összefoglaló információk</strong> — a kiszámított bónuszösszeget és a számításhoz használt alapösszeget mutatja.</li>
+<li><strong>Bónuszszámítás</strong> — válasszon manuális bevitelt vagy százalékos számítást, például az értékesítés százalékát, ha ezt a módszert használja a munkahelyén.</li>
+<li><strong>Beviteli mód</strong> — A „Teljes összeg” egyetlen végső bónuszhoz alkalmas. A külön sorok akkor hasznosak, ha több bónuszt kell külön-külön számolni.</li>
+<li><strong>Összeg vagy százalék</strong> — adja meg a kiválasztott számítási módszer által megkövetelt értéket.</li>
+<li><strong>Mégse és mentés</strong> — a módosítások elvetése vagy alkalmazása a fizetésszámításra.</li>
+</ol>
+
+<h3 id="salary-deductions">11.4. Levonási lista</h3>
+
+<p>Koppintson a „Levonások” kártyára a fő számítási képernyőn. Ebben a részben több levonást tárolhat, és mindegyiket külön kezelheti.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions.webp" alt="Levonási lista képernyője a teljes összeggel, a levonási sorokkal és a hozzáadás gombbal">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Összefoglaló információk</strong> — az összes engedélyezett levonás összegét és számát mutatja.</li>
+<li><strong>Levonási sor</strong> — a nevet, az értéket és a típust mutatja. Koppintson a sorra a <a href="#salary-deduction-editor">levonási beállítások</a> megnyitásához. A kuka ikon törli a sort.</li>
+<li><strong>Levonás hozzáadása</strong> — a „+” gomb új levonási sort hoz létre.</li>
+<li><strong>Mégse és mentés</strong> — a módosítások elvetése vagy a teljes lista mentése.</li>
+</ol>
+
+<h3 id="salary-deduction-editor">11.5. Egyéni levonás konfigurálása</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deduction_editor.webp" alt="Egyéni levonási panel névvel, értékkel, típussal és levonási alappal">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Levonás neve</strong> — adjon meg egy egyértelmű nevet, például „Adó”, „Gyermektartás” vagy „Büntetés”.</li>
+<li><strong>Érték</strong> — adjon meg egy összeget vagy százalékot az alább kiválasztott értéktípustól függően.</li>
+<li><strong>Érték típusa</strong> — válasszon egy fix összeget vagy százalékot.</li>
+<li><strong>Levonás típusa</strong> — egy <strong>változó</strong> levonás egy adott számítási időszakra vonatkozik; egy <strong>ismétlődő</strong> levonást rendszeresen alkalmaznak, amíg engedélyezve marad.</li>
+<li><strong>Levonás ebből:</strong> — válassza ki a számítási alapot: teljes fizetés, alapbér, bónuszok vagy más elérhető opció.</li>
+<li><strong>Engedélyezve</strong> — ideiglenesen letiltja a levonást a beállítások törlése nélkül.</li>
+<li><strong>Mégse és mentés</strong> — zárja be a panelt változtatások nélkül, vagy mentse a levonást.</li>
+</ol>
+
+<div class="notice">Százalékos levonás esetén különösen fontos a megfelelő „Levonás ebből:” alap kiválasztása: a teljes fizetés, az alapbér és a bónuszok azonos százaléka eltérő eredményeket hoz.</div>
+
+<h2 id="settings">12. Beállítások</h2>
+
+<p>Nyissa meg a „Beállítások” menüpontot a <a href="#main-overview">főképernyő</a> alján található gombbal. Ez a szakasz tartalmazza a rendszerengedélyeket, a megjelenést és az alkalmazás nyelvét, az offline beszédfelismerést, a dokumentumokat és a felhasználói útmutatót, a biztonsági mentést, a diagnosztikát és a fejlesztői kapcsolatfelvételi lehetőségeket.</p>
+
+<h3 id="settings-overview">12.1. Fő beállítások szakaszok</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_permissions_language.webp" alt="ShiftAlarm beállítások teteje: engedélyek, téma, alkalmazásnyelv és offline beszédmodellek">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Engedélyek</strong> — megnyitja a riasztási engedélyeket és a megbízhatósági beállításokat. Ellenőrizheti az értesítéseket, a pontos riasztásokat, a háttértevékenységet és az akkumulátorkorlátozásokat. A <a href="#geo">Geo Alarms</a> riasztásokhoz helymeghatározási hozzáférés is szükséges; háttér- vagy „Mindig engedélyezve” helymeghatározási hozzáférés szükséges az alkalmazás bezárása közbeni aktiváláshoz. Az elemek nevei és elérési útjai Android-verziónként és eszközgyártónként eltérőek lehetnek.</li>
+<li><strong>Téma</strong> — lehetővé teszi a világos, sötét vagy rendszermegjelenés kiválasztását, a kezelőfelület színváltozatának kiválasztását, valamint a haptikus visszajelzés engedélyezését vagy letiltását az alkalmazásban végrehajtott műveletekhez. A rendszertéma a telefon aktuális megjelenését követi.</li>
+<li><strong>Alkalmazás nyelve</strong> — lehetővé teszi a telefon rendszernyelvétől eltérő nyelv használatát. A ShiftAlarm katalógus 108 nyelvet tartalmaz: keresse meg a kívánt nyelvet kereséssel, töltse le a nyelvi csomagot, és alkalmazza.</li>
+<li><strong>Offline beszédmodellek</strong> — telepít egy modult a <a href="#notes-create">beszédből szöveggé alakító jegyzetekhez</a>. Az offline felismerés jelenleg tesztelés alatt áll, és körülbelül 20 nyelven érhető el. Minősége alacsonyabb lehet, mint az online felismerésé, és a nyelvtől, a mikrofontól, a telefon teljesítményétől és a felvételi körülményektől függ.</li>
+</ol>
+
+<div class="warning"><strong>Az Android-engedélyek eszközönként eltérőek.</strong> Egyes telefonokon engedélyezni kell az automatikus indítást, ki kell választani a „Korlátlan” vagy hasonló akkumulátoros módot, és engedélyezni kell a háttértevékenységet. Ezek a beállítások csökkentik annak az esélyét, hogy a rendszer leállítja a ShiftAlarm alkalmazást, de a pontos nevüket az eszköz gyártója határozza meg.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_help_backup_diagnostics.webp" alt="A ShiftAlarm beállítások alján: dokumentumok, felhasználói útmutató, biztonsági mentés, diagnosztika és fejlesztői kapcsolat">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Dokumentumok és súgó</strong> — megnyitja az alkalmazás jogi dokumentumait: Felhasználási feltételek, Adatvédelmi irányelvek, Jogi nyilatkozat és a rövid súgóoldal.</li>
+<li><strong>Oktatási és felhasználói útmutató</strong> — megnyitja ezt a teljes, illusztrált útmutatót a ShiftAlarm funkcióinak részletes leírásával.</li>
+<li><strong>Biztonsági mentés és visszaállítás</strong> — létrehoz egy fájlt, amely a támogatott alkalmazásbeállításokat és adatokat tartalmazza, vagy visszaállítja azokat egy korábbi biztonsági mentésből. Ez hasznos az alkalmazás újratelepítése, a telefon alaphelyzetbe állítása vagy az adatok másik eszközre való átvitele előtt. Részletes utasításokért lásd a <a href="#backup">„Biztonsági mentés és visszaállítás”</a> című részt.</li>
+<li><strong>Diagnosztikai napló</strong> — külön naplókat nyit meg az alkalmazásfunkciókhoz. Ezek rögzítik a technikai szakaszokat, például a riasztások ütemezését és helyreállítását, az események feldolgozását, az engedélyek állapotát és egyéb szolgáltatási információkat. A napló segít azonosítani azt a szakaszt, amelyben a hiba történt. A bejegyzéseket másolhatja, vagy előkészítheti azokat a fejlesztőknek való e-mailben történő elküldéshez. Részletekért lásd a <a href="#diagnostics">„Diagnosztika és hibaelhárítás”</a> című részt.</li>
+<li><strong>Kapcsolatfelvétel a fejlesztőkkel</strong> — megnyitja az e-mail alkalmazást, és létrehoz egy üzenetet a támogatásnak címezve. Használja probléma bejelentésére, visszajelzés vagy javaslat küldésére, vagy kérdés feltevésére. Technikai probléma esetén adja meg a telefon modelljét, az Android verzióját, a probléma időpontját, a végrehajtott lépéseket és a vonatkozó diagnosztikai naplót, ha lehetséges.</li>
+</ol>
+
+<div class="notice">A diagnosztikai naplókat nem küldi el automatikusan a fejlesztőknek. Másolja le a szükséges információkat, vagy koppintson a „Küldés a fejlesztőknek” gombra, válasszon egy e-mail alkalmazást, tekintse át az előkészített üzenetet, és erősítse meg a küldését.</div>
+
+<h2 id="backup">13. Biztonsági mentés és visszaállítás</h2>
+
+<p>A biztonsági mentés a támogatott ShiftAlarm beállításokat és felhasználói adatokat külön fájlba menti. Segít az adatok visszaállításában az alkalmazás újratelepítése, a telefon alaphelyzetbe állítása vagy egy másik eszközre való áttérés után.</p>
+<ol class="step-list">
+<li>Nyissa meg a „Beállítások → Biztonsági mentés és visszaállítás” menüpontot.</li>
+<li>Készítsen biztonsági mentést, és mentse el a kapott fájlt a telefonra, vagy ossza meg a rendszermenüben.</li>
+<li>A visszaállításhoz nyissa meg ugyanazt a részt, és válasszon ki egy korábban létrehozott biztonsági mentésfájlt.</li>
+<li>A visszaállítás után ellenőrizze a fontos riasztásokat, ütemezéseket és Android-engedélyeket. Előfordulhat, hogy egyes rendszerbiztonsági engedélyeket újra kell adni egy új eszközön vagy újratelepítés után.</li>
+</ol>
+<p class="tip">Tartson meg egy aktuális másolatot biztonságos helyen, amely akkor is elérhető marad, ha a telefon elveszik, megsérül vagy visszaállítják. A biztonsági mentésfájl nem helyettesíti az Android rendszerengedélyeit, és nem tartalmazhat automatikusan olyan adatokat, amelyekhez az alkalmazás nem férhet hozzá.</p>
+
+<h2 id="diagnostics">14. Diagnosztika és hibaelhárítás</h2>
+
+<p>A ShiftAlarm külön diagnosztikai naplókat biztosít a különböző funkciókhoz. Ezek megőrzik a technikai események sorozatát, és segítenek meghatározni, hogy egy riasztás ütemezve lett-e, újraindítás után visszaállítva, feldolgozásra átadva, vagy rendszerbeállítás miatt leállt.</p>
+
+<h3 id="diagnostics-control">14.1. Diagnosztikai adatgyűjtés vezérlése</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_sections.webp" alt="ShiftAlarm diagnosztikai napló képernyője a főkapcsolóval és egy egyedi riasztási naplóval">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Diagnosztika gyűjtése</strong> – az alkalmazás minden diagnosztikai szakaszának főkapcsolója. Kapcsolja ki, ha nem szeretne új eseményeket egyszerre hozzáadni az összes naplóhoz. Az új események gyűjtése az újbóli engedélyezés után folytatódik.</li>
+<li><strong>Egyéni funkciónapló</strong> – minden modulnak saját kapcsolója és „Megnyitás” gombja van. Például engedélyezve hagyhatja a globális diagnosztikát, miközben csak a riasztást, az órát vagy egy másik funkciónaplót tiltja le. A képernyőképen a riasztási napló látható, amely rögzíti a kézbesítési, ütemezési, helyreállítási, őrvédelmi és riasztási képernyő eseményeket.</li>
+</ol>
+
+<div class="notice">A kapcsolók csak a technikai események rögzítését vezérlik. Egy riasztás, óra vagy más funkciónapló letiltása nem tiltja le magát a funkciót. A korábban mentett bejegyzéseket külön törölheti a megfelelő naplóban található „Törlés” gombbal.</div>
+
+<h3 id="diagnostics-log">14.2. Egyedi funkciónapló</h3>
+
+<p>Koppintson a „Megnyitás” gombra a kívánt diagnosztikai részben. Az alábbi példa a riasztási naplót mutatja; más funkciók naplói hasonló módon működnek.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_alarm_log.webp" alt="ShiftAlarm riasztási diagnosztikai napló eseményszámmal, műveletekkel és technikai bejegyzésekkel">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Mentett események</strong> — a kiválasztott naplóban jelenleg tárolt bejegyzések számát mutatja.</li>
+<li><strong>Naplóműveletek</strong>:
+<ul>
+<li><strong>Másolás</strong> — az aktuális napló összes adatát a vágólapra másolja. Beillesztheti egy e-mailbe vagy egy másik alkalmazásba.</li>
+<li><strong>Törlés</strong> — törli a mentett bejegyzéseket ebben a naplóban. A törlés után csak azok az események jelennek meg, amelyeket később rögzítettek, amikor a diagnosztika engedélyezve van.</li>
+<li><strong>Küldés fejlesztőknek</strong> — megnyitja az alkalmazásválasztót e-mail küldéséhez. Válasszon egy e-mail alkalmazást; A fejlesztői cím és a diagnosztikai adatok automatikusan beillesztésre kerülnek. Küldés előtt adja meg a probléma leírását, tekintse át az üzenetet, majd erősítse meg a küldését.</li>
+</ul>
+</li>
+<li><strong>Alkalmazásesemények</strong> – maguk a naplóbejegyzések. Egy bejegyzés általában tartalmaz egy dátumot és időpontot, egy technikai eseménynevet és további paramétereket, például azonosítót, állapotot vagy okot. A technikai nevek angolul is megjelenhetnek; ne szerkessze vagy fordítsa le őket küldés előtt.</li>
+</ol>
+
+<div class="warning">Napló törlése előtt másolja vagy küldje el a szükséges bejegyzéseket. A törölt diagnosztikai események nem állíthatók vissza.</div>
+
+<div class="tip">Ha a probléma reprodukálható, először engedélyezze a globális diagnosztikai gyűjteményt és a vonatkozó funkciónaplót, majd ismételje meg a problémát okozó műveleteket. Az üzenetben adja meg a probléma pontos időpontját, a telefon modelljét, az Android verzióját, a várható eredményt és a tényleges eredményt. Ez segít a leírásnak a naplóeseményekkel való egyeztetésében.</div>
+
+<h2 id="faq">15. Gyakran ismételt kérdések</h2>
+
+<h3>A riasztás nem időben aktiválódott</h3>
+<p>Ellenőrizze az értesítéseket, a pontos riasztási engedélyt, a háttértevékenységet és az akkumulátorkorlátozásokat.</p>
+<h3>A Geo-riasztás későn aktiválódott</h3>
+<p>Ellenőrizze a pontos és a háttérbeli helyet, az akkumulátorkorlátozásokat és az háttérben történő automatikus indítást. Próbáljon ki egy 1300–1500 m-es sugarú kört egy városban és 4000–5000 m-es sugarú kört egy városon kívül. Előfordulhat, hogy a tényleges aktiválás nem pontosan a sugár vonalán történik.</p>
+<h3>A widget nem frissült azonnal</h3>
+<p>Nyissa meg az alkalmazást, vagy koppintson a frissítés gombra a widgeten. Az Android korlátozhatja a widgetek gyakori frissítéseit.</p>
+<h3>Megváltoztattam a nyelvet, de egy dokumentum vagy az útmutató még nem frissült</h3>
+<p>Ellenőrizze az internetkapcsolatát, és várjon a letöltésre. Ha a távoli verzió nem érhető el, az alkalmazás a beépített tartalék verzióját használja.</p>
+
+<div class="footer small">Az útmutató a GitHubon keresztül frissíthető. Ha a távoli verzió nem érhető el, az alkalmazás a beépített offline verzióját használja.</div>
+</main>
+</body>
+</html>
