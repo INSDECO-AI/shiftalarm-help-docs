@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Uživatelská příručka k ShiftAlarmu</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #64748b;
+  --accent: #2563eb;
+  --soft: #e8eef8;
+  --border: #dbe4f0;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.58;
+  margin: 0;
+  padding: 18px;
+  color: var(--text);
+  background: var(--bg);
+}
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+h1 { margin: 0 0 8px; font-size: 28px; line-height: 1.2; }
+h2 { margin: 32px 0 10px; font-size: 21px; line-height: 1.25; }
+h3 { margin: 22px 0 8px; font-size: 17px; }
+p, li { font-size: 16px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul, ol { padding-left: 22px; }
+.notice, .tip, .warning {
+  padding: 14px 16px;
+  border-radius: 16px;
+  margin: 14px 0;
+  border: 1px solid var(--border);
+}
+.notice { background: var(--soft); }
+.tip { background: #ecfdf5; }
+.warning { background: #fff7ed; }
+.small { color: var(--muted); font-size: 14px; }
+.toc {
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 16px;
+  margin: 18px 0 24px;
+}
+.toc ol { margin: 8px 0 0; }
+.step-list li { margin-bottom: 8px; }
+.guide-figure {
+  margin: 18px 0;
+}
+.guide-image {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+}
+.callout-list li {
+  margin-bottom: 10px;
+}
+.guide-caption {
+  max-width: 520px;
+  margin: 10px auto 0;
+  color: var(--text);
+  font-size: 15px;
+}
+.guide-caption strong {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.footer {
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --card: #111827;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --accent: #93c5fd;
+    --soft: #1f2937;
+    --border: #334155;
+  }
+  main { box-shadow: none; }
+  .toc { background: #172033; }
+  .tip { background: #10251f; }
+  .warning { background: #2a1d10; }
+}
+</style>
+</head>
+<body>
+<main>
+<h1>Uživatelská příručka k ShiftAlarmu</h1>
+<p class="small">Verze 14. Datum: 2. srpna 2026.</p>
+<div class="notice">Tato stránka je praktickým průvodcem k ShiftAlarmu. Vysvětluje, co každá hlavní funkce dělá, kde ji najít, na co klepnout a co zkontrolovat, pokud funkce nefunguje podle očekávání.</div>
+<nav class="toc">
+<strong>Obsah</strong>
+<ol><li><a href="#start">1. První spuštění</a></li><li><a href="#permissions">2. Oprávnění a spolehlivost</a></li><li><a href="#main">3. Hlavní obrazovka</a></li><li><a href="#shifts">4. Plány směn</a></li><li><a href="#statistics">5. Statistiky plánů</a></li><li><a href="#alarms">6. Budíky</a></li><li><a href="#geo">7. Geo budíky</a></li><li><a href="#notes">8. Poznámky, události a připomenutí</a></li><li><a href="#clock">9. Hodiny, časovač a stopky</a></li><li><a href="#widgets">10. Widgety</a></li><li><a href="#salary">11. Výpočet platu</a></li><li><a href="#settings">12. Nastavení</a></li><li><a href="#backup">13. Zálohování a obnovení</a></li><li><a href="#diagnostics">14. Diagnostika a řešení problémů</a></li><li><a href="#faq">15. Často kladené otázky</a></li></ol>
+</nav>
+<h2 id="start">1. První spuštění</h2>
+
+<p>Při prvním spuštění ShiftAlarmu se zobrazí krátký postup nastavení. Hlavní obrazovka je již k dispozici na pozadí, ale je nejlepší nejprve dokončit základní nastavení.</p>
+<ol class="step-list">
+<li>Přečtěte si úvodní informace a klepněte na „Pokračovat“.</li>
+<li>V kroku dokumentů otevřete dokumenty nebo přijměte požadované dokumenty, až budete připraveni pokračovat.</li>
+<li>V kroku oprávnění otevřete obrazovku oprávnění a zkontrolujte oznámení, přesné alarmy, přístup k poloze a omezení baterie.</li>
+<li>Klepněte na „Dokončit nastavení“.</li>
+</ol>
+<p class="tip">Oprávnění můžete nakonfigurovat později v části „Nastavení → Oprávnění a spolehlivost“.</p>
+
+<h2 id="permissions">2. Oprávnění a spolehlivost</h2>
+
+<p>Alarmy, připomenutí a geoalarmy závisí na nastavení systému Android a softwaru výrobce zařízení.</p>
+<ul>
+<li><strong>Oznámení</strong> – vyžadováno pro alarmy, připomenutí, časovač a oznámení služeb.</li>
+<li><strong>Přesné alarmy</strong> – pomáhají spustit alarm v požadovaný čas.</li>
+<li><strong>Poloha</strong> – vyžadováno pro geoalarmy.</li>
+<li><strong>Poloha na pozadí</strong> – vyžadováno pro fungování geoalarmu, když je aplikace zavřená.</li>
+<li><strong>Baterie a aktivita na pozadí</strong> – mohou ovlivnit spolehlivost spouštění na zařízeních Xiaomi/Redmi a některých dalších.</li>
+</ul>
+<p class="warning">Android ne vždy zaručuje okamžité doručení oznámení, přesných alarmů nebo událostí geofence. Důležitá upozornění naleznete v každé položce na obrazovce oprávnění.</p>
+
+<h2 id="main">3. Hlavní obrazovka</h2>
+
+<p>Hlavní obrazovka je váš denní panel. Poskytuje přímý přístup ke kalendáři, hodinám, geoalarmům, běžným alarmům, rozvrhům směn, poznámkám a nastavením.</p>
+
+<h3 id="main-overview">3.1. Prvky hlavní obrazovky</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_screen_overview.png" alt="Hlavní obrazovka ShiftAlarm s očíslovanými ovládacími prvky">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Šipka zpět</strong> — přesune kalendář na předchozí měsíc.</li>
+<li><strong>Měsíc a rok</strong> — zobrazí otevřený měsíc. Klepnutím na tuto oblast použijete <a href="#main-date-picker">podrobný výběr měsíce a roku</a>.</li>
+<li><strong>Šipka vpřed</strong> – přesune kalendář na další měsíc.</li>
+<li><strong>Kalendář</strong> – hlavní oblast měsíce. V kalendáři můžete přejíždět prstem. Každý den může zobrazovat datum, připomenutí, události, plánovanou směnu a změny dnů. Běžným klepnutím vyberete datum; dlouhým stisknutím otevřete <a href="#main-day-actions">informace a akce pro vybraný den</a>.</li>
+<li><strong>Dnes</strong> – vrátí kalendář na aktuální den.</li>
+<li><strong>Hodiny</strong> – otevře <a href="#clock">světové hodiny, stopky a časovač</a>.</li>
+<li><strong>Geo alarm</strong> – otevře <a href="#geo">mapu, uložená místa a nastavení geo alarmu</a>. Upozornění se může spustit, když vstoupíte do vybrané oblasti, opustíte ji nebo provedete obojí.</li>
+<li><strong>Alarm</strong> – otevírá <a href="#alarms">běžné, opakující se a se směnami propojené alarmy</a>.</li>
+<li><strong>Plán</strong> – otevírá <a href="#shifts">plány směn, jejich vytváření a úpravy a statistiky</a>.</li>
+<li><strong>Poznámky</strong> – otevírá <a href="#notes">poznámky, události, připomenutí, zvukové poznámky a převod řeči na text</a>.</li>
+<li><strong>Nastavení</strong> – otevírá <a href="#settings">oprávnění, jazyk, téma, offline modely řeči, zálohování, diagnostiku, dokumenty a školení</a>.</li>
+</ol>
+
+
+<h3 id="main-date-picker">3.2. Výběr měsíce a roku</h3>
+
+<p>Klepnutím na měsíc a rok v horní části hlavní obrazovky rychle otevřete požadované kalendářní období. Výběr probíhá ve krocích: <strong>století → desetiletí → rok → měsíc</strong>.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_century.webp" alt="Krok 1: výběr století v kalendáři ShiftAlarm">
+<figcaption class="guide-caption"><strong>1. Vyberte století.</strong> Klepněte na období, které obsahuje požadovaný rok. V příkladu je vybráno období roku 2000.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_decade.webp" alt="Krok 2: výběr dekády v kalendáři ShiftAlarm">
+<figcaption class="guide-caption"><strong>2. Vyberte desetiletí.</strong> Klepněte na rozsah, který obsahuje požadovaný rok. Pro rok 2026 vyberte „2020–2029“.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_year.webp" alt="Krok 3: výběr roku v kalendáři ShiftAlarm">
+<figcaption class="guide-caption"><strong>3. Vyberte rok.</strong> Klepněte na požadovaný rok. Příklad vybere rok 2026.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_month.webp" alt="Krok 4: výběr měsíce v kalendáři ShiftAlarm">
+<figcaption class="guide-caption"><strong>4. Vyberte měsíc.</strong> Klepněte na požadovaný měsíc. Příklad vybere červenec.</figcaption>
+</figure>
+
+<div class="tip">Po výběru měsíce se panel zavře a hlavní kalendář se otevře ve vybraném měsíci a roce.</div>
+<div class="notice">Tlačítko „Zpět“ vrátí na předchozí úroveň. Na obrazovce století zavře výběr data.</div>
+
+<h3 id="main-day-actions">3.3. Informace a akce pro vybraný den</h3>
+
+<p>Dotkněte se a podržte požadovaný den v kalendáři. Otevře se panel s informacemi a akcemi pro dané datum. Přetažením panelu nahoru zobrazíte všechny dostupné akce.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_day_actions.webp" alt="Panel s informacemi a akcemi ShiftAlarm pro vybraný den v kalendáři">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Datum</strong> – zobrazuje den v týdnu a vybrané datum. Přetažením úchytu nahoře nahoru nebo dolů panel rozbalíte nebo zavřete.</li>
+<li><strong>Shift</strong> – zobrazuje vypočítanou směnu nebo změnu dne, například den volna, dovolenou, nemocenskou nebo jinou výjimku.</li>
+<li><strong>Alarmy pro toto datum</strong> – zobrazuje alarmy přiřazené k vybranému dni nebo hlásí, že žádné neexistují.</li>
+<li><strong>Události a připomenutí</strong> – zobrazuje položky propojené s vybraným datem.</li>
+<li><strong>Přidat alarm</strong> – otevře vytvoření jednorázového alarmu pro vybrané datum.</li>
+<li><strong>Změnit směnu</strong> – vytvoří výjimku pro jeden den nebo rozsah dat v aktivním plánu.</li>
+<li><strong>Přidat poznámku</strong> – umožňuje vybrat událost nebo připomenutí, které chcete vytvořit pro vybrané datum.</li>
+</ol>
+
+<div class="notice">Akce „Změnit směnu“ je k dispozici pro úpravu dnů v aktivním rozvrhu směn.</div>
+
+<h4 id="main-shift-override">Změna jednoho dne nebo rozsahu dat</h4>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_types.webp" alt="Výběr rozsahu dat a typu změny směny v ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Datum zahájení</strong> — první den změny. Zpočátku se použije datum vybrané v kalendáři.</li>
+<li><strong>Datum ukončení</strong> — poslední den změny. Chcete-li změnit pouze jeden den, ponechte vybraný stejný den.</li>
+<li><strong>Volno</strong> — nahradí vypočítanou směnu časem volna.</li>
+<li><strong>Dovolená</strong> — označí vybraný den nebo rozsah jako dovolenou.</li>
+<li><strong>Nemocenská dovolená</strong> — označí vybraný den nebo rozsah jako nemocenskou dovolenou.</li>
+<li><strong>Uložit změnu</strong> — použije vybranou výjimku v kalendáři.</li>
+</ol>
+
+<h4 id="main-shift-time-adjustment">Úprava pracovní doby</h4>
+
+<p>Procházejte seznamem typů změn dolů a vyberte „Upravit směnu“ pro změnu trvání vypočítané pracovní směny.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_time_adjustment.webp" alt="Úprava pracovní doby směny v ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Upravit směnu</strong> — povoluje úpravu pracovní doby pro vybranou směnu.</li>
+<li><strong>+ čas</strong> — přidává hodiny nebo minuty ke standardní délce směny.</li>
+<li><strong>− čas</strong> — zkracuje délku směny, například při předčasném ukončení práce.</li>
+<li><strong>Počítat tento čas jako přesčas</strong> — přidaný čas považuje za přesčas. Pokud je tato možnost vypnuta, počítá se jako běžná pracovní doba.</li>
+<li><strong>Uložit změnu</strong> — použije úpravu na vybraný den nebo rozsah.</li>
+</ol>
+
+<div class="tip">Změna dne nemění původní šablonu rozvrhu. Je uložen jako samostatná výjimka a je zahrnut v kalendáři, statistikách, výpočtu platu a reportech.</div>
+
+<h2 id="shifts">4. Harmonogramy směn</h2>
+
+<p>Harmonogram směn definuje opakující se pracovní cyklus a poskytuje základ pro další funkce ShiftAlarm. Aplikace jej používá k naplnění kalendáře, propojení alarmů se směnami, počítání pracovní doby, generování statistik, odhadu platu a přípravě reportů.</p>
+
+<div class="notice"><strong>Základní princip.</strong> Nejprve vytvořte základní opakující se harmonogram. Přidejte dovolenou, nemocenskou, volno, jednorázovou náhradní směnu nebo úpravu pracovní doby jako výjimku pro konkrétní data pomocí <a href="#main-day-actions">akcí vybraných dnů</a>. Tím se původní cyklus zachová beze změny.</div>
+
+<h3 id="shifts-list">4.1. Seznam a ovládací prvky rozvrhu</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedules_overview.webp" alt="Obrazovka plánu ShiftAlarm s aktivní kartou plánu a očíslovanými ovládacími prvky">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Podrobnosti rozvrhu</strong> – název, datum zahájení, délka cyklu a krátká posloupnost dnů. V příkladu „D · D · O · O“ znamená dvě denní směny následované dvěma dny volna.</li>
+<li><strong>Přepnout</strong> – dočasně deaktivuje rozvrh bez jeho smazání. Po opětovném povolení zůstanou uložená nastavení v platnosti.</li>
+<li><strong>Stav rozvrhu</strong> – označuje, který rozvrh je aktuálně aktivní.</li>
+<li><strong>Upravit</strong> – otevře parametry, které lze změnit. Po počátečním nastavení je část základu rozvrhu uzamčena, aby se zabránilo náhodnému přepočtu již vytvořených dat kalendáře.</li>
+<li><strong>Smazat</strong> – po potvrzení smaže rozvrh. Před smazáním zkontrolujte všechny alarmy a výpočty spojené se směnami.</li>
+<li><strong>Otevřít statistiky</strong> – otevře <a href="#statistics">statistiky pracovní doby, období, platu a reportů</a> tohoto rozvrhu.</li>
+<li><strong>Vytvořit rozvrh</strong> – umožňuje vybrat připravenou šablonu nebo vytvořit vlastní cyklus.</li>
+</ol>
+
+<h3 id="shifts-create">4.2. Zahájení vytváření rozvrhu</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_create.webp" alt="Panel pro vytvoření plánu s názvem, datem zahájení, šablonami a vlastním plánem">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Název rozvrhu</strong> – zadejte jasný název, například „Hlavní 2/2“, „Noční směna“ nebo název vašeho pracoviště.</li>
+<li><strong>Datum zahájení</strong> – datum, které odpovídá <strong>prvnímu dni opakujícího se cyklu</strong>. Můžete vybrat minulé nebo budoucí datum; Aplikace z něj vypočítává rozvrh tam i zpět.</li>
+<li><strong>Šablony</strong> – hotové běžné sekvence směn. Příklad používá šablonu „2/2 dne“.</li>
+<li><strong>Vlastní rozvrh</strong> – vytvoří vlastní sekvenci pracovních dnů a dnů volna.</li>
+<li><strong>Vytvořit rozvrh</strong> – otevře podrobný editor pro vybranou možnost.</li>
+</ol>
+
+<div class="tip">Pro šablonu „D · D · O · O“ je počáteční datum obvykle prvním ze dvou pracovních dnů. Ve vlastním cyklu může být den 1 také dnem volna; důležité je, aby vybrané datum přesně odpovídalo dni 1 vytvořené sekvence.</div>
+
+<h3 id="shifts-template">4.3. Vytvoření rozvrhu ze šablony</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_template.webp" alt="Editor šablon plánu s názvem, sekvencí, datem zahájení a časem směny">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Název rozvrhu</strong> – ponechte navrhovaný název nebo jej nahraďte vlastním.</li>
+<li><strong>Šablona</strong> — zobrazuje posloupnost písmen a její význam. V příkladu „D · D · O · O“ znamená denní směna, denní směna, den volna, den volna.</li>
+<li><strong>Datum zahájení</strong> — vyberte datum prvního dne v zobrazené posloupnosti.</li>
+<li><strong>Čas směny</strong> — zadejte čas zahájení a ukončení pro každý typ pracovní směny. Aplikace zobrazí vypočítanou dobu trvání.</li>
+<li><strong>Zrušit</strong> — zavře editor bez uložení.</li>
+<li><strong>Uložit</strong> — uloží rozvrh a spustí výpočet směn v kalendáři.</li>
+</ol>
+
+<div class="warning"><strong>Po prvním uložení.</strong> Datum zahájení a struktura cyklu jsou uzamčeny, aby byla chráněna již vypočítaná data kalendáře. Stále můžete upravovat název a některé pracovní parametry. Pokud potřebujete jiný základní cyklus nebo referenční datum, je bezpečnější vytvořit nový rozvrh.</div>
+
+<h3 id="shifts-custom">4.4. Vytvoření vlastního cyklu</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_custom.webp" alt="Vlastní editor plánu s délkou cyklu, ovládacími prvky dne, datem zahájení a nastavením pro každý den">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Název plánu</strong> – pojmenujte svou vlastní sekvenci.</li>
+<li><strong>Délka cyklu</strong> – ukazuje, kolik dní je zahrnuto v opakující se sekvenci.</li>
+<li><strong>Odebrat den</strong> – zkrátí cyklus o jeden den.</li>
+<li><strong>Přidat den</strong> – přidá další konfigurovatelný den na konec cyklu.</li>
+<li><strong>Datum zahájení</strong> – datum, které odpovídá 1. dni vlastního cyklu.</li>
+<li><strong>Nastavení dne</strong> – klepněte na kartu „Typ směny“ a vyberte den volna nebo požadovaný typ práce: denní, noční, ranní, večerní, 24hodinová nebo vlastní směna. Pro pracovní den zadejte čas zahájení a ukončení. Stejným způsobem nakonfigurujte zbývající dny cyklu dále na obrazovce.</li>
+<li><strong>Zrušit</strong> – zavře editor bez uložení.</li>
+<li><strong>Uložit</strong> – uloží vlastní cyklus a vypočítá ho v kalendáři.</li>
+</ol>
+
+<div class="notice"><strong>Co je to cyklus?</strong> Cyklus je počet dní, po kterých sekvence začíná znovu. Například čtyřdenní cyklus může být „2 pracovní dny + 2 dny volna“, zatímco šestidenní cyklus může být „3 pracovní dny + 3 dny volna“. Po posledním dni se aplikace vrátí na 1. den.</div>
+
+<div class="tip">Neměňte základní cyklus pro jednorázovou výjimku z plánu. Dlouze stiskněte datum v kalendáři a vytvořte den volna, dovolenou, nemocenskou, náhradní směnu nebo úpravu času.</div>
+
+
+
+<span id="shift-statistics"></span>
+<h2 id="statistics">5. Statistiky rozvrhu</h2>
+
+<p>Otevřete „Statistiky“ z karty rozvrhu pomocí tlačítka <strong>„Otevřít statistiky“</strong>. Tato sekce kombinuje informace o pracovních dnech a dnech volna, změnách rozvrhu, plánované a skutečné pracovní době, odhadovaném platu a reportech.</p>
+
+<div class="notice"><strong>Důležité:</strong> Statistiky se počítají pouze pro vybraný rozvrh směn. Vybrané období se vztahuje na všechny hodnoty pracovní doby, platu a reportů pod ním.</div>
+
+<h3 id="statistics-period">5.1. Souhrn rozvrhu, období a dne</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_period_overview.webp" alt="Obrazovka statistik s informacemi o plánu, výběrem období a dnem součty">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Informace o rozvrhu</strong> – zobrazuje název vybraného rozvrhu, datum zahájení prvního cyklu a délku opakujícího se cyklu. Statistiky na této obrazovce se vztahují pouze na tento rozvrh.</li>
+<li><strong>Karta vybraného období</strong> – zobrazuje používané období. Klepnutím na něj nebo na šipku vpravo vyberte aktuální, předchozí nebo následující měsíc, aktuální rok nebo vlastní rozsah dat.</li>
+<li><strong>Souhrn dnů</strong> – zobrazuje počet dní v období, pracovní směny, dny volna, dokončené a nadcházející směny a změněné dny. Změněné dny jsou výjimky ze základního cyklu: dovolená, nemocenská, volno, náhradní nebo přesunutá směna, úprava pracovní doby a další změny.</li>
+</ol>
+
+<div class="warning"><strong>Budoucí období jsou prognózy.</strong> Pro budoucí měsíc aplikace používá vytvořený rozvrh a již zadaná data, ale nemůže znát budoucí nemocenskou, dovolenou, volno, přesčasy, bonusy ani srážky. Pokud vyberete aktuální rok, součty mohou kombinovat skutečná data za minulá data s prognózou pro zbytek roku.</div>
+
+<h3 id="statistics-work">5.2. Pracovní doba, plat a reporty</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_work_salary_reports.webp" alt="Obrazovka se statistikami s pracovní dobou, postupem, platem a přístupem k reportům">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Pracovní doba</strong> – souhrnná karta s údaji o hodinách a postupu. Klepnutím na něj otevřete <a href="#statistics-break">nastavení přestávek</a>.</li>
+<li><strong>Plánované hodiny</strong> – celková doba trvání plánovaných směn a změn během vybraného období.</li>
+<li><strong>Odpracované hodiny</strong> – čas ve směnách, které jsou považovány za dokončené k aktuálnímu datu, s použitým nastavením přestávek.</li>
+<li><strong>Postup</strong> – ukazuje, kolik pracovních směn bylo dokončeno z celkového počtu a jaké procento vybraného období je dokončeno.</li>
+<li><strong>Plat</strong> – otevře <a href="#salary">nastavení výpočtu platu</a>. Karta zobrazuje odhad pro vybraný rozvrh a období.</li>
+<li><strong>Celkem</strong> — odhadovaná dosud vydělaná částka, včetně vybrané metody výplaty, bonusů, přesčasů a srážek.</li>
+<li><strong>Sazba nebo plat</strong> — obsah této karty závisí na vybrané metodě výpočtu: mzda za hodinu, za směnu nebo za měsíc. Zobrazuje hodnotu zadanou v nastavení platu.</li>
+<li><strong>Podrobnosti výpočtu</strong> — placená doba, přesčasy, bonusy a srážky za vybrané období.</li>
+<li><strong>Přehledy</strong> — otevírá <a href="#reports">podrobné přehledy pro období, pracovní dobu a plat</a>.</li>
+</ol>
+
+<div class="tip">Všechny hodnoty v sekcích pracovní doby a platu se přepočítají, když změníte období na horní kartě.</div>
+
+<h3 id="statistics-break">5.3. Započítávání přestávek do pracovní doby</h3>
+
+<p>Klepněte na kartu „Pracovní doba“ a určete, zda se má přestávka na jídlo nebo jiná přestávka započítávat do skutečně odpracované a placené doby.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_break_settings.webp" alt="Panel nastavení účtování a trvání přestávek">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Aktuální součty</strong> – zobrazuje plánované a odpracované hodiny za vybrané období před použitím nového nastavení.</li>
+<li><strong>Počítat přestávku jako pracovní dobu</strong> – tuto možnost ponechte zapnutou, pokud je přestávka placená a zahrnutá do doby trvání směny. Vypněte ji, pokud musí být zadaný čas z odpracované a placené doby vyloučen.</li>
+<li><strong>Délka přestávky</strong> – vyberte hodiny a minuty pro jednu přestávku. Toto nastavení se používá při přepočítávání příslušných pracovních směn.</li>
+<li><strong>Celková přestávka</strong> – zobrazuje vybranou dobu trvání před uložením.</li>
+<li><strong>Uložit</strong> – používá nastavení a přepočítává pracovní dobu a související hodnoty.</li>
+</ol>
+
+<div class="notice">Přestávka může představovat přestávku na jídlo, předání směny nebo jiný neplacený interval v rámci směny. Zadejte dobu trvání, která odpovídá pravidlům na vašem pracovišti.</div>
+
+<h3 id="reports">5.4. Přehledy: období, stav a souhrn</h3>
+
+<p>Otevřete „Přehledy“ ze spodní karty na obrazovce statistik. Tato část poskytuje podrobnější informace pro vybrané období: pracovní doba, směny a absence, úpravy kalendáře, plat, bonusy, srážky, porovnání období, podrobnosti po dnech a export.</p>
+
+<div class="warning"><strong>Zprávy jsou poskytovány pouze pro informační účely.</strong> Výpočty jsou založeny na vybraném rozvrhu, nastavení platu, účtování přestávek a změnách směn v kalendáři. Skutečné údaje vašeho zaměstnavatele se mohou lišit z důvodu jiného systému měření času, zaokrouhlování, daní, příspěvků nebo interních pravidel. Pokud najdete chybu nebo nepodporovanou metodu výpočtu, kontaktujte vývojáře na adrese uvedené v aplikaci a uveďte vstupní data a očekávaný výsledek.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_period_salary.webp" alt="Obrazovka s reporty s výběrem období, stavem, shrnutím a podrobným rozpisem platů">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Období vykazování</strong> – klepnutím na kartu vyberte aktuální, předchozí nebo následující měsíc, přednastavený rozsah nebo vlastní data. Všechny níže uvedené informace platí pro vybrané období.</li>
+<li><strong>Stav období</strong> – zobrazuje, zda je období dokončeno, aktuálně aktivní nebo ještě nezačalo. Dokončené období se vypočítává z uložených skutečných dat. Aktivní období kombinuje již odpracovaná data s aktuálním plánem, zatímco budoucí období je prognóza.</li>
+<li><strong>Souhrn</strong> – textový souhrn skutečně odpracované doby, vypočítané částky a přesčasů.</li>
+<li><strong>Plat</strong> – podrobný rozpis základní mzdy, příplatku za přesčasy, bonusů, srážek a konečného odhadu. Hodnoty závisí na <a href="#salary">nastavení platu</a> a vybraném období.</li>
+</ol>
+
+<h3 id="reports-work">5.5. Pracovní doba, absence a dny</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_work_absences.webp" alt="Obrazovka s reporty s pracovní dobou, přestávkami, dokončenými směnami a absencemi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Pracovní doba</strong> — zobrazuje plánované a skutečně odpracované hodiny, plánované a skutečné hodiny před odečtením přestávky, počet dokončených směn, průměrnou dobu trvání směny a celkovou odečtenou přestávku. Přestávky nakonfigurujte v <a href="#statistics-break">sekci pracovní doby</a>.</li>
+<li><strong>Absence a dny</strong> — zobrazuje počet dnů volna, dnů dovolené, dnů nemocenské, dnů volna a změněných dnů během vybraného období.</li>
+</ol>
+
+<h3 id="reports-charts">5.6. Úpravy a grafy</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_corrections_charts.webp" alt="Obrazovka sestav s úpravami, složením platu a hodnotami pracovní doby">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Úpravy</strong> – zobrazuje přesčasové hodiny, celkovou změnu v délce směny a počet dnů změněných oproti základnímu rozvrhu.</li>
+<li><strong>Grafy</strong> – vizualizuje složení platu a pracovní doby: základní mzda, přesčasy, bonusy, srážky, celkem a plánované, odpracované a placené hodiny.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_charts_days.webp" alt="Doplňkové grafy sestav s hodinami a denním koláčovým grafem">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Hodiny</strong> – pokračuje ve vizuálním porovnání plánovaných, odpracovaných, placených a přesčasových hodin. Řádek „Skutečná pracovní doba“ zobrazuje výsledek po použití nastavení a úprav.</li>
+<li><strong>Typy dnů</strong> – koláčový graf, který rozděluje dny ve vybraném období podle typu. Legenda závisí na rozvrhu a skutečných změnách: denní, noční nebo jiné směny, dny volna, dovolená, nemocenská, volno a další stavy.</li>
+</ol>
+
+<h3 id="reports-comparison">5.7. Porovnání období</h3>
+
+<p>Sekce porovnání vám pomůže porovnat plat, čas, směny a absence v několika obdobích. Počet dostupných období závisí na uložených datech.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_chart.webp" alt="Obrazovka srovnání období s výběrem rozsahu, grafem platů a začátkem srovnávací tabulky">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Porovnání období</strong> – klepnutím na kartu vyberte, kolik období chcete porovnat a jejich rozsah.</li>
+<li><strong>Graf a seznam období</strong> – zobrazuje plat pro každé období a uvádí intervaly zahrnuté do porovnání spolu s jejich stavem.</li>
+<li><strong>Porovnávací tabulka</strong> – obsahuje podrobné hodnoty pro každé období. Přejetím prstem po tabulce vodorovně doleva nebo doprava zobrazíte zbývající sloupce.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_table.webp" alt="Pokračování srovnávací tabulky a rozdíly mezi sousedními obdobími">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Hodnoty za období</strong> – celková mzda, odpracované a placené hodiny, přesčasy, bonusy, srážky, dokončené směny, absence a změněné dny.</li>
+<li><strong>Rozdíl mezi obdobími</strong> – ukazuje, jak se každé období liší od předchozího. Kladné a záporné hodnoty označují zvýšení nebo snížení odpovídající metriky. Samotná barva neznamená vždy výhodu nebo problém; například zvýšení srážek znamená, že je sražena větší částka.</li>
+</ol>
+
+<h3 id="reports-details-export">5.8. Denní podrobnosti a export</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_details_export.webp" alt="Zprávy s denními detaily a exportem do PDF, HTML, JSON nebo CSV">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Denní podrobnosti</strong> – otevře seznam všech dnů ve vybraném období. Můžete zkontrolovat typ směny, plánovaný a skutečný čas, úpravy hodin, absence a další změny pro konkrétní den.</li>
+<li><strong>Exportovat</strong> – uloží zprávu jako PDF, HTML, JSON nebo CSV. Před exportem vyberte období zprávy; soubor pak můžete vytisknout, uložit nebo sdílet prostřednictvím nabídky systému Android.</li>
+</ol>
+
+<div class="tip">Před porovnáním nebo exportem zkontrolujte vybrané období, rozvrh, změny směn, přestávky a nastavení platů. Chyba ve zdrojových datech ovlivní celkový součet všech sestav.</div>
+
+<h2 id="alarms">6. Alarmy</h2>
+
+<p>ShiftAlarm umožňuje vytvářet jednorázové alarmy, opakovat je ve vybrané dny v týdnu nebo propojit jejich čas s rozvrhem směn.</p>
+
+<h3 id="alarms-list">6.1. Seznam alarmů</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarms_overview.webp" alt="Obrazovka alarmu ShiftAlarm s dalším upozorněním, řazením, kartou alarmu a tlačítkem pro přidání">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Další alarm</strong> — zobrazuje datum a čas dalšího aktivního upozornění.</li>
+<li><strong>Řazení alarmů</strong> — mění pořadí karet alarmů, například zobrazením povolených alarmů jako prvních.</li>
+<li><strong>Karta alarmu</strong> — obsahuje čas, datum nebo režim opakování, typ rozvrhu a zbývající čas. Klepnutím na kartu ji upravíte.</li>
+<li><strong>Přepínač</strong> – dočasně zapne nebo vypne budík bez smazání jeho nastavení.</li>
+<li><strong>Smazat</strong> – smaže vybraný budík.</li>
+<li><strong>Přidat budík</strong> – otevře obrazovku pro vytvoření nového budíku.</li>
+</ol>
+
+<h3 id="alarms-create">6.2. Vytvoření a úprava budíku</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_time_schedule.webp" alt="Horní část editoru alarmů ShiftAlarm: čas, typ plánu, odložení a ovládací prvky uložení">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Čas</strong> – posouváním koleček hodin a minut nastavte čas upozornění.</li>
+<li><strong>Typ plánu</strong> – vyberte jeden z těchto režimů:
+<ul>
+<li><strong>Jednou</strong> – budík se spustí jednou ve vybraný den;</li>
+<li><strong>Po dnech</strong> – opakuje se ve vybrané dny v týdnu;</li>
+<li><strong>Po směnách</strong> – propojí budík s vybraným plánem a typem směny.</li>
+</ul>
+</li>
+<li><strong>Odložit</strong> – nastaví, o kolik minut se upozornění odloží po klepnutí na tlačítko odložení na obrazovce zvonění.</li>
+<li><strong>Zrušit a uložit</strong> – tato tlačítka jsou pevně umístěna ve spodní části obrazovky a zůstávají dostupná při procházení editoru.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_behavior.webp" alt="Nastavení ShiftAlarm pro dobu trvání alarmu, opakování upozornění, postupné zvyšování hlasitosti a vibrace">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Trvání alarmu</strong> – určuje, jak dlouho bude alarm znít, pokud jej uživatel nezastaví.</li>
+<li><strong>Opakovat, pokud je alarm ignorován</strong> – povolí další alarm, pokud alarm nebyl ani zrušen, ani odložen. Nastavte interval před opakováním alarmu pod ním.</li>
+<li><strong>Postupné zvyšování hlasitosti</strong> – začíná tišším zvukem a postupně zvyšuje hlasitost po zvolenou dobu.</li>
+<li><strong>Vibrace</strong> – povolí nebo zakáže vibrace během alarmu.</li>
+<li><strong>Zrušit a uložit</strong> – pevné ovládací prvky editoru.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_sound_name.webp" alt="Spodní část editoru alarmů ShiftAlarm: ovládací prvky vibrace, zvuk, název a uložení">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Vibrace</strong> – povolí nebo zakáže vibrační alarm.</li>
+<li><strong>Zvuk</strong> – umožňuje vybrat vestavěný, systémový nebo uživatelem přidaný zvuk. Do aplikace můžete přidat až pět vlastních zvuků.</li>
+<li><strong>Název</strong> – volitelný popisek, který vám pomůže rozlišit alarmy.</li>
+<li><strong>Zrušit a uložit</strong> – zahoďte změny nebo uložte alarm.</li>
+</ol>
+
+<div class="notice">Po uložení se alarm zobrazí v hlavním seznamu. Před důležitým upozorněním se ujistěte, že je alarm povolen, že aplikace má oprávnění k oznámením a přesnému alarmu a že systém neomezuje její aktivitu na pozadí.</div>
+
+<div class="tip">Chcete-li vytvořit alarm propojený se směnou, nejprve vytvořte vhodný plán směny. V editoru vyberte pevný čas spuštění nebo posun vzhledem k začátku směny.</div>
+
+<h2 id="geo">7. Geo alarmy</h2>
+
+<p>Geo alarm monitoruje, kdy zařízení vstoupí do vybrané oblasti nebo ji opustí. Oblast je definována bodem na mapě a poloměrem kolem tohoto bodu. Například můžete pomocí Geo Alarmu přijímat upozornění při přiblížení se k práci, domovu, autobusové zastávce, nádraží nebo jinému místu.</p>
+
+<h3 id="geo-overview">7.1. Mapa a ovládací prvky</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_overview.webp" alt="Hlavní obrazovka geoalarmu ShiftAlarm s mapou a očíslovanými ovládacími prvky">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Přiblížit</strong> – zvětší mapu.</li>
+<li><strong>Oddálit</strong> – zmenší měřítko mapy.</li>
+<li><strong>Moje poloha</strong> – přesune mapu na aktuální polohu zařízení. Aplikace pro tuto funkci potřebuje přístup k poloze.</li>
+<li><strong>Uložená místa</strong> – otevře seznam uložených geoalarmů a bodů polohy.</li>
+<li><strong>Zpět</strong> – vrátí se na předchozí obrazovku aplikace.</li>
+<li><strong>Počet geoalarmů</strong> – zobrazuje, kolik geoalarmů bylo vytvořeno.</li>
+<li><strong>Seznam geoalarmů</strong> – otevře samostatný seznam vytvořených geoalarmů.</li>
+</ol>
+
+<div class="tip">Přiblížit můžete také pomocí gest. Dotkněte se mapy dvěma prsty a roztáhněte je od sebe pro přiblížení nebo je stáhněte k sobě pro oddálení.</div>
+<div class="notice">Boční ovládací prvky se mohou v jazycích s psaním zprava doleva zobrazit na opačné straně. Jejich funkce zůstávají stejné.</div>
+
+<h3 id="geo-saved-places">7.2. Uložené alarmy a body polohy</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_saved_places.webp" alt="Okno uložených míst s kartami geoalarmu a bodů polohy">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Alarmy</strong> — zobrazuje geoalarmy přidané k uloženým místům.</li>
+<li><strong>Body polohy</strong> — zobrazuje uložené souřadnice bez aktivního geoalarmu.</li>
+<li><strong>Seznam uložených míst</strong> — klepnutím na kartu se přesunete na dané místo na mapě.</li>
+<li><strong>Zavřít</strong> — zavře okno a vrátí se na mapu.</li>
+</ol>
+
+<div class="notice">Pokud smažete geoalarm uložený v záložce, jeho souřadnice se automaticky uchovají na kartě „Body polohy“. Bod můžete později znovu použít k vytvoření dalšího geoalarmu.</div>
+
+<h3 id="geo-select-point">7.3. Výběr bodu a poloměru</h3>
+
+<p>Dotkněte se a podržte požadované místo na mapě. Aplikace umístí značku a otevře panel vybraného bodu.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_selected_point.webp" alt="Vybraný bod na mapě s adresou, poloměrem, záložkou a tlačítkem pro vytvoření geoalarmu">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Značka vybraného bodu</strong> – střed budoucí geofence. Mapa také zobrazuje kruh pro vybraný poloměr.</li>
+<li><strong>Adresa a souřadnice</strong> – umožňuje ověřit, zda je vybráno správné místo.</li>
+<li><strong>Uložit bod umístění</strong> – přidá vybrané souřadnice k uloženým místům bez spuštění alarmu.</li>
+<li><strong>Poloměr</strong> – nastaví velikost oblasti kolem bodu. Posouvejte posuvník, dokud nevyberete vhodnou vzdálenost.</li>
+<li><strong>Zrušit</strong> – zruší výběr bodu.</li>
+<li><strong>Vytvořit zde</strong> – otevře nový editor geoalarmů pro vybraný bod.</li>
+</ol>
+
+<div class="warning"><strong>Jak zvolit poloměr.</strong> Telefon nesleduje své souřadnice nepřetržitě. Android, výrobce zařízení, režim úspory baterie, GPS, kvalita signálu mobilní sítě a Wi-Fi a rychlost pohybu – to vše ovlivňuje, kdy je hranice detekována. Upozornění se proto může spustit mimo nakreslenou čáru. Například s poloměrem 800 m může být vstup detekován poté, co se zařízení již nachází v oblasti – možná 700, 600 nebo 500 m od bodu.</div>
+
+<ul>
+<li><strong>Ve městě</strong> se obecně doporučuje poloměr <strong>1 300–1 500 m</strong>.</li>
+<li><strong>Mimo město</strong>, kde mohou být aktualizace polohy méně časté, se doporučuje <strong>4 000–5 000 m</strong>.</li>
+<li><strong>Přesný poloměr</strong> by měl být zvolen na základě vaší trasy, rychlosti a chování zařízení.</li>
+</ul>
+
+<div class="notice">Systém detekuje, kdy zařízení překročí virtuální hranici oblasti. V režimu „Při vstupu“ větší poloměr obvykle dává telefonu více času na detekci vašeho přiblížení. V režimu „Při odchodu“ je hranice umístěna dále od vybraného bodu.</div>
+
+<h3 id="geo-create">7.4. Vytvoření geoalarmu</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_location_schedule.webp" alt="Horní část editoru geoalarmů: připravenost, umístění a typ plánu">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Připravenost geoalarmu</strong> – zobrazuje, zda jsou nakonfigurována požadovaná oprávnění a zda aplikace může geofence zaregistrovat.</li>
+<li><strong>Poloha</strong> – obsahuje vybranou adresu a souřadnice. Adresu můžete upravit jako popisek, ale skutečný bod je vybrán na mapě.</li>
+<li><strong>Typ plánu</strong> – určuje dny a podmínky, za kterých je geoalarm aktivní.</li>
+<li><strong>Vždy</strong> – geoalarm je aktivní každý den, dokud je povolen.</li>
+<li><strong>Jednou</strong> – používá se pro další jednorázové spuštění, když je splněna vybraná podmínka.</li>
+<li><strong>Po dnech</strong> – funguje pouze ve vybrané dny v týdnu.</li>
+<li><strong>Po směnách</strong> – propojuje Geo Alarm s aktivním rozvrhem směn.</li>
+</ol>
+
+<div class="notice"><strong>Rozvrh „Po směnách“.</strong> Vyberte, zda se má spustit v den směny, pouze před směnou nebo pouze po ní, a zadejte požadovaný typ směny: denní, noční, ranní, večerní, 24hodinová, vlastní nebo libovolná pracovní směna.</div>
+<div class="tip">Pokud je datum v kalendáři označeno jako den volna, dovolená, nemocenská nebo volno místo pracovní směny, Geo Alarm propojený se směnou nebude v daný den aktivní.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_trigger_settings.webp" alt="Spodní část editoru geoalarmů: podmínka vstupu nebo výstupu, poloměr a nastavení upozornění">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Spouštěcí podmínka</strong> – určuje, které překročení hranice spustí upozornění.</li>
+<li><strong>Při vjezdu</strong> – spustí upozornění, když zařízení vstoupí do vybraného okruhu, například při přiblížení se k práci nebo požadované zastávce.</li>
+<li><strong>Při výjezdu</strong> – spustí upozornění, když zařízení opustí vybraný okruh, například po odchodu z práce nebo stanice, abyste nezmeškali další část trasy.</li>
+<li><strong>Při vjezdu nebo výjezdu</strong> – spustí upozornění vždy, když je hranice překročena v kterémkoli směru.</li>
+<li><strong>Poloměr</strong> – velikost geofence kolem vybraného bodu.</li>
+<li><strong>Trvání alarmu</strong> – určuje, jak dlouho bude upozornění znít.</li>
+<li><strong>Postupné zvyšování hlasitosti</strong> – nastaví plynulé zvyšování hlasitosti po spuštění upozornění.</li>
+<li><strong>Zrušit a uložit</strong> – zahodit změny nebo uložení geoalarmu.</li>
+</ol>
+
+<div class="tip">Zbývající níže uvedené možnosti jsou podobné jako u běžného alarmu: zvuk, vibrace, doba trvání upozornění, postupné zvyšování hlasitosti a název.</div>
+
+<h3 id="geo-existing">7.5. Geoalarm na mapě a jeho ovládání</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_marker_radius.webp" alt="Vytvořena značka geoalarmu a její kruh s poloměrem spouštění na mapě">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Značka geoalarmu</strong> — zobrazuje vybraný bod.</li>
+<li><strong>Hranice poloměru</strong> — zobrazuje oblast, jejíž vstup nebo výstup je monitorován aplikací.</li>
+</ol>
+
+<p>Klepněte na značku geoalarmu. Nejprve se zobrazí malé informační okno. Klepnutím na toto okno otevřete podrobnou kartu.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_alarm_card.webp" alt="Podrobná karta geoalarmu s informacemi, záložkou, přepínačem a ovládacími prvky">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Název a adresa</strong> – identifikuje vybraný geoalarm.</li>
+<li><strong>Záložka</strong> – přidá alarm do uložených míst nebo jej z nich odebere.</li>
+<li><strong>Přepínač</strong> – povolí nebo dočasně deaktivuje geoalarm bez smazání jeho nastavení.</li>
+<li><strong>Nastavení a stav</strong> – zobrazuje poloměr, podmínky vstupu nebo výstupu, plán, připravenost geofence a informace o předchozích aktivacích.</li>
+<li><strong>Upravit</strong> – otevře nastavení geoalarmu.</li>
+<li><strong>Zavřít</strong> – zavře kartu a vrátí se na mapu.</li>
+<li><strong>Smazat</strong> – po potvrzení smaže geoalarm.</li>
+</ol>
+
+<div class="warning">Pro spolehlivé provoz, povolit přesné určování polohy na pozadí, odstranit přísná omezení baterie pro ShiftAlarm a zkontrolovat nastavení automatického spouštění, pokud je vaše zařízení nabízí. I při správném nastavení Android nezaručuje detekci hranic s přesností na několik metrů.</div>
+
+<h2 id="notes">8. Poznámky, události a připomenutí</h2>
+
+<p>Sekce „Poznámky“ ukládá prostý text, seznamy, kontrolní seznamy, zvukové nahrávky, poznámky s převodem řeči na text, připomenutí a události.</p>
+
+<h3 id="notes-create">8.1. Přidání poznámky</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_type_picker.webp" alt="Výběr nového typu poznámky v ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Úchyt panelu</strong> – přetažením nahoru zobrazíte celý seznam typů poznámek, přetažením dolů panel zavřete.</li>
+<li><strong>Typ poznámky</strong> – vyberte příslušnou možnost:
+<ul>
+<li><strong>Textová poznámka</strong> – prostý text;</li>
+<li><strong>Kontrolní seznam</strong> – seznam položek se zaškrtávacími políčky pro dokončení;</li>
+<li><strong>Seznam</strong> – seznam s odrážkami nebo číslovaný seznam;</li>
+<li><strong>Zvuková poznámka</strong> – hlasová nahrávka;</li>
+<li><strong>Převod řeči na text</strong> – vytvoří poznámku pomocí rozpoznávání řeči;</li>
+<li><strong>Připomenutí</strong> – záznam s oznámením v určený čas;</li>
+<li><strong>Událost</strong> – záznam propojený s datem a časem.</li>
+</ul>
+</li>
+<li><strong>Zrušit</strong> – zavře výběr bez vytvoření poznámky.</li>
+</ol>
+
+<div class="tip">Po výběru typu se otevře příslušný editor. Vyplňte požadovaná pole a záznam uložte.</div>
+
+<h3 id="notes-list">8.2. Seznam poznámek a ovládací prvky</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_overview.webp" alt="Obrazovka poznámek ShiftAlarm s řazením, aktivními a archivovanými poznámkami, vyhledáváním a akcemi s kartami">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Řadit</strong> – mění pořadí poznámek v seznamu.</li>
+<li><strong>Aktivní</strong> – zobrazuje běžné a plánované poznámky, které nebyly přesunuty do archivu.</li>
+<li><strong>Archiv</strong> – otevře seznam archivovaných poznámek.</li>
+<li><strong>Hledat</strong> – vyhledá shody v názvech a obsahu poznámek.</li>
+<li><strong>Karta poznámky</strong> – zobrazuje název, typ, stav a další informace. Klepnutím na kartu otevřete poznámku.</li>
+<li><strong>Připnout</strong> – připne poznámku na začátek seznamu.</li>
+<li><strong>Archivovat</strong> – odebere poznámku z aktivního seznamu a přesune ji do archivu.</li>
+<li><strong>Smazat</strong> – po potvrzení smaže poznámku.</li>
+<li><strong>Přidat poznámku</strong> – otevře výběr nového typu poznámky.</li>
+</ol>
+
+<div class="notice">Archiv použijte pro položky, které již nejsou v hlavním seznamu potřeba, ale měly by zůstat uložené. Poznámku smažte pouze tehdy, když již není vůbec potřeba.</div>
+
+<h2 id="clock">9. Hodiny, stopky a časovač</h2>
+
+<p>Tato sekce kombinuje místní a světový čas, stopky a časovač. Otevřete jej tlačítkem <strong>„Hodiny“</strong> na hlavní obrazovce.</p>
+
+<div class="notice">V dolní části obrazovky se zobrazí tři karty: „Hodiny“, „Stopky“ a „Časovač“. Klepnutím na kartu přepnete režimy.</div>
+
+<h3 id="clock-world">9.1. Hodiny a světové hodiny</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_overview.webp" alt="Obrazovka hodin ShiftAlarm s místním časem, světovými hodinami, tlačítkem Přidat a spodními záložkami">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Místní čas</strong> – zobrazuje aktuální čas, datum a časové pásmo systému zařízení.</li>
+<li><strong>Světové hodiny</strong> – zobrazuje přidaná města a časová pásma. Pokud je seznam prázdný, aplikace zobrazuje nápovědu.</li>
+<li><strong>Tlačítko Plus</strong> – otevírá výběr světového času.</li>
+<li><strong>Karty sekcí</strong> – přepínání mezi obrazovkami „Hodiny“, „Stopky“ a „Časovač“.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_add_timezone.webp" alt="Přidání města nebo časového pásma do světových hodin ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Hledat</strong> – zadejte název města nebo časového pásma pro filtrování seznamu.</li>
+<li><strong>Seznam měst a časových pásem</strong> – klepnutím na požadovanou možnost ji přidáte na obrazovku světového času.</li>
+</ol>
+
+<div class="tip">Místní časové pásmo se vždy zobrazuje jako první. Přidané světové hodiny můžete ze seznamu odebrat, ale místní čas odebrat nelze.</div>
+
+<h3 id="clock-stopwatch">9.2. Stopky</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_start.webp" alt="Stopky ShiftAlarm před spuštěním">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Historie</strong> — otevře uložené relace stopek.</li>
+<li><strong>Start</strong> — spustí měření času.</li>
+<li><strong>Reset</strong> — není k dispozici před spuštěním stopek. Po zastavení vrátí stopky na nulu a odstraní aktuální kola.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_running.webp" alt="Spuštěné stopky ShiftAlarm s historií, ukládáním, koly a ovládacími prvky pozastavení">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Historie</strong> — zobrazí dříve uložené relace.</li>
+<li><strong>Uložit</strong> — vyzve k zadání názvu a uloží aktuální relaci stopek.</li>
+<li><strong>Kolo</strong> — zaznamená mezivýsledek bez zastavení celkového časovače.</li>
+<li><strong>Pozastavit</strong> — pozastaví stopky. Po pozastavení můžete záznam obnovit nebo resetovat.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_laps.webp" alt="Kola stopek ShiftAlarm a jejich možnosti řazení">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Původní, nejrychlejší a nejpomalejší</strong> – změna pořadí zobrazení kol: původní pořadí, nejrychlejší nebo nejpomalejší.</li>
+<li><strong>Kola</strong> – každé kolo zobrazuje celkový čas, ve kterém bylo zaznamenáno, a čas jednotlivých kol.</li>
+</ol>
+
+<div class="notice">Po klepnutí na Uložit zadejte název relace a potvrďte. Uloženou relaci můžete později otevřít z Historie.</div>
+
+<h3 id="clock-timer">9.3. Časovač</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_setup.webp" alt="Nastavení časovače ShiftAlarm s hodinovými, minutovými a sekundovými kolečky">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Hodiny</strong> – posouvejte kolečko a vyberte počet hodin.</li>
+<li><strong>Minuty</strong> – posouvejte kolečko a vyberte počet minut.</li>
+<li><strong>Sekundy</strong> – posouvejte kolečko a vyberte počet sekund.</li>
+<li><strong>Start</strong> – spustí časovač s vybranou dobou trvání.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_running.webp" alt="Spuštěné časovače ShiftAlarm s ovládacími prvky zbývajícího času, pozastavení, přidání minuty a zastavení">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Zbývající čas</strong> – zobrazuje, kolik času zbývá do upozornění.</li>
+<li><strong>Čas dokončení</strong> – zobrazuje přibližný čas, kdy časovač skončí.</li>
+<li><strong>Nedávné časovače</strong> – uložené nedávné doby trvání; klepnutím na jednu z nich ji můžete rychle znovu použít.</li>
+<li><strong>Pozastavit</strong> – dočasně zastaví odpočítávání. Můžete jej později obnovit.</li>
+<li><strong>+1 min</strong> – přidá jednu minutu ke zbývajícímu času.</li>
+<li><strong>Stop</strong> – zcela zastaví časovač.</li>
+</ol>
+
+<div class="tip">Časovač a stopky běží na pozadí. Jejich stav se může zobrazit v oznámení, na hlavní obrazovce a ve widgetech.</div>
+
+<h2 id="widgets">10. Widgety</h2>
+
+<p>ShiftAlarm nabízí widgety pro domovskou obrazovku telefonu.</p>
+<ul>
+<li><strong>Dnes 4×2</strong> — kompaktní panel se dvěma konfigurovatelnými sekcemi.</li>
+<li><strong>Dnes 4×3</strong> — panel s hodinami nahoře a dvěma sekcemi dole.</li>
+<li><strong>Kalendář 4×4</strong> — widgety kalendáře s rozvrhem směn.</li>
+</ul>
+<p>Přidejte widget prostřednictvím nabídky widgetů Android na domovské obrazovce telefonu.</p>
+
+<h2 id="salary">11. Výpočet platu</h2>
+
+<p>Otevřete „Výpočet platu“ z karty platu ve <a href="#statistics-work">statistikách vybraného rozvrhu</a>. Zde můžete nastavit způsob platby, sazbu nebo měsíční plat, pravidla pro přesčasy, bonusy a srážky. Aplikace používá tato nastavení spolu s vybraným obdobím, rozvrhem směn, změnami v kalendáři a účtováním přestávek.</p>
+
+<div class="warning"><strong>Výpočet je poskytován pouze pro informační účely.</strong> Skutečná mzda se může lišit, pokud váš zaměstnavatel používá jiný systém pro evidenci času, zaokrouhlování, příspěvky, daně, bonusy, srážky nebo platby za konkrétní typy směn. Nepoužívejte výsledek jako oficiální mzdový doklad; porovnejte jej s výplatní páskou vašeho zaměstnavatele. Pokud zjistíte metodu výpočtu, kterou aplikace nezpracovává přesně, napište e-mail vývojářům na adresu uvedenou v aplikaci. Popište pravidla, uveďte vzorová vstupní data a uveďte očekávaný výsledek. Metodu lze poté zvážit pro budoucí aktualizaci.</div>
+
+<h3 id="salary-settings">11.1. Sazba, přesčasy a bonusy</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_settings_overview.webp" alt="Obrazovka výpočtu platu s vybraným rozvrhem, typem sazby, přesčasy a bonusy">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Vybraný rozvrh</strong> – zobrazuje, který rozvrh směn se používá. Plat se vypočítává z tohoto rozvrhu a období vybraného ve statistikách.</li>
+<li><strong>Typ sazby a výše platby</strong> – vyberte platbu <strong>za hodinu</strong>, <strong>za směnu</strong> nebo <strong>za měsíc</strong> a poté zadejte odpovídající částku. Název pole se mění podle vybraného typu sazby.</li>
+<li><strong>Přesčasy</strong> – povolte tuto sekci, pokud jsou hodiny navíc placeny odlišně od běžné pracovní doby. Poté zadejte násobitel platu za přesčasy. Přidejte hodiny navíc do kalendáře pomocí <a href="#main-shift-time-adjustment">„Změnit směnu“ → „+ čas“</a>; povolte „Počítejte tento čas jako přesčas“, aby se hodiny považovaly za přesčasy.</li>
+<li><strong>Bonusy</strong> – zobrazuje aktuální metodu výpočtu a celkové částky. Klepnutím na kartu otevřete <a href="#salary-bonuses">nastavení bonusů</a>.</li>
+</ol>
+
+<div class="notice">Tlačítko „Uložit“ použije nastavení na vybraný rozvrh. Po uložení se součty ve statistikách a přehledech přepočítají s použitím zadaných dat.</div>
+
+<h3 id="salary-summary">11.2. Srážky a celkový výpočet</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions_total.webp" alt="Obrazovka výpočtu platu se srážkami a konečným rozpisem">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Srážky</strong> — zobrazuje celkovou částku a počet nakonfigurovaných srážek. Klepnutím na kartu otevřete <a href="#salary-deductions">seznam srážek</a>.</li>
+<li><strong>Celkem</strong> — souhrnný rozpis: placená doba, odpracované hodiny, přesčasy, základní mzda, příplatek za přesčasy, bonusy, srážky a konečný výsledek.</li>
+</ol>
+
+<div class="tip">Výsledek závisí nejen na nastavení této obrazovky, ale také na vybraném statistickém období, dokončených směnách, změnách dnů, přesčasech a nastavení neplacených přestávek.</div>
+
+<h3 id="salary-bonuses">11.3. Bonusy</h3>
+
+<p>Klepněte na kartu „Bonusy“ na obrazovce výpočtu platu. Bonus můžete zadat ručně nebo jej vypočítat jako procento, pokud to odpovídá vašemu mzdovému systému.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_bonuses.webp" alt="Obrazovka nastavení bonusů s možnostmi výpočtu a zadání částky">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Souhrnné informace</strong> – zobrazuje vypočítanou celkovou částku bonusu a základní částku použitou pro výpočet.</li>
+<li><strong>Výpočet bonusu</strong> – vyberte ruční zadání nebo procentuální výpočet, například procento z tržeb, pokud se tato metoda na vašem pracovišti používá.</li>
+<li><strong>Způsob zadání</strong> – „Celková částka“ je vhodná pro jeden konečný bonus. Samostatné řádky jsou užitečné, pokud je třeba započítat několik bonusů nezávisle.</li>
+<li><strong>Částka nebo procento</strong> – zadejte hodnotu požadovanou vybranou metodou výpočtu.</li>
+<li><strong>Zrušit a uložit</strong> – zahoďte změny nebo je použijte na výpočet platu.</li>
+</ol>
+
+<h3 id="salary-deductions">11.4. Seznam srážek</h3>
+
+<p>Klepněte na kartu „Srážky“ na hlavní obrazovce výpočtu. Tato sekce vám umožňuje ukládat několik srážek a spravovat každou z nich samostatně.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions.webp" alt="Obrazovka se seznamem srážek s celkovou částkou, řádky srážek a tlačítkem Přidat">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Souhrnné informace</strong> – zobrazuje částku a počet všech povolených srážek.</li>
+<li><strong>Řádek srážek</strong> – zobrazuje název, hodnotu a typ. Klepnutím na řádek otevřete <a href="#salary-deduction-editor">nastavení srážek</a>. Ikona koše řádek smaže.</li>
+<li><strong>Přidat srážku</strong> – tlačítko „+“ vytvoří nový řádek srážek.</li>
+<li><strong>Zrušit a uložit</strong> – zahoďte změny nebo uložte celý seznam.</li>
+</ol>
+
+<h3 id="salary-deduction-editor">11.5. Konfigurace individuálního odpočtu</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deduction_editor.webp" alt="Panel individuálních srážek s názvem, hodnotou, typem a základem srážek">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Název odpočtu</strong> – zadejte jasný název, například „Daň“, „Výživné na dítě“ nebo „Pokuta“.</li>
+<li><strong>Hodnota</strong> – zadejte částku nebo procento v závislosti na typu hodnoty vybraném níže.</li>
+<li><strong>Typ hodnoty</strong> – vyberte pevnou částku nebo procento.</li>
+<li><strong>Typ srážky</strong> — <strong>proměnná</strong> srážka se vztahuje na konkrétní zúčtovací období; <strong>opakovaná</strong> srážka se uplatňuje pravidelně, dokud zůstává povolena.</li>
+<li><strong>Srážet z</strong> – vyberte základ pro výpočet: celkový plat, základní mzda, bonusy nebo jiná dostupná možnost.</li>
+<li><strong>Povoleno</strong> – dočasně deaktivuje srážku bez smazání jejího nastavení.</li>
+<li><strong>Zrušit a uložit</strong> – zavřete panel beze změn nebo uložte srážku.</li>
+</ol>
+
+<div class="notice">U procentuální srážky je obzvláště důležité vybrat správný základ „Srážet z“: stejné procento z celkového platu, základní mzdy a bonusů vede k různým výsledkům.</div>
+
+<h2 id="settings">12. Nastavení</h2>
+
+<p>Otevřete „Nastavení“ pomocí tlačítka ve spodní části <a href="#main-overview">hlavní obrazovky</a>. Tato sekce obsahuje systémová oprávnění, vzhled a jazyk aplikace, rozpoznávání řeči offline, dokumenty a uživatelskou příručku, zálohování, diagnostiku a možnosti kontaktování vývojářů.</p>
+
+<h3 id="settings-overview">12.1. Hlavní sekce nastavení</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_permissions_language.webp" alt="Horní část nastavení ShiftAlarm: oprávnění, motiv, jazyk aplikace a offline řečové modely">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Oprávnění</strong> – otevře nastavení oprávnění alarmů a spolehlivosti. Zkontrolujte oznámení, přesné alarmy, aktivitu na pozadí a omezení baterie. <a href="#geo">Geo alarmy</a> také vyžadují přístup k poloze; pro spuštění, když je aplikace zavřená, je nutný přístup k poloze na pozadí nebo přístup „Povolit vždy“. Názvy položek a cesty se liší podle verze systému Android a výrobce zařízení.</li>
+<li><strong>Motiv</strong> – umožňuje vybrat světlý, tmavý nebo systémový vzhled, zvolit barevnou variantu rozhraní a povolit nebo zakázat haptickou zpětnou vazbu pro akce v aplikaci. Systémový motiv se řídí aktuálním vzhledem telefonu.</li>
+<li><strong>Jazyk aplikace</strong> – umožňuje použít jazyk odlišný od systémového jazyka telefonu. Katalog ShiftAlarm obsahuje 108 jazyků: vyhledejte požadovaný jazyk pomocí vyhledávání, stáhněte si jazykový balíček a použijte jej.</li>
+<li><strong>Modely řeči offline</strong> – instaluje modul pro <a href="#notes-create">převod řeči na textové poznámky</a>. Rozpoznávání offline se v současné době testuje a je k dispozici pro přibližně 20 jazyků. Jeho kvalita může být nižší než online rozpoznávání a závisí na jazyce, mikrofonu, výkonu telefonu a podmínkách nahrávání.</li>
+</ol>
+
+<div class="warning"><strong>Oprávnění systému Android se liší v závislosti na zařízení.</strong> Na některých telefonech musíte také povolit automatické spuštění, vybrat „Neomezený“ nebo podobný režim baterie a povolit aktivitu na pozadí. Tato nastavení snižují pravděpodobnost, že systém zastaví ShiftAlarm, ale jejich přesné názvy určuje výrobce zařízení.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_help_backup_diagnostics.webp" alt="Spodní část nastavení ShiftAlarm: dokumenty, uživatelská příručka, zálohování, diagnostika a kontakt na vývojáře">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Dokumenty a nápověda</strong> – otevře právní dokumenty aplikace: Podmínky použití, Zásady ochrany osobních údajů, Prohlášení o vyloučení odpovědnosti a stručnou stránku nápovědy.</li>
+<li><strong>Školení a uživatelská příručka</strong> – otevře tuto kompletní ilustrovanou příručku s podrobným popisem funkcí ShiftAlarmu.</li>
+<li><strong>Zálohování a obnovení</strong> – vytvoří soubor obsahující podporovaná nastavení a data aplikace nebo je obnoví z dřívější zálohy. Toto je užitečné před přeinstalací aplikace, resetováním telefonu nebo přenosem dat do jiného zařízení. Podrobné pokyny naleznete v části <a href="#backup">„Zálohování a obnovení“</a>.</li>
+<li><strong>Diagnostický protokol</strong> – otevírá samostatné protokoly pro funkce aplikace. Zaznamenávají technické fáze, jako je plánování a obnovení upozornění, zpracování událostí, stav oprávnění a další servisní informace. Protokol pomáhá identifikovat fázi, ve které došlo k chybě. Záznamy můžete kopírovat nebo je připravit k odeslání e-mailem vývojářům. Podrobnosti naleznete v části <a href="#diagnostics">„Diagnostika a řešení problémů“</a>.</li>
+<li><strong>Kontaktovat vývojáře</strong> – otevírá e-mailovou aplikaci a vytváří zprávu adresovanou podpoře. Použijte ji k nahlášení problému, odeslání zpětné vazby nebo návrhu nebo k položení otázky. V případě technického problému uveďte model telefonu, verzi systému Android, čas vzniku problému, provedené kroky a pokud možno i příslušný diagnostický protokol.</li>
+</ol>
+
+<div class="notice">Diagnostické protokoly se vývojářům neodesílají automaticky. Musíte požadované informace zkopírovat nebo klepnout na „Odeslat vývojářům“, vybrat e-mailovou aplikaci, zkontrolovat připravenou zprávu a potvrdit její odeslání.</div>
+
+<h2 id="backup">13. Zálohování a obnovení</h2>
+
+<p>Záloha ukládá podporovaná nastavení ShiftAlarm a uživatelská data do samostatného souboru. Pomáhá obnovit data po přeinstalaci aplikace, resetování telefonu nebo přechodu na jiné zařízení.</p>
+<ol class="step-list">
+<li>Otevřete „Nastavení → Zálohování a obnovení.“</li>
+<li>Vytvořte zálohu a výsledný soubor uložte do telefonu nebo jej sdílejte prostřednictvím systémové nabídky.</li>
+<li>Chcete-li obnovit, otevřete stejnou sekci a vyberte dříve vytvořený záložní soubor.</li>
+<li>Po obnovení zkontrolujte důležité budíky, plány a oprávnění systému Android. Některá oprávnění zabezpečení systému může být nutné znovu udělit na novém zařízení nebo po přeinstalaci.</li>
+</ol>
+<p class="tip">Uchovávejte aktuální kopii na bezpečném místě, které zůstane přístupné i v případě ztráty, poškození nebo resetování telefonu. Záložní soubor nenahrazuje oprávnění systému Android a nemůže automaticky obsahovat data, ke kterým aplikace nemá přístup.</p>
+
+<h2 id="diagnostics">14. Diagnostika a řešení problémů</h2>
+
+<p>ShiftAlarm poskytuje samostatné diagnostické protokoly pro různé funkce. Uchovávají sekvenci technických událostí a pomáhají určit, zda bylo upozornění naplánováno, obnoveno po restartu, předáno ke zpracování nebo zastaveno kvůli nastavení systému.</p>
+
+<h3 id="diagnostics-control">14.1. Ovládání shromažďování diagnostických dat</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_sections.webp" alt="Obrazovka diagnostického protokolu ShiftAlarm s hlavním vypínačem a protokolem individuálních alarmů">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Shromažďování diagnostických dat</strong> – hlavní přepínač pro každou diagnostickou sekci v aplikaci. Vypnutím jej zastavíte přidávání nových událostí do všech protokolů najednou. Shromažďování nových událostí se obnoví po jeho opětovném povolení.</li>
+<li><strong>Protokol jednotlivých funkcí</strong> – každý modul má svůj vlastní přepínač a tlačítko „Otevřít“. Můžete například ponechat globální diagnostiku povolenou a zároveň zakázat pouze protokol budíku, hodin nebo jiného protokolu funkcí. Snímek obrazovky ukazuje protokol alarmů, který zaznamenává události doručení, plánování, obnovení, ochrany a alarmové obrazovky.</li>
+</ol>
+
+<div class="notice">Přepínače ovládají pouze záznam technických událostí. Zakázání protokolu alarmu, hodin nebo jiné funkce nedeaktivuje samotnou funkci. Dříve uložené položky smažte samostatně pomocí tlačítka „Vymazat“ v příslušném protokolu.</div>
+
+<h3 id="diagnostics-log">14.2. Protokol jednotlivých funkcí</h3>
+
+<p>V požadované diagnostické části klepněte na „Otevřít“. Níže uvedený příklad ukazuje protokol alarmů; protokoly pro ostatní funkce fungují podobným způsobem.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_alarm_log.webp" alt="Diagnostický protokol alarmů ShiftAlarm s počtem událostí, akcemi a technickými záznamy">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Uložené události</strong> – zobrazuje počet položek aktuálně uložených ve vybraném protokolu.</li>
+<li><strong>Akce protokolu</strong>:
+<ul>
+<li><strong>Kopírovat</strong> – zkopíruje všechna data z aktuálního protokolu do schránky. Můžete jej vložit do e-mailu nebo jiné aplikace.</li>
+<li><strong>Vymazat</strong> – smaže uložené položky v tomto protokolu. Po vymazání se zobrazí pouze události zaznamenané později, když je diagnostika povolena.</li>
+<li><strong>Odeslat vývojářům</strong> – otevře výběr aplikací pro odeslání e-mailu. Vyberte e-mailovou aplikaci; adresa vývojáře a diagnostická data se vloží automaticky. Před odesláním přidejte popis problému, zkontrolujte zprávu a poté potvrďte její odeslání.</li>
+</ul>
+</li>
+<li><strong>Události aplikace</strong> – samotné položky protokolu. Položka obvykle obsahuje datum a čas, název technické události a další parametry, jako je identifikátor, stav nebo důvod. Technické názvy se mohou objevit v angličtině; před odesláním je neupravujte ani nepřekládejte.</li>
+</ol>
+
+<div class="warning">Před vymazáním protokolu zkopírujte nebo odešlete všechny požadované položky. Smazané diagnostické události nelze obnovit.</div>
+
+<div class="tip">Pokud lze problém reprodukovat, nejprve povolte globální sběr diagnostických dat a příslušný protokol funkcí a poté zopakujte akce, které problém způsobily. Ve zprávě uveďte přesný čas problému, model telefonu, verzi systému Android, očekávaný výsledek a skutečný výsledek. To pomůže přizpůsobit váš popis událostem protokolu.</div>
+
+<h2 id="faq">15. Často kladené otázky</h2>
+
+<h3>Alarm se nespustil včas</h3>
+<p>Zkontrolujte oznámení, povolení přesného alarmu, aktivitu na pozadí a omezení baterie.</p>
+<h3>Geo alarm se spustil pozdě</h3>
+<p>Zkontrolujte přesnou polohu a polohu na pozadí, omezení baterie a automatické spuštění aplikace. Zkuste okruh 1 300–1 500 m ve městě a 4 000–5 000 m mimo město. Skutečná aktivace se nemusí objevit přesně na linii poloměru.</p>
+<h3>Widget se neaktualizoval okamžitě</h3>
+<p>Otevřete aplikaci nebo klepněte na tlačítko Obnovit na widgetu. Android může omezovat časté aktualizace widgetů.</p>
+<h3>Změnil(a) jsem jazyk, ale dokument nebo průvodce se ještě neaktualizoval(a)</h3>
+<p>Zkontrolujte připojení k internetu a počítejte se stažením. Pokud vzdálená verze není k dispozici, aplikace použije svou vestavěnou záložní verzi.</p>
+
+<div class="footer small">Průvodce lze aktualizovat prostřednictvím GitHubu. Pokud vzdálená verze není k dispozici, aplikace použije svou vestavěnou offline verzi.</div>
+</main>
+</body>
+</html>

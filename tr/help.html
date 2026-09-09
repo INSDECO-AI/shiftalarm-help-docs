@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ShiftAlarm Kullanım Kılavuzu</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #64748b;
+  --accent: #2563eb;
+  --soft: #e8eef8;
+  --border: #dbe4f0;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.58;
+  margin: 0;
+  padding: 18px;
+  color: var(--text);
+  background: var(--bg);
+}
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+h1 { margin: 0 0 8px; font-size: 28px; line-height: 1.2; }
+h2 { margin: 32px 0 10px; font-size: 21px; line-height: 1.25; }
+h3 { margin: 22px 0 8px; font-size: 17px; }
+p, li { font-size: 16px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul, ol { padding-left: 22px; }
+.notice, .tip, .warning {
+  padding: 14px 16px;
+  border-radius: 16px;
+  margin: 14px 0;
+  border: 1px solid var(--border);
+}
+.notice { background: var(--soft); }
+.tip { background: #ecfdf5; }
+.warning { background: #fff7ed; }
+.small { color: var(--muted); font-size: 14px; }
+.toc {
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 16px;
+  margin: 18px 0 24px;
+}
+.toc ol { margin: 8px 0 0; }
+.step-list li { margin-bottom: 8px; }
+.guide-figure {
+  margin: 18px 0;
+}
+.guide-image {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+}
+.callout-list li {
+  margin-bottom: 10px;
+}
+.guide-caption {
+  max-width: 520px;
+  margin: 10px auto 0;
+  color: var(--text);
+  font-size: 15px;
+}
+.guide-caption strong {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.footer {
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --card: #111827;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --accent: #93c5fd;
+    --soft: #1f2937;
+    --border: #334155;
+  }
+  main { box-shadow: none; }
+  .toc { background: #172033; }
+  .tip { background: #10251f; }
+  .warning { background: #2a1d10; }
+}
+</style>
+</head>
+<body>
+<main>
+<h1>ShiftAlarm Kullanım Kılavuzu</h1>
+<p class="small">Sürüm 14. Tarih: 2 Ağustos 2026.</p>
+<div class="notice">Bu sayfa, ShiftAlarm için pratik bir rehber niteliğindedir. Her bir ana özelliğin ne işe yaradığı, nerede bulunduğu, nereye dokunulması gerektiği ve bir özellik beklendiği gibi çalışmadığında nelerin kontrol edilmesi gerektiği açıklanmaktadır.</div>
+<nav class="toc">
+<strong>İçindekiler</strong>
+<ol><li><a href="#start">1. İlk çalıştırma</a></li><li><a href="#permissions">2. İzinler ve güvenilirlik</a></li><li><a href="#main">3. Ana ekran</a></li><li><a href="#shifts">4. Vardiya programları</a></li><li><a href="#statistics">5. Program istatistikleri</a></li><li><a href="#alarms">6. Alarmlar</a></li><li><a href="#geo">7. Konum tabanlı alarmlar</a></li><li><a href="#notes">8. Notlar, etkinlikler ve hatırlatıcılar</a></li><li><a href="#clock">9. Saat, zamanlayıcı ve kronometre</a></li><li><a href="#widgets">10. Araç takımları (Widget'lar)</a></li><li><a href="#salary">11. Maaş hesaplama</a></li><li><a href="#settings">12. Ayarlar</a></li><li><a href="#backup">13. Yedekleme ve geri yükleme</a></li><li><a href="#diagnostics">14. Tanılama ve sorun giderme</a></li><li><a href="#faq">15. Sıkça sorulan sorular</a></li></ol>
+</nav>
+<h2 id="start">1. İlk çalıştırma</h2>
+
+<p>ShiftAlarm ilk kez başlatıldığında, kısa bir kurulum süreci gösterir. Ana ekran halihazırda arka planda mevcuttur, ancak önce temel kurulumu tamamlamak en iyisidir.</p>
+<ol class="step-list">
+<li>Tanıtıcı bilgileri okuyun ve “Devam Et”e dokunun.</li>
+<li>Belgeler adımında, belgeleri açın veya ilerlemeye hazır olduğunuzda gerekli belgeleri kabul edin.</li>
+<li>İzinler adımında, izinler ekranını açın ve bildirimler, tam zamanlı alarmlar, konum erişimi ve pil kısıtlamalarını kontrol edin.</li>
+<li>“Kurulumu tamamla”ya dokunun.</li>
+</ol>
+<p class="tip">İzinleri daha sonra “Ayarlar → İzinler ve güvenilirlik” bölümünden yapılandırabilirsiniz.</p>
+
+<h2 id="permissions">2. İzinler ve güvenilirlik</h2>
+
+<p>Alarmlar, hatırlatıcılar ve Coğrafi Alarmlar (Geo Alarms), Android ayarlarına ve cihaz üreticisinin yazılımına bağlıdır.</p>
+<ul>
+<li><strong>Bildirimler</strong> — alarmlar, hatırlatıcılar, zamanlayıcı ve hizmet bildirimleri için gereklidir.</li>
+<li><strong>Tam zamanlı alarmlar</strong> — alarmın gereken zamanda başlamasına yardımcı olur.</li>
+<li><strong>Konum</strong> — Coğrafi Alarmlar için gereklidir.</li>
+<li><strong>Arka plan konumu</strong> — uygulama kapalıyken Coğrafi Alarmın çalışması için gereklidir.</li>
+<li><strong>Pil ve arka plan etkinliği</strong> — Xiaomi/Redmi ve diğer bazı cihazlarda tetikleme güvenilirliğini etkileyebilir.</li>
+</ul>
+<p class="warning">Android; bildirimlerin, tam zamanlı alarmların veya coğrafi sınır (geofence) olaylarının anında iletilmesini her zaman garanti etmez. Önemli uyarılar için izinler ekranındaki her bir öğeyi kontrol edin.</p>
+
+<h2 id="main">3. Ana ekran</h2>
+
+<p>Ana ekran, günlük kontrol panelinizdir. Takvime, saate, Coğrafi Alarmlara, normal alarmlara, vardiya programlarına, notlara ve ayarlara doğrudan erişim sağlar.</p>
+
+<h3 id="main-overview">3.1. Ana ekran öğeleri</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_screen_overview.png" alt="Numaralandırılmış kontrollere sahip ShiftAlarm ana ekranı">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Geri oku</strong> — takvimi bir önceki aya taşır.</li>
+<li><strong>Ay ve yıl</strong> — görüntülenen ayı gösterir. <a href="#main-date-picker">Adım adım ay ve yıl seçiciyi</a> kullanmak için bu alana dokunun.</li>
+<li><strong>İleri oku</strong> — takvimi bir sonraki aya taşır.</li>
+<li><strong>Takvim</strong> — ana ay görünümü alanı. Takvimi kaydırarak ilerletebilirsiniz. Her gün; tarihi, hatırlatıcıları, etkinlikleri, planlanmış vardiyayı ve gün değişikliklerini gösterebilir. Normal dokunuş bir tarihi seçer; uzun basma ise <a href="#main-day-actions">seçilen güne ait bilgileri ve işlemleri</a> açar.</li>
+<li><strong>Bugün</strong> — takvimi geçerli güne döndürür.</li>
+<li><strong>Saat</strong> — <a href="#clock">dünya saati, kronometre ve zamanlayıcıyı</a> açar.</li>
+<li><strong>Konum Alarmı</strong> — <a href="#geo">haritayı, kaydedilen yerleri ve Konum Alarmı ayarlarını</a> açar. Seçilen alana girdiğinizde, alandan çıktığınızda veya her iki durumda da bir uyarı tetiklenebilir.</li>
+<li><strong>Alarm</strong> — <a href="#alarms">normal, tekrarlayan ve vardiyaya bağlı alarmları</a> açar.</li>
+<li><strong>Çizelge</strong> — <a href="#shifts">vardiya çizelgelerini, bunların oluşturulmasını, düzenlenmesini ve istatistikleri</a> açar.</li>
+<li><strong>Notlar</strong> — <a href="#notes">notları, etkinlikleri, hatırlatıcıları, sesli notları ve konuşmadan metne dönüştürme özelliğini</a> açar.</li>
+<li><strong>Ayarlar</strong> — <a href="#settings">izinleri, dili, temayı, çevrimdışı konuşma modellerini, yedeklemeyi, tanılamayı, belgeleri ve eğitimi</a> açar.</li>
+</ol>
+
+
+<h3 id="main-date-picker">3.2. Ay ve yıl seçimi</h3>
+
+<p>İstenen takvim dönemini hızla açmak için ana ekranın üst kısmındaki ay ve yıl bilgisine dokunun. Seçim işlemi aşamalı olarak ilerler: <strong>yüzyıl → on yıl → yıl → ay</strong>.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_century.webp" alt="1. Adım: ShiftAlarm takviminde yüzyıl seçimi">
+<figcaption class="guide-caption"><strong>1. Yüzyıl seçin.</strong> İhtiyacınız olan yılı içeren döneme dokunun. Örnekte 2000'li yıllar seçilmiştir.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_decade.webp" alt="2. Adım: ShiftAlarm takviminde on yıl seçimi">
+<figcaption class="guide-caption"><strong>2. On yıl seçin.</strong> İstenen yılı içeren aralığa dokunun. 2026 yılı için "2020–2029" aralığını seçin.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_year.webp" alt="3. Adım: ShiftAlarm takviminde yıl seçimi">
+<figcaption class="guide-caption"><strong>3. Yıl seçin.</strong> İstenen yıla dokunun. Örnekte 2026 yılı seçilmiştir.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_month.webp" alt="4. Adım: ShiftAlarm takviminde ay seçimi">
+<figcaption class="guide-caption"><strong>4. Ay seçin.</strong> İstenen aya dokunun. Örnekte Temmuz ayı seçilmektedir.</figcaption>
+</figure>
+
+<div class="tip">Bir ay seçtikten sonra panel kapanır ve ana takvim, seçilen ay ve yıl görünümüyle açılır.</div>
+<div class="notice">"Geri" düğmesi bir önceki aşamaya dönmeyi sağlar. Yüzyıl ekranındayken ise tarih seçiciyi kapatır.</div>
+
+<h3 id="main-day-actions">3.3. Seçilen güne ait bilgiler ve işlemler</h3>
+
+<p>Takvimde ilgili güne dokunup basılı tutun. O tarihe ait bilgilerin ve işlemlerin yer aldığı bir panel açılır. Mevcut tüm işlemleri görmek için paneli yukarı doğru sürükleyin.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_day_actions.webp" alt="Seçili takvim günü için ShiftAlarm bilgi ve işlem paneli">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tarih</strong> — haftanın gününü ve seçilen tarihi gösterir. Paneli genişletmek veya kapatmak için üst kısımdaki tutamacı yukarı ya da aşağı sürükleyin.</li>
+<li><strong>Vardiya</strong> — hesaplanan vardiyayı veya izin günü, serbest zaman, tatil, hastalık izni ya da başka bir istisnai durum gibi gün değişikliklerini gösterir.</li>
+<li><strong>Bu tarih için alarmlar</strong> — seçilen güne atanmış alarmları gösterir veya hiç alarm bulunmadığını belirtir.</li>
+<li><strong>Etkinlikler ve hatırlatıcılar</strong> — seçilen tarihle ilişkili kayıtları gösterir.</li>
+<li><strong>Alarm ekle</strong> — seçilen tarih için tek seferlik bir alarm oluşturma ekranını açar.</li>
+<li><strong>Vardiya değiştir</strong> — aktif programda bir gün veya bir tarih aralığı için istisnai bir durum oluşturur.</li>
+<li><strong>Not ekle</strong> — seçilen tarih için oluşturulacak bir etkinlik veya hatırlatıcı seçmenizi sağlar.</li>
+</ol>
+
+<div class="notice">"Vardiya değiştir" işlemi, aktif vardiya programındaki günleri düzenlemek için kullanılabilir.</div>
+
+<h4 id="main-shift-override">Bir günü veya tarih aralığını değiştirme</h4>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_types.webp" alt="ShiftAlarm'da tarih aralığı ve vardiya değişikliği türü seçimi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Başlangıç ​​tarihi</strong> — değişikliğin ilk günü. Başlangıçta takvimde seçilen tarih kullanılır.</li>
+<li><strong>Bitiş tarihi</strong> — değişikliğin son günü. Yalnızca tek bir günü değiştirmek için, seçili tarihi değiştirmeden bırakın.</li>
+<li><strong>İzin</strong> — hesaplanan vardiyanın yerine izin tanımlar.</li>
+<li><strong>Tatil</strong> — seçili günü veya tarih aralığını tatil olarak işaretler.</li>
+<li><strong>Hastalık izni</strong> — seçili günü veya tarih aralığını hastalık izni olarak işaretler.</li>
+<li><strong>Değişikliği kaydet</strong> — seçili istisnayı takvime uygular.</li>
+</ol>
+
+<h4 id="main-shift-time-adjustment">Çalışma süresini ayarlama</h4>
+
+<p>Değişiklik türleri listesinde aşağı kaydırın ve hesaplanan çalışma vardiyasının süresini değiştirmek için “Vardiyayı düzenle”yi seçin.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_time_adjustment.webp" alt="ShiftAlarm'da vardiya çalışma süresini ayarlama">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Vardiyayı düzenle</strong> — seçili vardiya için çalışma süresi ayarlaması yapmayı sağlar.</li>
+<li><strong>+ süre</strong> — standart vardiya süresine saat veya dakika ekler.</li>
+<li><strong>− süre</strong> — vardiya süresini kısaltır; örneğin iş erken bittiğinde kullanılır.</li>
+<li><strong>Bu süreyi fazla mesai say</strong> — eklenen süreyi fazla mesai olarak değerlendirir. Bu seçenek kapalıysa, normal çalışma süresi olarak sayılır.</li>
+<li><strong>Değişikliği kaydet</strong> — yapılan ayarlamayı seçili güne veya tarih aralığına uygular.</li>
+</ol>
+
+<div class="tip">Günlük bir değişiklik, orijinal program şablonunu değiştirmez. Bu değişiklik ayrı bir istisna olarak saklanır ve takvime, istatistiklere, maaş hesaplamasına ve raporlara dahil edilir.</div>
+
+<h2 id="shifts">4. Vardiya programları</h2>
+
+<p>Vardiya programı, tekrarlayan bir çalışma döngüsünü tanımlar ve diğer ShiftAlarm özellikleri için temel oluşturur. Uygulama bu programı; takvimi doldurmak, alarmları vardiyalarla ilişkilendirmek, çalışma süresini hesaplamak, istatistikler oluşturmak, maaş tahmini yapmak ve raporlar hazırlamak için kullanır.</p>
+
+<div class="notice"><strong>Temel ilke.</strong> Öncelikle temel tekrarlayan programı oluşturun. Tatil, hastalık izni, izin, tek seferlik yedek vardiya veya çalışma süresi ayarlaması gibi durumları, <a href="#main-day-actions">seçili gün işlemleri</a> aracılığıyla belirli tarihler için birer istisna olarak ekleyin. Bu yöntem, orijinal döngünün değişmeden kalmasını sağlar.</div>
+
+<h3 id="shifts-list">4.1. Program listesi ve kontrolleri</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedules_overview.webp" alt="Aktif bir program kartı ve numaralandırılmış kontroller içeren ShiftAlarm program ekranı">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Program ayrıntıları</strong> — ad, başlangıç ​​tarihi, döngü uzunluğu ve kısa bir gün dizisi. Örnekteki “G · G · İ · İ” ifadesi, iki gündüz vardiyasını takiben iki izin günü anlamına gelir.</li>
+<li><strong>Geçiş yap</strong> — programı silmeden geçici olarak devre dışı bırakır. Tekrar etkinleştirdiğinizde, kaydedilmiş ayarlar geçerliliğini korur.</li>
+<li><strong>Çizelge durumu</strong> — şu anda hangi çizelgenin etkin olduğunu gösterir.</li>
+<li><strong>Düzenle</strong> — değiştirilebilir parametreleri açar. İlk kurulumdan sonra, halihazırda oluşturulmuş takvim verilerinin kazara yeniden hesaplanmasını önlemek amacıyla çizelge temelinin bir kısmı kilitlenir.</li>
+<li><strong>Sil</strong> — onay alındıktan sonra çizelgeyi siler. Silmeden önce, vardiya ile bağlantılı alarmları ve hesaplamaları kontrol edin.</li>
+<li><strong>İstatistikleri aç</strong> — bu çizelgeye ait <a href="#statistics">çalışma süresi, dönem, maaş ve rapor istatistiklerini</a> açar.</li>
+<li><strong>Çizelge oluştur</strong> — hazır bir şablon seçmenize veya özel bir döngü oluşturmanıza olanak tanır.</li>
+</ol>
+
+<h3 id="shifts-create">4.2. Çizelge oluşturmayı başlatma</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_create.webp" alt="İsim, başlangıç ​​tarihi, şablonlar ve özel program seçeneklerini içeren program oluşturma paneli">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Çizelge adı</strong> — “Ana 2/2”, “Gece vardiyası” veya iş yerinizin adı gibi anlaşılır bir isim girin.</li>
+<li><strong>Başlangıç ​​tarihi</strong> — <strong>tekrarlayan döngünün ilk gününe</strong> karşılık gelen tarih. Geçmiş veya gelecek bir tarih seçebilirsiniz; uygulama, çizelgeyi bu tarihten itibaren ileriye ve geriye doğru hesaplar.</li>
+<li><strong>Şablonlar</strong> — yaygın olarak kullanılan hazır vardiya dizileri. Örnekte “2/2 gün” şablonu kullanılmıştır.</li>
+<li><strong>Özel çizelge</strong> — kendi çalışma günü ve izin günü dizinizi oluşturmanızı sağlar.</li>
+<li><strong>Çizelge oluştur</strong> — seçilen seçenek için ayrıntılı düzenleyiciyi açar.</li>
+</ol>
+
+<div class="tip">“G · G · İ · İ” (Gün · Gün · İzin · İzin) şablonu için başlangıç ​​tarihi normalde iki çalışma gününden ilkidir. Özel bir döngüde 1. gün bir izin günü de olabilir; önemli olan nokta, seçilen tarihin oluşturduğunuz dizinin 1. günüyle tam olarak eşleşmesidir.</div>
+
+<h3 id="shifts-template">4.3. Şablondan bir zaman çizelgesi oluşturma</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_template.webp" alt="İsim, sıra, başlangıç ​​tarihi ve vardiya bilgilerini içeren şablon program düzenleyici">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Zaman çizelgesi adı</strong> — önerilen adı koruyun veya kendi adınızla değiştirin.</li>
+<li><strong>Şablon</strong> — harf dizisini ve anlamını gösterir. Örnekte, “D · D · O · O” ifadesi; gündüz vardiyası, gündüz vardiyası, izin günü, izin günü anlamına gelir.</li>
+<li><strong>Başlangıç ​​tarihi</strong> — görüntülenen dizideki ilk günün tarihini seçin.</li>
+<li><strong>Vardiya saati</strong> — her bir çalışma vardiyası türü için başlangıç ​​ve bitiş saatlerini belirtin. Uygulama, hesaplanan süreyi gösterir.</li>
+<li><strong>İptal</strong> — düzenleyiciyi kaydetmeden kapatır.</li>
+<li><strong>Kaydet</strong> — programı kaydeder ve takvimdeki vardiyaları hesaplamaya başlar.</li>
+</ol>
+
+<div class="warning"><strong>İlk kayıttan sonra.</strong> Başlangıç ​​tarihi ve döngü yapısı, halihazırda hesaplanmış olan takvim verilerini korumak amacıyla kilitlenir. Yine de adı ve bazı çalışma parametrelerini düzenleyebilirsiniz. Farklı bir temel döngüye veya referans tarihine ihtiyacınız varsa, yeni bir program oluşturmak daha güvenlidir.</div>
+
+<h3 id="shifts-custom">4.4. Özel döngü oluşturma</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_custom.webp" alt="Döngü süresi, gün kontrolleri, başlangıç ​​tarihi ve her gün için ayarlar içeren özel vardiya çizelgesi düzenleyicisi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Program adı</strong> — özel dizinize bir ad verin.</li>
+<li><strong>Döngü uzunluğu</strong> — tekrarlanan dizide kaç günün yer aldığını gösterir.</li>
+<li><strong>Günü kaldır</strong> — döngüyü bir gün kısaltır.</li>
+<li><strong>Gün ekle</strong> — döngünün sonuna yapılandırılabilir bir gün daha ekler.</li>
+<li><strong>Başlangıç ​​tarihi</strong> — özel döngünün 1. gününe karşılık gelen tarih.</li>
+<li><strong>Gün ayarları</strong> — “Vardiya türü” kartına dokunun ve izin gününü veya gerekli çalışma türünü seçin: gündüz, gece, sabah, akşam, 24 saatlik ya da özel vardiya. Bir çalışma günü için başlangıç ve bitiş saatlerini belirtin. Döngünün kalan günlerini ekranın alt bölümünde aynı şekilde yapılandırın.</li>
+<li><strong>İptal</strong> — düzenleyiciyi kaydetmeden kapatır.</li>
+<li><strong>Kaydet</strong> — özel döngüyü kaydeder ve takvim üzerinde hesaplar.</li>
+</ol>
+
+<div class="notice"><strong>Döngü nedir?</strong> Döngü, sıralamanın yeniden başladığı gün sayısıdır. Örneğin, dört günlük bir döngü "2 iş günü + 2 izin günü" olabilirken, altı günlük bir döngü "3 iş günü + 3 izin günü" olabilir. Son günden sonra uygulama 1. güne geri döner.</div>
+
+<div class="tip">Tek seferlik bir program istisnası için temel döngüyü değiştirmeyin. Takvimdeki bir tarihe uzun basarak izin günü, tatil, hastalık izni, yedek vardiya veya zaman düzenlemesi oluşturun.</div>
+
+
+
+<span id="shift-statistics"></span>
+<h2 id="statistics">5. Program istatistikleri</h2>
+
+<p>Bir program kartı üzerindeki <strong>“İstatistikleri aç”</strong> düğmesini kullanarak “İstatistikler” bölümünü açın. Bu bölüm; iş günleri ve izin günleri, program değişiklikleri, planlanan ve gerçekleşen çalışma süresi, tahmini maaş ve raporlarla ilgili bilgileri bir araya getirir.</p>
+
+<div class="notice"><strong>Önemli:</strong> İstatistikler yalnızca seçilen vardiya programı için hesaplanır. Seçilen dönem, altındaki tüm çalışma süresi, maaş ve raporlama değerleri için geçerlidir.</div>
+
+<h3 id="statistics-period">5.1. Program, dönem ve gün özeti</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_period_overview.webp" alt="Çizelge bilgileri, dönem seçimi ve günlük toplamları içeren istatistik ekranı">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Program bilgileri</strong> — seçilen programın adını, ilk döngünün başlangıç ​​tarihini ve tekrarlayan döngünün uzunluğunu gösterir. Bu ekrandaki istatistikler yalnızca bu program için geçerlidir.</li>
+<li><strong>Seçilen dönem kartı</strong> — kullanımda olan dönemi gösterir. Mevcut, önceki veya sonraki ayı, mevcut yılı ya da özel bir tarih aralığını seçmek için buna veya sağdaki oka dokunun.</li>
+<li><strong>Gün özeti</strong> — dönemdeki gün sayısını, vardiyaları, izin günlerini, tamamlanan ve yaklaşan vardiyaları ve değişikliğe uğrayan günleri gösterir. Değişikliğe uğrayan günler temel döngüye getirilen istisnalardır; bunlar arasında tatil, hastalık izni, izin, yedek veya yeri değiştirilmiş vardiya, çalışma süresi düzenlemesi ve diğer değişiklikler yer alır.</li>
+</ol>
+
+<div class="warning"><strong>Gelecek dönemler tahmine dayalıdır.</strong> Uygulama, gelecek bir ay için oluşturulan programı ve halihazırda girilmiş verileri kullanır; ancak gelecekteki hastalık izinlerini, tatilleri, izinleri, fazla mesaileri, ikramiyeleri veya kesintileri önceden bilemez. Mevcut yılı seçtiğinizde, toplam değerler geçmiş tarihlere ait gerçek veriler ile yılın geri kalanına ait tahminleri birleştirebilir.</div>
+
+<h3 id="statistics-work">5.2. Çalışma süresi, maaş ve raporlar</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_work_salary_reports.webp" alt="Çalışma süresi, ilerleme durumu, maaş ve raporlara erişim seçeneklerini içeren istatistik ekranı">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Çalışma süresi</strong> — saatleri ve ilerleme durumunu gösteren bir özet kartı. <a href="#statistics-break">Mola süresi ayarlarını</a> açmak için bu karta dokunun.</li>
+<li><strong>Planlanan saatler</strong> — seçilen dönemdeki planlanmış vardiyaların ve değişikliklerin toplam süresi.</li>
+<li><strong>Çalışılan saatler</strong> — mola ayarları uygulandıktan sonra, mevcut tarih itibarıyla tamamlanmış sayılan vardiyalardaki süre.</li>
+<li><strong>İlerleme</strong> — toplam vardiyaların kaçının tamamlandığını ve seçilen dönemin yüzde kaçının tamamlandığını gösterir.</li>
+<li><strong>Maaş</strong> — <a href="#salary">maaş hesaplama ayarlarını</a> açar. Kart, seçilen program ve dönem için tahmini bir tutar gösterir.</li>
+<li><strong>Toplam</strong> — seçilen ödeme yöntemi, ikramiyeler, fazla mesai ve kesintiler dahil olmak üzere şu ana kadar kazanılan tahmini tutar.</li>
+<li><strong>Ücret oranı veya maaş</strong> — bu kartın içeriği, seçilen hesaplama yöntemine (saatlik, vardiya başına veya aylık ödeme) bağlıdır. Maaş ayarlarında girilen değeri görüntüler.</li>
+<li><strong>Hesaplama ayrıntıları</strong> — seçilen dönem için ücretli süre, fazla mesai saatleri, ikramiyeler ve kesintiler.</li>
+<li><strong>Raporlar</strong> — <a href="#reports">dönemler, çalışma süresi ve maaşla ilgili ayrıntılı raporları</a> açar.</li>
+</ol>
+
+<div class="tip">Üstteki kartta dönemi değiştirdiğinizde, çalışma süresi ve maaş bölümlerindeki tüm değerler yeniden hesaplanır.</div>
+
+<h3 id="statistics-break">5.3. Çalışma süresinde molaların hesaba katılması</h3>
+
+<p>Yemek molasının veya diğer bir molanın, fiilen çalışılan ve ücret ödenen sürenin bir parçası sayılıp sayılmayacağını belirlemek için “Çalışma süresi” kartına dokunun.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_break_settings.webp" alt="Mola hesaplama ve süre ayarları paneli">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Mevcut toplamlar</strong> — yeni ayarlar uygulanmadan önce, seçilen dönem için planlanan ve çalışılan saatleri gösterir.</li>
+<li><strong>Molayı çalışma süresinden say</strong> — mola ücretliyse ve vardiya süresine dahilse bu seçeneği açık bırakın. Belirtilen sürenin, çalışılan ve ücret ödenen sürenin dışında tutulması gerekiyorsa bu seçeneği kapatın.</li>
+<li><strong>Mola süresi</strong> — bir mola için saat ve dakika seçin. Bu ayar, ilgili çalışma vardiyaları yeniden hesaplanırken kullanılır.</li>
+<li><strong>Toplam mola</strong> — kaydetmeden önce seçilen süreyi gösterir.</li>
+<li><strong>Kaydet</strong> — ayarı uygular ve çalışma süresi ile ilgili değerleri yeniden hesaplar.</li>
+</ol>
+
+<div class="notice">Mola; yemek molası, vardiya devri veya vardiya içindeki diğer bir ücretsiz arayı ifade edebilir. İş yerinizdeki kurallara uygun süreyi girin.</div>
+
+<h3 id="reports">5.4. Raporlar: dönem, durum ve özet</h3>
+
+<p>İstatistik ekranının alt kartından “Raporlar”ı açın. Bu bölüm seçilen dönem için çalışma süresi, vardiyalar ve devamsızlıklar, takvim düzeltmeleri, maaş, ikramiyeler, kesintiler, dönem karşılaştırması, günlük ayrıntılar ve dışa aktarma hakkında daha ayrıntılı bilgi verir.</p>
+
+<div class="warning"><strong>Raporlar yalnızca bilgilendirme amaçlıdır.</strong> Hesaplamalar; seçilen çalışma programı, maaş ayarları, mola hesaplamaları ve takvim üzerindeki vardiya değişiklikleri esas alınarak yapılır. Farklı bir zaman takip sistemi, yuvarlama işlemleri, vergiler, ödenekler veya kurum içi kurallar nedeniyle işvereninizin kayıtlarındaki gerçek rakamlar farklılık gösterebilir. Bir hata veya desteklenmeyen bir hesaplama yöntemiyle karşılaşırsanız, uygulama içinde belirtilen adresten geliştiricilerle iletişime geçin ve mesajınıza girdi verileri ile beklenen sonucu da ekleyin.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_period_salary.webp" alt="Dönem seçimi, durum, özet ve ayrıntılı maaş dökümünü içeren rapor ekranı">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Rapor dönemi</strong> — mevcut, önceki veya sonraki ayı, önceden tanımlanmış bir aralığı ya da özel tarihleri ​​seçmek için karta dokunun. Aşağıdaki tüm bilgiler seçilen dönem için geçerlidir.</li>
+<li><strong>Dönem durumu</strong> — dönemin tamamlanmış, halihazırda aktif veya henüz başlamamış olduğunu gösterir. Tamamlanmış bir dönem, kaydedilen gerçekleşmiş veriler üzerinden hesaplanır. Aktif bir dönem, halihazırda çalışılmış verileri mevcut planla birleştirirken; gelecekteki bir dönem bir öngörü niteliğindedir.</li>
+<li><strong>Özet</strong> — gerçekleşen çalışma süresi, hesaplanan tutar ve fazla mesainin metin tabanlı özeti.</li>
+<li><strong>Maaş</strong> — temel ücret, fazla mesai ücreti, ikramiyeler, kesintiler ve nihai tahmini tutarın ayrıntılı dökümü. Değerler, <a href="#salary">maaş ayarlarına</a> ve seçilen döneme bağlıdır.</li>
+</ol>
+
+<h3 id="reports-work">5.5. Çalışma süresi, devamsızlıklar ve günler</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_work_absences.webp" alt="Çalışma süresi, molalar, tamamlanan vardiyalar ve devamsızlık bilgilerini içeren rapor ekranı">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Çalışma süresi</strong> — planlanan ve gerçekleşen çalışma saatlerini, mola kesintisi öncesi planlanan ve gerçekleşen saatleri, tamamlanan vardiya sayısını, ortalama vardiya süresini ve düşülen toplam mola süresini gösterir. Molaları <a href="#statistics-break">çalışma süresi bölümünde</a> yapılandırın.</li>
+<li><strong>Devamsızlıklar ve günler</strong> — seçilen dönem boyunca izin günleri, tatil günleri, hastalık izni günleri, serbest izin günleri ve değişikliğe uğrayan günlerin sayısını gösterir.</li>
+</ol>
+
+<h3 id="reports-charts">5.6. Düzenlemeler ve grafikler</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_corrections_charts.webp" alt="Düzeltmeler, maaş bileşenleri ve çalışma süresi değerlerini içeren rapor ekranı">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Düzenlemeler</strong> — fazla mesai saatlerini, vardiya süresindeki toplam değişimi ve temel programdan farklılık gösteren gün sayısını gösterir.</li>
+<li><strong>Grafikler</strong> — maaş ve çalışma süresi bileşenlerini görselleştirir: temel ücret, fazla mesai, ikramiyeler, kesintiler, toplam tutar ile planlanan, çalışılan ve ödenen saatler.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_charts_days.webp" alt="Saatler ve gün türü dağılımını gösteren pasta grafiği içeren ek rapor grafikleri">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Saatler</strong> — planlanan, çalışılan, ödenen ve fazla mesai saatlerinin görsel karşılaştırmasını sürdürür. “Fiili çalışma süresi” satırı, ayarlar ve düzenlemeler uygulandıktan sonraki sonucu gösterir.</li>
+<li><strong>Gün türleri</strong> — seçilen dönemdeki günleri türlerine göre dağıtan bir pasta grafik. Gösterge (lejant); gündüz, gece veya diğer vardiyalar, izin günleri, tatil, hastalık izni, serbest zaman ve diğer durumlar gibi çizelge ve fiili değişikliklere göre belirlenir.</li>
+</ol>
+
+<h3 id="reports-comparison">5.7. Dönemleri karşılaştırma</h3>
+
+<p>Karşılaştırma bölümü; maaş, süre, vardiyalar ve devamsızlıkları çeşitli dönemler arasında karşılaştırmanıza yardımcı olur. Kullanılabilir dönem sayısı, kaydedilen verilere bağlıdır.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_chart.webp" alt="Aralık seçimi, maaş grafiği ve karşılaştırma tablosunun başlangıcını içeren dönem karşılaştırma ekranı">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Dönemleri karşılaştır</strong> — kaç dönemin karşılaştırılacağını ve bunların aralığını seçmek için karta dokunun.</li>
+<li><strong>Grafik ve dönem listesi</strong> — her dönem için maaşı gösterir ve karşılaştırmaya dahil edilen aralıkları durumlarıyla birlikte listeler.</li>
+<li><strong>Karşılaştırma tablosu</strong> — her dönem için ayrıntılı değerleri içerir. Kalan sütunları görüntülemek için tabloyu yatay olarak sola veya sağa kaydırın.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_table.webp" alt="Karşılaştırma tablosunun devamı ve birbirini takip eden dönemler arasındaki farklar">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Dönem değerleri</strong> — toplam maaş, çalışılan ve ödenen saatler, fazla mesai, ikramiyeler, kesintiler, tamamlanan vardiyalar, devamsızlıklar ve değiştirilen günler.</li>
+<li><strong>Dönemler arası fark</strong> — her dönemin bir öncekinden nasıl farklı olduğunu gösterir. Pozitif ve negatif değerler, ilgili metriklere göre bir artış veya azalışı belirtir. Renk tek başına her zaman bir avantaj veya sorun anlamına gelmez; örneğin, kesintilerdeki bir artış, daha büyük bir tutarın kesildiği anlamına gelir.</li>
+</ol>
+
+<h3 id="reports-details-export">5.8. Günlük ayrıntılar ve dışa aktarma</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_details_export.webp" alt="Günlük ayrıntıları içeren rapor kartları ve PDF, HTML, JSON veya CSV formatında dışa aktarma seçeneği">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Günlük ayrıntılar</strong> — seçilen dönemdeki her günün yer aldığı bir listeyi açar. Belirli bir gün için vardiya türünü, planlanan ve fiili süreyi, saat düzenlemelerini, devamsızlıkları ve diğer değişiklikleri kontrol edebilirsiniz.</li>
+<li><strong>Dışa aktar</strong> — raporu PDF, HTML, JSON veya CSV formatında kaydeder. Dışa aktarmadan önce rapor dönemini seçin; ardından dosyayı Android sistem menüsü aracılığıyla yazdırabilir, kaydedebilir veya paylaşabilirsiniz.</li>
+</ol>
+
+<div class="tip">Karşılaştırma veya dışa aktarma yapmadan önce seçilen dönemi, programı, vardiya değişikliklerini, molaları ve maaş ayarlarını kontrol edin. Kaynak verilerdeki bir hata, tüm rapor toplamlarını etkileyecektir.</div>
+
+<h2 id="alarms">6. Alarmlar</h2>
+
+<p>ShiftAlarm; tek seferlik alarmlar oluşturmanıza, bunları haftanın seçili günlerinde tekrarlamanıza veya alarm zamanını bir vardiya programına bağlamanıza olanak tanır.</p>
+
+<h3 id="alarms-list">6.1. Alarm listesi</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarms_overview.webp" alt="Sıradaki uyarı, sıralama, alarm kartı ve ekleme düğmesini içeren ShiftAlarm alarm ekranı">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Sıradaki alarm</strong> — bir sonraki etkin uyarının tarihini ve saatini gösterir.</li>
+<li><strong>Alarm sıralaması</strong> — örneğin etkinleştirilmiş alarmları önce göstererek alarm kartlarının sırasını değiştirir.</li>
+<li><strong>Alarm kartı</strong> — saati, tarihi veya tekrar modunu, program türünü ve kalan süreyi içerir. Düzenlemek için karta dokunun.</li>
+<li><strong>Anahtar</strong> — ayarlarını silmeden alarmı geçici olarak etkinleştirir veya devre dışı bırakır.</li>
+<li><strong>Sil</strong> — seçili alarmı siler.</li>
+<li><strong>Alarm ekle</strong> — yeni bir alarm oluşturma ekranını açar.</li>
+</ol>
+
+<h3 id="alarms-create">6.2. Alarm oluşturma ve düzenleme</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_time_schedule.webp" alt="ShiftAlarm alarm düzenleyicisinin üst kısmı: saat, zamanlama türü, erteleme ve kaydetme kontrolleri">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Saat</strong> — uyarı zamanını ayarlamak için saat ve dakika çarklarını kaydırın.</li>
+<li><strong>Zamanlama türü</strong> — şu modlardan birini seçin:
+<ul>
+<li><strong>Tek seferlik</strong> — alarm seçilen tarihte bir kez çalar;</li>
+<li><strong>Günlere göre</strong> — haftanın seçilen günlerinde tekrarlanır;</li>
+<li><strong>Vardiyalara göre</strong> — alarmı seçilen bir programa ve vardiya türüne bağlar.</li>
+</ul>
+</li>
+<li><strong>Erteleme</strong> — çalma ekranındaki erteleme düğmesine dokunduğunuzda uyarının kaç dakika erteleneceğini belirler.</li>
+<li><strong>İptal ve Kaydet</strong> — bu düğmeler ekranın alt kısmına sabitlenmiştir ve düzenleyici içinde gezinirken kullanılabilir durumda kalır.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_behavior.webp" alt="Alarm süresi, uyarı tekrarı, kademeli ses artışı ve titreşim için ShiftAlarm ayarları">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Alarm süresi</strong> — kullanıcı tarafından durdurulmadığı takdirde uyarının ne kadar süreyle çalacağını belirler.</li>
+<li><strong>Alarm görmezden gelinirse tekrarla</strong> — alarm ne kapatıldığında ne de ertelendiğinde devreye girecek bir uyarıyı etkinleştirir. Tekrar uyarısı öncesindeki süreyi bunun altından ayarlayın.</li>
+<li><strong>Kademeli ses artışı</strong> — daha kısık bir sesle başlar ve seçilen süre boyunca ses seviyesini kademeli olarak artırır.</li>
+<li><strong>Titreşim</strong> — uyarı sırasında titreşimi etkinleştirir veya devre dışı bırakır.</li>
+<li><strong>İptal ve Kaydet</strong> — düzenleyici için sabit kontroller.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_sound_name.webp" alt="ShiftAlarm alarm düzenleyicisinin alt kısmı: titreşim, ses, ad ve kaydetme kontrolleri">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Titreşim</strong> — titreşim uyarısını etkinleştirir veya devre dışı bırakır.</li>
+<li><strong>Ses</strong> — yerleşik, sistem veya kullanıcı tarafından eklenen bir ses seçmenizi sağlar. Uygulamaya beş adede kadar özel ses ekleyebilirsiniz.</li>
+<li><strong>Ad</strong> — alarmları ayırt etmenize yardımcı olan isteğe bağlı bir etiket.</li>
+<li><strong>İptal ve Kaydet</strong> — değişiklikleri iptal edin veya alarmı kaydedin.</li>
+</ol>
+
+<div class="notice">Kaydettikten sonra alarm ana listede görünür. Önemli bir uyarıdan önce alarmın etkin olduğunu, uygulamanın bildirim ve kesin alarm izinlerine sahip olduğunu ve sistemin arka plan etkinliğini kısıtlamadığını doğrulayın.</div>
+
+<div class="tip">Vardiyaya bağlı bir alarm oluşturmak için öncelikle uygun bir vardiya çizelgesi oluşturun. Düzenleyicide, sabit bir tetikleme zamanı veya vardiya başlangıcına göre bir zaman kayması (offset) seçin.</div>
+
+<h2 id="geo">7. Coğrafi Konum Alarmları</h2>
+
+<p>Coğrafi Alarm (Geo Alarm), cihazın seçili bir alana girişini veya bu alandan çıkışını izler. Söz konusu alan, harita üzerindeki bir nokta ve bu nokta etrafındaki bir yarıçap ile tanımlanır. Örneğin; iş yerine, eve, bir otobüs durağına, bir istasyona veya başka bir konuma yaklaşırken uyarı almak için Coğrafi Alarm özelliğini kullanabilirsiniz.</p>
+
+<h3 id="geo-overview">7.1. Harita ve kontroller</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_overview.webp" alt="Harita ve numaralı kontrolleri içeren ShiftAlarm Geo Alarm ana ekranı">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Yakınlaştır</strong> — haritayı büyütür.</li>
+<li><strong>Uzaklaştır</strong> — harita ölçeğini küçültür.</li>
+<li><strong>Konumum</strong> — haritayı cihazın mevcut konumuna taşır. Bu özellik için uygulamanın konum erişimine ihtiyacı vardır.</li>
+<li><strong>Kaydedilen yerler</strong> — kaydedilmiş Coğrafi Alarmların ve konum noktalarının listesini açar.</li>
+<li><strong>Geri</strong> — önceki uygulama ekranına döner.</li>
+<li><strong>Coğrafi Alarm sayısı</strong> — kaç adet Coğrafi Alarm oluşturulduğunu gösterir.</li>
+<li><strong>Coğrafi Alarm listesi</strong> — oluşturulan Coğrafi Alarmların ayrı bir listesini açar.</li>
+</ol>
+
+<div class="tip">Hareketlerle de yakınlaştırma yapabilirsiniz. Yakınlaştırmak için haritaya iki parmağınızla dokunup parmaklarınızı birbirinden ayırın veya uzaklaştırmak için parmaklarınızı birbirine yaklaştırın.</div>
+<div class="notice">Sağdan sola yazılan dillerde yan kontroller karşı tarafta görünebilir. İşlevleri aynı kalır.</div>
+
+<h3 id="geo-saved-places">7.2. Kaydedilen alarmlar ve konum noktaları</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_saved_places.webp" alt="Geo Alarm ve konum noktası sekmelerini içeren kayıtlı yerler penceresi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Alarmlar</strong> — kaydedilen yerlere eklenen Coğrafi Alarmları gösterir.</li>
+<li><strong>Konum noktaları</strong> — aktif bir Coğrafi Alarmı olmayan kaydedilmiş koordinatları gösterir.</li>
+<li><strong>Kaydedilen yerler listesi</strong> — haritada o konuma gitmek için bir karta dokunun.</li>
+<li><strong>Kapat</strong> — pencereyi kapatır ve haritaya döner.</li>
+</ol>
+
+<div class="notice">Kaydedilmiş bir Coğrafi Alarmı silerseniz, koordinatları otomatik olarak "Konum noktaları" sekmesinde saklanır. Bu noktayı daha sonra başka bir Coğrafi Alarm oluşturmak için tekrar kullanabilirsiniz.</div>
+
+<h3 id="geo-select-point">7.3. Nokta ve yarıçap seçimi</h3>
+
+<p>Harita üzerinde istediğiniz yere dokunup basılı tutun. Uygulama bir işaretçi yerleştirir ve seçilen nokta panelini açar.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_selected_point.webp" alt="Adres, yarıçap, yer imi ve Geo Alarm oluşturma düğmesiyle birlikte seçilen harita noktası">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Seçilen nokta işaretçisi</strong> — oluşturulacak coğrafi sınırın merkezi. Harita ayrıca seçilen yarıçap için bir daire görüntüler.</li>
+<li><strong>Adres ve koordinatlar</strong> — doğru yerin seçildiğini doğrulamanızı sağlar.</li>
+<li><strong>Konum noktasını kaydet</strong> — seçilen koordinatları, bir alarm oluşturmadan kayıtlı yerlere ekler.</li>
+<li><strong>Yarıçap</strong> — noktanın çevresindeki alanın boyutunu belirler. Uygun bir mesafe seçene kadar kaydırıcıyı hareket ettirin.</li>
+<li><strong>İptal</strong> — nokta seçimini iptal eder.</li>
+<li><strong>Burada oluştur</strong> — seçilen nokta için yeni Coğrafi Alarm düzenleyicisini açar.</li>
+</ol>
+
+<div class="warning"><strong>Yarıçap nasıl seçilir?</strong> Telefon, koordinatlarını sürekli olarak takip etmez. Android, cihaz üreticisi, pil tasarrufu modu, GPS, mobil ağ ve Wi‑Fi sinyal kalitesi ile hareket hızı; sınırın ne zaman algılanacağını etkiler. Bu nedenle uyarı, çizilen hattın uzağında tetiklenebilir. Örneğin, 800 metrelik bir yarıçapta, alana giriş algılaması cihaz zaten alanın içindeyken —belki de noktadan 700, 600 veya 500 metre içerideyken— gerçekleşebilir.</div>
+
+<ul>
+<li><strong>Şehir içinde</strong> genellikle <strong>1.300–1.500 m</strong>'lik bir yarıçap önerilir.</li>
+<li>Konum güncellemelerinin daha seyrek olabildiği <strong>şehir dışında</strong> ise <strong>4.000–5.000 m</strong> önerilir.</li>
+<li><strong>Tam yarıçap</strong>; rotanız, hızınız ve cihazınızın davranış biçimi temel alınarak seçilmelidir.</li>
+</ul>
+
+<div class="notice">Sistem, cihazın alanın sanal sınırını geçtiği anı algılar. "Girişte" modunda, daha büyük bir yarıçap genellikle telefona yaklaşımınızı algılaması için daha fazla zaman tanır. "Çıkışta" modunda ise sınır, seçilen noktadan daha uzağa yerleştirilir.</div>
+
+<h3 id="geo-create">7.4. Coğrafi Alarm Oluşturma</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_location_schedule.webp" alt="Geo Alarm düzenleyicisinin üst kısmı: hazır olma durumu, konum ve zamanlama türü">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Coğrafi Alarm hazırlık durumu</strong> — gerekli izinlerin yapılandırılıp yapılandırılmadığını ve uygulamanın coğrafi sınırı (geofence) kaydedip kaydedemeyeceğini gösterir.</li>
+<li><strong>Konum</strong> — seçilen adresi ve koordinatları içerir. Adresi bir etiket olarak düzenleyebilirsiniz, ancak asıl nokta harita üzerinde seçilir.</li>
+<li><strong>Zamanlama türü</strong> — Coğrafi Alarmın hangi günlerde ve koşullarda etkin olacağını belirler.</li>
+<li><strong>Her zaman</strong> — Coğrafi Alarm etkinleştirildiği sürece her gün devrededir.</li>
+<li><strong>Bir kez</strong> — seçilen koşul sağlandığında gerçekleşecek bir sonraki tek seferlik tetikleme için kullanılır.</li>
+<li><strong>Günlere göre</strong> — yalnızca haftanın seçili günlerinde çalışır.</li>
+<li><strong>Vardiyalara göre</strong> — Coğrafi Alarmı aktif vardiya programına bağlar.</li>
+</ol>
+
+<div class="notice"><strong>“Vardiyalara göre” programı.</strong> Çalışmanın vardiya gününde mi, sadece vardiyadan önce mi yoksa sadece vardiyadan sonra mı gerçekleşeceğini seçin ve gerekli vardiya türünü belirtin: gündüz, gece, sabah, akşam, 24 saatlik, özel veya herhangi bir çalışma vardiyası.</div>
+<div class="tip">Takvimdeki bir tarih çalışma vardiyası yerine izin, tatil, hastalık izni veya serbest zaman olarak işaretlenmişse, vardiyaya bağlı Coğrafi Alarm o gün aktif olmayacaktır.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_trigger_settings.webp" alt="Geo Alarm düzenleyicisinin alt kısmı: giriş veya çıkış koşulu, yarıçap ve uyarı ayarları">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tetikleme koşulu</strong> — hangi sınır geçişinin uyarıyı başlatacağını belirler.</li>
+<li><strong>Girişte</strong> — cihaz seçili yarıçap alanına girdiğinde (örneğin iş yerine veya gerekli durak noktasına yaklaşırken) uyarıyı başlatır.</li>
+<li><strong>Çıkışta</strong> — cihaz seçili yarıçap alanından çıktığında (örneğin iş yerinden veya bir istasyondan ayrıldıktan sonra, böylece rotanın bir sonraki kısmını kaçırmazsınız) uyarıyı başlatır.</li>
+<li><strong>Girişte veya çıkışta</strong> — sınır her iki yönde de geçildiğinde uyarıyı başlatır.</li>
+<li><strong>Yarıçap</strong> — seçili nokta etrafındaki coğrafi çitin (geofence) boyutu.</li>
+<li><strong>Alarm süresi</strong> — uyarının ne kadar süreyle çalacağını belirler.</li>
+<li><strong>Kademeli ses artışı</strong> — uyarı başladıktan sonra ses seviyesinin kademeli olarak artmasını sağlar.</li>
+<li><strong>İptal ve Kaydet</strong> — değişiklikleri iptal edin veya Coğrafi Alarmı kaydedin.</li>
+</ol>
+
+<div class="tip">Aşağıdaki diğer seçenekler standart bir alarma benzer: ses, titreşim, uyarı süresi, kademeli ses artışı ve ad.</div>
+
+<h3 id="geo-existing">7.5. Harita üzerinde Coğrafi Alarm ve kontrolleri</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_marker_radius.webp" alt="Harita üzerinde oluşturulan Geo Alarm işareti ve tetikleme yarıçapı çemberi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Coğrafi Alarm işareti</strong> — seçilen noktayı gösterir.</li>
+<li><strong>Yarıçap sınırı</strong> — uygulamayla giriş veya çıkışının izlendiği alanı gösterir.</li>
+</ol>
+
+<p>Coğrafi Alarm işaretine dokunun. Önce küçük bir bilgi penceresi açılır. Ayrıntılı kartı açmak için bu pencereye dokunun.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_alarm_card.webp" alt="Bilgi, yer imi, anahtar ve kontrolleri içeren ayrıntılı Geo Alarm kartı">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ad ve adres</strong> — seçilen Coğrafi Alarmı tanımlar.</li>
+<li><strong>Yer imi</strong> — alarmı kaydedilen yerlere ekler veya oradan kaldırır.</li>
+<li><strong>Anahtar</strong> — ayarlarını silmeden Coğrafi Alarmı etkinleştirir veya geçici olarak devre dışı bırakır.</li>
+<li><strong>Ayarlar ve durum</strong> — yarıçapı, giriş veya çıkış koşulunu, zamanlamayı, coğrafi sınır (geofence) hazırlık durumunu ve önceki tetiklemelerle ilgili bilgileri gösterir.</li>
+<li><strong>Düzenle</strong> — Coğrafi Alarm ayarlarını açar.</li>
+<li><strong>Kapat</strong> — kartı kapatır ve haritaya döner.</li>
+<li><strong>Sil</strong> — onay alındıktan sonra Coğrafi Alarmı siler.</li>
+</ol>
+
+<div class="warning">Güvenilir bir çalışma için hassas ve arka plan konum erişimine izin verin, ShiftAlarm için katı pil kısıtlamalarını kaldırın ve cihazınızda varsa otomatik başlatma ayarlarını kontrol edin. Doğru ayarlara sahip olunsa bile, Android birkaç metrelik hassasiyetle sınır algılamayı garanti etmez.</div>
+
+<h2 id="notes">8. Notlar, etkinlikler ve hatırlatıcılar</h2>
+
+<p>“Notlar” bölümü; düz metinleri, listeleri, kontrol listelerini, ses kayıtlarını, sesten metne dönüştürülen notları, hatırlatıcıları ve etkinlikleri saklar.</p>
+
+<h3 id="notes-create">8.1. Not ekleme</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_type_picker.webp" alt="ShiftAlarm'da yeni bir not türü seçimi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Panel tutamacı</strong> — tüm not türleri listesini görmek için yukarı, paneli kapatmak için aşağı sürükleyin.</li>
+<li><strong>Not türü</strong> — uygun seçeneği belirleyin:
+<ul>
+<li><strong>Metin notu</strong> — düz metin;</li>
+<li><strong>Kontrol listesi</strong> — tamamlanma onay kutuları içeren bir öğe listesi;</li>
+<li><strong>Liste</strong> — madde işaretli veya numaralandırılmış bir liste;</li>
+<li><strong>Sesli not</strong> — ses kaydı;</li>
+<li><strong>Konuşmadan metne</strong> — konuşma tanıma özelliğini kullanarak bir not oluşturur;</li>
+<li><strong>Hatırlatıcı</strong> — belirli bir zamanda bildirim veren bir kayıt;</li>
+<li><strong>Etkinlik</strong> — bir tarih ve saatle ilişkilendirilmiş bir kayıt.</li>
+</ul>
+</li>
+<li><strong>İptal</strong> — not oluşturmadan seçim ekranını kapatır.</li>
+</ol>
+
+<div class="tip">Bir tür seçtikten sonra ilgili düzenleyici açılır. Gerekli alanları doldurun ve kaydı saklayın.</div>
+
+<h3 id="notes-list">8.2. Not listesi ve kontroller</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_overview.webp" alt="Sıralama, aktif ve arşivlenmiş notlar, arama ve kart eylemlerini içeren ShiftAlarm notlar ekranı">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Sırala</strong> — listedeki notların sıralamasını değiştirir.</li>
+<li><strong>Etkin</strong> — arşive taşınmamış olan normal ve zamanlanmış notları gösterir.</li>
+<li><strong>Arşiv</strong> — arşivlenmiş notların listesini açar.</li>
+<li><strong>Ara</strong> — not başlıkları ve içeriklerinde eşleşmeleri bulur.</li>
+<li><strong>Not kartı</strong> — başlığı, türü, durumu ve ek bilgileri gösterir. Notu açmak için karta dokunun.</li>
+<li><strong>Sabitle</strong> — notu listenin en üstüne sabitler.</li>
+<li><strong>Arşivle</strong> — notu etkin listeden kaldırır ve arşive taşır.</li>
+<li><strong>Sil</strong> — onay alındıktan sonra notu siler.</li>
+<li><strong>Not ekle</strong> — yeni not türü seçim ekranını açar.</li>
+</ol>
+
+<div class="notice">Ana listede artık ihtiyaç duyulmayan ancak saklanması gereken kayıtlar için arşivi kullanın. Bir notu yalnızca artık hiçbir şekilde gerek kalmadığında silin.</div>
+
+<h2 id="clock">9. Saat, kronometre ve zamanlayıcı</h2>
+
+<p>Bu bölüm; yerel saat ve dünya saatini, kronometreyi ve zamanlayıcıyı bir araya getirir. Ana ekrandaki <strong>“Saat”</strong> düğmesiyle açın.</p>
+
+<div class="notice">Ekranın alt kısmında üç sekme görünür: “Saat”, “Kronometre” ve “Zamanlayıcı”. Modlar arasında geçiş yapmak için bir sekmeye dokunun.</div>
+
+<h3 id="clock-world">9.1. Saat ve dünya saati</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_overview.webp" alt="Yerel saat, dünya saatleri, ekleme düğmesi ve alt sekmeleri içeren ShiftAlarm saat ekranı">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Yerel saat</strong> — geçerli saati, tarihi ve cihazın sistem saat dilimini gösterir.</li>
+<li><strong>Dünya saatleri</strong> — eklenen şehirleri ve saat dilimlerini görüntüler. Liste boşken uygulama bir ipucu gösterir.</li>
+<li><strong>Artı düğmesi</strong> — dünya saati seçim ekranını açar.</li>
+<li><strong>Bölüm sekmeleri</strong> — “Saat”, “Kronometre” ve “Zamanlayıcı” ekranları arasında geçiş yapar.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_add_timezone.webp" alt="ShiftAlarm dünya saatine şehir veya saat dilimi ekleme">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Arama</strong> — listeyi filtrelemek için bir şehir veya saat dilimi adı girin.</li>
+<li><strong>Şehir ve saat dilimi listesi</strong> — dünya saati ekranına eklemek için ilgili seçeneğe dokunun.</li>
+</ol>
+
+<div class="tip">Yerel saat dilimi her zaman ilk sırada gösterilir. Eklenen dünya saatlerini listeden kaldırabilirsiniz ancak yerel saat kaldırılamaz.</div>
+
+<h3 id="clock-stopwatch">9.2. Kronometre</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_start.webp" alt="Başlatılmadan önceki ShiftAlarm kronometresi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Geçmiş</strong> — kaydedilmiş kronometre oturumlarını açar.</li>
+<li><strong>Başlat</strong> — zamanlamayı başlatır.</li>
+<li><strong>Sıfırla</strong> — kronometre başlamadan önce kullanılamaz. Durdurulduktan sonra kronometreyi sıfıra döndürür ve mevcut tur kayıtlarını siler.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_running.webp" alt="Geçmiş, kaydetme, tur ve duraklatma kontrolleriyle çalışan ShiftAlarm kronometresi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Geçmiş</strong> — önceden kaydedilmiş oturumları gösterir.</li>
+<li><strong>Kaydet</strong> — bir ad girmenizi ister ve mevcut kronometre oturumunu kaydeder.</li>
+<li><strong>Tur</strong> — toplam zamanlayıcıyı durdurmadan bir ara sonuç kaydeder.</li>
+<li><strong>Duraklat</strong> — kronometreyi duraklatır. Duraklattıktan sonra devam ettirebilir veya sıfırlayabilirsiniz.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_laps.webp" alt="ShiftAlarm kronometre turları ve sıralama seçenekleri">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Orijinal, en hızlı ve en yavaş</strong> — tur görüntüleme sırasını değiştirin: orijinal sıra, önce en hızlı veya önce en yavaş.</li>
+<li><strong>Turlar</strong> — her tur, kaydedildiği andaki toplam süreyi ve o tura ait süreyi gösterir.</li>
+</ol>
+
+<div class="notice">Kaydet'e dokunduğunuzda bir oturum adı girin ve onaylayın. Kaydedilen oturumu daha sonra Geçmiş bölümünden açabilirsiniz.</div>
+
+<h3 id="clock-timer">9.3. Zamanlayıcı</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_setup.webp" alt="Saat, dakika ve saniye çarklarıyla ShiftAlarm zamanlayıcısını ayarlama">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Saatler</strong> — tekerleği kaydırarak saat değerini seçin.</li>
+<li><strong>Dakika</strong> — tekerleği kaydırarak dakika sayısını seçin.</li>
+<li><strong>Saniye</strong> — tekerleği kaydırarak saniye sayısını seçin.</li>
+<li><strong>Başlat</strong> — seçilen süreyle zamanlayıcıyı başlatır.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_running.webp" alt="Kalan süre, duraklatma, dakika ekleme ve durdurma kontrolleriyle çalışan ShiftAlarm zamanlayıcısı">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Kalan süre</strong> — uyarıya ne kadar süre kaldığını gösterir.</li>
+<li><strong>Bitiş zamanı</strong> — zamanlayıcının sona ereceği tahmini saati gösterir.</li>
+<li><strong>Son kullanılan zamanlayıcılar</strong> — kaydedilmiş yakın tarihli süreler; hızlıca yeniden kullanmak için birine dokunun.</li>
+<li><strong>Duraklat</strong> — geri sayımı geçici olarak durdurur. Daha sonra devam ettirebilirsiniz.</li>
+<li><strong>+1 dk</strong> — kalan süreye bir dakika ekler.</li>
+<li><strong>Durdur</strong> — zamanlayıcıyı tamamen durdurur.</li>
+</ol>
+
+<div class="tip">Zamanlayıcı ve kronometre arka planda çalışmaya devam eder. Durumları bildirimde, ana ekranda ve araç takımlarında (widget'larda) görünebilir.</div>
+
+<h2 id="widgets">10. Araç takımları</h2>
+
+<p>ShiftAlarm, telefonun Ana ekranı için araç takımları sunar.</p>
+<ul>
+<li><strong>Bugün 4×2</strong> — yapılandırılabilir iki bölüme sahip kompakt bir panel.</li>
+<li><strong>Bugün 4×3</strong> — üstte bir saat ve altta iki bölüm bulunan bir panel.</li>
+<li><strong>Takvim 4×4</strong> — vardiya programını içeren takvim araç takımları.</li>
+</ul>
+<p>Telefonun Ana ekranındaki Android araç takımı menüsünden bir araç takımı ekleyin.</p>
+
+<h2 id="salary">11. Maaş hesaplama</h2>
+
+<p> <a href="#statistics-work">Seçilen programın istatistikleri</a> bölümündeki maaş kartından “Maaş hesaplama”yı açın. Burada ödeme yöntemini, saatlik ücreti veya aylık maaşı, fazla mesai kurallarını, ikramiyeleri ve kesintileri ayarlayabilirsiniz. Uygulama; bu ayarları seçilen dönem, vardiya programı, takvim değişiklikleri ve mola hesaplamaları ile birlikte kullanır.</p>
+
+<div class="warning"><strong>Hesaplama yalnızca bilgilendirme amaçlıdır.</strong> İşvereniniz zaman takibi, yuvarlama, ödenekler, vergiler, ikramiyeler, kesintiler veya belirli vardiya türleri için yapılan ödemelerde farklı bir sistem kullanıyorsa, gerçek ödeme tutarı farklılık gösterebilir. Elde edilen sonucu resmi bir maaş bordrosu belgesi olarak kullanmayın; sonucu işvereninizin verdiği maaş bordrosuyla karşılaştırın. Uygulamanın doğru şekilde ele almadığı bir hesaplama yöntemiyle karşılaşırsanız, uygulama içinde belirtilen adresten geliştiricilere e-posta gönderin. Kuralları açıklayın, örnek girdi verilerini paylaşın ve beklenen sonucu belirtin. Böylece söz konusu yöntem, gelecekteki bir güncellemede değerlendirilebilir.</div>
+
+<h3 id="salary-settings">11.1. Ücret oranı, fazla mesai ve ikramiyeler</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_settings_overview.webp" alt="Seçili çalışma düzeni, ücret türü, fazla mesai ve ikramiyeleri içeren maaş hesaplama ekranı">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Seçilen program</strong> — hangi vardiya programının kullanıldığını gösterir. Maaş; bu program ve istatistikler bölümünde seçilen dönem esas alınarak hesaplanır.</li>
+<li><strong>Ücret türü ve tutarı</strong> — <strong>saatlik</strong>, <strong>vardiya başına</strong> veya <strong>aylık</strong> ödeme seçeneğini belirleyin ve ilgili tutarı girin. Alan adı, seçilen ücret türüne göre değişir.</li>
+<li><strong>Fazla mesai</strong> — ekstra çalışma saatleri normal çalışma süresinden farklı bir şekilde ücretlendiriliyorsa bu bölümü etkinleştirin. Ardından, fazla mesai ücreti çarpanını belirtin. <a href="#main-shift-time-adjustment">“Vardiyayı değiştir” → “+ süre”</a> yolunu izleyerek takvime ekstra saatler ekleyin; bu saatlerin fazla mesai olarak sayılması için “Bu süreyi fazla mesai olarak say” seçeneğini etkinleştirin.</li>
+<li><strong>İkramiyeler</strong> — mevcut hesaplama yöntemini ve toplam tutarları gösterir. <a href="#salary-bonuses">İkramiye ayarlarını</a> açmak için karta dokunun.</li>
+</ol>
+
+<div class="notice">“Kaydet” düğmesi, ayarları seçilen programa uygular. Kaydetme işleminden sonra, istatistik ve raporlardaki toplamlar girilen veriler kullanılarak yeniden hesaplanır.</div>
+
+<h3 id="salary-summary">11.2. Kesintiler ve hesaplama toplamı</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions_total.webp" alt="Kesintiler ve nihai dökümü içeren maaş hesaplama ekranı">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Kesintiler</strong> — yapılandırılmış kesintilerin toplam tutarını ve sayısını gösterir. <a href="#salary-deductions">Kesinti listesini</a> açmak için karta dokunun.</li>
+<li><strong>Toplam</strong> — özet döküm: ödenen süre, çalışılan saatler, fazla mesai, taban ücret, fazla mesai ücreti, primler, kesintiler ve nihai sonuç.</li>
+</ol>
+
+<div class="tip">Sonuç sadece bu ekranın ayarlarına değil; aynı zamanda seçilen istatistik dönemine, tamamlanan vardiyalara, gün değişimlerine, fazla mesaiye ve ücretsiz mola ayarlarına da bağlıdır.</div>
+
+<h3 id="salary-bonuses">11.3. Primler</h3>
+
+<p>Maaş hesaplama ekranındaki “Primler” kartına dokunun. Ödeme sisteminize uygunsa, bir primi manuel olarak girebilir veya yüzde olarak hesaplayabilirsiniz.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_bonuses.webp" alt="Hesaplama ve tutar girme seçenekleriyle ikramiye ayarları ekranı">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Özet bilgi</strong> — hesaplanan toplam prim tutarını ve hesaplamada kullanılan taban tutarı gösterir.</li>
+<li><strong>Prim hesaplama</strong> — manuel giriş yöntemini veya iş yerinizde kullanılıyorsa satış yüzdesi gibi bir yüzde hesaplama yöntemini seçin.</li>
+<li><strong>Giriş yöntemi</strong> — “Toplam tutar” tek bir nihai prim için uygundur. Bağımsız olarak hesaplanması gereken birden fazla prim olduğunda ayrı satırlar kullanmak yararlıdır.</li>
+<li><strong>Tutar veya yüzde</strong> — seçilen hesaplama yönteminin gerektirdiği değeri girin.</li>
+<li><strong>İptal ve Kaydet</strong> — değişiklikleri iptal edin veya maaş hesaplamasına uygulayın.</li>
+</ol>
+
+<h3 id="salary-deductions">11.4. Kesinti listesi</h3>
+
+<p>Ana hesaplama ekranındaki “Kesintiler” kartına dokunun. Bu bölüm, birden fazla kesinti kaydetmenize ve her birini ayrı ayrı yönetmenize olanak tanır.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions.webp" alt="Toplam tutar, kesinti satırları ve ekleme düğmesini içeren kesinti listesi ekranı">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Özet bilgi</strong> — etkinleştirilmiş tüm kesintilerin tutarını ve sayısını gösterir.</li>
+<li><strong>Kesinti satırı</strong> — adı, değeri ve türü gösterir. <a href="#salary-deduction-editor">Kesinti ayarlarını</a> açmak için satıra dokunun. Çöp kutusu simgesi satırı siler.</li>
+<li><strong>Kesinti ekle</strong> — “+” düğmesi yeni bir kesinti satırı oluşturur.</li>
+<li><strong>İptal et ve Kaydet</strong> — değişiklikleri iptal edin veya listenin tamamını kaydedin.</li>
+</ol>
+
+<h3 id="salary-deduction-editor">11.5. Bireysel bir kesintiyi yapılandırma</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deduction_editor.webp" alt="İsim, değer, tür ve kesinti matrahını içeren bireysel kesinti paneli">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Kesinti adı</strong> — “Vergi”, “Çocuk nafakası” veya “Ceza” gibi anlaşılır bir ad girin.</li>
+<li><strong>Değer</strong> — aşağıda seçilen değer türüne bağlı olarak bir tutar veya yüzde girin.</li>
+<li><strong>Değer türü</strong> — sabit bir tutar veya yüzde seçin.</li>
+<li><strong>Kesinti türü</strong> — <strong>değişken</strong> kesinti belirli bir hesaplama dönemi için geçerlidir; <strong>yinelenen</strong> kesinti ise etkin kaldığı sürece düzenli olarak uygulanır.</li>
+<li><strong>Kesinti kaynağı</strong> — hesaplama temelini seçin: toplam maaş, taban ücret, ikramiyeler veya mevcut diğer bir seçenek.</li>
+<li><strong>Etkin</strong> — ayarları silmeden kesintiyi geçici olarak devre dışı bırakır.</li>
+<li><strong>İptal et ve Kaydet</strong> — değişiklik yapmadan paneli kapatın veya kesintiyi kaydedin.</li>
+</ol>
+
+<div class="notice">Yüzdesel bir kesinti için, doğru “Kesinti kaynağı” temelini seçmek özellikle önemlidir: toplam maaş, taban ücret ve ikramiyeler üzerinden alınan aynı yüzde, farklı sonuçlar doğurur.</div>
+
+<h2 id="settings">12. Ayarlar</h2>
+
+<p><a href="#main-overview">Ana ekranın</a> alt kısmındaki düğmeyi kullanarak “Ayarlar”ı açın. Bu bölüm; sistem izinleri, görünüm ve uygulama dili, çevrimdışı konuşma tanıma, belgeler ve kullanıcı kılavuzu, yedekleme, tanılama ve geliştirici iletişim seçeneklerini içerir.</p>
+
+<h3 id="settings-overview">12.1. Ana ayar bölümleri</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_permissions_language.webp" alt="ShiftAlarm ayarlarının üst kısmı: izinler, tema, uygulama dili ve çevrimdışı konuşma modelleri">
+</figure>
+
+<ol class="callout-list">
+<li><strong>İzinler</strong> — alarm izinlerini ve güvenilirlik ayarlarını açar. Bildirimleri, kesin alarmları, arka plan etkinliğini ve pil kısıtlamalarını kontrol edin. <a href="#geo">Coğrafi alarmlar</a> için de konum erişimi gerekir; uygulama kapalıyken çalışmaları için arka planda konum veya “Her zaman izin ver” erişimi verilmelidir. Öğe adları ve yolları Android sürümüne ve cihaz üreticisine göre değişir.</li>
+<li><strong>Tema</strong> — Açık, koyu veya sistem görünümünü seçmenize, arayüz renk varyantını belirlemenize ve uygulama içi eylemler için dokunsal geri bildirimi (titreşimi) açıp kapatmanıza olanak tanır. Sistem teması, telefonun o anki görünümünü takip eder.</li>
+<li><strong>Uygulama dili</strong> — Telefonun sistem dilinden farklı bir dil kullanmanıza olanak tanır. ShiftAlarm kataloğu 108 dil içerir: arama özelliğini kullanarak istediğiniz dili bulun, dil paketini indirin ve uygulayın.</li>
+<li><strong>Çevrimdışı konuşma modelleri</strong> — <a href="#notes-create">Konuşmadan metne dönüştürme</a> özelliği için bir modül yükler. Çevrimdışı tanıma özelliği şu anda test aşamasındadır ve yaklaşık 20 dil için mevcuttur. Kalitesi çevrimiçi tanımaya kıyasla daha düşük olabilir; bu durum dile, mikrofona, telefon performansına ve kayıt koşullarına bağlıdır.</li>
+</ol>
+
+<div class="warning"><strong>Android izinleri cihazdan cihaza farklılık gösterir.</strong> Bazı telefonlarda ayrıca otomatik başlatmaya izin vermeniz, "Kısıtlamasız" (Unrestricted) veya benzeri bir pil modu seçmeniz ve arka plan etkinliğine izin vermeniz gerekir. Bu ayarlar sistemin ShiftAlarm'ı durdurma ihtimalini azaltır, ancak ayarların tam adları cihaz üreticisi tarafından belirlenir.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_help_backup_diagnostics.webp" alt="ShiftAlarm ayarlarının alt kısmı: belgeler, kullanıcı kılavuzu, yedekleme, tanılama ve geliştirici iletişim bilgileri">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Belgeler ve yardım</strong> — Uygulamanın yasal belgelerini açar: Kullanım Koşulları, Gizlilik Politikası, Sorumluluk Reddi ve kısa yardım sayfası.</li>
+<li><strong>Eğitim ve kullanıcı kılavuzu</strong> — ShiftAlarm özelliklerinin ayrıntılı açıklamalarını içeren bu kapsamlı ve resimli kılavuzu açar.</li>
+<li><strong>Yedekleme ve geri yükleme</strong> — Desteklenen uygulama ayarlarını ve verilerini içeren bir dosya oluşturur veya daha önceki bir yedekten geri yükleme yapar. Bu işlem; uygulamayı yeniden yüklemeden, telefonu sıfırlamadan veya verileri başka bir cihaza aktarmadan önce yararlıdır. Ayrıntılı talimatlar için <a href="#backup">“Yedekleme ve geri yükleme”</a> bölümüne bakın.</li>
+<li><strong>Tanılama günlüğü</strong> — uygulama özellikleri için ayrı günlükleri açar. Günlükler uyarı planlama ve kurtarma, olay işleme, izin durumu ve diğer hizmet bilgileri gibi teknik aşamaları kaydeder. Bir günlük, hatanın hangi aşamada oluştuğunu belirlemeye yardımcı olur. Kayıtları kopyalayabilir veya geliştiricilere e-posta ile göndermek üzere hazırlayabilirsiniz. Ayrıntılar için <a href="#diagnostics">“Tanılama ve sorun giderme”</a> bölümüne bakın.</li>
+<li><strong>Geliştiricilerle iletişime geçin</strong> — e-posta uygulamasını açar ve destek ekibine yönelik bir ileti oluşturur. Bu seçeneği bir sorun bildirmek, geri bildirim veya öneri göndermek ya da soru sormak için kullanabilirsiniz. Teknik bir sorun durumunda; telefon modelini, Android sürümünü, sorunun yaşandığı zamanı, uyguladığınız adımları ve mümkünse ilgili tanılama günlüğünü iletiye ekleyin.</li>
+</ol>
+
+<div class="notice">Tanılama günlükleri geliştiricilere otomatik olarak gönderilmez. Gerekli bilgileri kopyalamalı veya “Geliştiricilere gönder”e dokunup bir e-posta uygulaması seçmeli, hazırlanan iletiyi gözden geçirmeli ve gönderimi onaylamalısınız.</div>
+
+<h2 id="backup">13. Yedekleme ve geri yükleme</h2>
+
+<p>Yedekleme işlemi, desteklenen ShiftAlarm ayarlarını ve kullanıcı verilerini ayrı bir dosyaya kaydeder. Bu işlem; uygulama yeniden yüklendiğinde, telefon sıfırlandığında veya başka bir cihaza geçildiğinde verilerin geri yüklenmesine yardımcı olur.</p>
+<ol class="step-list">
+<li>“Ayarlar → Yedekleme ve geri yükleme” bölümünü açın.</li>
+<li>Bir yedekleme oluşturun ve ortaya çıkan dosyayı telefona kaydedin ya da sistem menüsü aracılığıyla paylaşın.</li>
+<li>Geri yükleme yapmak için aynı bölümü açın ve daha önce oluşturulmuş bir yedekleme dosyasını seçin.</li>
+<li>Geri yükleme işleminden sonra önemli alarmları, zamanlamaları ve Android izinlerini kontrol edin. Yeni bir cihazda veya yeniden yükleme sonrasında bazı sistem güvenliği izinlerinin yeniden verilmesi gerekebilir.</li>
+</ol>
+<p class="tip">Yedeğin güncel bir kopyasını, telefonun kaybolması, hasar görmesi veya sıfırlanması durumunda bile erişebileceğiniz güvenli bir yerde saklayın. Yedekleme dosyası Android sistem izinlerinin yerini tutmaz ve uygulamanın erişim iznine sahip olmadığı verileri otomatik olarak içeremez.</p>
+
+<h2 id="diagnostics">14. Tanılama ve sorun giderme</h2>
+
+<p>ShiftAlarm, farklı özellikler için ayrı tanılama kayıtları sunar. Bu kayıtlar teknik olayların bir dökümünü tutar ve bir uyarının zamanlanıp zamanlanmadığını, yeniden başlatma sonrasında geri yüklenip yüklenmediğini, işlenmek üzere iletilip iletilmediğini veya bir sistem ayarı nedeniyle durdurulup durdurulmadığını belirlemeye yardımcı olur.</p>
+
+<h3 id="diagnostics-control">14.1. Tanılama verisi toplama işlemini kontrol etme</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_sections.webp" alt="Ana anahtar ve bireysel alarm kaydını içeren ShiftAlarm tanılama günlüğü ekranı">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tanılama verilerini topla</strong> — uygulamadaki tüm tanılama bölümleri için ana açma/kapama düğmesidir. Tüm kayıtlara aynı anda yeni olayların eklenmesini durdurmak için bu düğmeyi kapatın. Özelliği yeniden etkinleştirdiğinizde yeni olayların toplanmasına kaldığı yerden devam edilir.</li>
+<li><strong>Özelliğe özel kayıt</strong> — her modülün kendine ait bir açma/kapama düğmesi ve "Aç" düğmesi bulunur. Örneğin, genel tanılama özelliğini etkin tutarken yalnızca alarm, saat veya başka bir özelliğin kayıt tutma işlevini devre dışı bırakabilirsiniz. Ekran görüntüsünde; iletim, zamanlama, kurtarma, koruma (guard-protection) ve alarm ekranı olaylarını kaydeden alarm günlüğü gösterilmektedir.</li>
+</ol>
+
+<div class="notice">Bu düğmeler yalnızca teknik olayların kaydedilmesini kontrol eder. Alarm, saat veya başka bir özelliğin kayıt tutma işlevinin devre dışı bırakılması, ilgili özelliğin kendisini devre dışı bırakmaz. Daha önce kaydedilmiş girdileri, ilgili günlüğün içindeki "Temizle" düğmesini kullanarak ayrı ayrı silebilirsiniz.</div>
+
+<h3 id="diagnostics-log">14.2. Özelliğe özel kayıt</h3>
+
+<p>İlgili tanılama bölümünde "Aç" düğmesine dokunun. Aşağıdaki örnekte alarm günlüğü gösterilmektedir; diğer özelliklere ait günlükler de benzer şekilde çalışır.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_alarm_log.webp" alt="Olay sayısı, eylemler ve teknik girdileri içeren ShiftAlarm alarm tanılama günlüğü">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Kaydedilen olaylar</strong> — seçili günlükte halihazırda saklanan girdi sayısını gösterir.</li>
+<li><strong>Günlük işlemleri</strong>:
+<ul>
+<li><strong>Kopyala</strong> — geçerli günlükteki tüm verileri panoya kopyalar. Bu verileri bir e-postaya veya başka bir uygulamaya yapıştırabilirsiniz.</li>
+<li><strong>Temizle</strong> — bu günlükteki kayıtlı girdileri siler. Temizleme işleminden sonra, yalnızca tanılama özelliği etkin durumdayken daha sonra kaydedilen olaylar görüntülenir.</li>
+<li><strong>Geliştiricilere gönder</strong> — e-posta göndermek için uygulama seçim ekranını açar. Bir e-posta uygulaması seçin; Geliştirici adresi ve tanılama verileri otomatik olarak eklenir. Göndermeden önce sorunun açıklamasını ekleyin, mesajı gözden geçirin ve ardından gönderme işlemini onaylayın.</li>
+</ul>
+</li>
+<li><strong>Uygulama etkinlikleri</strong> — günlük kayıtlarının kendisi. Bir kayıt normalde tarih ve saat, teknik bir etkinlik adı ve tanımlayıcı, durum veya neden gibi ek parametreler içerir. Teknik adlar İngilizce görünebilir; bunları göndermeden önce düzenlemeyin veya çevirmeyin.</li>
+</ol>
+
+<div class="warning">Bir günlüğü temizlemeden önce, gerekli kayıtları kopyalayın veya gönderin. Silinen tanılama etkinlikleri geri getirilemez.</div>
+
+<div class="tip">Sorun yeniden oluşturulabiliyorsa, önce genel tanılama toplama ve ilgili özellik günlüğünü etkinleştirin, ardından soruna neden olan eylemleri tekrarlayın. Mesajınızda sorunun tam zamanını, telefon modelini, Android sürümünü, beklenen sonucu ve gerçekleşen sonucu belirtin. Bu, açıklamanızın günlük etkinlikleriyle eşleştirilmesine yardımcı olur.</div>
+
+<h2 id="faq">15. Sıkça sorulan sorular</h2>
+
+<h3>Alarm zamanında tetiklenmedi</h3>
+<p>Bildirimleri, tam zamanlı alarm iznini, arka plan etkinliğini ve pil kısıtlamalarını kontrol edin.</p>
+<h3>Geo Alarm geç tetiklendi</h3>
+<p>Hassas ve arka plan konumunu, pil kısıtlamalarını ve uygulamanın otomatik başlatılmasını kontrol edin. Şehir içinde 1.300–1.500 m, şehir dışında ise 4.000–5.000 m'lik bir yarıçap deneyin. Gerçek tetikleme, tam olarak yarıçap çizgisi üzerinde gerçekleşmeyebilir.</p>
+<h3>Widget hemen güncellenmedi</h3>
+<p>Uygulamayı açın veya widget üzerindeki yenileme düğmesine dokunun. Android, sık widget güncellemelerini kısıtlayabilir.</p>
+<h3>Dili değiştirdim ancak bir belge veya kılavuz henüz güncellenmedi</h3>
+<p>İnternet bağlantınızı kontrol edin ve indirme işlemi için zaman tanıyın. Uzak sürüm erişilebilir değilse, uygulama kendi yerleşik yedek sürümünü kullanır.</p>
+
+<div class="footer small">Kılavuz, GitHub üzerinden güncellenebilir. Uzak sürüm erişilebilir değilse, uygulama kendi yerleşik çevrimdışı sürümünü kullanır.</div>
+</main>
+</body>
+</html>

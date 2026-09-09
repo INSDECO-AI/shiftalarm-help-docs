@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ShiftAlarm 사용자 가이드</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #64748b;
+  --accent: #2563eb;
+  --soft: #e8eef8;
+  --border: #dbe4f0;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.58;
+  margin: 0;
+  padding: 18px;
+  color: var(--text);
+  background: var(--bg);
+}
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+h1 { margin: 0 0 8px; font-size: 28px; line-height: 1.2; }
+h2 { margin: 32px 0 10px; font-size: 21px; line-height: 1.25; }
+h3 { margin: 22px 0 8px; font-size: 17px; }
+p, li { font-size: 16px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul, ol { padding-left: 22px; }
+.notice, .tip, .warning {
+  padding: 14px 16px;
+  border-radius: 16px;
+  margin: 14px 0;
+  border: 1px solid var(--border);
+}
+.notice { background: var(--soft); }
+.tip { background: #ecfdf5; }
+.warning { background: #fff7ed; }
+.small { color: var(--muted); font-size: 14px; }
+.toc {
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 16px;
+  margin: 18px 0 24px;
+}
+.toc ol { margin: 8px 0 0; }
+.step-list li { margin-bottom: 8px; }
+.guide-figure {
+  margin: 18px 0;
+}
+.guide-image {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+}
+.callout-list li {
+  margin-bottom: 10px;
+}
+.guide-caption {
+  max-width: 520px;
+  margin: 10px auto 0;
+  color: var(--text);
+  font-size: 15px;
+}
+.guide-caption strong {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.footer {
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --card: #111827;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --accent: #93c5fd;
+    --soft: #1f2937;
+    --border: #334155;
+  }
+  main { box-shadow: none; }
+  .toc { background: #172033; }
+  .tip { background: #10251f; }
+  .warning { background: #2a1d10; }
+}
+</style>
+</head>
+<body>
+<main>
+<h1>ShiftAlarm 사용자 가이드</h1>
+<p class="small">버전 14. 날짜: 2026년 8월 2일.</p>
+<div class="notice">이 페이지는 ShiftAlarm에 대한 실용적인 가이드입니다. 각 주요 기능의 역할, 위치, 조작 방법(탭할 곳) 및 기능이 예상대로 작동하지 않을 때 확인해야 할 사항을 설명합니다.</div>
+<nav class="toc">
+<strong>목차</strong>
+<ol><li><a href="#start">1. 첫 실행</a></li><li><a href="#permissions">2. 권한 및 안정성</a></li><li><a href="#main">3. 메인 화면</a></li><li><a href="#shifts">4. 근무 일정</a></li><li><a href="#statistics">5. 일정 통계</a></li><li><a href="#alarms">6. 알람</a></li><li><a href="#geo">7. 위치 기반 알람</a></li><li><a href="#notes">8. 메모, 이벤트 및 알림</a></li><li><a href="#clock">9. 시계, 타이머 및 스톱워치</a></li><li><a href="#widgets">10. 위젯</a></li><li><a href="#salary">11. 급여 계산</a></li><li><a href="#settings">12. 설정</a></li><li><a href="#backup">13. 백업 및 복원</a></li><li><a href="#diagnostics">14. 진단 및 문제 해결</a></li><li><a href="#faq">15. 자주 묻는 질문</a></li></ol>
+</nav>
+<h2 id="start">1. 첫 실행</h2>
+
+<p>ShiftAlarm을 처음 실행하면 간단한 설정 절차가 표시됩니다. 메인 화면을 이미 사용할 수 있는 상태이지만, 먼저 기본 설정을 완료하는 것이 좋습니다.</p>
+<ol class="step-list">
+<li>소개 내용을 읽고 "계속"을 탭합니다.</li>
+<li>문서 단계에서, 진행할 준비가 되면 문서를 열거나 필수 문서에 동의합니다.</li>
+<li>권한 단계에서 권한 설정 화면을 열고 알림, 정확한 알람, 위치 액세스, 배터리 제한 설정을 확인합니다.</li>
+<li>"설정 완료"를 탭합니다.</li>
+</ol>
+<p class="tip">권한 설정은 나중에 "설정 → 권한 및 안정성"에서 변경할 수 있습니다.</p>
+
+<h2 id="permissions">2. 권한 및 안정성</h2>
+
+<p>알람, 알림, 지오 알람(위치 알람)은 Android 설정 및 기기 제조사의 소프트웨어에 따라 작동 방식이 달라질 수 있습니다.</p>
+<ul>
+<li><strong>알림</strong> — 알람, 알림, 타이머 및 서비스 알림에 필요합니다.</li>
+<li><strong>정확한 알람</strong> — 설정한 시간에 알람이 울리도록 합니다.</li>
+<li><strong>위치</strong> — 지오 알람(위치 알람)에 필요합니다.</li>
+<li><strong>백그라운드 위치</strong> — 앱이 닫혀 있는 동안 지오 알람이 작동하려면 필요합니다.</li>
+<li><strong>배터리 및 백그라운드 활동</strong> — Xiaomi/Redmi 및 일부 다른 기기에서 알람 실행의 안정성에 영향을 미칠 수 있습니다.</li>
+</ul>
+<p class="warning">Android는 알림, 정확한 알람 또는 지오펜스(지오펜스) 이벤트의 즉각적인 전달을 항상 보장하지는 않습니다. 중요한 알림의 경우 권한 설정 화면의 모든 항목을 확인하십시오.</p>
+
+<h2 id="main">3. 메인 화면</h2>
+
+<p>메인 화면은 일상적인 작업을 위한 대시보드입니다. 여기에서 캘린더, 시계, 지오 알람, 일반 알람, 교대 근무 일정, 메모 및 설정에 바로 접근할 수 있습니다.</p>
+
+<h3 id="main-overview">3.1. 메인 화면 구성 요소</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_screen_overview.png" alt="번호가 매겨진 제어 요소가 포함된 ShiftAlarm 메인 화면">
+</figure>
+
+<ol class="callout-list">
+<li><strong>뒤로 화살표</strong> — 달력을 이전 달로 이동합니다.</li>
+<li><strong>월 및 연도</strong> — 현재 표시된 월을 보여줍니다. 이 영역을 탭하면 <a href="#main-date-picker">단계별 월/연도 선택기</a>를 사용할 수 있습니다.</li>
+<li><strong>앞으로 화살표</strong> — 달력을 다음 달로 이동합니다.</li>
+<li><strong>달력</strong> — 월별 일정이 표시되는 메인 영역입니다. 달력을 스와이프하여 넘길 수 있습니다. 각 날짜에는 날짜, 알림, 이벤트, 예정된 근무(시프트), 날짜 관련 변경 사항 등이 표시될 수 있습니다. 일반 탭으로 날짜를 선택하고, 길게 누르면 <a href="#main-day-actions">선택한 날짜의 정보 및 작업</a>이 표시됩니다.</li>
+<li><strong>오늘</strong> — 달력을 현재 날짜로 되돌립니다.</li>
+<li><strong>시계</strong> — <a href="#clock">세계 시계, 스톱워치 및 타이머</a>를 엽니다.</li>
+<li><strong>위치 알람(위치 알람)</strong> — <a href="#geo">지도, 저장된 장소 및 위치 알람 설정</a>을 엽니다. 선택한 구역에 진입하거나 벗어날 때, 또는 두 경우 모두에서 알람이 울리도록 설정할 수 있습니다.</li>
+<li><strong>알람</strong> — <a href="#alarms">일반 알람, 반복 알람 및 교대 근무 연동 알람</a>을 엽니다.</li>
+<li><strong>일정</strong> — <a href="#shifts">교대 근무 일정, 일정 생성 및 편집, 통계</a>를 엽니다.</li>
+<li><strong>메모</strong> — <a href="#notes">메모, 이벤트, 알림, 음성 메모 및 음성-텍스트 변환 기능</a>을 엽니다.</li>
+<li><strong>설정</strong> — <a href="#settings">권한, 언어, 테마, 오프라인 음성 모델, 백업, 진단, 문서 및 학습 기능</a>을 엽니다.</li>
+</ol>
+
+
+<h3 id="main-date-picker">3.2. 월 및 연도 선택</h3>
+
+<p>메인 화면 상단의 월과 연도를 탭하여 원하는 달력 기간을 빠르게 엽니다. 선택은 <strong>세기 → 10년 단위 → 연도 → 월</strong> 순서로 진행됩니다.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_century.webp" alt="1단계: ShiftAlarm 달력에서 세기 선택">
+<figcaption class="guide-caption"><strong>1. 세기 선택.</strong> 필요한 연도가 포함된 기간을 탭합니다. 예시에서는 2000년대를 선택합니다.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_decade.webp" alt="2단계: ShiftAlarm 달력에서 10년 단위 선택">
+<figcaption class="guide-caption"><strong>2. 10년 단위 선택.</strong> 필요한 연도가 포함된 범위를 탭합니다. 2026년의 경우 "2020–2029"를 선택합니다.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_year.webp" alt="3단계: ShiftAlarm 달력에서 연도 선택">
+<figcaption class="guide-caption"><strong>3. 연도 선택.</strong> 필요한 연도를 탭합니다. 예시에서는 2026년을 선택합니다.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_month.webp" alt="4단계: ShiftAlarm 달력에서 월 선택">
+<figcaption class="guide-caption"><strong>4. 월 선택.</strong> 필요한 월을 탭합니다. 이 예시에서는 7월을 선택합니다.</figcaption>
+</figure>
+
+<div class="tip">월을 선택하면 패널이 닫히고, 선택한 월과 연도로 설정된 메인 달력이 열립니다.</div>
+<div class="notice">"뒤로" 버튼을 누르면 이전 단계로 돌아갑니다. 세기 화면에서는 날짜 선택기가 닫힙니다.</div>
+
+<h3 id="main-day-actions">3.3. 선택한 날짜에 대한 정보 및 작업</h3>
+
+<p>달력에서 원하는 날짜를 길게 누릅니다. 해당 날짜에 대한 정보와 작업이 포함된 패널이 열립니다. 패널을 위로 드래그하면 사용 가능한 모든 작업을 확인할 수 있습니다.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_day_actions.webp" alt="선택한 달력 날짜에 대한 ShiftAlarm 정보 및 작업 패널">
+</figure>
+
+<ol class="callout-list">
+<li><strong>날짜</strong> — 요일과 선택한 날짜를 표시합니다. 상단의 핸들을 위아래로 드래그하여 패널을 확장하거나 닫을 수 있습니다.</li>
+<li><strong>교대 근무</strong> — 계산된 교대 근무 일정이나 휴무, 휴가, 병가, 기타 예외 사항 등의 일정 변경 내용을 표시합니다.</li>
+<li><strong>해당 날짜의 알람</strong> — 선택한 날짜에 설정된 알람을 표시하거나, 설정된 알람이 없음을 알립니다.</li>
+<li><strong>이벤트 및 알림</strong> — 선택한 날짜와 연결된 항목을 표시합니다.</li>
+<li><strong>알람 추가</strong> — 선택한 날짜에 대한 일회성 알람을 생성하는 화면을 엽니다.</li>
+<li><strong>교대 근무 변경</strong> — 활성 일정 내의 특정 날짜 또는 기간에 대한 예외 사항을 생성합니다.</li>
+<li><strong>메모 추가</strong> — 선택한 날짜에 생성할 이벤트나 알림을 선택할 수 있습니다.</li>
+</ol>
+
+<div class="notice">"교대 근무 변경" 작업은 활성 교대 근무 일정의 날짜를 조정할 때 사용할 수 있습니다.</div>
+
+<h4 id="main-shift-override">특정 날짜 또는 기간 변경</h4>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_types.webp" alt="ShiftAlarm에서 날짜 범위 및 교대 근무 변경 유형 선택">
+</figure>
+
+<ol class="callout-list">
+<li><strong>시작 날짜</strong> — 변경이 시작되는 날짜입니다. 기본적으로 달력에서 선택한 날짜가 설정됩니다.</li>
+<li><strong>종료 날짜</strong> — 변경이 끝나는 날짜입니다. 하루만 변경하려면 해당 날짜를 그대로 선택해 두십시오.</li>
+<li><strong>휴무</strong> — 계산된 근무 일정을 휴무로 대체합니다.</li>
+<li><strong>휴가</strong> — 선택한 날짜나 기간을 휴가로 표시합니다.</li>
+<li><strong>병가</strong> — 선택한 날짜나 기간을 병가로 표시합니다.</li>
+<li><strong>변경 사항 저장</strong> — 선택한 예외 사항을 달력에 적용합니다.</li>
+</ol>
+
+<h4 id="main-shift-time-adjustment">근무 시간 조정</h4>
+
+<p>변경 유형 목록을 아래로 스크롤하여 "근무 수정"을 선택하면 계산된 근무 시간(교대 근무 시간)을 변경할 수 있습니다.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_time_adjustment.webp" alt="ShiftAlarm에서 교대 근무 시간 조정">
+</figure>
+
+<ol class="callout-list">
+<li><strong>근무 수정</strong> — 선택한 근무의 시간을 조정할 수 있습니다.</li>
+<li><strong>+ 시간</strong> — 기본 근무 시간에 시간이나 분을 추가합니다.</li>
+<li><strong>− 시간</strong> — 근무가 일찍 종료된 경우 등 근무 시간을 단축합니다.</li>
+<li><strong>이 시간을 초과 근무로 계산</strong> — 추가된 시간을 초과 근무로 처리합니다. 이 옵션을 끄면 일반 근무 시간으로 계산됩니다.</li>
+<li><strong>변경 사항 저장</strong> — 선택한 날짜 또는 기간에 조정 사항을 적용합니다.</li>
+</ol>
+
+<div class="tip">일일 변경 사항은 원래의 일정 템플릿을 수정하지 않습니다. 이는 별도의 예외 사항으로 저장되며 달력, 통계, 급여 계산 및 보고서에 포함됩니다.</div>
+
+<h2 id="shifts">4. 근무 일정</h2>
+
+<p>근무 일정은 반복되는 업무 주기를 정의하며 다른 ShiftAlarm 기능의 기반이 됩니다. 앱은 이 일정을 사용하여 달력 채우기, 알람과 근무 연결, 근무 시간 계산, 통계 생성, 급여 추정 및 보고서 작성을 수행합니다.</p>
+
+<div class="notice"><strong>기본 원칙.</strong> 먼저 반복되는 기본 일정을 생성합니다. 휴가, 병가, 휴무, 일회성 대체 근무 또는 근무 시간 조정 등은 <a href="#main-day-actions">선택한 날짜에 대한 작업</a>을 통해 특정 날짜의 예외 사항으로 추가합니다. 이렇게 하면 원래의 주기가 변경되지 않고 유지됩니다.</div>
+
+<h3 id="shifts-list">4.1. 일정 목록 및 제어 기능</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedules_overview.webp" alt="활성 일정 카드와 번호가 매겨진 제어 요소가 포함된 ShiftAlarm 일정 화면">
+</figure>
+
+<ol class="callout-list">
+<li><strong>일정 세부 정보</strong> — 이름, 시작 날짜, 주기 길이 및 간략한 일수 순서(패턴)를 표시합니다. 예시에서 "D · D · O · O"는 주간 근무 2회 후 휴무 2일을 의미합니다.</li>
+<li><strong>전환</strong> — 일정을 삭제하지 않고 일시적으로 비활성화합니다. 다시 활성화하면 저장된 설정이 계속 적용됩니다.</li>
+<li><strong>일정 상태</strong> — 현재 활성화된 일정을 표시합니다.</li>
+<li><strong>편집</strong> — 변경 가능한 매개변수를 엽니다. 초기 설정 후에는 이미 생성된 캘린더 데이터가 의도치 않게 재계산되는 것을 방지하기 위해 일정의 기본 설정 일부가 잠깁니다.</li>
+<li><strong>삭제</strong> — 확인 절차를 거쳐 일정을 삭제합니다. 삭제하기 전에 해당 교대 근무와 연결된 알람이나 계산 설정이 있는지 확인하십시오.</li>
+<li><strong>통계 보기</strong> — 해당 일정의 <a href="#statistics">근무 시간, 기간, 급여 및 보고서 통계</a>를 엽니다.</li>
+<li><strong>일정 생성</strong> — 미리 만들어진 템플릿을 선택하거나 사용자 지정 주기를 생성할 수 있습니다.</li>
+</ol>
+
+<h3 id="shifts-create">4.2. 일정 생성 시작하기</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_create.webp" alt="이름, 시작 날짜, 템플릿 및 사용자 지정 일정이 포함된 일정 생성 패널">
+</figure>
+
+<ol class="callout-list">
+<li><strong>일정 이름</strong> — "메인 2/2", "야간 근무" 또는 근무지 이름과 같이 명확한 이름을 입력합니다.</li>
+<li><strong>시작 날짜</strong> — <strong>반복 주기의 첫 번째 날</strong>에 해당하는 날짜입니다. 과거 또는 미래 날짜를 선택할 수 있으며, 앱은 해당 날짜를 기준으로 앞뒤로 일정을 계산합니다.</li>
+<li><strong>템플릿</strong> — 미리 정의된 일반적인 교대 근무 순서입니다. 예시에서는 "2/2 주간" 템플릿을 사용합니다.</li>
+<li><strong>사용자 지정 일정</strong> — 근무일과 휴무일의 순서를 직접 생성합니다.</li>
+<li><strong>일정 생성</strong> — 선택한 옵션에 대한 상세 편집기를 엽니다.</li>
+</ol>
+
+<div class="tip">"D · D · O · O" 템플릿의 경우, 시작 날짜는 일반적으로 두 번의 근무일 중 첫 번째 날입니다. 사용자 지정 주기에서는 첫 번째 날이 휴무일일 수도 있습니다. 중요한 점은 선택한 날짜가 생성한 순서의 첫 번째 날과 정확히 일치해야 한다는 것입니다.</div>
+
+<h3 id="shifts-template">4.3. 템플릿으로 일정 만들기</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_template.webp" alt="이름, 순서, 시작 날짜 및 교대 근무 설정이 포함된 템플릿 일정 편집기">
+</figure>
+
+<ol class="callout-list">
+<li><strong>일정 이름</strong> — 제안된 이름을 그대로 사용하거나 원하는 이름으로 변경하세요.</li>
+<li><strong>템플릿</strong> — 문자열과 그 의미를 표시합니다. 예시에서 "D · D · O · O"는 주간 근무, 주간 근무, 휴무, 휴무를 의미합니다.</li>
+<li><strong>시작일</strong> — 표시된 순서의 첫 번째 날짜를 선택합니다.</li>
+<li><strong>근무 시간</strong> — 각 근무 유형의 시작 및 종료 시간을 지정합니다. 앱이 계산된 근무 시간을 표시합니다.</li>
+<li><strong>취소</strong> — 저장하지 않고 편집기를 닫습니다.</li>
+<li><strong>저장</strong> — 일정을 저장하고 달력에 근무 일정을 계산하여 반영합니다.</li>
+</ol>
+
+<div class="warning"><strong>최초 저장 후.</strong> 이미 계산된 달력 데이터를 보호하기 위해 시작일과 주기 구조가 고정됩니다. 이름이나 일부 근무 설정은 여전히 ​​수정할 수 있습니다. 다른 기본 주기나 기준일이 필요한 경우, 새 일정을 만드는 것이 더 안전합니다.</div>
+
+<h3 id="shifts-custom">4.4. 사용자 지정 주기 생성</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_custom.webp" alt="주기 길이, 요일별 설정, 시작일 및 일일 설정을 포함한 사용자 지정 근무 일정 편집기">
+</figure>
+
+<ol class="callout-list">
+<li><strong>일정 이름</strong> — 사용자 지정 일정에 이름을 지정합니다.</li>
+<li><strong>주기 길이</strong> — 반복되는 일정에 포함된 일수를 표시합니다.</li>
+<li><strong>일 제거</strong> — 주기를 하루 단축합니다.</li>
+<li><strong>일 추가</strong> — 주기 끝에 설정 가능한 날을 추가합니다.</li>
+<li><strong>시작일</strong> — 사용자 지정 주기의 1일 차에 해당하는 날짜입니다.</li>
+<li><strong>날짜 설정</strong> — ‘근무 유형’ 카드를 탭한 다음 휴무일 또는 필요한 근무 유형(주간, 야간, 오전, 오후, 24시간, 사용자 지정 근무)을 선택합니다. 근무일에는 시작 시간과 종료 시간을 지정합니다. 화면 아래에서 주기의 나머지 날짜도 같은 방법으로 설정합니다.</li>
+<li><strong>취소</strong> — 변경 사항을 저장하지 않고 편집기를 닫습니다.</li>
+<li><strong>저장</strong> — 사용자 지정 주기를 저장하고 달력에 반영합니다.</li>
+</ol>
+
+<div class="notice"><strong>주기란 무엇인가요?</strong> 주기는 일정이 다시 시작되기까지 걸리는 일수(날짜 수)를 의미합니다. 예를 들어, 4일 주기는 '근무일 2일 + 휴무일 2일'로 구성될 수 있고, 6일 주기는 '근무일 3일 + 휴무일 3일'로 구성될 수 있습니다. 마지막 날이 지나면 앱은 다시 1일 차로 돌아갑니다.</div>
+
+<div class="tip">일회성 일정 예외 사항을 위해 기본 주기를 변경하지 마세요. 달력의 날짜를 길게 눌러 휴무, 휴가, 병가, 대체 근무 또는 시간 조정 일정을 생성하세요.</div>
+
+
+
+<span id="shift-statistics"></span>
+<h2 id="statistics">5. 일정 통계</h2>
+
+<p>일정 카드에서 <strong>“통계 열기”</strong> 버튼을 눌러 “통계”를 확인하세요. 이 섹션에서는 근무일 및 휴무일, 일정 변경, 계획 및 실제 근무 시간, 예상 급여, 보고서 관련 정보를 종합적으로 보여줍니다.</p>
+
+<div class="notice"><strong>중요:</strong> 통계는 선택한 교대 근무 일정에 대해서만 계산됩니다. 선택한 기간은 아래에 표시되는 모든 근무 시간, 급여 및 보고서 수치에 적용됩니다.</div>
+
+<h3 id="statistics-period">5.1. 일정, 기간 및 일일 요약</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_period_overview.webp" alt="일정 정보, 기간 선택 및 일일 합계가 표시된 통계 화면">
+</figure>
+
+<ol class="callout-list">
+<li><strong>일정 정보</strong> — 선택한 일정의 이름, 첫 번째 주기의 시작 날짜, 반복 주기의 길이를 표시합니다. 이 화면의 통계는 해당 일정에만 적용됩니다.</li>
+<li><strong>선택한 기간 카드</strong> — 현재 적용 중인 기간을 표시합니다. 해당 항목이나 오른쪽 화살표를 탭하여 현재/이전/다음 월, 현재 연도 또는 사용자 지정 날짜 범위를 선택하세요.</li>
+<li><strong>일별 요약</strong> — 해당 기간의 일수, 근무 교대, 휴무일, 완료 및 예정된 교대 근무, 그리고 변경된 날짜를 표시합니다. 변경된 날짜란 휴가, 병가, 휴무, 교대 근무 대체 또는 변경, 근무 시간 조정 등 기본 주기에서 벗어난 예외적인 경우를 의미합니다.</li>
+</ol>
+
+<div class="warning"><strong>향후 기간에 대한 정보는 예측치입니다.</strong> 앱은 향후 월에 대해 생성된 일정과 이미 입력된 데이터를 사용하지만, 미래의 병가, 휴가, 기타 휴무, 초과 근무, 보너스 또는 공제 항목은 알 수 없습니다. 현재 연도를 선택하면, 합계에는 지난 날짜의 실제 데이터와 남은 기간에 대한 예측치가 합산될 수 있습니다.</div>
+
+<h3 id="statistics-work">5.2. 근무 시간, 급여 및 보고서</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_work_salary_reports.webp" alt="근무 시간, 진행 상황, 급여 및 보고서 확인 기능을 포함한 통계 화면">
+</figure>
+
+<ol class="callout-list">
+<li><strong>근무 시간</strong> — 시간 및 진행 상황을 보여주는 요약 카드입니다. 이 카드를 탭하면 <a href="#statistics-break">휴식 시간 설정</a>이 열립니다.</li>
+<li><strong>계획된 시간</strong> — 선택한 기간 동안 예정된 근무(시프트) 및 변경 사항의 총 소요 시간입니다.</li>
+<li><strong>실제 근무 시간</strong> — 휴식 시간 설정이 적용된 상태로, 현재 날짜 기준으로 완료된 것으로 간주되는 근무 시간입니다.</li>
+<li><strong>진행 상황</strong> — 전체 근무 중 완료된 근무 횟수와 선택한 기간의 완료 비율을 보여줍니다.</li>
+<li><strong>급여</strong> — <a href="#salary">급여 계산 설정</a>을 엽니다. 이 카드는 선택한 일정 및 기간에 대한 예상 급여를 표시합니다.</li>
+<li><strong>합계</strong> — 선택한 급여 지급 방식, 보너스, 초과 근무 수당 및 공제 항목을 포함하여 현재까지의 예상 수입 총액입니다.</li>
+<li><strong>급여 단가 또는 급여액</strong> — 이 카드의 내용은 선택한 계산 방식(시간당, 근무당 또는 월 단위 급여)에 따라 달라집니다. 급여 설정에 입력된 값을 표시합니다.</li>
+<li><strong>계산 내역</strong> — 선택한 기간에 대한 유급 근무 시간, 초과 근무 시간, 보너스 및 공제액.</li>
+<li><strong>보고서</strong> — <a href="#reports">기간, 근무 시간 및 급여에 대한 상세 보고서</a>를 엽니다.</li>
+</ol>
+
+<div class="tip">상단 카드에서 기간을 변경하면 근무 시간 및 급여 섹션의 모든 값이 다시 계산됩니다.</div>
+
+<h3 id="statistics-break">5.3. 근무 시간 내 휴게 시간 처리</h3>
+
+<p>“근무 시간” 카드를 탭하여 식사 시간이나 기타 휴게 시간을 실제 근무 시간 및 유급 시간에 포함할지 여부를 지정합니다.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_break_settings.webp" alt="휴게 시간 산정 및 지속 시간 설정 패널">
+</figure>
+
+<ol class="callout-list">
+<li><strong>현재 합계</strong> — 새 설정이 적용되기 전, 선택한 기간의 계획된 근무 시간과 실제 근무 시간을 표시합니다.</li>
+<li><strong>휴게 시간을 근무 시간으로 포함</strong> — 휴게 시간이 유급이고 근무 교대(시프트) 시간에 포함되는 경우 이 옵션을 켭니다. 지정된 시간을 근무 시간 및 유급 시간에서 제외해야 하는 경우 이 옵션을 끕니다.</li>
+<li><strong>휴게 시간 길이</strong> — 1회 휴게 시간의 시와 분을 선택합니다. 이 설정은 해당 근무 교대 일정을 다시 계산할 때 사용됩니다.</li>
+<li><strong>총 휴게 시간</strong> — 저장하기 전에 선택한 휴게 시간 길이를 표시합니다.</li>
+<li><strong>저장</strong> — 설정을 적용하고 근무 시간 및 관련 값을 다시 계산합니다.</li>
+</ol>
+
+<div class="notice">휴게 시간은 식사 시간, 근무 교대 인수인계 시간 또는 근무 중 무급 휴식 시간을 의미할 수 있습니다. 직장의 규정에 맞는 시간을 입력하십시오.</div>
+
+<h3 id="reports">5.4. 보고서: 기간, 상태 및 요약</h3>
+
+<p>통계 화면의 하단 카드에서 “보고서”를 엽니다. 이 섹션에서는 선택한 기간에 대한 상세 정보(근무 시간, 교대 근무 및 결근, 달력 조정, 급여, 보너스, 공제액, 기간 비교, 일별 세부 정보 및 내보내기 기능)를 제공합니다.</p>
+
+<div class="warning"><strong>보고서는 참고용으로만 제공됩니다.</strong> 계산은 선택한 일정, 급여 설정, 휴게 시간 산정 및 달력상의 교대 근무 변경 사항을 기준으로 수행됩니다. 실제 급여액은 시간 기록 시스템, 반올림 처리, 세금, 수당 또는 사내 규정 등에 따라 달라질 수 있습니다. 오류를 발견하거나 지원되지 않는 계산 방식을 확인한 경우, 입력 데이터와 예상 결과를 포함하여 앱에 표시된 주소로 개발자에게 문의해 주십시오.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_period_salary.webp" alt="기간 선택, 상태, 요약 및 상세 급여 내역이 포함된 보고서 화면">
+</figure>
+
+<ol class="callout-list">
+<li><strong>보고 기간</strong> — 카드를 탭하여 당월, 전월, 익월, 사전 설정된 기간 또는 사용자 지정 날짜를 선택합니다. 아래의 모든 정보는 선택한 기간에 적용됩니다.</li>
+<li><strong>기간 상태</strong> — 해당 기간이 완료되었는지, 현재 진행 중인지, 아니면 아직 시작되지 않았는지를 표시합니다. 완료된 기간은 저장된 실제 데이터를 기준으로 산출됩니다. 진행 중인 기간은 이미 수행된 작업 데이터와 현재 계획을 결합한 것이며, 향후 기간은 예측치입니다.</li>
+<li><strong>요약</strong> — 실제 근무 시간, 산출된 금액, 초과 근무 시간에 대한 텍스트 요약입니다.</li>
+<li><strong>급여</strong> — 기본급, 초과 근무 수당, 보너스, 공제액 및 최종 예상액에 대한 상세 내역입니다. 각 값은 <a href="#salary">급여 설정</a> 및 선택한 기간에 따라 달라집니다.</li>
+</ol>
+
+<h3 id="reports-work">5.5. 근무 시간, 부재 및 일수</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_work_absences.webp" alt="근무 시간, 휴게 시간, 완료된 근무 및 결근 내역이 포함된 보고서 화면">
+</figure>
+
+<ol class="callout-list">
+<li><strong>근무 시간</strong> — 계획 및 실제 근무 시간, 휴게 시간 공제 전의 계획 및 실제 시간, 완료된 교대 근무 횟수, 평균 교대 근무 시간, 총 공제 휴게 시간을 표시합니다. 휴게 시간은 <a href="#statistics-break">근무 시간 섹션</a>에서 설정할 수 있습니다.</li>
+<li><strong>부재 및 일수</strong> — 선택한 기간 동안의 휴무일, 휴가일, 병가일, 기타 휴가일 및 변경된 근무일 수를 표시합니다.</li>
+</ol>
+
+<h3 id="reports-charts">5.6. 조정 및 차트</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_corrections_charts.webp" alt="조정 사항, 급여 구성 및 근무 시간 수치가 포함된 보고서 화면">
+</figure>
+
+<ol class="callout-list">
+<li><strong>조정</strong> — 초과 근무 시간, 교대 근무 시간의 총 변동폭, 기본 일정에서 변경된 날짜 수를 표시합니다.</li>
+<li><strong>차트</strong> — 급여 및 근무 시간 구성(기본급, 초과 근무 수당, 보너스, 공제액, 총액 및 계획/실제/유급 근무 시간)을 시각화하여 보여줍니다.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_charts_days.webp" alt="근무 시간 및 근무 유형별 원형 차트가 포함된 추가 보고서 차트">
+</figure>
+
+<ol class="callout-list">
+<li><strong>시간</strong> — 예정 시간, 실제 근무 시간, 유급 시간, 초과 근무 시간을 계속 시각적으로 비교합니다. ‘실제 근무 시간’ 행에는 설정과 조정을 적용한 결과가 표시됩니다.</li>
+<li><strong>일 유형</strong> — 선택한 기간의 날짜를 유형별로 분류한 원형 차트입니다. 범례는 일정 및 실제 변경 사항(주간/야간/기타 근무, 휴무, 휴가, 병가, 기타 부재 등)에 따라 달라집니다.</li>
+</ol>
+
+<h3 id="reports-comparison">5.7. 기간 비교</h3>
+
+<p>비교 섹션에서는 여러 기간에 걸친 급여, 시간, 근무, 부재 현황을 비교할 수 있습니다. 비교 가능한 기간의 수는 저장된 데이터에 따라 달라집니다.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_chart.webp" alt="범위 선택, 급여 차트 및 비교표 시작 부분이 포함된 기간 비교 화면">
+</figure>
+
+<ol class="callout-list">
+<li><strong>기간 비교</strong> — 카드를 탭하여 비교할 기간의 수와 범위를 선택합니다.</li>
+<li><strong>차트 및 기간 목록</strong> — 각 기간의 급여를 표시하고, 비교 대상 기간과 해당 기간의 상태를 나열합니다.</li>
+<li><strong>비교 표</strong> — 각 기간의 상세 수치를 포함합니다. 표를 좌우로 스와이프하여 나머지 열을 확인할 수 있습니다.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_table.webp" alt="비교표의 나머지 부분 및 인접 기간 간의 차이점">
+</figure>
+
+<ol class="callout-list">
+<li><strong>기간별 수치</strong> — 총 급여, 실제 근무 및 유급 시간, 초과 근무, 보너스, 공제액, 완료된 근무, 부재, 변경된 날짜 등.</li>
+<li><strong>기간 간 차이</strong> — 각 기간이 이전 기간과 어떻게 다른지 보여줍니다. 양수(+) 및 음수(-) 값은 해당 지표의 증가 또는 감소를 나타냅니다. 색상만으로 항상 이점이나 문제를 의미하는 것은 아닙니다. 예를 들어, 공제액의 증가는 더 많은 금액이 공제됨을 의미합니다.</li>
+</ol>
+
+<h3 id="reports-details-export">5.8. 일일 상세 정보 및 내보내기</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_details_export.webp" alt="일일 세부 정보가 포함된 보고서 카드 및 PDF, HTML, JSON, CSV 형식으로 내보내기">
+</figure>
+
+<ol class="callout-list">
+<li><strong>일일 상세 정보</strong> — 선택한 기간 내 모든 날짜의 목록을 엽니다. 특정 날짜의 근무 유형, 계획 및 실제 시간, 시간 조정, 부재 및 기타 변경 사항을 확인할 수 있습니다.</li>
+<li><strong>내보내기</strong> — 보고서를 PDF, HTML, JSON 또는 CSV 형식으로 저장합니다. 내보내기 전에 보고 기간을 선택하십시오. 이후 Android 시스템 메뉴를 통해 파일을 인쇄, 저장 또는 공유할 수 있습니다.</li>
+</ol>
+
+<div class="tip">비교하거나 내보내기 전에 선택한 기간, 일정, 근무 교대(시프트) 변경, 휴식 시간 및 급여 설정을 확인하세요. 원본 데이터의 오류는 모든 보고서 합계에 영향을 미칩니다.</div>
+
+<h2 id="alarms">6. 알람</h2>
+
+<p>ShiftAlarm을 사용하면 일회성 알람을 생성하거나, 특정 요일에 반복되도록 설정하거나, 알람 시간을 근무 일정과 연동할 수 있습니다.</p>
+
+<h3 id="alarms-list">6.1. 알람 목록</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarms_overview.webp" alt="다음 알림, 정렬, 알람 카드 및 추가 버튼이 표시된 ShiftAlarm 알람 화면">
+</figure>
+
+<ol class="callout-list">
+<li><strong>다음 알람</strong> — 다음에 울릴 알람의 날짜와 시간을 표시합니다.</li>
+<li><strong>알람 정렬</strong> — 활성화된 알람을 먼저 표시하는 등 알람 카드의 표시 순서를 변경합니다.</li>
+<li><strong>알람 카드</strong> — 시간, 날짜 또는 반복 모드, 일정 유형, 남은 시간을 표시합니다. 카드를 탭하여 편집할 수 있습니다.</li>
+<li><strong>스위치</strong> — 알람 설정을 삭제하지 않고 일시적으로 알람을 활성화하거나 비활성화합니다.</li>
+<li><strong>삭제</strong> — 선택한 알람을 삭제합니다.</li>
+<li><strong>알람 추가</strong> — 새 알람을 생성하는 화면을 엽니다.</li>
+</ol>
+
+<h3 id="alarms-create">6.2. 알람 생성 및 편집</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_time_schedule.webp" alt="ShiftAlarm 알람 편집기 상단: 시간, 일정 유형, 스누즈 및 저장 설정">
+</figure>
+
+<ol class="callout-list">
+<li><strong>시간</strong> — 시와 분 휠을 스크롤하여 알람 시간을 설정합니다.</li>
+<li><strong>일정 유형</strong> — 다음 모드 중 하나를 선택합니다:
+<ul>
+<li><strong>1회</strong> — 선택한 날짜에 알람이 한 번 울립니다.</li>
+<li><strong>요일별</strong> — 선택한 요일에 반복됩니다.</li>
+<li><strong>교대 근무별</strong> — 선택한 일정 및 교대 근무 유형과 알람을 연동합니다.</li>
+</ul>
+</li>
+<li><strong>다시 알림</strong> — 알람이 울릴 때 화면의 다시 알림 버튼을 누르면 알람이 몇 분간 연기될지 설정합니다.</li>
+<li><strong>취소 및 저장</strong> — 이 버튼들은 화면 하단에 고정되어 있어 편집기 화면을 스크롤하는 동안에도 계속 사용할 수 있습니다.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_behavior.webp" alt="알람 지속 시간, 반복 알림, 점진적 볼륨 증가 및 진동에 대한 ShiftAlarm 설정">
+</figure>
+
+<ol class="callout-list">
+<li><strong>알람 지속 시간</strong> — 사용자가 알람을 끄지 않을 경우 알람 소리가 얼마나 오래 울릴지 결정합니다.</li>
+<li><strong>알람 미확인 시 반복</strong> — 알람을 해제하거나 다시 알림을 설정하지 않았을 때 알람이 다시 울리도록 합니다. 그 아래에서 반복 알람 간격을 설정합니다.</li>
+<li><strong>점진적 볼륨 증가</strong> — 낮은 볼륨으로 시작하여 선택한 시간 동안 서서히 볼륨을 높입니다.</li>
+<li><strong>진동</strong> — 알람이 울릴 때 진동을 켜거나 끕니다.</li>
+<li><strong>취소 및 저장</strong> — 편집기용 고정 컨트롤입니다.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_sound_name.webp" alt="ShiftAlarm 알람 편집기 하단: 진동, 소리, 이름 및 저장 제어">
+</figure>
+
+<ol class="callout-list">
+<li><strong>진동</strong> — 진동 알람을 켜거나 끕니다.</li>
+<li><strong>소리</strong> — 내장 소리, 시스템 소리 또는 사용자가 추가한 소리 중 하나를 선택할 수 있습니다. 앱에 최대 5개의 사용자 지정 소리를 추가할 수 있습니다.</li>
+<li><strong>이름</strong> — 알람을 구분하는 데 도움이 되는 선택적 라벨입니다.</li>
+<li><strong>취소 및 저장</strong> — 변경 사항을 취소하거나 알람을 저장합니다.</li>
+</ol>
+
+<div class="notice">저장 후에는 알람이 메인 목록에 표시됩니다. 중요한 알림을 받으려면 알람이 활성화되어 있고, 앱에 알림 및 '정확한 알람(정확한 알람)' 권한이 부여되어 있으며, 시스템이 앱의 백그라운드 활동을 제한하지 않는지 확인하십시오.</div>
+
+<div class="tip">교대 근무와 연동된 알람을 만들려면 먼저 적절한 교대 근무 일정을 생성해야 합니다. 편집기에서 고정된 트리거 시간 또는 교대 근무 시작 시점을 기준으로 한 오프셋(시간 차이)을 선택하십시오.</div>
+
+<h2 id="geo">7. 위치 기반 알람(위치 알람)</h2>
+
+<p>위치 기반 알람은 기기가 특정 구역에 진입하거나 해당 구역을 벗어날 때 이를 감지합니다. 구역은 지도상의 한 지점과 그 지점을 중심으로 하는 반경으로 설정됩니다. 예를 들어, 직장, 집, 버스 정류장, 역 또는 기타 장소에 접근할 때 알림을 받도록 위치 기반 알람을 설정할 수 있습니다.</p>
+
+<h3 id="geo-overview">7.1. 지도 및 제어 기능</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_overview.webp" alt="지도와 번호가 매겨진 제어 항목이 포함된 ShiftAlarm 위치 알람 메인 화면">
+</figure>
+
+<ol class="callout-list">
+<li><strong>확대</strong> — 지도를 확대합니다.</li>
+<li><strong>축소</strong> — 지도 축척을 줄입니다.</li>
+<li><strong>내 위치</strong> — 지도를 기기의 현재 위치로 이동합니다. 이 기능을 사용하려면 앱에 위치 정보 접근 권한이 필요합니다.</li>
+<li><strong>저장된 장소</strong> — 저장된 지오 알람(위치 알람) 및 위치 지점 목록을 엽니다.</li>
+<li><strong>뒤로</strong> — 이전 앱 화면으로 돌아갑니다.</li>
+<li><strong>지오 알람 개수</strong> — 생성된 지오 알람의 개수를 표시합니다.</li>
+<li><strong>지오 알람 목록</strong> — 생성된 지오 알람의 별도 목록을 엽니다.</li>
+</ol>
+
+<div class="tip">제스처를 사용하여 확대/축소할 수도 있습니다. 두 손가락으로 지도를 터치한 후 손가락을 벌리면 확대되고, 오므리면 축소됩니다.</div>
+<div class="notice">오른쪽에서 왼쪽으로 읽는 언어 설정의 경우 측면 제어 버튼이 반대쪽에 표시될 수 있습니다. 기능은 동일합니다.</div>
+
+<h3 id="geo-saved-places">7.2. 저장된 알람 및 위치 지점</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_saved_places.webp" alt="위치 알람 및 위치 지점 탭이 있는 저장된 장소 창">
+</figure>
+
+<ol class="callout-list">
+<li><strong>알람</strong> — 저장된 장소에 추가된 지오 알람을 표시합니다.</li>
+<li><strong>위치 지점</strong> — 활성화된 지오 알람이 없는 상태로 저장된 좌표를 표시합니다.</li>
+<li><strong>저장된 장소 목록</strong> — 카드를 탭하면 지도상의 해당 위치로 이동합니다.</li>
+<li><strong>닫기</strong> — 창을 닫고 지도로 돌아갑니다.</li>
+</ol>
+
+<div class="notice">즐겨찾기에 추가된 지오 알람을 삭제해도 해당 좌표는 '위치 지점' 탭에 자동으로 유지됩니다. 나중에 이 지점을 다시 사용하여 다른 지오 알람을 생성할 수 있습니다.</div>
+
+<h3 id="geo-select-point">7.3. 지점 및 반경 선택</h3>
+
+<p>지도에서 원하는 위치를 길게 누릅니다. 앱이 마커를 표시하고 선택한 지점 패널을 엽니다.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_selected_point.webp" alt="주소, 반경, 즐겨찾기 및 위치 알람 생성 버튼이 표시된 선택된 지도 지점">
+</figure>
+
+<ol class="callout-list">
+<li><strong>선택 지점 마커</strong> — 생성될 지오펜스(지오펜스)의 중심점입니다. 지도에는 선택한 반경을 나타내는 원도 표시됩니다.</li>
+<li><strong>주소 및 좌표</strong> — 올바른 위치가 선택되었는지 확인할 수 있습니다.</li>
+<li><strong>위치 지점 저장</strong> — 알람을 생성하지 않고 선택한 좌표를 저장된 위치 목록에 추가합니다.</li>
+<li><strong>반경</strong> — 지점 주변 영역의 크기를 설정합니다. 적절한 거리가 될 때까지 슬라이더를 움직이세요.</li>
+<li><strong>취소</strong> — 지점 선택을 취소합니다.</li>
+<li><strong>여기서 생성</strong> — 선택한 지점에 대한 새 지오 알람(위치 알람) 편집기를 엽니다.</li>
+</ol>
+
+<div class="warning"><strong>반경 설정 방법.</strong> 휴대폰은 좌표를 지속적으로 추적하지 않습니다. Android 시스템, 기기 제조사, 배터리 절약 모드, GPS, 모바일 네트워크 및 Wi-Fi 신호 품질, 이동 속도 등이 모두 경계 감지 시점에 영향을 미칩니다. 따라서 설정한 경계선과 떨어진 위치에서 알림이 울릴 수 있습니다. 예를 들어 반경을 800m로 설정한 경우, 기기가 이미 해당 영역 내부로 진입한 시점(지점에서 700m, 600m 또는 500m 떨어진 지점 등)에서 진입이 감지될 수 있습니다.</div>
+
+<ul>
+<li><strong>도심 지역</strong>에서는 일반적으로 <strong>1,300~1,500m</strong>의 반경을 권장합니다.</li>
+<li><strong>도시 외 지역</strong>에서는 위치 업데이트 빈도가 낮을 수 있으므로 <strong>4,000~5,000m</strong>를 권장합니다.</li>
+<li><strong>정확한 반경</strong>은 이동 경로, 속도 및 기기 작동 특성을 고려하여 설정해야 합니다.</li>
+</ul>
+
+<div class="notice">시스템은 기기가 해당 영역의 가상 경계를 통과하는 시점을 감지합니다. “진입 시” 모드에서는 반경을 크게 설정할수록 휴대폰이 접근을 감지할 수 있는 시간이 늘어납니다. “이탈 시” 모드에서는 경계가 선택한 지점에서 더 멀리 떨어진 곳에 설정됩니다.</div>
+
+<h3 id="geo-create">7.4. 지오 알람(위치 알람) 생성하기</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_location_schedule.webp" alt="위치 알람 편집기 상단: 활성화 상태, 위치 및 일정 유형">
+</figure>
+
+<ol class="callout-list">
+<li><strong>지오 알람 준비 상태</strong> — 필수 권한이 ​​설정되어 있는지, 그리고 앱이 지오펜스(지오펜스)를 등록할 수 있는 상태인지 표시합니다.</li>
+<li><strong>위치</strong> — 선택한 주소와 좌표 정보를 포함합니다. 주소를 라벨(이름)로 편집할 수는 있지만, 실제 위치 지점은 지도상에서 선택합니다.</li>
+<li><strong>일정 유형</strong> — 지오 알람이 활성화될 요일과 조건을 설정합니다.</li>
+<li><strong>항상</strong> — 지오 알람이 활성화된 동안 매일 작동합니다.</li>
+<li><strong>1회 실행</strong> — 선택한 조건이 충족될 때 한 번만 트리거(작동)되도록 설정합니다.</li>
+<li><strong>요일별</strong> — 선택한 요일에만 작동합니다.</li>
+<li><strong>교대 근무별</strong> — 위치 알람을 활성 교대 근무 일정과 연동합니다.</li>
+</ol>
+
+<div class="notice"><strong>“교대 근무별” 일정.</strong> 근무일, 근무 시작 전, 또는 근무 종료 후 중 언제 작동할지 선택하고, 필요한 교대 근무 유형(주간, 야간, 오전, 오후, 24시간, 사용자 지정 또는 모든 근무)을 지정합니다.</div>
+<div class="tip">캘린더 날짜가 근무 대신 휴무, 휴가, 병가 또는 기타 휴식 시간으로 표시된 경우, 교대 근무와 연동된 위치 알람은 해당 날짜에 활성화되지 않습니다.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_trigger_settings.webp" alt="위치 알람 편집기 하단: 진입 또는 이탈 조건, 반경 및 알림 설정">
+</figure>
+
+<ol class="callout-list">
+<li><strong>트리거 조건</strong> — 어떤 경계 통과 시 알림을 시작할지 결정합니다.</li>
+<li><strong>진입 시</strong> — 장치가 선택한 반경 내로 진입할 때(예: 직장이나 지정된 정차 지점에 접근할 때) 알림을 시작합니다.</li>
+<li><strong>이탈 시</strong> — 장치가 선택한 반경을 벗어날 때(예: 직장이나 정거장을 떠나 경로의 다음 구간을 놓치지 않아야 할 때) 알림을 시작합니다.</li>
+<li><strong>진입 또는 이탈 시</strong> — 어느 방향으로든 경계를 통과할 때마다 알림을 시작합니다.</li>
+<li><strong>반경</strong> — 선택한 지점 주변의 지오펜스(지오펜스) 크기입니다.</li>
+<li><strong>알람 지속 시간</strong> — 알림이 울리는 시간을 결정합니다.</li>
+<li><strong>점진적 볼륨 증가</strong> — 알림 시작 후 볼륨이 서서히 커지도록 설정합니다.</li>
+<li><strong>취소 및 저장</strong> — 변경 사항을 취소하거나 위치 알람을 저장합니다.</li>
+</ol>
+
+<div class="tip">아래의 나머지 옵션은 일반 알람과 유사합니다: 소리, 진동, 알림 지속 시간, 점진적 볼륨 증가, 이름.</div>
+
+<h3 id="geo-existing">7.5. 지도상의 위치 알람 및 제어 기능</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_marker_radius.webp" alt="지도에 표시된 위치 알람 마커와 트리거 반경 원">
+</figure>
+
+<ol class="callout-list">
+<li><strong>위치 알람 마커</strong> — 선택한 지점을 표시합니다.</li>
+<li><strong>반경 경계</strong> — 앱이 진입 또는 이탈을 감시하는 구역을 표시합니다.</li>
+</ol>
+
+<p>위치 알람 마커를 탭하면 먼저 작은 정보 창이 나타납니다. 해당 창을 탭하여 상세 카드 화면을 엽니다.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_alarm_card.webp" alt="정보, 즐겨찾기, 스위치 및 제어 항목이 포함된 상세 위치 알람 카드">
+</figure>
+
+<ol class="callout-list">
+<li><strong>이름 및 주소</strong> — 선택한 위치 알람을 식별합니다.</li>
+<li><strong>즐겨찾기(북마크)</strong> — 알람을 저장된 장소 목록에 추가하거나 삭제합니다.</li>
+<li><strong>스위치</strong> — 설정을 삭제하지 않고 위치 알람을 활성화하거나 일시적으로 비활성화합니다.</li>
+<li><strong>설정 및 상태</strong> — 반경, 진입/이탈 조건, 일정, 지오펜스(지오펜스) 준비 상태 및 이전 작동 기록을 표시합니다.</li>
+<li><strong>편집</strong> — 위치 알람 설정 화면을 엽니다.</li>
+<li><strong>닫기</strong> — 카드를 닫고 지도로 돌아갑니다.</li>
+<li><strong>삭제</strong> — 확인 절차를 거쳐 위치 알람을 삭제합니다.</li>
+</ol>
+
+<div class="warning">안정적인 작동을 위해 정밀 위치 및 백그라운드 위치 권한을 허용하고, ShiftAlarm에 대한 엄격한 배터리 제한을 해제하며, 기기에서 제공하는 경우 자동 시작(자동 시작) 설정을 확인하십시오. 올바르게 설정하더라도 Android는 수 미터 이내의 정확한 경계 감지를 보장하지 않습니다.</div>
+
+<h2 id="notes">8. 메모, 이벤트 및 알림</h2>
+
+<p>“메모” 섹션에는 일반 텍스트, 목록, 체크리스트, 음성 녹음, 음성-텍스트 변환 메모, 알림 및 이벤트가 저장됩니다.</p>
+
+<h3 id="notes-create">8.1. 메모 추가하기</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_type_picker.webp" alt="ShiftAlarm에서 새 메모 유형 선택">
+</figure>
+
+<ol class="callout-list">
+<li><strong>패널 핸들</strong> — 위로 드래그하면 전체 메모 유형 목록이 표시되고, 아래로 드래그하면 패널이 닫힙니다.</li>
+<li><strong>메모 유형</strong> — 적절한 옵션을 선택하세요:
+<ul>
+<li><strong>텍스트 메모</strong> — 일반 텍스트;</li>
+<li><strong>체크리스트</strong> — 완료 여부를 표시할 수 있는 체크박스가 포함된 항목 목록;</li>
+<li><strong>목록</strong> — 글머리 기호 또는 번호가 매겨진 목록;</li>
+<li><strong>오디오 메모</strong> — 음성 녹음;</li>
+<li><strong>음성 입력</strong> — 음성 인식을 사용하여 메모를 생성합니다.</li>
+<li><strong>알림</strong> — 지정된 시간에 알림이 울리는 항목입니다.</li>
+<li><strong>일정</strong> — 날짜 및 시간과 연결된 항목입니다.</li>
+</ul>
+</li>
+<li><strong>취소</strong> — 메모를 생성하지 않고 선택 창을 닫습니다.</li>
+</ol>
+
+<div class="tip">유형을 선택하면 해당 편집기가 열립니다. 필수 항목을 입력하고 저장하세요.</div>
+
+<h3 id="notes-list">8.2. 메모 목록 및 제어 기능</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_overview.webp" alt="정렬, 활성 및 보관된 메모, 검색, 카드 작업 기능이 있는 ShiftAlarm 메모 화면">
+</figure>
+
+<ol class="callout-list">
+<li><strong>정렬</strong> — 목록 내 메모의 순서를 변경합니다.</li>
+<li><strong>활성</strong> — 보관함으로 이동되지 않은 일반 메모와 예약된 메모를 표시합니다.</li>
+<li><strong>보관함</strong> — 보관된 메모 목록을 엽니다.</li>
+<li><strong>검색</strong> — 메모 제목과 내용에서 일치하는 항목을 찾습니다.</li>
+<li><strong>메모 카드</strong> — 제목, 유형, 상태 및 추가 정보를 표시합니다. 카드를 탭하여 메모를 엽니다.</li>
+<li><strong>고정</strong> — 메모를 목록 상단에 고정합니다.</li>
+<li><strong>보관</strong> — 활성 목록에서 메모를 제거하고 보관함으로 이동합니다.</li>
+<li><strong>삭제</strong> — 확인 후 메모를 삭제합니다.</li>
+<li><strong>메모 추가</strong> — 새 메모 유형 선택 창을 엽니다.</li>
+</ol>
+
+<div class="notice">주 목록에는 필요하지 않지만 계속 저장해 두어야 할 항목은 보관함을 사용하세요. 더 이상 전혀 필요하지 않은 경우에만 메모를 삭제하세요.</div>
+
+<h2 id="clock">9. 시계, 스톱워치 및 타이머</h2>
+
+<p>이 섹션은 현지 및 세계 시간, 스톱워치, 타이머 기능을 포함합니다. 메인 화면의 <strong>“시계”</strong> 버튼을 눌러 실행하세요.</p>
+
+<div class="notice">화면 하단에 “시계”, “스톱워치”, “타이머”의 세 가지 탭이 표시됩니다. 탭을 눌러 모드를 전환할 수 있습니다.</div>
+
+<h3 id="clock-world">9.1. 시계 및 세계 시계</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_overview.webp" alt="현지 시간, 세계 시계, 추가 버튼 및 하단 탭이 표시된 ShiftAlarm 시계 화면">
+</figure>
+
+<ol class="callout-list">
+<li><strong>현지 시간</strong> — 현재 시간, 날짜 및 기기 시스템의 시간대를 표시합니다.</li>
+<li><strong>세계 시계</strong> — 추가된 도시와 시간대를 표시합니다. 목록이 비어 있을 때는 안내 메시지가 표시됩니다.</li>
+<li><strong>더하기(+) 버튼</strong> — 세계 시계 선택 화면을 엽니다.</li>
+<li><strong>섹션 탭</strong> — “시계”, “스톱워치”, “타이머” 화면 간에 전환합니다.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_add_timezone.webp" alt="ShiftAlarm 세계 시계에 도시 또는 시간대 추가">
+</figure>
+
+<ol class="callout-list">
+<li><strong>검색</strong> — 도시나 시간대 이름을 입력하여 목록을 필터링합니다.</li>
+<li><strong>도시 및 시간대 목록</strong> — 원하는 항목을 눌러 세계 시계 화면에 추가합니다.</li>
+</ol>
+
+<div class="tip">현지 시간대가 항상 가장 먼저 표시됩니다. 추가된 세계 시계는 목록에서 삭제할 수 있지만, 현지 시간은 삭제할 수 없습니다.</div>
+
+<h3 id="clock-stopwatch">9.2. 스톱워치</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_start.webp" alt="시작 전 ShiftAlarm 스톱워치">
+</figure>
+
+<ol class="callout-list">
+<li><strong>기록</strong> — 저장된 스톱워치 세션을 엽니다.</li>
+<li><strong>시작</strong> — 시간 측정을 시작합니다.</li>
+<li><strong>재설정</strong> — 스톱워치 시작 전에는 사용할 수 없습니다. 정지 후 누르면 스톱워치가 0으로 초기화되고 현재 랩 기록이 삭제됩니다.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_running.webp" alt="기록, 저장, 랩 및 일시정지 제어 기능이 포함된 작동 중인 ShiftAlarm 스톱워치">
+</figure>
+
+<ol class="callout-list">
+<li><strong>기록</strong> — 이전에 저장된 세션을 표시합니다.</li>
+<li><strong>저장</strong> — 이름을 입력받아 현재 스톱워치 세션을 저장합니다.</li>
+<li><strong>랩</strong> — 전체 타이머를 멈추지 않고 중간 기록을 저장합니다.</li>
+<li><strong>일시정지</strong> — 스톱워치를 일시정지합니다. 일시 정지 후에는 다시 시작하거나 초기화할 수 있습니다.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_laps.webp" alt="ShiftAlarm 스톱워치 랩 및 정렬 옵션">
+</figure>
+
+<ol class="callout-list">
+<li><strong>원본, 가장 빠른 순, 가장 느린 순</strong> — 랩 표시 순서를 변경합니다(원본 순서, 가장 빠른 랩 우선, 또는 가장 느린 랩 우선).</li>
+<li><strong>랩</strong> — 각 랩은 기록된 시점의 누적 시간과 개별 랩 타임을 표시합니다.</li>
+</ol>
+
+<div class="notice">'저장'을 탭하면 세션 이름을 입력하고 확인합니다. 저장된 세션은 나중에 '기록'에서 다시 열어볼 수 있습니다.</div>
+
+<h3 id="clock-timer">9.3. 타이머</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_setup.webp" alt="시, 분, 초 설정 휠을 사용한 ShiftAlarm 타이머 설정">
+</figure>
+
+<ol class="callout-list">
+<li><strong>시간</strong> — 휠을 스크롤하여 시간을 선택합니다.</li>
+<li><strong>분</strong> — 휠을 스크롤하여 분 단위를 선택합니다.</li>
+<li><strong>초</strong> — 휠을 스크롤하여 초 단위를 선택합니다.</li>
+<li><strong>시작</strong> — 선택한 시간으로 타이머를 시작합니다.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_running.webp" alt="남은 시간, 일시정지, 분 추가 및 정지 제어 기능이 포함된 작동 중인 ShiftAlarm 타이머">
+</figure>
+
+<ol class="callout-list">
+<li><strong>남은 시간</strong> — 알림이 울리기까지 남은 시간을 표시합니다.</li>
+<li><strong>종료 시간</strong> — 타이머가 종료될 예상 시간을 표시합니다.</li>
+<li><strong>최근 타이머</strong> — 최근 사용한 시간 설정이 저장됩니다. 항목을 탭하여 빠르게 다시 사용할 수 있습니다.</li>
+<li><strong>일시정지</strong> — 카운트다운을 일시적으로 멈춥니다. 나중에 다시 시작할 수 있습니다.</li>
+<li><strong>+1분</strong> — 남은 시간에 1분을 추가합니다.</li>
+<li><strong>중지</strong> — 타이머를 완전히 멈춥니다.</li>
+</ol>
+
+<div class="tip">타이머와 스톱워치는 백그라운드에서 계속 작동합니다. 상태는 알림, 메인 화면, 위젯 등에 표시될 수 있습니다.</div>
+
+<h2 id="widgets">10. 위젯</h2>
+
+<p>ShiftAlarm은 휴대폰 홈 화면용 위젯을 제공합니다.</p>
+<ul>
+<li><strong>오늘 4×2</strong> — 설정을 변경할 수 있는 두 개의 섹션으로 구성된 컴팩트한 패널입니다.</li>
+<li><strong>오늘 4×3</strong> — 상단에 시계가 있고 하단에 두 개의 섹션이 있는 패널입니다.</li>
+<li><strong>캘린더 4×4</strong> — 근무 일정이 포함된 캘린더 위젯입니다.</li>
+</ul>
+<p>휴대폰 홈 화면의 Android 위젯 메뉴를 통해 위젯을 추가할 수 있습니다.</p>
+
+<h2 id="salary">11. 급여 계산</h2>
+
+<p><a href="#statistics-work">선택한 일정의 통계</a>에 있는 급여 카드에서 ‘급여 계산’을 엽니다. 여기에서 지급 방식, 요율 또는 월급, 초과 근무 규칙, 보너스 및 공제를 설정할 수 있습니다. 앱은 선택한 기간, 교대 일정, 캘린더 변경 사항 및 휴게 시간 계산과 함께 이러한 설정을 사용합니다.</p>
+
+<div class="warning"><strong>이 계산 결과는 참고용으로만 제공됩니다.</strong> 고용주가 근태 기록, 시간 단위 반올림, 각종 수당, 세금, 보너스, 공제액 또는 특정 교대 근무 유형에 대한 급여 산정에 별도의 시스템을 사용하는 경우 실제 급여액은 다를 수 있습니다. 이 결과를 공식 급여 명세서로 사용하지 말고, 고용주가 발행한 급여 명세서와 대조해 보십시오. 앱에서 정확하게 처리하지 못하는 계산 방식을 발견하면 앱에 표시된 주소로 개발자에게 이메일을 보내주십시오. 해당 규칙을 설명하고, 샘플 입력 데이터와 예상 결과를 함께 제공해 주시면 향후 업데이트 시 해당 방식을 검토할 수 있습니다.</div>
+
+<h3 id="salary-settings">11.1. 급여 단가, 초과 근무 및 보너스</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_settings_overview.webp" alt="선택된 일정, 급여 유형, 초과 근무 및 보너스가 포함된 급여 계산 화면">
+</figure>
+
+<ol class="callout-list">
+<li><strong>선택된 일정</strong> — 현재 사용 중인 교대 근무 일정을 표시합니다. 급여는 이 일정과 통계 메뉴에서 선택한 기간을 기준으로 계산됩니다.</li>
+<li><strong>단가 유형 및 급여액</strong> — <strong>시간당</strong>, <strong>교대 근무당</strong> 또는 <strong>월 단위</strong> 급여 중 하나를 선택하고 해당 금액을 입력합니다. 선택한 단가 유형에 따라 입력란의 명칭이 변경됩니다.</li>
+<li><strong>초과 근무</strong> — 정규 근무 시간과 다른 급여가 적용되는 추가 근무 시간이 있는 경우 이 항목을 활성화하십시오. 그런 다음 초과 근무 급여 배율을 지정합니다. <a href="#main-shift-time-adjustment">“교대 근무 변경” → “+ 시간”</a>을 통해 캘린더에 추가 근무 시간을 입력하고, “이 시간을 초과 근무로 계산”을 활성화하여 해당 시간이 초과 근무로 처리되도록 설정하십시오.</li>
+<li><strong>보너스</strong> — 현재 계산 방식과 총액을 표시합니다. 해당 카드를 탭하면 <a href="#salary-bonuses">보너스 설정</a> 화면이 열립니다.</li>
+</ol>
+
+<div class="notice">“저장” 버튼을 누르면 설정 내용이 선택된 일정에 적용됩니다. 저장 후에는 입력된 데이터를 바탕으로 통계 및 보고서의 총액이 다시 계산됩니다.</div>
+
+<h3 id="salary-summary">11.2. 공제 및 계산 합계</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions_total.webp" alt="공제 항목 및 최종 내역이 포함된 급여 계산 화면">
+</figure>
+
+<ol class="callout-list">
+<li><strong>공제</strong> — 설정된 공제 항목의 총액과 개수를 표시합니다. 카드를 탭하여 <a href="#salary-deductions">공제 목록</a>을 엽니다.</li>
+<li><strong>합계</strong> — 요약 내역: 유급 시간, 실제 근무 시간, 초과 근무 시간, 기본급, 초과 근무 수당, 보너스, 공제액, 그리고 최종 결과.</li>
+</ol>
+
+<div class="tip">결과는 이 화면의 설정뿐만 아니라 선택한 통계 기간, 완료된 근무(시프트), 날짜 변경, 초과 근무 및 무급 휴게 시간 설정에 따라 달라집니다.</div>
+
+<h3 id="salary-bonuses">11.3. 보너스</h3>
+
+<p>급여 계산 화면에서 "보너스" 카드를 탭하세요. 보너스를 직접 입력하거나, 급여 체계에 맞춰 비율(%)로 계산할 수 있습니다.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_bonuses.webp" alt="계산 및 금액 입력 옵션이 포함된 보너스 설정 화면">
+</figure>
+
+<ol class="callout-list">
+<li><strong>요약 정보</strong> — 계산된 보너스 총액과 계산의 기준이 된 금액을 표시합니다.</li>
+<li><strong>보너스 계산</strong> — 직접 입력 방식이나, 사업장에서 사용하는 경우 매출 대비 비율과 같은 비율 계산 방식을 선택하세요.</li>
+<li><strong>입력 방식</strong> — "총액"은 최종 보너스 금액을 한 번에 입력할 때 적합합니다. 개별적으로 산정해야 할 보너스가 여러 개일 때는 각각 별도의 행을 사용하는 것이 유용합니다.</li>
+<li><strong>금액 또는 비율</strong> — 선택한 계산 방식에 필요한 값을 입력하세요.</li>
+<li><strong>취소 및 저장</strong> — 변경 사항을 취소하거나 급여 계산에 적용합니다.</li>
+</ol>
+
+<h3 id="salary-deductions">11.4. 공제 항목 목록</h3>
+
+<p>주요 계산 화면에서 "공제" 카드를 탭하세요. 이 섹션에서는 여러 공제 항목을 저장하고 각각 개별적으로 관리할 수 있습니다.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions.webp" alt="총액, 공제 항목 및 추가 버튼이 포함된 공제 목록 화면">
+</figure>
+
+<ol class="callout-list">
+<li><strong>요약 정보</strong> — 활성화된 모든 공제 항목의 총액과 개수를 표시합니다.</li>
+<li><strong>공제 항목 행</strong> — 이름, 금액, 유형을 표시합니다. 해당 행을 탭하면 <a href="#salary-deduction-editor">공제 설정</a> 화면이 열립니다. 휴지통 아이콘을 누르면 해당 행이 삭제됩니다.</li>
+<li><strong>공제 항목 추가</strong> — “+” 버튼을 누르면 새로운 공제 항목 행이 생성됩니다.</li>
+<li><strong>취소 및 저장</strong> — 변경 사항을 취소하거나 전체 목록을 저장합니다.</li>
+</ol>
+
+<h3 id="salary-deduction-editor">11.5. 개별 공제 항목 설정</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deduction_editor.webp" alt="이름, 금액, 유형 및 공제 기준을 포함한 개별 공제 항목 편집 화면">
+</figure>
+
+<ol class="callout-list">
+<li><strong>공제 항목 이름</strong> — “세금”, “양육비”, “벌금” 등 명확한 이름을 입력합니다.</li>
+<li><strong>값</strong> — 아래에서 선택한 값 유형에 따라 금액 또는 비율을 입력합니다.</li>
+<li><strong>값 유형</strong> — 고정 금액 또는 비율 중 하나를 선택합니다.</li>
+<li><strong>공제 유형</strong> — <strong>가변</strong> 공제는 특정 계산 기간에만 적용되며, <strong>반복</strong> 공제는 활성화된 동안 정기적으로 적용됩니다.</li>
+<li><strong>공제 기준</strong> — 계산 기준(총 급여, 기본급, 보너스 또는 기타 사용 가능한 옵션)을 선택합니다.</li>
+<li><strong>활성화</strong> — 설정을 삭제하지 않고 일시적으로 공제 항목을 비활성화합니다.</li>
+<li><strong>취소 및 저장</strong> — 변경 사항 없이 패널을 닫거나 공제 항목을 저장합니다.</li>
+</ol>
+
+<div class="notice">비율로 공제하는 경우 올바른 “공제 기준”을 선택하는 것이 매우 중요합니다. 총 급여, 기본급, 보너스 중 무엇을 기준으로 하느냐에 따라 동일한 비율이라도 결과값이 달라지기 때문입니다.</div>
+
+<h2 id="settings">12. 설정</h2>
+
+<p><a href="#main-overview">메인 화면</a> 하단에 있는 버튼을 눌러 “설정”을 엽니다. 이 섹션에는 시스템 권한, 화면 표시 및 앱 언어, 오프라인 음성 인식, 문서 및 사용자 가이드, 백업, 진단, 개발자 문의 옵션이 포함되어 있습니다.</p>
+
+<h3 id="settings-overview">12.1. 주요 설정 섹션</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_permissions_language.webp" alt="ShiftAlarm 설정 상단: 권한, 테마, 앱 언어 및 오프라인 음성 모델">
+</figure>
+
+<ol class="callout-list">
+<li><strong>권한</strong> — 알람 권한 및 신뢰성 설정을 엽니다. 알림, 정확한 알람, 백그라운드 활동 및 배터리 제한을 확인하세요. <a href="#geo">위치 알람</a>에는 위치 접근 권한도 필요합니다. 앱이 닫힌 상태에서도 작동하려면 백그라운드 위치 또는 ‘항상 허용’ 권한이 필요합니다. 항목 이름과 경로는 Android 버전과 기기 제조사에 따라 다릅니다.</li>
+<li><strong>테마</strong> — 라이트, 다크, 또는 시스템 테마 중 하나를 선택하고, 인터페이스 색상 변형을 지정하며, 앱 내 동작에 대한 햅틱 피드백을 활성화하거나 비활성화할 수 있습니다. 시스템 테마는 휴대전화의 현재 테마 설정을 따릅니다.</li>
+<li><strong>앱 언어</strong> — 휴대전화의 시스템 언어와 다른 언어를 앱에서 사용할 수 있게 합니다. ShiftAlarm은 108개 언어를 지원합니다. 검색 기능을 통해 필요한 언어를 찾고, 언어 팩을 다운로드하여 적용할 수 있습니다.</li>
+<li><strong>오프라인 음성 모델</strong> — <a href="#notes-create">음성 인식 메모</a> 기능을 위한 모듈을 설치합니다. 오프라인 인식 기능은 현재 테스트 중이며 약 20개 언어에서 사용할 수 있습니다. 인식 품질은 온라인 방식보다 낮을 수 있으며, 언어, 마이크, 휴대전화 성능 및 녹음 환경에 따라 달라집니다.</li>
+</ol>
+
+<div class="warning"><strong>Android 권한 설정은 기기마다 다릅니다.</strong> 일부 휴대전화에서는 자동 시작(자동 시작)을 허용하고, 배터리 모드를 '제한 없음' 또는 이와 유사한 설정으로 변경하며, 백그라운드 활동을 허용해야 할 수도 있습니다. 이러한 설정은 시스템에 의해 ShiftAlarm이 중단될 가능성을 줄여주지만, 정확한 설정 명칭은 기기 제조사에 따라 다릅니다.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_help_backup_diagnostics.webp" alt="ShiftAlarm 설정 하단: 문서, 사용자 가이드, 백업, 진단 및 개발자 연락처">
+</figure>
+
+<ol class="callout-list">
+<li><strong>문서 및 도움말</strong> — 앱 관련 법적 문서(이용 약관, 개인정보 처리방침, 면책 조항)와 간략한 도움말 페이지를 엽니다.</li>
+<li><strong>교육 및 사용자 가이드</strong> — ShiftAlarm의 기능에 대한 상세 설명과 이미지가 포함된 전체 사용자 가이드를 엽니다.</li>
+<li><strong>백업 및 복원</strong> — 지원되는 앱 설정 및 데이터가 포함된 파일을 생성하거나, 이전 백업 파일에서 데이터를 복원합니다. 앱 재설치, 휴대전화 초기화 또는 다른 기기로 데이터를 이전할 때 유용합니다. 자세한 방법은 <a href="#backup">“백업 및 복원”</a>을 참조하세요.</li>
+<li><strong>진단 로그</strong> — 앱 기능별 로그를 엽니다. 로그에는 알림 예약과 복구, 이벤트 처리, 권한 상태 및 기타 서비스 정보와 같은 기술 단계가 기록됩니다. 로그를 통해 오류가 발생한 단계를 파악할 수 있습니다. 항목을 복사하거나 개발자에게 이메일로 보낼 수 있도록 준비할 수 있습니다. 자세한 내용은 <a href="#diagnostics">‘진단 및 문제 해결’</a>을 참조하세요.</li>
+<li><strong>개발자에게 문의</strong> — 이메일 앱을 열고 지원팀으로 보내는 메시지를 작성합니다. 문제 신고, 의견이나 제안 전달, 또는 질문을 할 때 사용하세요. 기술적인 문제의 경우, 가능한 한 휴대폰 모델, Android 버전, 문제 발생 시각, 수행한 작업 단계, 관련 진단 로그를 포함해 주세요.</li>
+</ol>
+
+<div class="notice">진단 로그는 개발자에게 자동으로 전송되지 않습니다. 필요한 정보를 복사하거나 “개발자에게 보내기”를 탭한 후, 이메일 앱을 선택하고 작성된 메시지를 확인하여 전송을 확정해야 합니다.</div>
+
+<h2 id="backup">13. 백업 및 복원</h2>
+
+<p>백업은 지원되는 ShiftAlarm 설정과 사용자 데이터를 별도의 파일로 저장합니다. 이는 앱 재설치, 휴대폰 초기화 또는 다른 기기로 이동한 후 데이터를 복원하는 데 도움이 됩니다.</p>
+<ol class="step-list">
+<li>“설정 → 백업 및 복원”을 엽니다.</li>
+<li>백업을 생성하여 생성된 파일을 휴대폰에 저장하거나 시스템 메뉴를 통해 공유합니다.</li>
+<li>복원하려면 동일한 메뉴로 이동하여 이전에 생성한 백업 파일을 선택합니다.</li>
+<li>복원 후에는 중요한 알람, 일정, Android 권한을 확인하세요. 새 기기나 재설치 후에는 일부 시스템 보안 권한을 다시 부여해야 할 수도 있습니다.</li>
+</ol>
+<p class="tip">휴대폰 분실, 파손 또는 초기화 시에도 접근할 수 있는 안전한 장소에 최신 백업 사본을 보관하세요. 백업 파일이 Android 시스템 권한을 대체하지는 않으며, 앱이 접근할 수 없는 데이터는 자동으로 포함할 수 없습니다.</p>
+
+<h2 id="diagnostics">14. 진단 및 문제 해결</h2>
+
+<p>ShiftAlarm은 기능별로 별도의 진단 로그를 제공합니다. 이 로그는 기술적 이벤트의 순서를 기록하며, 알람이 예약되었는지, 재시작 후 복구되었는지, 처리를 위해 전달되었는지, 아니면 시스템 설정으로 인해 중단되었는지 등을 파악하는 데 도움을 줍니다.</p>
+
+<h3 id="diagnostics-control">14.1. 진단 데이터 수집 제어</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_sections.webp" alt="마스터 스위치와 개별 알람 로그가 포함된 ShiftAlarm 진단 로그 화면">
+</figure>
+
+<ol class="callout-list">
+<li><strong>진단 데이터 수집</strong> — 앱 내 모든 진단 섹션에 대한 통합 스위치입니다. 이 스위치를 끄면 모든 로그에 새로운 이벤트가 추가되는 것이 즉시 중단됩니다. 다시 활성화하면 새로운 이벤트 수집이 재개됩니다.</li>
+<li><strong>개별 기능 로그</strong> — 각 모듈에는 고유한 스위치와 "열기" 버튼이 있습니다. 예를 들어, 전체 진단 기능은 켜둔 상태에서 알람, 시계 또는 기타 기능의 로그만 비활성화할 수 있습니다. 스크린샷은 알람 로그를 보여주며, 여기에는 알람 전달, 예약, 복구, 가드 보호(보호) 및 알람 화면 관련 이벤트가 기록됩니다.</li>
+</ol>
+
+<div class="notice">이 스위치들은 기술적 이벤트의 기록 여부만 제어합니다. 알람, 시계 또는 기타 기능의 로그를 비활성화한다고 해서 해당 기능 자체가 비활성화되는 것은 아닙니다. 이전에 저장된 항목을 삭제하려면 해당 로그 내의 "지우기" 버튼을 별도로 사용해야 합니다.</div>
+
+<h3 id="diagnostics-log">14.2. 개별 기능 로그</h3>
+
+<p>원하는 진단 섹션에서 "열기"를 탭합니다. 아래 예시는 알람 로그를 보여주며, 다른 기능의 로그도 유사한 방식으로 작동합니다.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_alarm_log.webp" alt="이벤트 횟수, 조치 및 기술적 항목이 포함된 ShiftAlarm 알람 진단 로그">
+</figure>
+
+<ol class="callout-list">
+<li><strong>저장된 이벤트</strong> — 선택한 로그에 현재 저장된 항목의 수를 표시합니다.</li>
+<li><strong>로그 작업</strong>:
+<ul>
+<li><strong>복사</strong> — 현재 로그의 모든 데이터를 클립보드로 복사합니다. 복사한 데이터는 이메일이나 다른 앱에 붙여넣을 수 있습니다.</li>
+<li><strong>지우기</strong> — 이 로그에 저장된 항목을 삭제합니다. 삭제 후에는 진단 기능이 활성화된 상태에서 이후에 기록된 이벤트만 표시됩니다.</li>
+<li><strong>개발자에게 전송</strong> — 이메일 전송을 위한 앱 선택 화면을 엽니다. 이메일 앱을 선택하세요. 개발자 주소와 진단 데이터가 자동으로 삽입됩니다. 전송하기 전에 문제에 대한 설명을 추가하고 메시지를 검토한 다음 전송을 확인하십시오.</li>
+</ul>
+</li>
+<li><strong>앱 이벤트</strong> — 로그 항목 그 자체입니다. 항목에는 일반적으로 날짜와 시간, 기술적 이벤트 이름, 그리고 식별자, 상태 또는 이유와 같은 추가 매개변수가 포함됩니다. 기술적 이름은 영어로 표시될 수 있으며, 전송하기 전에 이를 수정하거나 번역하지 마십시오.</li>
+</ol>
+
+<div class="warning">로그를 삭제하기 전에 필요한 항목을 복사하거나 전송해 두십시오. 삭제된 진단 이벤트는 복구할 수 없습니다.</div>
+
+<div class="tip">문제를 재현할 수 있는 경우, 먼저 전체 진단 수집 및 관련 기능 로그를 활성화한 다음 문제를 일으킨 동작을 반복하십시오. 메시지에 문제 발생 정확한 시간, 휴대폰 모델, Android 버전, 예상 결과 및 실제 결과를 기재하십시오. 이는 귀하의 설명과 로그 이벤트를 대조하는 데 도움이 됩니다.</div>
+
+<h2 id="faq">15. 자주 묻는 질문</h2>
+
+<h3>알람이 제시간에 울리지 않았습니다</h3>
+<p>알림, 정확한 알람(정확한 알람) 권한, 백그라운드 활동 및 배터리 제한 설정을 확인하십시오.</p>
+<h3>지오 알람(위치 알람)이 늦게 울렸습니다</h3>
+<p>정밀 및 백그라운드 위치 정보, 배터리 제한, 앱 자동 시작 설정을 확인하십시오. 도심에서는 반경 1,300~1,500m, 도심 외곽에서는 4,000~5,000m 범위로 설정해 보십시오. 실제 알람은 반경 선상에서 정확히 울리지 않을 수도 있습니다.</p>
+<h3>위젯이 즉시 업데이트되지 않았습니다</h3>
+<p>앱을 열거나 위젯의 새로 고침 버튼을 누르십시오. Android 시스템이 잦은 위젯 업데이트를 제한할 수 있습니다.</p>
+<h3>언어를 변경했는데 문서나 가이드가 아직 업데이트되지 않았습니다</h3>
+<p>인터넷 연결을 확인하고 다운로드가 완료될 때까지 잠시 기다려 주십시오. 원격 버전을 사용할 수 없는 경우, 앱은 내장된 대체 버전을 사용합니다.</p>
+
+<div class="footer small">이 가이드는 GitHub를 통해 업데이트할 수 있습니다. 원격 버전을 사용할 수 없는 경우, 앱은 내장된 오프라인 버전을 사용합니다.</div>
+</main>
+</body>
+</html>

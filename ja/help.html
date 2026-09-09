@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ShiftAlarm ユーザーガイド</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #64748b;
+  --accent: #2563eb;
+  --soft: #e8eef8;
+  --border: #dbe4f0;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.58;
+  margin: 0;
+  padding: 18px;
+  color: var(--text);
+  background: var(--bg);
+}
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+h1 { margin: 0 0 8px; font-size: 28px; line-height: 1.2; }
+h2 { margin: 32px 0 10px; font-size: 21px; line-height: 1.25; }
+h3 { margin: 22px 0 8px; font-size: 17px; }
+p, li { font-size: 16px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul, ol { padding-left: 22px; }
+.notice, .tip, .warning {
+  padding: 14px 16px;
+  border-radius: 16px;
+  margin: 14px 0;
+  border: 1px solid var(--border);
+}
+.notice { background: var(--soft); }
+.tip { background: #ecfdf5; }
+.warning { background: #fff7ed; }
+.small { color: var(--muted); font-size: 14px; }
+.toc {
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 16px;
+  margin: 18px 0 24px;
+}
+.toc ol { margin: 8px 0 0; }
+.step-list li { margin-bottom: 8px; }
+.guide-figure {
+  margin: 18px 0;
+}
+.guide-image {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+}
+.callout-list li {
+  margin-bottom: 10px;
+}
+.guide-caption {
+  max-width: 520px;
+  margin: 10px auto 0;
+  color: var(--text);
+  font-size: 15px;
+}
+.guide-caption strong {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.footer {
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --card: #111827;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --accent: #93c5fd;
+    --soft: #1f2937;
+    --border: #334155;
+  }
+  main { box-shadow: none; }
+  .toc { background: #172033; }
+  .tip { background: #10251f; }
+  .warning { background: #2a1d10; }
+}
+</style>
+</head>
+<body>
+<main>
+<h1>ShiftAlarm ユーザーガイド</h1>
+<p class="small">バージョン 14。日付: 2026年8月2日。</p>
+<div class="notice">このページは ShiftAlarm の実用的なガイドです。主な機能の概要、場所、操作方法（タップする箇所）、および機能が期待通りに動作しない場合の確認事項について説明します。</div>
+<nav class="toc">
+<strong>目次</strong>
+<ol><li><a href="#start">1. 初回起動</a></li><li><a href="#permissions">2. 権限と動作の信頼性</a></li><li><a href="#main">3. メイン画面</a></li><li><a href="#shifts">4. シフトスケジュール</a></li><li><a href="#statistics">5. スケジュール統計</a></li><li><a href="#alarms">6. アラーム</a></li><li><a href="#geo">7. 位置情報アラーム</a></li><li><a href="#notes">8. メモ、イベント、リマインダー</a></li><li><a href="#clock">9. 時計、タイマー、ストップウォッチ</a></li><li><a href="#widgets">10. ウィジェット</a></li><li><a href="#salary">11. 給与計算</a></li><li><a href="#settings">12. 設定</a></li><li><a href="#backup">13. バックアップと復元</a></li><li><a href="#diagnostics">14. 診断とトラブルシューティング</a></li><li><a href="#faq">15. よくある質問</a></li></ol>
+</nav>
+<h2 id="start">1. 初回起動</h2>
+
+<p>ShiftAlarm を初めて起動すると、簡単なセットアップ手順が表示されます。メイン画面はすでにバックグラウンドで利用可能な状態になっていますが、まずは基本設定を完了させることをお勧めします。</p>
+<ol class="step-list">
+<li>概要説明を読み、「続行」をタップします。</li>
+<li>「ドキュメント」のステップでは、ドキュメントを開くか、準備ができたら必要なドキュメントに同意します。</li>
+<li>「権限」のステップでは、権限設定画面を開き、通知、正確なアラーム、位置情報へのアクセス、バッテリー制限の設定を確認します。</li>
+<li>「設定を完了」をタップします。</li>
+</ol>
+<p class="tip">権限設定は、後から「設定」→「権限と信頼性」で変更できます。</p>
+
+<h2 id="permissions">2. 権限と信頼性</h2>
+
+<p>アラーム、リマインダー、位置情報アラームの動作は、Androidの設定やデバイスメーカーのソフトウェアに依存します。</p>
+<ul>
+<li><strong>通知</strong> — アラーム、リマインダー、タイマー、およびサービスに関する通知に必要です。</li>
+<li><strong>正確なアラーム</strong> — 指定した時刻にアラームを確実に開始するために必要です。</li>
+<li><strong>位置情報</strong> — 位置情報アラームに必要です。</li>
+<li><strong>バックグラウンドでの位置情報</strong> — アプリを閉じた状態で位置情報アラームを機能させるために必要です。</li>
+<li><strong>バッテリーとバックグラウンド動作</strong> — Xiaomi/Redmiや一部のデバイスでは、トリガーの信頼性に影響を与える可能性があります。</li>
+</ul>
+<p class="warning">Androidでは、通知、正確なアラーム、ジオフェンスイベントの即時配信が常に保証されるわけではありません。重要なアラートについては、権限設定画面の各項目を確認してください。</p>
+
+<h2 id="main">3. メイン画面</h2>
+
+<p>メイン画面は、日常的に使用するダッシュボードです。ここからカレンダー、時計、位置情報アラーム、通常のアラーム、シフトスケジュール、メモ、設定に直接アクセスできます。</p>
+
+<h3 id="main-overview">3.1. メイン画面の要素</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_screen_overview.png" alt="番号付きの操作項目が表示されたShiftAlarmのメイン画面">
+</figure>
+
+<ol class="callout-list">
+<li><strong>戻る矢印</strong> — カレンダーを前の月に移動します。</li>
+<li><strong>月と年</strong> — 表示中の月を示します。このエリアをタップすると、<a href="#main-date-picker">月と年を段階的に選択する機能</a>を使用できます。</li>
+<li><strong>進む矢印</strong> — カレンダーを次の月に移動します。</li>
+<li><strong>カレンダー</strong> — 月ごとの表示エリアです。カレンダーはスワイプで操作できます。各日付には、日付、リマインダー、イベント、予定されているシフト、日付の変更などが表示されます。通常タップで日付を選択し、長押しで<a href="#main-day-actions">選択した日の詳細情報や操作メニュー</a>を開きます。</li>
+<li><strong>今日</strong> — カレンダーを現在の日付に戻します。</li>
+<li><strong>時計</strong> — <a href="#clock">世界時計、ストップウォッチ、タイマー</a>を開きます。</li>
+<li><strong>位置情報アラーム</strong> — <a href="#geo">地図、保存場所、位置情報アラームの設定</a>を開きます。選択したエリアへの「進入」「退出」、またはその両方のタイミングでアラートを発生させることができます。</li>
+<li><strong>アラーム</strong> — <a href="#alarms">通常アラーム、繰り返しアラーム、シフト連動アラーム</a>を開きます。</li>
+<li><strong>スケジュール</strong> — <a href="#shifts">シフトスケジュール、作成・編集、統計</a>を開きます。</li>
+<li><strong>メモ</strong> — <a href="#notes">メモ、イベント、リマインダー、音声メモ、音声入力</a>を開きます。</li>
+<li><strong>設定</strong> — <a href="#settings">権限、言語、テーマ、オフライン音声認識モデル、バックアップ、診断、ドキュメント、トレーニング</a>を開きます。</li>
+</ol>
+
+
+<h3 id="main-date-picker">3.2. 年月の選択</h3>
+
+<p>メイン画面上部の年月をタップすると、目的のカレンダー期間を素早く開くことができます。選択は、<strong>世紀 → 10年単位 → 年 → 月</strong>の順に進みます。</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_century.webp" alt="ステップ1：ShiftAlarmカレンダーでの世紀の選択">
+<figcaption class="guide-caption"><strong>1. 世紀を選択します。</strong> 目的の年が含まれる期間をタップします。例では2000年代を選択しています。</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_decade.webp" alt="ステップ2：ShiftAlarmカレンダーでの10年単位の期間の選択">
+<figcaption class="guide-caption"><strong>2. 10年単位の期間を選択します。</strong> 目的の年が含まれる範囲をタップします。2026年の場合は「2020–2029」を選択します。</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_year.webp" alt="ステップ3：ShiftAlarmカレンダーでの年の選択">
+<figcaption class="guide-caption"><strong>3. 年を選択します。</strong> 目的の年をタップします。例では2026年を選択しています。</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_month.webp" alt="ステップ4：ShiftAlarmカレンダーでの月の選択">
+<figcaption class="guide-caption"><strong>4. 月を選択します。</strong> 目的の月をタップします。 この例では7月が選択されています。</figcaption>
+</figure>
+
+<div class="tip">月を選択するとパネルが閉じ、メインカレンダーが選択した月と年を表示した状態で開きます。</div>
+<div class="notice">「戻る」ボタンを押すと、前の段階に戻ります。世紀表示の画面では、日付選択ツールが閉じます。</div>
+
+<h3 id="main-day-actions">3.3. 選択した日の情報と操作</h3>
+
+<p>カレンダー上で対象の日を長押しします。その日付に関する情報や操作を表示するパネルが開きます。パネルを上にドラッグすると、利用可能なすべての操作を確認できます。</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_day_actions.webp" alt="ShiftAlarmで選択した日付の情報の表示と操作パネル">
+</figure>
+
+<ol class="callout-list">
+<li><strong>日付</strong> — 曜日と選択した日付を表示します。上部のハンドルを上下にドラッグして、パネルの展開や閉じる操作を行います。</li>
+<li><strong>シフト</strong> — 計算されたシフト、または休日、休暇、病気休暇、その他の例外的な勤務変更などの情報を表示します。</li>
+<li><strong>この日のアラーム</strong> — 選択した日に設定されたアラームを表示します（設定がない場合はその旨が表示されます）。</li>
+<li><strong>イベントとリマインダー</strong> — 選択した日付に関連付けられた項目を表示します。</li>
+<li><strong>アラームの追加</strong> — 選択した日に対する単発アラームの作成画面を開きます。</li>
+<li><strong>シフトの変更</strong> — アクティブなスケジュールにおいて、1日または特定の日付範囲に対する例外設定を作成します。</li>
+<li><strong>メモの追加</strong> — 選択した日付に対して作成するイベントやリマインダーを選択できます。</li>
+</ol>
+
+<div class="notice">「シフトの変更」操作は、アクティブなシフトスケジュール内の日を調整する際に使用します。</div>
+
+<h4 id="main-shift-override">1日または日付範囲の変更</h4>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_types.webp" alt="ShiftAlarmでの期間とシフト変更タイプの選択">
+</figure>
+
+<ol class="callout-list">
+<li><strong>開始日</strong> — 変更の開始日です。初期状態では、カレンダーで選択した日付が設定されています。</li>
+<li><strong>終了日</strong> — 変更の終了日です。 1日分だけ変更する場合は、同じ日付を選択したままにします。</li>
+<li><strong>休暇</strong> — 計算されたシフトを「休暇」に置き換えます。</li>
+<li><strong>有給休暇</strong> — 選択した日または期間を「有給休暇」として設定します。</li>
+<li><strong>病気休暇</strong> — 選択した日または期間を「病気休暇」として設定します。</li>
+<li><strong>変更を保存</strong> — 選択した例外設定をカレンダーに適用します。</li>
+</ol>
+
+<h4 id="main-shift-time-adjustment">勤務時間の調整</h4>
+
+<p>変更タイプのリストを下にスクロールし、「シフトを編集」を選択して、計算された勤務シフトの時間を変更します。</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_time_adjustment.webp" alt="ShiftAlarmでのシフト勤務時間の調整">
+</figure>
+
+<ol class="callout-list">
+<li><strong>シフトを編集</strong> — 選択したシフトの勤務時間を調整できるようにします。</li>
+<li><strong>+ 時間</strong> — 標準のシフト時間に時間または分を追加します。</li>
+<li><strong>− 時間</strong> — シフト時間を短縮します（例：早めに業務が終了した場合など）。</li>
+<li><strong>この時間を残業としてカウント</strong> — 追加された時間を残業として扱います。このオプションがオフの場合、通常の勤務時間としてカウントされます。</li>
+<li><strong>変更を保存</strong> — 選択した日または期間に調整を適用します。</li>
+</ol>
+
+<div class="tip">特定の日への変更は、元のスケジュールテンプレート自体を変更するものではありません。変更内容は個別の例外として保存され、カレンダー、統計、給与計算、レポートに反映されます。</div>
+
+<h2 id="shifts">4. シフトスケジュール</h2>
+
+<p>シフトスケジュールは、繰り返される勤務サイクルを定義するものであり、ShiftAlarmの他の機能の基盤となります。アプリはこのスケジュールを使用して、カレンダーへの入力、シフトへのアラームの紐付け、勤務時間の集計、統計の生成、給与の概算、レポートの作成を行います。</p>
+
+<div class="notice"><strong>基本原則。</strong> まず、繰り返しの基本スケジュールを作成します。休暇、病欠、休日、単発の代行シフト、または勤務時間の調整などは、「<a href="#main-day-actions">選択した日の操作</a>」から特定の日付に対する例外として追加します。これにより、元のサイクルを変更せずに運用できます。</div>
+
+<h3 id="shifts-list">4.1. スケジュールリストと操作</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedules_overview.webp" alt="有効なスケジュールカードと番号付き操作項目が表示されたShiftAlarmのスケジュール画面">
+</figure>
+
+<ol class="callout-list">
+<li><strong>スケジュールの詳細</strong> — 名前、開始日、サイクルの長さ、および日ごとのパターンの概要。例にある「D · D · O · O」は、日勤（D）が2回続いた後に休日（O）が2回あることを意味します。</li>
+<li><strong>切り替えスイッチ</strong> — スケジュールを削除せず、一時的に無効にします。再度有効にすると、保存済みの設定が引き続き適用されます。</li>
+<li><strong>スケジュールのステータス</strong> — 現在有効なスケジュールを示します。</li>
+<li><strong>編集</strong> — 変更可能なパラメータを開きます。初期設定後、すでに作成されたカレンダーデータの誤った再計算を防ぐため、スケジュールの基本設定の一部はロックされます。</li>
+<li><strong>削除</strong> — 確認後にスケジュールを削除します。削除する前に、シフトに関連付けられたアラームや計算設定を確認してください。</li>
+<li><strong>統計を開く</strong> — このスケジュールの<a href="#statistics">勤務時間、期間、給与、およびレポートの統計</a>を開きます。</li>
+<li><strong>スケジュールの作成</strong> — 既製のテンプレートを選択するか、独自のサイクルを作成できます。</li>
+</ol>
+
+<h3 id="shifts-create">4.2. スケジュール作成の開始</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_create.webp" alt="名前、開始日、テンプレート、カスタムスケジュール設定を含むスケジュール作成パネル">
+</figure>
+
+<ol class="callout-list">
+<li><strong>スケジュール名</strong> — 「メイン 2/2」、「夜勤」、または職場名など、分かりやすい名前を入力します。</li>
+<li><strong>開始日</strong> — <strong>繰り返されるサイクルの初日</strong>に該当する日付です。過去または未来の日付を選択できます。アプリはその日付を基準に、前後へ向かってスケジュールを計算します。</li>
+<li><strong>テンプレート</strong> — 一般的なシフトパターンの既製テンプレートです。例では「2/2（2日勤務・2日休み）」テンプレートを使用しています。</li>
+<li><strong>カスタムスケジュール</strong> — 勤務日と休日の独自のパターンを作成します。</li>
+<li><strong>スケジュールの作成</strong> — 選択したオプションの詳細編集画面を開きます。</li>
+</ol>
+
+<div class="tip">「D · D · O · O」（勤務・勤務・休み・休み）テンプレートの場合、開始日は通常、2日間の勤務日のうちの1日目となります。カスタムサイクルの場合、1日目が休日になることもあります。重要なのは、選択した日付が、作成したパターンの1日目と正確に一致していることです。</div>
+
+<h3 id="shifts-template">4.3. テンプレートからスケジュールを作成する</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_template.webp" alt="名前、順序、開始日、シフト設定を含むテンプレート・スケジュール・エディター">
+</figure>
+
+<ol class="callout-list">
+<li><strong>スケジュール名</strong> — 提案された名前をそのまま使用するか、任意の名前を入力します。</li>
+<li><strong>テンプレート</strong> — 文字の並びとその意味を表示します。例：「D · D · O · O」は、日勤、日勤、休日、休日を意味します。</li>
+<li><strong>開始日</strong> — 表示されているパターンの初日となる日付を選択します。</li>
+<li><strong>シフト時間</strong> — 各シフトタイプの開始時刻と終了時刻を指定します。アプリは計算された所要時間を表示します。</li>
+<li><strong>キャンセル</strong> — 保存せずに編集画面を閉じます。</li>
+<li><strong>保存</strong> — スケジュールを保存し、カレンダー上のシフト計算を開始します。</li>
+</ol>
+
+<div class="warning"><strong>初回保存後：</strong> すでに計算済みのカレンダーデータを保護するため、開始日とサイクルの構成は固定されます。名前や一部の勤務パラメータは引き続き編集可能です。別の基本サイクルや基準日が必要な場合は、新しいスケジュールを作成することをお勧めします。</div>
+
+<h3 id="shifts-custom">4.4. カスタムサイクルの作成</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_custom.webp" alt="サイクル期間、曜日設定、開始日、各曜日の設定項目を含むカスタムスケジュール編集画面">
+</figure>
+
+<ol class="callout-list">
+<li><strong>スケジュール名</strong> — カスタムパターンに名前を付けます。</li>
+<li><strong>サイクルの長さ</strong> — 繰り返されるパターンに含まれる日数を表示します。</li>
+<li><strong>日を削除</strong> — サイクルを1日短縮します。</li>
+<li><strong>日を追加</strong> — サイクルの末尾に、設定可能な日を1日追加します。</li>
+<li><strong>開始日</strong> — カスタムサイクルの1日目に相当する日付です。</li>
+<li><strong>日の設定</strong> — 「シフトの種類」カードをタップし、休日または必要な勤務形態（日勤、夜勤、早番、遅番、24時間勤務、カスタムシフト）を選択します。勤務日には開始時刻と終了時刻を指定します。サイクルの残りの日も、画面を下へ移動して同じように設定します。</li>
+<li><strong>キャンセル</strong> — 変更を保存せずにエディターを閉じます。</li>
+<li><strong>保存</strong> — カスタムサイクルを保存し、カレンダーに反映（計算）します。</li>
+</ol>
+
+<div class="notice"><strong>サイクルとは？</strong> サイクルとは、一連のスケジュールが繰り返されるまでの日数のことです。例えば、4日サイクルなら「勤務日2日＋休日2日」、6日サイクルなら「勤務日3日＋休日3日」といった設定が可能です。最終日が終わると、アプリは1日目に戻ります。</div>
+
+<div class="tip">単発のスケジュール変更（例外）のために基本サイクルを変更しないでください。カレンダーの日付を長押しして、休日、休暇、病気休暇、代わり番（シフト変更）、または時間調整を作成してください。</div>
+
+
+
+<span id="shift-statistics"></span>
+<h2 id="statistics">5. スケジュール統計</h2>
+
+<p>スケジュールカードの<strong>「統計を開く」</strong>ボタンから「統計」を開きます。このセクションでは、勤務日と休日、スケジュールの変更、予定および実際の勤務時間、推定給与、レポートに関する情報をまとめて確認できます。</p>
+
+<div class="notice"><strong>重要：</strong> 統計は、選択されたシフトスケジュールに対してのみ計算されます。選択した期間は、その下に表示される勤務時間、給与、レポートのすべての数値に適用されます。</div>
+
+<h3 id="statistics-period">5.1. スケジュール、期間、および日の概要</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_period_overview.webp" alt="スケジュール情報、期間選択、日ごとの合計値を表示する統計画面">
+</figure>
+
+<ol class="callout-list">
+<li><strong>スケジュール情報</strong> — 選択したスケジュールの名前、最初のサイクルの開始日、および繰り返されるサイクルの長さを表示します。この画面の統計は、このスケジュールにのみ適用されます。</li>
+<li><strong>選択期間カード</strong> — 現在適用されている期間を表示します。 その項目または右側の矢印をタップして、当月・前月・翌月、今年、または任意の期間を選択します。</li>
+<li><strong>日の概要</strong> — 期間内の日数、勤務シフト、休日、完了済みおよび予定されているシフト、変更された日が表示されます。変更された日とは、基本サイクルからの例外（休暇、病気休暇、その他の休暇、シフトの交代や変更、労働時間の調整、その他の変更など）を指します。</li>
+</ol>
+
+<div class="warning"><strong>将来の期間については予測値が表示されます。</strong> 将来の月については、作成済みのスケジュールや既に入力されたデータが使用されますが、病欠、休暇、その他の休み、残業、ボーナス、控除といった将来の変動要素までは把握できません。現在の年を選択した場合、合計値には過去の日付の実績データと、その年の残りの期間の予測データが組み合わされて表示されることがあります。</div>
+
+<h3 id="statistics-work">5.2. 労働時間、給与、レポート</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_work_salary_reports.webp" alt="労働時間、進捗状況、給与、レポートへのアクセスを表示する統計画面">
+</figure>
+
+<ol class="callout-list">
+<li><strong>労働時間</strong> — 時間と進捗状況を示す概要カードです。タップすると<a href="#statistics-break">休憩時間の設定</a>が開きます。</li>
+<li><strong>予定時間</strong> — 選択した期間における、スケジュールされたシフトや変更の合計時間です。</li>
+<li><strong>実労働時間</strong> — 現在の日付時点で完了とみなされるシフトの時間（休憩設定が適用されたもの）です。</li>
+<li><strong>進捗状況</strong> — 全シフトのうち何回分が完了したか、および選択した期間の何パーセントが経過したかを示します。</li>
+<li><strong>給与</strong> — <a href="#salary">給与計算設定</a>を開きます。このカードには、選択したスケジュールと期間に基づく推定額が表示されます。</li>
+<li><strong>合計</strong> — 選択した給与計算方法、ボーナス、残業代、控除額を含めた、これまでの推定収入額です。</li>
+<li><strong>レートまたは給与</strong> — このカードの内容は、選択した計算方法（時給、シフト単位、または月給）によって異なります。 給与設定で入力された値が表示されます。</li>
+<li><strong>計算詳細</strong> — 選択した期間の有給時間、残業時間、ボーナス、および控除額。</li>
+<li><strong>レポート</strong> — <a href="#reports">期間、勤務時間、給与に関する詳細レポート</a>を開きます。</li>
+</ol>
+
+<div class="tip">上部のカードで期間を変更すると、勤務時間と給与の各項目にあるすべての値が再計算されます。</div>
+
+<h3 id="statistics-break">5.3. 勤務時間における休憩の扱い</h3>
+
+<p>「勤務時間」カードをタップして、食事休憩やその他の休憩を、実際の勤務時間および給与対象時間の一部としてカウントするかどうかを指定します。</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_break_settings.webp" alt="休憩時間の計算方法や時間の長さを設定するパネル">
+</figure>
+
+<ol class="callout-list">
+<li><strong>現在の合計</strong> — 新しい設定を適用する前の、選択期間における予定時間と実績時間を表示します。</li>
+<li><strong>休憩を勤務時間としてカウント</strong> — 休憩が有給であり、シフト時間に含まれる場合は、このオプションをオンのままにします。指定した時間を勤務時間および給与対象時間から除外する必要がある場合は、オフにします。</li>
+<li><strong>休憩時間</strong> — 1回の休憩の時間を（時間と分で）選択します。この設定は、該当する勤務シフトを再計算する際に使用されます。</li>
+<li><strong>休憩合計</strong> — 保存前に、選択した休憩時間を表示します。</li>
+<li><strong>保存</strong> — 設定を適用し、勤務時間および関連する値を再計算します。</li>
+</ol>
+
+<div class="notice">休憩には、食事休憩、シフトの引き継ぎ、またはシフト中のその他の無給の時間が含まれます。職場の規定に合わせた時間を入力してください。</div>
+
+<h3 id="reports">5.4. レポート：期間、ステータス、概要</h3>
+
+<p>統計画面の下部にあるカードから「レポート」を開きます。このセクションでは、選択した期間の勤務時間、シフトと欠勤、カレンダーの調整、給与、ボーナス、控除、期間比較、日ごとの詳細、エクスポートについて、より詳しい情報を確認できます。</p>
+
+<div class="warning"><strong>レポートはあくまで参考情報として提供されるものです。</strong> 計算は、選択されたスケジュール、給与設定、休憩時間の扱い、およびカレンダー上のシフト変更に基づいて行われます。勤怠管理システムの違い、端数処理、税金、手当、または社内規定などにより、実際の数値とは異なる場合があります。誤りや対応していない計算方法にお気づきの際は、入力データと期待される結果を添えて、アプリに記載されている連絡先から開発元へご連絡ください。</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_period_salary.webp" alt="期間選択、ステータス、概要、給与の詳細内訳を表示するレポート画面">
+</figure>
+
+<ol class="callout-list">
+<li><strong>集計期間</strong> — カードをタップして、当月・前月・翌月、プリセットされた期間、または任意の日付範囲を選択します。以下の情報はすべて、選択した期間に適用されます。</li>
+<li><strong>期間のステータス</strong> — 期間が完了しているか、現在進行中か、まだ開始されていないかを表示します。完了した期間は、保存された実績データに基づいて計算されます。進行中の期間は、すでに記録された作業データと現在の計画を組み合わせたものであり、将来の期間は予測値となります。</li>
+<li><strong>概要</strong> — 実際の作業時間、計算された金額、および残業時間のテキストによる概要です。</li>
+<li><strong>給与</strong> — 基本給、残業代、ボーナス、控除額、および最終的な推定額の詳細な内訳です​​。数値は、<a href="#salary">給与設定</a>と選択した期間によって異なります。</li>
+</ol>
+
+<h3 id="reports-work">5.5. 作業時間、欠勤、および日数</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_work_absences.webp" alt="労働時間、休憩、完了したシフト、欠勤状況を表示するレポート画面">
+</figure>
+
+<ol class="callout-list">
+<li><strong>作業時間</strong> — 計画および実際の作業時間、休憩控除前の計画および実際の時間、完了したシフト数、平均シフト時間、および控除された休憩時間の合計を表示します。休憩の設定は<a href="#statistics-break">作業時間セクション</a>で行います。</li>
+<li><strong>欠勤と日数</strong> — 選択した期間中の休日、休暇、病欠、その他の休暇、および変更された勤務日の数を表示します。</li>
+</ol>
+
+<h3 id="reports-charts">5.6. 調整とグラフ</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_corrections_charts.webp" alt="調整、給与構成、労働時間の数値を表示するレポート画面">
+</figure>
+
+<ol class="callout-list">
+<li><strong>調整</strong> — 残業時間、シフト時間の合計変動、および基本スケジュールから変更された日数を表示します。</li>
+<li><strong>グラフ</strong> — 給与と作業時間の構成（基本給、残業代、ボーナス、控除額、合計、および計画・実績・給与対象時間）を視覚化します。</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_charts_days.webp" alt="労働時間や勤務タイプ別の円グラフを含む追加のレポート用グラフ">
+</figure>
+
+<ol class="callout-list">
+<li><strong>時間</strong> — 予定時間、勤務時間、支払対象時間、残業時間を引き続き図で比較します。「実労働時間」の行には、設定と調整を適用した後の結果が表示されます。</li>
+<li><strong>勤務タイプ</strong> — 選択した期間の日数をタイプ別に分類した円グラフです。凡例はスケジュールや実際の変更内容（日勤・夜勤・その他のシフト、休日、休暇、病欠、一時的な不在、その他の状態など）に基づきます。</li>
+</ol>
+
+<h3 id="reports-comparison">5.7. 期間の比較</h3>
+
+<p>比較セクションでは、複数の期間にわたる給与、時間、シフト、欠勤状況を比較できます。比較可能な期間の数は、保存されているデータによって異なります。</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_chart.webp" alt="期間選択、給与グラフ、比較表の冒頭部分を表示する期間比較画面">
+</figure>
+
+<ol class="callout-list">
+<li><strong>期間の比較</strong> — カードをタップして、比較する期間の数と範囲を選択します。</li>
+<li><strong>グラフと期間リスト</strong> — 各期間の給与を表示し、比較対象となる期間とそれぞれのステータスを一覧表示します。</li>
+<li><strong>比較表</strong> — 各期間の詳細な数値が表示されます。表を左右にスワイプすると、表示されていない列を確認できます。</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_table.webp" alt="比較表の続きと、隣接する期間同士の差異を表示する画面">
+</figure>
+
+<ol class="callout-list">
+<li><strong>期間ごとの数値</strong> — 給与合計、労働時間・有給時間、残業時間、ボーナス、控除額、完了したシフト数、欠勤日数、変更された日数など。</li>
+<li><strong>期間間の差異</strong> — 各期間が前の期間とどう異なるかを表示します。正または負の値は、該当する指標の増加または減少を示します。色が必ずしも「有利」や「問題」を意味するわけではありません。例えば、控除額の増加は、差し引かれる金額が大きくなったことを意味します。</li>
+</ol>
+
+<h3 id="reports-details-export">5.8. 日別詳細とエクスポート</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_details_export.webp" alt="日次詳細のレポートカードと、PDF、HTML、JSON、またはCSV形式へのエクスポート機能">
+</figure>
+
+<ol class="callout-list">
+<li><strong>日別詳細</strong> — 選択した期間内の各日のリストを開きます。特定の日のシフトタイプ、予定時間と実働時間、時間の調整、欠勤、その他の変更内容を確認できます。</li>
+<li><strong>エクスポート</strong> — レポートをPDF、HTML、JSON、またはCSV形式で保存します。エクスポート前にレポート期間を選択してください。その後、Androidのシステムメニューからファイルの印刷、保存、共有を行うことができます。</li>
+</ol>
+
+<div class="tip">比較やエクスポートを行う前に、選択した期間、スケジュール、シフト変更、休憩、給与設定を確認してください。元データに誤りがあると、すべてのレポートの集計値に影響が及びます。</div>
+
+<h2 id="alarms">6. アラーム</h2>
+
+<p>ShiftAlarmでは、単発のアラーム作成、特定の曜日での繰り返し設定、またはシフトスケジュールに連動したアラーム設定が可能です。</p>
+
+<h3 id="alarms-list">6.1. アラーム一覧</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarms_overview.webp" alt="ShiftAlarmのアラーム画面：次回の通知、並べ替え、アラームカード、追加ボタン">
+</figure>
+
+<ol class="callout-list">
+<li><strong>次のアラーム</strong> — 次に有効となるアラートの日時を表示します。</li>
+<li><strong>アラームの並べ替え</strong> — 有効なアラームを先頭に表示するなど、アラームカードの表示順序を変更します。</li>
+<li><strong>アラームカード</strong> — 時刻、日付または繰り返し設定、スケジュールタイプ、残り時間が表示されます。カードをタップすると編集できます。</li>
+<li><strong>スイッチ</strong> — 設定を削除することなく、一時的にアラームの有効/無効を切り替えます。</li>
+<li><strong>削除</strong> — 選択したアラームを削除します。</li>
+<li><strong>アラームの追加</strong> — 新しいアラームを作成する画面を開きます。</li>
+</ol>
+
+<h3 id="alarms-create">6.2. アラームの作成と編集</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_time_schedule.webp" alt="ShiftAlarmアラーム編集画面の上部：時刻、スケジュールの種類、スヌーズ、保存の各設定">
+</figure>
+
+<ol class="callout-list">
+<li><strong>時刻</strong> — 時・分のホイールをスクロールして、アラームを鳴らす時刻を設定します。</li>
+<li><strong>スケジュールの種類</strong> — 以下のモードから1つを選択します：
+<ul>
+<li><strong>1回のみ</strong> — 指定した日付に1回だけアラームが鳴ります。</li>
+<li><strong>曜日指定</strong> — 指定した曜日に繰り返しアラームが鳴ります。</li>
+<li><strong>シフト指定</strong> — 特定のスケジュールおよびシフトタイプにアラームを連動させます。</li>
+</ul>
+</li>
+<li><strong>スヌーズ</strong> — アラーム鳴動画面でスヌーズボタンをタップした際、アラームを何分間延期するかを設定します。</li>
+<li><strong>キャンセルと保存</strong> — これらのボタンは画面下部に固定されており、編集画面をスクロールしている間も操作可能です。</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_behavior.webp" alt="ShiftAlarmのアラーム動作設定：アラームの継続時間、繰り返し通知、音量の段階的増加、バイブレーション">
+</figure>
+
+<ol class="callout-list">
+<li><strong>アラームの継続時間</strong> — ユーザーが停止操作を行わなかった場合に、アラーム音が鳴り続ける時間を設定します。</li>
+<li><strong>無視された場合に繰り返す</strong> — アラームが解除もスヌーズもされなかった場合に、再度アラームを鳴らす設定です。その下の項目で、再通知までの間隔を設定します。</li>
+<li><strong>音量を徐々に大きくする</strong> — 小さな音量から開始し、設定した時間をかけて徐々に音量を大きくします。</li>
+<li><strong>バイブレーション</strong> — アラーム鳴動時のバイブレーションの有効/無効を切り替えます。</li>
+<li><strong>キャンセルと保存</strong> — 編集画面用の固定操作ボタンです。</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_sound_name.webp" alt="ShiftAlarmアラーム編集画面の下部：バイブレーション、サウンド、名前、保存の各設定">
+</figure>
+
+<ol class="callout-list">
+<li><strong>バイブレーション</strong> — バイブレーションによる通知の有効/無効を切り替えます。</li>
+<li><strong>サウンド</strong> — 内蔵音、システム音、またはユーザーが追加した音から選択できます。アプリには最大5つまでカスタムサウンドを追加可能です。</li>
+<li><strong>名前</strong> — アラームを識別するための任意のラベル（名前）です。</li>
+<li><strong>キャンセルと保存</strong> — 変更を破棄するか、アラームを保存します。</li>
+</ol>
+
+<div class="notice">保存後、アラームはメインリストに表示されます。重要なアラートを受け取る前に、アラームが有効になっていること、アプリに通知および「正確なアラーム」の権限が許可されていること、そしてシステムによってバックグラウンドでの動作が制限されていないことを確認してください。</div>
+
+<div class="tip">シフト（勤務）に連動したアラームを作成するには、まず適切なシフトスケジュールを作成します。編集画面で、固定のトリガー時刻、またはシフト開始時刻を基準としたオフセット（時間差）を選択します。</div>
+
+<h2 id="geo">7. 位置情報アラーム</h2>
+
+<p>位置情報アラームは、デバイスが特定のエリアに出入りするタイミングを監視します。エリアは、地図上の地点と、その地点を中心とする半径で定義されます。例えば、職場、自宅、バス停、駅、その他の場所に近づいたときにアラートを受け取るよう、位置情報アラームを設定できます。</p>
+
+<h3 id="geo-overview">7.1. 地図と操作</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_overview.webp" alt="ShiftAlarm 位置情報アラームのメイン画面：地図と番号付きの操作項目">
+</figure>
+
+<ol class="callout-list">
+<li><strong>拡大</strong> — 地図を拡大表示します。</li>
+<li><strong>縮小</strong> — 地図の縮尺を小さくします。</li>
+<li><strong>現在地</strong> — 地図をデバイスの現在位置に移動します。この機能を使用するには、アプリに位置情報へのアクセス権限が必要です。</li>
+<li><strong>保存済みスポット</strong> — 保存されたジオアラームと位置ポイントのリストを開きます。</li>
+<li><strong>戻る</strong> — 前のアプリ画面に戻ります。</li>
+<li><strong>ジオアラーム数</strong> — 作成されたジオアラームの数を表示します。</li>
+<li><strong>ジオアラームリスト</strong> — 作成されたジオアラームのリストを個別に開きます。</li>
+</ol>
+
+<div class="tip">ジェスチャーでズーム操作も可能です。地図上で2本の指を広げるとズームイン、指を近づけるとズームアウトします。</div>
+<div class="notice">右から左へ記述する言語（RTL言語）では、サイドコントロールが反対側に表示される場合があります。機能は変わりません。</div>
+
+<h3 id="geo-saved-places">7.2. 保存済みアラームと位置ポイント</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_saved_places.webp" alt="「保存済み地点」ウィンドウ：位置情報アラームと地点（ロケーションポイント）のタブ">
+</figure>
+
+<ol class="callout-list">
+<li><strong>アラーム</strong> — 保存済みスポットに追加されたジオアラームを表示します。</li>
+<li><strong>位置ポイント</strong> — アクティブなジオアラームが設定されていない、保存済みの座標を表示します。</li>
+<li><strong>保存済みスポットリスト</strong> — カードをタップすると、地図上のその場所に移動します。</li>
+<li><strong>閉じる</strong> — ウィンドウを閉じ、地図画面に戻ります。</li>
+</ol>
+
+<div class="notice">保存したジオアラームを削除しても、その座標は「位置ポイント」タブに自動的に保持されます。そのポイントを後で再利用して、別のジオアラームを作成することができます。</div>
+
+<h3 id="geo-select-point">7.3. ポイントと半径の選択</h3>
+
+<p>地図上の目的の場所を長押しします。アプリがマーカーを配置し、選択ポイントのパネルを開きます。</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_selected_point.webp" alt="地図上で選択された地点：住所、半径、ブックマーク、位置情報アラーム作成ボタン">
+</figure>
+
+<ol class="callout-list">
+<li><strong>選択ポイントマーカー</strong> — 設定されるジオフェンスの中心点です。地図には、選択した半径を示す円も表示されます。</li>
+<li><strong>住所と座標</strong> — 正しい場所が選択されているかを確認できます。</li>
+<li><strong>場所を保存</strong> — アラームを作成せずに、選択した座標を保存済み地点に追加します。</li>
+<li><strong>半径</strong> — 地点を中心とするエリアのサイズを設定します。適切な距離になるまでスライダーを動かしてください。</li>
+<li><strong>キャンセル</strong> — 地点の選択をキャンセルします。</li>
+<li><strong>ここで作成</strong> — 選択した地点に対して、新しいジオアラームの編集画面を開きます。</li>
+</ol>
+
+<div class="warning"><strong>半径の選び方。</strong> 携帯電話は常に座標を追跡しているわけではありません。Androidの仕様、デバイスのメーカー、バッテリー節約モード、GPS・モバイルネットワーク・Wi-Fiの信号強度、移動速度などが、境界の検知タイミングに影響します。そのため、描画された線から離れた場所でアラートが作動することがあります。例えば、半径800mに設定した場合、デバイスがすでにエリア内に入ってから（地点から700m、600m、あるいは500mの地点などで）進入が検知される可能性があります。</div>
+
+<ul>
+<li><strong>市街地</strong>では、一般的に<strong>1,300～1,500m</strong>の半径が推奨されます。</li>
+<li><strong>市街地以外</strong>（位置情報の更新頻度が低くなる可能性がある場所）では、<strong>4,000～5,000m</strong>が推奨されます。</li>
+<li><strong>正確な半径</strong>は、移動ルート、速度、デバイスの動作に基づいて選択してください。</li>
+</ul>
+
+<div class="notice">システムは、デバイスがエリアの仮想境界を通過したことを検知します。「進入時」モードでは、半径を大きくすると、電話機が接近を検知するための時間を確保しやすくなります。「退出時」モードでは、境界が選択した地点からより遠くに設定されることになります。</div>
+
+<h3 id="geo-create">7.4. 位置情報アラームの作成</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_location_schedule.webp" alt="位置情報アラーム編集画面の上部：有効化設定、場所、スケジュールの種類">
+</figure>
+
+<ol class="callout-list">
+<li><strong>ジオアラームの準備状況</strong> — 必要な権限が設定されているか、およびアプリがジオフェンスを登録できる状態にあるかを示します。</li>
+<li><strong>位置情報</strong> — 選択された住所と座標が含まれます。住所はラベルとして編集できますが、実際の地点は地図上で選択します。</li>
+<li><strong>スケジュールの種類</strong> — ジオアラームが有効になる曜日や条件を決定します。</li>
+<li><strong>常時</strong> — ジオアラームが有効な間、毎日動作します。</li>
+<li><strong>1回のみ</strong> — 選択した条件が満たされた際、次の1回だけトリガーとして機能します。</li>
+<li><strong>曜日指定</strong> — 選択した曜日にのみ機能します。</li>
+<li><strong>シフト指定</strong> — 位置情報アラームを有効なシフトスケジュールに連動させます。</li>
+</ol>
+
+<div class="notice"><strong>「シフト指定」スケジュール。</strong> シフト当日に機能させるか、シフト開始前または終了後のみ機能させるかを選択し、対象となるシフトタイプ（日勤、夜勤、早番、遅番、24時間勤務、カスタム、または任意の勤務シフト）を指定します。</div>
+<div class="tip">カレンダー上の日付が勤務シフトではなく、休日、休暇、病気休暇、またはその他の不在として設定されている場合、シフト連動型の位置情報アラームはその日は有効になりません。</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_trigger_settings.webp" alt="位置情報アラーム編集画面の下部：進入または退出の条件、半径、アラート設定">
+</figure>
+
+<ol class="callout-list">
+<li><strong>トリガー条件</strong> — どの境界線の通過がアラートを開始するかを決定します。</li>
+<li><strong>進入時</strong> — デバイスが選択した半径内に入ったとき（例：職場や指定の停車地に近づいたとき）にアラートを開始します。</li>
+<li><strong>退出時</strong> — デバイスが選択した半径から出たとき（例：職場や拠点を離れた後、ルートの次の区間を見逃さないようにする場合など）にアラートを開始します。</li>
+<li><strong>進入または退出時</strong> — どちらの方向に境界線を通過してもアラートを開始します。</li>
+<li><strong>半径</strong> — 選択した地点を中心とするジオフェンスのサイズです。</li>
+<li><strong>アラーム継続時間</strong> — アラートが鳴る時間を決定します。</li>
+<li><strong>音量の段階的増加</strong> — アラート開始後、音量を徐々に大きくする設定です。</li>
+<li><strong>キャンセルと保存</strong> — 変更を破棄するか、位置情報アラームを保存します。</li>
+</ol>
+
+<div class="tip">以下の残りのオプションは通常のアラームと同様です：サウンド、バイブレーション、アラート継続時間、音量の段階的増加、および名前。</div>
+
+<h3 id="geo-existing">7.5. 地図上のジオアラームと操作項目</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_marker_radius.webp" alt="地図上に表示された位置情報アラームのマーカーとトリガー範囲（半径）を示す円">
+</figure>
+
+<ol class="callout-list">
+<li><strong>ジオアラームマーカー</strong> — 選択された地点を表示します。</li>
+<li><strong>半径の境界線</strong> — アプリがそのエリアへの出入りを監視する範囲を示します。</li>
+</ol>
+
+<p>ジオアラームマーカーをタップします。最初に小さな情報ウィンドウが表示されます。そのウィンドウをタップすると、詳細カードが開きます。</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_alarm_card.webp" alt="位置情報アラームの詳細カード：情報、ブックマーク、スイッチ、操作ボタン">
+</figure>
+
+<ol class="callout-list">
+<li><strong>名前と住所</strong> — 選択されたジオアラームを識別します。</li>
+<li><strong>ブックマーク</strong> — アラームを「保存済み」の場所に追加、またはそこから削除します。</li>
+<li><strong>スイッチ</strong> — 設定を削除することなく、ジオアラームを有効または一時的に無効にします。</li>
+<li><strong>設定とステータス</strong> — 半径、出入りの条件、スケジュール、ジオフェンスの準備状況、および過去の作動に関する情報を表示します。</li>
+<li><strong>編集</strong> — ジオアラームの設定を開きます。</li>
+<li><strong>閉じる</strong> — カードを閉じ、地図画面に戻ります。</li>
+<li><strong>削除</strong> — 確認を経て、ジオアラームを削除します。</li>
+</ol>
+
+<div class="warning">確実に動作させるには、正確な位置情報とバックグラウンドでの位置情報へのアクセスを許可し、ShiftAlarmに対する厳しいバッテリー制限を解除してください。また、デバイスに自動起動の設定がある場合は、それも確認してください。正しく設定していても、Androidの仕様上、数メートル単位の精度での境界検知は保証されません。</div>
+
+<h2 id="notes">8. メモ、イベント、リマインダー</h2>
+
+<p>「メモ」セクションには、プレーンテキスト、リスト、チェックリスト、音声録音、音声入力メモ、リマインダー、イベントが保存されます。</p>
+
+<h3 id="notes-create">8.1. メモの追加</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_type_picker.webp" alt="ShiftAlarmでの新しいメモタイプの選択">
+</figure>
+
+<ol class="callout-list">
+<li><strong>パネルハンドル</strong> — 上にドラッグするとメモの種類の全リストが表示され、下にドラッグするとパネルが閉じます。</li>
+<li><strong>メモの種類</strong> — 適切なオプションを選択します：
+<ul>
+<li><strong>テキストメモ</strong> — プレーンテキスト；</li>
+<li><strong>チェックリスト</strong> — 完了チェックボックス付きの項目リスト；</li>
+<li><strong>リスト</strong> — 箇条書きまたは番号付きリスト；</li>
+<li><strong>音声メモ</strong> — 音声録音；</li>
+<li><strong>音声入力</strong> — 音声認識を使用してメモを作成します。</li>
+<li><strong>リマインダー</strong> — 指定した時刻に通知を行う項目です。</li>
+<li><strong>イベント</strong> — 日時に関連付けられた項目です。</li>
+</ul>
+</li>
+<li><strong>キャンセル</strong> — メモを作成せずに選択画面を閉じます。</li>
+</ol>
+
+<div class="tip">種類を選択すると、適切な編集画面が開きます。必要な項目を入力し、保存してください。</div>
+
+<h3 id="notes-list">8.2. メモ一覧と操作</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_overview.webp" alt="ShiftAlarmのメモ画面：並べ替え、アクティブ/アーカイブ済みメモ、検索、カード操作">
+</figure>
+
+<ol class="callout-list">
+<li><strong>並べ替え</strong> — 一覧内のメモの順序を変更します。</li>
+<li><strong>アクティブ</strong> — アーカイブに移動されていない、通常のメモやスケジュールされたメモを表示します。</li>
+<li><strong>アーカイブ</strong> — アーカイブされたメモの一覧を開きます。</li>
+<li><strong>検索</strong> — メモのタイトルや内容から一致するものを探します。</li>
+<li><strong>メモカード</strong> — タイトル、種類、ステータス、その他の情報を表示します。カードをタップするとメモが開きます。</li>
+<li><strong>ピン留め</strong> — メモを一覧の先頭に固定します。</li>
+<li><strong>アーカイブ</strong> — メモをアクティブな一覧から削除し、アーカイブへ移動します。</li>
+<li><strong>削除</strong> — 確認後にメモを削除します。</li>
+<li><strong>メモの追加</strong> — 新しいメモの種類を選択する画面を開きます。</li>
+</ol>
+
+<div class="notice">メインの一覧には不要だが保存しておきたい項目には、アーカイブ機能を使用してください。完全に不要になった場合にのみ、メモを削除してください。</div>
+
+<h2 id="clock">9. 時計、ストップウォッチ、タイマー</h2>
+
+<p>このセクションには、現地時刻と世界時計、ストップウォッチ、タイマーがまとめられています。メイン画面の<strong>「時計」</strong>ボタンで開きます。</p>
+
+<div class="notice">画面下部に「時計」、「ストップウォッチ」、「タイマー」の3つのタブが表示されます。タブをタップしてモードを切り替えます。</div>
+
+<h3 id="clock-world">9.1. 時計と世界時計</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_overview.webp" alt="現地時刻、世界時計、追加ボタン、下部タブが表示されたShiftAlarmの時計画面">
+</figure>
+
+<ol class="callout-list">
+<li><strong>現地時刻</strong> — 現在の時刻、日付、およびデバイスのシステムタイムゾーンを表示します。</li>
+<li><strong>世界時計</strong> — 追加された都市やタイムゾーンを表示します。リストが空の場合、ヒントが表示されます。</li>
+<li><strong>プラスボタン</strong> — 世界時計の選択画面を開きます。</li>
+<li><strong>セクションタブ</strong> — 「時計」、「ストップウォッチ」、「タイマー」の画面を切り替えます。</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_add_timezone.webp" alt="ShiftAlarmの世界時計に都市やタイムゾーンを追加する画面">
+</figure>
+
+<ol class="callout-list">
+<li><strong>検索</strong> — 都市名やタイムゾーン名を入力してリストを絞り込みます。</li>
+<li><strong>都市とタイムゾーンのリスト</strong> — 項目をタップして世界時計画面に追加します。</li>
+</ol>
+
+<div class="tip">現地タイムゾーンは常に最初に表示されます。追加した世界時計はリストから削除できますが、現地時刻は削除できません。</div>
+
+<h3 id="clock-stopwatch">9.2. ストップウォッチ</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_start.webp" alt="開始前のShiftAlarmストップウォッチ画面">
+</figure>
+
+<ol class="callout-list">
+<li><strong>履歴</strong> — 保存されたストップウォッチのセッションを開きます。</li>
+<li><strong>開始</strong> — 計測を開始します。</li>
+<li><strong>リセット</strong> — ストップウォッチ開始前は使用できません。停止後に使用すると、ストップウォッチをゼロに戻し、現在のラップを削除します。</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_running.webp" alt="履歴、保存、ラップ、一時停止の操作が可能な、動作中のShiftAlarmストップウォッチ画面">
+</figure>
+
+<ol class="callout-list">
+<li><strong>履歴</strong> — 以前に保存したセッションを表示します。</li>
+<li><strong>保存</strong> — 名前を入力して、現在のストップウォッチセッションを保存します。</li>
+<li><strong>ラップ</strong> — 合計時間の計測を止めずに、途中経過を記録します。</li>
+<li><strong>一時停止</strong> — ストップウォッチを一時停止します。一時停止後、再開またはリセットが可能です。</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_laps.webp" alt="ShiftAlarmストップウォッチのラップ表示と並べ替えオプション">
+</figure>
+
+<ol class="callout-list">
+<li><strong>オリジナル、最速、最遅</strong> — ラップの表示順序を変更します（元の順序、最速順、または最遅順）。</li>
+<li><strong>ラップ</strong> — 各ラップについて、記録時の合計時間と個別のラップタイムが表示されます。</li>
+</ol>
+
+<div class="notice">「保存」をタップしたら、セッション名を入力して確定してください。保存したセッションは、後で「履歴」から開くことができます。</div>
+
+<h3 id="clock-timer">9.3. タイマー</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_setup.webp" alt="時間・分・秒のホイールでShiftAlarmタイマーを設定する画面">
+</figure>
+
+<ol class="callout-list">
+<li><strong>時間</strong> — ホイールをスクロールして、時間数を選択します。</li>
+<li><strong>分</strong> — ホイールをスクロールして、分単位の時間を設定します。</li>
+<li><strong>秒</strong> — ホイールをスクロールして、秒単位の時間を設定します。</li>
+<li><strong>開始</strong> — 設定した時間でタイマーを開始します。</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_running.webp" alt="残り時間、一時停止、時間の追加、停止の操作が可能な、動作中のShiftAlarmタイマー画面">
+</figure>
+
+<ol class="callout-list">
+<li><strong>残り時間</strong> — アラートが鳴るまでの残り時間を表示します。</li>
+<li><strong>終了予定時刻</strong> — タイマーが終了するおおよその時刻を表示します。</li>
+<li><strong>最近のタイマー</strong> — 最近使用したタイマー設定が保存されています。タップするとすぐに再利用できます。</li>
+<li><strong>一時停止</strong> — カウントダウンを一時停止します。後で再開できます。</li>
+<li><strong>+1分</strong> — 残り時間に1分を追加します。</li>
+<li><strong>停止</strong> — タイマーを完全に停止します。</li>
+</ol>
+
+<div class="tip">タイマーとストップウォッチはバックグラウンドで動作し続けます。その状態は、通知、メイン画面、またはウィジェットに表示される場合があります。</div>
+
+<h2 id="widgets">10. ウィジェット</h2>
+
+<p>ShiftAlarmでは、スマートフォンのホーム画面用ウィジェットを提供しています。</p>
+<ul>
+<li><strong>今日 4×2</strong> — 設定可能な2つのセクションを持つコンパクトなパネルです。</li>
+<li><strong>今日 4×3</strong> — 上部に時計、下部に2つのセクションを配置したパネルです。</li>
+<li><strong>カレンダー 4×4</strong> — シフトスケジュールを表示するカレンダーウィジェットです。</li>
+</ul>
+<p>スマートフォンのホーム画面にあるAndroidウィジェットメニューからウィジェットを追加します。</p>
+
+<h2 id="salary">11. 給与計算</h2>
+
+<p><a href="#statistics-work">選択したスケジュールの統計</a>にある給与カードから「給与計算」を開きます。ここでは、給与の支払い方法、時給・日給または月給、残業のルール、ボーナス、控除項目などを設定できます。このアプリは、これらの設定を、選択された期間、シフトスケジュール、カレンダー上の変更、および休憩時間の計算と組み合わせて使用​​します。</p>
+
+<div class="warning"><strong>この計算結果はあくまで参考情報です。</strong> 勤務先が勤怠管理、端数処理、手当、税金、ボーナス、控除、または特定のシフトタイプに対する支払いについて別のシステムを使用している場合、実際の給与額と異なることがあります。この結果を公式な給与明細として使用せず、勤務先から発行される給与明細と照合してください。アプリが正確に処理できない計算方法を見つけた場合は、アプリ内に記載されているアドレス宛てに開発者へメールでご連絡ください。その際、ルール、入力データのサンプル、および期待される結果を明記してください。今後のアップデートでその方法への対応が検討されます。</div>
+
+<h3 id="salary-settings">11.1. 単価、残業、ボーナス</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_settings_overview.webp" alt="選択したスケジュール、レートタイプ、残業、ボーナスが表示された給与計算画面">
+</figure>
+
+<ol class="callout-list">
+<li><strong>選択中のスケジュール</strong> — 使用されているシフトスケジュールを表示します。給与は、このスケジュールと「統計」で選択された期間に基づいて計算されます。</li>
+<li><strong>単価タイプと金額</strong> — <strong>時給</strong>、<strong>シフト単位</strong>、または<strong>月給</strong>のいずれかを選択し、対応する金額を入力します。選択した単価タイプに応じて、フィールド名が変わります。</li>
+<li><strong>残業</strong> — 通常の勤務時間とは異なる単価で残業代が支払われる場合は、このセクションを有効にします。その後、残業代の倍率を指定します。カレンダー上で <a href="#main-shift-time-adjustment">「シフト変更」→「+ 時間」</a> を使用して追加時間を入力し、「この時間を残業としてカウントする」を有効にすることで、その時間が残業として扱われるようになります。</li>
+<li><strong>ボーナス</strong> — 現在の計算方法と合計額を表示します。カードをタップすると、<a href="#salary-bonuses">ボーナス設定</a>が開きます。</li>
+</ol>
+
+<div class="notice">「保存」ボタンを押すと、設定が選択中のスケジュールに適用されます。保存後、入力されたデータに基づいて統計やレポートの合計額が再計算されます。</div>
+
+<h3 id="salary-summary">11.2. 控除および計算の合計</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions_total.webp" alt="控除項目と最終的な内訳が表示された給与計算画面">
+</figure>
+
+<ol class="callout-list">
+<li><strong>控除</strong> — 設定された控除の合計額と件数を表示します。カードをタップすると、<a href="#salary-deductions">控除一覧</a>が開きます。</li>
+<li><strong>合計</strong> — 内訳の概要：有給時間、実労働時間、残業時間、基本給、残業代、ボーナス、控除額、および最終的な計算結果。</li>
+</ol>
+
+<div class="tip">計算結果は、この画面の設定だけでなく、選択した集計期間、完了したシフト、日付の切り替わり、残業、および無給休憩の設定にも左右されます。</div>
+
+<h3 id="salary-bonuses">11.3. ボーナス</h3>
+
+<p>給与計算画面の「ボーナス」カードをタップします。ボーナスは手動で入力するか、給与体系に合わせてパーセンテージ（歩合など）で計算することができます。</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_bonuses.webp" alt="計算方法や金額入力のオプションがあるボーナス設定画面">
+</figure>
+
+<ol class="callout-list">
+<li><strong>概要情報</strong> — 計算されたボーナスの合計額と、計算の基準となる金額を表示します。</li>
+<li><strong>ボーナス計算</strong> — 手動入力、または職場での運用に合わせて売上に対するパーセンテージなどの計算方法を選択します。</li>
+<li><strong>入力方法</strong> — 「合計額」は最終的なボーナスが1回分の場合に適しています。個別に集計すべきボーナスが複数ある場合は、行を分けて入力すると便利です。</li>
+<li><strong>金額またはパーセンテージ</strong> — 選択した計算方法に応じて必要な値を入力します。</li>
+<li><strong>キャンセルと保存</strong> — 変更を破棄するか、給与計算に適用します。</li>
+</ol>
+
+<h3 id="salary-deductions">11.4. 控除一覧</h3>
+
+<p>メインの計算画面にある「控除」カードをタップします。このセクションでは、複数の控除項目を登録し、それぞれを個別に管理できます。</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions.webp" alt="合計金額、控除項目、追加ボタンが表示された控除一覧画面">
+</figure>
+
+<ol class="callout-list">
+<li><strong>概要情報</strong> — 有効になっているすべての控除項目の金額と件数を表示します。</li>
+<li><strong>控除の行</strong> — 名前、値、種類を表示します。行をタップすると、<a href="#salary-deduction-editor">控除の設定</a>が開きます。ゴミ箱アイコンをタップすると、その行が削除されます。</li>
+<li><strong>控除の追加</strong> — 「+」ボタンで、新しい控除行を作成します。</li>
+<li><strong>キャンセルと保存</strong> — 変更を破棄するか、リスト全体を保存します。</li>
+</ol>
+
+<h3 id="salary-deduction-editor">11.5. 個別の控除の設定</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deduction_editor.webp" alt="名前、金額、種類、控除基準を含む個別の控除設定パネル">
+</figure>
+
+<ol class="callout-list">
+<li><strong>控除名</strong> — 「税金」、「養育費」、「罰金」など、分かりやすい名前を入力します。</li>
+<li><strong>値</strong> — 下で選択する値のタイプに応じて、金額またはパーセンテージを入力します。</li>
+<li><strong>値のタイプ</strong> — 固定額かパーセンテージかを選択します。</li>
+<li><strong>控除タイプ</strong> — <strong>変動</strong>控除は特定の計算期間に適用され、<strong>定期</strong>控除は有効な間、定期的に適用されます。</li>
+<li><strong>控除対象</strong> — 計算の基準（給与総額、基本給、ボーナス、またはその他の利用可能なオプション）を選択します。</li>
+<li><strong>有効</strong> — 設定を削除せずに、控除を一時的に無効にします。</li>
+<li><strong>キャンセルと保存</strong> — 変更せずにパネルを閉じるか、控除を保存します。</li>
+</ol>
+
+<div class="notice">パーセンテージによる控除の場合、正しい「控除対象（基準）」を選択することが特に重要です。給与総額、基本給、ボーナスに対して同じパーセンテージを適用しても、結果は異なります。</div>
+
+<h2 id="settings">12. 設定</h2>
+
+<p><a href="#main-overview">メイン画面</a>の下部にあるボタンから「設定」を開きます。このセクションには、システム権限、外観とアプリの言語、オフライン音声認識、ドキュメントとユーザーガイド、バックアップ、診断、開発者への連絡オプションが含まれています。</p>
+
+<h3 id="settings-overview">12.1. 設定の主なセクション</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_permissions_language.webp" alt="ShiftAlarm設定画面の上部：権限、テーマ、アプリの言語、オフライン音声モデル">
+</figure>
+
+<ol class="callout-list">
+<li><strong>権限</strong> — アラームの権限と信頼性に関する設定を開きます。通知、正確なアラーム、バックグラウンド動作、バッテリー制限を確認してください。<a href="#geo">位置情報アラーム</a>には位置情報へのアクセスも必要です。アプリを閉じている間も作動させるには、バックグラウンドでの位置情報または「常に許可」を設定する必要があります。項目名や設定手順は、Androidのバージョンや端末メーカーによって異なります。</li>
+<li><strong>テーマ</strong> — ライト、ダーク、またはシステムの表示モードを選択したり、インターフェースの配色を変更したり、アプリ内の操作に対する触覚フィードバック（バイブレーション）の有効/無効を切り替えたりできます。「システム」テーマは、スマートフォンの現在の表示設定に連動します。</li>
+<li><strong>アプリの言語</strong> — スマートフォンのシステム言語とは異なる言語をアプリで使用できます。ShiftAlarmは108言語に対応しています。検索機能で必要な言語を見つけ、言語パックをダウンロードして適用してください。</li>
+<li><strong>オフライン音声認識モデル</strong> — <a href="#notes-create">音声入力によるメモ作成</a>機能のためのモジュールをインストールします。オフライン認識は現在テスト段階にあり、約20言語で利用可能です。認識精度はオンライン認識より低い場合があり、言語、マイク、スマートフォンの性能、録音環境によって異なります。</li>
+</ol>
+
+<div class="warning"><strong>Androidの権限設定はデバイスによって異なります。</strong> 一部のスマートフォンでは、自動起動（オートスタート）を許可し、バッテリー設定を「制限なし」などに変更し、バックグラウンドでの動作を許可する必要があります。これらの設定を行うことで、システムによってShiftAlarmが停止される可能性を減らせますが、設定項目の名称はデバイスメーカーによって異なります。</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_help_backup_diagnostics.webp" alt="ShiftAlarm設定画面の下部：ドキュメント、ユーザーガイド、バックアップ、診断、開発者への連絡">
+</figure>
+
+<ol class="callout-list">
+<li><strong>ドキュメントとヘルプ</strong> — アプリの法的な文書（利用規約、プライバシーポリシー、免責事項）や、簡易ヘルプページを開きます。</li>
+<li><strong>トレーニングとユーザーガイド</strong> — ShiftAlarmの機能について詳細に解説した、図解付きの完全版ガイドを開きます。</li>
+<li><strong>バックアップと復元</strong> — 対応するアプリ設定やデータを含むファイルを作成したり、以前のバックアップからデータを復元したりします。アプリの再インストール、スマートフォンのリセット、または別のデバイスへのデータ移行を行う前に役立ちます。詳細な手順については、<a href="#backup">「バックアップと復元」</a>を参照してください。</li>
+<li><strong>診断ログ</strong> — アプリの機能ごとのログを開きます。ログには、通知のスケジュール設定と復旧、イベント処理、権限の状態、その他のサービス情報などの技術的な段階が記録されます。ログを確認すると、エラーが発生した段階を特定しやすくなります。記録をコピーしたり、開発者へのメールに添付する準備をしたりできます。詳しくは<a href="#diagnostics">「診断とトラブルシューティング」</a>をご覧ください。</li>
+<li><strong>開発者に連絡</strong> — メールアプリを起動し、サポート宛てのメッセージを作成します。問題の報告、フィードバックや提案の送信、質問などにご利用ください。技術的な問題については、可能な限り、機種名、Androidのバージョン、問題発生時刻、操作手順、および関連する診断ログを記載してください。</li>
+</ol>
+
+<div class="notice">診断ログは開発者に自動的に送信されません。必要な情報をコピーするか、「開発者に送信」をタップしてメールアプリを選択し、作成されたメッセージを確認した上で送信を確定する必要があります。</div>
+
+<h2 id="backup">13. バックアップと復元</h2>
+
+<p>バックアップ機能を使用すると、ShiftAlarmの対応する設定やユーザーデータを別のファイルに保存できます。これにより、アプリの再インストール、スマートフォンのリセット、または別のデバイスへの移行後にデータを復元することが可能になります。</p>
+<ol class="step-list">
+<li>「設定」→「バックアップと復元」を開きます。</li>
+<li>バックアップを作成し、生成されたファイルをスマートフォンに保存するか、システムメニュー経由で共有します。</li>
+<li>復元するには、同じセクションを開き、以前に作成したバックアップファイルを選択します。</li>
+<li>復元後は、重要なアラーム、スケジュール、およびAndroidの権限設定を確認してください。新しいデバイスや再インストール後には、システムセキュリティ上の権限を再度付与する必要がある場合があります。</li>
+</ol>
+<p class="tip">スマートフォンの紛失、破損、またはリセット時にもアクセス可能な安全な場所に、最新のバックアップのコピーを保管しておいてください。バックアップファイルはAndroidシステムの権限設定を代替するものではなく、アプリがアクセスを許可されていないデータを含めることはできません。</p>
+
+<h2 id="diagnostics">14. 診断とトラブルシューティング</h2>
+
+<p>ShiftAlarmは、機能ごとに個別の診断ログを提供します。これらのログは技術的なイベントの履歴を記録し、アラートがスケジュールされたか、再起動後に復元されたか、処理に回されたか、あるいはシステム設定によって停止されたかを確認するのに役立ちます。</p>
+
+<h3 id="diagnostics-control">14.1. 診断情報の収集管理</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_sections.webp" alt="マスタースイッチと個別の警告ログが表示されたShiftAlarm診断ログ画面">
+</figure>
+
+<ol class="callout-list">
+<li><strong>診断情報の収集</strong> — アプリ内のすべての診断セクションを制御するメインスイッチです。これをオフにすると、すべてのログへの新しいイベントの追加が直ちに停止します。再度有効にすると、新しいイベントの収集が再開されます。</li>
+<li><strong>機能別ログ</strong> — 各モジュールには独自のスイッチと「開く」ボタンがあります。例えば、全体的な診断機能を有効にしたまま、アラーム、時計、またはその他の機能のログだけを無効にすることができます。スクリーンショットはアラームログの例で、配信、スケジュール設定、復旧、ガード保護、アラーム画面に関するイベントが記録されます。</li>
+</ol>
+
+<div class="notice">これらのスイッチは技術的なイベントの記録のみを制御します。アラーム、時計、またはその他の機能のログを無効にしても、その機能自体が無効になるわけではありません。以前に保存されたエントリを削除するには、各ログ内にある「クリア」ボタンを個別に操作してください。</div>
+
+<h3 id="diagnostics-log">14.2. 機能別ログ</h3>
+
+<p>対象となる診断セクションの「開く」をタップします。以下の例はアラームログを示していますが、他の機能のログも同様に動作します。</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_alarm_log.webp" alt="イベント数、アクション、技術的項目を含むShiftAlarmアラーム診断ログ">
+</figure>
+
+<ol class="callout-list">
+<li><strong>保存されたイベント</strong> — 選択したログに現在保存されているエントリの数を表示します。</li>
+<li><strong>ログの操作</strong>:
+<ul>
+<li><strong>コピー</strong> — 現在のログの全データをクリップボードにコピーします。コピーしたデータは、メールや他のアプリに貼り付けることができます。</li>
+<li><strong>クリア</strong> — このログに保存されているエントリを削除します。クリア後は、診断機能が有効な状態でその後に記録されたイベントのみが表示されます。</li>
+<li><strong>開発者に送信</strong> — メール送信用のアプリ選択画面を開きます。メールアプリを選ぶと、開発者の宛先と診断データが自動的に挿入されます。送信前に問題の説明を追加し、メッセージを確認してから送信を確定してください。</li>
+</ul>
+</li>
+<li><strong>アプリイベント</strong> — ログエントリそのものです。通常、エントリには日時、技術的なイベント名、および識別子、状態、理由などの追加パラメータが含まれます。技術的な名称は英語で表示される場合がありますが、送信前に編集や翻訳を行わないでください。</li>
+</ol>
+
+<div class="warning">ログを消去する前に、必要なエントリをコピーまたは送信してください。削除された診断イベントは復元できません。</div>
+
+<div class="tip">問題が再現可能な場合は、まず「グローバル診断収集」と該当する機能のログ収集を有効にしてから、問題を引き起こした操作を繰り返してください。メッセージには、問題発生時刻、端末のモデル、Androidのバージョン、期待される結果、および実際の結果を記載してください。これにより、説明とログイベントを照合しやすくなります。</div>
+
+<h2 id="faq">15. よくある質問</h2>
+
+<h3>アラームが時間通りに鳴らなかった</h3>
+<p>通知、「正確なアラーム」の権限、バックグラウンドでの動作、およびバッテリーの制限設定を確認してください。</p>
+<h3>ジオアラーム（位置情報アラーム）の動作が遅れた</h3>
+<p>「正確な位置情報」とバックグラウンドでの位置情報取得の許可、バッテリーの制限設定、およびアプリの自動起動設定を確認してください。半径の設定として、市街地では1,300～1,500m、市街地外では4,000～5,000mを試してみてください。実際のトリガー（発動）は、設定した半径の境界線上で正確に発生するとは限りません。</p>
+<h3>ウィジェットがすぐに更新されなかった</h3>
+<p>アプリを開くか、ウィジェット上の更新ボタンをタップしてください。Androidの仕様により、ウィジェットの頻繁な更新が制限される場合があります。</p>
+<h3>言語を変更したが、ドキュメントやガイドがまだ更新されていない</h3>
+<p>インターネット接続を確認し、ダウンロードが完了するまでしばらくお待ちください。 リモート版が利用できない場合、アプリは組み込みのフォールバック機能を使用します。</p>
+
+<div class="footer small">このガイドはGitHub経由で更新可能です。リモート版が利用できない場合、アプリは組み込みのオフライン版を使用します。</div>
+</main>
+</body>
+</html>

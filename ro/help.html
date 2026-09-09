@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ghid de utilizare ShiftAlarm</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #64748b;
+  --accent: #2563eb;
+  --soft: #e8eef8;
+  --border: #dbe4f0;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.58;
+  margin: 0;
+  padding: 18px;
+  color: var(--text);
+  background: var(--bg);
+}
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+h1 { margin: 0 0 8px; font-size: 28px; line-height: 1.2; }
+h2 { margin: 32px 0 10px; font-size: 21px; line-height: 1.25; }
+h3 { margin: 22px 0 8px; font-size: 17px; }
+p, li { font-size: 16px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul, ol { padding-left: 22px; }
+.notice, .tip, .warning {
+  padding: 14px 16px;
+  border-radius: 16px;
+  margin: 14px 0;
+  border: 1px solid var(--border);
+}
+.notice { background: var(--soft); }
+.tip { background: #ecfdf5; }
+.warning { background: #fff7ed; }
+.small { color: var(--muted); font-size: 14px; }
+.toc {
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 16px;
+  margin: 18px 0 24px;
+}
+.toc ol { margin: 8px 0 0; }
+.step-list li { margin-bottom: 8px; }
+.guide-figure {
+  margin: 18px 0;
+}
+.guide-image {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+}
+.callout-list li {
+  margin-bottom: 10px;
+}
+.guide-caption {
+  max-width: 520px;
+  margin: 10px auto 0;
+  color: var(--text);
+  font-size: 15px;
+}
+.guide-caption strong {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.footer {
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --card: #111827;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --accent: #93c5fd;
+    --soft: #1f2937;
+    --border: #334155;
+  }
+  main { box-shadow: none; }
+  .toc { background: #172033; }
+  .tip { background: #10251f; }
+  .warning { background: #2a1d10; }
+}
+</style>
+</head>
+<body>
+<main>
+<h1>Ghid de utilizare ShiftAlarm</h1>
+<p class="small">Versiunea 14. Data: 2 august 2026.</p>
+<div class="notice">Această pagină este un ghid practic pentru ShiftAlarm. Explică ce face fiecare funcție principală, unde o puteți găsi, ce trebuie să atingeți și ce trebuie verificat dacă o funcție nu funcționează conform așteptărilor.</div>
+<nav class="toc">
+<strong>Cuprins</strong>
+<ol><li><a href="#start">1. Prima lansare</a></li><li><a href="#permissions">2. Permisiuni și fiabilitate</a></li><li><a href="#main">3. Ecran principal</a></li><li><a href="#shifts">4. Programul turelor</a></li><li><a href="#statistics">5. Statistici program</a></li><li><a href="#alarms">6. Alarme</a></li><li><a href="#geo">7. Alarme geografice</a></li><li><a href="#notes">8. Note, evenimente și mementouri</a></li><li><a href="#clock">9. Ceas, temporizator și cronometru</a></li><li><a href="#widgets">10. Widgeturi</a></li><li><a href="#salary">11. Calcul salariu</a></li><li><a href="#settings">12. Setări</a></li><li><a href="#backup">13. Copiere de rezervă și restaurare</a></li><li><a href="#diagnostics">14. Diagnosticare și depanare</a></li><li><a href="#faq">15. Întrebări frecvente</a></li></ol>
+</nav>
+<h2 id="start">1. Prima lansare</h2>
+
+<p>Când ShiftAlarm pornește pentru prima dată, afișează un scurt flux de configurare. Ecranul principal este deja disponibil în fundal, dar cel mai bine este să finalizați mai întâi configurarea de bază.</p>
+<ol class="step-list">
+<li>Citiți informațiile introductive și atingeți „Continuare”.</li>
+<li>În etapa documentelor, deschideți documentele sau acceptați documentele necesare când sunteți gata să continuați.</li>
+<li>În etapa permisiunilor, deschideți ecranul permisiunilor și verificați notificările, alarmele exacte, accesul la locație și restricțiile bateriei.</li>
+<li>Atingeți „Finalizare configurare”.</li>
+</ol>
+<p class="tip">Puteți configura permisiunile ulterior în „Setări → Permisiuni și fiabilitate”.</p>
+
+<h2 id="permissions">2. Permisiuni și fiabilitate</h2>
+
+<p>Alarmele, mementourile și alarmele geografice depind de setările Android și de software-ul producătorului dispozitivului.</p>
+<ul>
+<li><strong>Notificări</strong> — necesare pentru alarme, mementouri, temporizator și notificări de service.</li>
+<li><strong>Alarme exacte</strong> — ajută alarma să pornească la ora dorită.</li>
+<li><strong>Locație</strong> — necesară pentru alarmele geografice.</li>
+<li><strong>Locație în fundal</strong> — necesară pentru ca o alarmă geografică să funcționeze în timp ce aplicația este închisă.</li>
+<li><strong>Bateria și activitatea în fundal</strong> — pot afecta fiabilitatea declanșării pe Xiaomi/Redmi și pe alte dispozitive.</li>
+</ul>
+<p class="warning">Android nu garantează întotdeauna livrarea imediată a notificărilor, a alarmelor exacte sau a evenimentelor de geoperimetru. Pentru alerte importante, verificați fiecare element de pe ecranul de permisiuni.</p>
+
+<h2 id="main">3. Ecranul principal</h2>
+
+<p>Ecranul principal este tabloul de bord zilnic. Acesta oferă acces direct la calendar, ceas, alarme geografice, alarme obișnuite, programări de ture, note și setări.</p>
+
+<h3 id="main-overview">3.1. Elementele ecranului principal</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_screen_overview.png" alt="Ecranul principal ShiftAlarm cu comenzi numerotate">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Săgeată înapoi</strong> — mută calendarul la luna anterioară.</li>
+<li><strong>Lună și an</strong> — afișează luna deschisă. Atingeți această zonă pentru a utiliza <a href="#main-date-picker">selectorul pas cu pas pentru lună și an</a>.</li>
+<li><strong>Săgeată înainte</strong> — mută calendarul la luna următoare.</li>
+<li><strong>Calendar</strong> — zona principală a lunii. Puteți glisa calendarul. Fiecare zi poate afișa data, mementourile, evenimentele, tura programată și schimbările de zi. O atingere obișnuită selectează o dată; o apăsare lungă deschide <a href="#main-day-actions">informații și acțiuni pentru ziua selectată</a>.</li>
+<li><strong>Astăzi</strong> — readuce calendarul la ziua curentă.</li>
+<li><strong>Ceas</strong> — deschide <a href="#clock">ceasul mondial, cronometrul și temporizatorul</a>.</li>
+<li><strong>Alarmă Geo</strong> — deschide <a href="#geo">harta, locurile salvate și setările Alarmei Geo</a>. O alertă se poate declanșa atunci când intrați în zona selectată, o părăsiți sau faceți oricare dintre acestea.</li>
+<li><strong>Alarmă</strong> — deschide <a href="#alarms">alarme regulate, repetitive și legate de ture</a>.</li>
+<li><strong>Program</strong> — deschide <a href="#shifts">programele de ture, crearea și editarea acestora și statisticile</a>.</li>
+<li><strong>Note</strong> — deschide <a href="#notes">note, evenimente, mementouri, note audio și conversie vorbire-în-text</a>.</li>
+<li><strong>Setări</strong> — deschide <a href="#settings">permisiuni, limbă, temă, modele de vorbire offline, backup, diagnosticare, documente și instruire</a>.</li>
+</ol>
+
+
+<h3 id="main-date-picker">3.2. Selectarea unei luni și a unui an</h3>
+
+<p>Atingeți luna și anul din partea de sus a ecranului principal pentru a deschide rapid perioada calendaristică dorită. Selecția se desfășoară în etape: <strong>secol → deceniu → an → lună</strong>.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_century.webp" alt="Pasul 1: selectarea unui secol în calendarul ShiftAlarm">
+<figcaption class="guide-caption"><strong>1. Selectați un secol.</strong> Atingeți perioada care conține anul de care aveți nevoie. Exemplul selectează anii 2000.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_decade.webp" alt="Pasul 2: selectarea unui deceniu în calendarul ShiftAlarm">
+<figcaption class="guide-caption"><strong>2. Selectați un deceniu.</strong> Atingeți intervalul care conține anul dorit. Pentru 2026, selectați „2020–2029”.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_year.webp" alt="Pasul 3: selectarea unui an în calendarul ShiftAlarm">
+<figcaption class="guide-caption"><strong>3. Selectați un an.</strong> Atingeți anul dorit. Exemplul selectează anul 2026.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_month.webp" alt="Pasul 4: selectarea unei luni în calendarul ShiftAlarm">
+<figcaption class="guide-caption"><strong>4. Selectați o lună.</strong> Atingeți luna dorită. Exemplul selectează iulie.</figcaption>
+</figure>
+
+<div class="tip">După ce selectați o lună, panoul se închide și calendarul principal se deschide la luna și anul selectate.</div>
+<div class="notice">Butonul „Înapoi” revine la etapa anterioară. Pe ecranul secolului, închide selectorul de date.</div>
+
+<h3 id="main-day-actions">3.3. Informații și acțiuni pentru o zi selectată</h3>
+
+<p>Atingeți și mențineți apăsată ziua dorită din calendar. Se va deschide un panou cu informații și acțiuni pentru data respectivă. Trageți panoul în sus pentru a vedea toate acțiunile disponibile.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_day_actions.webp" alt="Panou de informații și acțiuni ShiftAlarm pentru o zi calendaristică selectată">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Data</strong> — afișează ziua săptămânii și data selectată. Trageți de ghidajul din partea de sus în sus sau în jos pentru a extinde sau închide panoul.</li>
+<li><strong>Schimb</strong> — afișează schimbul calculat sau o schimbare de zi, cum ar fi o zi liberă, un concediu, o vacanță, un concediu medical sau o altă excepție.</li>
+<li><strong>Alarme pentru această dată</strong> — afișează alarmele atribuite zilei selectate sau rapoartele că nu există.</li>
+<li><strong>Evenimente și mementouri</strong> — afișează intrările legate de data selectată.</li>
+<li><strong>Adăugare alarmă</strong> — deschide crearea unei alarme unice pentru data selectată.</li>
+<li><strong>Modificare schimb</strong> — creează o excepție pentru o zi sau un interval de date în programul activ.</li>
+<li><strong>Adăugare notă</strong> — vă permite să alegeți un eveniment sau un memento de creat pentru data selectată.</li>
+</ol>
+
+<div class="notice">Acțiunea „Modificare tură” este disponibilă pentru ajustarea zilelor din programul de ture activ.</div>
+
+<h4 id="main-shift-override">Modificarea unei zile sau a unui interval de date</h4>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_types.webp" alt="Selectarea unui interval de date și a tipului de schimbare a turei în ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Data de început</strong> — prima zi a modificării. Inițial, se utilizează data selectată în calendar.</li>
+<li><strong>Data de sfârșit</strong> — ultima zi a modificării. Pentru a schimba o singură zi, lăsați aceeași dată selectată.</li>
+<li><strong>Timp liber</strong> — înlocuiește tura calculată cu timp liber.</li>
+<li><strong>Concediu</strong> — marchează ziua sau intervalul selectat ca concediu.</li>
+<li><strong>Concediu medical</strong> — marchează ziua sau intervalul selectat ca concediu medical.</li>
+<li><strong>Salvare modificare</strong> — aplică excepția selectată în calendar.</li>
+</ol>
+
+<h4 id="main-shift-time-adjustment">Ajustarea timpului de lucru</h4>
+
+<p>Derulați în jos lista de tipuri de modificări și selectați „Editare tură” pentru a modifica durata turei de lucru calculate.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_time_adjustment.webp" alt="Ajustarea timpului de lucru în ture în ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Editare tură</strong> — activează ajustarea timpului de lucru pentru tura selectată.</li>
+<li><strong>+ timp</strong> — adaugă ore sau minute la durata standard a turei.</li>
+<li><strong>− timp</strong> — reduce durata turei, de exemplu, când lucrul se termină mai devreme.</li>
+<li><strong>Contorizează acest timp ca ore suplimentare</strong> — tratează timpul adăugat ca ore suplimentare. Dacă opțiunea este dezactivată, acesta este considerat timp de lucru normal.</li>
+<li><strong>Salvare modificare</strong> — aplică ajustarea zilei sau intervalului selectat.</li>
+</ol>
+
+<div class="tip">O modificare de zi nu modifică șablonul de program original. Este stocat ca o excepție separată și este inclus în calendar, statistici, calcul salarial și rapoarte.</div>
+
+<h2 id="shifts">4. Programul de ture</h2>
+
+<p>Un program de ture definește un ciclu de lucru repetitiv și oferă baza pentru alte funcții ShiftAlarm. Aplicația îl folosește pentru a completa calendarul, a conecta alarmele la ture, a număra timpul de lucru, a genera statistici, a estima salariul și a pregăti rapoarte.</p>
+
+<div class="notice"><strong>Principiu de bază.</strong> Mai întâi creați programul repetitiv de bază. Adăugați concediu, concediu medical, timp liber, o tură de înlocuire unică sau o ajustare a timpului de lucru ca excepție pentru date specifice prin <a href="#main-day-actions">acțiunile din ziua selectată</a>. Aceasta menține ciclul original neschimbat.</div>
+
+<h3 id="shifts-list">4.1. Listă de programări și comenzi</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedules_overview.webp" alt="Ecran de programare ShiftAlarm cu o fișă de programare activă și comenzi numerotate">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Detalii program</strong> — numele, data de începere, durata ciclului și o scurtă secvență de zile. În exemplu, „Z · Z · O · O” înseamnă două ture de zi urmate de două zile libere.</li>
+<li><strong>Comutare</strong> — dezactivează temporar programul fără a-l șterge. Când îl activați din nou, setările salvate continuă să se aplice.</li>
+<li><strong>Starea programării</strong> — indică ce program este activ în prezent.</li>
+<li><strong>Editare</strong> — deschide parametrii care pot fi modificați. După configurarea inițială, o parte din baza programării este blocată pentru a preveni recalcularea accidentală a datelor din calendar care au fost deja create.</li>
+<li><strong>Ștergere</strong> — șterge programul după confirmare. Înainte de a-l șterge, verificați orice alarme și calcule legate de ture.</li>
+<li><strong>Deschide statistici</strong> — deschide <a href="#statistics">statisticile privind timpul de lucru, perioada, salariul și raportul</a> ale acestui program.</li>
+<li><strong>Creează program</strong> — vă permite să selectați un șablon predefinit sau să creați un ciclu personalizat.</li>
+</ol>
+
+<h3 id="shifts-create">4.2. Începerea creării programului</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_create.webp" alt="Panou de creare a programării cu un nume, o dată de începere, șabloane și un program personalizat">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Nume program</strong> — introduceți un nume clar, cum ar fi „Principal 2/2”, „Turnă de noapte” sau numele locului dvs. de muncă.</li>
+<li><strong>Data de începere</strong> — data care corespunde <strong>primei zile a ciclului repetitiv</strong>. Puteți selecta o dată trecută sau viitoare; Aplicația calculează programul înainte și înapoi pe baza acestuia.</li>
+<li><strong>Șabloane</strong> — secvențe comune de ture predefinite. Exemplul utilizează șablonul „2/2 zi”.</li>
+<li><strong>Program personalizat</strong> — creează propria secvență de zile lucrătoare și zile libere.</li>
+<li><strong>Creează program</strong> — deschide editorul detaliat pentru opțiunea selectată.</li>
+</ol>
+
+<div class="tip">Pentru șablonul „Z · Z · O · O”, data de începere este în mod normal prima dintre cele două zile lucrătoare. Într-un ciclu personalizat, ziua 1 poate fi, de asemenea, o zi liberă; important este ca data selectată să corespundă exact cu ziua 1 a secvenței pe care ați creat-o.</div>
+
+<h3 id="shifts-template">4.3. Crearea unui program dintr-un șablon</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_template.webp" alt="Editor de programări de șabloane cu un nume, o secvență, o dată de începere și o oră de tură">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Nume program</strong> — păstrați numele sugerat sau înlocuiți-l cu al dvs.</li>.
+<li><strong>Șablon</strong> — afișează secvența de litere și semnificația acesteia. În exemplu, „D · D · O · O” înseamnă tură de zi, tură de zi, zi liberă, zi liberă.</li>
+<li><strong>Data de început</strong> — selectați data primei zile din secvența afișată.</li>
+<li><strong>Ora turei</strong> — specificați ora de început și de sfârșit pentru fiecare tip de tură de lucru. Aplicația afișează durata calculată.</li>
+<li><strong>Anulare</strong> — închide editorul fără a salva.</li>
+<li><strong>Salvare</strong> — salvează programul și începe calcularea turelor în calendar.</li>
+</ol>
+
+<div class="warning"><strong>După prima salvare.</strong> Data de început și structura ciclului sunt blocate pentru a proteja datele din calendar care au fost deja calculate. Puteți edita în continuare numele și unii parametri de lucru. Dacă aveți nevoie de un ciclu de bază sau o dată de referință diferită, este mai sigur să creați un program nou.</div>
+
+<h3 id="shifts-custom">4.4. Crearea unui ciclu personalizat</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_custom.webp" alt="Editor de programări personalizate cu durata ciclului, comenzi pentru zile, dată de începere și setări pentru fiecare zi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Nume program</strong> — dați un nume secvenței personalizate.</li>
+<li><strong>Durata ciclului</strong> — arată câte zile sunt incluse în secvența repetitivă.</li>
+<li><strong>Eliminare zi</strong> — scurtează ciclul cu o zi.</li>
+<li><strong>Adăugare zi</strong> — adaugă o altă zi configurabilă la sfârșitul ciclului.</li>
+<li><strong>Data de începere</strong> — data care corespunde zilei 1 a ciclului personalizat.</li>
+<li><strong>Setări zi</strong> — atingeți cardul „Tip tură” și selectați o zi liberă sau tipul de lucru dorit: zi, noapte, dimineață, seară, 24 de ore sau tură personalizată. Pentru o zi lucrătoare, specificați ora de început și de sfârșit. Configurați zilele rămase ale ciclului în același mod, mai jos pe ecran.</li>
+<li><strong>Anulare</strong> — închide editorul fără a salva.</li>
+<li><strong>Salvare</strong> — salvează ciclul personalizat și îl calculează în calendar.</li>
+</ol>
+
+<div class="notice"><strong>Ce este un ciclu?</strong> Un ciclu este numărul de zile după care secvența începe din nou. De exemplu, un ciclu de patru zile poate fi „2 zile lucrătoare + 2 zile libere”, în timp ce un ciclu de șase zile poate fi „3 zile lucrătoare + 3 zile libere”. După ultima zi, aplicația revine la ziua 1.</div>
+
+<div class="tip">Nu modificați ciclul de bază pentru o excepție unică de program. Apăsați lung o dată din calendar și creați o zi liberă, un concediu, un concediu medical, o tură de înlocuire sau o ajustare a orei.</div>
+
+
+
+<span id="shift-statistics"></span>
+<h2 id="statistics">5. Statistici program</h2>
+
+<p>Deschideți „Statistici” dintr-o fișă de program folosind butonul <strong>„Deschideți statistici”</strong>. Această secțiune combină informații despre zilele lucrătoare și zilele libere, modificările de program, timpul de lucru planificat și efectiv, salariul estimat și rapoartele.</p>
+
+<div class="notice"><strong>Important:</strong> statisticile sunt calculate numai pentru programul de ture selectat. Perioada selectată se aplică tuturor valorilor de timp de lucru, salariu și raportare de sub aceasta.</div>
+
+<h3 id="statistics-period">5.1. Rezumatul programului, perioadei și zilei</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_period_overview.webp" alt="Ecran de statistici cu informații despre program, selecția perioadei și ziua totaluri">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Informații despre program</strong> — arată numele programului selectat, data de începere a primului ciclu și durata ciclului repetitiv. Statisticile de pe acest ecran se aplică numai acestui program.</li>
+<li><strong>Fișă perioadă selectată</strong> — arată perioada utilizată. Atingeți-l sau atingeți săgeata din dreapta pentru a selecta luna curentă, luna anterioară sau următoare, anul curent sau un interval de date personalizat.</li>
+<li><strong>Rezumatul zilei</strong> — afișează numărul de zile din perioadă, turele de lucru, zilele libere, turele finalizate și viitoare și zilele modificate. Zilele modificate sunt excepții de la ciclul de bază: concediu, concediu medical, concediu liber, o tură de înlocuire sau mutată, o ajustare a programului de lucru și alte modificări.</li>
+</ol>
+
+<div class="warning"><strong>Perioadele viitoare sunt previziuni.</strong> Pentru o lună viitoare, aplicația utilizează programul creat și datele deja introduse, dar nu poate cunoaște concediile medicale, vacanțele, timpul liber, orele suplimentare, bonusurile sau deducerile viitoare. Când selectați anul curent, totalurile pot combina datele reale pentru datele anterioare cu o previziune pentru restul anului.</div>
+
+<h3 id="statistics-work">5.2. Timpul de lucru, salariul și rapoartele</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_work_salary_reports.webp" alt="Ecran de statistici cu timp de lucru, progres, salariu și acces la rapoarte">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Timpul de lucru</strong> — o fișă sumarizată pentru ore și progres. Atingeți-l pentru a deschide <a href="#statistics-break">setările pentru pauze</a>.</li>
+<li><strong>Ore planificate</strong> — durata totală a turelor programate și modificările din perioada selectată.</li>
+<li><strong>Ore lucrate</strong> — timpul din turele considerate finalizate la data curentă, cu setările de pauză aplicate.</li>
+<li><strong>Progres</strong> — arată câte ture de lucru au fost finalizate din total și ce procent din perioada selectată este finalizat.</li>
+<li><strong>Salariu</strong> — deschide <a href="#salary">setările de calcul al salariului</a>. Cardul afișează o estimare pentru programul și perioada selectate.</li>
+<li><strong>Total</strong> — suma estimată câștigată până în prezent, inclusiv metoda de plată selectată, bonusurile, orele suplimentare și deducerile.</li>
+<li><strong>Salariu</strong> — conținutul acestui card depinde de metoda de calcul selectată: plată pe oră, pe tură sau pe lună. Afișează valoarea introdusă în setările salariale.</li>
+<li><strong>Detalii calcul</strong> — timp plătit, ore suplimentare, bonusuri și deduceri pentru perioada selectată.</li>
+<li><strong>Rapoarte</strong> — deschide <a href="#reports">rapoarte detaliate pentru perioade, timp de lucru și salariu</a>.</li>
+</ol>
+
+<div class="tip">Toate valorile din secțiunile timp de lucru și salariu sunt recalculate atunci când modificați perioada din fișa superioară.</div>
+
+<h3 id="statistics-break">5.3. Contabilizarea pauzelor în timpul de lucru</h3>
+
+<p>Atingeți cardul „Timp de lucru” pentru a specifica dacă o pauză de masă sau o altă pauză ar trebui să fie contorizată ca parte a timpului efectiv lucrat și plătit.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_break_settings.webp" alt="Panou de setări pentru contabilitatea pauzei și durata">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Totaluri curente</strong> — afișează orele planificate și lucrate pentru perioada selectată înainte de aplicarea noilor setări.</li>
+<li><strong>Contorizează pauza ca timp de lucru</strong> — lăsați această opțiune activată dacă pauza este plătită și inclusă în durata turei. Dezactivați-o dacă timpul specificat trebuie exclus din timpul lucrat și plătit.</li>
+<li><strong>Durata pauzei</strong> — selectați orele și minutele pentru o pauză. Această setare este utilizată la recalcularea turelor de lucru aplicabile.</li>
+<li><strong>Pauză totală</strong> — afișează durata selectată înainte de salvare.</li>
+<li><strong>Salvare</strong> — aplică setarea și recalculează timpul de lucru și valorile aferente.</li>
+</ol>
+
+<div class="notice">O pauză poate reprezenta o pauză de masă, o predare a turei sau un alt interval neplătit în cadrul unei ture. Introduceți durata care corespunde regulilor de la locul de muncă.</div>
+
+<h3 id="reports">5.4. Rapoarte: perioadă, stare și rezumat</h3>
+
+<p>Deschideți „Rapoarte” din fișa inferioară a ecranului de statistici. Această secțiune oferă informații mai detaliate pentru perioada selectată: timpul de lucru, ture și absențe, ajustări calendaristice, salariu, bonusuri, deduceri, compararea perioadelor, detalii zilnice și export.</p>
+
+<div class="warning"><strong>Rapoartele sunt furnizate doar în scop informativ.</strong> Calculele se bazează pe programul selectat, setările salariale, contabilizarea pauzelor și modificările turelor calendaristice. Cifrele reale ale angajatorului dvs. pot diferi din cauza unui sistem de pontaj diferit, rotunjirii, taxelor, indemnizațiilor sau regulilor interne. Dacă găsiți o eroare sau o metodă de calcul neacceptată, contactați dezvoltatorii la adresa afișată în aplicație și includeți datele de intrare și rezultatul așteptat.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_period_salary.webp" alt="Ecran de rapoarte cu selectarea perioadei, stare, rezumat și defalcare detaliată a salariului">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Perioada de raportare</strong> — atingeți cardul pentru a selecta luna curentă, anterioară sau următoare, un interval prestabilit sau date personalizate. Toate informațiile de mai jos se aplică perioadei selectate.</li>
+<li><strong>Starea perioadei</strong> — arată dacă perioada este completă, activă în prezent sau nu a început încă. O perioadă finalizată este calculată din datele reale salvate. O perioadă activă combină datele deja lucrate cu planul curent, în timp ce o perioadă viitoare este o prognoză.</li>
+<li><strong>Rezumat</strong> — un rezumat text al timpului efectiv lucrat, suma calculată și orele suplimentare.</li>
+<li><strong>Salariu</strong> — o defalcare detaliată a salariului de bază, a plății orelor suplimentare, a bonusurilor, a deducerilor și a estimării finale. Valorile depind de <a href="#salary">setările salariale</a> și de perioada selectată.</li>
+</ol>
+
+<h3 id="reports-work">5.5. Timpul de lucru, absențe și zile</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_work_absences.webp" alt="Ecran de rapoarte cu timp de lucru, pauze, ture finalizate și absențe">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Timpul de lucru</strong> — afișează orele lucrate planificate și efectiv, orele planificate și efective înainte de deducerea pauzei, numărul de ture efectuate, durata medie a turei și pauza totală dedusă. Configurați pauzele în <a href="#statistics-break">secțiunea timp de lucru</a>.</li>
+<li><strong>Absențe și zile</strong> — afișează numărul de zile libere, zile de concediu, zile de concediu medical, zile de concediu și zile modificate în perioada selectată.</li>
+</ol>
+
+<h3 id="reports-charts">5.6. Ajustări și grafice</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_corrections_charts.webp" alt="Ecran de rapoarte cu ajustări, componența salariilor și valori ale timpului de lucru">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ajustări</strong> — afișează orele suplimentare, modificarea totală a duratei turei și numărul de zile modificate față de programul de bază.</li>
+<li><strong>Grafice</strong> — vizualizează componența salariului și a timpului de lucru: salariul de bază, orele suplimentare, bonusurile, deducerile, totalul orelor planificate, lucrate și plătite.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_charts_days.webp" alt="Diagrame suplimentare de raport cu ore și o diagramă circulară pe zile">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ore</strong> — continuă comparația vizuală a orelor planificate, lucrate, plătite și suplimentare. Rândul „Timp de lucru real” arată rezultatul după aplicarea setărilor și a ajustărilor.</li>
+<li><strong>Tipuri de zile</strong> — o diagramă circulară care distribuie zilele din perioada selectată după tip. Legenda depinde de program și de modificările efective: ture de zi, de noapte sau alte ture, zile libere, concediu, concediu medical, timp liber și alte stări.</li>
+</ol>
+
+<h3 id="reports-comparison">5.7. Compararea perioadelor</h3>
+
+<p>Secțiunea de comparare vă ajută să comparați salariul, timpul, turele și absențele pe mai multe perioade. Numărul de perioade disponibile depinde de datele salvate.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_chart.webp" alt="Ecran de comparare a perioadelor cu selectarea intervalului, graficul salariilor și începutul unui tabel comparativ">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Comparați perioadele</strong> — atingeți cardul pentru a alege câte perioade să comparați și intervalul acestora.</li>
+<li><strong>Grafic și listă de perioade</strong> — afișează salariul pentru fiecare perioadă și listează intervalele incluse în comparație împreună cu starea lor.</li>
+<li><strong>Tabel de comparație</strong> — conține valori detaliate pentru fiecare perioadă. Glisați tabelul pe orizontală spre stânga sau spre dreapta pentru a vizualiza coloanele rămase.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_table.webp" alt="Continuarea tabelului comparativ și diferențele dintre perioadele adiacente">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Valori periodice</strong> — salariu total, ore lucrate și plătite, ore suplimentare, bonusuri, deduceri, ture efectuate, absențe și zile modificate.</li>
+<li><strong>Diferența dintre perioade</strong> — arată cum diferă fiecare perioadă de cea anterioară. Valorile pozitive și negative indică o creștere sau o scădere a indicatorului corespunzător. Culoarea singură nu înseamnă întotdeauna un beneficiu sau o problemă; de exemplu, o creștere a deducerilor înseamnă că se reține o sumă mai mare.</li>
+</ol>
+
+<h3 id="reports-details-export">5.8. Detalii zilnice și export</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_details_export.webp" alt="Fișe de raport pentru detalii zilnice și export în format PDF, HTML, JSON sau CSV">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Detalii zilnice</strong> — deschide o listă cu fiecare zi din perioada selectată. Puteți verifica tipul turei, ora planificată și cea efectivă, ajustările de ore, absențele și alte modificări pentru o anumită zi.</li>
+<li><strong>Export</strong> — salvează raportul ca PDF, HTML, JSON sau CSV. Selectați perioada raportului înainte de exportare; apoi puteți imprima, salva sau partaja fișierul prin meniul sistemului Android.</li>
+</ol>
+
+<div class="tip">Înainte de a compara sau exporta, verificați perioada selectată, programul, schimbările de tură, pauzele și setările salariale. O eroare în datele sursă va afecta totalul fiecărui raport.</div>
+
+<h2 id="alarms">6. Alarme</h2>
+
+<p>ShiftAlarm vă permite să creați alarme unice, să le repetați în anumite zile ale săptămânii sau să le legați ora de un program de tură.</p>
+
+<h3 id="alarms-list">6.1. Listă de alarme</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarms_overview.webp" alt="Ecran de alarmă ShiftAlarm cu următoarea alertă, sortare, o fișă de alarmă și butonul de adăugare">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Următoarea alarmă</strong> — afișează data și ora următoarei alerte active.</li>
+<li><strong>Sortarea alarmelor</strong> — modifică ordinea cardurilor de alarmă, de exemplu, afișând mai întâi alarmele activate.</li>
+<li><strong>Cardul de alarmă</strong> — conține ora, data sau modul de repetare, tipul de program și timpul rămas. Atingeți cardul pentru a-l edita.</li>
+<li><strong>Comutare</strong> — activează sau dezactivează temporar alarma fără a-i șterge setările.</li>
+<li><strong>Ștergere</strong> — șterge alarma selectată.</li>
+<li><strong>Adăugare alarmă</strong> — deschide ecranul pentru crearea unei alarme noi.</li>
+</ol>
+
+<h3 id="alarms-create">6.2. Crearea și editarea unei alarme</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_time_schedule.webp" alt="Partea de sus a editorului de alarmă ShiftAlarm: oră, tip de program, comenzi de amânare și salvare">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Oră</strong> — derulați roțile pentru ore și minute pentru a seta ora alertei.</li>
+<li><strong>Tip program</strong> — selectați unul dintre aceste moduri:
+<ul>
+<li><strong>O dată</strong> — alarma se declanșează o dată la data selectată;</li>
+<li><strong>Pe zile</strong> — se repetă în zilele selectate ale săptămânii;</li>
+<li><strong>Pe ture</strong> — leagă alarma de un program și un tip de tură selectate.</li>
+</ul>
+</li>
+<li><strong>Amânare</strong> — setează câte minute este amânată alerta atunci când atingeți butonul de amânare de pe ecranul care sună.</li>
+<li><strong>Anulare și Salvare</strong> — aceste butoane sunt fixe în partea de jos a ecranului și rămân disponibile în timp ce derulați prin editor.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_behavior.webp" alt="Setări ShiftAlarm pentru durata alarmei, repetarea alertei, creșterea treptată a volumului și vibrații">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Durata alarmei</strong> — determină durata de activare a alertei dacă utilizatorul nu o oprește.</li>
+<li><strong>Repetare dacă alarma este ignorată</strong> — activează o altă alertă atunci când alarma nu a fost nici închisă, nici amânată. Setați intervalul dinaintea alertei repetate de sub acesta.</li>
+<li><strong>Creștere graduală a volumului</strong> — începe cu un sunet mai încet și crește treptat volumul pe parcursul timpului selectat.</li>
+<li><strong>Vibrație</strong> — activează sau dezactivează vibrația în timpul alertei.</li>
+<li><strong>Anulare și salvare</strong> — comenzi fixe pentru editor.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_sound_name.webp" alt="Partea de jos a editorului de alarme ShiftAlarm: comenzi pentru vibrații, sunet, nume și salvare">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Vibrație</strong> — activează sau dezactivează alerta prin vibrație.</li>
+<li><strong>Sunet</strong> — vă permite să selectați un sunet încorporat, de sistem sau adăugat de utilizator. Puteți adăuga până la cinci sunete personalizate în aplicație.</li>
+<li><strong>Nume</strong> — o etichetă opțională care vă ajută să distingeți alarmele.</li>
+<li><strong>Anulare și salvare</strong> — anulați modificările sau salvați alarma.</li>
+</ol>
+
+<div class="notice">După salvare, alarma apare în lista principală. Înainte de o alertă importantă, asigurați-vă că alarma este activată, aplicația are permisiuni de notificare și alarmă exactă și că sistemul nu își restricționează activitatea în fundal.</div>
+
+<div class="tip">Pentru a crea o alarmă legată de tură, creați mai întâi un program de tură adecvat. În editor, alegeți o oră fixă ​​de declanșare sau un decalaj relativ la începutul turei.</div>
+
+<h2 id="geo">7. Alarme geografice</h2>
+
+<p>O alarmă geografică monitorizează când dispozitivul intră sau iese dintr-o zonă selectată. Zona este definită de un punct de pe hartă și o rază în jurul acelui punct. De exemplu, utilizați o alarmă Geo pentru a primi o alertă atunci când vă apropiați de serviciu, de casă, de o stație de autobuz, de o stație sau de un alt loc.</p>
+
+<h3 id="geo-overview">7.1. Hartă și comenzi</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_overview.webp" alt="Ecranul principal al alarmei geografice ShiftAlarm cu o hartă și comenzi numerotate">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Mărire</strong> — mărește harta.</li>
+<li><strong>Micșorare</strong> — reduce scara hărții.</li>
+<li><strong>Locația mea</strong> — mută harta la locația curentă a dispozitivului. Aplicația are nevoie de acces la locație pentru această funcție.</li>
+<li><strong>Locuri salvate</strong> — deschide lista de alarme geografice salvate și puncte de locație.</li>
+<li><strong>Înapoi</strong> — revine la ecranul anterior al aplicației.</li>
+<li><strong>Număr de alarme geografice</strong> — arată câte alarme geografice au fost create.</li>
+<li><strong>Listă de alarme geografice</strong> — deschide o listă separată de alarme geografice create.</li>
+</ol>
+
+<div class="tip">De asemenea, puteți mări harta cu gesturi. Atingeți harta cu două degete și depărtați-le pentru a mări sau apropiați-le pentru a micșora.</div>
+<div class="notice">Comenzile laterale pot apărea pe partea opusă în limbi de la dreapta la stânga. Funcțiile lor rămân aceleași.</div>
+
+<h3 id="geo-saved-places">7.2. Alarme și puncte de locație salvate</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_saved_places.webp" alt="Fereastră cu locații salvate, cu filele de alarmă geografică și puncte de locație">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Alarme</strong> — afișează Alarmele Geo adăugate la locurile salvate.</li>
+<li><strong>Puncte de locație</strong> — afișează coordonatele salvate fără o Alarmă Geo activă.</li>
+<li><strong>Listă de locuri salvate</strong> — atingeți un card pentru a vă deplasa la locul respectiv de pe hartă.</li>
+<li><strong>Închidere</strong> — închide fereastra și revine la hartă.</li>
+</ol>
+
+<div class="notice">Dacă ștergeți o Alarmă Geo adăugată la favorite, coordonatele acesteia sunt păstrate automat în fila „Puncte de locație”. Puteți utiliza punctul din nou mai târziu pentru a crea o altă Alarmă Geo.</div>
+
+<h3 id="geo-select-point">7.3. Selectarea unui punct și a razei</h3>
+
+<p>Atingeți și mențineți apăsat locul dorit de pe hartă. Aplicația plasează un marker și deschide panoul cu puncte selectate.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_selected_point.webp" alt="Punct selectat pe hartă cu adresă, rază, marcaj și buton de creare a alarmei geografice">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Marker punct selectat</strong> — centrul viitoarei geoperimetre. Harta afișează și un cerc pentru raza selectată.</li>
+<li><strong>Adresă și coordonate</strong> — vă permit să verificați dacă este selectat locul corect.</li>
+<li><strong>Salvare punct locație</strong> — adaugă coordonatele selectate la locurile salvate fără a crea o alarmă.</li>
+<li><strong>Rază</strong> — setează dimensiunea zonei din jurul punctului. Mutați cursorul până când selectați o distanță corespunzătoare.</li>
+<li><strong>Anulare</strong> — anulează selecția punctului.</li>
+<li><strong>Creare aici</strong> — deschide noul editor Geo Alarm pentru punctul selectat.</li>
+</ol>
+
+<div class="warning"><strong>Cum se alege o rază.</strong> Un telefon nu își urmărește coordonatele continuu. Android, producătorul dispozitivului, modul de economisire a bateriei, GPS-ul, calitatea semnalului rețelei mobile și Wi-Fi, precum și viteza de mișcare afectează momentul detectării limitei. Prin urmare, alerta se poate declanșa în afara liniei trasate. De exemplu, cu o rază de 800 m, intrarea poate fi detectată după ce dispozitivul se află deja în interiorul zonei - poate la 700, 600 sau 500 m de punct.</div>
+
+<ul>
+<li><strong>Într-un oraș</strong>, în general se recomandă o rază de <strong>1.300–1.500 m</strong>.</li>
+<li><strong>În afara unui oraș</strong>, unde actualizările locației pot fi mai puțin frecvente, se recomandă <strong>4.000–5.000 m</strong>.</li>
+<li><strong>Raza exactă</strong> trebuie aleasă în funcție de traseu, viteză și comportamentul dispozitivului.</li>
+</ul>
+
+<div class="notice">Sistemul detectează când dispozitivul traversează limita virtuală a zonei. În modul „La intrare”, o rază mai mare oferă de obicei telefonului mai mult timp pentru a detecta apropierea. În modul „La ieșire”, limita este plasată mai departe de punctul selectat.</div>
+
+<h3 id="geo-create">7.4. Crearea unei alarme geografice</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_location_schedule.webp" alt="Partea de sus a editorului Geo Alarm: stare de pregătire, locație și tip de program">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Pregătire alarmă geografică</strong> — arată dacă permisiunile necesare sunt configurate și dacă aplicația poate înregistra geoperimetrul.</li>
+<li><strong>Locație</strong> — conține adresa și coordonatele selectate. Puteți edita adresa ca etichetă, dar punctul real este selectat pe hartă.</li>
+<li><strong>Tip de program</strong> — determină zilele și condițiile în care alarma geografică este activă.</li>
+<li><strong>Întotdeauna</strong> — alarma geografică este activă în fiecare zi cât timp este activată.</li>
+<li><strong>O dată</strong> — utilizat pentru următoarea declanșare unică atunci când este îndeplinită condiția selectată.</li>
+<li><strong>Pe zile</strong> — funcționează numai în zilele selectate ale săptămânii.</li>
+<li><strong>Pe ture</strong> — leagă alarma Geo de programul de ture activ.</li>
+</ol>
+
+<div class="notice"><strong>Programul „Pe ture”.</strong> Alegeți dacă funcționează în ziua turei, numai înainte de tură sau numai după aceasta și specificați tipul de tură dorit: zi, noapte, dimineață, seară, 24 de ore, personalizat sau orice tură de lucru.</div>
+<div class="tip">Dacă o dată calendaristică este marcată ca zi liberă, concediu, concediu medical sau timp liber în loc de o tură de lucru, o alarmă Geo legată de tură nu va fi activă în ziua respectivă.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_trigger_settings.webp" alt="Partea de jos a editorului Geo Alarm: condiție de intrare sau ieșire, rază și setări de alertă">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Condiție de declanșare</strong> — determină ce trecere de limită începe alertă.</li>
+<li><strong>La intrare</strong> — pornește alerta când dispozitivul intră în raza selectată, de exemplu, când se apropie de locul de muncă sau de oprirea necesară.</li>
+<li><strong>La ieșire</strong> — pornește alerta când dispozitivul părăsește raza selectată, de exemplu, după ce părăsește locul de muncă sau o stație, astfel încât să nu pierdeți următoarea parte a unui traseu.</li>
+<li><strong>La intrare sau ieșire</strong> — pornește alerta de fiecare dată când limita este traversată în oricare direcție.</li>
+<li><strong>Rază</strong> — dimensiunea geoperimetrului din jurul punctului selectat.</li>
+<li><strong>Durata alarmei</strong> — determină durata de timp a alarmei.</li>
+<li><strong>Creștere treptată a volumului</strong> — setează o creștere lină a volumului după începerea alertei.</li>
+<li><strong>Anulare și salvare</strong> — anulați modificările sau salvați alarma Geo.</li>
+</ol>
+
+<div class="tip">Opțiunile rămase de mai jos sunt similare cu o alarmă obișnuită: sunet, vibrație, durata alertei, creșterea treptată a volumului și nume.</div>
+
+<h3 id="geo-existing">7.5. O alarmă Geo pe hartă și comenzile acesteia</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_marker_radius.webp" alt="Marker Geo Alarm creat și cercul său de rază de declanșare pe hartă">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Marcator alarmă Geo</strong> — arată punctul selectat.</li>
+<li><strong>Limită rază</strong> — arată zona a cărei intrare sau ieșire este monitorizată de aplicație.</li>
+</ol>
+
+<p>Atingeți marcatorul alarmei Geo. Apare mai întâi o mică fereastră cu informații. Atingeți acea fereastră pentru a deschide fișa detaliată.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_alarm_card.webp" alt="Fișă Geo Alarm detaliată cu informații, marcaj, comutator și comenzi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Nume și adresă</strong> — identifică alarma geografică selectată.</li>
+<li><strong>Marcare</strong> — adaugă alarma la locurile salvate sau o elimină din acestea.</li>
+<li><strong>Comutator</strong> — activează sau dezactivează temporar alarma geografică fără a șterge setările acesteia.</li>
+<li><strong>Setări și stare</strong> — afișează raza, condiția de intrare sau ieșire, programul, disponibilitatea geofence-ului și informații despre activările anterioare.</li>
+<li><strong>Editare</strong> — deschide setările alarmei geografice.</li>
+<li><strong>Închidere</strong> — închide fișa și revine la hartă.</li>
+<li><strong>Ștergere</strong> — șterge alarma geografică după confirmare.</li>
+</ol>
+
+<div class="warning">Pentru funcționare fiabilă, permiteți localizarea precisă și în fundal, eliminați restricțiile stricte privind bateria pentru ShiftAlarm și verificați setările de pornire automată dacă dispozitivul le oferă. Chiar și cu setări corecte, Android nu garantează detectarea limitelor cu o precizie de câțiva metri.</div>
+
+<h2 id="notes">8. Note, evenimente și mementouri</h2>
+
+<p>Secțiunea „Note” stochează text simplu, liste, liste de verificare, înregistrări audio, note din vorbire în text, mementouri și evenimente.</p>
+
+<h3 id="notes-create">8.1. Adăugarea unei note</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_type_picker.webp" alt="Selectarea unui nou tip de notă în ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Maneta panoului</strong> — trageți-o în sus pentru a dezvălui lista completă de tipuri de note sau în jos pentru a închide panoul.</li>
+<li><strong>Tip de notă</strong> — selectați opțiunea corespunzătoare:
+<ul>
+<li><strong>Notă text</strong> — text simplu;</li>
+<li><strong>Listă de verificare</strong> — o listă de elemente cu casete de selectare pentru completare;</li>
+<li><strong>Listă</strong> — o listă cu marcatori sau numerotată;</li>
+<li><strong>Notă audio</strong> — o înregistrare vocală;</li>
+<li><strong>Voce în text</strong> — creează o notă folosind recunoașterea vocală;</li>
+<li><strong>Memento</strong> — o intrare cu o notificare la o oră specificată;</li>
+<li><strong>Eveniment</strong> — o intrare legată de o dată și o oră.</li>
+</ul>
+</li>
+<li><strong>Anulare</strong> — închide selectorul fără a crea o notă.</li>
+</ol>
+
+<div class="tip">După ce selectați un tip, se deschide editorul corespunzător. Completați câmpurile obligatorii și salvați intrarea.</div>
+
+<h3 id="notes-list">8.2. Listă de note și controale</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_overview.webp" alt="Ecranul de notițe ShiftAlarm cu sortare, notițe active și arhivate, căutare și acțiuni pe carduri">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Sortare</strong> — modifică ordinea notelor din listă.</li>
+<li><strong>Activ</strong> — afișează notele obișnuite și programate care nu au fost mutate în arhivă.</li>
+<li><strong>Arhivare</strong> — deschide lista notelor arhivate.</li>
+<li><strong>Căutare</strong> — găsește potriviri în titlurile și conținutul notelor.</li>
+<li><strong>Fișă de note</strong> — afișează titlul, tipul, starea și informații suplimentare. Atingeți cardul pentru a deschide nota.</li>
+<li><strong>Fixează</strong> — fixează nota în partea de sus a listei.</li>
+<li><strong>Arhivează</strong> — elimină nota din lista activă și o mută în arhivă.</li>
+<li><strong>Șterge</strong> — șterge nota după confirmare.</li>
+<li><strong>Adăugare notă</strong> — deschide selectorul de tipuri de note noi.</li>
+</ol>
+
+<div class="notice">Utilizați arhiva pentru intrările care nu mai sunt necesare în lista principală, dar care ar trebui să rămână salvate. Ștergeți o notă numai atunci când nu mai este deloc necesară.</div>
+
+<h2 id="clock">9. Ceas, cronometru și temporizator</h2>
+
+<p>Această secțiune reunește ora locală și ora mondială, un cronometru și un temporizator. Deschideți-o cu butonul <strong>„Ceas”</strong> de pe ecranul principal.</p>
+
+<div class="notice">În partea de jos a ecranului apar trei file: „Ceas”, „Cronometru” și „Temporizator”. Atingeți o filă pentru a schimba modurile.</div>
+
+<h3 id="clock-world">9.1. Ceas și ceas mondial</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_overview.webp" alt="Ecranul ceasului ShiftAlarm cu ora locală, ceasuri mondiale, buton de adăugare și file în partea de jos">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ora locală</strong> — afișează ora, data și fusul orar curente ale sistemului dispozitivului.</li>
+<li><strong>Ceasuri mondiale</strong> — afișează orașele și fusurile orare adăugate. În timp ce lista este goală, aplicația afișează un indiciu.</li>
+<li><strong>Butonul Plus</strong> — deschide selectorul de ceasuri mondiale.</li>
+<li><strong>Filele secțiunilor</strong> — comută între ecranele „Ceas”, „Cronometru” și „Temporizator”.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_add_timezone.webp" alt="Adăugarea unui oraș sau a unui fus orar la ceasul mondial ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Căutare</strong> — introduceți un oraș sau un nume de fus orar pentru a filtra lista.</li>
+<li><strong>Listă de orașe și fusuri orare</strong> — atingeți opțiunea dorită pentru a o adăuga la ecranul cu ceasuri mondiale.</li>
+</ol>
+
+<div class="tip">Fusul orar local este afișat întotdeauna primul. Puteți elimina ceasurile mondiale adăugate din listă, dar ora locală nu poate fi eliminată.</div>
+
+<h3 id="clock-stopwatch">9.2. Cronometru</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_start.webp" alt="Cronometrul ShiftAlarm înainte de a porni">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Istoric</strong> — deschide sesiunile de cronometru salvate.</li>
+<li><strong>Start</strong> — pornește cronometrarea.</li>
+<li><strong>Resetare</strong> — indisponibil înainte de pornirea cronometrului. După oprire, readuce cronometrul la zero și elimină turele curente.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_running.webp" alt="Rularea cronometrului ShiftAlarm cu comenzi pentru istoric, salvare, tură și pauză">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Istoric</strong> — afișează sesiunile salvate anterior.</li>
+<li><strong>Salvare</strong> — solicită un nume și salvează sesiunea curentă de cronometru.</li>
+<li><strong>Tură</strong> — înregistrează un rezultat intermediar fără a opri cronometrul total.</li>
+<li><strong>Pauză</strong> — întrerupe cronometrul. După pauză, o puteți relua sau reseta.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_laps.webp" alt="Turele cronometrului ShiftAlarm și opțiunile lor de sortare">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Original, cel mai rapid și cel mai lent</strong> — modificați ordinea de afișare a turelor: ordinea originală, cel mai rapid primul sau cel mai lent primul.</li>
+<li><strong>Ture</strong> — fiecare tură arată timpul total la care a fost înregistrată și timpul individual pe tură.</li>
+</ol>
+
+<div class="notice">Când atingeți Salvare, introduceți un nume de sesiune și confirmați. Puteți deschide sesiunea salvată mai târziu din Istoric.</div>
+
+<h3 id="clock-timer">9.3. Cronometru</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_setup.webp" alt="Setarea unui cronometru ShiftAlarm cu roți pentru ore, minute și secunde">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ore</strong> — derulați rotița și selectați numărul de ore.</li>
+<li><strong>Minute</strong> — derulați rotița și selectați numărul de minute.</li>
+<li><strong>Secunde</strong> — derulați rotița și selectați numărul de secunde.</li>
+<li><strong>Start</strong> — pornește cronometrul cu durata selectată.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_running.webp" alt="Rularea cronometrului ShiftAlarm cu timpul rămas, controale de pauză, adăugare de minute și oprire">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Timp rămas</strong> — arată cât timp a mai rămas până la alertă.</li>
+<li><strong>Oră de finalizare</strong> — arată ora aproximativă la care se va termina cronometrul.</li>
+<li><strong>Cronometre recente</strong> — durate recente salvate; atingeți una pentru a o reutiliza rapid.</li>
+<li><strong>Pauză</strong> — oprește temporar numărătoarea inversă. Îl puteți relua ulterior.</li>
+<li><strong>+1 min</strong> — adaugă un minut la timpul rămas.</li>
+<li><strong>Oprire</strong> — oprește complet cronometrul.</li>
+</ol>
+
+<div class="tip">Cronometrul și cronometrul continuă să ruleze în fundal. Starea lor poate apărea într-o notificare, pe ecranul principal și în widget-uri.</div>
+
+<h2 id="widgets">10. Widgeturi</h2>
+
+<p>ShiftAlarm oferă widgeturi pentru ecranul principal al telefonului.</p>
+<ul>
+<li><strong>Astăzi 4×2</strong> — un panou compact cu două secțiuni configurabile.</li>
+<li><strong>Astăzi 4×3</strong> — un panou cu un ceas în partea de sus și două secțiuni dedesubt.</li>
+<li><strong>Calendar 4×4</strong> — widgeturi calendar cu programul de ture.</li>
+</ul>
+<p>Adăugați un widget prin meniul widgeturilor Android de pe ecranul principal al telefonului.</p>
+
+<h2 id="salary">11. Calculul salariului</h2>
+
+<p>Deschideți „Calculul salariului” din fișa de salariu din <a href="#statistics-work">statisticile programului selectat</a>. Aici puteți seta metoda de plată, rata sau salariul lunar, regulile pentru orele suplimentare, bonusurile și deducerile. Aplicația utilizează aceste setări împreună cu perioada selectată, programul de ture, modificările de calendar și contabilizarea pauzelor.</p>
+
+<div class="warning"><strong>Calculul este furnizat doar în scop informativ.</strong> Salariul real poate diferi dacă angajatorul dvs. utilizează un alt sistem pentru pontaj, rotunjire, indemnizații, impozite, bonusuri, deduceri sau plată pentru anumite tipuri de ture. Nu utilizați rezultatul ca document oficial de salarizare; comparați-l cu fluturașul de salariu al angajatorului dvs. Dacă găsiți o metodă de calcul pe care aplicația nu o gestionează cu precizie, trimiteți un e-mail dezvoltatorilor la adresa afișată în aplicație. Descrieți regulile, furnizați date de intrare exemplificative și precizați rezultatul așteptat. Metoda poate fi apoi luată în considerare pentru o actualizare viitoare.</div>
+
+<h3 id="salary-settings">11.1. Rata, orele suplimentare și bonusurile</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_settings_overview.webp" alt="Ecran de calcul al salariului cu programul selectat, tipul de tarif, orele suplimentare și bonusurile">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Programul selectat</strong> - arată ce program de ture este utilizat. Salariul se calculează pe baza acestui program și a perioadei selectate în statistici.</li>
+<li><strong>Tipul de plată și suma plății</strong> — selectați plata <strong>pe oră</strong>, <strong>pe tură</strong> sau <strong>pe lună</strong>, apoi introduceți suma corespunzătoare. Numele câmpului se schimbă în funcție de tipul de plată selectat.</li>
+<li><strong>Ore suplimentare</strong> — activați această secțiune dacă orele suplimentare sunt plătite diferit față de timpul de lucru obișnuit. Apoi specificați multiplicatorul de plată pentru orele suplimentare. Adăugați ore suplimentare în calendar prin <a href="#main-shift-time-adjustment">„Modificați tura” → „+ timp”</a>; activați „Considerați această dată ca ore suplimentare”, astfel încât orele să fie tratate ca ore suplimentare.</li>
+<li><strong>Bonusuri</strong> — afișează metoda curentă de calcul și totalurile. Atingeți cardul pentru a deschide <a href="#salary-bonuses">setările bonusului</a>.</li>
+</ol>
+
+<div class="notice">Butonul „Salvare” aplică setările programului selectat. După salvare, totalurile din statistici și rapoarte sunt recalculate folosind datele introduse.</div>
+
+<h3 id="salary-summary">11.2. Deduceri și totalul calculului</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions_total.webp" alt="Ecran de calcul al salariului cu deduceri și o defalcare finală">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Deduceri</strong> — arată suma totală și numărul de deduceri configurate. Atingeți cardul pentru a deschide <a href="#salary-deductions">lista de deduceri</a>.</li>
+<li><strong>Total</strong> — o defalcare sumară: timp plătit, ore lucrate, ore suplimentare, salariu de bază, plată ore suplimentare, bonusuri, deduceri și rezultatul final.</li>
+</ol>
+
+<div class="tip">Rezultatul depinde nu numai de setările acestui ecran, ci și de perioada statistică selectată, turele finalizate, schimbările de zi, orele suplimentare și setările pentru pauzele neplătite.</div>
+
+<h3 id="salary-bonuses">11.3. Bonusuri</h3>
+
+<p>Atingeți cardul „Bonusuri” de pe ecranul de calcul al salariului. Puteți introduce un bonus manual sau îl puteți calcula ca procent, dacă acesta corespunde sistemului dvs. de plată.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_bonuses.webp" alt="Ecran de setări bonus cu opțiuni de calcul și introducere a sumei">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Informații rezumative</strong> — arată totalul bonusului calculat și suma de bază utilizată pentru calcul.</li>
+<li><strong>Calculul bonusului</strong> — selectați introducerea manuală sau un calcul procentual, cum ar fi un procent din vânzări, dacă această metodă este utilizată la locul de muncă.</li>
+<li><strong>Metodă de introducere</strong> — „Suma totală” este potrivită pentru un singur bonus final. Rânduri separate sunt utile atunci când există mai multe bonusuri care trebuie numărate independent.</li>
+<li><strong>Sumă sau procent</strong> — introduceți valoarea necesară pentru metoda de calcul selectată.</li>
+<li><strong>Anulare și salvare</strong> — renunțați la modificări sau aplicați-le la calculul salariului.</li>
+</ol>
+
+<h3 id="salary-deductions">11.4. Listă de deduceri</h3>
+
+<p>Atingeți cardul „Deduceri” din ecranul principal de calcul. Această secțiune vă permite să stocați mai multe deduceri și să le gestionați pe fiecare separat.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions.webp" alt="Ecran cu lista de deduceri cu suma totală, rânduri de deduceri și buton de adăugare">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Informații rezumative</strong> — arată suma și numărul tuturor deducerilor activate.</li>
+<li><strong>Rând de deducere</strong> — arată numele, valoarea și tipul. Atingeți rândul pentru a deschide <a href="#salary-deduction-editor">setările de deducere</a>. Pictograma coș de gunoi șterge rândul.</li>
+<li><strong>Adăugați deducere</strong> — butonul „+” creează un nou rând de deducere.</li>
+<li><strong>Anulați și salvați</strong> — anulați modificările sau salvați întreaga listă.</li>
+</ol>
+
+<h3 id="salary-deduction-editor">11.5. Configurarea unei deduceri individuale</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deduction_editor.webp" alt="Panou de deducere individuală cu nume, valoare, tip și bază de deducere">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Nume deducere</strong> — introduceți un nume clar, cum ar fi „Impozit”, „Pensie alimentară” sau „Penalizare”.</li>
+<li><strong>Valoare</strong> — introduceți o sumă sau un procent, în funcție de tipul de valoare selectat mai jos.</li>
+<li><strong>Tip valoare</strong> — selectați o sumă fixă ​​sau un procent.</li>
+<li><strong>Tipul deducerii</strong> — o deducere <strong>variabilă</strong> se aplică unei anumite perioade de calcul; o deducere <strong>recurentă</strong> se aplică periodic atât timp cât rămâne activată.</li>
+<li><strong>Deducere din</strong> — selectați baza de calcul: salariul total, salariul de bază, bonusurile sau o altă opțiune disponibilă.</li>
+<li><strong>Activat</strong> — dezactivează temporar deducerea fără a șterge setările acesteia.</li>
+<li><strong>Anulare și salvare</strong> — închideți panoul fără modificări sau salvați deducerea.</li>
+</ol>
+
+<div class="notice">Pentru o deducere procentuală, este deosebit de important să selectați baza corectă „Deducere din”: același procent din salariul total, salariul de bază și bonusurile produce rezultate diferite.</div>
+
+<h2 id="settings">12. Setări</h2>
+
+<p>Deschideți „Setări” cu butonul din partea de jos a <a href="#main-overview">ecranului principal</a>. Această secțiune conține permisiuni de sistem, aspectul și limba aplicației, recunoașterea vorbirii offline, documente și ghidul utilizatorului, opțiuni de backup, diagnosticare și contact pentru dezvoltatori.</p>
+
+<h3 id="settings-overview">12.1. Secțiuni principale de setări</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_permissions_language.webp" alt="Partea de sus a setărilor ShiftAlarm: permisiuni, temă, limba aplicației și modele de vorbire offline">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Permisiuni</strong> — deschide permisiunile alarmei și setările de fiabilitate. Verifică notificările, alarmele exacte, activitatea în fundal și restricțiile bateriei. <a href="#geo">Alarmele Geo</a> necesită, de asemenea, acces la locație; accesul la locație în fundal sau „Permiteți tot timpul” este necesar pentru a se declanșa în timp ce aplicația este închisă. Numele și căile elementelor variază în funcție de versiunea Android și de producătorul dispozitivului.</li>
+<li><strong>Temă</strong> — vă permite să selectați aspectul luminos, întunecat sau al sistemului, să alegeți o variantă de culoare a interfeței și să activați sau să dezactivați feedback-ul haptic pentru acțiunile din aplicație. Tema sistemului urmează aspectul actual al telefonului.</li>
+<li><strong>Limba aplicației</strong> — vă permite să utilizați o limbă diferită de limba sistemului telefonului. Catalogul ShiftAlarm conține 108 limbi: găsiți limba dorită cu ajutorul căutării, descărcați pachetul lingvistic și aplicați-l.</li>
+<li><strong>Modele de vorbire offline</strong> — instalează un modul pentru <a href="#notes-create">note vocale în text</a>. Recunoașterea offline este în prezent testată și este disponibilă pentru aproximativ 20 de limbi. Calitatea sa poate fi mai scăzută decât cea a recunoașterii online și depinde de limbă, microfon, performanța telefonului și condițiile de înregistrare.</li>
+</ol>
+
+<div class="warning"><strong>Permisiunile Android diferă în funcție de dispozitiv.</strong> Pe unele telefoane, trebuie să permiteți și pornirea automată, să selectați „Nerestricționat” sau un mod similar pentru baterie și să permiteți activitatea în fundal. Aceste setări reduc șansa ca sistemul să oprească ShiftAlarm, dar numele lor exacte sunt determinate de producătorul dispozitivului.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_help_backup_diagnostics.webp" alt="Partea de jos a setărilor ShiftAlarm: documente, ghidul utilizatorului, copie de rezervă, diagnosticare și contact pentru dezvoltatori">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Documente și ajutor</strong> — deschide documentele legale ale aplicației: Termeni de utilizare, Politica de confidențialitate, Exonerare de răspundere și pagina de ajutor scurtă.</li>
+<li><strong>Ghid de instruire și utilizare</strong> — deschide acest ghid complet ilustrat cu descrieri detaliate ale funcțiilor ShiftAlarm.</li>
+<li><strong>Copiere de rezervă și restaurare</strong> — creează un fișier care conține setările și datele aplicației acceptate sau le restaurează dintr-o copie de rezervă anterioară. Acest lucru este util înainte de a reinstala aplicația, a reseta telefonul sau a transfera date pe un alt dispozitiv. Consultați <a href="#backup">„Copiere de rezervă și restaurare”</a> pentru instrucțiuni detaliate.</li>
+<li><strong>Jurnal de diagnosticare</strong> — deschide jurnale separate pentru funcțiile aplicației. Acestea înregistrează etapele tehnice, cum ar fi programarea și recuperarea alertelor, procesarea evenimentelor, starea permisiunilor și alte informații despre service. Un jurnal ajută la identificarea etapei în care a apărut o eroare. Puteți copia intrări sau le puteți pregăti pentru trimiterea prin e-mail către dezvoltatori. Consultați <a href="#diagnostics">„Diagnosticare și depanare”</a> pentru detalii.</li>
+<li><strong>Contactați dezvoltatorii</strong> — deschide aplicația de e-mail și creează un mesaj adresat asistenței. Folosiți-l pentru a raporta o problemă, a trimite feedback sau o sugestie sau a pune o întrebare. Pentru o problemă tehnică, includeți modelul telefonului, versiunea de Android, ora problemei, pașii parcurși și, dacă este posibil, jurnalul de diagnosticare relevant.</li>
+</ol>
+
+<div class="notice">Jurnalele de diagnosticare nu sunt trimise automat dezvoltatorilor. Trebuie să copiați informațiile necesare sau să atingeți „Trimiteți către dezvoltatori”, să alegeți o aplicație de e-mail, să revizuiți mesajul pregătit și să confirmați trimiterea acestuia.</div>
+
+<h2 id="backup">13. Copiere de rezervă și restaurare</h2>
+
+<p>O copie de rezervă salvează setările ShiftAlarm acceptate și datele utilizatorului într-un fișier separat. Ajută la restaurarea datelor după reinstalarea aplicației, resetarea telefonului sau mutarea pe un alt dispozitiv.</p>
+<ol class="step-list">
+<li>Deschideți „Setări → Copiere de rezervă și restaurare”.</li>
+<li>Creați o copie de rezervă și salvați fișierul rezultat pe telefon sau partajați-l prin meniul de sistem.</li>
+<li>Pentru a restaura, deschideți aceeași secțiune și selectați un fișier de copie de rezervă creat anterior.</li>
+<li>După restaurare, verificați alarmele importante, programările și permisiunile Android. Este posibil ca unele permisiuni de securitate a sistemului să fie acordate din nou pe un dispozitiv nou sau după reinstalare.</li>
+</ol>
+<p class="tip">Păstrați o copie actuală într-un loc sigur, care rămâne accesibil dacă telefonul este pierdut, deteriorat sau resetat. Un fișier de copie de rezervă nu înlocuiește permisiunile sistemului Android și nu poate include automat date la care aplicația nu are permisiunea de a accesa.</p>
+
+<h2 id="diagnostics">14. Diagnosticare și depanare</h2>
+
+<p>ShiftAlarm oferă jurnale de diagnosticare separate pentru diferite funcții. Acestea păstrează o secvență de evenimente tehnice și ajută la determinarea dacă o alertă a fost programată, restaurată după o repornire, trecută spre procesare sau oprită din cauza unei setări de sistem.</p>
+
+<h3 id="diagnostics-control">14.1. Controlul colectării de diagnostice</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_sections.webp" alt="Ecranul jurnalului de diagnosticare ShiftAlarm cu comutatorul principal și un jurnal individual de alarme">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Colectarea diagnosticelor</strong> — comutatorul principal pentru fiecare secțiune de diagnosticare din aplicație. Dezactivați-l pentru a opri adăugarea de noi evenimente în toate jurnalele simultan. Colectarea de noi evenimente se reia după ce îl activați din nou.</li>
+<li><strong>Jurnal individual de funcții</strong> — fiecare modul are propriul comutator și butonul „Deschidere”. De exemplu, puteți lăsa diagnosticarea globală activată în timp ce dezactivați doar alarma, ceasul sau un alt jurnal de funcții. Captura de ecran prezintă jurnalul de alarme, care înregistrează evenimentele de livrare, programare, recuperare, protecție și ecran de alarmă.</li>
+</ol>
+
+<div class="notice">Comutatoarele controlează doar înregistrarea evenimentelor tehnice. Dezactivarea unui jurnal de alarmă, ceas sau al unui alt jurnal de funcții nu dezactivează funcția în sine. Ștergeți intrările salvate anterior separat cu butonul „Șterge” din jurnalul corespunzător.</div>
+
+<h3 id="diagnostics-log">14.2. Jurnal individual de funcții</h3>
+
+<p>Atingeți „Deschidere” în secțiunea de diagnosticare necesară. Exemplul de mai jos prezintă jurnalul de alarme; jurnalele pentru alte funcții funcționează într-un mod similar.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_alarm_log.webp" alt="Jurnal de diagnosticare a alarmei ShiftAlarm cu număr de evenimente, acțiuni și intrări tehnice">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Evenimente salvate</strong> — arată numărul de intrări stocate în prezent în jurnalul selectat.</li>
+<li><strong>Acțiuni în jurnal</strong>:
+<ul>
+<li><strong>Copiere</strong> — copiază toate datele din jurnalul curent în clipboard. Îl puteți lipi într-un e-mail sau într-o altă aplicație.</li>
+<li><strong>Șterge</strong> — șterge intrările salvate din acest jurnal. După ștergere, vor apărea doar evenimentele înregistrate ulterior, în timp ce diagnosticarea este activată.</li>
+<li><strong>Trimite către dezvoltatori</strong> — deschide selectorul de aplicații pentru trimiterea unui e-mail. Alegeți o aplicație de e-mail; adresa dezvoltatorului și datele de diagnosticare sunt inserate automat. Înainte de trimitere, adăugați o descriere a problemei, revizuiți mesajul și apoi confirmați trimiterea acestuia.</li>
+</ul>
+</li>
+<li><strong>Evenimente aplicație</strong> — intrările din jurnal în sine. O intrare conține în mod normal o dată și o oră, un nume de eveniment tehnic și parametri suplimentari, cum ar fi un identificator, o stare sau un motiv. Denumirile tehnice pot apărea în limba engleză; nu le editați și nu le traduceți înainte de trimitere.</li>
+</ol>
+
+<div class="warning">Înainte de a șterge un jurnal, copiați sau trimiteți orice intrări necesare. Evenimentele de diagnostic șterse nu pot fi recuperate.</div>
+
+<div class="tip">Dacă problema poate fi reprodusă, activați mai întâi colectarea globală de diagnostice și jurnalul de funcții relevant, apoi repetați acțiunile care au cauzat problema. În mesajul dvs., furnizați ora exactă a problemei, modelul telefonului, versiunea Android, rezultatul așteptat și rezultatul real. Acest lucru ajută la potrivirea descrierii dvs. cu evenimentele din jurnal.</div>
+
+<h2 id="faq">15. Întrebări frecvente</h2>
+
+<h3>Alarma nu s-a declanșat la timp</h3>
+<p>Verificați notificările, permisiunea exactă pentru alarma, activitatea în fundal și restricțiile bateriei.</p>
+<h3>Alarma geografică s-a declanșat târziu</h3>
+<p>Verificați locația precisă și în fundal, restricțiile bateriei și pornirea automată a aplicației. Încercați o rază de 1.300–1.500 m într-un oraș și de 4.000–5.000 m în afara unui oraș. Este posibil ca declanșatorul propriu-zis să nu apară exact pe linia razei.</p>
+<h3>Widgetul nu s-a actualizat imediat</h3>
+<p>Deschideți aplicația sau atingeți butonul de reîmprospătare de pe widget. Este posibil ca Android să restricționeze actualizările frecvente ale widgetului.</p>
+<h3>Am schimbat limba, dar un document sau ghidul nu a fost încă actualizat</h3>
+<p>Verificați conexiunea la internet și acordați timp pentru descărcare. Dacă versiunea la distanță nu este disponibilă, aplicația folosește soluția de rezervă încorporată.</p>
+
+<div class="footer small">Ghidul poate fi actualizat prin GitHub. Dacă versiunea la distanță nu este disponibilă, aplicația folosește versiunea offline încorporată.</div>
+</main>
+</body>
+</html>

@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panduan Pengguna ShiftAlarm</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #64748b;
+  --accent: #2563eb;
+  --soft: #e8eef8;
+  --border: #dbe4f0;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.58;
+  margin: 0;
+  padding: 18px;
+  color: var(--text);
+  background: var(--bg);
+}
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+h1 { margin: 0 0 8px; font-size: 28px; line-height: 1.2; }
+h2 { margin: 32px 0 10px; font-size: 21px; line-height: 1.25; }
+h3 { margin: 22px 0 8px; font-size: 17px; }
+p, li { font-size: 16px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul, ol { padding-left: 22px; }
+.notice, .tip, .warning {
+  padding: 14px 16px;
+  border-radius: 16px;
+  margin: 14px 0;
+  border: 1px solid var(--border);
+}
+.notice { background: var(--soft); }
+.tip { background: #ecfdf5; }
+.warning { background: #fff7ed; }
+.small { color: var(--muted); font-size: 14px; }
+.toc {
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 16px;
+  margin: 18px 0 24px;
+}
+.toc ol { margin: 8px 0 0; }
+.step-list li { margin-bottom: 8px; }
+.guide-figure {
+  margin: 18px 0;
+}
+.guide-image {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+}
+.callout-list li {
+  margin-bottom: 10px;
+}
+.guide-caption {
+  max-width: 520px;
+  margin: 10px auto 0;
+  color: var(--text);
+  font-size: 15px;
+}
+.guide-caption strong {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.footer {
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --card: #111827;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --accent: #93c5fd;
+    --soft: #1f2937;
+    --border: #334155;
+  }
+  main { box-shadow: none; }
+  .toc { background: #172033; }
+  .tip { background: #10251f; }
+  .warning { background: #2a1d10; }
+}
+</style>
+</head>
+<body>
+<main>
+<h1>Panduan Pengguna ShiftAlarm</h1>
+<p class="small">Versi 14. Tanggal: 2 Agustus 2026.</p>
+<div class="notice">Halaman ini merupakan panduan praktis untuk ShiftAlarm. Halaman ini menjelaskan fungsi setiap fitur utama, letaknya, bagian mana yang harus ditekan, serta hal-hal yang perlu diperiksa jika fitur tidak berjalan sebagaimana mestinya.</div>
+<nav class="toc">
+<strong>Daftar Isi</strong>
+<ol><li><a href="#start">1. Peluncuran pertama</a></li><li><a href="#permissions">2. Izin dan keandalan</a></li><li><a href="#main">3. Layar utama</a></li><li><a href="#shifts">4. Jadwal shift</a></li><li><a href="#statistics">5. Statistik jadwal</a></li><li><a href="#alarms">6. Alarm</a></li><li><a href="#geo">7. Geo Alarm</a></li><li><a href="#notes">8. Catatan, acara, dan pengingat</a></li><li><a href="#clock">9. Jam, pengatur waktu, dan stopwatch</a></li><li><a href="#widgets">10. Widget</a></li><li><a href="#salary">11. Perhitungan gaji</a></li><li><a href="#settings">12. Pengaturan</a></li><li><a href="#backup">13. Cadangan dan pemulihan</a></li><li><a href="#diagnostics">14. Diagnostik dan pemecahan masalah</a></li><li><a href="#faq">15. Pertanyaan umum</a></li></ol>
+</nav>
+<h2 id="start">1. Peluncuran pertama</h2>
+
+<p>Saat ShiftAlarm dijalankan untuk pertama kalinya, aplikasi akan menampilkan alur pengaturan singkat. Layar utama sudah tersedia di latar belakang, namun sebaiknya selesaikan pengaturan dasar terlebih dahulu.</p>
+<ol class="step-list">
+<li>Baca informasi pengantar dan ketuk “Lanjutkan.”</li>
+<li>Pada langkah dokumen, buka dokumen atau terima dokumen yang diperlukan saat Anda siap untuk melanjutkan.</li>
+<li>Pada langkah izin, buka layar izin dan periksa notifikasi, alarm tepat waktu (*exact alarms*), akses lokasi, dan pembatasan baterai.</li>
+<li>Ketuk “Selesaikan pengaturan.”</li>
+</ol>
+<p class="tip">Anda dapat mengatur izin nanti di bagian “Pengaturan → Izin dan keandalan.”</p>
+
+<h2 id="permissions">2. Izin dan keandalan</h2>
+
+<p>Alarm, pengingat, dan Geo Alarm bergantung pada pengaturan Android dan perangkat lunak produsen perangkat.</p>
+<ul>
+<li><strong>Notifikasi</strong> — diperlukan untuk alarm, pengingat, pengatur waktu (*timer*), dan notifikasi layanan.</li>
+<li><strong>Alarm tepat waktu</strong> — membantu alarm berbunyi pada waktu yang ditentukan.</li>
+<li><strong>Lokasi</strong> — diperlukan untuk Geo Alarm.</li>
+<li><strong>Lokasi latar belakang</strong> — diperlukan agar Geo Alarm berfungsi saat aplikasi ditutup.</li>
+<li><strong>Baterai dan aktivitas latar belakang</strong> — dapat memengaruhi keandalan pemicuan pada perangkat Xiaomi/Redmi dan beberapa perangkat lainnya.</li>
+</ul>
+<p class="warning">Android tidak selalu menjamin pengiriman notifikasi, alarm tepat waktu, atau peristiwa *geofence* secara instan. Untuk peringatan penting, periksa setiap item pada layar izin.</p>
+
+<h2 id="main">3. Layar utama</h2>
+
+<p>Layar utama adalah dasbor harian Anda. Layar ini menyediakan akses langsung ke kalender, jam, Geo Alarm, alarm biasa, jadwal giliran kerja (*shift*), catatan, dan pengaturan.</p>
+
+<h3 id="main-overview">3.1. Elemen layar utama</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_screen_overview.png" alt="Layar utama ShiftAlarm dengan kontrol bernomor">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Panah mundur</strong> — memindahkan kalender ke bulan sebelumnya.</li>
+<li><strong>Bulan dan tahun</strong> — menampilkan bulan yang sedang dibuka. Ketuk area ini untuk menggunakan <a href="#main-date-picker">fitur pemilihan bulan dan tahun bertahap</a>.</li>
+<li><strong>Panah maju</strong> — memindahkan kalender ke bulan berikutnya.</li>
+<li><strong>Kalender</strong> — area tampilan bulan utama. Anda dapat menggeser kalender. Setiap hari dapat menampilkan tanggal, pengingat, acara, jadwal giliran kerja (shift), dan perubahan hari. Ketukan biasa akan memilih tanggal; tekan lama akan membuka <a href="#main-day-actions">informasi dan tindakan untuk hari yang dipilih</a>.</li>
+<li><strong>Hari ini</strong> — mengembalikan tampilan kalender ke hari ini.</li>
+<li><strong>Jam</strong> — membuka <a href="#clock">jam dunia, stopwatch, dan pengatur waktu (timer)</a>.</li>
+<li><strong>Geo Alarm</strong> — membuka <a href="#geo">peta, lokasi tersimpan, dan pengaturan Geo Alarm</a>. Peringatan dapat dipicu saat Anda memasuki area yang dipilih, meninggalkannya, atau melakukan salah satunya.</li>
+<li><strong>Alarm</strong> — membuka <a href="#alarms">alarm biasa, alarm berulang, dan alarm yang terhubung dengan shift</a>.</li>
+<li><strong>Jadwal</strong> — membuka <a href="#shifts">jadwal shift, pembuatan dan pengeditan jadwal, serta statistik</a>.</li>
+<li><strong>Catatan</strong> — membuka <a href="#notes">catatan, acara, pengingat, catatan audio, dan fitur ucapan-ke-teks</a>.</li>
+<li><strong>Pengaturan</strong> — membuka <a href="#settings">izin, bahasa, tema, model ucapan offline, cadangan, diagnostik, dokumen, dan pelatihan</a>.</li>
+</ol>
+
+
+<h3 id="main-date-picker">3.2. Memilih bulan dan tahun</h3>
+
+<p>Ketuk bulan dan tahun di bagian atas layar utama untuk membuka periode kalender yang diinginkan dengan cepat. Pemilihan dilakukan secara bertahap: <strong>abad → dekade → tahun → bulan</strong>.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_century.webp" alt="Langkah 1: memilih abad pada kalender ShiftAlarm">
+<figcaption class="guide-caption"><strong>1. Pilih abad.</strong> Ketuk periode yang memuat tahun yang Anda butuhkan. Contoh ini memilih tahun 2000-an.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_decade.webp" alt="Langkah 2: memilih dekade pada kalender ShiftAlarm">
+<figcaption class="guide-caption"><strong>2. Pilih dekade.</strong> Ketuk rentang waktu yang memuat tahun yang diinginkan. Untuk tahun 2026, pilih “2020–2029.”</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_year.webp" alt="Langkah 3: memilih tahun pada kalender ShiftAlarm">
+<figcaption class="guide-caption"><strong>3. Pilih tahun.</strong> Ketuk tahun yang diinginkan. Contoh ini memilih tahun 2026.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_month.webp" alt="Langkah 4: memilih bulan pada kalender ShiftAlarm">
+<figcaption class="guide-caption"><strong>4. Pilih bulan.</strong> Ketuk bulan yang diinginkan. Contoh ini memilih bulan Juli.</figcaption>
+</figure>
+
+<div class="tip">Setelah Anda memilih bulan, panel akan tertutup dan kalender utama akan terbuka pada bulan dan tahun yang dipilih.</div>
+<div class="notice">Tombol “Kembali” (Back) akan mengembalikan Anda ke tahap sebelumnya. Pada layar tampilan abad (century screen), tombol ini menutup pemilih tanggal.</div>
+
+<h3 id="main-day-actions">3.3. Informasi dan tindakan untuk hari yang dipilih</h3>
+
+<p>Sentuh dan tahan hari yang diinginkan pada kalender. Sebuah panel berisi informasi dan tindakan untuk tanggal tersebut akan terbuka. Seret panel ke atas untuk melihat semua tindakan yang tersedia.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_day_actions.webp" alt="Panel informasi dan tindakan ShiftAlarm untuk hari kalender yang dipilih">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tanggal</strong> — menampilkan hari dalam seminggu dan tanggal yang dipilih. Seret gagang di bagian atas ke atas atau ke bawah untuk memperluas atau menutup panel.</li>
+<li><strong>Shift</strong> — menampilkan shift yang telah dihitung atau perubahan hari seperti hari libur, izin tidak masuk kerja, cuti, cuti sakit, atau pengecualian lainnya.</li>
+<li><strong>Alarm untuk tanggal ini</strong> — menampilkan alarm yang ditetapkan untuk hari yang dipilih atau informasi bahwa tidak ada alarm yang tersedia.</li>
+<li><strong>Acara dan pengingat</strong> — menampilkan entri yang terkait dengan tanggal yang dipilih.</li>
+<li><strong>Tambah alarm</strong> — membuka fitur pembuatan alarm sekali pakai untuk tanggal yang dipilih.</li>
+<li><strong>Ubah shift</strong> — membuat pengecualian untuk satu hari atau rentang tanggal dalam jadwal aktif.</li>
+<li><strong>Tambah catatan</strong> — memungkinkan Anda memilih acara atau pengingat untuk dibuat pada tanggal yang dipilih.</li>
+</ol>
+
+<div class="notice">Tindakan “Ubah shift” tersedia untuk menyesuaikan hari dalam jadwal shift yang aktif.</div>
+
+<h4 id="main-shift-override">Mengubah satu hari atau rentang tanggal</h4>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_types.webp" alt="Memilih rentang tanggal dan jenis perubahan shift di ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tanggal mulai</strong> — hari pertama perubahan. Awalnya, pengaturan ini menggunakan tanggal yang dipilih pada kalender.</li>
+<li><strong>Tanggal akhir</strong> — hari terakhir perubahan. Untuk mengubah satu hari saja, biarkan tanggal yang sama tetap terpilih.</li>
+<li><strong>Waktu libur</strong> — mengganti jadwal giliran kerja (shift) yang telah dihitung dengan waktu libur.</li>
+<li><strong>Cuti liburan</strong> — menandai hari atau rentang waktu yang dipilih sebagai cuti liburan.</li>
+<li><strong>Cuti sakit</strong> — menandai hari atau rentang waktu yang dipilih sebagai cuti sakit.</li>
+<li><strong>Simpan perubahan</strong> — menerapkan pengecualian yang dipilih ke kalender.</li>
+</ol>
+
+<h4 id="main-shift-time-adjustment">Menyesuaikan waktu kerja</h4>
+
+<p>Gulir ke bawah pada daftar jenis perubahan dan pilih “Edit shift” untuk mengubah durasi shift kerja yang telah dihitung.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_time_adjustment.webp" alt="Menyesuaikan waktu kerja shift di ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Edit shift</strong> — memungkinkan penyesuaian waktu kerja untuk shift yang dipilih.</li>
+<li><strong>+ waktu</strong> — menambahkan jam atau menit ke durasi shift standar.</li>
+<li><strong>− waktu</strong> — mengurangi durasi shift, misalnya saat pekerjaan selesai lebih awal.</li>
+<li><strong>Hitung waktu ini sebagai lembur</strong> — memperlakukan waktu tambahan sebagai lembur. Jika opsi ini tidak aktif, waktu tersebut dihitung sebagai waktu kerja biasa.</li>
+<li><strong>Simpan perubahan</strong> — menerapkan penyesuaian pada hari atau rentang waktu yang dipilih.</li>
+</ol>
+
+<div class="tip">Perubahan hari tidak mengubah templat jadwal asli. Perubahan ini disimpan sebagai pengecualian terpisah dan disertakan dalam kalender, statistik, perhitungan gaji, serta laporan.</div>
+
+<h2 id="shifts">4. Jadwal shift</h2>
+
+<p>Jadwal shift menentukan siklus kerja yang berulang dan menjadi dasar bagi fitur-fitur ShiftAlarm lainnya. Aplikasi menggunakannya untuk mengisi kalender, mengaitkan alarm dengan shift, menghitung waktu kerja, membuat statistik, memperkirakan gaji, dan menyiapkan laporan.</p>
+
+<div class="notice"><strong>Prinsip dasar.</strong> Pertama, buat jadwal dasar yang berulang. Tambahkan cuti liburan, cuti sakit, waktu libur, shift pengganti satu kali, atau penyesuaian waktu kerja sebagai pengecualian untuk tanggal tertentu melalui <a href="#main-day-actions">tindakan pada hari yang dipilih</a>. Hal ini menjaga siklus asli tetap tidak berubah.</div>
+
+<h3 id="shifts-list">4.1. Daftar jadwal dan kontrol</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedules_overview.webp" alt="Layar jadwal ShiftAlarm dengan kartu jadwal aktif dan kontrol bernomor">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Detail jadwal</strong> — nama, tanggal mulai, durasi siklus, dan urutan hari secara singkat. Dalam contoh, “D · D · O · O” berarti dua shift siang diikuti oleh dua hari libur.</li>
+<li><strong>Alihkan</strong> — menonaktifkan jadwal untuk sementara tanpa menghapusnya. Saat Anda mengaktifkannya kembali, pengaturan yang tersimpan akan tetap berlaku.</li>
+<li><strong>Status jadwal</strong> — menunjukkan jadwal mana yang sedang aktif.</li>
+<li><strong>Edit</strong> — membuka parameter yang dapat diubah. Setelah pengaturan awal, sebagian dari dasar jadwal akan dikunci untuk mencegah penghitungan ulang yang tidak disengaja terhadap data kalender yang telah dibuat.</li>
+<li><strong>Hapus</strong> — menghapus jadwal setelah konfirmasi. Sebelum menghapusnya, periksa alarm dan penghitungan yang terkait dengan shift tersebut.</li>
+<li><strong>Buka statistik</strong> — membuka <a href="#statistics">statistik waktu kerja, periode, gaji, dan laporan</a> untuk jadwal ini.</li>
+<li><strong>Buat jadwal</strong> — memungkinkan Anda memilih templat siap pakai atau membuat siklus kustom.</li>
+</ol>
+
+<h3 id="shifts-create">4.2. Memulai pembuatan jadwal</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_create.webp" alt="Panel pembuatan jadwal dengan nama, tanggal mulai, templat, dan jadwal kustom">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Nama jadwal</strong> — masukkan nama yang jelas seperti “Utama 2/2,” “Shift malam,” atau nama tempat kerja Anda.</li>
+<li><strong>Tanggal mulai</strong> — tanggal yang sesuai dengan <strong>hari pertama dari siklus berulang</strong>. Anda dapat memilih tanggal di masa lalu atau masa depan; aplikasi akan menghitung jadwal ke depan dan ke belakang dari tanggal tersebut.</li>
+<li><strong>Templat</strong> — urutan shift umum yang siap pakai. Contoh ini menggunakan templat “2/2 siang”.</li>
+<li><strong>Jadwal kustom</strong> — membuat urutan hari kerja dan hari libur Anda sendiri.</li>
+<li><strong>Buat jadwal</strong> — membuka editor terperinci untuk opsi yang dipilih.</li>
+</ol>
+
+<div class="tip">Untuk templat “D · D · O · O” (Kerja · Kerja · Libur · Libur), tanggal mulai biasanya adalah hari pertama dari dua hari kerja tersebut. Dalam siklus kustom, hari ke-1 bisa juga berupa hari libur; yang terpenting adalah tanggal yang dipilih benar-benar sesuai dengan hari ke-1 dari urutan yang Anda buat.</div>
+
+<h3 id="shifts-template">4.3. Membuat jadwal dari templat</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_template.webp" alt="Editor templat jadwal dengan nama, urutan, tanggal mulai, dan shift">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Nama jadwal</strong> — gunakan nama yang disarankan atau ganti dengan nama pilihan Anda sendiri.</li>
+<li><strong>Templat</strong> — menampilkan urutan huruf beserta artinya. Dalam contoh ini, “D · D · O · O” berarti giliran kerja siang, giliran kerja siang, hari libur, hari libur.</li>
+<li><strong>Tanggal mulai</strong> — pilih tanggal untuk hari pertama dalam urutan yang ditampilkan.</li>
+<li><strong>Waktu giliran kerja</strong> — tentukan waktu mulai dan selesai untuk setiap jenis giliran kerja. Aplikasi akan menampilkan durasi yang telah dihitung.</li>
+<li><strong>Batal</strong> — menutup editor tanpa menyimpan perubahan.</li>
+<li><strong>Simpan</strong> — menyimpan jadwal dan mulai menghitung giliran kerja di kalender.</li>
+</ol>
+
+<div class="warning"><strong>Setelah penyimpanan pertama.</strong> Tanggal mulai dan struktur siklus akan terkunci untuk melindungi data kalender yang telah dihitung. Anda masih dapat mengubah nama dan beberapa parameter kerja. Jika Anda memerlukan siklus dasar atau tanggal acuan yang berbeda, lebih aman untuk membuat jadwal baru.</div>
+
+<h3 id="shifts-custom">4.4. Membuat siklus kustom</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_custom.webp" alt="Editor jadwal kustom dengan pengaturan panjang siklus, kontrol hari, tanggal mulai, dan pengaturan untuk setiap hari">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Nama jadwal</strong> — beri nama untuk urutan kustom Anda.</li>
+<li><strong>Durasi siklus</strong> — menampilkan jumlah hari yang tercakup dalam urutan berulang tersebut.</li>
+<li><strong>Hapus hari</strong> — memperpendek siklus sebanyak satu hari.</li>
+<li><strong>Tambah hari</strong> — menambahkan satu hari lagi yang dapat dikonfigurasi ke akhir siklus.</li>
+<li><strong>Tanggal mulai</strong> — tanggal yang sesuai dengan hari ke-1 dari siklus kustom.</li>
+<li><strong>Pengaturan hari</strong> — ketuk kartu ‘Jenis giliran kerja’ lalu pilih hari libur atau jenis kerja yang diperlukan: siang, malam, pagi, sore, 24 jam, atau giliran khusus. Untuk hari kerja, tentukan waktu mulai dan selesai. Atur hari-hari lain dalam siklus dengan cara yang sama di bagian bawah layar.</li>
+<li><strong>Batal</strong> — menutup editor tanpa menyimpan perubahan.</li>
+<li><strong>Simpan</strong> — menyimpan siklus kustom dan menghitungnya dalam kalender.</li>
+</ol>
+
+<div class="notice"><strong>Apa itu siklus?</strong> Siklus adalah jumlah hari sebelum urutan dimulai kembali dari awal. Misalnya, siklus empat hari bisa berupa “2 hari kerja + 2 hari libur,” sedangkan siklus enam hari bisa berupa “3 hari kerja + 3 hari libur.” Setelah hari terakhir, aplikasi akan kembali ke hari ke-1.</div>
+
+<div class="tip">Jangan mengubah siklus dasar untuk pengecualian jadwal yang hanya terjadi sekali. Tekan dan tahan tanggal di kalender, lalu buat entri untuk hari libur, cuti, izin sakit, pergantian sif, atau penyesuaian waktu.</div>
+
+
+
+<span id="shift-statistics"></span>
+<h2 id="statistics">5. Statistik jadwal</h2>
+
+<p>Buka “Statistik” dari kartu jadwal menggunakan tombol <strong>“Buka statistik”</strong>. Bagian ini menggabungkan informasi mengenai hari kerja dan hari libur, perubahan jadwal, waktu kerja yang direncanakan dan aktual, estimasi gaji, serta laporan.</p>
+
+<div class="notice"><strong>Penting:</strong> statistik dihitung hanya untuk jadwal sif yang dipilih. Periode yang dipilih berlaku untuk semua nilai waktu kerja, gaji, dan laporan di bawahnya.</div>
+
+<h3 id="statistics-period">5.1. Ringkasan jadwal, periode, dan hari</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_period_overview.webp" alt="Layar statistik dengan informasi jadwal, pemilihan periode, dan total hari">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Informasi jadwal</strong> — menampilkan nama jadwal yang dipilih, tanggal mulai siklus pertama, dan durasi siklus yang berulang. Statistik di layar ini hanya berlaku untuk jadwal tersebut.</li>
+<li><strong>Kartu periode yang dipilih</strong> — menampilkan periode yang sedang digunakan. Ketuk bagian tersebut atau tanda panah di sebelah kanan untuk memilih bulan saat ini, bulan sebelumnya, atau bulan berikutnya; tahun saat ini; ataupun rentang tanggal kustom.</li>
+<li><strong>Ringkasan hari</strong> — menampilkan jumlah hari dalam periode tersebut, giliran kerja (shift), hari libur, giliran kerja yang telah selesai maupun yang akan datang, serta hari dengan perubahan jadwal. Hari dengan perubahan jadwal merupakan pengecualian dari siklus dasar, seperti: cuti liburan, cuti sakit, waktu libur, giliran kerja pengganti atau yang dipindahkan, penyesuaian waktu kerja, dan perubahan lainnya.</li>
+</ol>
+
+<div class="warning"><strong>Periode mendatang merupakan perkiraan.</strong> Untuk bulan mendatang, aplikasi menggunakan jadwal yang telah dibuat dan data yang sudah dimasukkan, namun tidak dapat mengetahui informasi mengenai cuti sakit, liburan, izin tidak masuk kerja, lembur, bonus, atau potongan di masa depan. Saat Anda memilih tahun berjalan, angka total mungkin menggabungkan data aktual dari tanggal yang telah berlalu dengan perkiraan untuk sisa tahun tersebut.</div>
+
+<h3 id="statistics-work">5.2. Waktu kerja, gaji, dan laporan</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_work_salary_reports.webp" alt="Layar statistik dengan informasi waktu kerja, progres, gaji, dan akses laporan">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Waktu kerja</strong> — kartu ringkasan untuk jam kerja dan progres. Ketuk kartu ini untuk membuka <a href="#statistics-break">pengaturan waktu istirahat</a>.</li>
+<li><strong>Jam yang direncanakan</strong> — total durasi shift yang dijadwalkan dan perubahannya selama periode yang dipilih.</li>
+<li><strong>Jam kerja</strong> — durasi shift yang dianggap telah selesai hingga tanggal saat ini, dengan memperhitungkan pengaturan waktu istirahat.</li>
+<li><strong>Progres</strong> — menampilkan jumlah shift kerja yang telah diselesaikan dibandingkan total keseluruhan, serta persentase periode yang telah berjalan.</li>
+<li><strong>Gaji</strong> — membuka <a href="#salary">pengaturan perhitungan gaji</a>. Kartu ini menampilkan estimasi berdasarkan jadwal dan periode yang dipilih.</li>
+<li><strong>Total</strong> — estimasi jumlah pendapatan hingga saat ini, termasuk perhitungan berdasarkan metode pembayaran yang dipilih, bonus, lembur, dan potongan.</li>
+<li><strong>Tarif atau gaji</strong> — isi kartu ini bergantung pada metode perhitungan yang dipilih: pembayaran per jam, per giliran, atau per bulan. Kartu menampilkan nilai yang dimasukkan dalam pengaturan gaji.</li>
+<li><strong>Rincian perhitungan</strong> — waktu yang dibayar, jam lembur, bonus, dan potongan untuk periode yang dipilih.</li>
+<li><strong>Laporan</strong> — membuka <a href="#reports">laporan terperinci mengenai periode, waktu kerja, dan gaji</a>.</li>
+</ol>
+
+<div class="tip">Semua nilai pada bagian waktu kerja dan gaji akan dihitung ulang saat Anda mengubah periode pada kartu bagian atas.</div>
+
+<h3 id="statistics-break">5.3. Penghitungan waktu istirahat dalam waktu kerja</h3>
+
+<p>Ketuk kartu “Waktu kerja” untuk menentukan apakah waktu istirahat makan atau istirahat lainnya akan dihitung sebagai bagian dari waktu kerja aktual dan waktu yang dibayar.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_break_settings.webp" alt="Panel pengaturan durasi dan perhitungan waktu istirahat">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Total saat ini</strong> — menampilkan jam yang direncanakan dan jam kerja aktual untuk periode yang dipilih sebelum pengaturan baru diterapkan.</li>
+<li><strong>Hitung istirahat sebagai waktu kerja</strong> — biarkan opsi ini aktif jika waktu istirahat dibayar dan termasuk dalam durasi giliran kerja (shift). Nonaktifkan jika waktu tersebut harus dikecualikan dari waktu kerja dan waktu yang dibayar.</li>
+<li><strong>Durasi istirahat</strong> — pilih jam dan menit untuk satu kali istirahat. Pengaturan ini digunakan saat menghitung ulang giliran kerja yang berlaku.</li>
+<li><strong>Total istirahat</strong> — menampilkan durasi yang dipilih sebelum penyimpanan.</li>
+<li><strong>Simpan</strong> — menerapkan pengaturan serta menghitung ulang waktu kerja dan nilai-nilai terkait.</li>
+</ol>
+
+<div class="notice">Waktu istirahat dapat berupa istirahat makan, serah terima giliran kerja, atau jeda tidak dibayar lainnya di dalam giliran kerja. Masukkan durasi yang sesuai dengan aturan di tempat kerja Anda.</div>
+
+<h3 id="reports">5.4. Laporan: periode, status, dan ringkasan</h3>
+
+<p>Buka “Laporan” dari kartu bagian bawah pada layar statistik. Bagian ini menyajikan informasi lebih rinci untuk periode yang dipilih: waktu kerja, giliran kerja (shift) dan ketidakhadiran, penyesuaian kalender, gaji, bonus, potongan, perbandingan periode, rincian harian, serta fitur ekspor.</p>
+
+<div class="warning"><strong>Laporan ini disediakan hanya untuk tujuan informasi.</strong> Perhitungan didasarkan pada jadwal yang dipilih, pengaturan gaji, penghitungan waktu istirahat, dan perubahan giliran kerja pada kalender. Angka aktual dari pemberi kerja Anda mungkin berbeda karena perbedaan sistem pencatatan waktu, pembulatan, pajak, tunjangan, atau aturan internal. Jika Anda menemukan kesalahan atau metode perhitungan yang tidak didukung, silakan hubungi pengembang melalui alamat yang tercantum dalam aplikasi serta sertakan data masukan dan hasil yang diharapkan.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_period_salary.webp" alt="Layar laporan dengan pemilihan periode, status, ringkasan, dan rincian gaji">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Periode laporan</strong> — ketuk kartu untuk memilih bulan saat ini, bulan sebelumnya, bulan berikutnya, rentang waktu yang telah ditentukan, atau tanggal kustom. Semua informasi di bawah ini berlaku untuk periode yang dipilih.</li>
+<li><strong>Status periode</strong> — menunjukkan apakah periode tersebut sudah selesai, sedang berlangsung, atau belum dimulai. Periode yang telah selesai dihitung berdasarkan data aktual yang tersimpan. Periode yang sedang berlangsung menggabungkan data pekerjaan yang sudah ada dengan rencana saat ini, sedangkan periode mendatang merupakan perkiraan.</li>
+<li><strong>Ringkasan</strong> — ringkasan teks mengenai waktu kerja aktual, jumlah yang dihitung, dan lembur.</li>
+<li><strong>Gaji</strong> — rincian lengkap mengenai gaji pokok, upah lembur, bonus, potongan, dan estimasi akhir. Nilai-nilai ini bergantung pada <a href="#salary">pengaturan gaji</a> dan periode yang dipilih.</li>
+</ol>
+
+<h3 id="reports-work">5.5. Waktu kerja, ketidakhadiran, dan hari kerja</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_work_absences.webp" alt="Layar laporan dengan informasi waktu kerja, istirahat, shift yang diselesaikan, dan ketidakhadiran">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Waktu kerja</strong> — menampilkan jam kerja yang direncanakan dan aktual, jam kerja sebelum dan sesudah pengurangan waktu istirahat, jumlah giliran kerja (shift) yang diselesaikan, durasi rata-rata giliran kerja, serta total waktu istirahat yang dikurangkan. Atur waktu istirahat di <a href="#statistics-break">bagian waktu kerja</a>.</li>
+<li><strong>Ketidakhadiran dan hari</strong> — menampilkan jumlah hari libur, hari cuti tahunan, hari cuti sakit, hari izin tidak masuk kerja, dan hari dengan perubahan jadwal selama periode yang dipilih.</li>
+</ol>
+
+<h3 id="reports-charts">5.6. Penyesuaian dan grafik</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_corrections_charts.webp" alt="Layar laporan dengan penyesuaian, komposisi gaji, dan nilai waktu kerja">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Penyesuaian</strong> — menampilkan jam lembur, total perubahan durasi giliran kerja, dan jumlah hari yang diubah dari jadwal dasar.</li>
+<li><strong>Grafik</strong> — memvisualisasikan komposisi gaji dan waktu kerja: gaji pokok, lembur, bonus, potongan, total, serta jam yang direncanakan, jam kerja aktual, dan jam yang dibayarkan.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_charts_days.webp" alt="Grafik laporan tambahan yang menampilkan jam kerja dan diagram lingkaran jenis hari">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Jam</strong> — melanjutkan perbandingan visual antara jam yang direncanakan, jam kerja aktual, jam yang dibayarkan, dan jam lembur. Baris "Waktu kerja aktual" menampilkan hasil setelah pengaturan dan penyesuaian diterapkan.</li>
+<li><strong>Jenis hari</strong> — diagram lingkaran yang membagi hari-hari dalam periode yang dipilih berdasarkan jenisnya. Legenda bergantung pada jadwal dan perubahan aktual: shift siang, malam, atau lainnya, hari libur, cuti tahunan, cuti sakit, izin tidak masuk kerja, dan status lainnya.</li>
+</ol>
+
+<h3 id="reports-comparison">5.7. Membandingkan periode</h3>
+
+<p>Bagian perbandingan membantu Anda membandingkan gaji, waktu, shift, dan ketidakhadiran di beberapa periode. Jumlah periode yang tersedia bergantung pada data yang tersimpan.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_chart.webp" alt="Layar perbandingan periode dengan pemilihan rentang waktu, grafik gaji, dan bagian awal tabel perbandingan">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Bandingkan periode</strong> — ketuk kartu untuk memilih berapa banyak periode yang akan dibandingkan beserta rentangnya.</li>
+<li><strong>Grafik dan daftar periode</strong> — menampilkan gaji untuk setiap periode dan mencantumkan interval yang disertakan dalam perbandingan beserta statusnya.</li>
+<li><strong>Tabel perbandingan</strong> — berisi nilai terperinci untuk setiap periode. Geser tabel secara horizontal ke kiri atau kanan untuk melihat kolom lainnya.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_table.webp" alt="Lanjutan tabel perbandingan dan informasi selisih antara periode yang berurutan">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Nilai periode</strong> — total gaji, jam kerja dan jam yang dibayar, lembur, bonus, potongan, shift yang diselesaikan, ketidakhadiran, dan perubahan hari.</li>
+<li><strong>Selisih antarperiode</strong> — menunjukkan perbedaan setiap periode dibandingkan periode sebelumnya. Nilai positif dan negatif menunjukkan peningkatan atau penurunan pada metrik terkait. Warna saja tidak selalu berarti keuntungan atau masalah; misalnya, peningkatan potongan berarti jumlah uang yang dipotong menjadi lebih besar.</li>
+</ol>
+
+<h3 id="reports-details-export">5.8. Rincian harian dan ekspor</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_details_export.webp" alt="Kartu laporan untuk detail harian dan ekspor ke PDF, HTML, JSON, atau CSV">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Rincian harian</strong> — membuka daftar setiap hari dalam periode yang dipilih. Anda dapat memeriksa jenis shift, waktu yang direncanakan dan aktual, penyesuaian jam, ketidakhadiran, dan perubahan lainnya untuk hari tertentu.</li>
+<li><strong>Ekspor</strong> — menyimpan laporan dalam format PDF, HTML, JSON, atau CSV. Pilih periode laporan sebelum mengekspor; kemudian Anda dapat mencetak, menyimpan, atau membagikan file tersebut melalui menu sistem Android.</li>
+</ol>
+
+<div class="tip">Sebelum melakukan perbandingan atau ekspor, periksa periode yang dipilih, jadwal, pergantian shift, waktu istirahat, dan pengaturan gaji. Kesalahan pada data sumber akan memengaruhi setiap total laporan.</div>
+
+<h2 id="alarms">6. Alarm</h2>
+
+<p>ShiftAlarm memungkinkan Anda membuat alarm sekali pakai, mengulang alarm pada hari-hari tertentu dalam seminggu, atau mengaitkan waktunya dengan jadwal shift.</p>
+
+<h3 id="alarms-list">6.1. Daftar alarm</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarms_overview.webp" alt="Layar alarm ShiftAlarm yang menampilkan peringatan berikutnya, opsi pengurutan, kartu alarm, dan tombol tambah">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Alarm berikutnya</strong> — menampilkan tanggal dan waktu peringatan aktif berikutnya.</li>
+<li><strong>Pengurutan alarm</strong> — mengubah urutan kartu alarm, misalnya dengan menampilkan alarm yang aktif terlebih dahulu.</li>
+<li><strong>Kartu alarm</strong> — memuat informasi waktu, tanggal atau mode pengulangan, jenis jadwal, dan sisa waktu. Ketuk kartu untuk mengeditnya.</li>
+<li><strong>Sakelar</strong> — mengaktifkan atau menonaktifkan alarm untuk sementara tanpa menghapus pengaturannya.</li>
+<li><strong>Hapus</strong> — menghapus alarm yang dipilih.</li>
+<li><strong>Tambah alarm</strong> — membuka layar untuk membuat alarm baru.</li>
+</ol>
+
+<h3 id="alarms-create">6.2. Membuat dan mengedit alarm</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_time_schedule.webp" alt="Bagian atas editor alarm ShiftAlarm: kontrol waktu, jenis jadwal, tunda (snooze), dan simpan">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Waktu</strong> — gulir roda penunjuk jam dan menit untuk mengatur waktu peringatan.</li>
+<li><strong>Jenis jadwal</strong> — pilih salah satu mode berikut:
+<ul>
+<li><strong>Sekali</strong> — alarm berbunyi satu kali pada tanggal yang dipilih;</li>
+<li><strong>Berdasarkan hari</strong> — berulang pada hari-hari tertentu dalam seminggu;</li>
+<li><strong>Berdasarkan giliran kerja (shift)</strong> — mengaitkan alarm dengan jadwal dan jenis giliran kerja yang dipilih.</li>
+</ul>
+</li>
+<li><strong>Tunda (Snooze)</strong> — mengatur berapa menit peringatan ditunda saat Anda mengetuk tombol tunda pada layar saat alarm berbunyi.</li>
+<li><strong>Batal dan Simpan</strong> — tombol-tombol ini berada di bagian bawah layar dan tetap tersedia saat Anda menggulir layar editor.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_behavior.webp" alt="Pengaturan ShiftAlarm untuk durasi alarm, pengulangan peringatan, peningkatan volume bertahap, dan getaran">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Durasi alarm</strong> — menentukan berapa lama peringatan berbunyi jika pengguna tidak menghentikannya.</li>
+<li><strong>Ulangi jika alarm diabaikan</strong> — mengaktifkan peringatan tambahan jika alarm tidak dimatikan maupun ditunda. Atur interval sebelum peringatan ulang pada bagian di bawahnya.</li>
+<li><strong>Peningkatan volume bertahap</strong> — dimulai dengan suara pelan dan secara bertahap menaikkan volume selama durasi yang dipilih.</li>
+<li><strong>Getaran</strong> — mengaktifkan atau menonaktifkan getaran saat peringatan berlangsung.</li>
+<li><strong>Batal dan Simpan</strong> — kontrol tetap untuk editor.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_sound_name.webp" alt="Bagian bawah editor alarm ShiftAlarm: kontrol getaran, suara, nama, dan penyimpanan">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Getaran</strong> — mengaktifkan atau menonaktifkan peringatan getar.</li>
+<li><strong>Suara</strong> — memungkinkan Anda memilih suara bawaan, suara sistem, atau suara yang ditambahkan pengguna. Anda dapat menambahkan hingga lima suara kustom ke aplikasi.</li>
+<li><strong>Nama</strong> — label opsional untuk membantu Anda membedakan antar-alarm.</li>
+<li><strong>Batal dan Simpan</strong> — membatalkan perubahan atau menyimpan alarm.</li>
+</ol>
+
+<div class="notice">Setelah disimpan, alarm akan muncul di daftar utama. Sebelum menerima peringatan penting, pastikan alarm aktif, aplikasi memiliki izin notifikasi dan izin alarm presisi (*exact-alarm*), serta sistem tidak membatasi aktivitas latar belakangnya.</div>
+
+<div class="tip">Untuk membuat alarm yang terhubung dengan jadwal kerja (*shift*), pertama-tama buatlah jadwal kerja yang sesuai. Di editor, pilih waktu pemicu tetap atau waktu jeda (*offset*) relatif terhadap awal jadwal kerja.</div>
+
+<h2 id="geo">7. Alarm Geo</h2>
+
+<p>Alarm Geo memantau saat perangkat memasuki atau meninggalkan area tertentu. Area tersebut ditentukan oleh titik pada peta dan radius di sekeliling titik itu. Sebagai contoh, gunakan Alarm Geo untuk menerima peringatan saat mendekati tempat kerja, rumah, halte bus, stasiun, atau lokasi lainnya.</p>
+
+<h3 id="geo-overview">7.1. Peta dan kontrol</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_overview.webp" alt="Layar utama Geo Alarm ShiftAlarm dengan peta dan kontrol bernomor">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Perbesar</strong> — memperbesar tampilan peta.</li>
+<li><strong>Perkecil</strong> — memperkecil skala peta.</li>
+<li><strong>Lokasi saya</strong> — menggeser peta ke lokasi perangkat saat ini. Aplikasi memerlukan akses lokasi untuk fitur ini.</li>
+<li><strong>Tempat tersimpan</strong> — membuka daftar Geo Alarm dan titik lokasi yang telah disimpan.</li>
+<li><strong>Kembali</strong> — kembali ke layar aplikasi sebelumnya.</li>
+<li><strong>Jumlah Geo Alarm</strong> — menampilkan berapa banyak Geo Alarm yang telah dibuat.</li>
+<li><strong>Daftar Geo Alarm</strong> — membuka daftar terpisah berisi Geo Alarm yang telah dibuat.</li>
+</ol>
+
+<div class="tip">Anda juga dapat melakukan zoom menggunakan gerakan. Sentuh peta dengan dua jari lalu renggangkan untuk memperbesar (zoom in), atau rapatkan untuk memperkecil (zoom out).</div>
+<div class="notice">Kontrol di sisi layar mungkin muncul di sisi sebaliknya pada bahasa dengan arah penulisan kanan-ke-kiri. Fungsinya tetap sama.</div>
+
+<h3 id="geo-saved-places">7.2. Alarm dan titik lokasi tersimpan</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_saved_places.webp" alt="Jendela tempat tersimpan dengan tab Geo Alarm dan titik lokasi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Alarm</strong> — menampilkan Geo Alarm yang ditambahkan ke tempat tersimpan.</li>
+<li><strong>Titik lokasi</strong> — menampilkan koordinat tersimpan yang tidak memiliki Geo Alarm aktif.</li>
+<li><strong>Daftar tempat tersimpan</strong> — ketuk kartu untuk beralih ke lokasi tersebut di peta.</li>
+<li><strong>Tutup</strong> — menutup jendela dan kembali ke peta.</li>
+</ol>
+
+<div class="notice">Jika Anda menghapus Geo Alarm yang telah disimpan, koordinatnya akan tetap tersimpan secara otomatis di tab “Titik lokasi”. Anda dapat menggunakan titik tersebut kembali di kemudian hari untuk membuat Geo Alarm baru.</div>
+
+<h3 id="geo-select-point">7.3. Memilih titik dan radius</h3>
+
+<p>Sentuh dan tahan lokasi yang diinginkan pada peta. Aplikasi akan menempatkan penanda dan membuka panel titik yang dipilih.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_selected_point.webp" alt="Titik peta yang dipilih beserta alamat, radius, penanda (bookmark), dan tombol pembuatan Geo Alarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Penanda titik yang dipilih</strong> — pusat dari geofence yang akan dibuat. Peta juga menampilkan lingkaran untuk radius yang dipilih.</li>
+<li><strong>Alamat dan koordinat</strong> — memungkinkan Anda memastikan bahwa lokasi yang dipilih sudah benar.</li>
+<li><strong>Simpan titik lokasi</strong> — menambahkan koordinat yang dipilih ke daftar lokasi tersimpan tanpa membuat alarm.</li>
+<li><strong>Radius</strong> — mengatur ukuran area di sekitar titik tersebut. Geser pengatur hingga Anda memilih jarak yang sesuai.</li>
+<li><strong>Batal</strong> — membatalkan pemilihan titik.</li>
+<li><strong>Buat di sini</strong> — membuka editor Geo Alarm baru untuk titik yang dipilih.</li>
+</ol>
+
+<div class="warning"><strong>Cara memilih radius.</strong> Ponsel tidak melacak koordinatnya secara terus-menerus. Sistem Android, produsen perangkat, mode hemat baterai, GPS, kualitas sinyal jaringan seluler dan Wi‑Fi, serta kecepatan pergerakan semuanya memengaruhi kapan batas area terdeteksi. Oleh karena itu, peringatan mungkin muncul di luar garis batas yang digambar. Sebagai contoh, dengan radius 800 m, deteksi masuk bisa terjadi saat perangkat sudah berada di dalam area—mungkin pada jarak 700, 600, atau 500 m dari titik pusat.</div>
+
+<ul>
+<li><strong>Di dalam kota</strong>, radius sebesar <strong>1.300–1.500 m</strong> umumnya disarankan.</li>
+<li><strong>Di luar kota</strong>, di mana pembaruan lokasi mungkin lebih jarang terjadi, disarankan menggunakan radius <strong>4.000–5.000 m</strong>.</li>
+<li><strong>Radius yang tepat</strong> sebaiknya dipilih berdasarkan rute, kecepatan, dan perilaku perangkat Anda.</li>
+</ul>
+
+<div class="notice">Sistem mendeteksi saat perangkat melintasi batas virtual area tersebut. Dalam mode “Saat masuk”, radius yang lebih besar biasanya memberikan lebih banyak waktu bagi ponsel untuk mendeteksi saat Anda mendekat. Dalam mode “Saat keluar”, batas area justru ditempatkan lebih jauh dari titik yang dipilih.</div>
+
+<h3 id="geo-create">7.4. Membuat Geo Alarm</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_location_schedule.webp" alt="Bagian atas editor Geo Alarm: status kesiapan, lokasi, dan jenis jadwal">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Kesiapan Geo Alarm</strong> — menunjukkan apakah izin yang diperlukan telah dikonfigurasi dan apakah aplikasi dapat mendaftarkan geofence.</li>
+<li><strong>Lokasi</strong> — memuat alamat dan koordinat yang dipilih. Anda dapat mengubah alamat tersebut sebagai label, namun titik lokasinya sendiri ditentukan pada peta.</li>
+<li><strong>Jenis jadwal</strong> — menentukan hari dan kondisi saat Geo Alarm aktif.</li>
+<li><strong>Selalu</strong> — Geo Alarm aktif setiap hari selama fitur ini diaktifkan.</li>
+<li><strong>Sekali</strong> — digunakan untuk pemicuan satu kali berikutnya saat kondisi yang dipilih terpenuhi.</li>
+<li><strong>Berdasarkan hari</strong> — hanya berfungsi pada hari-hari tertentu dalam seminggu.</li>
+<li><strong>Berdasarkan shift</strong> — mengaitkan Geo Alarm dengan jadwal shift yang aktif.</li>
+</ol>
+
+<div class="notice"><strong>Jadwal “Berdasarkan shift”.</strong> Pilih apakah alarm berfungsi pada hari shift, hanya sebelum shift, atau hanya setelahnya, serta tentukan jenis shift yang diperlukan: siang, malam, pagi, sore, 24 jam, kustom, atau shift kerja apa pun.</div>
+<div class="tip">Jika tanggal kalender ditandai sebagai hari libur, cuti, sakit, atau waktu libur (bukan shift kerja), Geo Alarm yang dikaitkan dengan shift tidak akan aktif pada hari tersebut.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_trigger_settings.webp" alt="Bagian bawah editor Geo Alarm: kondisi masuk atau keluar, radius, dan pengaturan peringatan">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Kondisi pemicu</strong> — menentukan perlintasan batas mana yang memulai peringatan.</li>
+<li><strong>Saat masuk</strong> — memulai peringatan ketika perangkat memasuki radius yang dipilih, misalnya saat mendekati tempat kerja atau lokasi pemberhentian yang ditentukan.</li>
+<li><strong>Saat keluar</strong> — memulai peringatan ketika perangkat meninggalkan radius yang dipilih, misalnya setelah meninggalkan tempat kerja atau stasiun agar Anda tidak melewatkan bagian rute berikutnya.</li>
+<li><strong>Saat masuk atau keluar</strong> — memulai peringatan setiap kali batas dilintasi, baik saat masuk maupun keluar.</li>
+<li><strong>Radius</strong> — ukuran geofence di sekitar titik yang dipilih.</li>
+<li><strong>Durasi alarm</strong> — menentukan berapa lama peringatan berbunyi.</li>
+<li><strong>Peningkatan volume bertahap</strong> — mengatur kenaikan volume secara halus setelah peringatan dimulai.</li>
+<li><strong>Batal dan Simpan</strong> — membatalkan perubahan atau menyimpan Geo Alarm.</li>
+</ol>
+
+<div class="tip">Opsi lainnya di bawah ini serupa dengan alarm biasa: suara, getaran, durasi peringatan, peningkatan volume bertahap, dan nama.</div>
+
+<h3 id="geo-existing">7.5. Geo Alarm pada peta dan kontrolnya</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_marker_radius.webp" alt="Penanda Geo Alarm yang telah dibuat beserta lingkaran radius pemicunya pada peta">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Penanda Geo Alarm</strong> — menampilkan titik yang dipilih.</li>
+<li><strong>Batas radius</strong> — menampilkan area yang aktivitas masuk atau keluarnya dipantau oleh aplikasi.</li>
+</ol>
+
+<p>Ketuk penanda Geo Alarm. Jendela informasi kecil akan muncul terlebih dahulu. Ketuk jendela tersebut untuk membuka kartu detail.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_alarm_card.webp" alt="Kartu detail Geo Alarm dengan informasi, penanda, sakelar, dan kontrol">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Nama dan alamat</strong> — mengidentifikasi Geo Alarm yang dipilih.</li>
+<li><strong>Bookmark</strong> — menambahkan alarm ke daftar tempat tersimpan atau menghapusnya dari daftar tersebut.</li>
+<li><strong>Sakelar</strong> — mengaktifkan atau menonaktifkan sementara Geo Alarm tanpa menghapus pengaturannya.</li>
+<li><strong>Pengaturan dan status</strong> — menampilkan radius, kondisi masuk atau keluar, jadwal, kesiapan geofence, dan informasi mengenai aktivasi sebelumnya.</li>
+<li><strong>Edit</strong> — membuka pengaturan Geo Alarm.</li>
+<li><strong>Tutup</strong> — menutup kartu dan kembali ke peta.</li>
+<li><strong>Hapus</strong> — menghapus Geo Alarm setelah konfirmasi.</li>
+</ol>
+
+<div class="warning">Agar dapat beroperasi dengan andal, izinkan akses lokasi yang presisi dan di latar belakang, hapus pembatasan baterai yang ketat untuk ShiftAlarm, serta periksa pengaturan autostart jika perangkat Anda menyediakannya. Meskipun pengaturan sudah benar, Android tidak menjamin akurasi deteksi batas hingga tingkat beberapa meter.</div>
+
+<h2 id="notes">8. Catatan, acara, dan pengingat</h2>
+
+<p>Bagian “Catatan” menyimpan teks biasa, daftar, daftar periksa, rekaman audio, catatan ucapan-ke-teks (speech-to-text), pengingat, dan acara.</p>
+
+<h3 id="notes-create">8.1. Menambahkan catatan</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_type_picker.webp" alt="Memilih jenis catatan baru di ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Gagang panel</strong> — seret ke atas untuk menampilkan daftar lengkap jenis catatan, atau ke bawah untuk menutup panel.</li>
+<li><strong>Jenis catatan</strong> — pilih opsi yang sesuai:
+<ul>
+<li><strong>Catatan teks</strong> — teks biasa;</li>
+<li><strong>Daftar periksa</strong> — daftar item dengan kotak centang penyelesaian;</li>
+<li><strong>Daftar</strong> — daftar dengan poin-poin atau penomoran;</li>
+<li><strong>Catatan audio</strong> — rekaman suara;</li>
+<li><strong>Ucapan ke teks</strong> — membuat catatan menggunakan pengenalan ucapan;</li>
+<li><strong>Pengingat</strong> — entri dengan pemberitahuan pada waktu yang ditentukan;</li>
+<li><strong>Acara</strong> — entri yang dikaitkan dengan tanggal dan waktu.</li>
+</ul>
+</li>
+<li><strong>Batal</strong> — menutup pemilih tanpa membuat catatan.</li>
+</ol>
+
+<div class="tip">Setelah Anda memilih jenisnya, editor yang sesuai akan terbuka. Isi kolom yang diperlukan dan simpan entri tersebut.</div>
+
+<h3 id="notes-list">8.2. Daftar catatan dan kontrol</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_overview.webp" alt="Layar catatan ShiftAlarm dengan fitur pengurutan, catatan aktif dan diarsipkan, pencarian, serta tindakan kartu">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Urutkan</strong> — mengubah urutan catatan dalam daftar.</li>
+<li><strong>Aktif</strong> — menampilkan catatan biasa dan terjadwal yang belum dipindahkan ke arsip.</li>
+<li><strong>Arsip</strong> — membuka daftar catatan yang diarsipkan.</li>
+<li><strong>Cari</strong> — menemukan kecocokan dalam judul dan isi catatan.</li>
+<li><strong>Kartu catatan</strong> — menampilkan judul, jenis, status, dan informasi tambahan. Ketuk kartu untuk membuka catatan.</li>
+<li><strong>Sematkan</strong> — menyematkan catatan ke bagian atas daftar.</li>
+<li><strong>Arsip</strong> — menghapus catatan dari daftar aktif dan memindahkannya ke arsip.</li>
+<li><strong>Hapus</strong> — menghapus catatan setelah konfirmasi.</li>
+<li><strong>Tambah catatan</strong> — membuka pemilih jenis catatan baru.</li>
+</ol>
+
+<div class="notice">Gunakan arsip untuk entri yang tidak lagi diperlukan dalam daftar utama tetapi sebaiknya tetap disimpan. Hapus catatan hanya jika sudah tidak diperlukan sama sekali.</div>
+
+<h2 id="clock">9. Jam, stopwatch, dan pengatur waktu</h2>
+
+<p>Bagian ini menggabungkan waktu lokal dan dunia, stopwatch, serta pengatur waktu. Buka dengan tombol <strong>“Jam”</strong> di layar utama.</p>
+
+<div class="notice">Tiga tab muncul di bagian bawah layar: “Jam,” “Stopwatch,” dan “Pengatur Waktu.” Ketuk tab untuk beralih mode.</div>
+
+<h3 id="clock-world">9.1. Jam dan jam dunia</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_overview.webp" alt="Layar jam ShiftAlarm yang menampilkan waktu lokal, jam dunia, tombol tambah, dan tab bagian bawah">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Waktu lokal</strong> — menampilkan waktu, tanggal, dan zona waktu sistem perangkat saat ini.</li>
+<li><strong>Jam dunia</strong> — menampilkan kota dan zona waktu yang telah ditambahkan. Saat daftar masih kosong, aplikasi akan menampilkan petunjuk.</li>
+<li><strong>Tombol tambah</strong> — membuka menu pemilihan jam dunia.</li>
+<li><strong>Tab bagian</strong> — beralih antara layar “Jam,” “Stopwatch,” dan “Pengatur Waktu.”</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_add_timezone.webp" alt="Menambahkan kota atau zona waktu ke jam dunia ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Pencarian</strong> — masukkan nama kota atau zona waktu untuk memfilter daftar.</li>
+<li><strong>Daftar kota dan zona waktu</strong> — ketuk opsi yang diinginkan untuk menambahkannya ke layar jam dunia.</li>
+</ol>
+
+<div class="tip">Zona waktu lokal selalu ditampilkan paling atas. Anda dapat menghapus jam dunia yang telah ditambahkan dari daftar, namun waktu lokal tidak dapat dihapus.</div>
+
+<h3 id="clock-stopwatch">9.2. Stopwatch</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_start.webp" alt="Stopwatch ShiftAlarm sebelum dimulai">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Riwayat</strong> — membuka sesi stopwatch yang tersimpan.</li>
+<li><strong>Mulai</strong> — memulai penghitungan waktu.</li>
+<li><strong>Atur ulang</strong> — tidak tersedia sebelum stopwatch dimulai. Setelah dihentikan, tombol ini mengembalikan stopwatch ke nol dan menghapus catatan putaran (lap) saat ini.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_running.webp" alt="Stopwatch ShiftAlarm yang sedang berjalan dengan kontrol riwayat, simpan, lap, dan jeda">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Riwayat</strong> — menampilkan sesi yang telah disimpan sebelumnya.</li>
+<li><strong>Simpan</strong> — meminta nama dan menyimpan sesi stopwatch saat ini.</li>
+<li><strong>Putaran (Lap)</strong> — mencatat hasil sementara tanpa menghentikan penghitung waktu total.</li>
+<li><strong>Jeda</strong> — menjeda stopwatch. Setelah menjeda, Anda dapat melanjutkannya atau meresetnya.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_laps.webp" alt="Lap stopwatch ShiftAlarm dan opsi pengurutannya">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Asli, tercepat, dan terlambat</strong> — ubah urutan tampilan putaran: urutan asli, tercepat terlebih dahulu, atau terlambat terlebih dahulu.</li>
+<li><strong>Putaran</strong> — setiap putaran menampilkan total waktu saat putaran tersebut dicatat serta waktu putaran itu sendiri.</li>
+</ol>
+
+<div class="notice">Saat Anda mengetuk Simpan, masukkan nama sesi lalu konfirmasi. Anda dapat membuka sesi yang telah disimpan tersebut nanti melalui Riwayat.</div>
+
+<h3 id="clock-timer">9.3. Pengatur Waktu</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_setup.webp" alt="Mengatur timer ShiftAlarm menggunakan roda pemilih jam, menit, dan detik">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Jam</strong> — gulir roda dan pilih jumlah jam.</li>
+<li><strong>Menit</strong> — gulir roda dan pilih jumlah menit.</li>
+<li><strong>Detik</strong> — gulir roda dan pilih jumlah detik.</li>
+<li><strong>Mulai</strong> — memulai pengatur waktu dengan durasi yang dipilih.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_running.webp" alt="Timer ShiftAlarm yang sedang berjalan dengan kontrol sisa waktu, jeda, tambah menit, dan berhenti">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Sisa waktu</strong> — menampilkan sisa waktu sebelum peringatan muncul.</li>
+<li><strong>Waktu selesai</strong> — menampilkan perkiraan waktu saat pengatur waktu akan berakhir.</li>
+<li><strong>Pengatur waktu terbaru</strong> — durasi yang baru saja digunakan dan disimpan; ketuk salah satu untuk menggunakannya kembali dengan cepat.</li>
+<li><strong>Jeda</strong> — menghentikan hitung mundur untuk sementara. Anda dapat melanjutkannya kembali nanti.</li>
+<li><strong>+1 mnt</strong> — menambahkan satu menit ke sisa waktu.</li>
+<li><strong>Berhenti</strong> — menghentikan pengatur waktu sepenuhnya.</li>
+</ol>
+
+<div class="tip">Pengatur waktu dan stopwatch tetap berjalan di latar belakang. Statusnya mungkin muncul dalam notifikasi, di layar utama, dan pada widget.</div>
+
+<h2 id="widgets">10. Widget</h2>
+
+<p>ShiftAlarm menyediakan widget untuk layar Beranda ponsel.</p>
+<ul>
+<li><strong>Hari Ini 4×2</strong> — panel ringkas dengan dua bagian yang dapat dikonfigurasi.</li>
+<li><strong>Hari Ini 4×3</strong> — panel dengan jam di bagian atas dan dua bagian di bawahnya.</li>
+<li><strong>Kalender 4×4</strong> — widget kalender yang menampilkan jadwal giliran kerja (shift).</li>
+</ul>
+<p>Tambahkan widget melalui menu widget Android di layar Beranda ponsel.</p>
+
+<h2 id="salary">11. Perhitungan gaji</h2>
+
+<p>Buka “Perhitungan gaji” dari kartu gaji di bagian <a href="#statistics-work">statistik jadwal yang dipilih</a>. Di sini Anda dapat mengatur metode pembayaran, tarif atau gaji bulanan, aturan lembur, bonus, dan potongan. Aplikasi menggunakan pengaturan ini bersama dengan periode yang dipilih, jadwal shift, perubahan kalender, dan perhitungan waktu istirahat.</p>
+
+<div class="warning"><strong>Perhitungan ini disediakan hanya untuk tujuan informasi.</strong> Jumlah gaji sebenarnya mungkin berbeda jika pemberi kerja Anda menggunakan sistem lain untuk pencatatan waktu, pembulatan, tunjangan, pajak, bonus, potongan, atau pembayaran untuk jenis shift tertentu. Jangan gunakan hasil ini sebagai dokumen penggajian resmi; bandingkan dengan slip gaji dari pemberi kerja Anda. Jika Anda menemukan metode perhitungan yang tidak ditangani secara akurat oleh aplikasi, kirimkan email kepada pengembang di alamat yang tertera dalam aplikasi. Jelaskan aturannya, berikan contoh data input, dan sebutkan hasil yang diharapkan. Metode tersebut kemudian dapat dipertimbangkan untuk pembaruan di masa mendatang.</div>
+
+<h3 id="salary-settings">11.1. Tarif, lembur, dan bonus</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_settings_overview.webp" alt="Layar perhitungan gaji dengan jadwal, jenis tarif, lembur, dan bonus yang dipilih">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Jadwal yang dipilih</strong> — menampilkan jadwal shift mana yang sedang digunakan. Gaji dihitung berdasarkan jadwal ini dan periode yang dipilih pada statistik.</li>
+<li><strong>Jenis tarif dan jumlah pembayaran</strong> — pilih pembayaran <strong>per jam</strong>, <strong>per shift</strong>, atau <strong>per bulan</strong>, lalu masukkan jumlah yang sesuai. Nama kolom akan berubah mengikuti jenis tarif yang dipilih.</li>
+<li><strong>Lembur</strong> — aktifkan bagian ini jika jam tambahan dibayar dengan tarif berbeda dari waktu kerja reguler. Kemudian tentukan faktor pengali upah lembur. Tambahkan jam tambahan ke kalender melalui <a href="#main-shift-time-adjustment">“Ubah shift” → “+ waktu”</a>; aktifkan “Hitung waktu ini sebagai lembur” agar jam tersebut diperhitungkan sebagai lembur.</li>
+<li><strong>Bonus</strong> — menampilkan metode perhitungan saat ini dan jumlah total. Ketuk kartu tersebut untuk membuka <a href="#salary-bonuses">pengaturan bonus</a>.</li>
+</ol>
+
+<div class="notice">Tombol “Simpan” menerapkan pengaturan ke jadwal yang dipilih. Setelah disimpan, jumlah total pada statistik dan laporan akan dihitung ulang menggunakan data yang telah dimasukkan.</div>
+
+<h3 id="salary-summary">11.2. Total potongan dan perhitungan</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions_total.webp" alt="Layar perhitungan gaji dengan rincian potongan dan total akhir">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Potongan</strong> — menampilkan jumlah total dan banyaknya potongan yang telah dikonfigurasi. Ketuk kartu untuk membuka <a href="#salary-deductions">daftar potongan</a>.</li>
+<li><strong>Total</strong> — rincian ringkasan: waktu yang dibayar, jam kerja, lembur, gaji pokok, upah lembur, bonus, potongan, dan hasil akhir.</li>
+</ol>
+
+<div class="tip">Hasilnya bergantung tidak hanya pada pengaturan layar ini, tetapi juga pada periode statistik yang dipilih, giliran kerja (shift) yang telah selesai, pergantian hari, lembur, dan pengaturan istirahat tanpa bayaran.</div>
+
+<h3 id="salary-bonuses">11.3. Bonus</h3>
+
+<p>Ketuk kartu “Bonus” pada layar perhitungan gaji. Anda dapat memasukkan bonus secara manual atau menghitungnya sebagai persentase jika hal itu sesuai dengan sistem penggajian Anda.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_bonuses.webp" alt="Layar pengaturan bonus dengan opsi perhitungan dan input jumlah">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Informasi ringkasan</strong> — menampilkan total bonus yang dihitung dan jumlah dasar yang digunakan untuk perhitungan tersebut.</li>
+<li><strong>Perhitungan bonus</strong> — pilih antara entri manual atau perhitungan persentase, seperti persentase dari penjualan, jika metode tersebut digunakan di tempat kerja Anda.</li>
+<li><strong>Metode entri</strong> — “Jumlah total” cocok untuk satu bonus akhir tunggal. Baris terpisah berguna jika ada beberapa bonus yang harus dihitung secara independen.</li>
+<li><strong>Jumlah atau persentase</strong> — masukkan nilai yang diperlukan sesuai metode perhitungan yang dipilih.</li>
+<li><strong>Batal dan Simpan</strong> — batalkan perubahan atau terapkan perubahan tersebut pada perhitungan gaji.</li>
+</ol>
+
+<h3 id="salary-deductions">11.4. Daftar potongan</h3>
+
+<p>Ketuk kartu “Potongan” pada layar perhitungan utama. Bagian ini memungkinkan Anda menyimpan beberapa potongan dan mengelola masing-masing potongan secara terpisah.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions.webp" alt="Layar daftar potongan dengan jumlah total, baris potongan, dan tombol tambah">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Informasi ringkasan</strong> — menampilkan jumlah nilai dan banyaknya potongan yang diaktifkan.</li>
+<li><strong>Baris potongan</strong> — menampilkan nama, nilai, dan jenis potongan. Ketuk baris tersebut untuk membuka <a href="#salary-deduction-editor">pengaturan potongan</a>. Ikon tempat sampah menghapus baris tersebut.</li>
+<li><strong>Tambah potongan</strong> — tombol “+” membuat baris potongan baru.</li>
+<li><strong>Batal dan Simpan</strong> — batalkan perubahan atau simpan seluruh daftar.</li>
+</ol>
+
+<h3 id="salary-deduction-editor">11.5. Mengonfigurasi potongan individu</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deduction_editor.webp" alt="Panel potongan gaji individu yang menampilkan nama, nilai, jenis, dan dasar perhitungan potongan">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Nama potongan</strong> — masukkan nama yang jelas seperti “Pajak,” “Tunjangan anak,” atau “Denda.”</li>
+<li><strong>Nilai</strong> — masukkan jumlah atau persentase, tergantung pada jenis nilai yang dipilih di bawah ini.</li>
+<li><strong>Jenis nilai</strong> — pilih jumlah tetap atau persentase.</li>
+<li><strong>Jenis potongan</strong> — potongan <strong>variabel</strong> berlaku untuk periode perhitungan tertentu; potongan <strong>berulang</strong> diterapkan secara rutin selama statusnya aktif.</li>
+<li><strong>Potong dari</strong> — pilih dasar perhitungan: total gaji, gaji pokok, bonus, atau opsi lain yang tersedia.</li>
+<li><strong>Aktif</strong> — menonaktifkan potongan untuk sementara tanpa menghapus pengaturannya.</li>
+<li><strong>Batal dan Simpan</strong> — tutup panel tanpa perubahan atau simpan potongan tersebut.</li>
+</ol>
+
+<div class="notice">Untuk potongan persentase, sangat penting untuk memilih dasar “Potong dari” yang tepat: persentase yang sama dari total gaji, gaji pokok, dan bonus akan menghasilkan nilai yang berbeda.</div>
+
+<h2 id="settings">12. Pengaturan</h2>
+
+<p>Buka “Pengaturan” menggunakan tombol di bagian bawah <a href="#main-overview">layar utama</a>. Bagian ini memuat izin sistem, tampilan dan bahasa aplikasi, pengenalan ucapan offline, dokumen dan panduan pengguna, pencadangan, diagnostik, serta opsi kontak pengembang.</p>
+
+<h3 id="settings-overview">12.1. Bagian utama pengaturan</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_permissions_language.webp" alt="Bagian atas pengaturan ShiftAlarm: izin, tema, bahasa aplikasi, dan model ucapan offline">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Izin</strong> — membuka izin alarm dan pengaturan keandalan. Periksa notifikasi, alarm presisi, aktivitas latar belakang, dan pembatasan baterai. <a href="#geo">Geoalarm</a> juga memerlukan akses lokasi; akses lokasi latar belakang atau ‘Izinkan sepanjang waktu’ diperlukan agar alarm dapat aktif saat aplikasi ditutup. Nama dan jalur item berbeda menurut versi Android dan produsen perangkat.</li>
+<li><strong>Tema</strong> — memungkinkan Anda memilih tampilan terang, gelap, atau sistem, memilih varian warna antarmuka, serta mengaktifkan atau menonaktifkan umpan balik haptik untuk tindakan di dalam aplikasi. Tema sistem mengikuti tampilan ponsel saat ini.</li>
+<li><strong>Bahasa aplikasi</strong> — memungkinkan Anda menggunakan bahasa yang berbeda dari bahasa sistem ponsel. Katalog ShiftAlarm mencakup 108 bahasa: temukan bahasa yang diinginkan melalui pencarian, unduh paket bahasanya, lalu terapkan.</li>
+<li><strong>Model ucapan offline</strong> — menginstal modul untuk fitur <a href="#notes-create">catatan ucapan-ke-teks</a>. Pengenalan offline saat ini sedang diuji coba dan tersedia untuk sekitar 20 bahasa. Kualitasnya mungkin lebih rendah dibandingkan pengenalan online dan bergantung pada bahasa, mikrofon, performa ponsel, serta kondisi perekaman.</li>
+</ol>
+
+<div class="warning"><strong>Izin Android berbeda-beda di setiap perangkat.</strong> Pada beberapa ponsel, Anda juga harus mengizinkan fitur mulai otomatis (autostart), memilih mode baterai "Tidak dibatasi" (Unrestricted) atau sejenisnya, serta mengizinkan aktivitas latar belakang. Pengaturan ini mengurangi kemungkinan sistem menghentikan ShiftAlarm, namun nama pengaturan yang tepat bergantung pada produsen perangkat.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_help_backup_diagnostics.webp" alt="Bagian bawah pengaturan ShiftAlarm: dokumen, panduan pengguna, cadangan, diagnostik, dan kontak pengembang">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Dokumen dan bantuan</strong> — membuka dokumen hukum aplikasi: Ketentuan Penggunaan, Kebijakan Privasi, Penafian, dan halaman bantuan singkat.</li>
+<li><strong>Pelatihan dan panduan pengguna</strong> — membuka panduan lengkap bergambar ini yang berisi deskripsi terperinci mengenai fitur-fitur ShiftAlarm.</li>
+<li><strong>Cadangkan dan pulihkan</strong> — membuat file yang berisi pengaturan dan data aplikasi yang didukung, atau memulihkannya dari cadangan sebelumnya. Fitur ini berguna sebelum menginstal ulang aplikasi, mengatur ulang ponsel, atau mentransfer data ke perangkat lain. Lihat <a href="#backup">“Cadangkan dan pulihkan”</a> untuk instruksi terperinci.</li>
+<li><strong>Log diagnostik</strong> — membuka log terpisah untuk fitur aplikasi. Log mencatat tahapan teknis seperti penjadwalan dan pemulihan peringatan, pemrosesan peristiwa, status izin, dan informasi layanan lainnya. Log membantu menemukan tahap terjadinya kesalahan. Anda dapat menyalin entri atau menyiapkannya untuk dikirim melalui email kepada pengembang. Lihat <a href="#diagnostics">‘Diagnostik dan pemecahan masalah’</a> untuk detailnya.</li>
+<li><strong>Hubungi pengembang</strong> — membuka aplikasi email dan membuat pesan yang ditujukan kepada tim dukungan. Gunakan fitur ini untuk melaporkan masalah, mengirimkan masukan atau saran, maupun mengajukan pertanyaan. Untuk masalah teknis, sertakan model ponsel, versi Android, waktu terjadinya masalah, langkah-langkah yang telah dilakukan, serta log diagnostik yang relevan jika memungkinkan.</li>
+</ol>
+
+<div class="notice">Log diagnostik tidak dikirimkan ke pengembang secara otomatis. Anda harus menyalin informasi yang diperlukan atau mengetuk “Kirim ke pengembang,” memilih aplikasi email, meninjau pesan yang telah disiapkan, lalu mengonfirmasi pengirimannya.</div>
+
+<h2 id="backup">13. Cadangan dan pemulihan</h2>
+
+<p>Cadangan menyimpan pengaturan ShiftAlarm yang didukung serta data pengguna dalam file terpisah. Hal ini membantu memulihkan data setelah menginstal ulang aplikasi, mengatur ulang ponsel, atau beralih ke perangkat lain.</p>
+<ol class="step-list">
+<li>Buka “Pengaturan → Cadangan dan pemulihan.”</li>
+<li>Buat cadangan dan simpan file hasilnya di ponsel atau bagikan melalui menu sistem.</li>
+<li>Untuk memulihkan, buka bagian yang sama dan pilih file cadangan yang telah dibuat sebelumnya.</li>
+<li>Setelah pemulihan, periksa alarm, jadwal, dan izin Android yang penting. Beberapa izin keamanan sistem mungkin perlu diberikan kembali pada perangkat baru atau setelah instalasi ulang.</li>
+</ol>
+<p class="tip">Simpan salinan terbaru di tempat aman yang tetap dapat diakses jika ponsel hilang, rusak, atau diatur ulang. File cadangan tidak menggantikan izin sistem Android dan tidak dapat secara otomatis menyertakan data yang tidak diizinkan untuk diakses oleh aplikasi.</p>
+
+<h2 id="diagnostics">14. Diagnostik dan pemecahan masalah</h2>
+
+<p>ShiftAlarm menyediakan log diagnostik terpisah untuk berbagai fitur. Log ini menyimpan urutan peristiwa teknis dan membantu menentukan apakah suatu peringatan dijadwalkan, dipulihkan setelah dimulai ulang (restart), diteruskan untuk diproses, atau dihentikan karena pengaturan sistem.</p>
+
+<h3 id="diagnostics-control">14.1. Mengontrol pengumpulan data diagnostik</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_sections.webp" alt="Layar log diagnostik ShiftAlarm yang menampilkan sakelar utama dan log alarm individu">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Kumpulkan diagnostik</strong> — sakelar utama untuk setiap bagian diagnostik di aplikasi. Matikan sakelar ini untuk berhenti menambahkan peristiwa baru ke semua log sekaligus. Pengumpulan peristiwa baru akan berlanjut setelah Anda mengaktifkannya kembali.</li>
+<li><strong>Log fitur individual</strong> — setiap modul memiliki sakelar dan tombol "Buka" (Open) sendiri. Misalnya, Anda dapat membiarkan diagnostik global tetap aktif sembari menonaktifkan log untuk fitur alarm, jam, atau fitur lainnya saja. Tangkapan layar menampilkan log alarm, yang mencatat peristiwa terkait pengiriman, penjadwalan, pemulihan, perlindungan penjaga (guard-protection), dan layar alarm.</li>
+</ol>
+
+<div class="notice">Sakelar-sakelar ini hanya mengontrol perekaman peristiwa teknis. Menonaktifkan log fitur alarm, jam, atau fitur lainnya tidak berarti menonaktifkan fitur itu sendiri. Hapus entri yang tersimpan sebelumnya secara terpisah menggunakan tombol "Bersihkan" (Clear) di dalam log terkait.</div>
+
+<h3 id="diagnostics-log">14.2. Log fitur individual</h3>
+
+<p>Ketuk "Buka" (Open) pada bagian diagnostik yang diinginkan. Contoh di bawah ini menampilkan log alarm; log untuk fitur lainnya bekerja dengan cara yang serupa.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_alarm_log.webp" alt="Log diagnostik alarm ShiftAlarm yang menampilkan jumlah kejadian, tindakan, dan entri teknis">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Peristiwa tersimpan</strong> — menampilkan jumlah entri yang saat ini tersimpan dalam log yang dipilih.</li>
+<li><strong>Tindakan log</strong>:
+<ul>
+<li><strong>Salin</strong> — menyalin semua data dari log saat ini ke papan klip (clipboard). Anda dapat menempelkannya ke dalam email atau aplikasi lain.</li>
+<li><strong>Bersihkan</strong> — menghapus entri yang tersimpan dalam log ini. Setelah dibersihkan, hanya peristiwa yang dicatat kemudian saat diagnostik aktif yang akan muncul.</li>
+<li><strong>Kirim ke pengembang</strong> — membuka pemilih aplikasi untuk mengirim email. Pilih aplikasi email; alamat pengembang dan data diagnostik akan disertakan secara otomatis. Sebelum mengirim, tambahkan deskripsi masalah, tinjau pesan tersebut, lalu konfirmasi pengirimannya.</li>
+</ul>
+</li>
+<li><strong>Peristiwa aplikasi</strong> — entri log itu sendiri. Sebuah entri biasanya memuat tanggal dan waktu, nama peristiwa teknis, serta parameter tambahan seperti pengenal (identifier), status, atau alasan. Nama teknis mungkin muncul dalam bahasa Inggris; jangan mengubah atau menerjemahkannya sebelum mengirim.</li>
+</ol>
+
+<div class="warning">Sebelum menghapus log, salin atau kirim entri yang diperlukan. Peristiwa diagnostik yang telah dihapus tidak dapat dipulihkan.</div>
+
+<div class="tip">Jika masalah dapat direproduksi, aktifkan terlebih dahulu pengumpulan diagnostik global dan log fitur terkait, lalu ulangi tindakan yang menyebabkan masalah tersebut. Dalam pesan Anda, cantumkan waktu tepat terjadinya masalah, model ponsel, versi Android, hasil yang diharapkan, dan hasil yang sebenarnya. Hal ini membantu mencocokkan deskripsi Anda dengan peristiwa dalam log.</div>
+
+<h2 id="faq">15. Pertanyaan yang sering diajukan</h2>
+
+<h3>Alarm tidak berbunyi tepat waktu</h3>
+<p>Periksa notifikasi, izin alarm presisi (exact-alarm), aktivitas latar belakang, dan pembatasan baterai.</p>
+<h3>Geo Alarm aktif terlambat</h3>
+<p>Periksa pengaturan lokasi presisi dan latar belakang, pembatasan baterai, serta fitur mulai otomatis (autostart) aplikasi. Cobalah menggunakan radius 1.300–1.500 m di dalam kota dan 4.000–5.000 m di luar kota. Pemicuan sebenarnya mungkin tidak terjadi tepat di garis radius.</p>
+<h3>Widget tidak segera diperbarui</h3>
+<p>Buka aplikasi atau ketuk tombol segarkan (refresh) pada widget. Android mungkin membatasi pembaruan widget yang terlalu sering.</p>
+<h3>Saya telah mengubah bahasa, namun dokumen atau panduan belum diperbarui</h3>
+<p>Periksa koneksi internet Anda dan tunggu hingga proses pengunduhan selesai. Jika versi jarak jauh tidak tersedia, aplikasi menggunakan mekanisme cadangan bawaannya.</p>
+
+<div class="footer small">Panduan ini dapat diperbarui melalui GitHub. Jika versi jarak jauh tidak tersedia, aplikasi menggunakan versi offline bawaannya.</div>
+</main>
+</body>
+</html>

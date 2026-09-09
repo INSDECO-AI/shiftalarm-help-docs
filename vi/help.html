@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hướng dẫn sử dụng ShiftAlarm</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #64748b;
+  --accent: #2563eb;
+  --soft: #e8eef8;
+  --border: #dbe4f0;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.58;
+  margin: 0;
+  padding: 18px;
+  color: var(--text);
+  background: var(--bg);
+}
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+h1 { margin: 0 0 8px; font-size: 28px; line-height: 1.2; }
+h2 { margin: 32px 0 10px; font-size: 21px; line-height: 1.25; }
+h3 { margin: 22px 0 8px; font-size: 17px; }
+p, li { font-size: 16px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul, ol { padding-left: 22px; }
+.notice, .tip, .warning {
+  padding: 14px 16px;
+  border-radius: 16px;
+  margin: 14px 0;
+  border: 1px solid var(--border);
+}
+.notice { background: var(--soft); }
+.tip { background: #ecfdf5; }
+.warning { background: #fff7ed; }
+.small { color: var(--muted); font-size: 14px; }
+.toc {
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 16px;
+  margin: 18px 0 24px;
+}
+.toc ol { margin: 8px 0 0; }
+.step-list li { margin-bottom: 8px; }
+.guide-figure {
+  margin: 18px 0;
+}
+.guide-image {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+}
+.callout-list li {
+  margin-bottom: 10px;
+}
+.guide-caption {
+  max-width: 520px;
+  margin: 10px auto 0;
+  color: var(--text);
+  font-size: 15px;
+}
+.guide-caption strong {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.footer {
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --card: #111827;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --accent: #93c5fd;
+    --soft: #1f2937;
+    --border: #334155;
+  }
+  main { box-shadow: none; }
+  .toc { background: #172033; }
+  .tip { background: #10251f; }
+  .warning { background: #2a1d10; }
+}
+</style>
+</head>
+<body>
+<main>
+<h1>Hướng dẫn sử dụng ShiftAlarm</h1>
+<p class="small">Phiên bản 14. Ngày: 2 tháng 8 năm 2026.</p>
+<div class="notice">Trang này là hướng dẫn thực tế về ShiftAlarm. Nó giải thích chức năng của từng tính năng chính, vị trí tìm thấy chúng, thao tác chạm và những điều cần kiểm tra nếu một tính năng không hoạt động như mong đợi.</div>
+<nav class="toc">
+<strong>Mục lục</strong>
+<ol><li><a href="#start">1. Khởi động lần đầu</a></li><li><a href="#permissions">2. Quyền và độ tin cậy</a></li><li><a href="#main">3. Màn hình chính</a></li><li><a href="#shifts">4. Lịch làm việc</a></li><li><a href="#statistics">5. Thống kê lịch trình</a></li><li><a href="#alarms">6. Báo thức</a></li><li><a href="#geo">7. Báo thức theo vị trí</a></li><li><a href="#notes">8. Ghi chú, sự kiện và lời nhắc</a></li><li><a href="#clock">9. Đồng hồ, hẹn giờ và đồng hồ bấm giờ</a></li><li><a href="#widgets">10. Tiện ích (Widget)</a></li><li><a href="#salary">11. Tính lương</a></li><li><a href="#settings">12. Cài đặt</a></li><li><a href="#backup">13. Sao lưu và khôi phục</a></li><li><a href="#diagnostics">14. Chẩn đoán và khắc phục sự cố</a></li><li><a href="#faq">15. Các câu hỏi thường gặp</a></li></ol>
+</nav>
+<h2 id="start">1. Khởi động lần đầu</h2>
+
+<p>Khi ShiftAlarm khởi động lần đầu tiên, ứng dụng sẽ hiển thị quy trình thiết lập nhanh. Màn hình chính đã sẵn sàng ở chế độ nền, nhưng tốt nhất bạn nên hoàn tất các bước thiết lập cơ bản trước.</p>
+<ol class="step-list">
+<li>Đọc thông tin giới thiệu và nhấn “Tiếp tục” (Continue).</li>
+<li>Tại bước tài liệu, hãy mở các tài liệu hoặc chấp nhận các tài liệu bắt buộc khi bạn đã sẵn sàng tiếp tục.</li>
+<li>Tại bước cấp quyền, hãy mở màn hình cấp quyền và kiểm tra các mục: thông báo, báo thức chính xác, quyền truy cập vị trí và hạn chế sử dụng pin.</li>
+<li>Nhấn “Hoàn tất thiết lập” (Finish setup).</li>
+</ol>
+<p class="tip">Bạn có thể cấu hình lại các quyền sau này trong mục “Cài đặt → Quyền và độ tin cậy” (Settings → Permissions and reliability).</p>
+
+<h2 id="permissions">2. Quyền và độ tin cậy</h2>
+
+<p>Các tính năng báo thức, lời nhắc và Báo thức theo vị trí (Geo Alarms) phụ thuộc vào cài đặt Android và phần mềm của nhà sản xuất thiết bị.</p>
+<ul>
+<li><strong>Thông báo</strong> — cần thiết cho báo thức, lời nhắc, bộ hẹn giờ và thông báo dịch vụ.</li>
+<li><strong>Báo thức chính xác</strong> — giúp báo thức kích hoạt đúng thời điểm đã định.</li>
+<li><strong>Vị trí</strong> — cần thiết cho tính năng Báo thức theo vị trí.</li>
+<li><strong>Vị trí chạy ngầm</strong> — cần thiết để Báo thức theo vị trí hoạt động khi ứng dụng đang đóng.</li>
+<li><strong>Pin và hoạt động chạy ngầm</strong> — có thể ảnh hưởng đến độ tin cậy khi kích hoạt tính năng trên các thiết bị Xiaomi/Redmi và một số thiết bị khác.</li>
+</ul>
+<p class="warning">Android không phải lúc nào cũng đảm bảo gửi ngay lập tức thông báo, báo thức chính xác hoặc các sự kiện hàng rào địa lý (geofence). Đối với các cảnh báo quan trọng, hãy kiểm tra kỹ từng mục trên màn hình cấp quyền.</p>
+
+<h2 id="main">3. Màn hình chính</h2>
+
+<p>Màn hình chính là bảng điều khiển hàng ngày của bạn. Nó cung cấp quyền truy cập nhanh vào lịch, đồng hồ, Báo thức theo vị trí, báo thức thường, lịch làm việc theo ca, ghi chú và cài đặt.</p>
+
+<h3 id="main-overview">3.1. Các thành phần trên màn hình chính</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_screen_overview.png" alt="Màn hình chính của ShiftAlarm với các nút điều khiển được đánh số">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Mũi tên quay lại</strong> — chuyển lịch sang tháng trước.</li>
+<li><strong>Tháng và năm</strong> — hiển thị tháng hiện tại. Chạm vào khu vực này để sử dụng <a href="#main-date-picker">công cụ chọn tháng và năm từng bước</a>.</li>
+<li><strong>Mũi tên tiến tới</strong> — chuyển lịch sang tháng tiếp theo.</li>
+<li><strong>Lịch</strong> — khu vực hiển thị tháng chính. Bạn có thể vuốt trên lịch. Mỗi ngày có thể hiển thị ngày, lời nhắc, sự kiện, ca làm việc đã lên lịch và các thay đổi trong ngày. Chạm bình thường để chọn ngày; nhấn giữ để mở <a href="#main-day-actions">thông tin và các thao tác cho ngày được chọn</a>.</li>
+<li><strong>Hôm nay</strong> — đưa lịch về ngày hiện tại.</li>
+<li><strong>Đồng hồ</strong> — mở <a href="#clock">đồng hồ thế giới, đồng hồ bấm giờ và bộ hẹn giờ</a>.</li>
+<li><strong>Geo Alarm (Báo thức theo vị trí)</strong> — mở <a href="#geo">bản đồ, các địa điểm đã lưu và cài đặt Geo Alarm</a>. Thông báo có thể được kích hoạt khi bạn đi vào khu vực đã chọn, rời khỏi khu vực đó hoặc thực hiện một trong hai hành động này.</li>
+<li><strong>Alarm (Báo thức)</strong> — mở <a href="#alarms">các loại báo thức thông thường, báo thức lặp lại và báo thức liên kết với ca làm việc</a>.</li>
+<li><strong>Schedule (Lịch trình)</strong> — mở <a href="#shifts">lịch trình ca làm việc, chức năng tạo/chỉnh sửa lịch trình và số liệu thống kê</a>.</li>
+<li><strong>Notes (Ghi chú)</strong> — mở <a href="#notes">ghi chú, sự kiện, lời nhắc, ghi chú âm thanh và tính năng chuyển giọng nói thành văn bản</a>.</li>
+<li><strong>Settings (Cài đặt)</strong> — mở <a href="#settings">các mục về quyền, ngôn ngữ, giao diện, mô hình nhận diện giọng nói ngoại tuyến, sao lưu, chẩn đoán, tài liệu và hướng dẫn</a>.</li>
+</ol>
+
+
+<h3 id="main-date-picker">3.2. Chọn tháng và năm</h3>
+
+<p>Chạm vào phần hiển thị tháng và năm ở đầu màn hình chính để nhanh chóng mở khoảng thời gian lịch mong muốn. Quá trình lựa chọn diễn ra theo các bước: <strong>thế kỷ → thập kỷ → năm → tháng</strong>.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_century.webp" alt="Bước 1: chọn thế kỷ trong lịch ShiftAlarm">
+<figcaption class="guide-caption"><strong>1. Chọn thế kỷ.</strong> Chạm vào khoảng thời gian chứa năm bạn cần. Ví dụ này chọn thế kỷ 21 (giai đoạn những năm 2000).</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_decade.webp" alt="Bước 2: chọn thập kỷ trong lịch ShiftAlarm">
+<figcaption class="guide-caption"><strong>2. Chọn thập kỷ.</strong> Chạm vào khoảng thời gian chứa năm cần chọn. Với năm 2026, hãy chọn “2020–2029.”</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_year.webp" alt="Bước 3: chọn năm trong lịch ShiftAlarm">
+<figcaption class="guide-caption"><strong>3. Chọn năm.</strong> Chạm vào năm cần chọn. Ví dụ này chọn năm 2026.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_month.webp" alt="Bước 4: chọn tháng trong lịch ShiftAlarm">
+<figcaption class="guide-caption"><strong>4. Chọn tháng.</strong> Chạm vào tháng cần chọn. Ví dụ này chọn tháng Bảy.</figcaption>
+</figure>
+
+<div class="tip">Sau khi bạn chọn một tháng, bảng điều khiển sẽ đóng lại và lịch chính sẽ mở ra tại tháng và năm đã chọn.</div>
+<div class="notice">Nút “Quay lại” (Back) đưa bạn về bước trước đó. Trên màn hình hiển thị theo thế kỷ, nút này sẽ đóng công cụ chọn ngày.</div>
+
+<h3 id="main-day-actions">3.3. Thông tin và các thao tác cho ngày được chọn</h3>
+
+<p>Chạm và giữ vào ngày mong muốn trên lịch. Một bảng chứa thông tin và các thao tác cho ngày đó sẽ mở ra. Kéo bảng lên trên để xem tất cả các thao tác có sẵn.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_day_actions.webp" alt="Bảng thông tin và các thao tác của ShiftAlarm cho ngày được chọn trên lịch">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ngày</strong> — hiển thị thứ trong tuần và ngày được chọn. Kéo tay cầm ở phía trên lên hoặc xuống để mở rộng hoặc đóng bảng.</li>
+<li><strong>Ca làm việc</strong> — hiển thị ca làm việc đã được tính toán hoặc sự thay đổi trong ngày như ngày nghỉ, thời gian nghỉ, kỳ nghỉ phép, nghỉ ốm hoặc các trường hợp ngoại lệ khác.</li>
+<li><strong>Báo thức cho ngày này</strong> — hiển thị các báo thức được cài đặt cho ngày đã chọn hoặc thông báo rằng không có báo thức nào.</li>
+<li><strong>Sự kiện và lời nhắc</strong> — hiển thị các mục liên kết với ngày đã chọn.</li>
+<li><strong>Thêm báo thức</strong> — mở chức năng tạo báo thức một lần cho ngày đã chọn.</li>
+<li><strong>Thay đổi ca làm việc</strong> — tạo một trường hợp ngoại lệ cho một ngày hoặc một khoảng thời gian trong lịch trình hiện tại.</li>
+<li><strong>Thêm ghi chú</strong> — cho phép bạn chọn sự kiện hoặc lời nhắc để tạo cho ngày đã chọn.</li>
+</ol>
+
+<div class="notice">Thao tác “Thay đổi ca làm việc” được sử dụng để điều chỉnh các ngày trong lịch trình ca làm việc hiện tại.</div>
+
+<h4 id="main-shift-override">Thay đổi một ngày hoặc một khoảng thời gian</h4>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_types.webp" alt="Chọn khoảng thời gian và loại thay đổi ca làm việc trong ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ngày bắt đầu</strong> — ngày đầu tiên áp dụng thay đổi. Theo mặc định, hệ thống sử dụng ngày đã chọn trên lịch.</li>
+<li><strong>Ngày kết thúc</strong> — ngày cuối cùng áp dụng thay đổi. Để chỉ thay đổi một ngày, hãy giữ nguyên lựa chọn ngày đó.</li>
+<li><strong>Nghỉ</strong> — thay thế ca làm việc đã được tính toán bằng thời gian nghỉ.</li>
+<li><strong>Nghỉ phép</strong> — đánh dấu ngày hoặc khoảng thời gian đã chọn là nghỉ phép.</li>
+<li><strong>Nghỉ ốm</strong> — đánh dấu ngày hoặc khoảng thời gian đã chọn là nghỉ ốm.</li>
+<li><strong>Lưu thay đổi</strong> — áp dụng trường hợp ngoại lệ đã chọn vào lịch.</li>
+</ol>
+
+<h4 id="main-shift-time-adjustment">Điều chỉnh thời gian làm việc</h4>
+
+<p>Cuộn xuống danh sách các loại thay đổi và chọn “Chỉnh sửa ca” để thay đổi thời lượng của ca làm việc đã được tính toán.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_time_adjustment.webp" alt="Điều chỉnh thời gian làm việc của ca trong ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Chỉnh sửa ca</strong> — cho phép điều chỉnh thời gian làm việc cho ca đã chọn.</li>
+<li><strong>+ thời gian</strong> — thêm giờ hoặc phút vào thời lượng ca tiêu chuẩn.</li>
+<li><strong>− thời gian</strong> — giảm thời lượng ca, ví dụ như khi công việc kết thúc sớm.</li>
+<li><strong>Tính thời gian này là làm thêm giờ</strong> — coi khoảng thời gian được thêm vào là làm thêm giờ. Nếu tắt tùy chọn này, nó sẽ được tính là thời gian làm việc bình thường.</li>
+<li><strong>Lưu thay đổi</strong> — áp dụng điều chỉnh cho ngày hoặc khoảng thời gian đã chọn.</li>
+</ol>
+
+<div class="tip">Thay đổi cho một ngày cụ thể sẽ không làm thay đổi mẫu lịch trình gốc. Thay đổi này được lưu dưới dạng một ngoại lệ riêng biệt và được đưa vào lịch, số liệu thống kê, tính lương và các báo cáo.</div>
+
+<h2 id="shifts">4. Lịch trình ca làm việc</h2>
+
+<p>Lịch trình ca làm việc xác định một chu kỳ làm việc lặp lại và là cơ sở cho các tính năng khác của ShiftAlarm. Ứng dụng sử dụng lịch trình này để điền vào lịch, liên kết báo thức với các ca, tính thời gian làm việc, tạo số liệu thống kê, ước tính lương và lập báo cáo.</p>
+
+<div class="notice"><strong>Nguyên tắc cơ bản.</strong> Trước tiên, hãy tạo lịch trình lặp lại cơ bản. Sau đó, thêm các mục như nghỉ phép, nghỉ ốm, nghỉ làm, ca thay thế một lần hoặc điều chỉnh thời gian làm việc dưới dạng ngoại lệ cho các ngày cụ thể thông qua <a href="#main-day-actions">các thao tác cho ngày được chọn</a>. Cách này giúp giữ nguyên chu kỳ ban đầu.</div>
+
+<h3 id="shifts-list">4.1. Danh sách lịch trình và các điều khiển</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedules_overview.webp" alt="Màn hình lịch trình ca làm việc của ShiftAlarm với thẻ lịch trình đang hoạt động và các nút điều khiển được đánh số">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Chi tiết lịch trình</strong> — tên, ngày bắt đầu, độ dài chu kỳ và chuỗi ngày ngắn gọn. Trong ví dụ, “D · D · O · O” có nghĩa là hai ca ngày tiếp nối bởi hai ngày nghỉ.</li>
+<li><strong>Chuyển đổi</strong> — tạm thời vô hiệu hóa lịch trình mà không xóa nó. Khi bạn bật lại tính năng này, các cài đặt đã lưu sẽ tiếp tục được áp dụng.</li>
+<li><strong>Trạng thái lịch trình</strong> — cho biết lịch trình nào hiện đang hoạt động.</li>
+<li><strong>Chỉnh sửa</strong> — mở các tham số có thể thay đổi. Sau khi thiết lập ban đầu, một phần thông tin cơ bản của lịch trình sẽ bị khóa để tránh việc vô tình tính toán lại dữ liệu lịch đã được tạo.</li>
+<li><strong>Xóa</strong> — xóa lịch trình sau khi xác nhận. Trước khi xóa, hãy kiểm tra các cảnh báo và phép tính có liên kết với ca làm việc.</li>
+<li><strong>Mở thống kê</strong> — mở phần <a href="#statistics">thống kê về thời gian làm việc, chu kỳ, lương và báo cáo</a> của lịch trình này.</li>
+<li><strong>Tạo lịch trình</strong> — cho phép bạn chọn mẫu có sẵn hoặc tạo chu kỳ tùy chỉnh.</li>
+</ol>
+
+<h3 id="shifts-create">4.2. Bắt đầu tạo lịch trình</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_create.webp" alt="Bảng tạo lịch trình với tên, ngày bắt đầu, các mẫu và lịch trình tùy chỉnh">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tên lịch trình</strong> — nhập tên rõ ràng như “Chính 2/2”, “Ca đêm” hoặc tên nơi làm việc của bạn.</li>
+<li><strong>Ngày bắt đầu</strong> — ngày tương ứng với <strong>ngày đầu tiên của chu kỳ lặp lại</strong>. Bạn có thể chọn ngày trong quá khứ hoặc tương lai; ứng dụng sẽ tính toán lịch trình theo cả chiều tiến và lùi từ ngày đó.</li>
+<li><strong>Mẫu</strong> — các trình tự ca làm việc phổ biến có sẵn. Ví dụ này sử dụng mẫu “2/2 ngày”.</li>
+<li><strong>Lịch trình tùy chỉnh</strong> — tạo trình tự ngày làm việc và ngày nghỉ của riêng bạn.</li>
+<li><strong>Tạo lịch trình</strong> — mở trình chỉnh sửa chi tiết cho tùy chọn đã chọn.</li>
+</ol>
+
+<div class="tip">Đối với mẫu “D · D · O · O” (Làm · Làm · Nghỉ · Nghỉ), ngày bắt đầu thường là ngày đầu tiên trong hai ngày làm việc. Trong chu kỳ tùy chỉnh, ngày 1 cũng có thể là ngày nghỉ; điều quan trọng là ngày được chọn phải khớp chính xác với ngày 1 của trình tự mà bạn đã tạo.</div>
+
+<h3 id="shifts-template">4.3. Tạo lịch trình từ mẫu</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_template.webp" alt="Trình chỉnh sửa mẫu lịch trình với tên, trình tự, ngày bắt đầu và ca làm việc">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tên lịch trình</strong> — giữ nguyên tên được gợi ý hoặc thay thế bằng tên của bạn.</li>
+<li><strong>Mẫu</strong> — hiển thị chuỗi ký tự và ý nghĩa của chúng. Trong ví dụ này, “D · D · O · O” có nghĩa là: ca ngày, ca ngày, nghỉ, nghỉ.</li>
+<li><strong>Ngày bắt đầu</strong> — chọn ngày đầu tiên trong chuỗi hiển thị.</li>
+<li><strong>Thời gian ca</strong> — xác định thời gian bắt đầu và kết thúc cho từng loại ca làm việc. Ứng dụng sẽ hiển thị thời lượng đã được tính toán.</li>
+<li><strong>Hủy</strong> — đóng trình chỉnh sửa mà không lưu thay đổi.</li>
+<li><strong>Lưu</strong> — lưu lịch trình và bắt đầu tính toán các ca làm việc trên lịch.</li>
+</ol>
+
+<div class="warning"><strong>Sau khi lưu lần đầu.</strong> Ngày bắt đầu và cấu trúc chu kỳ sẽ bị khóa để bảo vệ dữ liệu lịch đã được tính toán. Bạn vẫn có thể chỉnh sửa tên và một số thông số công việc. Nếu cần một chu kỳ cơ sở hoặc ngày tham chiếu khác, cách an toàn hơn là tạo một lịch trình mới.</div>
+
+<h3 id="shifts-custom">4.4. Tạo chu kỳ tùy chỉnh</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_custom.webp" alt="Trình chỉnh sửa lịch trình tùy chỉnh với độ dài chu kỳ, các tùy chọn ngày, ngày bắt đầu và cài đặt cho từng ngày">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tên lịch trình</strong> — đặt tên cho chuỗi tùy chỉnh của bạn.</li>
+<li><strong>Độ dài chu kỳ</strong> — hiển thị số ngày có trong chuỗi lặp lại.</li>
+<li><strong>Xóa ngày</strong> — rút ngắn chu kỳ đi một ngày.</li>
+<li><strong>Thêm ngày</strong> — thêm một ngày có thể cấu hình vào cuối chu kỳ.</li>
+<li><strong>Ngày bắt đầu</strong> — ngày tương ứng với ngày thứ 1 của chu kỳ tùy chỉnh.</li>
+<li><strong>Cài đặt ngày</strong> — chạm vào thẻ ‘Loại ca’ rồi chọn ngày nghỉ hoặc loại ca cần thiết: ca ngày, ca đêm, ca sáng, ca chiều, ca 24 giờ hoặc ca tùy chỉnh. Đối với ngày làm việc, hãy đặt thời gian bắt đầu và kết thúc. Thiết lập các ngày còn lại của chu kỳ theo cách tương tự ở phần dưới màn hình.</li>
+<li><strong>Hủy</strong> — đóng trình chỉnh sửa mà không lưu thay đổi.</li>
+<li><strong>Lưu</strong> — lưu chu kỳ tùy chỉnh và tính toán lịch trình trên lịch.</li>
+</ol>
+
+<div class="notice"><strong>Chu kỳ là gì?</strong> Chu kỳ là số ngày sau đó trình tự sẽ bắt đầu lại từ đầu. Ví dụ: chu kỳ 4 ngày có thể là “2 ngày làm việc + 2 ngày nghỉ”, trong khi chu kỳ 6 ngày có thể là “3 ngày làm việc + 3 ngày nghỉ”. Sau ngày cuối cùng, ứng dụng sẽ quay lại ngày 1.</div>
+
+<div class="tip">Đừng thay đổi chu kỳ cơ sở cho một trường hợp ngoại lệ về lịch trình chỉ diễn ra một lần. Hãy nhấn giữ vào một ngày trên lịch và tạo ngày nghỉ, kỳ nghỉ, nghỉ ốm, ca làm thay thế hoặc điều chỉnh thời gian.</div>
+
+
+
+<span id="shift-statistics"></span>
+<h2 id="statistics">5. Thống kê lịch trình</h2>
+
+<p>Mở mục “Thống kê” từ thẻ lịch trình bằng cách sử dụng nút <strong>“Mở thống kê”</strong>. Phần này tổng hợp thông tin về các ngày làm việc và ngày nghỉ, các thay đổi lịch trình, thời gian làm việc dự kiến ​​và thực tế, mức lương ước tính cùng các báo cáo.</p>
+
+<div class="notice"><strong>Quan trọng:</strong> số liệu thống kê chỉ được tính toán cho lịch trình ca làm việc đã chọn. Khoảng thời gian được chọn sẽ áp dụng cho tất cả các giá trị về thời gian làm việc, tiền lương và báo cáo hiển thị bên dưới.</div>
+
+<h3 id="statistics-period">5.1. Tóm tắt lịch trình, khoảng thời gian và ngày</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_period_overview.webp" alt="Màn hình thống kê hiển thị thông tin lịch trình, lựa chọn kỳ báo cáo và tổng số liệu theo ngày">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Thông tin lịch trình</strong> — hiển thị tên lịch trình đã chọn, ngày bắt đầu của chu kỳ đầu tiên và độ dài của chu kỳ lặp lại. Số liệu thống kê trên màn hình này chỉ áp dụng cho lịch trình này.</li>
+<li><strong>Thẻ khoảng thời gian đã chọn</strong> — hiển thị khoảng thời gian đang được áp dụng. Chạm vào mục này hoặc mũi tên ở bên phải để chọn tháng hiện tại, tháng trước, tháng sau, năm hiện tại hoặc một khoảng thời gian tùy chỉnh.</li>
+<li><strong>Tóm tắt theo ngày</strong> — hiển thị số ngày trong khoảng thời gian, các ca làm việc, ngày nghỉ, các ca đã hoàn thành và sắp tới, cũng như các ngày có thay đổi. Các ngày có thay đổi là những trường hợp ngoại lệ so với chu kỳ cơ bản: nghỉ phép, nghỉ ốm, thời gian nghỉ, ca thay thế hoặc ca được dời lịch, điều chỉnh thời gian làm việc và các thay đổi khác.</li>
+</ol>
+
+<div class="warning"><strong>Các giai đoạn trong tương lai là dự báo.</strong> Đối với một tháng trong tương lai, ứng dụng sử dụng lịch trình đã tạo và dữ liệu đã nhập, nhưng không thể biết trước các thông tin như nghỉ ốm, nghỉ phép, thời gian nghỉ, làm thêm giờ, tiền thưởng hoặc các khoản khấu trừ. Khi bạn chọn năm hiện tại, các số liệu tổng hợp có thể kết hợp dữ liệu thực tế của những ngày đã qua với dự báo cho phần còn lại của năm.</div>
+
+<h3 id="statistics-work">5.2. Thời gian làm việc, lương và báo cáo</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_work_salary_reports.webp" alt="Màn hình thống kê hiển thị thời gian làm việc, tiến độ, tiền lương và quyền truy cập báo cáo">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Thời gian làm việc</strong> — thẻ tóm tắt về số giờ và tiến độ. Chạm vào thẻ này để mở <a href="#statistics-break">cài đặt thời gian nghỉ giải lao</a>.</li>
+<li><strong>Số giờ theo kế hoạch</strong> — tổng thời lượng của các ca làm việc và các thay đổi đã lên lịch trong giai đoạn được chọn.</li>
+<li><strong>Số giờ đã làm</strong> — thời gian của các ca làm việc được coi là đã hoàn thành tính đến ngày hiện tại, đã áp dụng các cài đặt về thời gian nghỉ giải lao.</li>
+<li><strong>Tiến độ</strong> — hiển thị số lượng ca làm việc đã hoàn thành so với tổng số ca và tỷ lệ phần trăm hoàn thành của giai đoạn được chọn.</li>
+<li><strong>Lương</strong> — mở <a href="#salary">cài đặt tính lương</a>. Thẻ này hiển thị mức lương ước tính cho lịch trình và giai đoạn được chọn.</li>
+<li><strong>Tổng cộng</strong> — số tiền ước tính kiếm được tính đến thời điểm hiện tại, bao gồm phương thức thanh toán đã chọn, tiền thưởng, làm thêm giờ và các khoản khấu trừ.</li>
+<li><strong>Mức lương hoặc lương</strong> — nội dung của thẻ này phụ thuộc vào phương thức tính toán được chọn: trả lương theo giờ, theo ca hoặc theo tháng. Hiển thị giá trị đã nhập trong phần cài đặt lương.</li>
+<li><strong>Chi tiết tính toán</strong> — thời gian được trả lương, số giờ làm thêm, tiền thưởng và các khoản khấu trừ cho khoảng thời gian đã chọn.</li>
+<li><strong>Báo cáo</strong> — mở <a href="#reports">báo cáo chi tiết về các khoảng thời gian, thời gian làm việc và tiền lương</a>.</li>
+</ol>
+
+<div class="tip">Tất cả các giá trị trong phần thời gian làm việc và tiền lương sẽ được tính toán lại khi bạn thay đổi khoảng thời gian ở thẻ phía trên.</div>
+
+<h3 id="statistics-break">5.3. Tính thời gian nghỉ vào thời gian làm việc</h3>
+
+<p>Chạm vào thẻ “Thời gian làm việc” để xác định xem thời gian nghỉ ăn uống hoặc các khoảng nghỉ khác có được tính là một phần của thời gian làm việc thực tế và thời gian được trả lương hay không.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_break_settings.webp" alt="Bảng cài đặt thời lượng và cách tính thời gian nghỉ giải lao">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tổng hiện tại</strong> — hiển thị số giờ theo kế hoạch và số giờ đã làm việc trong khoảng thời gian đã chọn trước khi áp dụng các cài đặt mới.</li>
+<li><strong>Tính thời gian nghỉ là thời gian làm việc</strong> — bật tùy chọn này nếu thời gian nghỉ được trả lương và được tính vào thời lượng ca làm việc. Tắt tùy chọn này nếu khoảng thời gian đó cần được loại trừ khỏi thời gian làm việc và thời gian được trả lương.</li>
+<li><strong>Thời lượng nghỉ</strong> — chọn số giờ và số phút cho một lần nghỉ. Cài đặt này được sử dụng khi tính toán lại các ca làm việc tương ứng.</li>
+<li><strong>Tổng thời gian nghỉ</strong> — hiển thị thời lượng đã chọn trước khi lưu.</li>
+<li><strong>Lưu</strong> — áp dụng cài đặt và tính toán lại thời gian làm việc cũng như các giá trị liên quan.</li>
+</ol>
+
+<div class="notice">Thời gian nghỉ có thể là nghỉ ăn uống, bàn giao ca hoặc khoảng thời gian không được trả lương khác trong ca làm việc. Hãy nhập thời lượng phù hợp với quy định tại nơi làm việc của bạn.</div>
+
+<h3 id="reports">5.4. Báo cáo: khoảng thời gian, trạng thái và tóm tắt</h3>
+
+<p>Mở mục “Báo cáo” từ thẻ phía dưới trên màn hình thống kê. Phần này cung cấp thông tin chi tiết hơn cho khoảng thời gian đã chọn: thời gian làm việc, ca làm và các trường hợp vắng mặt, điều chỉnh lịch, lương, tiền thưởng, các khoản khấu trừ, so sánh giữa các kỳ, chi tiết theo từng ngày và chức năng xuất dữ liệu.</p>
+
+<div class="warning"><strong>Các báo cáo chỉ mang tính chất tham khảo.</strong> Các phép tính dựa trên lịch trình đã chọn, cài đặt lương, quy tắc tính thời gian nghỉ và các thay đổi ca làm việc trên lịch. Số liệu thực tế của đơn vị sử dụng lao động có thể khác biệt do hệ thống chấm công khác, quy tắc làm tròn, thuế, các khoản phụ cấp hoặc quy định nội bộ. Nếu phát hiện lỗi hoặc phương pháp tính toán chưa được hỗ trợ, vui lòng liên hệ với nhà phát triển theo địa chỉ hiển thị trong ứng dụng, đồng thời cung cấp dữ liệu đầu vào và kết quả mong muốn.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_period_salary.webp" alt="Màn hình báo cáo hiển thị lựa chọn kỳ, trạng thái, tóm tắt và chi tiết tiền lương">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Giai đoạn báo cáo</strong> — chạm vào thẻ để chọn tháng hiện tại, tháng trước, tháng sau, một khoảng thời gian được thiết lập sẵn hoặc khoảng thời gian tùy chỉnh. Tất cả thông tin bên dưới áp dụng cho giai đoạn đã chọn.</li>
+<li><strong>Trạng thái giai đoạn</strong> — hiển thị xem giai đoạn đã hoàn tất, đang diễn ra hay chưa bắt đầu. Giai đoạn đã hoàn tất được tính toán dựa trên dữ liệu thực tế đã lưu. Giai đoạn đang diễn ra kết hợp dữ liệu công việc đã thực hiện với kế hoạch hiện tại, trong khi giai đoạn tương lai là dự báo.</li>
+<li><strong>Tóm tắt</strong> — tóm tắt bằng văn bản về thời gian làm việc thực tế, số tiền được tính toán và thời gian làm thêm giờ.</li>
+<li><strong>Lương</strong> — bảng kê chi tiết về lương cơ bản, lương làm thêm giờ, tiền thưởng, các khoản khấu trừ và ước tính cuối cùng. Các giá trị này phụ thuộc vào <a href="#salary">cài đặt lương</a> và giai đoạn đã chọn.</li>
+</ol>
+
+<h3 id="reports-work">5.5. Thời gian làm việc, vắng mặt và số ngày</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_work_absences.webp" alt="Màn hình báo cáo hiển thị thời gian làm việc, thời gian nghỉ, các ca làm việc đã hoàn thành và số lần vắng mặt">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Thời gian làm việc</strong> — hiển thị số giờ làm việc theo kế hoạch và thực tế, số giờ theo kế hoạch và thực tế trước khi khấu trừ thời gian nghỉ, số ca làm việc đã hoàn thành, thời lượng ca trung bình và tổng thời gian nghỉ bị khấu trừ. Cấu hình thời gian nghỉ trong <a href="#statistics-break">phần thời gian làm việc</a>.</li>
+<li><strong>Vắng mặt và số ngày</strong> — hiển thị số ngày nghỉ, ngày nghỉ phép, ngày nghỉ ốm, ngày nghỉ và ngày có thay đổi trong giai đoạn đã chọn.</li>
+</ol>
+
+<h3 id="reports-charts">5.6. Điều chỉnh và biểu đồ</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_corrections_charts.webp" alt="Màn hình báo cáo hiển thị các điều chỉnh, cơ cấu tiền lương và dữ liệu thời gian làm việc">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Điều chỉnh</strong> — hiển thị số giờ làm thêm, tổng thay đổi về thời lượng ca làm việc và số ngày có thay đổi so với lịch trình cơ bản.</li>
+<li><strong>Biểu đồ</strong> — trực quan hóa cơ cấu lương và thời gian làm việc: lương cơ bản, làm thêm giờ, tiền thưởng, khấu trừ, tổng cộng, cũng như số giờ theo kế hoạch, giờ làm việc thực tế và giờ được trả lương.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_charts_days.webp" alt="Các biểu đồ báo cáo bổ sung hiển thị số giờ và biểu đồ tròn phân loại ngày làm việc">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Số giờ</strong> — tiếp tục so sánh trực quan số giờ theo kế hoạch, giờ đã làm, giờ được trả lương và giờ làm thêm. Dòng ‘Thời gian làm việc thực tế’ hiển thị kết quả sau khi áp dụng các cài đặt và điều chỉnh.</li>
+<li><strong>Các loại ngày</strong> — biểu đồ hình tròn phân bổ các ngày trong khoảng thời gian đã chọn theo loại. Phần chú giải phụ thuộc vào lịch trình và các thay đổi thực tế: ca ngày, ca đêm hoặc các ca khác, ngày nghỉ, nghỉ phép, nghỉ ốm, thời gian nghỉ và các trạng thái khác.</li>
+</ol>
+
+<h3 id="reports-comparison">5.7. So sánh các khoảng thời gian</h3>
+
+<p>Mục so sánh giúp bạn đối chiếu tiền lương, thời gian, ca làm việc và các trường hợp vắng mặt giữa nhiều khoảng thời gian. Số lượng khoảng thời gian có sẵn tùy thuộc vào dữ liệu đã lưu.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_chart.webp" alt="Màn hình so sánh giữa các kỳ với tùy chọn phạm vi thời gian, biểu đồ tiền lương và phần đầu của bảng so sánh">
+</figure>
+
+<ol class="callout-list">
+<li><strong>So sánh khoảng thời gian</strong> — chạm vào thẻ để chọn số lượng khoảng thời gian cần so sánh và phạm vi của chúng.</li>
+<li><strong>Biểu đồ và danh sách khoảng thời gian</strong> — hiển thị tiền lương cho từng khoảng thời gian và liệt kê các giai đoạn được đưa vào so sánh cùng với trạng thái của chúng.</li>
+<li><strong>Bảng so sánh</strong> — chứa các giá trị chi tiết cho từng khoảng thời gian. Vuốt bảng theo chiều ngang sang trái hoặc phải để xem các cột còn lại.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_table.webp" alt="Phần tiếp theo của bảng so sánh và các điểm khác biệt giữa các kỳ liền kề">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Giá trị theo khoảng thời gian</strong> — tổng lương, số giờ làm việc và được trả lương, làm thêm giờ, tiền thưởng, các khoản khấu trừ, ca làm việc đã hoàn thành, các trường hợp vắng mặt và các ngày có thay đổi.</li>
+<li><strong>Chênh lệch giữa các khoảng thời gian</strong> — hiển thị sự khác biệt của mỗi khoảng thời gian so với khoảng thời gian trước đó. Các giá trị dương và âm cho biết sự tăng hoặc giảm của chỉ số tương ứng. Màu sắc không phải lúc nào cũng biểu thị lợi ích hay vấn đề; ví dụ, việc tăng các khoản khấu trừ có nghĩa là số tiền bị giữ lại nhiều hơn.</li>
+</ol>
+
+<h3 id="reports-details-export">5.8. Chi tiết theo ngày và xuất dữ liệu</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_details_export.webp" alt="Các thẻ báo cáo hiển thị chi tiết hàng ngày và tùy chọn xuất sang định dạng PDF, HTML, JSON hoặc CSV">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Chi tiết theo ngày</strong> — mở danh sách các ngày trong khoảng thời gian đã chọn. Bạn có thể kiểm tra loại ca, thời gian theo kế hoạch và thực tế, các điều chỉnh giờ làm, trường hợp vắng mặt và các thay đổi khác cho một ngày cụ thể.</li>
+<li><strong>Xuất dữ liệu</strong> — lưu báo cáo dưới định dạng PDF, HTML, JSON hoặc CSV. Hãy chọn khoảng thời gian báo cáo trước khi xuất; sau đó, bạn có thể in, lưu hoặc chia sẻ tệp thông qua menu hệ thống Android.</li>
+</ol>
+
+<div class="tip">Trước khi so sánh hoặc xuất dữ liệu, hãy kiểm tra khoảng thời gian, lịch trình, thay đổi ca làm việc, thời gian nghỉ và các cài đặt lương đã chọn. Sai sót trong dữ liệu nguồn sẽ ảnh hưởng đến mọi tổng số liệu trong báo cáo.</div>
+
+<h2 id="alarms">6. Báo thức</h2>
+
+<p>ShiftAlarm cho phép bạn tạo báo thức một lần, lặp lại báo thức vào các ngày cụ thể trong tuần hoặc liên kết thời gian báo thức với lịch trình ca làm việc.</p>
+
+<h3 id="alarms-list">6.1. Danh sách báo thức</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarms_overview.webp" alt="Màn hình báo thức của ShiftAlarm hiển thị thông báo tiếp theo, tính năng sắp xếp, thẻ báo thức và nút thêm mới">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Báo thức tiếp theo</strong> — hiển thị ngày và giờ của thông báo báo thức đang hoạt động kế tiếp.</li>
+<li><strong>Sắp xếp báo thức</strong> — thay đổi thứ tự hiển thị các thẻ báo thức, ví dụ: hiển thị các báo thức đang bật lên trước.</li>
+<li><strong>Thẻ báo thức</strong> — hiển thị thời gian, ngày tháng hoặc chế độ lặp lại, loại lịch trình và thời gian còn lại. Chạm vào thẻ để chỉnh sửa.</li>
+<li><strong>Công tắc</strong> — tạm thời bật hoặc tắt báo thức mà không xóa các cài đặt của nó.</li>
+<li><strong>Xóa</strong> — xóa báo thức đã chọn.</li>
+<li><strong>Thêm báo thức</strong> — mở màn hình để tạo báo thức mới.</li>
+</ol>
+
+<h3 id="alarms-create">6.2. Tạo và chỉnh sửa báo thức</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_time_schedule.webp" alt="Phần đầu của trình chỉnh sửa báo thức ShiftAlarm: các tùy chọn về thời gian, loại lịch trình, báo lại và lưu cài đặt">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Thời gian</strong> — cuộn các vòng chọn giờ và phút để thiết lập thời gian báo thức.</li>
+<li><strong>Loại lịch trình</strong> — chọn một trong các chế độ sau:
+<ul>
+<li><strong>Một lần</strong> — báo thức chỉ reo một lần vào ngày được chọn;</li>
+<li><strong>Theo ngày</strong> — lặp lại vào các ngày cụ thể trong tuần;</li>
+<li><strong>Theo ca làm việc</strong> — liên kết báo thức với lịch trình và loại ca làm việc đã chọn.</li>
+</ul>
+</li>
+<li><strong>Báo lại (Snooze)</strong> — thiết lập thời gian hoãn báo thức (tính bằng phút) khi bạn nhấn nút báo lại trên màn hình đang reo.</li>
+<li><strong>Hủy và Lưu</strong> — các nút này được cố định ở cuối màn hình và luôn hiển thị trong khi bạn cuộn xem nội dung chỉnh sửa.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_behavior.webp" alt="Các cài đặt của ShiftAlarm về thời lượng báo thức, lặp lại thông báo, tăng dần âm lượng và chế độ rung">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Thời lượng báo thức</strong> — xác định thời gian âm thanh báo thức phát ra nếu người dùng không tắt nó.</li>
+<li><strong>Lặp lại nếu bỏ qua báo thức</strong> — kích hoạt thêm một lần báo nữa nếu báo thức không bị tắt hoặc hoãn lại. Thiết lập khoảng thời gian chờ trước khi báo lại ở mục bên dưới.</li>
+<li><strong>Tăng âm lượng dần</strong> — bắt đầu với âm thanh nhỏ và tăng dần âm lượng trong khoảng thời gian đã chọn.</li>
+<li><strong>Rung</strong> — bật hoặc tắt chế độ rung khi báo thức reo.</li>
+<li><strong>Hủy và Lưu</strong> — các nút điều khiển cố định cho trình chỉnh sửa.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_sound_name.webp" alt="Phần dưới của trình chỉnh sửa báo thức ShiftAlarm: các tùy chọn rung, âm thanh, tên và lưu">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Rung</strong> — bật hoặc tắt cảnh báo rung.</li>
+<li><strong>Âm thanh</strong> — cho phép chọn âm thanh có sẵn, âm thanh hệ thống hoặc âm thanh do người dùng thêm vào. Bạn có thể thêm tối đa năm âm thanh tùy chỉnh vào ứng dụng.</li>
+<li><strong>Tên</strong> — nhãn tùy chọn giúp bạn phân biệt các báo thức.</li>
+<li><strong>Hủy và Lưu</strong> — hủy bỏ các thay đổi hoặc lưu báo thức.</li>
+</ol>
+
+<div class="notice">Sau khi lưu, báo thức sẽ xuất hiện trong danh sách chính. Trước khi nhận thông báo quan trọng, hãy đảm bảo rằng báo thức đã được bật, ứng dụng có quyền gửi thông báo và quyền đặt báo thức chính xác (exact-alarm), đồng thời hệ thống không hạn chế hoạt động chạy ngầm của ứng dụng.</div>
+
+<div class="tip">Để tạo báo thức liên kết với ca làm việc, trước tiên hãy tạo lịch ca làm việc phù hợp. Trong trình chỉnh sửa, hãy chọn thời điểm kích hoạt cố định hoặc khoảng thời gian chênh lệch so với giờ bắt đầu ca làm việc.</div>
+
+<h2 id="geo">7. Báo thức theo vị trí (Geo Alarm)</h2>
+
+<p>Báo thức theo vị trí sẽ theo dõi thời điểm thiết bị đi vào hoặc rời khỏi một khu vực đã chọn. Khu vực này được xác định bởi một điểm trên bản đồ và bán kính xung quanh điểm đó. Ví dụ: bạn có thể sử dụng báo thức theo vị trí để nhận thông báo khi đến gần nơi làm việc, nhà, trạm xe buýt, nhà ga hoặc một địa điểm khác.</p>
+
+<h3 id="geo-overview">7.1. Bản đồ và các nút điều khiển</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_overview.webp" alt="Màn hình chính của tính năng Báo thức Địa lý (Geo Alarm) trong ShiftAlarm với bản đồ và các nút điều khiển được đánh số">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Phóng to</strong> — phóng to bản đồ.</li>
+<li><strong>Thu nhỏ</strong> — thu nhỏ tỷ lệ bản đồ.</li>
+<li><strong>Vị trí của tôi</strong> — di chuyển bản đồ đến vị trí hiện tại của thiết bị. Ứng dụng cần quyền truy cập vị trí để sử dụng tính năng này.</li>
+<li><strong>Địa điểm đã lưu</strong> — mở danh sách các Geo Alarm (cảnh báo vị trí) và các điểm vị trí đã lưu.</li>
+<li><strong>Quay lại</strong> — trở về màn hình ứng dụng trước đó.</li>
+<li><strong>Số lượng Geo Alarm</strong> — hiển thị số lượng Geo Alarm đã được tạo.</li>
+<li><strong>Danh sách Geo Alarm</strong> — mở danh sách riêng các Geo Alarm đã tạo.</li>
+</ol>
+
+<div class="tip">Bạn cũng có thể phóng to/thu nhỏ bằng cử chỉ. Chạm hai ngón tay lên bản đồ và tách chúng ra để phóng to, hoặc chụm lại để thu nhỏ.</div>
+<div class="notice">Các nút điều khiển ở cạnh bên có thể xuất hiện ở phía đối diện đối với các ngôn ngữ hiển thị từ phải sang trái. Chức năng của chúng vẫn không thay đổi.</div>
+
+<h3 id="geo-saved-places">7.2. Các cảnh báo và điểm vị trí đã lưu</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_saved_places.webp" alt="Cửa sổ các địa điểm đã lưu với các thẻ Báo thức Địa lý và điểm vị trí">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Cảnh báo</strong> — hiển thị các Geo Alarm được thêm vào mục địa điểm đã lưu.</li>
+<li><strong>Điểm vị trí</strong> — hiển thị các tọa độ đã lưu nhưng không có Geo Alarm đang hoạt động.</li>
+<li><strong>Danh sách địa điểm đã lưu</strong> — chạm vào một thẻ để di chuyển đến địa điểm đó trên bản đồ.</li>
+<li><strong>Đóng</strong> — đóng cửa sổ và quay lại bản đồ.</li>
+</ol>
+
+<div class="notice">Nếu bạn xóa một Geo Alarm đã lưu, tọa độ của nó sẽ tự động được giữ lại trong tab “Điểm vị trí”. Bạn có thể sử dụng lại điểm này sau đó để tạo một Geo Alarm khác.</div>
+
+<h3 id="geo-select-point">7.3. Chọn điểm và bán kính</h3>
+
+<p>Chạm và giữ tại vị trí mong muốn trên bản đồ. Ứng dụng sẽ đặt một điểm đánh dấu và mở bảng thông tin cho điểm đã chọn.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_selected_point.webp" alt="Điểm trên bản đồ đã chọn hiển thị địa chỉ, bán kính, dấu trang và nút tạo Báo thức Địa lý">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Điểm đánh dấu vị trí đã chọn</strong> — tâm của vùng địa lý (geofence) sẽ được thiết lập. Bản đồ cũng hiển thị một hình tròn tương ứng với bán kính đã chọn.</li>
+<li><strong>Địa chỉ và tọa độ</strong> — cho phép bạn xác nhận rằng địa điểm đã chọn là chính xác.</li>
+<li><strong>Lưu vị trí</strong> — thêm tọa độ đã chọn vào danh sách địa điểm đã lưu mà không tạo cảnh báo.</li>
+<li><strong>Bán kính</strong> — thiết lập kích thước của khu vực xung quanh điểm đó. Hãy di chuyển thanh trượt cho đến khi chọn được khoảng cách phù hợp.</li>
+<li><strong>Hủy</strong> — hủy việc chọn điểm.</li>
+<li><strong>Tạo tại đây</strong> — mở trình chỉnh sửa Cảnh báo vị trí (Geo Alarm) mới cho điểm đã chọn.</li>
+</ol>
+
+<div class="warning"><strong>Cách chọn bán kính.</strong> Điện thoại không theo dõi tọa độ liên tục. Hệ điều hành Android, nhà sản xuất thiết bị, chế độ tiết kiệm pin, GPS, chất lượng tín hiệu mạng di động/Wi-Fi và tốc độ di chuyển đều ảnh hưởng đến thời điểm phát hiện ranh giới. Do đó, cảnh báo có thể kích hoạt ở vị trí khác so với đường ranh giới đã vẽ. Ví dụ: với bán kính 800 m, việc đi vào khu vực có thể được phát hiện khi thiết bị đã ở bên trong—có thể là ở khoảng cách 700, 600 hoặc 500 m tính từ điểm đó.</div>
+
+<ul>
+<li><strong>Trong thành phố</strong>, mức bán kính <strong>1.300–1.500 m</strong> thường được khuyến nghị.</li>
+<li><strong>Ngoài thành phố</strong>, nơi tần suất cập nhật vị trí có thể thấp hơn, mức bán kính <strong>4.000–5.000 m</strong> được khuyến nghị.</li>
+<li><strong>Bán kính chính xác</strong> nên được lựa chọn dựa trên lộ trình, tốc độ và đặc điểm hoạt động của thiết bị.</li>
+</ul>
+
+<div class="notice">Hệ thống phát hiện khi thiết bị vượt qua ranh giới ảo của khu vực. Ở chế độ “Khi đi vào” (On entry), bán kính lớn hơn thường giúp điện thoại có thêm thời gian để phát hiện khi bạn đang tiến lại gần. Ở chế độ “Khi đi ra” (On exit), ranh giới sẽ được đặt xa hơn so với điểm đã chọn.</div>
+
+<h3 id="geo-create">7.4. Tạo báo thức vị trí</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_location_schedule.webp" alt="Phần trên của trình chỉnh sửa Báo thức Địa lý: trạng thái sẵn sàng, vị trí và loại lịch trình">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Trạng thái sẵn sàng của Cảnh báo Địa lý</strong> — hiển thị xem các quyền cần thiết đã được cấu hình hay chưa và liệu ứng dụng có thể đăng ký hàng rào địa lý (geofence) hay không.</li>
+<li><strong>Vị trí</strong> — bao gồm địa chỉ và tọa độ đã chọn. Bạn có thể chỉnh sửa địa chỉ dưới dạng nhãn, nhưng điểm vị trí thực tế được chọn trên bản đồ.</li>
+<li><strong>Loại lịch trình</strong> — xác định các ngày và điều kiện để Cảnh báo Địa lý hoạt động.</li>
+<li><strong>Luôn luôn</strong> — Cảnh báo Địa lý hoạt động mỗi ngày khi tính năng này được bật.</li>
+<li><strong>Một lần</strong> — dùng cho lần kích hoạt duy nhất tiếp theo khi thỏa mãn điều kiện đã chọn.</li>
+<li><strong>Theo ngày</strong> — chỉ hoạt động vào các ngày cụ thể trong tuần.</li>
+<li><strong>Theo ca</strong> — liên kết Geo Alarm với lịch làm việc theo ca hiện hành.</li>
+</ol>
+
+<div class="notice"><strong>Lịch trình "Theo ca".</strong> Chọn thời điểm hoạt động: trong ngày làm việc, chỉ trước ca làm việc, hoặc chỉ sau ca làm việc; đồng thời chỉ định loại ca: ngày, đêm, sáng, chiều/tối, 24 giờ, tùy chỉnh hoặc bất kỳ ca làm việc nào.</div>
+<div class="tip">Nếu một ngày trên lịch được đánh dấu là ngày nghỉ, nghỉ phép, nghỉ ốm hoặc thời gian nghỉ thay vì ca làm việc, Geo Alarm liên kết với ca làm việc sẽ không hoạt động vào ngày đó.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_trigger_settings.webp" alt="Phần dưới của trình chỉnh sửa Báo thức Địa lý: điều kiện vào hoặc ra, bán kính và cài đặt cảnh báo">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Điều kiện kích hoạt</strong> — xác định việc vượt qua ranh giới nào sẽ bắt đầu cảnh báo.</li>
+<li><strong>Khi vào</strong> — kích hoạt cảnh báo khi thiết bị đi vào phạm vi bán kính đã chọn, ví dụ: khi đến nơi làm việc hoặc điểm dừng bắt buộc.</li>
+<li><strong>Khi ra</strong> — kích hoạt cảnh báo khi thiết bị rời khỏi phạm vi bán kính đã chọn, ví dụ: sau khi rời nơi làm việc hoặc trạm dừng để đảm bảo bạn không bỏ lỡ chặng tiếp theo của lộ trình.</li>
+<li><strong>Khi vào hoặc ra</strong> — kích hoạt cảnh báo bất cứ khi nào ranh giới bị vượt qua theo một trong hai chiều.</li>
+<li><strong>Bán kính</strong> — kích thước của hàng rào địa lý (geofence) xung quanh điểm đã chọn.</li>
+<li><strong>Thời lượng cảnh báo</strong> — xác định thời gian phát âm thanh cảnh báo.</li>
+<li><strong>Tăng âm lượng dần</strong> — thiết lập mức tăng âm lượng mượt mà sau khi cảnh báo bắt đầu.</li>
+<li><strong>Hủy và Lưu</strong> — bỏ qua các thay đổi hoặc lưu Geo Alarm.</li>
+</ol>
+
+<div class="tip">Các tùy chọn còn lại bên dưới tương tự như báo thức thông thường: âm thanh, rung, thời lượng cảnh báo, tăng âm lượng dần và tên gọi.</div>
+
+<h3 id="geo-existing">7.5. Cảnh báo Địa lý (Geo Alarm) trên bản đồ và các tùy chọn điều khiển</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_marker_radius.webp" alt="Điểm đánh dấu Báo thức Địa lý đã tạo và vòng tròn bán kính kích hoạt trên bản đồ">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Biểu tượng Cảnh báo Địa lý</strong> — hiển thị điểm đã chọn.</li>
+<li><strong>Ranh giới bán kính</strong> — hiển thị khu vực mà ứng dụng sẽ giám sát việc đi vào hoặc đi ra.</li>
+</ol>
+
+<p>Chạm vào biểu tượng Cảnh báo Địa lý. Một cửa sổ thông tin nhỏ sẽ xuất hiện trước tiên. Chạm vào cửa sổ đó để mở thẻ thông tin chi tiết.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_alarm_card.webp" alt="Thẻ chi tiết về Báo thức Địa lý hiển thị thông tin, dấu trang, công tắc bật/tắt và các nút điều khiển">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tên và địa chỉ</strong> — xác định Cảnh báo Địa lý đã chọn.</li>
+<li><strong>Đánh dấu (Bookmark)</strong> — thêm cảnh báo vào danh sách địa điểm đã lưu hoặc xóa khỏi danh sách đó.</li>
+<li><strong>Công tắc</strong> — bật hoặc tạm thời tắt Cảnh báo Địa lý mà không xóa các cài đặt của nó.</li>
+<li><strong>Cài đặt và trạng thái</strong> — hiển thị bán kính, điều kiện kích hoạt (khi vào hoặc ra), lịch trình, trạng thái sẵn sàng của hàng rào địa lý (geofence) và thông tin về các lần kích hoạt trước đó.</li>
+<li><strong>Chỉnh sửa</strong> — mở phần cài đặt của Cảnh báo Địa lý.</li>
+<li><strong>Đóng</strong> — đóng thẻ thông tin và quay lại bản đồ.</li>
+<li><strong>Xóa</strong> — xóa Cảnh báo Địa lý sau khi xác nhận.</li>
+</ol>
+
+<div class="warning">Để đảm bảo hoạt động ổn định, hãy cấp quyền truy cập vị trí chính xác và vị trí chạy ngầm, loại bỏ các hạn chế nghiêm ngặt về pin đối với ShiftAlarm, và kiểm tra cài đặt tự động khởi động (autostart) nếu thiết bị của bạn có tính năng này. Ngay cả khi đã cài đặt đúng, Android không đảm bảo độ chính xác tuyệt đối (sai số trong phạm vi vài mét) khi phát hiện ranh giới.</div>
+
+<h2 id="notes">8. Ghi chú, sự kiện và lời nhắc</h2>
+
+<p>Mục “Ghi chú” lưu trữ văn bản thuần, danh sách, danh sách kiểm tra, bản ghi âm, ghi chú chuyển đổi giọng nói thành văn bản, lời nhắc và sự kiện.</p>
+
+<h3 id="notes-create">8.1. Thêm ghi chú</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_type_picker.webp" alt="Chọn loại ghi chú mới trong ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tay cầm bảng điều khiển</strong> — kéo lên trên để hiển thị toàn bộ danh sách các loại ghi chú, hoặc kéo xuống dưới để đóng bảng điều khiển.</li>
+<li><strong>Loại ghi chú</strong> — chọn tùy chọn phù hợp:
+<ul>
+<li><strong>Ghi chú văn bản</strong> — văn bản thuần;</li>
+<li><strong>Danh sách kiểm tra</strong> — danh sách các mục kèm ô đánh dấu hoàn thành;</li>
+<li><strong>Danh sách</strong> — danh sách dạng gạch đầu dòng hoặc đánh số;</li>
+<li><strong>Ghi chú âm thanh</strong> — bản ghi âm giọng nói;</li>
+<li><strong>Chuyển giọng nói thành văn bản</strong> — tạo ghi chú bằng tính năng nhận dạng giọng nói;</li>
+<li><strong>Lời nhắc</strong> — mục có kèm thông báo vào thời điểm được chỉ định;</li>
+<li><strong>Sự kiện</strong> — mục gắn liền với ngày và giờ cụ thể.</li>
+</ul>
+</li>
+<li><strong>Hủy</strong> — đóng trình chọn mà không tạo ghi chú.</li>
+</ol>
+
+<div class="tip">Sau khi chọn loại ghi chú, trình soạn thảo tương ứng sẽ mở ra. Hãy điền các thông tin bắt buộc và lưu lại mục đó.</div>
+
+<h3 id="notes-list">8.2. Danh sách ghi chú và các nút điều khiển</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_overview.webp" alt="Màn hình ghi chú của ShiftAlarm với các tùy chọn sắp xếp, ghi chú đang hoạt động và đã lưu trữ, tìm kiếm cùng các thao tác trên thẻ">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Sắp xếp</strong> — thay đổi thứ tự hiển thị của các ghi chú trong danh sách.</li>
+<li><strong>Đang hoạt động</strong> — hiển thị các ghi chú thông thường và ghi chú có lịch hẹn chưa được chuyển vào mục lưu trữ.</li>
+<li><strong>Lưu trữ</strong> — mở danh sách các ghi chú đã được lưu trữ.</li>
+<li><strong>Tìm kiếm</strong> — tìm các kết quả khớp trong tiêu đề và nội dung ghi chú.</li>
+<li><strong>Thẻ ghi chú</strong> — hiển thị tiêu đề, loại, trạng thái và thông tin bổ sung. Chạm vào thẻ để mở ghi chú.</li>
+<li><strong>Ghim</strong> — ghim ghi chú lên đầu danh sách.</li>
+<li><strong>Lưu trữ</strong> — chuyển ghi chú từ danh sách đang hoạt động sang mục lưu trữ.</li>
+<li><strong>Xóa</strong> — xóa ghi chú sau khi xác nhận.</li>
+<li><strong>Thêm ghi chú</strong> — mở trình chọn loại ghi chú mới.</li>
+</ol>
+
+<div class="notice">Hãy sử dụng mục lưu trữ cho các ghi chú không còn cần thiết trong danh sách chính nhưng vẫn cần được giữ lại. Chỉ xóa ghi chú khi bạn thực sự không còn cần đến chúng nữa.</div>
+
+<h2 id="clock">9. Đồng hồ, đồng hồ bấm giờ và bộ đếm thời gian</h2>
+
+<p>Mục này bao gồm đồng hồ (giờ địa phương và giờ thế giới), đồng hồ bấm giờ và bộ đếm thời gian. Mở ứng dụng bằng nút <strong>“Đồng hồ”</strong> trên màn hình chính.</p>
+
+<div class="notice">Ba thẻ xuất hiện ở cuối màn hình: “Đồng hồ”, “Đồng hồ bấm giờ” và “Hẹn giờ”. Chạm vào một thẻ để chuyển đổi chế độ.</div>
+
+<h3 id="clock-world">9.1. Đồng hồ và đồng hồ thế giới</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_overview.webp" alt="Màn hình đồng hồ ShiftAlarm hiển thị giờ địa phương, đồng hồ thế giới, nút thêm và các thẻ điều hướng phía dưới">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Giờ địa phương</strong> — hiển thị thời gian, ngày tháng hiện tại và múi giờ hệ thống của thiết bị.</li>
+<li><strong>Đồng hồ thế giới</strong> — hiển thị các thành phố và múi giờ đã thêm. Khi danh sách trống, ứng dụng sẽ hiển thị gợi ý.</li>
+<li><strong>Nút dấu cộng</strong> — mở công cụ chọn đồng hồ thế giới.</li>
+<li><strong>Các thẻ mục</strong> — chuyển đổi giữa các màn hình “Đồng hồ”, “Đồng hồ bấm giờ” và “Hẹn giờ”.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_add_timezone.webp" alt="Thêm thành phố hoặc múi giờ vào đồng hồ thế giới ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tìm kiếm</strong> — nhập tên thành phố hoặc múi giờ để lọc danh sách.</li>
+<li><strong>Danh sách thành phố và múi giờ</strong> — chạm vào tùy chọn mong muốn để thêm vào màn hình đồng hồ thế giới.</li>
+</ol>
+
+<div class="tip">Múi giờ địa phương luôn được hiển thị đầu tiên. Bạn có thể xóa các đồng hồ thế giới đã thêm khỏi danh sách, nhưng không thể xóa giờ địa phương.</div>
+
+<h3 id="clock-stopwatch">9.2. Đồng hồ bấm giờ</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_start.webp" alt="Đồng hồ bấm giờ ShiftAlarm trước khi bắt đầu">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Lịch sử</strong> — mở các phiên đồng hồ bấm giờ đã lưu.</li>
+<li><strong>Bắt đầu</strong> — bắt đầu tính giờ.</li>
+<li><strong>Đặt lại</strong> — không khả dụng trước khi đồng hồ bấm giờ bắt đầu. Sau khi dừng, nút này đưa đồng hồ bấm giờ về không và xóa các vòng chạy hiện tại.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_running.webp" alt="Đồng hồ bấm giờ ShiftAlarm đang chạy với các chức năng lịch sử, lưu, ghi vòng chạy (lap) và tạm dừng">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Lịch sử</strong> — hiển thị các phiên đã lưu trước đó.</li>
+<li><strong>Lưu</strong> — yêu cầu nhập tên và lưu phiên đồng hồ bấm giờ hiện tại.</li>
+<li><strong>Vòng chạy</strong> — ghi lại kết quả trung gian mà không dừng bộ đếm thời gian tổng.</li>
+<li><strong>Tạm dừng</strong> — tạm dừng đồng hồ bấm giờ. Sau khi tạm dừng, bạn có thể tiếp tục hoặc đặt lại.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_laps.webp" alt="Danh sách các vòng chạy của đồng hồ bấm giờ ShiftAlarm và các tùy chọn sắp xếp">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ban đầu, nhanh nhất và chậm nhất</strong> — thay đổi thứ tự hiển thị vòng chạy: thứ tự ban đầu, nhanh nhất trước hoặc chậm nhất trước.</li>
+<li><strong>Các vòng chạy</strong> — mỗi vòng chạy hiển thị tổng thời gian tại thời điểm ghi lại và thời gian của riêng vòng chạy đó.</li>
+</ol>
+
+<div class="notice">Khi nhấn Lưu, hãy nhập tên phiên và xác nhận. Bạn có thể mở lại phiên đã lưu từ mục Lịch sử.</div>
+
+<h3 id="clock-timer">9.3. Bộ hẹn giờ</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_setup.webp" alt="Thiết lập bộ đếm ngược ShiftAlarm với các vòng xoay chọn giờ, phút và giây">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Giờ</strong> — cuộn bánh xe và chọn số giờ.</li>
+<li><strong>Phút</strong> — xoay bánh xe và chọn số phút.</li>
+<li><strong>Giây</strong> — xoay bánh xe và chọn số giây.</li>
+<li><strong>Bắt đầu</strong> — bắt đầu bộ đếm thời gian với khoảng thời gian đã chọn.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_running.webp" alt="Bộ đếm ngược ShiftAlarm đang chạy hiển thị thời gian còn lại cùng các nút tạm dừng, thêm phút và dừng">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Thời gian còn lại</strong> — hiển thị thời gian còn lại trước khi có thông báo.</li>
+<li><strong>Thời gian kết thúc</strong> — hiển thị thời gian dự kiến ​​bộ đếm sẽ kết thúc.</li>
+<li><strong>Bộ đếm gần đây</strong> — các khoảng thời gian đã sử dụng gần đây; chạm vào một mục để sử dụng lại nhanh chóng.</li>
+<li><strong>Tạm dừng</strong> — tạm thời dừng đếm ngược. Bạn có thể tiếp tục sau đó.</li>
+<li><strong>+1 phút</strong> — thêm một phút vào thời gian còn lại.</li>
+<li><strong>Dừng</strong> — dừng hoàn toàn bộ đếm thời gian.</li>
+</ol>
+
+<div class="tip">Bộ đếm thời gian và đồng hồ bấm giờ vẫn tiếp tục chạy ngầm. Trạng thái của chúng có thể xuất hiện trong thông báo, trên màn hình chính và trong các tiện ích (widget).</div>
+
+<h2 id="widgets">10. Tiện ích (Widget)</h2>
+
+<p>ShiftAlarm cung cấp các tiện ích cho màn hình chính của điện thoại.</p>
+<ul>
+<li><strong>Hôm nay 4×2</strong> — bảng nhỏ gọn với hai phần có thể tùy chỉnh.</li>
+<li><strong>Hôm nay 4×3</strong> — bảng có đồng hồ ở trên cùng và hai phần bên dưới.</li>
+<li><strong>Lịch 4×4</strong> — tiện ích lịch hiển thị lịch trình ca làm việc.</li>
+</ul>
+<p>Thêm tiện ích thông qua menu tiện ích Android trên màn hình chính của điện thoại.</p>
+
+<h2 id="salary">11. Tính lương</h2>
+
+<p>Mở mục “Tính lương” từ thẻ lương trong phần <a href="#statistics-work">thống kê của lịch trình đã chọn</a>. Tại đây, bạn có thể thiết lập phương thức trả lương, mức lương (theo giờ hoặc theo tháng), quy định về làm thêm giờ, tiền thưởng và các khoản khấu trừ. Ứng dụng sử dụng các cài đặt này kết hợp với khoảng thời gian đã chọn, lịch ca làm việc, các thay đổi trên lịch và việc tính toán thời gian nghỉ giải lao.</p>
+
+<div class="warning"><strong>Kết quả tính toán chỉ mang tính chất tham khảo.</strong> Mức lương thực tế có thể khác nếu người sử dụng lao động của bạn áp dụng hệ thống khác để chấm công, làm tròn số, tính phụ cấp, thuế, tiền thưởng, các khoản khấu trừ hoặc chi trả cho các loại ca làm việc cụ thể. Không sử dụng kết quả này làm tài liệu tính lương chính thức; hãy đối chiếu với phiếu lương do người sử dụng lao động cung cấp. Nếu bạn phát hiện phương pháp tính toán nào mà ứng dụng chưa xử lý chính xác, hãy gửi email cho nhà phát triển theo địa chỉ hiển thị trong ứng dụng. Hãy mô tả quy tắc, cung cấp dữ liệu đầu vào mẫu và nêu kết quả mong đợi. Phương pháp đó sau đó có thể được xem xét cho bản cập nhật trong tương lai.</div>
+
+<h3 id="salary-settings">11.1. Mức lương, làm thêm giờ và tiền thưởng</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_settings_overview.webp" alt="Màn hình tính lương hiển thị lịch làm việc đã chọn, loại mức lương, làm thêm giờ và tiền thưởng">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Lịch làm việc đã chọn</strong> — hiển thị lịch ca làm việc đang được sử dụng. Lương được tính toán dựa trên lịch này và khoảng thời gian đã chọn trong phần thống kê.</li>
+<li><strong>Loại mức lương và số tiền</strong> — chọn hình thức trả lương <strong>theo giờ</strong>, <strong>theo ca</strong> hoặc <strong>theo tháng</strong>, sau đó nhập số tiền tương ứng. Tên trường dữ liệu sẽ thay đổi tùy theo loại mức lương được chọn.</li>
+<li><strong>Làm thêm giờ</strong> — bật mục này nếu số giờ làm thêm được trả lương khác với thời gian làm việc bình thường. Sau đó, thiết lập hệ số nhân lương cho giờ làm thêm. Thêm giờ làm thêm vào lịch thông qua mục <a href="#main-shift-time-adjustment">“Thay đổi ca” → “+ thời gian”</a>; bật tùy chọn “Tính thời gian này là làm thêm giờ” để hệ thống ghi nhận đó là giờ làm thêm.</li>
+<li><strong>Tiền thưởng</strong> — hiển thị phương pháp tính toán hiện tại và tổng số tiền thưởng. Chạm vào thẻ này để mở <a href="#salary-bonuses">cài đặt tiền thưởng</a>.</li>
+</ol>
+
+<div class="notice">Nút “Lưu” sẽ áp dụng các cài đặt cho lịch làm việc đã chọn. Sau khi lưu, tổng số liệu trong phần thống kê và báo cáo sẽ được tính toán lại dựa trên dữ liệu đã nhập.</div>
+
+<h3 id="salary-summary">11.2. Các khoản khấu trừ và tổng số tiền tính được</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions_total.webp" alt="Màn hình tính lương hiển thị các khoản khấu trừ và bảng chi tiết tổng hợp cuối cùng">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Các khoản khấu trừ</strong> — hiển thị tổng số tiền và số lượng các khoản khấu trừ đã được thiết lập. Chạm vào thẻ để mở <a href="#salary-deductions">danh sách các khoản khấu trừ</a>.</li>
+<li><strong>Tổng cộng</strong> — bảng tóm tắt chi tiết: thời gian được trả lương, số giờ làm việc, làm thêm giờ, lương cơ bản, tiền làm thêm giờ, tiền thưởng, các khoản khấu trừ và kết quả cuối cùng.</li>
+</ol>
+
+<div class="tip">Kết quả không chỉ phụ thuộc vào cài đặt trên màn hình này mà còn vào khoảng thời gian thống kê đã chọn, các ca làm việc đã hoàn tất, thời điểm chuyển ngày, làm thêm giờ và cài đặt về thời gian nghỉ không lương.</div>
+
+<h3 id="salary-bonuses">11.3. Tiền thưởng</h3>
+
+<p>Chạm vào thẻ “Tiền thưởng” trên màn hình tính lương. Bạn có thể nhập thủ công số tiền thưởng hoặc tính toán dựa trên tỷ lệ phần trăm nếu cách này phù hợp với hệ thống trả lương của bạn.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_bonuses.webp" alt="Màn hình cài đặt tiền thưởng với các tùy chọn tính toán và nhập số tiền">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Thông tin tóm tắt</strong> — hiển thị tổng số tiền thưởng đã tính và số tiền gốc được dùng để tính toán.</li>
+<li><strong>Cách tính thưởng</strong> — chọn nhập thủ công hoặc tính theo tỷ lệ phần trăm (ví dụ: tỷ lệ phần trăm doanh số) nếu nơi làm việc của bạn áp dụng phương pháp này.</li>
+<li><strong>Phương thức nhập</strong> — tùy chọn “Tổng số tiền” phù hợp cho một khoản thưởng cuối cùng duy nhất. Việc sử dụng các dòng riêng biệt sẽ hữu ích khi có nhiều khoản thưởng cần được tính toán độc lập.</li>
+<li><strong>Số tiền hoặc tỷ lệ phần trăm</strong> — nhập giá trị tương ứng với phương pháp tính toán đã chọn.</li>
+<li><strong>Hủy và Lưu</strong> — hủy bỏ các thay đổi hoặc áp dụng chúng vào việc tính lương.</li>
+</ol>
+
+<h3 id="salary-deductions">11.4. Danh sách khấu trừ</h3>
+
+<p>Chạm vào thẻ “Khấu trừ” trên màn hình tính lương chính. Mục này cho phép bạn lưu nhiều khoản khấu trừ và quản lý riêng từng khoản.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions.webp" alt="Màn hình danh sách các khoản khấu trừ hiển thị tổng số tiền, các mục khấu trừ và nút thêm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Thông tin tóm tắt</strong> — hiển thị số tiền và số lượng của tất cả các khoản khấu trừ đang được áp dụng.</li>
+<li><strong>Dòng khấu trừ</strong> — hiển thị tên, giá trị và loại. Chạm vào dòng để mở <a href="#salary-deduction-editor">cài đặt khấu trừ</a>. Biểu tượng thùng rác sẽ xóa dòng.</li>
+<li><strong>Thêm khoản khấu trừ</strong> — nút “+” tạo một dòng khấu trừ mới.</li>
+<li><strong>Hủy và Lưu</strong> — hủy bỏ các thay đổi hoặc lưu lại toàn bộ danh sách.</li>
+</ol>
+
+<h3 id="salary-deduction-editor">11.5. Cấu hình một khoản khấu trừ cụ thể</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deduction_editor.webp" alt="Bảng thiết lập khoản khấu trừ cá nhân bao gồm tên, giá trị, loại và cơ sở tính khấu trừ">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tên khoản khấu trừ</strong> — nhập tên rõ ràng như “Thuế”, “Tiền cấp dưỡng nuôi con” hoặc “Tiền phạt”.</li>
+<li><strong>Giá trị</strong> — nhập số tiền hoặc tỷ lệ phần trăm, tùy thuộc vào loại giá trị được chọn bên dưới.</li>
+<li><strong>Loại giá trị</strong> — chọn số tiền cố định hoặc tỷ lệ phần trăm.</li>
+<li><strong>Loại khấu trừ</strong> — khoản khấu trừ <strong>biến đổi</strong> áp dụng cho một kỳ tính toán cụ thể; khoản khấu trừ <strong>định kỳ</strong> được áp dụng thường xuyên chừng nào nó còn được kích hoạt.</li>
+<li><strong>Khấu trừ từ</strong> — chọn cơ sở tính toán: tổng lương, lương cơ bản, tiền thưởng hoặc tùy chọn khác có sẵn.</li>
+<li><strong>Đã kích hoạt</strong> — tạm thời vô hiệu hóa khoản khấu trừ mà không xóa các cài đặt của nó.</li>
+<li><strong>Hủy và Lưu</strong> — đóng bảng điều khiển mà không lưu thay đổi hoặc lưu lại khoản khấu trừ.</li>
+</ol>
+
+<div class="notice">Đối với khoản khấu trừ theo tỷ lệ phần trăm, việc chọn đúng cơ sở “Khấu trừ từ” là đặc biệt quan trọng: cùng một tỷ lệ phần trăm nhưng áp dụng trên tổng lương, lương cơ bản hay tiền thưởng sẽ cho ra các kết quả khác nhau.</div>
+
+<h2 id="settings">12. Cài đặt</h2>
+
+<p>Mở “Cài đặt” bằng nút ở cuối <a href="#main-overview">màn hình chính</a>. Mục này bao gồm các quyền hệ thống, giao diện và ngôn ngữ ứng dụng, nhận dạng giọng nói ngoại tuyến, tài liệu và hướng dẫn sử dụng, sao lưu, chẩn đoán và các tùy chọn liên hệ với nhà phát triển.</p>
+
+<h3 id="settings-overview">12.1. Các mục cài đặt chính</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_permissions_language.webp" alt="Phần đầu của mục cài đặt ShiftAlarm: quyền truy cập, giao diện, ngôn ngữ ứng dụng và mô hình nhận diện giọng nói ngoại tuyến">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Quyền</strong> — mở các quyền liên quan đến báo thức và cài đặt độ tin cậy. Hãy kiểm tra các thông báo, báo thức chính xác, hoạt động chạy ngầm và các hạn chế về pin. <a href="#geo">Geo Alarms</a> cũng yêu cầu quyền truy cập vị trí; cần có quyền truy cập vị trí ở chế độ chạy ngầm hoặc "Cho phép mọi lúc" để kích hoạt báo thức khi ứng dụng đang đóng. Tên mục và đường dẫn có thể khác nhau tùy theo phiên bản Android và nhà sản xuất thiết bị.</li>
+<li><strong>Giao diện</strong> — cho phép bạn chọn giao diện sáng, tối hoặc theo hệ thống, chọn biến thể màu sắc giao diện, cũng như bật hoặc tắt phản hồi rung khi thực hiện các thao tác trong ứng dụng. Giao diện hệ thống sẽ tuân theo cài đặt hiển thị hiện tại của điện thoại.</li>
+<li><strong>Ngôn ngữ ứng dụng</strong> — cho phép bạn sử dụng ngôn ngữ khác với ngôn ngữ hệ thống của điện thoại. Danh mục của ShiftAlarm bao gồm 108 ngôn ngữ: hãy tìm ngôn ngữ mong muốn bằng công cụ tìm kiếm, tải xuống gói ngôn ngữ và áp dụng nó.</li>
+<li><strong>Mô hình nhận diện giọng nói ngoại tuyến</strong> — cài đặt mô-đun hỗ trợ tính năng <a href="#notes-create">chuyển giọng nói thành văn bản cho ghi chú</a>. Tính năng nhận diện ngoại tuyến hiện đang trong giai đoạn thử nghiệm và hỗ trợ khoảng 20 ngôn ngữ. Chất lượng nhận diện có thể thấp hơn so với chế độ trực tuyến và phụ thuộc vào ngôn ngữ, micrô, hiệu năng điện thoại cũng như điều kiện ghi âm.</li>
+</ol>
+
+<div class="warning"><strong>Quyền hạn trên Android có thể khác nhau tùy theo thiết bị.</strong> Trên một số điện thoại, bạn cũng cần cho phép ứng dụng tự động khởi động, chọn chế độ pin "Không hạn chế" (Unrestricted) hoặc chế độ tương đương, và cho phép hoạt động chạy ngầm. Các cài đặt này giúp giảm nguy cơ hệ thống tự động dừng ShiftAlarm, tuy nhiên tên gọi chính xác của các tùy chọn này sẽ phụ thuộc vào nhà sản xuất thiết bị.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_help_backup_diagnostics.webp" alt="Phần cuối của mục cài đặt ShiftAlarm: tài liệu, hướng dẫn sử dụng, sao lưu, chẩn đoán và thông tin liên hệ nhà phát triển">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tài liệu và trợ giúp</strong> — mở các tài liệu pháp lý của ứng dụng: Điều khoản sử dụng, Chính sách quyền riêng tư, Tuyên bố miễn trừ trách nhiệm và trang trợ giúp tóm tắt.</li>
+<li><strong>Đào tạo và hướng dẫn sử dụng</strong> — mở tài liệu hướng dẫn chi tiết có hình minh họa về các tính năng của ShiftAlarm.</li>
+<li><strong>Sao lưu và khôi phục</strong> — tạo tệp chứa các cài đặt và dữ liệu ứng dụng được hỗ trợ, hoặc khôi phục chúng từ bản sao lưu trước đó. Tính năng này rất hữu ích khi bạn cần cài đặt lại ứng dụng, đặt lại điện thoại hoặc chuyển dữ liệu sang thiết bị khác. Xem mục <a href="#backup">“Sao lưu và khôi phục”</a> để biết hướng dẫn chi tiết.</li>
+<li><strong>Nhật ký chẩn đoán</strong> — mở các nhật ký riêng cho từng tính năng của ứng dụng. Nhật ký ghi lại các giai đoạn kỹ thuật như lập lịch và khôi phục cảnh báo, xử lý sự kiện, trạng thái quyền và thông tin dịch vụ khác. Nhật ký giúp xác định giai đoạn xảy ra lỗi. Bạn có thể sao chép các mục hoặc chuẩn bị để gửi email cho nhà phát triển. Xem <a href="#diagnostics">‘Chẩn đoán và khắc phục sự cố’</a> để biết chi tiết.</li>
+<li><strong>Liên hệ nhà phát triển</strong> — mở ứng dụng email và tạo thư gửi đến bộ phận hỗ trợ. Hãy sử dụng tính năng này để báo cáo sự cố, gửi phản hồi/gợi ý hoặc đặt câu hỏi. Đối với vấn đề kỹ thuật, vui lòng cung cấp thông tin về mẫu điện thoại, phiên bản Android, thời điểm xảy ra sự cố, các bước đã thực hiện và nhật ký chẩn đoán liên quan (nếu có).</li>
+</ol>
+
+<div class="notice">Nhật ký chẩn đoán không được tự động gửi cho nhà phát triển. Bạn cần sao chép thông tin cần thiết hoặc nhấn “Gửi cho nhà phát triển”, chọn ứng dụng email, xem lại nội dung thư đã soạn và xác nhận gửi đi.</div>
+
+<h2 id="backup">13. Sao lưu và khôi phục</h2>
+
+<p>Việc sao lưu giúp lưu lại các cài đặt ShiftAlarm và dữ liệu người dùng được hỗ trợ vào một tệp riêng biệt. Tính năng này hỗ trợ khôi phục dữ liệu sau khi cài đặt lại ứng dụng, đặt lại điện thoại hoặc chuyển sang thiết bị khác.</p>
+<ol class="step-list">
+<li>Mở “Cài đặt → Sao lưu và khôi phục.”</li>
+<li>Tạo bản sao lưu và lưu tệp kết quả vào điện thoại hoặc chia sẻ tệp đó thông qua menu hệ thống.</li>
+<li>Để khôi phục, hãy mở cùng mục này và chọn tệp sao lưu đã tạo trước đó.</li>
+<li>Sau khi khôi phục, hãy kiểm tra các báo thức quan trọng, lịch trình và quyền Android. Một số quyền bảo mật hệ thống có thể cần được cấp lại khi sử dụng thiết bị mới hoặc sau khi cài đặt lại ứng dụng.</li>
+</ol>
+<p class="tip">Hãy lưu giữ một bản sao hiện hành tại nơi an toàn và có thể truy cập được ngay cả khi điện thoại bị mất, hư hỏng hoặc bị đặt lại. Tệp sao lưu không thay thế được các quyền hệ thống Android và không thể tự động bao gồm dữ liệu mà ứng dụng không được phép truy cập.</p>
+
+<h2 id="diagnostics">14. Chẩn đoán và khắc phục sự cố</h2>
+
+<p>ShiftAlarm cung cấp các nhật ký chẩn đoán riêng biệt cho các tính năng khác nhau. Chúng lưu lại chuỗi các sự kiện kỹ thuật và giúp xác định xem liệu một cảnh báo đã được lên lịch, khôi phục sau khi khởi động lại, chuyển sang xử lý hay bị dừng do cài đặt hệ thống.</p>
+
+<h3 id="diagnostics-control">14.1. Kiểm soát việc thu thập dữ liệu chẩn đoán</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_sections.webp" alt="Màn hình nhật ký chẩn đoán ShiftAlarm hiển thị công tắc tổng và nhật ký báo thức cụ thể">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Thu thập dữ liệu chẩn đoán</strong> — công tắc tổng cho mọi mục chẩn đoán trong ứng dụng. Tắt tùy chọn này để ngừng ghi thêm sự kiện mới vào tất cả các nhật ký cùng lúc. Việc thu thập sự kiện mới sẽ tiếp tục sau khi bạn bật lại tùy chọn này.</li>
+<li><strong>Nhật ký tính năng riêng lẻ</strong> — mỗi mô-đun có công tắc và nút "Mở" (Open) riêng. Ví dụ: bạn có thể giữ chế độ chẩn đoán tổng thể ở trạng thái bật trong khi chỉ tắt nhật ký của tính năng báo thức, đồng hồ hoặc tính năng khác. Ảnh chụp màn hình hiển thị nhật ký báo thức, nơi ghi lại các sự kiện về việc phát tín hiệu, lên lịch, khôi phục, bảo vệ (guard-protection) và các sự kiện liên quan đến màn hình báo thức.</li>
+</ol>
+
+<div class="notice">Các công tắc này chỉ kiểm soát việc ghi lại các sự kiện kỹ thuật. Việc tắt nhật ký của báo thức, đồng hồ hoặc tính năng khác không làm vô hiệu hóa chính tính năng đó. Hãy xóa các mục đã lưu trước đó một cách riêng biệt bằng nút "Xóa" (Clear) bên trong nhật ký tương ứng.</div>
+
+<h3 id="diagnostics-log">14.2. Nhật ký tính năng riêng lẻ</h3>
+
+<p>Nhấn vào nút "Mở" (Open) trong mục chẩn đoán mong muốn. Ví dụ dưới đây hiển thị nhật ký báo thức; nhật ký cho các tính năng khác cũng hoạt động theo cách tương tự.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_alarm_log.webp" alt="Nhật ký chẩn đoán cảnh báo ShiftAlarm bao gồm số lượng sự kiện, các hành động và các mục thông tin kỹ thuật">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Số sự kiện đã lưu</strong> — hiển thị số lượng mục hiện đang được lưu trữ trong nhật ký đã chọn.</li>
+<li><strong>Các thao tác với nhật ký</strong>:
+<ul>
+<li><strong>Sao chép</strong> — sao chép toàn bộ dữ liệu từ nhật ký hiện tại vào bộ nhớ tạm (clipboard). Bạn có thể dán dữ liệu này vào email hoặc ứng dụng khác.</li>
+<li><strong>Xóa</strong> — xóa các mục đã lưu trong nhật ký này. Sau khi xóa, chỉ các sự kiện được ghi lại sau đó (trong khi chế độ chẩn đoán đang bật) mới xuất hiện.</li>
+<li><strong>Gửi cho nhà phát triển</strong> — mở trình chọn ứng dụng để gửi email. Hãy chọn một ứng dụng email; Địa chỉ của nhà phát triển và dữ liệu chẩn đoán sẽ được tự động điền vào. Trước khi gửi, hãy thêm mô tả về vấn đề, xem lại nội dung tin nhắn và xác nhận gửi.</li>
+</ul>
+</li>
+<li><strong>Sự kiện ứng dụng</strong> — chính là các mục nhật ký. Một mục thường bao gồm ngày giờ, tên sự kiện kỹ thuật và các tham số bổ sung như mã định danh, trạng thái hoặc lý do. Tên kỹ thuật có thể hiển thị bằng tiếng Anh; vui lòng không chỉnh sửa hoặc dịch chúng trước khi gửi.</li>
+</ol>
+
+<div class="warning">Trước khi xóa nhật ký, hãy sao chép hoặc gửi các mục cần thiết. Các sự kiện chẩn đoán đã xóa sẽ không thể khôi phục được.</div>
+
+<div class="tip">Nếu có thể tái hiện vấn đề, trước tiên hãy bật tính năng thu thập dữ liệu chẩn đoán toàn cục và nhật ký tính năng liên quan, sau đó thực hiện lại các thao tác gây ra lỗi. Trong tin nhắn, hãy cung cấp thời điểm chính xác xảy ra vấn đề, kiểu máy điện thoại, phiên bản Android, kết quả mong đợi và kết quả thực tế. Thông tin này giúp đối chiếu mô tả của bạn với các sự kiện trong nhật ký.</div>
+
+<h2 id="faq">15. Các câu hỏi thường gặp</h2>
+
+<h3>Chuông báo thức không reo đúng giờ</h3>
+<p>Kiểm tra thông báo, quyền đặt báo thức chính xác (exact-alarm), hoạt động chạy ngầm và các hạn chế về pin.</p>
+<h3>Chuông báo thức theo vị trí (Geo Alarm) reo muộn</h3>
+<p>Kiểm tra quyền truy cập vị trí chính xác và vị trí chạy ngầm, các hạn chế về pin và tính năng tự động khởi động ứng dụng. Hãy thử đặt bán kính trong khoảng 1.300–1.500 m khi ở trong thành phố và 4.000–5.000 m khi ở ngoài thành phố. Thời điểm kích hoạt thực tế có thể không trùng khớp chính xác với đường ranh giới bán kính.</p>
+<h3>Tiện ích (widget) không cập nhật ngay lập tức</h3>
+<p>Mở ứng dụng hoặc nhấn nút làm mới trên tiện ích. Android có thể hạn chế việc cập nhật tiện ích quá thường xuyên.</p>
+<h3>Tôi đã thay đổi ngôn ngữ nhưng tài liệu hoặc hướng dẫn vẫn chưa được cập nhật</h3>
+<p>Kiểm tra kết nối internet và chờ quá trình tải xuống hoàn tất. Nếu phiên bản trực tuyến không khả dụng, ứng dụng sẽ sử dụng phiên bản dự phòng tích hợp sẵn.</p>
+
+<div class="footer small">Hướng dẫn này có thể được cập nhật qua GitHub. Nếu phiên bản trực tuyến không khả dụng, ứng dụng sẽ sử dụng phiên bản ngoại tuyến tích hợp sẵn.</div>
+</main>
+</body>
+</html>

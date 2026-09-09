@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gebruikershandleiding ShiftAlarm</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #64748b;
+  --accent: #2563eb;
+  --soft: #e8eef8;
+  --border: #dbe4f0;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.58;
+  margin: 0;
+  padding: 18px;
+  color: var(--text);
+  background: var(--bg);
+}
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+h1 { margin: 0 0 8px; font-size: 28px; line-height: 1.2; }
+h2 { margin: 32px 0 10px; font-size: 21px; line-height: 1.25; }
+h3 { margin: 22px 0 8px; font-size: 17px; }
+p, li { font-size: 16px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul, ol { padding-left: 22px; }
+.notice, .tip, .warning {
+  padding: 14px 16px;
+  border-radius: 16px;
+  margin: 14px 0;
+  border: 1px solid var(--border);
+}
+.notice { background: var(--soft); }
+.tip { background: #ecfdf5; }
+.warning { background: #fff7ed; }
+.small { color: var(--muted); font-size: 14px; }
+.toc {
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 16px;
+  margin: 18px 0 24px;
+}
+.toc ol { margin: 8px 0 0; }
+.step-list li { margin-bottom: 8px; }
+.guide-figure {
+  margin: 18px 0;
+}
+.guide-image {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+}
+.callout-list li {
+  margin-bottom: 10px;
+}
+.guide-caption {
+  max-width: 520px;
+  margin: 10px auto 0;
+  color: var(--text);
+  font-size: 15px;
+}
+.guide-caption strong {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.footer {
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --card: #111827;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --accent: #93c5fd;
+    --soft: #1f2937;
+    --border: #334155;
+  }
+  main { box-shadow: none; }
+  .toc { background: #172033; }
+  .tip { background: #10251f; }
+  .warning { background: #2a1d10; }
+}
+</style>
+</head>
+<body>
+<main>
+<h1>Gebruikershandleiding ShiftAlarm</h1>
+<p class="small">Versie 14. Datum: 2 augustus 2026.</p>
+<div class="notice">Deze pagina is een praktische handleiding voor ShiftAlarm. Er wordt uitgelegd wat de belangrijkste functies doen, waar u ze kunt vinden, waarop u moet tikken en wat u kunt controleren als een functie niet naar verwachting werkt.</div>
+<nav class="toc">
+<strong>Inhoud</strong>
+<ol><li><a href="#start">1. Eerste keer opstarten</a></li><li><a href="#permissions">2. Machtigingen en betrouwbaarheid</a></li><li><a href="#main">3. Hoofdscherm</a></li><li><a href="#shifts">4. Dienstroosters</a></li><li><a href="#statistics">5. Roosterstatistieken</a></li><li><a href="#alarms">6. Alarmen</a></li><li><a href="#geo">7. Geo-alarmen</a></li><li><a href="#notes">8. Notities, gebeurtenissen en herinneringen</a></li><li><a href="#clock">9. Klok, timer en stopwatch</a></li><li><a href="#widgets">10. Widgets</a></li><li><a href="#salary">11. Salarisberekening</a></li><li><a href="#settings">12. Instellingen</a></li><li><a href="#backup">13. Back-up en herstel</a></li><li><a href="#diagnostics">14. Diagnose en probleemoplossing</a></li><li><a href="#faq">15. Veelgestelde vragen</a></li></ol>
+</nav>
+<h2 id="start">1. Eerste keer opstarten</h2>
+
+<p>Wanneer ShiftAlarm voor de eerste keer wordt opgestart, wordt een korte configuratieprocedure doorlopen. Het hoofdscherm is al op de achtergrond beschikbaar, maar het is raadzaam om eerst de basisconfiguratie te voltooien.</p>
+<ol class="step-list">
+<li>Lees de inleidende informatie en tik op "Doorgaan".</li>
+<li>Open bij de stap 'Documenten' de documenten of accepteer de vereiste documenten wanneer u klaar bent om verder te gaan.</li>
+<li>Open bij de stap 'Machtigingen' het scherm met machtigingen en controleer de instellingen voor meldingen, exacte alarmen, locatietoegang en batterijbeperkingen.</li>
+<li>Tik op "Configuratie voltooien".</li>
+</ol>
+<p class="tip">U kunt machtigingen later aanpassen via "Instellingen → Machtigingen en betrouwbaarheid".</p>
+
+<h2 id="permissions">2. Machtigingen en betrouwbaarheid</h2>
+
+<p>Alarmen, herinneringen en Geo-alarmen zijn afhankelijk van Android-instellingen en de software van de fabrikant van het apparaat.</p>
+<ul>
+<li><strong>Meldingen</strong> — vereist voor alarmen, herinneringen, de timer en servicemeldingen.</li>
+<li><strong>Exacte alarmen</strong> — zorgen ervoor dat het alarm op het gewenste tijdstip afgaat.</li>
+<li><strong>Locatie</strong> — vereist voor Geo-alarmen.</li>
+<li><strong>Locatie op de achtergrond</strong> — vereist om Geo-alarmen te laten werken terwijl de app gesloten is.</li>
+<li><strong>Batterij en achtergrondactiviteit</strong> — kunnen van invloed zijn op de betrouwbaarheid van de activering op Xiaomi/Redmi-toestellen en sommige andere apparaten.</li>
+</ul>
+<p class="warning">Android garandeert niet altijd de onmiddellijke aflevering van meldingen, exacte alarmen of geofence-gebeurtenissen. Controleer voor belangrijke waarschuwingen elk item op het scherm met machtigingen.</p>
+
+<h2 id="main">3. Hoofdscherm</h2>
+
+<p>Het hoofdscherm is uw dagelijkse dashboard. Het biedt directe toegang tot de kalender, klok, Geo-alarmen, gewone alarmen, dienstroosters, notities en instellingen.</p>
+
+<h3 id="main-overview">3.1. Elementen van het hoofdscherm</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_screen_overview.png" alt="Hoofdscherm van ShiftAlarm met genummerde bedieningselementen">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Terug-pijl</strong> — gaat in de kalender naar de vorige maand.</li>
+<li><strong>Maand en jaar</strong> — toont de huidige maand. Tik hierop om de <a href="#main-date-picker">stapsgewijze maand- en jaarkiezer</a> te gebruiken.</li>
+<li><strong>Vooruit-pijl</strong> — gaat in de kalender naar de volgende maand.</li>
+<li><strong>Kalender</strong> — het hoofdgedeelte met de maandweergave. U kunt door de kalender vegen. Per dag kunnen de datum, herinneringen, afspraken, geplande diensten en dagwijzigingen worden weergegeven. Kort tikken selecteert een datum; lang indrukken opent <a href="#main-day-actions">informatie en acties voor de geselecteerde dag</a>.</li>
+<li><strong>Vandaag</strong> — keert in de kalender terug naar de huidige dag.</li>
+<li><strong>Klok</strong> — opent de <a href="#clock">wereldklok, stopwatch en timer</a>.</li>
+<li><strong>Geo-alarm</strong> — opent de <a href="#geo">kaart, opgeslagen locaties en instellingen voor geo-alarmen</a>. Er kan een melding worden geactiveerd wanneer u het geselecteerde gebied betreedt, verlaat of beide.</li>
+<li><strong>Alarm</strong> — opent <a href="#alarms">reguliere, terugkerende en aan diensten gekoppelde alarmen</a>.</li>
+<li><strong>Rooster</strong> — opent <a href="#shifts">dienstroosters, opties voor het aanmaken en bewerken ervan, en statistieken</a>.</li>
+<li><strong>Notities</strong> — opent <a href="#notes">notities, gebeurtenissen, herinneringen, audio-notities en spraak-naar-tekst</a>.</li>
+<li><strong>Instellingen</strong> — opent <a href="#settings">machtigingen, taal, thema, offline spraakmodellen, back-up, diagnostiek, documenten en training</a>.</li>
+</ol>
+
+
+<h3 id="main-date-picker">3.2. Een maand en jaar selecteren</h3>
+
+<p>Tik op de maand en het jaar bovenaan het hoofdscherm om snel de gewenste kalenderperiode te openen. De selectie verloopt in stappen: <strong>eeuw → decennium → jaar → maand</strong>.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_century.webp" alt="Stap 1: een eeuw selecteren in de ShiftAlarm-kalender">
+<figcaption class="guide-caption"><strong>1. Selecteer een eeuw.</strong> Tik op de periode die het gewenste jaar bevat. In het voorbeeld wordt de eeuw 2000–2099 geselecteerd.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_decade.webp" alt="Stap 2: een decennium selecteren in de ShiftAlarm-kalender">
+<figcaption class="guide-caption"><strong>2. Selecteer een decennium.</strong> Tik op het bereik dat het gewenste jaar bevat. Selecteer voor 2026 "2020–2029".</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_year.webp" alt="Stap 3: een jaar selecteren in de ShiftAlarm-kalender">
+<figcaption class="guide-caption"><strong>3. Selecteer een jaar.</strong> Tik op het gewenste jaar. In het voorbeeld wordt 2026 geselecteerd.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_month.webp" alt="Stap 4: een maand selecteren in de ShiftAlarm-kalender">
+<figcaption class="guide-caption"><strong>4. Selecteer een maand.</strong> Tik op de gewenste maand. In het voorbeeld wordt juli geselecteerd.</figcaption>
+</figure>
+
+<div class="tip">Nadat u een maand hebt geselecteerd, wordt het paneel gesloten en opent de hoofdkalender op de geselecteerde maand en het geselecteerde jaar.</div>
+<div class="notice">Met de knop "Terug" keert u terug naar de vorige stap. Op het eeuwoverzicht wordt hiermee de datumkiezer gesloten.</div>
+
+<h3 id="main-day-actions">3.3. Informatie en acties voor een geselecteerde dag</h3>
+
+<p>Houd de gewenste dag in de kalender ingedrukt. Er wordt een paneel geopend met informatie en acties voor die datum. Sleep het paneel omhoog om alle beschikbare acties te zien.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_day_actions.webp" alt="Paneel met informatie en acties voor een geselecteerde kalenderdag in ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Datum</strong> — toont de dag van de week en de geselecteerde datum. Sleep de hendel aan de bovenkant omhoog of omlaag om het paneel uit te vouwen of te sluiten.</li>
+<li><strong>Dienst</strong> — toont de berekende dienst of een wijziging in de dagindeling, zoals een vrije dag, verlof, vakantie, ziekteverlof of een andere uitzondering.</li>
+<li><strong>Alarmen voor deze datum</strong> — toont alarmen die aan de geselecteerde dag zijn toegewezen, of geeft aan dat er geen alarmen zijn.</li>
+<li><strong>Gebeurtenissen en herinneringen</strong> — toont items die aan de geselecteerde datum zijn gekoppeld.</li>
+<li><strong>Alarm toevoegen</strong> — opent de functie voor het aanmaken van een eenmalig alarm voor de geselecteerde datum.</li>
+<li><strong>Dienst wijzigen</strong> — maakt een uitzondering aan voor één dag of een datumbereik in het actieve rooster.</li>
+<li><strong>Notitie toevoegen</strong> — hiermee kunt u een gebeurtenis of herinnering kiezen om aan te maken voor de geselecteerde datum.</li>
+</ol>
+
+<div class="notice">De actie "Dienst wijzigen" is beschikbaar voor het aanpassen van dagen in het actieve dienstrooster.</div>
+
+<h4 id="main-shift-override">Eén dag of een datumbereik wijzigen</h4>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_types.webp" alt="Een datumbereik en type ploegwijziging selecteren in ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Startdatum</strong> — de eerste dag van de wijziging. Standaard wordt de datum gebruikt die in de kalender is geselecteerd.</li>
+<li><strong>Einddatum</strong> — de laatste dag van de wijziging. Om slechts één dag te wijzigen, laat u dezelfde datum geselecteerd.</li>
+<li><strong>Vrije tijd</strong> — vervangt de berekende dienst door vrije tijd.</li>
+<li><strong>Vakantie</strong> — markeert de geselecteerde dag of periode als vakantie.</li>
+<li><strong>Ziekteverlof</strong> — markeert de geselecteerde dag of periode als ziekteverlof.</li>
+<li><strong>Wijziging opslaan</strong> — past de geselecteerde uitzondering toe op de kalender.</li>
+</ol>
+
+<h4 id="main-shift-time-adjustment">Werktijden aanpassen</h4>
+
+<p>Scroll door de lijst met wijzigingstypen en selecteer “Dienst bewerken” om de duur van de berekende werkdienst te wijzigen.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_time_adjustment.webp" alt="De werktijden van een ploeg aanpassen in ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Dienst bewerken</strong> — maakt aanpassing van de werktijd voor de geselecteerde dienst mogelijk.</li>
+<li><strong>+ tijd</strong> — voegt uren of minuten toe aan de standaard dienstduur.</li>
+<li><strong>− tijd</strong> — verkort de dienstduur, bijvoorbeeld wanneer het werk eerder eindigde.</li>
+<li><strong>Deze tijd als overwerk tellen</strong> — behandelt de toegevoegde tijd als overwerk. Als de optie is uitgeschakeld, wordt deze geteld als reguliere werktijd.</li>
+<li><strong>Wijziging opslaan</strong> — past de wijziging toe op de geselecteerde dag of periode.</li>
+</ol>
+
+<div class="tip">Een dagwijziging verandert niets aan het oorspronkelijke roosterpatroon. De wijziging wordt opgeslagen als een aparte uitzondering en meegenomen in de kalender, statistieken, salarisberekening en rapportages.</div>
+
+<h2 id="shifts">4. Dienstroosters</h2>
+
+<p>Een dienstrooster definieert een terugkerende werkcyclus en vormt de basis voor andere functies van ShiftAlarm. De app gebruikt dit rooster om de kalender te vullen, alarmen aan diensten te koppelen, werktijd te tellen, statistieken te genereren, het salaris te schatten en rapportages op te stellen.</p>
+
+<div class="notice"><strong>Basisprincipe.</strong> Maak eerst het basisrooster (de terugkerende cyclus) aan. Voeg vakantie, ziekteverlof, vrije tijd, een eenmalige vervangende dienst of een werktijdaanpassing toe als uitzondering voor specifieke data via de <a href="#main-day-actions">acties voor de geselecteerde dag</a>. Hierdoor blijft de oorspronkelijke cyclus ongewijzigd.</div>
+
+<h3 id="shifts-list">4.1. Roosterlijst en bediening</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedules_overview.webp" alt="Scherm met ploegenschema's in ShiftAlarm, inclusief een actieve schema-kaart en genummerde bedieningselementen">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Roosterdetails</strong> — de naam, startdatum, cyclusduur en een korte reeks dagen. In het voorbeeld betekent “D · D · V · V” twee dagdiensten gevolgd door twee vrije dagen.</li>
+<li><strong>Schakelaar</strong> — schakelt het rooster tijdelijk uit zonder het te verwijderen. Wanneer u het opnieuw inschakelt, blijven de opgeslagen instellingen van kracht.</li>
+<li><strong>Status van rooster</strong> — geeft aan welk rooster momenteel actief is.</li>
+<li><strong>Bewerken</strong> — opent de parameters die kunnen worden gewijzigd. Na de eerste configuratie wordt een deel van de basisinstellingen van het rooster vergrendeld om te voorkomen dat reeds aangemaakte agendagegevens per ongeluk opnieuw worden berekend.</li>
+<li><strong>Verwijderen</strong> — verwijdert het rooster na bevestiging. Controleer vóór het verwijderen eventuele aan diensten gekoppelde alarmen en berekeningen.</li>
+<li><strong>Statistieken openen</strong> — opent de <a href="#statistics">statistieken over werktijden, periodes, salaris en rapportages</a> voor dit rooster.</li>
+<li><strong>Rooster aanmaken</strong> — hiermee kunt u een kant-en-klaar sjabloon kiezen of een aangepaste cyclus maken.</li>
+</ol>
+
+<h3 id="shifts-create">4.2. Starten met het aanmaken van een rooster</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_create.webp" alt="Paneel voor het aanmaken van een schema, met naam, startdatum, sjablonen en aangepast schema">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Roosternaam</strong> — voer een duidelijke naam in, zoals "Hoofd 2/2", "Nachtdienst" of de naam van uw werkplek.</li>
+<li><strong>Startdatum</strong> — de datum die overeenkomt met de <strong>eerste dag van de herhalende cyclus</strong>. U kunt een datum in het verleden of de toekomst kiezen; de app berekent het rooster vanuit die datum vooruit en achteruit.</li>
+<li><strong>Sjablonen</strong> — kant-en-klare, veelvoorkomende dienstreeksen. In het voorbeeld wordt het sjabloon "2/2 dag" gebruikt.</li>
+<li><strong>Aangepast rooster</strong> — hiermee maakt u uw eigen reeks van werkdagen en vrije dagen.</li>
+<li><strong>Rooster aanmaken</strong> — opent de gedetailleerde editor voor de geselecteerde optie.</li>
+</ol>
+
+<div class="tip">Bij het sjabloon "D · D · V · V" (Dag-Dag-Vrij-Vrij) is de startdatum doorgaans de eerste van de twee werkdagen. Bij een aangepaste cyclus kan dag 1 ook een vrije dag zijn; het belangrijkste is dat de geselecteerde datum precies overeenkomt met dag 1 van de reeks die u heeft gemaakt.</div>
+
+<h3 id="shifts-template">4.3. Een planning maken op basis van een sjabloon</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_template.webp" alt="Sjablooneditor voor een rooster met naam, volgorde, begindatum en diensttijd">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Naam van de planning</strong> — behoud de voorgestelde naam of vervang deze door uw eigen naam.</li>
+<li><strong>Sjabloon</strong> — toont de letterreeks en de betekenis ervan. In het voorbeeld staat "D · D · O · O" voor: dagdienst, dagdienst, vrije dag, vrije dag.</li>
+<li><strong>Startdatum</strong> — selecteer de datum van de eerste dag in de weergegeven reeks.</li>
+<li><strong>Diensttijden</strong> — geef de begin- en eindtijd op voor elk type werkdienst. De app toont de berekende duur.</li>
+<li><strong>Annuleren</strong> — sluit de editor zonder op te slaan.</li>
+<li><strong>Opslaan</strong> — slaat het rooster op en start de berekening van de diensten in de kalender.</li>
+</ol>
+
+<div class="warning"><strong>Na de eerste keer opslaan.</strong> De startdatum en de cyclusstructuur worden vergrendeld om reeds berekende kalendergegevens te beschermen. U kunt de naam en bepaalde werkparameters nog wel wijzigen. Als u een andere basiscyclus of referentiedatum nodig heeft, is het veiliger om een ​​nieuw rooster aan te maken.</div>
+
+<h3 id="shifts-custom">4.4. Een aangepaste cyclus maken</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_custom.webp" alt="Editor voor aangepaste roosters met cyclusduur, daginstellingen, startdatum en instellingen per dag">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Roosternaam</strong> — geef uw aangepaste reeks een naam.</li>
+<li><strong>Cyclusduur</strong> — geeft aan hoeveel dagen de herhalende reeks omvat.</li>
+<li><strong>Dag verwijderen</strong> — verkort de cyclus met één dag.</li>
+<li><strong>Dag toevoegen</strong> — voegt nog een configureerbare dag toe aan het einde van de cyclus.</li>
+<li><strong>Startdatum</strong> — de datum die overeenkomt met dag 1 van de aangepaste cyclus.</li>
+<li><strong>Daginstellingen</strong> — tik op de kaart ‘Diensttype’ en kies een vrije dag of het gewenste werktype: dag-, nacht-, ochtend-, avond-, 24-uurs- of aangepaste dienst. Geef voor een werkdag de begin- en eindtijd op. Stel de overige dagen van de cyclus verderop in het scherm op dezelfde manier in.</li>
+<li><strong>Annuleren</strong> — sluit de editor zonder op te slaan.</li>
+<li><strong>Opslaan</strong> — slaat de aangepaste cyclus op en verwerkt deze in de kalender.</li>
+</ol>
+
+<div class="notice"><strong>Wat is een cyclus?</strong> Een cyclus is het aantal dagen waarna de reeks opnieuw begint. Een cyclus van vier dagen kan bijvoorbeeld bestaan ​​uit "2 werkdagen + 2 vrije dagen", terwijl een cyclus van zes dagen kan bestaan ​​uit "3 werkdagen + 3 vrije dagen". Na de laatste dag keert de app terug naar dag 1.</div>
+
+<div class="tip">Wijzig de basiscyclus niet voor een eenmalige uitzondering in het rooster. Houd een datum in de kalender ingedrukt om een ​​vrije dag, vakantie, ziekteverlof, vervangende dienst of tijdsaanpassing toe te voegen.</div>
+
+
+
+<span id="shift-statistics"></span>
+<h2 id="statistics">5. Roosterstatistieken</h2>
+
+<p>Open "Statistieken" vanuit een roosterkaart via de knop <strong>"Statistieken openen"</strong>. Dit gedeelte combineert informatie over werkdagen en vrije dagen, roosterwijzigingen, geplande en werkelijke werktijd, geschat salaris en rapportages.</p>
+
+<div class="notice"><strong>Belangrijk:</strong> statistieken worden alleen berekend voor het geselecteerde dienstrooster. De geselecteerde periode is van toepassing op alle onderliggende waarden voor werktijd, salaris en rapportages.</div>
+
+<h3 id="statistics-period">5.1. Overzicht van rooster, periode en dag</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_period_overview.webp" alt="Statistiekenscherm met roosterinformatie, periodekeuze en dagtotalen">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Roosterinformatie</strong> — toont de naam van het geselecteerde rooster, de startdatum van de eerste cyclus en de duur van de herhalende cyclus. De statistieken op dit scherm gelden alleen voor dit rooster.</li>
+<li><strong>Kaart geselecteerde periode</strong> — toont de actieve periode. Tik hierop of op de pijl aan de rechterkant om de huidige, vorige of volgende maand, het huidige jaar of een aangepast datumbereik te selecteren.</li>
+<li><strong>Dagoverzicht</strong> — toont het aantal dagen in de periode, werkdiensten, vrije dagen, voltooide en geplande diensten, en gewijzigde dagen. Gewijzigde dagen zijn uitzonderingen op de basiscyclus: vakantie, ziekteverlof, verlof, een vervangende of verplaatste dienst, een aanpassing van de werktijd en andere wijzigingen.</li>
+</ol>
+
+<div class="warning"><strong>Toekomstige periodes zijn prognoses.</strong> Voor een toekomstige maand gebruikt de app het aangemaakte rooster en de reeds ingevoerde gegevens, maar kan deze geen rekening houden met toekomstig ziekteverlof, vakantie, vrijaf, overuren, bonussen of inhoudingen. Wanneer u het huidige jaar selecteert, kunnen de totalen een combinatie zijn van werkelijke gegevens uit het verleden en een prognose voor de rest van het jaar.</div>
+
+<h3 id="statistics-work">5.2. Werktijd, salaris en rapporten</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_work_salary_reports.webp" alt="Statistiekenscherm met werktijd, voortgang, salaris en toegang tot rapporten">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Werktijd</strong> — een overzichtskaart voor uren en voortgang. Tik hierop om de <a href="#statistics-break">instellingen voor pauzetijden</a> te openen.</li>
+<li><strong>Geplande uren</strong> — de totale duur van geplande diensten en wijzigingen in de geselecteerde periode.</li>
+<li><strong>Gewerkte uren</strong> — de tijd van diensten die op de huidige datum als voltooid worden beschouwd, inclusief toegepaste pauze-instellingen.</li>
+<li><strong>Voortgang</strong> — toont hoeveel werkdiensten er zijn voltooid ten opzichte van het totaal en welk percentage van de geselecteerde periode is afgerond.</li>
+<li><strong>Salaris</strong> — opent de <a href="#salary">instellingen voor salarisberekening</a>. De kaart toont een schatting voor het geselecteerde rooster en de periode.</li>
+<li><strong>Totaal</strong> — het geschatte bedrag dat tot nu toe is verdiend, inclusief de gekozen betaalmethode, bonussen, overuren en inhoudingen.</li>
+<li><strong>Tarief of salaris</strong> — de inhoud van deze kaart hangt af van de gekozen berekeningsmethode: betaling per uur, per dienst of per maand. Hier wordt de waarde weergegeven die in de salarisinstellingen is ingevoerd.</li>
+<li><strong>Berekeningsdetails</strong> — betaalde tijd, overuren, bonussen en inhoudingen voor de geselecteerde periode.</li>
+<li><strong>Rapporten</strong> — opent <a href="#reports">gedetailleerde rapporten over periodes, werktijd en salaris</a>.</li>
+</ol>
+
+<div class="tip">Alle waarden in de secties voor werktijd en salaris worden opnieuw berekend wanneer u de periode in de bovenste kaart wijzigt.</div>
+
+<h3 id="statistics-break">5.3. Pauzes meerekenen in de werktijd</h3>
+
+<p>Tik op de kaart "Werktijd" om aan te geven of een lunchpauze of andere pauze moet meetellen als onderdeel van de daadwerkelijk gewerkte en betaalde tijd.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_break_settings.webp" alt="Paneel voor instellingen rond pauzeregistratie en -duur">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Huidige totalen</strong> — toont de geplande en gewerkte uren voor de geselecteerde periode voordat de nieuwe instellingen worden toegepast.</li>
+<li><strong>Pauze als werktijd rekenen</strong> — laat deze optie ingeschakeld als de pauze betaald wordt en deel uitmaakt van de dienstduur. Schakel deze uit als de opgegeven tijd niet moet meetellen voor de gewerkte en betaalde tijd.</li>
+<li><strong>Pauzeduur</strong> — selecteer het aantal uren en minuten voor één pauze. Deze instelling wordt gebruikt bij het opnieuw berekenen van de betreffende diensten.</li>
+<li><strong>Totale pauze</strong> — toont de geselecteerde duur voordat u opslaat.</li>
+<li><strong>Opslaan</strong> — past de instelling toe en berekent de werktijd en bijbehorende waarden opnieuw.</li>
+</ol>
+
+<div class="notice">Een pauze kan een lunchpauze, dienstoverdracht of een ander onbetaald moment tijdens een dienst zijn. Voer de duur in die overeenkomt met de regels op uw werkplek.</div>
+
+<h3 id="reports">5.4. Rapporten: periode, status en samenvatting</h3>
+
+<p>Open "Rapporten" via de onderste kaart op het statistiekenscherm. Dit gedeelte biedt meer gedetailleerde informatie voor de geselecteerde periode: werktijden, diensten en afwezigheden, kalenderaanpassingen, salaris, bonussen, inhoudingen, periodevergelijking, dagelijkse details en export.</p>
+
+<div class="warning"><strong>Rapporten zijn uitsluitend bedoeld ter informatie.</strong> De berekeningen zijn gebaseerd op het geselecteerde rooster, de salarisinstellingen, de verwerking van pauzes en wijzigingen in diensten op de kalender. De werkelijke cijfers van uw werkgever kunnen afwijken door een ander tijdregistratiesysteem, afronding, belastingen, toeslagen of interne regels. Als u een fout of een niet-ondersteunde berekeningsmethode opmerkt, neem dan contact op met de ontwikkelaars via het adres dat in de app wordt vermeld en vermeld daarbij de invoergegevens en het verwachte resultaat.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_period_salary.webp" alt="Rapportagescherm met periodekeuze, status, samenvatting en gedetailleerde salarisspecificatie">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Rapportageperiode</strong> — tik op de kaart om de huidige, vorige of volgende maand, een vooraf ingesteld bereik of aangepaste datums te selecteren. Alle onderstaande informatie heeft betrekking op de geselecteerde periode.</li>
+<li><strong>Periodestatus</strong> — geeft aan of de periode voltooid is, momenteel actief is of nog niet is begonnen. Een voltooide periode wordt berekend op basis van opgeslagen werkelijke gegevens. Een actieve periode combineert reeds gewerkte uren met de huidige planning, terwijl een toekomstige periode een prognose is.</li>
+<li><strong>Samenvatting</strong> — een tekstuele samenvatting van de werkelijk gewerkte tijd, het berekende bedrag en overuren.</li>
+<li><strong>Salaris</strong> — een gedetailleerd overzicht van het basisloon, de vergoeding voor overuren, bonussen, inhoudingen en de uiteindelijke schatting. De waarden zijn afhankelijk van de <a href="#salary">salarisinstellingen</a> en de geselecteerde periode.</li>
+</ol>
+
+<h3 id="reports-work">5.5. Werktijd, afwezigheid en dagen</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_work_absences.webp" alt="Rapportagescherm met werktijd, pauzes, voltooide diensten en afwezigheid">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Werktijd</strong> — toont geplande en werkelijk gewerkte uren, geplande en werkelijke uren vóór aftrek van pauzes, het aantal voltooide diensten, de gemiddelde duur van diensten en de totale duur van de afgetrokken pauzes. Pauzes kunnen worden ingesteld in het <a href="#statistics-break">gedeelte voor werktijden</a>.</li>
+<li><strong>Afwezigheid en dagen</strong> — toont het aantal vrije dagen, vakantiedagen, ziektedagen, verlofdagen en gewijzigde dagen tijdens de geselecteerde periode.</li>
+</ol>
+
+<h3 id="reports-charts">5.6. Aanpassingen en grafieken</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_corrections_charts.webp" alt="Rapportagescherm met correcties, salarisopbouw en werktijdgegevens">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Aanpassingen</strong> — toont overuren, de totale wijziging in de duur van diensten en het aantal dagen dat is afgeweken van het basisrooster.</li>
+<li><strong>Grafieken</strong> — visualiseert de samenstelling van salaris en werktijd: basisloon, overuren, bonussen, inhoudingen, totaalbedrag, en geplande, gewerkte en betaalde uren.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_charts_days.webp" alt="Aanvullende rapportagegrafieken met uren en een cirkeldiagram van dagtypen">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Uren</strong> — zet de visuele vergelijking voort van geplande, gewerkte, betaalde uren en overuren. De rij "Werkelijke werktijd" toont het resultaat nadat instellingen en aanpassingen zijn toegepast.</li>
+<li><strong>Dagtypes</strong> — een cirkeldiagram dat de dagen in de geselecteerde periode verdeelt op basis van type. De legenda is afhankelijk van het rooster en werkelijke wijzigingen: dag-, nacht- of andere diensten, vrije dagen, vakantie, ziekteverlof, verlof en andere statussen.</li>
+</ol>
+
+<h3 id="reports-comparison">5.7. Periodes vergelijken</h3>
+
+<p>In het gedeelte voor vergelijking kunt u salaris, tijd, diensten en afwezigheid over meerdere periodes vergelijken. Het aantal beschikbare periodes hangt af van de opgeslagen gegevens.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_chart.webp" alt="Scherm voor periodevergelijking met selectie van tijdsbestek, salarisgrafiek en het begin van een vergelijkingstabel">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Periodes vergelijken</strong> — tik op de kaart om te kiezen hoeveel periodes u wilt vergelijken en wat het bereik daarvan is.</li>
+<li><strong>Grafiek en periodelijst</strong> — toont het salaris per periode en geeft een overzicht van de intervallen in de vergelijking, inclusief hun status.</li>
+<li><strong>Vergelijkingstabel</strong> — bevat gedetailleerde waarden voor elke periode. Veeg de tabel horizontaal naar links of rechts om de overige kolommen te bekijken.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_table.webp" alt="Vervolg van de vergelijkingstabel en verschillen tussen opeenvolgende periodes">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Periodewaarden</strong> — totaal salaris, gewerkte en betaalde uren, overuren, bonussen, inhoudingen, voltooide diensten, afwezigheid en gewijzigde dagen.</li>
+<li><strong>Verschil tussen periodes</strong> — toont hoe elke periode verschilt van de vorige. Positieve en negatieve waarden geven een toe- of afname van de betreffende grootheid aan. Kleur alleen duidt niet altijd op een voordeel of probleem; een toename van inhoudingen betekent bijvoorbeeld dat er een groter bedrag wordt ingehouden.</li>
+</ol>
+
+<h3 id="reports-details-export">5.8. Dagdetails en exporteren</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_details_export.webp" alt="Rapportkaarten voor dagelijkse details en export naar PDF, HTML, JSON of CSV">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Dagdetails</strong> — opent een lijst met alle dagen in de geselecteerde periode. U kunt voor een specifieke dag het diensttype, de geplande en werkelijke tijd, uuraanpassingen, afwezigheid en andere wijzigingen bekijken.</li>
+<li><strong>Exporteren</strong> — slaat het rapport op als PDF, HTML, JSON of CSV. Selecteer de rapportperiode voordat u exporteert; vervolgens kunt u het bestand afdrukken, opslaan of delen via het Android-systeemmenu.</li>
+</ol>
+
+<div class="tip">Controleer vóór het vergelijken of exporteren de geselecteerde periode, het rooster, de dienstwisselingen, de pauzes en de salarisinstellingen. Een fout in de brongegevens heeft gevolgen voor elk totaalcijfer in het rapport.</div>
+
+<h2 id="alarms">6. Alarmen</h2>
+
+<p>Met ShiftAlarm kunt u eenmalige alarmen instellen, deze op bepaalde dagen van de week laten herhalen of de tijd ervan koppelen aan een dienstrooster.</p>
+
+<h3 id="alarms-list">6.1. Alarmlijst</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarms_overview.webp" alt="ShiftAlarm-alarmscherm met de volgende melding, sorteeropties, een alarmkaart en de knop om een ​​alarm toe te voegen">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Volgend alarm</strong> — toont de datum en tijd van de volgende actieve melding.</li>
+<li><strong>Alarmen sorteren</strong> — wijzigt de volgorde van de alarmkaarten, bijvoorbeeld door ingeschakelde alarmen bovenaan te tonen.</li>
+<li><strong>Alarmkaart</strong> — bevat de tijd, datum of herhalingsmodus, het roostertype en de resterende tijd. Tik op de kaart om deze te bewerken.</li>
+<li><strong>Schakelaar</strong> — schakelt het alarm tijdelijk in of uit zonder de instellingen te verwijderen.</li>
+<li><strong>Verwijderen</strong> — verwijdert het geselecteerde alarm.</li>
+<li><strong>Alarm toevoegen</strong> — opent het scherm voor het aanmaken van een nieuw alarm.</li>
+</ol>
+
+<h3 id="alarms-create">6.2. Een alarm aanmaken en bewerken</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_time_schedule.webp" alt="Bovenste gedeelte van de ShiftAlarm-alarmeditor: instellingen voor tijd, type schema, sluimerfunctie en opslaan">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tijd</strong> — scrol door de uur- en minuutwielen om de tijd van het alarm in te stellen.</li>
+<li><strong>Schematype</strong> — selecteer een van deze modi:
+<ul>
+<li><strong>Eenmalig</strong> — het alarm gaat één keer af op de geselecteerde datum;</li>
+<li><strong>Op dagen</strong> — herhaling op geselecteerde dagen van de week;</li>
+<li><strong>Op diensten</strong> — koppelt het alarm aan een geselecteerd rooster en diensttype.</li>
+</ul>
+</li>
+<li><strong>Sluimeren</strong> — bepaalt met hoeveel minuten het alarm wordt uitgesteld wanneer u op de sluimerknop op het alarmscherm tikt.</li>
+<li><strong>Annuleren en Opslaan</strong> — deze knoppen staan ​​vast onderaan het scherm en blijven beschikbaar terwijl u door de editor scrolt.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_behavior.webp" alt="ShiftAlarm-instellingen voor alarmduur, herhaling van meldingen, geleidelijke volumetoename en trilling">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Alarmduur</strong> — bepaalt hoe lang het alarm klinkt als de gebruiker het niet stopt.</li>
+<li><strong>Herhalen bij negeren</strong> — activeert een nieuw alarmsignaal als het alarm niet is uitgeschakeld of gesluimerd. Stel hieronder het interval voor de herhaling in.</li>
+<li><strong>Geleidelijke volumetoename</strong> — begint met een zachter geluid en verhoogt het volume geleidelijk gedurende de geselecteerde tijd.</li>
+<li><strong>Trillen</strong> — schakelt trillen tijdens het alarm in of uit.</li>
+<li><strong>Annuleren en Opslaan</strong> — vaste bedieningselementen voor de editor.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_sound_name.webp" alt="Onderkant van de ShiftAlarm-alarmeditor: bedieningselementen voor trilling, geluid, naam en opslaan">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Trillen</strong> — schakelt het trilalarm in of uit.</li>
+<li><strong>Geluid</strong> — hiermee kunt u een ingebouwd geluid, een systeemgeluid of een zelf toegevoegd geluid selecteren. U kunt maximaal vijf eigen geluiden aan de app toevoegen.</li>
+<li><strong>Naam</strong> — een optioneel label om alarmen van elkaar te onderscheiden.</li>
+<li><strong>Annuleren en Opslaan</strong> — wijzigingen negeren of het alarm opslaan.</li>
+</ol>
+
+<div class="notice">Na het opslaan verschijnt het alarm in de hoofdlijst. Zorg er vóór een belangrijke melding voor dat het alarm is ingeschakeld, dat de app toestemming heeft voor meldingen en 'exacte alarmen', en dat het systeem de achtergrondactiviteit van de app niet beperkt.</div>
+
+<div class="tip">Om een ​​alarm te maken dat aan een dienst is gekoppeld, maakt u eerst een geschikt dienstrooster aan. Kies in de editor een vast tijdstip of een tijdstip ten opzichte van de aanvang van de dienst.</div>
+
+<h2 id="geo">7. Geo-alarmen</h2>
+
+<p>Een geo-alarm houdt bij wanneer het apparaat een geselecteerd gebied binnenkomt of verlaat. Het gebied wordt bepaald door een punt op de kaart en een straal rond dat punt. Gebruik een geo-alarm bijvoorbeeld om een ​​melding te ontvangen wanneer u in de buurt komt van uw werk, huis, een bushalte, een station of een andere locatie.</p>
+
+<h3 id="geo-overview">7.1. Kaart en bediening</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_overview.webp" alt="Hoofdscherm van ShiftAlarm Geo Alarm met een kaart en genummerde bedieningselementen">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Inzoomen</strong> — vergroot de kaartweergave.</li>
+<li><strong>Uitzoomen</strong> — verkleint de kaartweergave.</li>
+<li><strong>Mijn locatie</strong> — verplaatst de kaart naar de huidige locatie van het apparaat. Voor deze functie heeft de app toegang tot uw locatiegegevens nodig.</li>
+<li><strong>Opgeslagen locaties</strong> — opent de lijst met opgeslagen Geo-alarmen en locatiepunten.</li>
+<li><strong>Terug</strong> — keert terug naar het vorige scherm van de app.</li>
+<li><strong>Aantal Geo-alarmen</strong> — toont hoeveel Geo-alarmen er zijn aangemaakt.</li>
+<li><strong>Lijst met Geo-alarmen</strong> — opent een aparte lijst met aangemaakte Geo-alarmen.</li>
+</ol>
+
+<div class="tip">U kunt ook in- en uitzoomen met gebaren. Raak de kaart aan met twee vingers en spreid ze om in te zoomen, of breng ze naar elkaar toe om uit te zoomen.</div>
+<div class="notice">Bij talen die van rechts naar links worden gelezen, kunnen de bedieningselementen aan de andere kant verschijnen. De functies blijven hetzelfde.</div>
+
+<h3 id="geo-saved-places">7.2. Opgeslagen alarmen en locatiepunten</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_saved_places.webp" alt="Venster met opgeslagen locaties, inclusief tabbladen voor Geo Alarm en locatiepunten">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Alarmen</strong> — toont Geo-alarmen die aan opgeslagen locaties zijn toegevoegd.</li>
+<li><strong>Locatiepunten</strong> — toont opgeslagen coördinaten zonder actief Geo-alarm.</li>
+<li><strong>Lijst met opgeslagen locaties</strong> — tik op een kaart om naar die locatie op de kaart te gaan.</li>
+<li><strong>Sluiten</strong> — sluit het venster en keert terug naar de kaart.</li>
+</ol>
+
+<div class="notice">Als u een opgeslagen Geo-alarm verwijdert, blijven de coördinaten automatisch bewaard op het tabblad "Locatiepunten". U kunt het punt later opnieuw gebruiken om een ​​ander Geo-alarm aan te maken.</div>
+
+<h3 id="geo-select-point">7.3. Een punt en straal selecteren</h3>
+
+<p>Houd de gewenste locatie op de kaart ingedrukt. De app plaatst een markering en opent het paneel voor het geselecteerde punt.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_selected_point.webp" alt="Geselecteerd punt op de kaart met adres, straal, bladwijzer en knop voor het aanmaken van een Geo Alarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Markering geselecteerd punt</strong> — het middelpunt van de toekomstige geofence. De kaart toont ook een cirkel voor de geselecteerde straal.</li>
+<li><strong>Adres en coördinaten</strong> — hiermee kunt u controleren of de juiste locatie is geselecteerd.</li>
+<li><strong>Locatiepunt opslaan</strong> — voegt de geselecteerde coördinaten toe aan opgeslagen locaties zonder een alarm aan te maken.</li>
+<li><strong>Straal</strong> — bepaalt de grootte van het gebied rond het punt. Versleep de schuifregelaar totdat u een geschikte afstand heeft gekozen.</li>
+<li><strong>Annuleren</strong> — annuleert de selectie van het punt.</li>
+<li><strong>Hier aanmaken</strong> — opent de editor voor het nieuwe geo-alarm voor het geselecteerde punt.</li>
+</ol>
+
+<div class="warning"><strong>Een straal kiezen.</strong> Een telefoon houdt zijn coördinaten niet continu bij. Android, de fabrikant van het toestel, de energiebesparende modus, GPS, de signaalkwaliteit van het mobiele netwerk en wifi, en de bewegingssnelheid zijn allemaal van invloed op het moment waarop de grens wordt gedetecteerd. Het alarm kan daarom afgaan op een andere plek dan de getekende lijn. Bij een straal van 800 meter kan het binnengaan bijvoorbeeld pas worden gedetecteerd als het toestel zich al in het gebied bevindt — misschien op 700, 600 of 500 meter van het punt.</div>
+
+<ul>
+<li><strong>In de stad</strong> wordt doorgaans een straal van <strong>1300–1500 meter</strong> aanbevolen.</li>
+<li><strong>Buiten de stad</strong>, waar locatie-updates minder vaak kunnen plaatsvinden, wordt <strong>4000–5000 meter</strong> aanbevolen.</li>
+<li><strong>De exacte straal</strong> moet worden gekozen op basis van uw route, snelheid en het gedrag van uw toestel.</li>
+</ul>
+
+<div class="notice">Het systeem detecteert wanneer het toestel de virtuele grens van het gebied overschrijdt. In de modus "Bij binnenkomst" geeft een grotere straal de telefoon doorgaans meer tijd om uw nadering te detecteren. In de modus "Bij verlaten" wordt de grens juist verder van het geselecteerde punt geplaatst.</div>
+
+<h3 id="geo-create">7.4. Een geo-alarm aanmaken</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_location_schedule.webp" alt="Bovenkant van de Geo Alarm-editor: status, locatie en type planning">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Gereedheid Geo-alarm</strong> — geeft aan of de vereiste machtigingen zijn ingesteld en of de app de geofence kan registreren.</li>
+<li><strong>Locatie</strong> — bevat het geselecteerde adres en de coördinaten. U kunt het adres als label bewerken, maar het daadwerkelijke punt wordt op de kaart geselecteerd.</li>
+<li><strong>Type planning</strong> — bepaalt de dagen en voorwaarden waaronder het Geo-alarm actief is.</li>
+<li><strong>Altijd</strong> — het Geo-alarm is elke dag actief zolang het is ingeschakeld.</li>
+<li><strong>Eenmalig</strong> — voor de volgende eenmalige activering zodra aan de geselecteerde voorwaarde is voldaan.</li>
+<li><strong>Op dagen</strong> — werkt alleen op de geselecteerde dagen van de week.</li>
+<li><strong>Op basis van diensten</strong> — koppelt het Geo-alarm aan het actieve dienstenrooster.</li>
+</ol>
+
+<div class="notice"><strong>Schema "Op basis van diensten".</strong> Kies of het alarm actief is op de dienst-dag, alleen vóór de dienst of alleen erna, en geef het gewenste diensttype op: dag-, nacht-, ochtend-, avond-, 24-uurs-, aangepaste of willekeurige dienst.</div>
+<div class="tip">Als een kalenderdatum is gemarkeerd als vrije dag, vakantie, ziekteverlof of verlof in plaats van een werkdienst, is een aan diensten gekoppeld Geo-alarm die dag niet actief.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_trigger_settings.webp" alt="Onderkant van de Geo Alarm-editor: voorwaarde voor binnenkomst of vertrek, straal en meldingsinstellingen">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Activeringsvoorwaarde</strong> — bepaalt bij welke grensoverschrijding de melding wordt geactiveerd.</li>
+<li><strong>Bij binnenkomst</strong> — activeert de melding wanneer het apparaat de geselecteerde straal (radius) binnenkomt, bijvoorbeeld bij het naderen van het werk of de vereiste stop.</li>
+<li><strong>Bij verlaten</strong> — activeert de melding wanneer het apparaat de geselecteerde straal verlaat, bijvoorbeeld na vertrek van het werk of een station, zodat u het volgende deel van een route niet mist.</li>
+<li><strong>Bij binnenkomst of verlaten</strong> — activeert de melding telkens wanneer de grens in een van beide richtingen wordt overschreden.</li>
+<li><strong>Straal</strong> — de grootte van de geofence rond het geselecteerde punt.</li>
+<li><strong>Alarmduur</strong> — bepaalt hoe lang de melding klinkt.</li>
+<li><strong>Geleidelijke volumetoename</strong> — zorgt voor een geleidelijke toename van het volume nadat de melding is gestart.</li>
+<li><strong>Annuleren en opslaan</strong> — wijzigingen negeren of het Geo-alarm opslaan.</li>
+</ol>
+
+<div class="tip">De overige opties hieronder zijn vergelijkbaar met die van een standaardalarm: geluid, trilling, duur van de melding, geleidelijke volumetoename en naam.</div>
+
+<h3 id="geo-existing">7.5. Een Geo-alarm op de kaart en de bijbehorende bedieningselementen</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_marker_radius.webp" alt="Aangemaakte Geo Alarm-markering en de bijbehorende cirkel voor de activeringsstraal op de kaart">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Geo-alarmmarkering</strong> — geeft het geselecteerde punt weer.</li>
+<li><strong>Straalbegrenzing</strong> — toont het gebied waarvan het betreden of verlaten door de app wordt bewaakt.</li>
+</ol>
+
+<p>Tik op de Geo-alarmmarkering. Er verschijnt eerst een klein informatievenster. Tik op dat venster om de gedetailleerde kaart te openen.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_alarm_card.webp" alt="Gedetailleerde Geo Alarm-kaart met informatie, bladwijzer, schakelaar en bedieningselementen">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Naam en adres</strong> — identificeren het geselecteerde Geo-alarm.</li>
+<li><strong>Bladwijzer</strong> — voegt het alarm toe aan opgeslagen locaties of verwijdert het daaruit.</li>
+<li><strong>Schakelaar</strong> — activeert of deactiveert tijdelijk het Geo-alarm zonder de instellingen te verwijderen.</li>
+<li><strong>Instellingen en status</strong> — tonen de straal, de voorwaarde voor betreden of verlaten, het tijdschema, de gereedheid van de geofence en informatie over eerdere activeringen.</li>
+<li><strong>Bewerken</strong> — opent de instellingen van het Geo-alarm.</li>
+<li><strong>Sluiten</strong> — sluit de kaart en keert terug naar de kaartweergave.</li>
+<li><strong>Verwijderen</strong> — verwijdert het Geo-alarm na bevestiging.</li>
+</ol>
+
+<div class="warning">Voor een betrouwbare werking moet u nauwkeurige locatiebepaling en locatiegebruik op de achtergrond toestaan, strikte batterijbeperkingen voor ShiftAlarm opheffen en de instellingen voor automatisch opstarten controleren (indien uw apparaat deze biedt). Zelfs met de juiste instellingen garandeert Android geen detectie van grensoverschrijdingen tot op enkele meters nauwkeurig.</div>
+
+<h2 id="notes">8. Notities, gebeurtenissen en herinneringen</h2>
+
+<p>In het gedeelte "Notities" worden platte tekst, lijsten, checklists, audio-opnamen, spraak-naar-tekstnotities, herinneringen en gebeurtenissen opgeslagen.</p>
+
+<h3 id="notes-create">8.1. Een notitie toevoegen</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_type_picker.webp" alt="Selecteren van een nieuw notitietype in ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Paneelgreep</strong> — sleep deze omhoog om de volledige lijst met notitietypen weer te geven, of omlaag om het paneel te sluiten.</li>
+<li><strong>Notitietype</strong> — selecteer de juiste optie:
+<ul>
+<li><strong>Tekstnotitie</strong> — platte tekst;</li>
+<li><strong>Checklist</strong> — een lijst met items en selectievakjes;</li>
+<li><strong>Lijst</strong> — een lijst met opsommingstekens of nummering;</li>
+<li><strong>Audionotitie</strong> — een spraakopname;</li>
+<li><strong>Spraak naar tekst</strong> — maakt een notitie aan met behulp van spraakherkenning;</li>
+<li><strong>Herinnering</strong> — een item met een melding op een opgegeven tijdstip;</li>
+<li><strong>Gebeurtenis</strong> — een item dat gekoppeld is aan een datum en tijd.</li>
+</ul>
+</li>
+<li><strong>Annuleren</strong> — sluit de keuzelijst zonder een notitie aan te maken.</li>
+</ol>
+
+<div class="tip">Nadat u een type hebt geselecteerd, wordt de bijbehorende editor geopend. Vul de vereiste velden in en sla het item op.</div>
+
+<h3 id="notes-list">8.2. Notitielijst en bedieningselementen</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_overview.webp" alt="ShiftAlarm-notitiescherm met sorteeropties, actieve en gearchiveerde notities, zoekfunctie en kaartacties">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Sorteren</strong> — wijzigt de volgorde van de notities in de lijst.</li>
+<li><strong>Actief</strong> — toont normale en geplande notities die niet naar het archief zijn verplaatst.</li>
+<li><strong>Archief</strong> — opent de lijst met gearchiveerde notities.</li>
+<li><strong>Zoeken</strong> — zoekt naar overeenkomsten in titels en inhoud van notities.</li>
+<li><strong>Notitiekaart</strong> — toont de titel, het type, de status en aanvullende informatie. Tik op de kaart om de notitie te openen.</li>
+<li><strong>Vastmaken</strong> — zet de notitie vast bovenaan de lijst.</li>
+<li><strong>Archiveren</strong> — verwijdert de notitie uit de actieve lijst en verplaatst deze naar het archief.</li>
+<li><strong>Verwijderen</strong> — verwijdert de notitie na bevestiging.</li>
+<li><strong>Notitie toevoegen</strong> — opent de keuzelijst voor het type nieuwe notitie.</li>
+</ol>
+
+<div class="notice">Gebruik het archief voor items die niet meer nodig zijn in de hoofdlijst, maar wel bewaard moeten blijven. Verwijder een notitie alleen als deze helemaal niet meer nodig is.</div>
+
+<h2 id="clock">9. Klok, stopwatch en timer</h2>
+
+<p>Dit onderdeel combineert lokale tijd en wereldtijd, een stopwatch en een timer. Open dit met de knop <strong>"Klok"</strong> op het hoofdscherm.</p>
+
+<div class="notice">Onderaan het scherm verschijnen drie tabbladen: "Klok", "Stopwatch" en "Timer". Tik op een tabblad om van modus te wisselen.</div>
+
+<h3 id="clock-world">9.1. Klok en wereldklok</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_overview.webp" alt="ShiftAlarm-klokscherm met lokale tijd, wereldklokken, toevoegknop en tabbladen onderaan">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Lokale tijd</strong> — toont de huidige tijd, datum en de tijdzone van het apparaat.</li>
+<li><strong>Wereldklokken</strong> — toont toegevoegde steden en tijdzones. Als de lijst leeg is, toont de app een aanwijzing.</li>
+<li><strong>Plusknop</strong> — opent de kiezer voor wereldklokken.</li>
+<li><strong>Sectietabbladen</strong> — schakelen tussen de schermen "Klok", "Stopwatch" en "Timer".</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_add_timezone.webp" alt="Een stad of tijdzone toevoegen aan de ShiftAlarm-wereldklok">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Zoeken</strong> — voer de naam van een stad of tijdzone in om de lijst te filteren.</li>
+<li><strong>Lijst met steden en tijdzones</strong> — tik op de gewenste optie om deze aan het wereldklokscherm toe te voegen.</li>
+</ol>
+
+<div class="tip">De lokale tijdzone wordt altijd als eerste weergegeven. U kunt toegevoegde wereldklokken uit de lijst verwijderen, maar de lokale tijd kan niet worden verwijderd.</div>
+
+<h3 id="clock-stopwatch">9.2. Stopwatch</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_start.webp" alt="ShiftAlarm-stopwatch voordat deze start">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Geschiedenis</strong> — opent opgeslagen stopwatchsessies.</li>
+<li><strong>Start</strong> — start de tijdmeting.</li>
+<li><strong>Reset</strong> — niet beschikbaar voordat de stopwatch start. Na het stoppen wordt de stopwatch op nul gezet en worden de huidige rondetijden verwijderd.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_running.webp" alt="Lopende ShiftAlarm-stopwatch met bedieningselementen voor geschiedenis, opslaan, rondetijden en pauzeren">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Geschiedenis</strong> — toont eerder opgeslagen sessies.</li>
+<li><strong>Opslaan</strong> — vraagt ​​om een ​​naam en slaat de huidige stopwatchsessie op.</li>
+<li><strong>Ronde</strong> — registreert een tussentijd zonder de totale tijdmeting te stoppen.</li>
+<li><strong>Pauze</strong> — pauzeert de stopwatch. Na het pauzeren kunt u de timer hervatten of opnieuw instellen.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_laps.webp" alt="ShiftAlarm-stopwatchrondetijden en sorteeropties daarvoor">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Oorspronkelijk, snelste en langzaamste</strong> — wijzig de weergavevolgorde van de rondes: oorspronkelijke volgorde, snelste eerst of langzaamste eerst.</li>
+<li><strong>Rondes</strong> — bij elke ronde worden de totale tijd van vastlegging en de individuele rondetijd weergegeven.</li>
+</ol>
+
+<div class="notice">Wanneer u op Opslaan tikt, voert u een naam voor de sessie in en bevestigt u dit. U kunt de opgeslagen sessie later openen via Geschiedenis.</div>
+
+<h3 id="clock-timer">9.3. Timer</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_setup.webp" alt="Een ShiftAlarm-timer instellen met wieltjes voor uren, minuten en seconden">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Uren</strong> — draai aan het wiel en selecteer het aantal uren.</li>
+<li><strong>Minuten</strong> — draai aan het wiel en selecteer het aantal minuten.</li>
+<li><strong>Seconden</strong> — draai aan het wiel en selecteer het aantal seconden.</li>
+<li><strong>Start</strong> — start de timer met de geselecteerde tijdsduur.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_running.webp" alt="Lopende ShiftAlarm-timer met resterende tijd en bedieningselementen voor pauzeren, minuut toevoegen en stoppen">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Resterende tijd</strong> — toont hoeveel tijd er nog over is tot de melding.</li>
+<li><strong>Eindtijd</strong> — toont de geschatte tijd waarop de timer afloopt.</li>
+<li><strong>Recente timers</strong> — opgeslagen recente tijdsduren; tik op een item om het snel opnieuw te gebruiken.</li>
+<li><strong>Pauze</strong> — onderbreekt tijdelijk het aftellen. Je kunt daarna verdergaan.</li>
+<li><strong>+1 min</strong> — voegt één minuut toe aan de resterende tijd.</li>
+<li><strong>Stop</strong> — stopt de timer volledig.</li>
+</ol>
+
+<div class="tip">De timer en stopwatch blijven op de achtergrond doorlopen. De status kan worden weergegeven in een melding, op het hoofdscherm en in widgets.</div>
+
+<h2 id="widgets">10. Widgets</h2>
+
+<p>ShiftAlarm biedt widgets voor het startscherm van de telefoon.</p>
+<ul>
+<li><strong>Vandaag 4×2</strong> — een compact paneel met twee instelbare gedeelten.</li>
+<li><strong>Vandaag 4×3</strong> — een paneel met een klok bovenaan en twee gedeelten daaronder.</li>
+<li><strong>Agenda 4×4</strong> — agendawidgets met het dienstenrooster.</li>
+</ul>
+<p>Voeg een widget toe via het Android-widgetmenu op het startscherm van de telefoon.</p>
+
+<h2 id="salary">11. Salarisberekening</h2>
+
+<p>Open “Salarisberekening” vanuit de salariskaart in de <a href="#statistics-work">statistieken van het geselecteerde rooster</a>. Hier kun je de betaalmethode, het uurtarief of maandsalaris, regels voor overuren, bonussen en inhoudingen instellen. De app gebruikt deze instellingen in combinatie met de geselecteerde periode, het dienstrooster, wijzigingen in de kalender en de verwerking van pauzes.</p>
+
+<div class="warning"><strong>De berekening is uitsluitend bedoeld ter informatie.</strong> Het daadwerkelijke salaris kan afwijken als uw werkgever een ander systeem hanteert voor urenregistratie, afronding, toeslagen, belastingen, bonussen, inhoudingen of de betaling van specifieke soorten diensten. Gebruik het resultaat niet als officieel salarisdocument; vergelijk het met de loonstrook van uw werkgever. Als u een berekeningsmethode tegenkomt die niet nauwkeurig door de app wordt verwerkt, stuur dan een e-mail naar de ontwikkelaars via het adres dat in de app wordt vermeld. Beschrijf de regels, geef voorbeeldgegevens op en vermeld het verwachte resultaat. De methode kan dan worden overwogen voor een toekomstige update.</div>
+
+<h3 id="salary-settings">11.1. Tarief, overuren en bonussen</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_settings_overview.webp" alt="Salarisberekeningsscherm met geselecteerd rooster, tarieftype, overwerk en bonussen">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Geselecteerd rooster</strong> — geeft aan welk dienstrooster wordt gebruikt. Het salaris wordt berekend op basis van dit rooster en de periode die in de statistieken is geselecteerd.</li>
+<li><strong>Tarieftype en bedrag</strong> — kies voor betaling <strong>per uur</strong>, <strong>per dienst</strong> of <strong>per maand</strong> en voer het bijbehorende bedrag in. De naam van het invoerveld verandert afhankelijk van het gekozen tarieftype.</li>
+<li><strong>Overuren</strong> — schakel dit onderdeel in als extra uren anders worden betaald dan reguliere werktijd. Geef vervolgens de vermenigvuldigingsfactor voor overuren op. Voeg extra uren toe aan de kalender via <a href="#main-shift-time-adjustment">"Dienst wijzigen" → "+ tijd"</a>; schakel de optie "Deze tijd als overuren tellen" in, zodat de uren als overuren worden verwerkt.</li>
+<li><strong>Bonussen</strong> — toont de huidige berekeningsmethode en totalen. Tik op de kaart om de <a href="#salary-bonuses">bonusinstellingen</a> te openen.</li>
+</ol>
+
+<div class="notice">Met de knop "Opslaan" worden de instellingen toegepast op het geselecteerde rooster. Na het opslaan worden de totalen in de statistieken en rapporten opnieuw berekend op basis van de ingevoerde gegevens.</div>
+
+<h3 id="salary-summary">11.2. Inhoudingen en het berekende totaal</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions_total.webp" alt="Salarisberekeningsscherm met inhoudingen en een eindoverzicht">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Inhoudingen</strong> — toont het totaalbedrag en het aantal geconfigureerde inhoudingen. Tik op de kaart om de <a href="#salary-deductions">lijst met inhoudingen</a> te openen.</li>
+<li><strong>Totaal</strong> — een samenvattend overzicht: betaalde tijd, gewerkte uren, overuren, basissalaris, overwerkvergoeding, bonussen, inhoudingen en het eindresultaat.</li>
+</ol>
+
+<div class="tip">Het resultaat hangt niet alleen af ​​van de instellingen op dit scherm, maar ook van de geselecteerde statistiekperiode, voltooide diensten, dagwisselingen, overuren en instellingen voor onbetaalde pauzes.</div>
+
+<h3 id="salary-bonuses">11.3. Bonussen</h3>
+
+<p>Tik op de kaart "Bonussen" in het scherm voor salarisberekening. U kunt een bonus handmatig invoeren of als percentage berekenen, afhankelijk van uw beloningssysteem.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_bonuses.webp" alt="Scherm voor bonusinstellingen met opties voor berekening en bedragsinvoer">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Samenvattende informatie</strong> — toont het berekende totaalbedrag aan bonussen en het basisbedrag dat voor de berekening is gebruikt.</li>
+<li><strong>Bonusberekening</strong> — kies voor handmatige invoer of een berekening op basis van een percentage (bijv. een percentage van de omzet), als die methode op uw werkplek wordt gehanteerd.</li>
+<li><strong>Invoermethode</strong> — "Totaalbedrag" is geschikt voor één enkele eindbonus. Aparte regels zijn handig als er meerdere bonussen zijn die afzonderlijk moeten worden meegeteld.</li>
+<li><strong>Bedrag of percentage</strong> — voer de waarde in die vereist is voor de gekozen berekeningsmethode.</li>
+<li><strong>Annuleren en opslaan</strong> — wijzigingen verwerpen of toepassen op de salarisberekening.</li>
+</ol>
+
+<h3 id="salary-deductions">11.4. Lijst met inhoudingen</h3>
+
+<p>Tik op de kaart "Inhoudingen" in het hoofdscherm voor berekeningen. In dit gedeelte kunt u meerdere inhoudingen vastleggen en deze afzonderlijk beheren.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions.webp" alt="Scherm met lijst van inhoudingen, totaalbedrag, rijen voor inhoudingen en toevoegknop">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Samenvattende informatie</strong> — toont het bedrag en het aantal van alle actieve inhoudingen.</li>
+<li><strong>Regel voor inhouding</strong> — toont de naam, waarde en het type. Tik op de regel om de <a href="#salary-deduction-editor">instellingen voor de inhouding</a> te openen. Het prullenbakpictogram verwijdert de rij.</li>
+<li><strong>Inhouding toevoegen</strong> — de "+"-knop maakt een nieuwe rij voor een inhouding aan.</li>
+<li><strong>Annuleren en opslaan</strong> — wijzigingen verwerpen of de volledige lijst opslaan.</li>
+</ol>
+
+<h3 id="salary-deduction-editor">11.5. Een individuele inhouding configureren</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deduction_editor.webp" alt="Paneel voor individuele inhouding met naam, waarde, type en inhoudingsbasis">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Naam inhouding</strong> — voer een duidelijke naam in, zoals "Belasting", "Kinderalimentatie" of "Boete".</li>
+<li><strong>Waarde</strong> — voer een bedrag of percentage in, afhankelijk van het hieronder geselecteerde waardetype.</li>
+<li><strong>Waardetype</strong> — selecteer een vast bedrag of een percentage.</li>
+<li><strong>Type inhouding</strong> — een <strong>variabele</strong> inhouding geldt voor een specifieke berekeningsperiode; een <strong>terugkerende</strong> inhouding wordt regelmatig toegepast zolang deze ingeschakeld blijft.</li>
+<li><strong>Inhouden op</strong> — selecteer de berekeningsbasis: totaal salaris, basissalaris, bonussen of een andere beschikbare optie.</li>
+<li><strong>Ingeschakeld</strong> — schakelt de inhouding tijdelijk uit zonder de instellingen te verwijderen.</li>
+<li><strong>Annuleren en opslaan</strong> — sluit het paneel zonder wijzigingen of sla de inhouding op.</li>
+</ol>
+
+<div class="notice">Bij een inhouding op basis van een percentage is het extra belangrijk om de juiste basis voor "Inhouden op" te kiezen: hetzelfde percentage van het totale salaris, het basissalaris of de bonussen leidt tot verschillende resultaten.</div>
+
+<h2 id="settings">12. Instellingen</h2>
+
+<p>Open "Instellingen" met de knop onderaan het <a href="#main-overview">hoofdscherm</a>. Dit gedeelte bevat systeemmachtigingen, weergave- en app-taal, offline spraakherkenning, documenten en de gebruikershandleiding, back-up, diagnostiek en contactopties voor de ontwikkelaar.</p>
+
+<h3 id="settings-overview">12.1. Belangrijkste instellingscategorieën</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_permissions_language.webp" alt="Bovenste deel van de ShiftAlarm-instellingen: rechten, thema, app-taal en offline spraakmodellen">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Machtigingen</strong> — opent machtigingen voor alarmen en betrouwbaarheidsinstellingen. Controleer meldingen, exacte alarmen, achtergrondactiviteit en batterijbeperkingen. <a href="#geo">Geo-alarmen</a> vereisen ook toegang tot locatiegegevens; toegang tot de locatie op de achtergrond of de instelling 'Altijd toestaan' is nodig om het alarm te activeren wanneer de app gesloten is. De namen van items en paden kunnen variëren afhankelijk van de Android-versie en de fabrikant van het apparaat.</li>
+<li><strong>Thema</strong> — hiermee kunt u kiezen voor een lichte, donkere of systeemweergave, een kleurvariant voor de interface selecteren en haptische feedback voor acties in de app in- of uitschakelen. Het systeemthema volgt de huidige weergave-instelling van de telefoon.</li>
+<li><strong>App-taal</strong> — hiermee kunt u een andere taal gebruiken dan de systeemtaal van de telefoon. De ShiftAlarm-catalogus bevat 108 talen: zoek de gewenste taal, download het taalpakket en pas dit toe.</li>
+<li><strong>Offline spraakmodellen</strong> — installeert een module voor <a href="#notes-create">spraak-naar-tekstnotities</a>. Offline herkenning wordt momenteel getest en is beschikbaar voor ongeveer 20 talen. De kwaliteit kan lager zijn dan bij online herkenning en hangt af van de taal, de microfoon, de prestaties van de telefoon en de opnameomstandigheden.</li>
+</ol>
+
+<div class="warning"><strong>Android-machtigingen verschillen per apparaat.</strong> Op sommige telefoons moet u ook automatisch opstarten toestaan, de batterijmodus "Onbeperkt" (of vergelijkbaar) selecteren en achtergrondactiviteit toestaan. Deze instellingen verkleinen de kans dat het systeem ShiftAlarm stopt, maar de exacte benamingen ervan worden bepaald door de fabrikant van het apparaat.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_help_backup_diagnostics.webp" alt="Onderste deel van de ShiftAlarm-instellingen: documenten, gebruikershandleiding, back-up, diagnostiek en contact met ontwikkelaar">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Documenten en hulp</strong> — opent de juridische documenten van de app: Gebruiksvoorwaarden, Privacybeleid, Disclaimer en de beknopte hulppagina.</li>
+<li><strong>Training en gebruikershandleiding</strong> — opent deze volledige, geïllustreerde handleiding met gedetailleerde beschrijvingen van de functies van ShiftAlarm.</li>
+<li><strong>Back-up en herstel</strong> — maakt een bestand aan met ondersteunde app-instellingen en -gegevens, of herstelt deze vanuit een eerdere back-up. Dit is handig voordat u de app opnieuw installeert, de telefoon reset of gegevens naar een ander apparaat overzet. Zie <a href="#backup">"Back-up en herstel"</a> voor gedetailleerde instructies.</li>
+<li><strong>Diagnostisch logboek</strong> — opent afzonderlijke logboeken voor de functies van de app. Ze registreren technische stappen zoals het plannen en herstellen van waarschuwingen, de verwerking van gebeurtenissen, de status van machtigingen en andere service-informatie. Een logboek helpt vast te stellen in welke fase een fout optrad. U kunt vermeldingen kopiëren of voorbereiden om ze per e-mail naar de ontwikkelaars te sturen. Zie <a href="#diagnostics">‘Diagnostiek en probleemoplossing’</a> voor meer informatie.</li>
+<li><strong>Contact opnemen met ontwikkelaars</strong> — opent de e-mailapp en maakt een bericht aan dat gericht is aan de ondersteuningsdienst. Gebruik deze optie om een ​​probleem te melden, feedback of een suggestie te sturen, of een vraag te stellen. Vermeld bij technische problemen indien mogelijk het telefoonmodel, de Android-versie, het tijdstip van het probleem, de uitgevoerde stappen en het relevante diagnostische logboek.</li>
+</ol>
+
+<div class="notice">Diagnostische logboeken worden niet automatisch naar de ontwikkelaars verzonden. U moet de vereiste informatie kopiëren of op “Verzenden naar ontwikkelaars” tikken, een e-mailapp kiezen, het voorbereide bericht controleren en het verzenden bevestigen.</div>
+
+<h2 id="backup">13. Back-up en herstel</h2>
+
+<p>Een back-up slaat ondersteunde ShiftAlarm-instellingen en gebruikersgegevens op in een apart bestand. Dit helpt bij het herstellen van gegevens na het opnieuw installeren van de app, het resetten van de telefoon of het overstappen naar een ander toestel.</p>
+<ol class="step-list">
+<li>Open “Instellingen → Back-up en herstel.”</li>
+<li>Maak een back-up en sla het resulterende bestand op de telefoon op of deel het via het systeemmenu.</li>
+<li>Om gegevens te herstellen, opent u hetzelfde gedeelte en selecteert u een eerder aangemaakt back-upbestand.</li>
+<li>Controleer na het herstellen belangrijke alarmen, roosters en Android-machtigingen. Sommige beveiligingsmachtigingen van het systeem moeten mogelijk opnieuw worden verleend op een nieuw toestel of na herinstallatie.</li>
+</ol>
+<p class="tip">Bewaar een actuele kopie op een veilige plek die toegankelijk blijft als de telefoon verloren gaat, beschadigd raakt of wordt gereset. Een back-upbestand vervangt geen Android-systeemmachtigingen en kan niet automatisch gegevens bevatten waartoe de app geen toegang heeft.</p>
+
+<h2 id="diagnostics">14. Diagnostiek en probleemoplossing</h2>
+
+<p>ShiftAlarm biedt aparte diagnostische logboeken voor verschillende functies. Deze leggen een reeks technische gebeurtenissen vast en helpen bepalen of een melding was gepland, hersteld na een herstart, doorgegeven voor verwerking of gestopt vanwege een systeeminstelling.</p>
+
+<h3 id="diagnostics-control">14.1. Beheer van diagnostische gegevensverzameling</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_sections.webp" alt="Scherm met diagnostisch logboek van ShiftAlarm, inclusief hoofdschakelaar en individueel alarmlogboek">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Diagnostische gegevens verzamelen</strong> — de hoofdschakelaar voor elk diagnostisch onderdeel in de app. Schakel deze uit om het toevoegen van nieuwe gebeurtenissen aan alle logboeken tegelijk te stoppen. Het verzamelen van nieuwe gebeurtenissen wordt hervat zodra u de functie weer inschakelt.</li>
+<li><strong>Logboek per functie</strong> — elke module heeft een eigen schakelaar en een knop "Openen". U kunt bijvoorbeeld de algemene diagnostiek ingeschakeld laten, maar alleen het logboek voor het alarm, de klok of een andere functie uitschakelen. De schermafbeelding toont het alarmlogboek, waarin gebeurtenissen worden vastgelegd met betrekking tot aflevering, planning, herstel, bewakingsbeveiliging en het alarmscherm.</li>
+</ol>
+
+<div class="notice">De schakelaars regelen alleen het vastleggen van technische gebeurtenissen. Het uitschakelen van het logboek voor een alarm, klok of andere functie schakelt de functie zelf niet uit. Verwijder eerder opgeslagen vermeldingen afzonderlijk met de knop "Wissen" in het betreffende logboek.</div>
+
+<h3 id="diagnostics-log">14.2. Logboek per functie</h3>
+
+<p>Tik op "Openen" in het gewenste diagnostische onderdeel. Het onderstaande voorbeeld toont het alarmlogboek; logboeken voor andere functies werken op vergelijkbare wijze.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_alarm_log.webp" alt="ShiftAlarm-alarmdiagnoselogboek met gebeurtenistelling, acties en technische vermeldingen">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Opgeslagen gebeurtenissen</strong> — toont het aantal vermeldingen dat momenteel in het geselecteerde logboek is opgeslagen.</li>
+<li><strong>Logboekacties</strong>:
+<ul>
+<li><strong>Kopiëren</strong> — kopieert alle gegevens uit het huidige logboek naar het klembord. U kunt deze vervolgens in een e-mail of andere app plakken.</li>
+<li><strong>Wissen</strong> — verwijdert de opgeslagen vermeldingen in dit logboek. Na het wissen worden alleen gebeurtenissen weergegeven die later zijn vastgelegd terwijl diagnostiek is ingeschakeld.</li>
+<li><strong>Naar ontwikkelaars verzenden</strong> — opent de app-kiezer om een ​​e-mail te verzenden. Kies een e-mailapp; ...het adres van de ontwikkelaar en de diagnostische gegevens worden automatisch ingevoegd. Voeg vóór het verzenden een beschrijving van het probleem toe, controleer het bericht en bevestig vervolgens de verzending.</li>
+</ul>
+</li>
+<li><strong>App-gebeurtenissen</strong> — de logboekvermeldingen zelf. Een vermelding bevat doorgaans een datum en tijd, een technische naam van de gebeurtenis en aanvullende parameters zoals een identificatiecode, status of reden. Technische namen kunnen in het Engels worden weergegeven; wijzig of vertaal deze niet vóór verzending.</li>
+</ol>
+
+<div class="warning">Kopieer of verzend de benodigde vermeldingen voordat u een logboek wist. Verwijderde diagnostische gebeurtenissen kunnen niet worden hersteld.</div>
+
+<div class="tip">Als het probleem reproduceerbaar is, schakel dan eerst de algemene verzameling van diagnostische gegevens en het relevante functielogboek in, en herhaal vervolgens de handelingen die het probleem veroorzaakten. Vermeld in uw bericht het exacte tijdstip van het probleem, het telefoonmodel, de Android-versie, het verwachte resultaat en het werkelijke resultaat. Dit helpt om uw beschrijving te koppelen aan de gebeurtenissen in het logboek.</div>
+
+<h2 id="faq">15. Veelgestelde vragen</h2>
+
+<h3>Het alarm ging niet op tijd af</h3>
+<p>Controleer de meldingen, de toestemming voor nauwkeurige alarmen, de achtergrondactiviteit en de batterijbeperkingen.</p>
+<h3>Het geo-alarm ging te laat af</h3>
+<p>Controleer de instellingen voor nauwkeurige locatiebepaling en locatie op de achtergrond, batterijbeperkingen en automatisch opstarten van de app. Probeer een straal van 1300–1500 m in de stad en 4000–5000 m buiten de stad. Het daadwerkelijke alarmmoment valt mogelijk niet precies samen met de lijn van de straal.</p>
+<h3>De widget werd niet direct bijgewerkt</h3>
+<p>Open de app of tik op de vernieuwknop van de widget. Android kan frequente updates van widgets beperken.</p>
+<h3>Ik heb de taal gewijzigd, maar een document of de handleiding is nog niet bijgewerkt</h3>
+<p>Controleer uw internetverbinding en geef het systeem de tijd om de download te voltooien. Als de externe versie niet beschikbaar is, gebruikt de app de ingebouwde fallback.</p>
+
+<div class="footer small">De gids kan via GitHub worden bijgewerkt. Als de externe versie niet beschikbaar is, gebruikt de app de ingebouwde offline versie.</div>
+</main>
+</body>
+</html>
