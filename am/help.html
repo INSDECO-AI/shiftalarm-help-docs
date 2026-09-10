@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>የShiftAlarm የተጠቃሚ መመሪያ</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #64748b;
+  --accent: #2563eb;
+  --soft: #e8eef8;
+  --border: #dbe4f0;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.58;
+  margin: 0;
+  padding: 18px;
+  color: var(--text);
+  background: var(--bg);
+}
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+h1 { margin: 0 0 8px; font-size: 28px; line-height: 1.2; }
+h2 { margin: 32px 0 10px; font-size: 21px; line-height: 1.25; }
+h3 { margin: 22px 0 8px; font-size: 17px; }
+p, li { font-size: 16px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul, ol { padding-left: 22px; }
+.notice, .tip, .warning {
+  padding: 14px 16px;
+  border-radius: 16px;
+  margin: 14px 0;
+  border: 1px solid var(--border);
+}
+.notice { background: var(--soft); }
+.tip { background: #ecfdf5; }
+.warning { background: #fff7ed; }
+.small { color: var(--muted); font-size: 14px; }
+.toc {
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 16px;
+  margin: 18px 0 24px;
+}
+.toc ol { margin: 8px 0 0; }
+.step-list li { margin-bottom: 8px; }
+.guide-figure {
+  margin: 18px 0;
+}
+.guide-image {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+}
+.callout-list li {
+  margin-bottom: 10px;
+}
+.guide-caption {
+  max-width: 520px;
+  margin: 10px auto 0;
+  color: var(--text);
+  font-size: 15px;
+}
+.guide-caption strong {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.footer {
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --card: #111827;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --accent: #93c5fd;
+    --soft: #1f2937;
+    --border: #334155;
+  }
+  main { box-shadow: none; }
+  .toc { background: #172033; }
+  .tip { background: #10251f; }
+  .warning { background: #2a1d10; }
+}
+</style>
+</head>
+<body>
+<main>
+<h1>የShiftAlarm የተጠቃሚ መመሪያ</h1>
+<p class="small">ስሪት 14. ቀን፡ 2 ኦገስት 2026።</p>
+<div class="notice">ይህ ገጽ የShiftAlarm ተግባራዊ መመሪያ ነው። እያንዳንዱ ዋና ባህሪ ምን እንደሚሰራ፣ የት ማግኘት እንደሚቻል፣ ምን መታ ማድረግ እንዳለበት እና አንድ ባህሪ እንደተጠበቀው የማይሰራ ከሆነ ምን ማረጋገጥ እንዳለበት ያብራራል።</div>
+<nav class="toc">
+<strong>ይዘቶች</strong>
+<ol><li><a href="#start">1. የመጀመሪያ ጅምር</a></li><li><a href="#permissions">2. ፈቃዶች እና አስተማማኝነት</a></li><li><a href="#main">3. ዋና ማያ ገጽ</a></li><li><a href="#shifts">4. የShift መርሃ ግብሮች</a></li><li><a href="#statistics">5. የጊዜ ሰሌዳ ስታቲስቲክስ</a></li><li><a href="#alarms">6. ማንቂያዎች</a></li><li><a href="#geo">7. የጂኦ ማንቂያዎች</a></li><li><a href="#notes">8. ማስታወሻዎች፣ ክስተቶች እና አስታዋሾች</a></li><li><a href="#clock">9. ሰዓት፣ ሰዓት ቆጣሪ እና የሩጫ ሰዓት</a></li><li><a href="#widgets">10. መግብሮች</a></li><li><a href="#salary">11. የደመወዝ ስሌት</a></li><li><a href="#settings">12. ቅንብሮች</a></li><li><a href="#backup">13. ምትኬ ያስቀምጡ እና ወደነበረበት ይመልሱ</a></li><li><a href="#diagnostics">14. ምርመራዎች እና መላ መፈለግ</a></li><li><a href="#faq">15. በተደጋጋሚ የሚጠየቁ ጥያቄዎች</a></li></ol>
+</nav>
+<h2 id="start">1. የመጀመሪያው ጅምር</h2>
+
+<p>ShiftAlarm ለመጀመሪያ ጊዜ ሲጀምር አጭር የማዋቀር ሂደት ያሳያል። ዋናው ማያ ገጽ አስቀድሞ ከበስተጀርባ ይገኛል፣ ነገር ግን መሰረታዊውን ማዋቀር መጀመሪያ ማጠናቀቅ የተሻለ ነው።</p>
+<ol class="step-list">
+<li>የመግቢያውን መረጃ ያንብቡ እና "ቀጥል" የሚለውን ይንኩ።</li>
+<li>በሰነዶች ደረጃ ላይ፣ ለመቀጠል ዝግጁ ሲሆኑ ሰነዶቹን ይክፈቱ ወይም የሚያስፈልጉትን ሰነዶች ይቀበሉ።</li>
+<li>በፈቃዶች ደረጃ ላይ፣ የፈቃዶች ማያ ገጹን ይክፈቱ እና ማሳወቂያዎችን፣ ትክክለኛ ማንቂያዎችን፣ የአካባቢ መዳረሻን እና የባትሪ ገደቦችን ያረጋግጡ።</li>
+<li>"ማዋቀርን ጨርስ" የሚለውን መታ ያድርጉ።</li>
+</ol>
+<p class="tip">በኋላ ላይ በ"ቅንብሮች → ፈቃዶች እና አስተማማኝነት" ስር ፈቃዶችን ማዋቀር ይችላሉ።</p>
+
+<h2 id="permissions">2. ፈቃዶች እና አስተማማኝነት</h2>
+
+<p>ማንቂያዎች፣ አስታዋሾች እና የጂኦ ማንቂያዎች በአንድሮይድ ቅንብሮች እና በመሳሪያው አምራች ሶፍትዌር ላይ የተመሰረቱ ናቸው።</p>
+<ul>
+<li><strong>ማሳወቂያዎች</strong> — ለማንቂያዎች፣ ለአስታዋሾች፣ ለሰዓት ቆጣሪ እና ለአገልግሎት ማሳወቂያዎች ያስፈልጋሉ።</li>
+<li><strong>ትክክለኛ ማንቂያዎች</strong> — ማንቂያው በሚፈለገው ጊዜ እንዲጀምር ያግዙ።</li>
+<li><strong>አካባቢ</strong> — ለጂኦ ማንቂያዎች ያስፈልጋል።</li>
+<li><strong>የበስተጀርባ አካባቢ</strong> — መተግበሪያው ዝግ እያለ የጂኦ ማንቂያ እንዲሰራ ያስፈልጋል።</li>
+<li><strong>የባትሪ እና የጀርባ እንቅስቃሴ</strong> — በ Xiaomi/Redmi እና በሌሎች መሳሪያዎች ላይ የቀስቃሽ አስተማማኝነትን ሊነኩ ይችላሉ።</li>
+</ul>
+<p class="warning">አንድሮይድ ሁልጊዜ ማሳወቂያዎችን፣ ትክክለኛ ማንቂያዎችን ወይም የጂኦ አጥር ክስተቶችን ወዲያውኑ ማድረስን ዋስትና አይሰጥም። አስፈላጊ ማንቂያዎችን ለማግኘት በፈቃዶች ማያ ገጽ ላይ ያለውን እያንዳንዱን ንጥል ያረጋግጡ።</p>
+
+<h2 id="main">3. ዋና ማያ ገጽ</h2>
+
+<p>ዋናው ማያ ገጽ የእርስዎ ዕለታዊ ዳሽቦርድ ነው። ወደ የቀን መቁጠሪያው፣ የሰዓት፣ የጂኦ ማንቂያዎች፣ መደበኛ ማንቂያዎች፣ የፈረቃ መርሃ ግብሮች፣ ማስታወሻዎች እና ቅንብሮች ቀጥተኛ መዳረሻ ይሰጣል።</p>
+
+<h3 id="main-overview">3.1. ዋና የማያ ገጽ ክፍሎች</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_screen_overview.png" alt="ShiftAlarm ዋና ማያ ገጽ ከተቆጠሩ መቆጣጠሪያዎች ጋር">
+</figure>
+
+<ol class="callout-list">
+<li><strong>የኋላ ቀስት</strong> — የቀን መቁጠሪያውን ወደ ቀዳሚው ወር ያንቀሳቅሰዋል።</li>
+<li><strong>ወር እና ዓመት</strong> — የክፍት ወርን ያሳያል።<a href="#main-date-picker">ደረጃ-በደረጃ የወር እና የዓመት መምረጫውን</a> ለመጠቀም ይህንን ቦታ ይንኩ።</li>
+<li><strong>ወደፊት ቀስት</strong> — የቀን መቁጠሪያውን ወደሚቀጥለው ወር ያንቀሳቅሰዋል።</li>
+<li><strong>ቀን መቁጠሪያ</strong> — የዋናው ወር አካባቢ። የቀን መቁጠሪያውን ማንሸራተት ይችላሉ። እያንዳንዱ ቀን ቀኑን፣ አስታዋሾችን፣ ዝግጅቶችን፣ የታቀዱ ፈረቃዎችን እና የቀን ለውጦችን ማሳየት ይችላል። መደበኛ መታ ማድረግ ቀንን ይመርጣል፤ረጅም ፕሬስ <a href="#main-day-actions">ለተመረጠው ቀን መረጃ እና እርምጃዎች</a> ይከፍታል።</li>
+<li><strong>ዛሬ</strong> — የቀን መቁጠሪያውን ወደ አሁኑ ቀን ይመልሳል።</li>
+<li><strong>ሰዓት</strong> — <a href="#clock">የዓለም ሰዓት፣ የሩጫ ሰዓት እና ሰዓት ቆጣሪ</a> ይከፍታል።</li>
+<li><strong>የጂኦ ማንቂያ</strong> — <a href="#geo">ካርታ፣ የተቀመጡ ቦታዎች እና የጂኦ ማንቂያ ቅንብሮችን</a> ይከፍታል። ወደተመረጠው ቦታ ሲገቡ፣ ሲተዉት ወይም ሁለቱንም ሲያደርጉ ማንቂያ ሊያስነሳ ይችላል።</li>
+<li><strong>ማንቂያ</strong> — <a href="#alarms">መደበኛ፣ ተደጋጋሚ እና ከ ፈረቃ ጋር የተገናኙ ማንቂያዎችን</a> ይከፍታል።</li>
+<li><strong>መርሐ ግብር</strong> — <a href="#shifts">የፈረቃ መርሐግብሮችን፣ አፈጣጠራቸውን፣ አርትዖታቸውን እና ስታቲስቲክስን</a> ይከፍታል።</li>
+<li><strong>ማስታወሻዎች</strong> — <a href="#notes">ማስታወሻዎችን፣ ዝግጅቶችን፣ አስታዋሾችን፣ የድምጽ ማስታወሻዎችን እና የንግግር-ወደ-ጽሑፍ</a>ን ይከፍታል።</li>
+<li><strong>ቅንብሮች</strong> — <a href="#settings">ፈቃዶችን፣ ቋንቋን፣ ገጽታን፣ ከመስመር ውጭ የንግግር ሞዴሎችን፣ ምትኬን፣ ምርመራዎችን፣ ሰነዶችን እና ስልጠናን</a> ይከፍታል።</li>
+</ol>
+
+
+<h3 id="main-date-picker">3.2. ወር እና ዓመት መምረጥ</h3>
+
+<p>የሚፈለገውን የቀን መቁጠሪያ ጊዜ በፍጥነት ለመክፈት በዋናው ስክሪን አናት ላይ ያለውን ወር እና ዓመት መታ ያድርጉ። ምርጫው በደረጃዎች ይቀጥላል፦ <strong>ሴንቸሪ → አስርት → አመት → ወር</strong>።</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_century.webp" alt="ደረጃ 1: በShiftAlarm የቀን መቁጠሪያ ውስጥ አንድ ክፍለ ዘመን መምረጥ">
+<figcaption class="guide-caption"><strong>1. አንድ ክፍለ ዘመን ይምረጡ።</strong> የሚፈልጉትን ዓመት የያዘውን ክፍለ ጊዜ ይንኩ። ምሳሌው የ2000ዎቹን ዓመታት ይመርጣል።</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_decade.webp" alt="ደረጃ 2: በShiftAlarm የቀን መቁጠሪያ ውስጥ አስር አመት መምረጥ">
+<figcaption class="guide-caption"><strong>2. አስር አመት ይምረጡ።</strong> የሚፈለገውን ዓመት የያዘውን ክልል ይንኩ። ለ2026፣ “2020–2029” የሚለውን ይምረጡ።</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_year.webp" alt="ደረጃ 3፡ በShiftAlarm የቀን መቁጠሪያ ውስጥ ዓመት መምረጥ">
+<figcaption class="guide-caption"><strong>3. ዓመት ይምረጡ።</strong> የሚፈለገውን ዓመት መታ ያድርጉ። ምሳሌው 2026ን ይመርጣል።</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_month.webp" alt="ደረጃ 4፡ በShiftAlarm የቀን መቁጠሪያ ውስጥ ወር መምረጥ">
+<figcaption class="guide-caption"><strong>4. ወር ይምረጡ።</strong> የሚፈለገውን ወር መታ ያድርጉ። ምሳሌው ሐምሌን ይመርጣል።</figcaption>
+</figure>
+
+<div class="tip">አንድ ወር ከመረጡ በኋላ፣ ፓነሉ ይዘጋል እና ዋናው የቀን መቁጠሪያ በተመረጠው ወር እና ዓመት ይከፈታል።</div>
+<div class="notice">የ"ተመለስ" አዝራር ወደ ቀድሞው ደረጃ ይመለሳል። በሴንቸሪ ስክሪን ላይ፣ የቀን መምረጫውን ይዘጋል።</div>
+
+<h3 id="main-day-actions">3.3. ለተመረጠው ቀን መረጃ እና እርምጃዎች</h3>
+
+<p>በቀን መቁጠሪያው ውስጥ የሚፈለገውን ቀን ይንኩ እና ይያዙ። ለዚያ ቀን መረጃ እና እርምጃዎች ያለው ፓነል ይከፈታል። ያሉትን ሁሉንም እርምጃዎች ለማየት ፓነሉን ወደ ላይ ይጎትቱ።</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_day_actions.webp" alt="ShiftAlarm መረጃ እና የተመረጠ የቀን መቁጠሪያ ቀን የድርጊት ፓነል">
+</figure>
+
+<ol class="callout-list">
+<li><strong>ቀን</strong> — የሳምንቱን ቀን እና የተመረጠውን ቀን ያሳያል። ፓነሉን ለማስፋት ወይም ለመዝጋት ከላይ ያለውን እጀታ ወደ ላይ ወይም ወደ ታች ይጎትቱ።</li>
+<li><strong>ፈረቃ</strong> — የተሰላው ፈረቃ ወይም የቀን ለውጥ ለምሳሌ የቀን ዕረፍት፣ የእረፍት ጊዜ፣ የእረፍት ጊዜ፣ የህመም ፈቃድ ወይም ሌላ ልዩነት ያሳያል።</li>
+<li><strong>የዚህ ቀን ማንቂያዎች</strong> — ለተመረጠው ቀን የተመደቡ ማንቂያዎችን ወይም ምንም እንዳልነበሩ ሪፖርቶችን ያሳያል።</li>
+<li><strong>ክስተቶችና ማሳወቂያዎች</strong> — ከተመረጠው ቀን ጋር የተገናኙ ግቤቶችን ያሳያል።</li>
+<li><strong>ማንቂያ ጨምር</strong> — ለተመረጠው ቀን የአንድ ጊዜ ደወል መፍጠርን ይከፍታል።</li>
+<li><strong>ፈረቃ ቀይር</strong> — በንቁ መርሃ ግብር ውስጥ ለአንድ ቀን ወይም የቀን ክልል ልዩ ሁኔታን ይፈጥራል።</li>
+<li><strong>ማስታወሻ ጨምር</strong> — ለተመረጠው ቀን ለመፍጠር ክስተት ወይም አስታዋሽ እንዲመርጡ ያስችልዎታል።</li>
+</ol>
+
+<div class="notice">የ"ለውጥ ፈረቃ" እርምጃ በንቁ የፈረቃ መርሃ ግብር ውስጥ ቀናትን ለማስተካከል ይገኛል።</div>
+
+<h4 id="main-shift-override">የአንድ ቀን ወይም የቀን ክልል መቀየር</h4>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_types.webp" alt="በShiftAlarm ውስጥ የቀን ክልል እና የፈረቃ ለውጥ አይነት መምረጥ">
+</figure>
+
+<ol class="callout-list">
+<li><strong>የመጀመሪያ ቀን</strong> — የለውጡ የመጀመሪያ ቀን። መጀመሪያ ላይ በቀን መቁጠሪያው ውስጥ የተመረጠውን ቀን ይጠቀማል።</li>
+<li><strong>የመጨረሻ ቀን</strong> — የለውጡ የመጨረሻ ቀን። አንድ ቀን ብቻ ለመቀየር፣ የተመረጠውን ቀን ይተዉት።</li>
+<li><strong>የግል ፈቃድ</strong> — የተሰላው ፈረቃ በእረፍት ጊዜ ይተካል።</li>
+<li><strong>የዕረፍት ፈቃድ</strong> — የተመረጠውን ቀን ወይም ክልል እንደ ዕረፍት ያመላክታል።</li>
+<li><strong>የሕመም ፈቃድ</strong> — የተመረጠውን ቀን ወይም ክልል እንደ የህመም ፈቃድ ያመላክታል።</li>
+<li><strong>ለውጡን አስቀምጥ</strong> — የተመረጠውን ልዩ ሁኔታ በቀን መቁጠሪያው ላይ ይተገብራል።</li>
+</ol>
+
+<h4 id="main-shift-time-adjustment">የስራ ሰዓትን ማስተካከል</h4>
+
+<p>የለውጥ ዓይነቶችን ዝርዝር ወደታች ይሸብልሉ እና የተሰላው የስራ ፈረቃ የቆይታ ጊዜን ለመቀየር "የለውጥ ማስተካከያ" የሚለውን ይምረጡ።</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_time_adjustment.webp" alt="የማስተካከያ ፈረቃየስራ ጊዜ በShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>ፈረቃውን አርትዕ</strong> — ለተመረጠው ፈረቃ የስራ ጊዜ ማስተካከያን ያስችላል።</li>
+<li><strong>+ ጊዜ</strong> — ለመደበኛው የፈረቃ ቆይታ ሰዓቶችን ወይም ደቂቃዎችን ይጨምራል።</li>
+<li><strong>− ጊዜ</strong> — የፈረቃ ጊዜን ይቀንሳል፣ ለምሳሌ ስራው ቀደም ብሎ ሲጠናቀቅ።</li>
+<li><strong>ይህን ጊዜ እንደ ትርፍ ሰዓት ቁጠር</strong> — የተጨመረውን ጊዜ እንደ ተጨማሪ ሰዓት ይቆጥረዋል። አማራጩ ጠፍቶ ከሆነ እንደ መደበኛ የስራ ጊዜ ይቆጠራል።</li>
+<li><strong>ለውጡን አስቀምጥ</strong> — ማስተካከያውን ለተመረጠው ቀን ወይም ክልል ይተገብራል።</li>
+</ol>
+
+<div class="tip">የቀን ለውጥ የመጀመሪያውን የጊዜ ሰሌዳ አብነት አይለውጥም። እንደ የተለየ ልዩ ሁኔታ የተቀመጠ ሲሆን በቀን መቁጠሪያው፣ በስታቲስቲክስ፣ በደመወዝ ስሌት እና በሪፖርቶች ውስጥ ተካትቷል።</div>
+
+<h2 id="shifts">4. የፈረቃ መርሃ ግብሮች</h2>
+
+<p>የፈረቃ መርሃ ግብር የሚደጋገም የስራ ዑደትን የሚገልጽ ሲሆን ለሌሎች የShiftAlarm ባህሪያት መሰረት ይሰጣል። መተግበሪያው የቀን መቁጠሪያውን ለመሙላት፣ ማንቂያዎችን ከፈረቃዎች ጋር ለማገናኘት፣ የስራ ጊዜን ለመቁጠር፣ ስታቲስቲክስን ለማመንጨት፣ ደሞዝ ለመገመት እና ሪፖርቶችን ለማዘጋጀት ይጠቀምበታል።</p>
+
+<div class="notice"><strong>መሰረታዊ መርህ።</strong> በመጀመሪያ የመሠረት ተደጋጋሚ መርሃ ግብር ይፍጠሩ። የእረፍት ጊዜ፣ የህመም እረፍት፣ የእረፍት ጊዜ፣ የአንድ ጊዜ የመተካት ፈረቃ ወይም ለተወሰኑ ቀናት በ<a href="#main-day-actions">የተመረጡ-ቀን እርምጃዎች</a> በኩል እንደ ልዩ ሁኔታ የስራ ሰዓት ማስተካከያ ያክሉ። ይህ የመጀመሪያውን ዑደት ሳይለወጥ ያቆያል።</div>
+
+<h3 id="shifts-list">4.1. የጊዜ ሰሌዳ ዝርዝር እና መቆጣጠሪያዎች</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedules_overview.webp" alt="ShiftAlarm የጊዜ ሰሌዳ ማያ ገጽ ከንቁ የጊዜ ሰሌዳ ካርድ እና ከተቆጠሩ መቆጣጠሪያዎች ጋር">
+</figure>
+
+<ol class="callout-list">
+<li><strong>ዝርዝሮችን የጊዜ ሰሌዳ</strong> — ስም፣ የመጀመሪያ ቀን፣ የዑደት ርዝመት እና አጭር የቀኖች ቅደም ተከተል። በምሳሌው ውስጥ፣ “D · D · O · O” ማለት ሁለት ቀን ፈረቃዎችን ተከትሎ ሁለት ቀናት እረፍት ማለት ነው።</li>
+<li><strong>ማብሪያ</strong> — መርሐግብሩን ሳይሰርዝ ለጊዜው ያሰናክለዋል። እንደገና ሲያነቁት የተቀመጡት ቅንብሮች ተግባራዊ መሆናቸው ይቀጥላል።</li>
+<li><strong>የጊዜ ሰሌዳ ሁኔታ</strong> — የትኛው የጊዜ ሰሌዳ በአሁኑ ጊዜ ንቁ እንደሆነ ያሳያል።</li>
+<li><strong>አርትዕ</strong> — ሊለወጡ የሚችሉ መለኪያዎችን ይከፍታል። ከመጀመሪያው ማዋቀር በኋላ፣ አስቀድሞ የተፈጠረ የቀን መቁጠሪያ ውሂብ በአጋጣሚ እንደገና እንዳይሰላ ለመከላከል የጊዜ ሰሌዳው መሠረት ክፍል ተቆልፏል።</li>
+<li><strong>ሰርዝ</strong> — ከማረጋገጫ በኋላ የጊዜ ሰሌዳውን ይሰርዛል። ከመሰረዝዎ በፊት፣ ማንኛውንም የፈረቃ-ተያያዥ ማንቂያዎችን እና ስሌቶችን ያረጋግጡ።</li>
+<li><strong>ስታቲስቲክስ ክፈት</strong> — የዚህን የጊዜ ሰሌዳ <a href="#statistics">የስራ-ጊዜ፣ የቆይታ ጊዜ፣ የደመወዝ እና የሪፖርት ስታቲስቲክስ</a> ይከፍታል።</li>
+<li><strong>መርሐ ግብር ፍጠር</strong> — ዝግጁ የሆነ አብነት እንዲመርጡ ወይም ብጁ ዑደት እንዲፈጥሩ ያስችልዎታል።</li>
+</ol>
+
+<h3 id="shifts-create">4.2. የጊዜ ሰሌዳ መፍጠርን መጀመር</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_create.webp" alt="ስም፣ የመጀመሪያ ቀን፣ አብነቶች እና ብጁ መርሃ ግብር ያለው የፍጥረት ፓነል መርሐግብር ያስይዙ">
+</figure>
+
+<ol class="callout-list">
+<li><strong>የመርሐ ግብር ስም</strong> — እንደ “ዋና 2/2”፣ “የሌሊት ፈረቃ” ወይም የስራ ቦታዎ ስም ያሉ ግልጽ ስም ያስገቡ።</li>
+<li><strong>የመጀመሪያ ቀን</strong> — ከተደጋጋሚው ዑደት <strong>የመጀመሪያ ቀን</strong> ጋር የሚዛመድ ቀን። ያለፈ ወይም የወደፊት ቀን መምረጥ ይችላሉ፤ መተግበሪያው ከዚያ ቀን ወደፊትና ወደኋላ መርሐግብሩን ያሰላል።</li>
+<li><strong>አብነቶች</strong> — ዝግጁ የሆኑ የተለመዱ የፈረቃ ቅደም ተከተሎች። ምሳሌው "2/2 ቀን" የሚለውን አብነት ይጠቀማል።</li>
+<li><strong>ብጁ መርሐ ግብር</strong> — የራስዎን የስራ ቀናት እና የእረፍት ቀናት ቅደም ተከተል ይፈጥራል።</li>
+<li><strong>መርሐ ግብር ፍጠር</strong> — ለተመረጠው አማራጭ ዝርዝር አርታኢን ይከፍታል።</li>
+</ol>
+
+<div class="tip">ለ"D · D · O · O" አብነት፣ የመነሻ ቀን በተለምዶ ከሁለቱ የስራ ቀናት የመጀመሪያው ነው። በብጁ ዑደት ውስጥ፣ ቀን 1 የእረፍት ቀን ሊሆን ይችላል፤አስፈላጊው ነጥብ የተመረጠው ቀን በትክክል ከፈጠሩት ቅደም ተከተል ቀን 1 ጋር የሚዛመድ መሆኑ ነው።</div>
+
+<h3 id="shifts-template">4.3. ከአብነት የጊዜ ሰሌዳ መፍጠር</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_template.webp" alt="የአብነት የጊዜ ሰሌዳ አርታኢ በስም፣ ቅደም ተከተል፣ የመጀመሪያ ቀን እና የፈረቃ ጊዜ">
+</figure>
+
+<ol class="callout-list">
+<li><strong>የመርሐ ግብር ስም</strong> — የተጠቆመውን ስም ያስቀምጡ ወይም በራስዎ ይተኩት።</li>
+<li><strong>አብነት</strong> — የፊደል ቅደም ተከተል እና ትርጉሙን ያሳያል። በምሳሌው ውስጥ፣ “D · D · O · O” ማለት የቀን ፈረቃ፣ የቀን ፈረቃ፣ የቀን ዕረፍት፣ የቀን ዕረፍት ማለት ነው።</li>
+<li><strong>የመጀመሪያ ቀን</strong> — በሚታየው ቅደም ተከተል ውስጥ የመጀመሪያውን ቀን ቀን ይምረጡ።</li>
+<li><strong>የፈረቃ ሰዓት</strong> — ለእያንዳንዱ የስራ ፈረቃ አይነት የመጀመሪያ እና የመጨረሻ ጊዜን ይግለጹ። መተግበሪያው የተሰላውን ጊዜ ያሳያል።</li>
+<li><strong>ሰርዝ</strong> — አርታኢውን ሳያስቀምጥ ይዘጋል።</li>
+<li><strong>አስቀምጥ</strong> — መርሃ ግብሩን ያስቀምጣል እና በቀን መቁጠሪያው ውስጥ ያሉትን ፈረቃዎች ማስላት ይጀምራል።</li>
+</ol>
+
+<div class="warning"><strong>ከመጀመሪያው አስቀምጥ በኋላ።</strong> የመጀመሪያ ቀን እና የዑደት መዋቅር አስቀድሞ የተሰላ የቀን መቁጠሪያ ውሂብን ለመጠበቅ ተቆልፈዋል። ስሙን እና አንዳንድ የስራ መለኪያዎችን አሁንም ማርትዕ ይችላሉ። የተለየ የመሠረት ዑደት ወይም የማጣቀሻ ቀን ከፈለጉ፣ አዲስ የጊዜ ሰሌዳ መፍጠር የበለጠ አስተማማኝ ነው።</div>
+
+<h3 id="shifts-custom">4.4. ብጁ ዑደት መፍጠር</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_custom.webp" alt="ብጁ የጊዜ ሰሌዳ አርታኢ ከዑደት ርዝመት፣ የቀን መቆጣጠሪያዎች፣ የመጀመሪያ ቀን እና ለእያንዳንዱ ቀን ቅንብሮች ጋር">
+</figure>
+
+<ol class="callout-list">
+<li><strong>የመርሐ ግብር ስም</strong> — ብጁ ቅደም ተከተልዎን ስም ይስጡት።</li>
+<li><strong>የዑደት ርዝመት</strong> — በሚደገመው ቅደም ተከተል ውስጥ ስንት ቀናት እንደተካተቱ ያሳያል።</li>
+<li><strong>ቀን አስወግድ</strong> — ዑደቱን በአንድ ቀን ያሳጥረዋል።</li>
+<li><strong>ቀን ጨምር</strong> — ሌላ የሚዋቀር ቀን ወደ ዑደቱ መጨረሻ ያክላል።</li>
+<li><strong>የመጀመሪያ ቀን</strong> — ከብጁ ዑደት ቀን 1 ጋር የሚዛመድ ቀን።</li>
+<li><strong>የቀን ቅንብሮች</strong> — “የፈረቃ ዓይነት” ካርዱን ይንኩና የእረፍት ቀን ወይም የሚፈለገውን የሥራ ዓይነት ይምረጡ፤ ቀን፣ ሌሊት፣ ጠዋት፣ ምሽት፣ 24 ሰዓት ወይም ብጁ ፈረቃ። ለሥራ ቀን የመጀመሪያና የመጨረሻ ሰዓት ይግለጹ። የቀሩትን የዑደቱን ቀናት በማያ ገጹ ታች በተመሳሳይ መንገድ ያዋቅሩ።</li>
+<li><strong>ሰርዝ</strong> — አርታኢውን ሳያስቀምጥ ይዘጋል።</li>
+<li><strong>አስቀምጥ</strong> — ብጁ ዑደቱን አስቀምጦ በቀን መቁጠሪያው ውስጥ ያሰላል።</li>
+</ol>
+
+<div class="notice"><strong>ዑደት ምንድን ነው?</strong> ዑደት ማለት ቅደም ተከተሉ እንደገና የሚጀምርባቸው የቀኖች ብዛት ነው። ለምሳሌ፣ የአራት ቀን ዑደት “2 የስራ ቀናት + 2 ቀናት እረፍት” ሊሆን ይችላል፣ የስድስት ቀን ዑደት ደግሞ “3 የስራ ቀናት + 3 ቀናት እረፍት” ሊሆን ይችላል። ከመጨረሻው ቀን በኋላ መተግበሪያው ወደ ቀን 1 ይመለሳል።</div>
+
+<div class="tip">ለአንድ ጊዜ የጊዜ ሰሌዳ ልዩነት መሰረታዊ ዑደቱን አይቀይሩ። የቀን መቁጠሪያ ቀንን በረጅም ጊዜ ይጫኑ እና የቀን እረፍት፣ የእረፍት ጊዜ፣ የህመም እረፍት፣ የመተኪያ ፈረቃ ወይም የጊዜ ማስተካከያ ይፍጠሩ።</div>
+
+
+
+<span id="shift-statistics"></span>
+<h2 id="statistics">5። የጊዜ ሰሌዳ ስታቲስቲክስ</h2>
+
+<p>በመርሐግብር ካርዱ ላይ ያለውን <strong>“ስታቲስቲክስን ክፈት”</strong> ቁልፍ በመጠቀም “ስታቲስቲክስ”ን ይክፈቱ። ይህ ክፍል የሥራና የእረፍት ቀናትን፣ የመርሐግብር ለውጦችን፣ የታቀደና ትክክለኛ የሥራ ጊዜን፣ የተገመተ ደመወዝን እና ሪፖርቶችን ያጣምራል።</p>
+
+<div class="notice"><strong>አስፈላጊ፡</strong> ስታቲስቲክስ የሚሰላው ለተመረጠው የፈረቃ መርሃ ግብር ብቻ ነው። የተመረጠው ጊዜ የሚመለከተው ከታች ላሉት ሁሉም የስራ ሰዓት፣ ደሞዝ እና የሪፖርት አወጣጥ እሴቶች ነው።</div>
+
+<h3 id="statistics-period">5.1። የጊዜ ሰሌዳ፣ የጊዜ እና የቀን ማጠቃለያ</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_period_overview.webp" alt="የጊዜ ሰሌዳ መረጃ፣ የጊዜ ምርጫ እና የቀን ድምር ያለው የስታቲስቲክስ ማያ ገጽ">
+</figure>
+
+<ol class="callout-list">
+<li><strong>የጊዜ ሰሌዳ መረጃ</strong> — የተመረጠውን የጊዜ ሰሌዳ ስም፣ የመጀመሪያውን ዑደት የመጀመሪያ ቀን እና የተደጋጋሚ ዑደት ርዝመት ያሳያል። በዚህ ማያ ገጽ ላይ ያሉት ስታቲስቲክስ ለዚህ የጊዜ ሰሌዳ ብቻ ይተገበራሉ።</li>
+<li><strong>የተመረጠው የጊዜ ካርድ</strong> — ጥቅም ላይ የዋለውን ጊዜ ያሳያል። የአሁኑን፣ የቀደመውን ወይም የሚቀጥለውን ወር፣ የአሁኑን ዓመት ወይም ብጁ የቀን ክልል ለመምረጥ በቀኝ በኩል ያለውን ቀስት ወይም ጠቅ ያድርጉት።</li>
+<li><strong>የቀን ማጠቃለያ</strong> — በወቅቱ ውስጥ ያሉትን የቀኖች ብዛት፣ የስራ ፈረቃዎች፣ የእረፍት ቀናት፣ የተጠናቀቁ እና የሚመጡ ፈረቃዎችን እና የተለወጡ ቀናትን ያሳያል። የተቀየሩ ቀናት ከመሠረታዊ ዑደት የተለዩ ናቸው፡ የእረፍት ጊዜ፣ የህመም እረፍት፣ የእረፍት ጊዜ፣ የመተካት ወይም የተዛወረ ፈረቃ፣ የስራ ሰዓት ማስተካከያ እና ሌሎች ለውጦች።</li>
+</ol>
+
+<div class="warning"><strong>የወደፊት ጊዜያት ትንበያዎች ናቸው።</strong> ለወደፊት ወር መተግበሪያው የተፈጠረውን የጊዜ ሰሌዳ እና አስቀድሞ የገባውን ውሂብ ይጠቀማል፣ ነገር ግን የወደፊት የህመም ፈቃድ፣ የእረፍት ጊዜ፣ የእረፍት ጊዜ፣ የትርፍ ሰዓት፣ ጉርሻዎች ወይም ቅናሾችን ማወቅ አይችልም። የአሁኑን ዓመት ሲመርጡ፣ ድምሮች ያለፉትን ቀናት ትክክለኛ ውሂብ ከቀሪው የዓመቱ ትንበያ ጋር ሊያጣምሩ ይችላሉ።</div>
+
+<h3 id="statistics-work">5.2. የስራ ጊዜ፣ ደሞዝ እና ሪፖርቶች</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_work_salary_reports.webp" alt="የስታቲስቲክስ ማሳያ ከስራ ጊዜ፣ እድገት፣ ደሞዝ እና የሪፖርት መዳረሻ ጋር">
+</figure>
+
+<ol class="callout-list">
+<li><strong>የስራ ጊዜ</strong> — ለሰዓታት እና እድገት የማጠቃለያ ካርድ።<a href="#statistics-break">የእረፍት ጊዜ ቅንብሮችን</a> ለመክፈት ይንኩት።</li>
+<li><strong>የታቀዱ ሰዓታት</strong> — በተመረጠው ጊዜ ውስጥ የታቀዱ ፈረቃዎች እና ለውጦች አጠቃላይ ቆይታ።</li>
+<li><strong>የስራ ሰዓቶች</strong> — በአሁኑ ቀን እንደተጠናቀቀ የሚቆጠረው የፈረቃ ጊዜ፣ የእረፍት ቅንብሮች ተግባራዊ ይሆናሉ።</li>
+<li><strong>እድገት</strong> — ከጠቅላላው ውስጥ ስንት የስራ ፈረቃዎች እንደተጠናቀቁ እና የተመረጠው ጊዜ ምን ያህል መቶኛ እንደተጠናቀቀ ያሳያል።</li>
+<li><strong>ደመወዝ</strong> — <a href="#salary">የደመወዝ ስሌት ቅንብሮችን</a> ይከፍታል። ካርዱ ለተመረጠው የጊዜ ሰሌዳ እና ጊዜ ግምት ያሳያል።</li>
+<li><strong>ጠቅላላ</strong> — እስካሁን የተገኘው የተገመተው መጠን፣ የተመረጠውን የክፍያ ዘዴ፣ ጉርሻዎችን፣ የትርፍ ሰዓት እና ተቀናሾችን ጨምሮ።</li>
+<li><strong>ተመን ወይም ደሞዝ</strong> — የዚህ ካርድ ይዘት በተመረጠው የስሌት ዘዴ ላይ የተመሰረተ ነው፡ በሰዓት፣ በፈረቃ ወይም በወር ክፍያ። በደመወዝ ቅንብሮች ውስጥ የገባውን እሴት ያሳያል።</li>
+<li><strong>የስሌት ዝርዝሮች</strong> — የተከፈለበት ጊዜ፣ የትርፍ ሰዓት ሰዓቶች፣ ጉርሻዎች እና ለተመረጠው ጊዜ ተቀናሾች።</li>
+<li><strong>ሪፖርቶች</strong> — <a href="#reports">ለጊዜ ክፍሎች፣ ለሥራ ጊዜ እና ለደመወዝ ዝርዝር ሪፖርቶችን</a> ይከፍታል።</li>
+</ol>
+
+<div class="tip">በስራ ሰዓት እና በደመወዝ ክፍሎች ውስጥ ያሉ ሁሉም እሴቶች ከላይ ባለው ካርድ ውስጥ ያለውን ጊዜ ሲቀይሩ እንደገና ይሰላሉ።</div>
+
+<h3 id="statistics-break">5.3። በስራ ሰዓት ውስጥ የእረፍት ጊዜን ማስላት</h3>
+
+<p>የምግብ ዕረፍት ወይም ሌላ እረፍት እንደ ትክክለኛ የሥራ እና የተከፈለበት ጊዜ አካል መቆጠር እንዳለበት ለመግለጽ "የሥራ ሰዓት" ካርዱን መታ ያድርጉ።</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_break_settings.webp" alt="የእረፍት ጊዜ ስሌትና የቆይታ ቅንብሮች ፓነል">
+</figure>
+
+<ol class="callout-list">
+<li><strong>የአሁኑ ድምር</strong> — አዲሶቹ ቅንብሮች ከመተገባቸው በፊት ለተመረጠው ጊዜ የታቀዱ እና የሚሰሩ ሰዓቶችን ያሳያል።</li>
+<li><strong>እረፍት እንደ የስራ ሰዓት ይቁጠሩ</strong> — ዕረፍቱ የተከፈለ እና በፈረቃ ጊዜ ውስጥ የተካተተ ከሆነ ይህንን አማራጭ ይተዉት። የተገለጸው ጊዜ ከስራ እና ከሚከፈልበት ጊዜ መገለል ካለበት ያጥፉት።</li>
+<li><strong>የዕረፍት ቆይታ</strong> — ለአንድ እረፍት ሰዓቶችን እና ደቂቃዎችን ይምረጡ። ይህ ቅንብር የሚመለከታቸውን የሥራ ፈረቃዎች እንደገና ሲያሰላ ጥቅም ላይ ይውላል።</li>
+<li><strong>ጠቅላላ ዕረፍት</strong> — ከመቆጠብዎ በፊት የተመረጠውን ጊዜ ያሳያል።</li>
+<li><strong>አስቀምጥ</strong> — ቅንብሩን ይተገብራል እና የስራ ጊዜን እና ተዛማጅ እሴቶችን እንደገና ያሰላል።</li>
+</ol>
+
+<div class="notice">እረፍት በአንድ ፈረቃ ውስጥ የምግብ እረፍት፣ የፈረቃ ማስተላለፍ ወይም ሌላ ያልተከፈለ የጊዜ ክፍተትን ሊያመለክት ይችላል። በስራ ቦታዎ ላይ ካሉት ደንቦች ጋር የሚስማማውን የጊዜ ቆይታ ያስገቡ።</div>
+
+<h3 id="reports">5.4። ሪፖርቶች፡ ክፍለ ጊዜ፣ ሁኔታ እና ማጠቃለያ</h3>
+
+<p>በስታቲስቲክስ ማያ ገጹ ላይ ካለው የታችኛው ካርድ ላይ “ሪፖርቶችን” ይክፈቱ። ይህ ክፍል ለተመረጠው ጊዜ የበለጠ ዝርዝር መረጃ ይሰጣል፡ የሥራ ሰዓት፣ የሥራ ፈረቃዎችና መቅረቶች፣ የቀን መቁጠሪያ ማስተካከያዎች፣ ደመወዝ፣ ጉርሻዎች፣ ቅናሾች፣ የጊዜ ንጽጽር፣ የዕለት ተዕለት ዝርዝሮች እና ወደ ውጭ መላክ።</p>
+
+<div class="warning"><strong>ሪፖርቶች የሚቀርቡት ለመረጃ አገልግሎት ብቻ ነው።</strong> ስሌቶቹ የሚወሰኑት በተመረጠው የጊዜ ሰሌዳ፣ የደመወዝ ቅንብሮች፣ የእረፍት ሂሳብ እና የቀን መቁጠሪያ ፈረቃ ለውጦች ላይ ነው። የአሠሪዎ ትክክለኛ አሃዞች በተለየ የጊዜ አያያዝ ስርዓት፣ በማጠጋጋት፣ በግብር፣ በአበል ወይም በውስጣዊ ደንቦች ምክንያት ሊለያዩ ይችላሉ። ስህተት ወይም ያልተደገፈ የስሌት ዘዴ ካገኙ፣ በመተግበሪያው ውስጥ በሚታየው አድራሻ ላይ ገንቢዎችን ያግኙ እና የግቤት ውሂቡን እና የሚጠበቀውን ውጤት ያካትቱ።</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_period_salary.webp" alt="የጊዜ ምርጫ፣ ሁኔታ፣ ማጠቃለያ እና ዝርዝር የደመወዝ ዝርዝር ያለው ማያ ገጽ ሪፖርት ያደርጋል">
+</figure>
+
+<ol class="callout-list">
+<li><strong>የሪፖርት ጊዜ</strong> — የአሁኑን፣ የቀደመውን ወይም የሚቀጥለውን ወር፣ አስቀድሞ የተቀመጠ ክልል ወይም ብጁ ቀኖችን ለመምረጥ ካርዱን መታ ያድርጉ። ከዚህ በታች ያለው መረጃ ሁሉ ለተመረጠው ጊዜ ይሠራል።</li>
+<li><strong>የጊዜ ሁኔታ</strong> — ጊዜው የተጠናቀቀ፣ በአሁኑ ጊዜ ንቁ ወይም ገና ያልጀመረ መሆኑን ያሳያል። የተጠናቀቀ ጊዜ የሚሰላው ከተቀመጠው ትክክለኛ መረጃ ነው። ንቁ ክፍለ ጊዜ አስቀድሞ ከአሁኑ ዕቅድ ጋር አብሮ የተሰራውን ውሂብ ያጣምራል፣ የወደፊት ክፍለ ጊዜ ደግሞ ትንበያ ነው።</li>
+<li><strong>ማጠቃለያ</strong> — የእውነተኛው የሥራ ጊዜ፣ የተሰላው መጠን እና የትርፍ ሰዓት የጽሑፍ ማጠቃለያ።</li>
+<li><strong>ደመወዝ</strong> — የመሠረታዊ ክፍያ፣ የትርፍ ሰዓት ክፍያ፣ ጉርሻዎች፣ ተቀናሾች እና የመጨረሻው ግምት ዝርዝር መግለጫ። እሴቶቹ በ<a href="#salary">የደመወዝ ቅንብሮች</a> እና በተመረጠው ክፍለ ጊዜ ላይ የተመሰረቱ ናቸው።</li>
+</ol>
+
+<h3 id="reports-work">5.5. የሥራ ጊዜ፣ መቅረት እና ቀናት</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_work_absences.webp" alt="የስራ ጊዜ፣ የእረፍት ጊዜ፣ የተጠናቀቁ ፈረቃዎች እና የመቅረት ጊዜዎችን የሚያሳይ ስክሪን ሪፖርት ያደርጋል">
+</figure>
+
+<ol class="callout-list">
+<li><strong>የስራ ጊዜ</strong> — የታቀዱ እና ትክክለኛ የስራ ሰዓቶችን፣ የታቀዱ እና ትክክለኛ የስራ ሰዓቶችን ከእረፍት ቅነሳ በፊት፣ የተጠናቀቁ ፈረቃዎች ብዛት፣ አማካይ የፈረቃ ቆይታ እና የተቀነሰውን ጠቅላላ የእረፍት ጊዜ ያሳያል። በ<a href="#statistics-break">የስራ ሰዓት ክፍል</a> ውስጥ እረፍቶችን ያዋቅሩ።</li>
+<li><strong>መቅረቶችና ቀናት</strong> — የእረፍት ቀናት፣ የእረፍት ቀናት፣ የህመም እረፍት ቀናት፣ የእረፍት ቀናት እና በተመረጠው ጊዜ ውስጥ የተቀየሩ ቀናትን ያሳያል።</li>
+</ol>
+
+<h3 id="reports-charts">5.6. ማስተካከያዎች እና ገበታዎች</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_corrections_charts.webp" alt="ማሳያዎችን፣ የደመወዝ ስብጥርን እና የስራ ሰዓት እሴቶችን ሪፖርት ያደርጋል">
+</figure>
+
+<ol class="callout-list">
+<li><strong>ማስተካከያዎች</strong> — የትርፍ ሰዓት ሰዓቶችን፣ የፈረቃ ጊዜን አጠቃላይ ለውጥ እና ከመሠረታዊ መርሃ ግብሩ የተለወጡትን የቀኖች ብዛት ያሳያል።</li>
+<li><strong>ግራፎች</strong> — የደመወዝ እና የስራ ሰዓት ቅንብርን በዓይነ ሕሊናው ያሳያል፡ መሰረታዊ ክፍያ፣ የትርፍ ሰዓት፣ ጉርሻዎች፣ ቅናሾች፣ ጠቅላላ እና የታቀዱ፣ የሚሰሩ እና የሚከፈሉ ሰዓቶች።</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_charts_days.webp" alt="ተጨማሪ የሪፖርት ገበታዎች ከሰዓቶች እና የቀን አይነት የፓይ ገበታ ጋር">
+</figure>
+
+<ol class="callout-list">
+<li><strong>ሰዓታት</strong> — የታቀዱትን የእይታ ንጽጽር ይቀጥላል፣የሰራ፣ የተከፈለ እና የትርፍ ሰዓት ሰዓቶች። የ"ትክክለኛው የስራ ሰዓት" ረድፍ ቅንብሮች እና ማስተካከያዎች ከተተገበሩ በኋላ ውጤቱን ያሳያል።</li>
+<li><strong>የቀን ዓይነቶች</strong> - በተመረጠው ጊዜ ውስጥ ቀኖችን በአይነት የሚያከፋፍል የፓይ ገበታ። አፈ ታሪኩ በጊዜ ሰሌዳው እና በእውነተኛ ለውጦች ላይ የተመሰረተ ነው፡ ቀን፣ ሌሊት ወይም ሌሎች ፈረቃዎች፣ የእረፍት ቀናት፣ የእረፍት ቀናት፣ የህመም እረፍት፣ የእረፍት ጊዜ እና ሌሎች ግዛቶች።</li>
+</ol>
+
+<h3 id="reports-comparison">5.7. ወቅቶችን ማወዳደር</h3>
+
+<p>የማነጻጸሪያ ክፍሉ በበርካታ ጊዜያት ውስጥ ደሞዝ፣ ጊዜ፣ ፈረቃዎች እና መቅረቶችን እንዲያወዳድሩ ይረዳዎታል። የሚገኙ የጊዜ ገደቦች ብዛት በተቀመጠው መረጃ ላይ የተመሰረተ ነው።</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_chart.webp" alt="የጊዜ ንጽጽር ማያ ገጽ ከክልል ምርጫ፣ የደመወዝ ገበታ እና የንጽጽር ሠንጠረዥ መጀመሪያ ጋር">
+</figure>
+
+<ol class="callout-list">
+<li><strong>ጊዜያትን አነጻጽር</strong> — ስንት ክፍለ ጊዜዎችን ማወዳደር እንዳለብህ እና ክልላቸውን ለመምረጥ ካርዱን መታ አድርግ።</li>
+<li><strong>ገበታ እና የጊዜ ዝርዝር</strong> — ለእያንዳንዱ ክፍለ ጊዜ ደመወዝ ያሳያል እና በንጽጽሩ ውስጥ የተካተቱትን ክፍተቶች ከሁኔታቸው ጋር ይዘረዝራል።</li>
+<li><strong>የንጽጽር ሰንጠረዥ</strong> — ለእያንዳንዱ ክፍለ ጊዜ ዝርዝር እሴቶችን ይዟል። የቀሩትን አምዶች ለማየት ሠንጠረዡን በአግድም ወደ ግራ ወይም ቀኝ ያንሸራትቱ።</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_table.webp" alt="የማነጻጸሪያ ሰንጠረዡን መቀጠል እና በአጠገብ ባሉት ክፍለ ጊዜዎች መካከል ያሉ ልዩነቶች">
+</figure>
+
+<ol class="callout-list">
+<li><strong>የጊዜ እሴቶች</strong> — ጠቅላላ ደመወዝ፣ የስራ እና የተከፈለባቸው ሰዓታት፣ የትርፍ ሰዓት፣ ጉርሻዎች፣ ቅናሾች፣ የተጠናቀቁ ፈረቃዎች፣ መቅረቶች እና የተቀየሩ ቀናት።</li>
+<li><strong>በጊዜያት መካከል ልዩነት</strong> — እያንዳንዱ ክፍለ-ጊዜ ከቀዳሚው እንዴት እንደሚለይ ያሳያል። አዎንታዊ እና አሉታዊ እሴቶች በተዛማጅ መለኪያ ላይ መጨመር ወይም መቀነስን ያመለክታሉ። ቀለም ብቻውን ሁልጊዜ ጥቅም ወይም ችግር ማለት አይደለም፤ለምሳሌ፣ የቅናሾች መጨመር ማለት ከፍተኛ መጠን ያለው ገንዘብ መቆጠብ ማለት ነው።</li>
+</ol>
+
+<h3 id="reports-details-export">5.8. ዕለታዊ ዝርዝሮች እና ወደ ውጭ መላክ</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_details_export.webp" alt="ለዕለታዊ ዝርዝሮች ካርዶችን ሪፖርት ያድርጉ እና ወደ ፒዲኤፍ፣ ኤችቲኤምኤል፣ JSON ወይም CSV ይላኩ">
+</figure>
+
+<ol class="callout-list">
+<li><strong>የቀን ዝርዝሮች</strong> — በተመረጠው ጊዜ ውስጥ የእያንዳንዱን ቀን ዝርዝር ይከፍታል። የፈረቃ አይነት፣ የታቀዱ እና ትክክለኛ ጊዜ፣ የሰዓት ማስተካከያዎች፣ መቅረቶች እና ለተወሰነ ቀን ሌሎች ለውጦችን ማረጋገጥ ይችላሉ።</li>
+<li><strong>ወደ ውጭ ላክ</strong> — ሪፖርቱን እንደ ፒዲኤፍ፣ ኤችቲኤምኤል፣ JSON ወይም CSV ያስቀምጣል። ከመላክዎ በፊት የሪፖርቱን ጊዜ ይምረጡ፤ከዚያም ፋይሉን በአንድሮይድ ሲስተም ምናሌ በኩል ማተም፣ ማስቀመጥ ወይም ማጋራት ይችላሉ።</li>
+</ol>
+
+<div class="tip">ከማወዳደርዎ ወይም ከመላክዎ በፊት፣ የተመረጠውን ጊዜ፣ የጊዜ ሰሌዳ፣ የፈረቃ ለውጦች፣ የእረፍት ጊዜዎች እና የደመወዝ ቅንብሮችን ያረጋግጡ። በምንጭ መረጃው ላይ ስህተት በእያንዳንዱ የሪፖርት ድምር ላይ ተጽዕኖ ያሳድራል።</div>
+
+<h2 id="alarms">6. ማንቂያዎች</h2>
+
+<p>ShiftAlarm የአንድ ጊዜ ማንቂያዎችን እንዲፈጥሩ፣ በተመረጡ የሳምንቱ ቀናት ላይ እንዲደግሟቸው ወይም ጊዜያቸውን ከፈረቃ መርሃ ግብር ጋር እንዲያገናኙ ያስችልዎታል።</p>
+
+<h3 id="alarms-list">6.1። የማንቂያ ዝርዝር</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarms_overview.webp" alt="ShiftAlarm የማንቂያ ስክሪን ከሚቀጥለው ማንቂያ፣ መደርደር፣ የማንቂያ ካርድ እና የአክል አዝራር ጋር">
+</figure>
+
+<ol class="callout-list">
+<li><strong>ቀጣይ ማንቂያ</strong> — የሚቀጥለውን ንቁ የማንቂያ ማሳወቂያ ቀን እና ሰዓት ያሳያል።</li>
+<li><strong>የማንቂያ መረጣ</strong> — የማንቂያ ካርታውን ቅደም ተከተል ይለውጣል፣ ለምሳሌ የነቁ ማንቂያዎችን መጀመሪያ በማሳየት።</li>
+<li><strong>የማንቂያ ካርታ</strong> — የጊዜ፣ የቀን ወይም የድግግሞሽ ሁነታ፣ የጊዜ ሰሌዳ አይነት እና የቀረውን ጊዜ ይይዛል። ለማርትዕ ካርዱን ይንኩ።</li>
+<li><strong>ማብሪያ/ማጥፊያ</strong> — ማንቂያውን ቅንብሮቹን ሳይሰርዝ ለጊዜው ያነቃል ወይም ያሰናክላል።</li>
+<li><strong>ሰርዝ</strong> — የተመረጠውን ማንቂያ ይሰርዛል።</li>
+<li><strong>ማንቂያ ጨምር</strong> — አዲስ የማንቂያ ደወል ለመፍጠር ማያ ገጹን ይከፍታል።</li>
+</ol>
+
+<h3 id="alarms-create">6.2. ማንቂያ መፍጠር እና ማረም</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_time_schedule.webp" alt="የShiftAlarm የማንቂያ አርታኢ አናት፡ ሰዓት፣ የጊዜ ሰሌዳ አይነት፣ አሸልብ እና መቆጣጠሪያዎችን ማስቀመጥ">
+</figure>
+
+<ol class="callout-list">
+<li><strong>ሰዓት</strong> — የማንቂያ ጊዜውን ለማዘጋጀት የሰዓት እና የደቂቃ ጎማዎችን ያሸብልሉ።</li>
+<li><strong>የመርሐ ግብር ዓይነት</strong> — ከእነዚህ ሁነታዎች ውስጥ አንዱን ይምረጡ፡
+<ul>
+<li><strong>አንድ ጊዜ</strong> — ማንቂያው በተመረጠው ቀን አንድ ጊዜ ይነሳሳል፤</li>
+<li><strong>በቀናት</strong> — በተመረጡ የሳምንቱ ቀናት ላይ ይደገማል፤</li>
+<li><strong>በፈረቃዎች</strong> — ማንቂያውን ከተመረጠው የጊዜ ሰሌዳ እና የፈረቃ አይነት ጋር ያገናኛል።</li>
+</ul>
+</li>
+<li><strong>አሸልብ</strong> — ማንቂያው ለምን ያህል ደቂቃዎች እንደተራዘመ ያዘጋጃል። በማንቂያ ስክሪኑ ላይ የማሸለብ አዝራሩን ሲነኩ።</li>
+<li><strong>ሰርዝ እና አስቀምጥ</strong> — እነዚህ አዝራሮች በማያ ገጹ ግርጌ ላይ ተስተካክለው በአርታዒው ውስጥ ሲያሸብልሉ ይገኛሉ።</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_behavior.webp" alt="የShiftAlarm ቅንብሮች ለማንቂያ ቆይታ፣ የድግግሞሽ ማንቂያ፣ የቀስ በቀስ የድምጽ መጨመር እና የንዝረት">
+</figure>
+
+<ol class="callout-list">
+<li><strong>የማንቂያ ቆይታ</strong> — ተጠቃሚው ካላቆመው ማንቂያው ምን ያህል ጊዜ እንደሚሰማ ይወስናል።</li>
+<li><strong>ማንቂያው ችላ ከተባለ ይድገሙት</strong> — ማንቂያው ካልተሰናበተ ወይም ካልተሸለለ ሌላ ማንቂያ ያነቃል። ከሱ በታች ያለውን የድግግሞሽ ማንቂያ ከመደጋገሙ በፊት ያለውን ክፍተት ያዘጋጁ።</li>
+<li><strong>ቀስ በቀስ የድምጽ መጨመር</strong> — በጸጥታ ድምጽ ይጀምራል እና በተመረጠው ጊዜ ውስጥ ድምጹን ቀስ በቀስ ይጨምራል።</li>
+<li><strong>ንዝረት</strong> — በማንቂያው ጊዜ ንዝረትን ያነቃል ወይም ያሰናክላል።</li>
+<li><strong>ሰርዝ እና አስቀምጥ</strong> — ለአርታዒው የተስተካከሉ መቆጣጠሪያዎች።</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_sound_name.webp" alt="የShiftAlarm ማንቂያ አርታዒ ግርጌ: ንዝረት፣ ድምጽ፣ name፣ እና save controls">
+</figure>
+
+<ol class="callout-list">
+<li><strong>ንዝረት</strong> — የንዝረት ማንቂያውን ያነቃል ወይም ያሰናክላል።</li>
+<li><strong>ድምፅ</strong> — አብሮ የተሰራ፣ ስርዓት ወይም በተጠቃሚ የተጨመረ ድምጽ እንዲመርጡ ያስችልዎታል። እስከ አምስት የሚደርሱ ብጁ ድምጾችን ወደ መተግበሪያው ማከል ይችላሉ።</li>
+<li><strong>ስም</strong> — ማንቂያዎችን ለመለየት የሚረዳ አማራጭ መለያ።</li>
+<li><strong>ሰርዝ እና አስቀምጥ</strong> — ለውጦችን አስወግድ ወይም ማንቂያውን አስቀምጥ።</li>
+</ol>
+
+<div class="notice">ካስቀመጡ በኋላ ማንቂያው በዋናው ዝርዝር ውስጥ ይታያል። አስፈላጊ ማንቂያ ከመድረሱ በፊት ማንቂያው መንቃቱን፣ መተግበሪያው ማሳወቂያ እና ትክክለኛ የማንቂያ ፈቃዶች እንዳሉት ያረጋግጡ፣ እና ስርዓቱ የጀርባ እንቅስቃሴውን እየገደበ አለመሆኑን ያረጋግጡ።</div>
+
+<div class="tip">የፈረቃ ግንኙነት ያለው ማንቂያ ለመፍጠር፣ በመጀመሪያ ተገቢ የሆነ የፈረቃ መርሃ ግብር ይፍጠሩ። በአርታዒው ውስጥ፣ ከፈረቃው መጀመሪያ ጋር ሲነጻጸር የተወሰነ የቀስቅሴ ጊዜ ወይም ማካካሻ ይምረጡ።</div>
+
+<h2 id="geo">7. የጂኦ ማንቂያዎች</h2>
+
+<p>የጂኦ ማንቂያ መሳሪያው ወደተመረጠ ቦታ ሲገባ ወይም ሲወጣ ይከታተላል። አካባቢው በካርታው ላይ ባለ ነጥብ እና በዚያ ነጥብ ዙሪያ ባለው ራዲየስ ይገለጻል። ለምሳሌ፣ ወደ ሥራ፣ ወደ ቤት፣ ወደ አውቶቡስ ማቆሚያ፣ ወደ ጣቢያ ወይም ወደ ሌላ ቦታ ሲቃረቡ ማንቂያ ለመቀበል የጂኦ ማንቂያ ይጠቀሙ።</p>
+
+<h3 id="geo-overview">7.1። ካርታ እና መቆጣጠሪያዎች</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_overview.webp" alt="ShiftAlarm Geo Alarm ዋና ማያ ገጽ ከካርታ እና ከተቆጠሩ መቆጣጠሪያዎች ጋር">
+</figure>
+
+<ol class="callout-list">
+<li><strong>አጉላ</strong> — ካርታውን ያሰፋዋል።</li>
+<li><strong>አሳንስ</strong> — የካርታውን ስፋት ይቀንሳል።</li>
+<li><strong>የእኔ አካባቢ</strong> — ካርታውን ወደ መሳሪያው የአሁኑ ቦታ ያንቀሳቅሰዋል። መተግበሪያው ለዚህ ባህሪ የአካባቢ መዳረሻ ይፈልጋል።</li>
+<li><strong>የተቀመጡ ቦታዎች</strong> — የተቀመጡ የጂኦ ማንቂያዎችን እና የአካባቢ ነጥቦችን ዝርዝር ይከፍታል።</li>
+<li><strong>ተመለስ</strong> — ወደ ቀድሞው የመተግበሪያ ማያ ገጽ ይመለሳል።</li>
+<li><strong>የጂኦ ማንቂያ ብዛት</strong> — ስንት የጂኦ ማንቂያዎች እንደተፈጠሩ ያሳያል።</li>
+<li><strong>የጂኦ ማንቂያ ዝርዝር</strong> — የተፈጠሩ የጂኦ ማንቂያዎችን የተለየ ዝርዝር ይከፍታል።</li>
+</ol>
+
+<div class="tip">እንዲሁም በምልክቶች ማጉላት ይችላሉ። ካርታውን በሁለት ጣቶች ይንኩ እና ለማጉላት ለየብቻ ያሰራጩዋቸው፣ ወይም ለማጉላት አንድ ላይ ይቆንጥጧቸው።</div>
+<div class="notice">የጎን መቆጣጠሪያዎች በቀኝ-ወደ-ግራ ቋንቋዎች በተቃራኒው በኩል ሊታዩ ይችላሉ። ተግባሮቻቸው ተመሳሳይ ሆነው ይቆያሉ።</div>
+
+<h3 id="geo-saved-places">7.2. የተቀመጡ ማንቂያዎች እና የአካባቢ ነጥቦች</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_saved_places.webp" alt="የተቀመጡ ቦታዎች መስኮት ከጂኦ ማንቂያ እና ከlocation-point ትሮች ጋር">
+</figure>
+
+<ol class="callout-list">
+<li><strong>ማንቂያዎች</strong> — የጂኦ ማንቂያዎችን ወደተቀመጡ ቦታዎች ታክለዋል።</li>
+<li><strong>የአካባቢ ነጥቦች</strong> — ንቁ የጂኦ ማንቂያ ሳይኖር የተቀመጡ መጋጠሚያዎችን ያሳያል።</li>
+<li><strong>የተቀመጡ ቦታዎች ዝርዝር</strong> — በካርታው ላይ ወደዚያ ቦታ ለመሄድ አንድ ካርድ መታ ያድርጉ።</li>
+<li><strong>ዝጋ</strong> — መስኮቱን ይዘጋል እና ወደ ካርታው ይመለሳል።</li>
+</ol>
+
+<div class="notice">የተለጠፈ የጂኦ ማንቂያ ከሰረዙ፣ መጋጠሚያዎቹ በራስ-ሰር በ"የአካባቢ ነጥቦች" ትር ውስጥ ይቀመጣሉ። ሌላ የጂኦ ማንቂያ ለመፍጠር ነጥቡን በኋላ እንደገና መጠቀም ይችላሉ።</div>
+
+<h3 id="geo-select-point">7.3. ነጥብ እና ራዲየስ መምረጥ</h3>
+
+<p>በካርታው ላይ አስፈላጊውን ቦታ ይንኩ እና ይያዙ። መተግበሪያው ምልክት ማድረጊያ ያስቀምጣል እና የተመረጠውን-ነጥብ ፓነል ይከፍታል።</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_selected_point.webp" alt="የተመረጠው የካርታ ነጥብ ከአድራሻ፣ ራዲየስ፣ ዕልባት እና የጂኦ ማንቂያ ፍጥረት አዝራር ጋር">
+</figure>
+
+<ol class="callout-list">
+<li><strong>የተመረጠው-ነጥብ ምልክት ማድረጊያ</strong> - የወደፊቱ የጂኦ አጥር ማዕከል። ካርታው ለተመረጠው ራዲየስ ክብ ያሳያል።</li>
+<li><strong>አድራሻ እና መጋጠሚያዎች</strong> — ትክክለኛው ቦታ መመረጡን እንዲያረጋግጡ ያስችልዎታል።</li>
+<li><strong>የአካባቢ ነጥብ አስቀምጥ</strong> — ማንቂያ ሳይፈጥሩ የተመረጡትን መጋጠሚያዎች ወደተቀመጡ ቦታዎች ያክላል።</li>
+<li><strong>ራዲየስ</strong> — በነጥቡ ዙሪያ ያለውን ስፋት ያዘጋጃል። ተገቢውን ርቀት እስኪመርጡ ድረስ ተንሸራታቹን ያንቀሳቅሱ።</li>
+<li><strong>ሰርዝ</strong> — የነጥብ ምርጫን ይሰርዛል።</li>
+<li><strong>እዚህ ፍጠር</strong> — ለተመረጠው ነጥብ አዲሱን የጂኦ ማንቂያ አርታኢ ይከፍታል።</li>
+</ol>
+
+<div class="warning"><strong>ራዲየስን እንዴት እንደሚመርጡ።</strong> ስልክ መጋጠሚያዎቹን ያለማቋረጥ አይከታተልም። አንድሮይድ፣ የመሳሪያው አምራች፣ የባትሪ ቆጣቢ ሁነታ፣ ጂፒኤስ፣ የሞባይል-ኔትወርክ እና የWi‑Fi ምልክት ጥራት፣ እና የእንቅስቃሴ ፍጥነት ሁሉም ድንበሩ ሲገኝ ይነካሉ። ስለዚህ ማንቂያው ከተሳለው መስመር ሊወጣ ይችላል። ለምሳሌ፣ በ800 ሜትር ራዲየስ፣ መሣሪያው ቀድሞውኑ በአካባቢው ውስጥ ካለ በኋላ ግቤት ሊታወቅ ይችላል - ምናልባት ከነጥቡ 700፣ 600 ወይም 500 ሜትር።</div>
+
+<ul>
+<li><strong>በከተማ ውስጥ</strong> በአጠቃላይ <strong>1,300–1,500 ሜትር</strong> ራዲየስ ይመከራል።</li>
+<li><strong>ከከተማ ውጭ</strong>፣ የአካባቢ ዝመናዎች ብዙም የማይደጋገሙበት፣ <strong>4,000–5,000 ሜትር</strong> ይመከራል።</li>
+<li><strong>ትክክለኛው ራዲየስ</strong> በመንገድዎ፣ ፍጥነትዎ እና በመሳሪያ ባህሪዎ ላይ በመመስረት መመረጥ አለበት።</li>
+</ul>
+
+<div class="notice">ስርዓቱ መሣሪያው የአካባቢውን ምናባዊ ድንበር ሲያቋርጥ ያገኛል። በ"በመግቢያ" ሁነታ፣ ትልቅ ራዲየስ ብዙውን ጊዜ ስልኩ አቀራረብዎን ለማወቅ ተጨማሪ ጊዜ ይሰጠዋል። በ"መውጫ ላይ" ሁነታ፣ ድንበሩ ከተመረጠው ነጥብ ርቆ ይቀመጣል።</div>
+
+<h3 id="geo-create">7.4. የጂኦ ማንቂያ መፍጠር</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_location_schedule.webp" alt="የGeo Alarm Editor የላይኛው ክፍል: readiness, location, and schedule type">
+</figure>
+
+<ol class="callout-list">
+<li><strong>የጂኦ ማንቂያ ዝግጁነት</strong> — አስፈላጊዎቹ ፈቃዶች መዋቀራቸውንና መተግበሪያው የምናባዊ ወሰኑን መመዝገብ መቻሉን ያሳያል።</li>
+<li><strong>አካባቢ</strong> — የተመረጠውን አድራሻ እና መጋጠሚያዎችን ይዟል። አድራሻውን እንደ መለያ ማስተካከል ይችላሉ፣ ነገር ግን ትክክለኛው ነጥብ በካርታው ላይ ይመረጣል።</li>
+<li><strong>የመርሐ ግብር ዓይነት</strong> — የጂኦ ማንቂያው የሚሰራባቸውን ቀናት እና ሁኔታዎች ይወስናል።</li>
+<li><strong>ሁልጊዜ</strong> — የጂኦ ማንቂያው በሚነቃበት ጊዜ በየቀኑ ንቁ ነው።</li>
+<li><strong>አንድ ጊዜ</strong> — የተመረጠው ሁኔታ ሲሟላ ለቀጣዩ የአንድ ጊዜ ቀስቅሴ ጥቅም ላይ ይውላል።</li>
+<li><strong>በቀናት</strong> — የሚሰራው በተመረጡት የሳምንቱ ቀናት ብቻ ነው።</li>
+<li><strong>በፈረቃዎች</strong> — የጂኦ ማንቂያውን ከንቁ የፈረቃ መርሃ ግብር ጋር ያገናኛል።</li>
+</ol>
+
+<div class="notice"><strong>“በፈረቃዎች” መርሃ ግብር።</strong> በፈረቃ ቀን ላይ እንደሚሰራ፣ ከፈረቃው በፊት ብቻ ወይም ከዚያ በኋላ ብቻ ይምረጡ እና የሚፈለገውን የፈረቃ አይነት ይግለጹ፡ ቀን፣ ማታ፣ ጥዋት፣ ምሽት፣24-ሰዓት፣ ብጁ ወይም ማንኛውም የስራ ፈረቃ።</div>
+<div class="tip">የቀን መቁጠሪያ ቀን እንደ የስራ ፈረቃ ሳይሆን እንደ የእረፍት ቀን፣ የእረፍት ጊዜ፣ የህመም እረፍት ወይም የእረፍት ጊዜ ምልክት ከተደረገበት፣ በዚያ ቀን ከፈረቃ ጋር የተገናኘ የጂኦ ማንቂያ ንቁ አይሆንም።</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_trigger_settings.webp" alt="የጂኦ ማንቂያ አርታኢ ግርጌ: የመግቢያ ወይም የመውጫ ሁኔታ፣ ራዲየስ፣ እና የማንቂያ ቅንብሮች">
+</figure>
+
+<ol class="callout-list">
+<li><strong>የቀስቅሴ ሁኔታ</strong> — የማንቂያውን የሚጀምርበትን የድንበር ማቋረጫ ይወስናል።</li>
+<li><strong>በመግቢያ ላይ</strong> — መሣሪያው የተመረጠውን ራዲየስ ሲገባ ማንቂያውን ይጀምራል፣ ለምሳሌ ወደ ሥራ ሲቃረቡ ወይም የሚፈለገውን ማቆሚያ ሲቃረቡ።</li>
+<li><strong>ሲወጣ</strong> — መሣሪያው የተመረጠውን ራዲየስ ሲወጣ ማንቂያውን ይጀምራል፣ ለምሳሌ ከስራ ከወጡ ወይም ከጣቢያ ከወጡ በኋላ እንዳያመልጥዎትየመንገዱ ቀጣይ ክፍል።</li>
+<li><strong>በመግቢያ ወይም በመውጣት ላይ</strong> — ድንበሩ በሁለቱም አቅጣጫ ሲሻገር ማንቂያውን ያስጀምራል።</li>
+<li><strong>ራዲየስ</strong> — በተመረጠው ቦታ ዙሪያ ያለው የጂኦ አጥር መጠን።</li>
+<li><strong>የማንቂያ ቆይታ</strong> — ማንቂያው ምን ያህል ጊዜ እንደሚሰማ ይወስናል።</li>
+<li><strong>ቀስ በቀስ የድምጽ መጨመር</strong> — ማንቂያው ከጀመረ በኋላ የድምፅን ለስላሳ ጭማሪ ያዘጋጃል።</li>
+<li><strong>ሰርዝ እና አስቀምጥ</strong> — ለውጦችን አስወግድ ወይም የጂኦ ማንቂያውን አስቀምጥ።</li>
+</ol>
+
+<div class="tip">ከታች ያሉት የቀሩት አማራጮች ከመደበኛ ማንቂያ ጋር ተመሳሳይ ናቸው፡ ድምጽ፣ ንዝረት፣ የማንቂያ ቆይታ፣ ቀስ በቀስ የድምጽ መጨመር እና ስም።</div>
+
+<h3 id="geo-existing">7.5. በካርታው ላይ ያለ የጂኦ ማንቂያ እና መቆጣጠሪያዎቹ</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_marker_radius.webp" alt="የተፈጠረ የጂኦ ማንቂያ ምልክት እና በካርታው ላይ ያለው የትሪገር-ራዲየስ ክበብ">
+</figure>
+
+<ol class="callout-list">
+<li><strong>የጂኦ ማንቂያ ምልክት</strong> — የተመረጠውን ነጥብ ያሳያል።</li>
+<li><strong>የራዲየስ ድንበር</strong> — መግቢያው ወይም መውጫው በመተግበሪያው የሚከታተልበትን ቦታ ያሳያል።</li>
+</ol>
+
+<p>የጂኦ ማንቂያ ምልክት ምልክቱን መታ ያድርጉ። ትንሽ የመረጃ መስኮት መጀመሪያ ይታያል። ዝርዝር ካርዱን ለመክፈት ያንን መስኮት ይንኩ።</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_alarm_card.webp" alt="Detailed Geo Alarm Card with information, bookmark, switch, and controls">
+</figure>
+
+<ol class="callout-list">
+<li><strong>ስም እና አድራሻ</strong> — የተመረጠውን ጂኦ ማንቂያ ይለያሉ።</li>
+<li><strong>ዕልባት</strong> — ማንቂያውን ወደተቀመጡ ቦታዎች ያክላል ወይም ከእነሱ ያስወግደዋል።</li>
+<li><strong>ማብሪያ</strong> — የጂኦ ማንቂያውን ቅንብሮች ሳይሰርዝ ያነቃዋል ወይም ለጊዜው ያሰናክለዋል።</li>
+<li><strong>ቅንብሮች እና ሁኔታ</strong> — ራዲየስ፣ የመግቢያ ወይም የመውጫ ሁኔታ፣ የጊዜ ሰሌዳ፣ የጂኦ አጥር ዝግጁነት እና ስለ ቀድሞ ማግበሮች መረጃ ያሳያል።</li>
+<li><strong>አርትዕ</strong> — የጂኦ ማንቂያውን ቅንብሮች ይከፍታል።</li>
+<li><strong>ዝጋ</strong> — ካርዱን ይዘጋል እና ወደ ካርታው ይመለሳል።</li>
+<li><strong>ሰርዝ</strong> — ከተረጋገጠ በኋላ የጂኦ ማንቂያውን ይሰርዛል።</li>
+</ol>
+
+<div class="warning">ለአስተማማኝ አሠራር፣ ትክክለኛ እና የጀርባ ቦታን ይፍቀዱ፣ ለ ShiftAlarm ጥብቅ የባትሪ ገደቦችን ያስወግዱ፣ እና መሳሪያዎ የሚያቀርብ ከሆነ የበስተጀርባ ራስ-ሰር ጅምር ቅንብሮችን ያረጋግጡ። ትክክለኛ ቅንብሮች ቢኖሩም፣ አንድሮይድ በጥቂት ሜትሮች ውስጥ የድንበር ማወቂያ ትክክለኛ መሆኑን አያረጋግጥም።</div>
+
+<h2 id="notes">8. ማስታወሻዎች፣ ክስተቶች እና አስታዋሾች</h2>
+
+<p>የ"ማስታወሻዎች" ክፍል ግልጽ ጽሑፍን፣ ዝርዝሮችን፣ የማረጋገጫ ዝርዝሮችን፣ የድምጽ ቅጂዎችን፣ የንግግር-ወደ-ጽሑፍ ማስታወሻዎችን፣ አስታዋሾችን እና ዝግጅቶችን ያከማቻል።</p>
+
+<h3 id="notes-create">8.1. ማስታወሻ ማከል</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_type_picker.webp" alt="በShiftAlarm ውስጥ አዲስ የማስታወሻ አይነት መምረጥ">
+</figure>
+
+<ol class="callout-list">
+<li><strong>የፓነል እጀታ</strong> — የማስታወሻ አይነቶችን ሙሉ ዝርዝር ለማሳየት ወደ ላይ ይጎትቱት፣ ወይም ፓነሉን ለመዝጋት ወደ ታች ይጎትቱት።</li>
+<li><strong>የማስታወሻ አይነት</strong> — ተገቢውን አማራጭ ይምረጡ፡
+<ul>
+<li><strong>የጽሑፍ ማስታወሻ</strong> — ተራ ጽሑፍ፤</li>
+<li><strong>የማረጋገጫ ዝርዝር</strong> — የማጠናቀቂያ አመልካች ሳጥኖች ያላቸው የእቃዎች ዝርዝር፤</li>
+<li><strong>ዝርዝር</strong> — በነጥብ ምልክት ወይም በቁጥር የተቀመጠ ዝርዝር፤</li>
+<li><strong>የድምፅ ማስታወሻ</strong> — የድምጽ ቅጂ፤</li>
+<li><strong>ንግግር ወደ ጽሑፍ</strong> — የንግግር ማወቂያን በመጠቀም ማስታወሻ ይፈጥራል፤</li>
+<li><strong>አስታዋሽ</strong> — በተወሰነ ጊዜ ማሳወቂያ ያለው ግቤት፤</li>
+<li><strong>ክስተት</strong> — ከቀን እና ሰዓት ጋር የተገናኘ ግቤት።</li>
+</ul>
+</li>
+<li><strong>ሰርዝ</strong> — ማስታወሻ ሳይፈጥር መራጩን ይዘጋል።</li>
+</ol>
+
+<div class="tip">አንድ አይነት ከመረጡ በኋላ ተገቢው አርታኢ ይከፈታል። የሚፈለጉትን መስኮች ይሙሉ እና ግቤቱን ያስቀምጡ።</div>
+
+<h3 id="notes-list">8.2. የማስታወሻ ዝርዝር እና መቆጣጠሪያዎች</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_overview.webp" alt="ShiftAlarm ማስታወሻዎች ማያ ገጽ ከመደርደር፣ ንቁ እና በማህደር የተቀመጡ ማስታወሻዎች፣ ፍለጋ እና የካርድ እርምጃዎች ጋር">
+</figure>
+
+<ol class="callout-list">
+<li><strong>ደርድር</strong> — በዝርዝሩ ውስጥ የማስታወሻዎችን ቅደም ተከተል ይለውጣል።</li>
+<li><strong>ንቁ</strong> — ወደ ማህደሩ ያልተዛወሩ መደበኛ እና የታቀዱ ማስታወሻዎችን ያሳያል።</li>
+<li><strong>ማህደር</strong> — የተመዘገቡ ማስታወሻዎችን ዝርዝር ይከፍታል።</li>
+<li><strong>ፍለጋ</strong> — በማስታወሻ ርዕሶች እና ይዘቶች ውስጥ ተዛማጆችን ያገኛል።</li>
+<li><strong>የማስታወሻ ካርድ</strong> — ርዕሱን፣ ዓይነቱን፣ ሁኔታውን እና ተጨማሪ መረጃዎችን ያሳያል። ማስታወሻውን ለመክፈት ካርዱን ይንኩ።</li>
+<li><strong>ፒን</strong> — ማስታወሻውን ከዝርዝሩ አናት ላይ ይሰኩት።</li>
+<li><strong>ማህደር</strong> — ማስታወሻውን ከንቁ ዝርዝሩ ውስጥ ያስወግደዋል እና ወደ ማህደሩ ያንቀሳቅሰዋል።</li>
+<li><strong>ሰርዝ</strong> — ማስታወሻውን ከማረጋገጫ በኋላ ይሰርዘዋል።</li>
+<li><strong>ማስታወሻ ጨምር</strong> — የአዲሱ-ኖት አይነት መምረጫውን ይከፍታል።</li>
+</ol>
+
+<div class="notice">በዋናው ዝርዝር ውስጥ ለማያስፈልጉ ነገር ግን መቀመጥ ለሚገባቸው ግቤቶች ማህደሩን ይጠቀሙ። ማስታወሻን ጨርሶ በማይፈለግበት ጊዜ ብቻ ይሰርዙ።</div>
+
+<h2 id="clock">9. ሰዓት፣ የሩጫ ሰዓት እና ሰዓት ቆጣሪ</h2>
+
+<p>ይህ ክፍል የአካባቢውን እና የዓለም ሰዓትን፣ የሩጫ ሰዓትን እና ሰዓት ቆጣሪን ያጣምራል። በዋናው ማያ ገጽ ላይ ባለው የ<strong>"ሰዓት"</strong> ቁልፍ ይክፈቱት።</p>
+
+<div class="notice">በማያ ገጹ ግርጌ ሶስት ትሮች ይታያሉ፡ "ሰዓት"፣ "የሩጫ ሰዓት" እና "ሰዓት ቆጣሪ"። ሁነታዎችን ለመቀየር አንድ ትር ይንኩ።</div>
+
+<h3 id="clock-world">9.1. የሰዓት እና የዓለም ሰዓት</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_overview.webp" alt="ShiftAlarm የሰዓት ማያ ገጽ ከአካባቢያዊ ሰዓት፣ የዓለም ሰዓቶች፣ የአክል አዝራር እና የታችኛው ትሮች ጋር">
+</figure>
+
+<ol class="callout-list">
+<li><strong>የአካባቢ ሰዓት</strong> — የአሁኑን ሰዓት፣ ቀን እና የመሣሪያ ስርዓት የሰዓት ሰቅ ያሳያል።</li>
+<li><strong>የዓለም ሰዓቶች</strong> — የተጨመሩ ከተሞችን እና የጊዜ ዞኖችን ያሳያል። ዝርዝሩ ባዶ ሲሆን፣ መተግበሪያው ፍንጭ ያሳያል።</li>
+<li><strong>የፕላስ አዝራር</strong> — የዓለም ሰዓት መምረጫውን ይከፍታል።</li>
+<li><strong>የክፍል ትሮች</strong> — በ“ሰዓት”፣ “የሩጫ ሰዓት” እና “የሰዓት ቆጣሪ” ማያ ገጾች መካከል ይቀያይሩ።</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_add_timezone.webp" alt="ከተማ ወይም የጊዜ ሰቅ ወደ ShiftAlarm የዓለም ሰዓት ማከል">
+</figure>
+
+<ol class="callout-list">
+<li><strong>ፈልግ</strong> — ዝርዝሩን ለማጣራት የከተማ ወይም የጊዜ ሰቅ ስም ያስገቡ።</li>
+<li><strong>የከተማ እና የጊዜ ሰቅ ዝርዝር</strong> — ወደ የዓለም ሰዓት ማያ ገጽ ለማከል የሚያስፈልገውን አማራጭ ይንኩ።</li>
+</ol>
+
+<div class="tip">የአካባቢው የጊዜ ሰቅ ሁልጊዜ መጀመሪያ ይታያል። የተጨመሩ የዓለም ሰዓቶችን ከዝርዝሩ ውስጥ ማስወገድ ይችላሉ፣ ነገር ግን የአካባቢው ሰዓት ሊወገድ አይችልም።</div>
+
+<h3 id="clock-stopwatch">9.2. የሩጫ ሰዓት</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_start.webp" alt="ShiftAlarm የሩጫ ሰዓት ከጀመረ በኋላ">
+</figure>
+
+<ol class="callout-list">
+<li><strong>ታሪክ</strong> — የተቀመጡ የሩጫ ሰዓት ክፍለ ጊዜዎችን ይከፍታል።</li>
+<li><strong>ጀምር</strong> — የጊዜ አቆጣጠር ይጀምራል።</li>
+<li><strong>ዳግም አስጀምር</strong> — የሩጫ ሰዓቱ ከመጀመሩ በፊት አይገኝም። ካቆመ በኋላ የሩጫ ሰዓቱን ወደ ዜሮ ይመልሳል እና የአሁኑን ዙሮች ያስወግዳል።</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_running.webp" alt="የShiftAlarm የሩጫ ሰዓትን ከታሪክ፣ ከቁጠባ፣ ከጭረት እና ከቆመበት ጊዜ መቆጣጠሪያዎች ጋር በማስኬድ ላይ">
+</figure>
+
+<ol class="callout-list">
+<li><strong>ታሪክ</strong> — ቀደም ሲል የተቀመጡ ክፍለ ጊዜዎችን ያሳያል።</li>
+<li><strong>አስቀምጥ</strong> — ስም ይጠይቃል እና የአሁኑን የሩጫ ሰዓት ክፍለ ጊዜ ያስቀምጣል።</li>
+<li><strong>ዙር</strong> — ጠቅላላውን የሰዓት ቆጣሪ ሳያቆም መካከለኛ ውጤት ይመዘግባል።</li>
+<li><strong>ለአፍታ አቁም</strong> — የሩጫ ሰዓቱን ያቆማል። ካቆሙ በኋላ፣ ከቆመበት ማስቀጠል ወይም ዳግም ማስጀመር ይችላሉ።</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_laps.webp" alt="ShiftAlarm የሩጫ ሰዓት ዙሮች እና የመደርደር አማራጮቻቸው">
+</figure>
+
+<ol class="callout-list">
+<li><strong>ኦሪጅናል፣ ፈጣኑ እና ቀርፋፋ</strong> — የዙሪያ ማሳያ ቅደም ተከተልን ይቀይሩ፡ የመጀመሪያው ቅደም ተከተል፣ መጀመሪያ ፈጣኑ ወይም መጀመሪያ ቀርፋፋ።</li>
+<li><strong>ዙሮች</strong> — እያንዳንዱ ዙር የተቀዳበትን ጠቅላላ ጊዜ እና የግለሰብ የዙሪያ ጊዜን ያሳያል።</li>
+</ol>
+
+<div class="notice">አስቀምጥን ሲነኩ፣ የክፍለ ጊዜ ስም ያስገቡ እና ያረጋግጡ። የተቀመጠውን ክፍለ ጊዜ በኋላ ከታሪክ መክፈት ይችላሉ።</div>
+
+<h3 id="clock-timer">9.3። ሰዓት ቆጣሪ</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_setup.webp" alt="የ ShiftAlarm ሰዓት ቆጣሪን በሰዓት፣ በደቂቃ እና በሁለተኛ ጎማዎች ማዘጋጀት">
+</figure>
+
+<ol class="callout-list">
+<li><strong>ሰዓታት</strong> — መንኮራኩሩን ያሸብልሉ እና የሰዓቶችን ብዛት ይምረጡ።</li>
+<li><strong>ደቂቃዎች</strong> — መንኮራኩሩን ያሸብልሉ እና የደቂቃዎችን ብዛት ይምረጡ።</li>
+<li><strong>ሰከንዶች</strong> — መንኮራኩሩን ያሸብልሉ እና የሰከንዶችን ብዛት ይምረጡ።</li>
+<li><strong>ጀምር</strong> — ሰዓት ቆጣሪውን በተመረጠው የቆይታ ጊዜ ይጀምራል።</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_running.webp" alt="የShiftAlarm ሰዓት ቆጣሪን በማስኬድ ላይ ከቀረው ጊዜ፣ ለአፍታ አቁም፣ ለአፍታ አክል እና ለቆመ መቆጣጠሪያዎች">
+</figure>
+
+<ol class="callout-list">
+<li><strong>የቀረው ጊዜ</strong> — ከማንቂያው በፊት ምን ያህል ጊዜ እንደቀረው ያሳያል።</li>
+<li><strong>የመጨረሻ ጊዜ</strong> — ሰዓት ቆጣሪው የሚወስደውን ግምታዊ ጊዜ ያሳያል። ጨርስ።</li>
+<li><strong>የቅርብ ጊዜ ቆጣሪዎች</strong> — የቅርብ ጊዜ ቆይታዎችን አስቀምጧል፤በፍጥነት እንደገና ለመጠቀም አንዱን መታ ያድርጉ።</li>
+<li><strong>ለአፍታ አቁም</strong> — ቆጠራውን ለጊዜው ያቆማል። ከዚያ በኋላ መቀጠል ይችላሉ።</li>
+<li><strong>+1 ደቂቃ</strong> — በቀረው ጊዜ አንድ ደቂቃ ይጨምራል።</li>
+<li><strong>አቁም</strong> — ሰዓት ቆጣሪውን ሙሉ በሙሉ ያቆመዋል።</li>
+</ol>
+
+<div class="tip">ሰዓት ቆጣሪው እና የሩጫ ሰዓቱ በጀርባ ውስጥ መስራታቸውን ይቀጥላሉ። ሁኔታቸው በማሳወቂያ፣ በዋናው ማያ ገጽ እና በዊጅቶች ውስጥ ሊታይ ይችላል።</div>
+
+<h2 id="widgets">10። መግብሮች</h2>
+
+<p>ShiftAlarm ለስልኩ የመነሻ ማያ ገጽ መግብሮችን ያቀርባል።</p>
+<ul>
+<li><strong>ዛሬ 4×2</strong> — ሁለት ሊዋቀሩ የሚችሉ ክፍሎች ያሉት የታመቀ ፓነል።</li>
+<li><strong>ዛሬ 4×3</strong> — ከላይ ሰዓት ያለው ፓነል እና ከታች ሁለት ክፍሎች ያሉት።</li>
+<li><strong>ቀን መቁጠሪያ 4×4</strong> — የቀን መቁጠሪያ መግብሮች ከፈረቃ መርሃ ግብር ጋር።</li>
+</ul>
+<p>በስልኩ የመነሻ ማያ ገጽ ላይ ባለው የአንድሮይድ መግብር ምናሌ በኩል መግብር ያክሉ።</p>
+
+<h2 id="salary">11. የደመወዝ ስሌት</h2>
+
+<p>በ<a href="#statistics-work">በተመረጠው የጊዜ ሰሌዳ ስታቲስቲክስ</a> ውስጥ ከደመወዝ ካርድ "የደመወዝ ስሌት" ይክፈቱ። እዚህ የክፍያ ዘዴውን፣ የክፍያ ተመን ወይም ወርሃዊ ደሞዝ፣ የትርፍ ሰዓት ደንቦችን፣ ጉርሻዎችን እና ተቀናሾችን ማዘጋጀት ይችላሉ። መተግበሪያው እነዚህን ቅንብሮች ከተመረጠው ጊዜ፣ የፈረቃ መርሃ ግብር፣ የቀን መቁጠሪያ ለውጦች እና የእረፍት ሂሳብ ጋር አብሮ ይጠቀማል።</p>
+
+<div class="warning"><strong>ስሌቱ የቀረበው ለመረጃ አገልግሎት ብቻ ነው።</strong> አሠሪዎ ለጊዜ አጠባበቅ፣ ለማጠጋጋት፣ ለአበል፣ ለግብር፣ ለጉርሻዎች፣ ለቅናሾች ወይም ለተወሰኑ የፈረቃ ዓይነቶች ክፍያ ሌላ ስርዓት የሚጠቀም ከሆነ ትክክለኛው ክፍያ ሊለያይ ይችላል። ውጤቱን እንደ ኦፊሴላዊ የደመወዝ ሰነድ አይጠቀሙበት፤ከአሠሪዎ የክፍያ ወረቀት ጋር ያወዳድሩት። መተግበሪያው በትክክል የማይይዘው የስሌት ዘዴ ካገኙ፣ በመተግበሪያው ውስጥ በሚታየው አድራሻ ለገንቢዎች ኢሜይል ይላኩ። ደንቦቹን ይግለጹ፣ የናሙና የግብዓት ውሂብ ያቅርቡ እና የሚጠበቀውን ውጤት ይግለጹ። ዘዴው ለወደፊት ዝማኔ ሊታሰብበት ይችላል።</div>
+
+<h3 id="salary-settings">11.1. ተመን፣ የትርፍ ሰዓት እና ጉርሻዎች</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_settings_overview.webp" alt="የደመወዝ ስሌት ማያ ገጽ ከተመረጠው የጊዜ ሰሌዳ፣ የትርፍ ሰዓት አይነት፣ የትርፍ ሰዓት እና ጉርሻዎች ጋር">
+</figure>
+
+<ol class="callout-list">
+<li><strong>የተመረጠ መርሐ ግብር</strong> — የትኛው የፈረቃ መርሃ ግብር ጥቅም ላይ እንደሚውል ያሳያል። ደመወዝ የሚሰላው ከዚህ የጊዜ ሰሌዳ እና በስታቲስቲክስ ውስጥ ከተመረጠው የጊዜ ገደብ ነው።</li>
+<li><strong>የዋጋ ዓይነት እና የክፍያ መጠን</strong> — ክፍያ <strong>በሰዓት</strong>፣ <strong>በፈረቃ</strong> ወይም <strong>በወር</strong> ይምረጡ፣ ከዚያም ተጓዳኝ መጠን ያስገቡ። የመስክ ስሙ ከተመረጠው የክፍያ ዓይነት ጋር ይለወጣል።</li>
+<li><strong>ትርፍ ሰዓት</strong> — ተጨማሪ ሰዓቶች ከመደበኛው የሥራ ሰዓት በተለየ መንገድ ከተከፈሉ ይህንን ክፍል ያንቁ። ከዚያም የትርፍ ሰዓት ክፍያ ማባዣውን ይግለጹ። ተጨማሪ ሰዓቶችን በ<a href="#main-shift-time-adjustment">"ለውጥ ፈረቃ" → "+ ጊዜ"</a> በኩል ወደ የቀን መቁጠሪያው ያክሉ፤ሰዓቶቹ እንደ ትርፍ ሰዓት እንዲቆጠሩ "ይህንን ጊዜ እንደ ትርፍ ሰዓት ይቁጠሩ" የሚለውን ያንቁ።</li>
+<li><strong>ጉርሻዎች</strong> — የአሁኑን የስሌት ዘዴ እና ድምሮችን ያሳያል።<a href="#salary-bonuses">የጉርሻ ቅንብሮች</a>ን ለመክፈት ካርዱን ይንኩ።</li>
+</ol>
+
+<div class="notice">የ"አስቀምጥ" አዝራር ቅንብሮቹን በተመረጠው የጊዜ ሰሌዳ ላይ ይተገብራል። ከተቆጠበ በኋላ፣ በስታቲስቲክስ እና በሪፖርቶች ውስጥ ያሉት ድምሮች የገባውን ውሂብ በመጠቀም እንደገና ይሰላሉ።</div>
+
+<h3 id="salary-summary">11.2. ቅናሾች እና የስሌት ድምር</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions_total.webp" alt="የደመወዝ ስሌት ማያ ገጽ ከቅናሾች እና የመጨረሻ ዝርዝር ጋር">
+</figure>
+
+<ol class="callout-list">
+<li><strong>ቅናሾች</strong> — የተዋቀሩ ቅናሾችን ጠቅላላ መጠን እና ብዛት ያሳያል።<a href="#salary-deductions">የቅናሽ ዝርዝር</a>ን ለመክፈት ካርዱን ይንኩ።</li>
+<li><strong>ጠቅላላ</strong> — የማጠቃለያ ዝርዝር፡ የተከፈለበት ጊዜ፣ የሰራበት ሰዓት፣ የትርፍ ሰዓት ሰዓት፣ የመሠረት ክፍያ፣ የትርፍ ሰዓት ክፍያ፣ ጉርሻዎች፣ ተቀናሾች እና የመጨረሻው ውጤት።</li>
+</ol>
+
+<div class="tip">ውጤቱ በዚህ ስክሪን ቅንብሮች ላይ ብቻ ሳይሆን በተመረጡት የስታቲስቲክስ ጊዜ፣ በተጠናቀቁ ፈረቃዎች፣ በቀን ለውጦች፣ በትርፍ ሰዓት እና ባልተከፈሉ የእረፍት ጊዜ ቅንብሮች ላይም ይወሰናል።</div>
+
+<h3 id="salary-bonuses">11.3. ጉርሻዎች</h3>
+
+<p>በደመወዝ ስሌት ስክሪን ላይ ያለውን "ጉርሻዎች" ካርድ መታ ያድርጉ። ጉርሻ በእጅ ማስገባት ወይም ከክፍያ ስርዓትዎ ጋር የሚዛመድ ከሆነ እንደ መቶኛ ማስላት ይችላሉ።</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_bonuses.webp" alt="የጉርሻ ቅንብሮች ማያ ገጽ ከስሌት እና መጠን-መግቢያ አማራጮች ጋር">
+</figure>
+
+<ol class="callout-list">
+<li><strong>የማጠቃለያ መረጃ</strong> — የተሰላው የጉርሻ ድምር እና ለስሌቱ ጥቅም ላይ የዋለውን መሰረታዊ መጠን ያሳያል።</li>
+<li><strong>የጉርሻ ስሌት</strong> — በእጅ ግቤት ወይም የመቶኛ ስሌት ይምረጡ፣ ለምሳሌ የሽያጭ መቶኛ፣ ያ ዘዴ በስራ ቦታዎ ላይ ጥቅም ላይ የሚውል ከሆነ።</li>
+<li><strong>የመግቢያ ዘዴ</strong> — “ጠቅላላ መጠን” ለአንድ የመጨረሻ ጉርሻ ተስማሚ ነው። የተለያዩ ረድፎች በተናጥል መቆጠር ያለባቸው በርካታ ጉርሻዎች ሲኖሩ ጠቃሚ ናቸው።</li>
+<li><strong>መጠን ወይም መቶኛ</strong> — በተመረጠው የስሌት ዘዴ የሚያስፈልገውን እሴት ያስገቡ።</li>
+<li><strong>ሰርዝ እና አስቀምጥ</strong> — ለውጦቹን ያስወግዱ ወይም በደመወዝ ስሌቱ ላይ ይተግብሩ።</li>
+</ol>
+
+<h3 id="salary-deductions">11.4. የቅናሽ ዝርዝር</h3>
+
+<p>በዋናው የስሌት ማያ ገጽ ላይ ያለውን "ቅናሾች" ካርድ መታ ያድርጉ። ይህ ክፍል በርካታ ቅናሾችን እንዲያከማቹ እና እያንዳንዱን ለብቻው እንዲያስተዳድሩ ያስችልዎታል።</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions.webp" alt="ጠቅላላ መጠን፣ የቅናሽ ረድፎች እና የመጨመሪያ ቁልፍ ያለው የቅናሽ ዝርዝር ማያ ገጽ">
+</figure>
+
+<ol class="callout-list">
+<li><strong>የማጠቃለያ መረጃ</strong> — የሁሉም የነቁ ቅናሾች መጠን እና ቁጥር ያሳያል።</li>
+<li><strong>የቅናሽ ረድፍ</strong> — ስሙን፣ እሴቱን እና ዓይነቱን ያሳያል። <a href="#salary-deduction-editor">የቅናሽ ቅንብሮችን</a> ለመክፈት ረድፉን ይንኩ። የቆሻሻ መጣያ አዶው ረድፉን ይሰርዛል።</li>
+<li><strong>ቅናሽ ጨምር</strong> — የ“+” አዝራሩ አዲስ የቅናሽ ረድፍ ይፈጥራል።</li>
+<li><strong>ሰርዝ እና አስቀምጥ</strong> — ለውጦችን ያስወግዱ ወይም መላውን ዝርዝር ያስቀምጡ።</li>
+</ol>
+
+<h3 id="salary-deduction-editor">11.5. የግለሰብ ቅነሳን ማዋቀር</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deduction_editor.webp" alt="የግለሰብ ቅነሳ ፓነል ከስም፣ እሴት፣ አይነት እና የቅናሽ መሰረት ጋር">
+</figure>
+
+<ol class="callout-list">
+<li><strong>የቅናሽ ስም</strong> — እንደ “ግብር”፣ “የልጅ ድጋፍ” ወይም “ቅጣት” ያለ ግልጽ ስም ያስገቡ።</li>
+<li><strong>ዋጋ</strong> — ከዚህ በታች በተመረጠው የእሴት አይነት ላይ በመመስረት መጠን ወይም መቶኛ ያስገቡ።</li>
+<li><strong>የእሴት አይነት</strong> — የተወሰነ መጠን ወይም መቶኛ ይምረጡ።</li>
+<li><strong>የቅናሽ ዓይነት</strong> — የ<strong>ተለዋዋጭ</strong> ቅነሳ ለተወሰነ የስሌት ጊዜ ይተገበራል፤<strong>ተደጋጋሚ</strong> ቅናሽ ነቅቶ እያለ በመደበኛነት ይተገበራል።</li>
+<li><strong>ከምን ይቀነስ</strong> ቀንስ — የስሌት መሰረቱን ይምረጡ፡ ጠቅላላ ደሞዝ፣ መሰረታዊ ክፍያ፣ ጉርሻዎች ወይም ሌላ የሚገኝ አማራጭ።</li>
+<li><strong>ነቅቷል</strong> — ቅንብሮቹን ሳይሰርዝ ቅናሹን ለጊዜው ያሰናክላል።</li>
+<li><strong>ሰርዝ እና አስቀምጥ</strong> — ፓነሉን ሳይቀይሩ ይዝጉ ወይም ቅናሹን ያስቀምጡ።</li>
+</ol>
+
+<div class="notice">ለመቶኛ ቅነሳ፣ በተለይ ትክክለኛውን "ከ" መሰረታዊ መምረጥ አስፈላጊ ነው፡ ተመሳሳይ የጠቅላላ ደሞዝ፣ የመሠረታዊ ክፍያ እና የጉርሻዎች መቶኛ የተለያዩ ውጤቶችን ያስገኛል።</div>
+
+<h2 id="settings">12. ቅንብሮች</h2>
+
+<p>በ<a href="#main-overview">ዋናው ማያ ገጽ</a> ግርጌ ላይ ያለውን አዝራር በመጠቀም "ቅንብሮች" ይክፈቱ። ይህ ክፍል የስርዓት ፈቃዶችን፣ የመልክ እና የመተግበሪያ ቋንቋን፣ ከመስመር ውጭ የንግግር ማወቂያን፣ ሰነዶችን እና የተጠቃሚ መመሪያን፣ ምትኬን፣ የምርመራ እና የገንቢ የእውቂያ አማራጮችን ይዟል።</p>
+
+<h3 id="settings-overview">12.1. ዋና ቅንብሮች ክፍሎች</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_permissions_language.webp" alt="የShiftAlarm ቅንብሮች አናት: ፈቃዶች፣ ገጽታ፣ የመተግበሪያ ቋንቋ እና ከመስመር ውጭ የንግግር ሞዴሎች">
+</figure>
+
+<ol class="callout-list">
+<li><strong>ፈቃዶች</strong> — የማንቂያ ፈቃዶችን እና የአስተማማኝነት ቅንብሮችን ይከፍታል። ማሳወቂያዎችን፣ ትክክለኛ ማንቂያዎችን፣ የጀርባ እንቅስቃሴን እና የባትሪ ገደቦችን ያረጋግጡ።<a href="#geo">የጂኦ ማንቂያዎች</a> እንዲሁም የአካባቢ መዳረሻ ያስፈልጋቸዋል፤መተግበሪያው ሲዘጋ ለማስነሳት ዳራ ወይም "ሁልጊዜ ፍቀድ" የአካባቢ መዳረሻ ያስፈልጋል። የእቃዎች ስሞች እና መንገዶች እንደ አንድሮይድ ስሪት እና የመሳሪያ አምራች ይለያያሉ።</li>
+<li><strong>ገጽታ</strong> — ብርሃን፣ ጨለማ ወይም የስርዓት ገጽታ እንዲመርጡ፣ የበይነገጽ የቀለም ልዩነት እንዲመርጡ እና በመተግበሪያው ውስጥ ላሉ እርምጃዎች የሃፕቲክ ግብረመልስን እንዲያነቁ ወይም እንዲያሰናክሉ ያስችልዎታል። የስርዓት ገጽታው የስልኩን የአሁኑ ገጽታ ይከተላል።</li>
+<li><strong>የመተግበሪያ ቋንቋ</strong> — ከስልኩ የስርዓት ቋንቋ የተለየ ቋንቋ እንዲጠቀሙ ያስችልዎታል። የShiftAlarm ካታሎግ 108 ቋንቋዎችን ይዟል፡- የሚያስፈልገውን ቋንቋ ከፍለጋ ጋር ያግኙ፣ የቋንቋ ፓኬጁን ያውርዱ እና ይተግብሩት።</li>
+<li><strong>ከመስመር ውጭ የንግግር ሞዴሎች</strong> — ለ<a href="#notes-create">ንግግር-ወደ-ጽሑፍ ማስታወሻዎች</a> ሞጁል ይጭናል። ከመስመር ውጭ ማወቂያ በአሁኑ ጊዜ እየተፈተነ ሲሆን ለ20 ቋንቋዎች ያህል ይገኛል። ጥራቱ ከመስመር ላይ ማወቂያ ያነሰ ሊሆን ይችላል እና በቋንቋው፣ በማይክሮፎን፣ በስልክ አፈጻጸም እና በመቅዳት ሁኔታዎች ላይ የተመሠረተ ነው።</li>
+</ol>
+
+<div class="warning"><strong>የአንድሮይድ ፈቃዶች በተለያዩ መሳሪያዎች ይለያያሉ።</strong> በአንዳንድ ስልኮች ላይ፣ ራስ-ሰር ጅምርን መፍቀድ፣ "ያልተገደበ" ወይም ተመሳሳይ የባትሪ ሁነታን መምረጥ እና የጀርባ እንቅስቃሴን መፍቀድ አለብዎት። እነዚህ ቅንብሮች ስርዓቱ ShiftAlarmን የማስቆም እድልን ይቀንሳሉ፣ ነገር ግን ትክክለኛ ስሞቻቸው የሚወሰኑት በመሳሪያው አምራች ነው።</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_help_backup_diagnostics.webp" alt="የShiftAlarm ቅንብሮች ግርጌ፡ ሰነዶች፣ የተጠቃሚ መመሪያ፣ ምትኬ፣ ምርመራዎች እና የገንቢ ግንኙነት">
+</figure>
+
+<ol class="callout-list">
+<li><strong>ሰነዶችና እገዛ</strong> — የመተግበሪያውን ህጋዊ ሰነዶች ይከፍታል፡ የአጠቃቀም ውል፣ የግላዊነት መመሪያ፣ ማስተባበያ እና አጭር የእገዛ ገጽ።</li>
+<li><strong>ስልጠና እና የተጠቃሚ መመሪያ</strong> — ይህንን የተሟላ የተሳለ መመሪያ ስለ ShiftAlarm ባህሪያት ዝርዝር መግለጫዎችን ይከፍታል።</li>
+<li><strong>ምትኬና መመለስ</strong> — የሚደገፉ የመተግበሪያ ቅንብሮችን እና ውሂብ የያዘ ፋይል ይፈጥራል፣ ወይም ከቀደመው ምትኬ ወደነበረበት ይመልሳቸዋል። ይህ መተግበሪያውን እንደገና ከመጫን፣ ስልኩን ዳግም ከማስጀመር ወይም ውሂብ ወደ ሌላ መሣሪያ ከማስተላለፍዎ በፊት ጠቃሚ ነው። ለዝርዝር መመሪያዎች <a href="#backup">"ምትኬ እና እነበረበት መልስ"</a>ን ይመልከቱ።</li>
+<li><strong>የምርመራ ምዝግብ ማስታወሻ</strong> — ለመተግበሪያ ባህሪያት የተለያዩ ምዝግብ ማስታወሻዎችን ይከፍታል። እንደ የማንቂያ መርሐግብር ማስያዝ እና መልሶ ማግኛ፣ የክስተት ሂደት፣ የፈቃድ ሁኔታ እና ሌሎች የአገልግሎት መረጃዎች ያሉ ቴክኒካዊ ደረጃዎችን ይመዘግባሉ። ምዝግብ ማስታወሻ ስህተት የተከሰተበትን ደረጃ ለመለየት ይረዳል። ግቤቶችን መቅዳት ወይም ለገንቢዎች ኢሜይል ለመላክ ማዘጋጀት ይችላሉ። ለዝርዝሮች <a href="#diagnostics">"ምርመራዎች እና መላ መፈለግ"</a>ን ይመልከቱ።</li>
+<li><strong>ገንቢዎችን ያግኙ</strong> — የኢሜይል መተግበሪያውን ይከፍታል እና ለድጋፍ የተላከ መልእክት ይፈጥራል። ችግርን ሪፖርት ለማድረግ፣ ግብረመልስ ለመላክ ወይም አስተያየት ለመላክ ወይም ጥያቄ ለመጠየቅ ይጠቀሙበት። ለቴክኒካል ችግር የስልክ ሞዴሉን፣ የአንድሮይድ ሥሪትን፣ የችግሩን ጊዜ፣ የተከናወኑ እርምጃዎችን እና የሚቻል ከሆነ ተዛማጅ የምርመራ ምዝግብ ማስታወሻን ያካትቱ።</li>
+</ol>
+
+<div class="notice">የምርመራ ምዝግብ ማስታወሻዎች በራስ-ሰር ወደ ገንቢዎች አይላኩም። አስፈላጊውን መረጃ መቅዳት ወይም "ለገንቢዎች ላክ" የሚለውን መታ ማድረግ፣ የኢሜይል መተግበሪያ መምረጥ፣ የተዘጋጀውን መልእክት መገምገም እና መላክዎን ማረጋገጥ አለብዎት።</div>
+
+<h2 id="backup">13. ምትኬ ማስቀመጥ እና ወደነበረበት መመለስ</h2>
+
+<p>ምትኬ የሚደገፉ የShiftAlarm ቅንብሮችን እና የተጠቃሚ ውሂብን በተለየ ፋይል ውስጥ ያስቀምጣል። መተግበሪያውን እንደገና ከጫኑ፣ ስልኩን ዳግም ካስጀመሩ ወይም ወደ ሌላ መሣሪያ ከተዛወሩ በኋላ ውሂብ ወደነበረበት ለመመለስ ይረዳል።</p>
+<ol class="step-list">
+<li>"ቅንብሮች → ምትኬ እና እነበረበት መልስ" ይክፈቱ።</li>
+<li>ምትኬ ይፍጠሩ እና የተገኘውን ፋይል በስልኩ ላይ ያስቀምጡ ወይም በስርዓት ምናሌው በኩል ያጋሩት።</li>
+<li>ወደነበረበት ለመመለስ፣ ተመሳሳይ ክፍል ይክፈቱ እና ቀደም ሲል የተፈጠረ የመጠባበቂያ ፋይል ይምረጡ።</li>
+<li>ወደነበረበት ከተመለሱ በኋላ አስፈላጊ ማንቂያዎችን፣ መርሃ ግብሮችን እና የአንድሮይድ ፈቃዶችን ያረጋግጡ። አንዳንድ የስርዓት ደህንነት ፈቃዶች በአዲስ መሣሪያ ላይ ወይም ዳግም ከተጫነ በኋላ እንደገና መሰጠት ሊያስፈልጋቸው ይችላል።</li>
+</ol>
+<p class="tip">ስልኩ ከጠፋ፣ ከተበላሸ ወይም ዳግም ከተጀመረ ተደራሽ ሆኖ በሚቆይ ደህንነቱ በተጠበቀ ቦታ ያስቀምጡ። የመጠባበቂያ ፋይል የአንድሮይድ ስርዓት ፈቃዶችን አይተካም እና መተግበሪያው እንዲደርስበት የማይፈቀድለትን ውሂብ በራስ-ሰር ማካተት አይችልም።</p>
+
+<h2 id="diagnostics">14. ምርመራዎች እና መላ ፍለጋ</h2>
+
+<p>ShiftAlarm ለተለያዩ ባህሪያት የተለያዩ የምርመራ ምዝግብ ማስታወሻዎችን ያቀርባል። የቴክኒካል ክስተቶችን ቅደም ተከተል ይጠብቃሉ እና ማንቂያው መርሐግብር ተይዞለት፣ ዳግም ከተጀመረ በኋላ ወደነበረበት ተመልሷል፣ ለሂደት አልፏል ወይም በስርዓት ቅንብር ምክንያት ቆሟል እንደሆነ ለመወሰን ይረዳሉ።</p>
+
+<h3 id="diagnostics-control">14.1. የምርመራ ስብስብን መቆጣጠር</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_sections.webp" alt="ShiftAlarm diagnostic log screen with the master switch and a single ansel log log">
+</figure>
+
+<ol class="callout-list">
+<li><strong>ምርመራ ሰብስብ</strong> — በመተግበሪያው ውስጥ ላለው እያንዳንዱ የምርመራ ክፍል ዋና ማብሪያ/ማጥፊያ። አዳዲስ ክስተቶችን በአንድ ጊዜ ወደ ሁሉም ምዝግብ ማስታወሻዎች ማከልን ለማቆም ያጥፉት። የአዳዲስ ክስተቶች ስብስብ እንደገና ካነቁት በኋላ ይቀጥላል።</li>
+<li><strong>የግል ባህሪ ምዝግብ ማስታወሻ</strong> — እያንዳንዱ ሞጁል የራሱ የሆነ ማብሪያ/ማጥፊያ እና “ክፈት” ቁልፍ አለው። ለምሳሌ፣ ማንቂያውን፣ ሰዓቱን ወይም ሌላ የባህሪ ምዝግብ ማስታወሻውን ብቻ ሲያሰናክሉ ዓለም አቀፍ ምርመራዎችን እንዲነቁ መተው ይችላሉ። የቅጽበታዊ ገጽ እይታው ማድረስን፣ የጊዜ ሰሌዳ ማስያዝን፣ መልሶ ማግኘትን፣ የጥበቃ-መከላከያ እና የማንቂያ-ስክሪን ክስተቶችን የሚመዘግብ የማንቂያ ምዝግብ ማስታወሻ ያሳያል።</li>
+</ol>
+
+<div class="notice">ማብሪያ/ማጥፊያዎቹ የቴክኒክ ክስተቶችን ቀረጻ ብቻ ይቆጣጠራሉ። የማንቂያ፣ የሰዓት ወይም ሌላ የባህሪ ምዝግብ ማስታወሻ ማሰናከል ባህሪውን ራሱ አያሰናክልም። ቀደም ሲል የተቀመጡ ግቤቶችን በተዛማጅ ምዝግብ ማስታወሻ ውስጥ ባለው “አጽዳ” ቁልፍ ለብቻው ይሰርዙ።</div>
+
+<h3 id="diagnostics-log">14.2. የግለሰብ ባህሪ ምዝግብ ማስታወሻ</h3>
+
+<p>በሚፈለገው የምርመራ ክፍል ውስጥ “ክፈት” የሚለውን መታ ያድርጉ። ከታች ያለው ምሳሌ የማንቂያ ምዝግብ ማስታወሻውን ያሳያል፤የሌሎች ባህሪያት ምዝግብ ማስታወሻዎች በተመሳሳይ መንገድ ይሰራሉ።</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_alarm_log.webp" alt="ShiftAlarm የማንቂያ መመርመሪያ ምዝግብ ማስታወሻ ከክስተት ብዛት፣ እርምጃዎች እና ቴክኒካዊ ግቤቶች ጋር">
+</figure>
+
+<ol class="callout-list">
+<li><strong>የተቀመጡ ክስተቶች</strong> — በአሁኑ ጊዜ በተመረጠው ምዝግብ ማስታወሻ ውስጥ የተከማቹትን ግቤቶች ብዛት ያሳያል።</li>
+<li><strong>የምዝግብ ማስታወሻ እርምጃዎች</strong>:
+<ul>
+<li><strong>ቅዳ</strong> — ሁሉንም ውሂብ ከአሁኑ ምዝግብ ማስታወሻ ወደ ቅንጥብ ሰሌዳው ይገለብጣል። በኢሜል ወይም በሌላ መተግበሪያ ውስጥ መለጠፍ ይችላሉ።</li>
+<li><strong>አጽዳ</strong> — በዚህ ምዝግብ ማስታወሻ ውስጥ የተቀመጡ ግቤቶችን ይሰርዛል። ካጸዳ በኋላ፣ ምርመራ ሲነቃ በኋላ የተመዘገቡ ክስተቶች ብቻ ይታያሉ።</li>
+<li><strong>ወደ ገንቢዎች ላክ</strong> — ኢሜይል ለመላክ የመተግበሪያ መራጩን ይከፍታል። የኢሜይል መተግበሪያ ይምረጡ፤የገንቢ አድራሻ እና የምርመራ ውሂብ በራስ-ሰር ይገባሉ። ከመላክዎ በፊት የችግሩን መግለጫ ያክሉ፣ መልዕክቱን ይገምግሙ እና ከዚያ መላክዎን ያረጋግጡ።</li>
+</ul>
+</li>
+<li><strong>የመተግበሪያ ክስተቶች</strong> — የምዝግብ ማስታወሻ ግቤቶች እራሳቸው። አንድ ግቤት በተለምዶ ቀን እና ሰዓት፣ የቴክኒካል ክስተት ስም እና እንደ መለያ፣ ሁኔታ ወይም ምክንያት ያሉ ተጨማሪ መለኪያዎችን ይይዛል። ቴክኒካዊ ስሞች በእንግሊዝኛ ሊታዩ ይችላሉ፤ከመላክዎ በፊት አያርትዑዋቸው ወይም አይተረጉሟቸው።</li>
+</ol>
+
+<div class="warning">ምዝግብ ማስታወሻ ከማጽዳትዎ በፊት፣ አስፈላጊ የሆኑ ግቤቶችን ይቅዱ ወይም ይላኩ። የተሰረዙ የምርመራ ክስተቶች ሊመለሱ አይችሉም።</div>
+
+<div class="tip">ችግሩ እንደገና ሊባዛ የሚችል ከሆነ፣ በመጀመሪያ ዓለም አቀፍ የምርመራ ስብስብን እና ተዛማጅ የባህሪ ምዝግብ ማስታወሻን ያንቁ፣ ከዚያም ችግሩን ያስከተሉትን እርምጃዎች ይድገሙ። በመልእክትዎ ውስጥ የችግሩን ትክክለኛ ጊዜ፣ የስልክ ሞዴል፣ የአንድሮይድ ስሪት፣ የሚጠበቀው ውጤት እና ትክክለኛ ውጤት ያቅርቡ። ይህ መግለጫዎን ከምዝግብ ማስታወሻ ክስተቶች ጋር ለማዛመድ ይረዳል።</div>
+
+<h2 id="faq">15። በተደጋጋሚ የሚጠየቁ ጥያቄዎች</h2>
+
+<h3>ማንቂያው በሰዓቱ አልተነሳም</h3>
+<p>ማሳወቂያዎችን፣ ትክክለኛ የማንቂያ ፈቃድን፣ የጀርባ እንቅስቃሴን እና የባትሪ ገደቦችን ያረጋግጡ።</p>
+<h3>የጂኦ ማንቂያው ዘግይቶ ተነሳ</h3>
+<p>ትክክለኛውን እና የጀርባውን ቦታ፣ የባትሪ ገደቦችን እና የመተግበሪያውን ራስ-ሰር ጅምር ያረጋግጡ። በከተማ ውስጥ ከ1,300–1,500 ሜትር ራዲየስ እና ከከተማ ውጭ ከ4,000–5,000 ሜትር ርቀት ይሞክሩ። ትክክለኛው ቀስቅሴ በራዲየስ መስመር ላይ በትክክል ላይከሰት ይችላል።</p>
+<h3>መግብር ወዲያውኑ አልተዘመነም</h3>
+<p>መተግበሪያውን ይክፈቱ ወይም በመግብር ላይ ያለውን የማደስ አዝራር ይንኩ። አንድሮይድ በተደጋጋሚ የሚደረጉ የመግብር ዝማኔዎችን ሊገድብ ይችላል።</p>
+<h3>ቋንቋውን ቀይሬዋለሁ፣ ነገር ግን አንድ ሰነድ ወይም መመሪያው እስካሁን አልተዘመነም</h3>
+<p>የበይነመረብ ግንኙነትዎን ይፈትሹ እና ለማውረድ ጊዜ ይፍቀዱ። የርቀት ስሪቱ የማይገኝ ከሆነ፣ መተግበሪያው አብሮ የተሰራውን የመጠባበቂያ ቅጂ ይጠቀማል።</p>
+
+<div class="footer small">መመሪያው በ GitHub በኩል ሊዘመን ይችላል። የርቀት ስሪቱ የማይገኝ ከሆነ መተግበሪያው አብሮ የተሰራውን የመስመር ውጪ ስሪቱን ይጠቀማል።</div>
+</main>
+</body>
+</html>

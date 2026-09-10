@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mwongozo wa Mtumiaji wa ShiftAlarm</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #64748b;
+  --accent: #2563eb;
+  --soft: #e8eef8;
+  --border: #dbe4f0;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.58;
+  margin: 0;
+  padding: 18px;
+  color: var(--text);
+  background: var(--bg);
+}
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+h1 { margin: 0 0 8px; font-size: 28px; line-height: 1.2; }
+h2 { margin: 32px 0 10px; font-size: 21px; line-height: 1.25; }
+h3 { margin: 22px 0 8px; font-size: 17px; }
+p, li { font-size: 16px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul, ol { padding-left: 22px; }
+.notice, .tip, .warning {
+  padding: 14px 16px;
+  border-radius: 16px;
+  margin: 14px 0;
+  border: 1px solid var(--border);
+}
+.notice { background: var(--soft); }
+.tip { background: #ecfdf5; }
+.warning { background: #fff7ed; }
+.small { color: var(--muted); font-size: 14px; }
+.toc {
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 16px;
+  margin: 18px 0 24px;
+}
+.toc ol { margin: 8px 0 0; }
+.step-list li { margin-bottom: 8px; }
+.guide-figure {
+  margin: 18px 0;
+}
+.guide-image {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+}
+.callout-list li {
+  margin-bottom: 10px;
+}
+.guide-caption {
+  max-width: 520px;
+  margin: 10px auto 0;
+  color: var(--text);
+  font-size: 15px;
+}
+.guide-caption strong {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.footer {
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --card: #111827;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --accent: #93c5fd;
+    --soft: #1f2937;
+    --border: #334155;
+  }
+  main { box-shadow: none; }
+  .toc { background: #172033; }
+  .tip { background: #10251f; }
+  .warning { background: #2a1d10; }
+}
+</style>
+</head>
+<body>
+<main>
+<h1>Mwongozo wa Mtumiaji wa ShiftAlarm</h1>
+<p class="small">Toleo la 14. Tarehe: 2 Agosti 2026.</p>
+<div class="notice">Ukurasa huu ni mwongozo wa vitendo wa ShiftAlarm. Unaelezea kile ambacho kila kipengele kikuu hufanya, wapi pa kukipata, nini cha kugonga, na nini cha kuangalia ikiwa kipengele hakifanyi kazi kama inavyotarajiwa.</div>
+<nav class="toc">
+<strong>Yaliyomo</strong>
+<ol><li><a href="#start">1. Uzinduzi wa kwanza</a></li><li><a href="#permissions">2. Ruhusa na uaminifu</a></li><li><a href="#main">3. Skrini kuu</a></li><li><a href="#shifts">4. Ratiba za mabadiliko</a></li><li><a href="#statistics">5. Ratiba takwimu</a></li><li><a href="#alarms">6. Kengele</a></li><li><a href="#geo">7. Kengele za Geo</a></li><li><a href="#notes">8. Vidokezo, matukio, na vikumbusho</a></li><li><a href="#clock">9. Saa, kipima muda, na saa ya kupimia</a></li><li><a href="#widgets">10. Wijeti</a></li><li><a href="#salary">11. Hesabu ya mshahara</a></li><li><a href="#settings">12. Mipangilio</a></li><li><a href="#backup">13. Hifadhi nakala rudufu na urejeshe</a></li><li><a href="#diagnostics">14. Utambuzi na utatuzi wa matatizo</a></li><li><a href="#faq">15. Maswali yanayoulizwa mara kwa mara</a></li></ol>
+</nav>
+<h2 id="start">1. Uzinduzi wa kwanza</h2>
+
+<p>ShiftAlarm inapoanza kwa mara ya kwanza, inaonyesha mtiririko mfupi wa usanidi. Skrini kuu tayari inapatikana chinichini, lakini ni bora kukamilisha usanidi wa msingi kwanza.</p>
+<ol class="step-list">
+<li>Soma taarifa ya utangulizi na ugonge “Endelea. ”</li>
+<li>Kwenye hatua ya hati, fungua hati au ukubali hati zinazohitajika ukiwa tayari kuendelea.</li>
+<li>Kwenye hatua ya ruhusa, fungua skrini ya ruhusa na uangalie arifa, kengele halisi, ufikiaji wa eneo, na vikwazo vya betri.</li>
+<li>Gonga “Maliza usanidi. ”</li>
+</ol>
+<p class="tip">Unaweza kusanidi ruhusa baadaye chini ya “Mipangilio → Ruhusa na uaminifu. ”</p>
+
+<h2 id="permissions">2. Ruhusa na uaminifu</h2>
+
+<p>Kengele, vikumbusho, na Kengele za Geo hutegemea mipangilio ya Android na programu ya mtengenezaji wa kifaa.</p>
+<ul>
+<li><strong>Arifa</strong> — inahitajika kwa kengele, vikumbusho, kipima muda, na arifa za huduma.</li>
+<li><strong>Kengele za muda mahususi</strong> — husaidia kengele kuanza kwa wakati unaohitajika.</li>
+<li><strong>Mahali</strong> — inahitajika kwa Kengele za Geo.</li>
+<li><strong>Mahali ya chinichini</strong> — inahitajika kwa Kengele ya Geo kufanya kazi wakati programu imefungwa.</li>
+<li><strong>Shughuli za betri na usuli</strong> — zinaweza kuathiri uaminifu wa kichocheo kwenye Xiaomi/Redmi na vifaa vingine.</li>
+</ul>
+<p class="warning">Android haihakikishi kila wakati uwasilishaji wa arifa mara moja, kengele halisi, au matukio ya geofence. Kwa arifa muhimu, angalia kila kitu kwenye skrini ya ruhusa.</p>
+
+<h2 id="main">3. Skrini kuu</h2>
+
+<p>Skrini kuu ni dashibodi yako ya kila siku. Inatoa ufikiaji wa moja kwa moja kwenye kalenda, saa, Kengele za Geo, kengele za kawaida, ratiba za zamu, madokezo, na mipangilio.</p>
+
+<h3 id="main-overview">3.1. Vipengele vikuu vya skrini</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_screen_overview.png" alt="ShiftAlarm — ShiftKengele Skrini kuu yenye vidhibiti vilivyohesabiwa">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Mshale wa nyuma</strong> — husogeza kalenda hadi mwezi uliopita.</li>
+<li><strong>Mwezi na mwaka</strong> — inaonyesha mwezi ulio wazi. Gusa eneo hili ili kutumia <a href="#main-date-picker">kiteuzi cha hatua kwa hatua cha mwezi na mwaka</a>.</li>
+<li><strong>Mshale wa mbele</strong> — husogeza kalenda hadi mwezi unaofuata.</li>
+<li><strong>Kalenda</strong> — eneo kuu la mwezi. Unaweza kutelezesha kidole kwenye kalenda. Kila siku inaweza kuonyesha tarehe, vikumbusho, matukio, zamu iliyopangwa, na mabadiliko ya siku. Gusa mara kwa mara huchagua tarehe;kubonyeza kwa muda mrefu hufungua <a href="#main-day-actions">taarifa na vitendo vya siku iliyochaguliwa</a>.</li>
+<li><strong>Leo</strong> — hurejesha kalenda kwenye siku ya sasa.</li>
+<li><strong>Saa</strong> — hufungua <a href="#clock">saa ya dunia, saa ya kupimia, na kipima muda</a>.</li>
+<li><strong>Kengele ya Kijiografia</strong> — hufungua <a href="#geo">ramani, maeneo yaliyohifadhiwa, na mipangilio ya Kengele ya Kijiografia</a>. Tahadhari inaweza kuanza unapoingia katika eneo lililochaguliwa, unapoliacha, au unapofanya lolote kati ya hayo.</li>
+<li><strong>Kengele</strong> — hufungua <a href="#alarms">kengele za kawaida, zinazorudiwa, na zinazounganishwa na mabadiliko</a>.</li>
+<li><strong>Ratiba</strong> — hufungua <a href="#shifts">ratiba za mabadiliko, uundaji na uhariri wake, na takwimu</a>.</li>
+<li><strong>Madokezo</strong> — hufungua <a href="#notes">vidokezo, matukio, vikumbusho, vidokezo vya sauti, na usemi-kwa-maandishi</a>.</li>
+<li><strong>Mipangilio</strong> — hufungua <a href="#settings">ruhusa, lugha, mandhari, mifumo ya usemi nje ya mtandao, nakala rudufu, uchunguzi, hati, na mafunzo</a>.</li>
+</ol>
+
+
+<h3 id="main-date-picker">3.2. Kuchagua mwezi na mwaka</h3>
+
+<p>Gonga mwezi na mwaka juu ya skrini kuu ili kufungua kipindi cha kalenda kinachohitajika haraka. Uteuzi unaendelea kwa hatua: <strong>karne → muongo → mwaka → mwezi</strong>.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_century.webp" alt="Hatua ya 1: kuchagua karne katika kalenda ya ShiftAlarm">
+<figcaption class="guide-caption"><strong>1. Chagua karne.</strong> Gonga kipindi ambacho kina mwaka unaohitaji. Mfano huchagua miaka ya 2000.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_decade.webp" alt="Hatua ya 2: kuchagua muongo katika kalenda ya ShiftAlarm">
+<figcaption class="guide-caption"><strong>2. Chagua muongo mmoja.</strong> Gusa masafa ambayo yana mwaka unaohitajika. Kwa mwaka wa 2026, chagua “2020–2029. ”</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_year.webp" alt="Hatua ya 3: kuchagua mwaka katika kalenda ya ShiftAlarm">
+<figcaption class="guide-caption"><strong>3. Chagua mwaka.</strong> Gusa mwaka unaohitajika. Mfano huchagua 2026.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_month.webp" alt="Hatua ya 4: kuchagua mwezi katika kalenda ya ShiftAlarm">
+<figcaption class="guide-caption"><strong>4. Chagua mwezi.</strong> Gusa mwezi unaohitajika. Mfano huchagua Julai.</figcaption>
+</figure>
+
+<div class="tip">Baada ya kuchagua mwezi, paneli hufunga na kalenda kuu hufunguka katika mwezi na mwaka uliochaguliwa.</div>
+<div class="notice">Kitufe cha "Nyuma" kinarudi kwenye hatua iliyopita. Kwenye skrini ya karne, hufunga kichagua tarehe.</div>
+
+<h3 id="main-day-actions">3.3. Taarifa na vitendo kwa siku iliyochaguliwa</h3>
+
+<p>Gusa na ushikilie siku inayohitajika kwenye kalenda. Paneli yenye taarifa na vitendo kwa tarehe hiyo itafunguliwa. Buruta paneli juu ili kuona vitendo vyote vinavyopatikana.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_day_actions.webp" alt="ShiftAlarm information and action paneli kwa siku iliyochaguliwa ya kalenda">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tarehe</strong> — inaonyesha siku ya wiki na tarehe iliyochaguliwa. Buruta mpini juu juu au chini ili kupanua au kufunga paneli.</li>
+<li><strong>Zamu</strong> — inaonyesha zamu iliyohesabiwa au mabadiliko ya siku kama vile siku ya mapumziko, muda wa mapumziko, likizo, likizo ya ugonjwa, au ubaguzi mwingine.</li>
+<li><strong>Kengele za tarehe hii</strong> — inaonyesha kengele zilizopewa siku iliyochaguliwa au ripoti kwamba hazipo.</li>
+<li><strong>Matukio na vikumbusho</strong> — inaonyesha maingizo yaliyounganishwa na tarehe iliyochaguliwa.</li>
+<li><strong>Ongeza kengele</strong> — hufungua uundaji wa kengele ya mara moja kwa tarehe iliyochaguliwa.</li>
+<li><strong>Badilisha zamu</strong> — huunda ubaguzi kwa siku moja au safu ya tarehe katika ratiba inayotumika.</li>
+<li><strong>Ongeza dokezo</strong> — hukuruhusu kuchagua tukio au ukumbusho wa kuunda kwa tarehe iliyochaguliwa.</li>
+</ol>
+
+<div class="notice">Kitendo cha "Badilisha mabadiliko" kinapatikana kwa ajili ya kurekebisha siku katika ratiba ya mabadiliko inayotumika.</div>
+
+<h4 id="main-shift-override">Kubadilisha siku moja au safu ya tarehe</h4>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_types.webp" alt="Kuchagua safu ya tarehe na aina ya mabadiliko ya mabadiliko katika ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tarehe ya kuanza</strong> — siku ya kwanza ya mabadiliko. Hapo awali hutumia tarehe iliyochaguliwa kwenye kalenda.</li>
+<li><strong>Tarehe ya mwisho</strong> — siku ya mwisho ya mabadiliko. Ili kubadilisha siku moja tu, acha tarehe ile ile iliyochaguliwa.</li>
+<li><strong>Ruhusa binafsi</strong> — hubadilisha zamu iliyohesabiwa na muda wa mapumziko.</li>
+<li><strong>Likizo</strong> — huashiria siku au masafa yaliyochaguliwa kama likizo.</li>
+<li><strong>Likizo ya ugonjwa</strong> — huashiria siku au masafa yaliyochaguliwa kama likizo ya ugonjwa.</li>
+<li><strong>Hifadhi badiliko</strong> — hutumia ubaguzi uliochaguliwa kwenye kalenda.</li>
+</ol>
+
+<h4 id="main-shift-time-adjustment">Kurekebisha muda wa kazi</h4>
+
+<p>Sogeza chini orodha ya aina za mabadiliko na uchague "Hariri zamu" ili kubadilisha muda wa zamu ya kazi iliyohesabiwa.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_time_adjustment.webp" alt="Kurekebisha zamu inafanya kazimuda katika ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Hariri zamu</strong> — huwezesha marekebisho ya muda wa kazi kwa zamu iliyochaguliwa.</li>
+<li><strong>+ muda</strong> — huongeza saa au dakika kwenye muda wa kawaida wa zamu.</li>
+<li><strong>− muda</strong> — hupunguza muda wa zamu, kwa mfano wakati kazi iliisha mapema.</li>
+<li><strong>Hesabu muda huu kuwa wa ziada</strong> — huchukulia muda ulioongezwa kama muda wa ziada. Ikiwa chaguo limezimwa, huhesabiwa kama muda wa kawaida wa kazi.</li>
+<li><strong>Hifadhi badiliko</strong> — hutumia marekebisho kwa siku au masafa yaliyochaguliwa.</li>
+</ol>
+
+<div class="tip">Mabadiliko ya siku hayabadilishi kiolezo cha ratiba asili. Huhifadhiwa kama ubaguzi tofauti na imejumuishwa katika kalenda, takwimu, hesabu ya mishahara, na ripoti.</div>
+
+<h2 id="shifts">4. Ratiba za zamu</h2>
+
+<p>Ratiba ya zamu hufafanua mzunguko wa kazi unaorudiwa na hutoa msingi wa vipengele vingine vya ShiftAlarm. Programu huitumia kujaza kalenda, kuunganisha kengele na zamu, kuhesabu muda wa kazi, kutoa takwimu, kukadiria mshahara, na kuandaa ripoti.</p>
+
+<div class="notice"><strong>Kanuni ya msingi.</strong> Kwanza tengeneza ratiba ya msingi ya kurudia. Ongeza likizo, likizo ya ugonjwa, muda wa mapumziko, zamu ya uingizwaji ya mara moja, au marekebisho ya wakati wa kazi kama ubaguzi kwa tarehe maalum kupitia <a href="#main-day-actions">vitendo vya siku zilizochaguliwa</a>. Hii huweka mzunguko wa awali bila kubadilika.</div>
+
+<h3 id="shifts-list">4.1. Orodha ya ratiba na vidhibiti</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedules_overview.webp" alt="ShiftAlarm schedule screen with active schedule card and numbered controls">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Panga maelezo</strong> — jina, tarehe ya kuanza, urefu wa mzunguko, na mfuatano mfupi wa siku. Katika mfano, "D · D · O · O" inamaanisha zamu za siku mbili zikifuatiwa na siku mbili za mapumziko.</li>
+<li><strong>Badilisha</strong> — huzima ratiba kwa muda bila kuifuta. Unapoiwasha tena, mipangilio iliyohifadhiwa inaendelea kutumika.</li>
+<li><strong>Hali ya ratiba</strong> — inaonyesha ni ratiba gani inayotumika kwa sasa.</li>
+<li><strong>Hariri</strong> — hufungua vigezo vinavyoweza kubadilishwa. Baada ya usanidi wa awali, sehemu ya msingi wa ratiba imefungwa ili kuzuia hesabu upya ya bahati mbaya ya data ya kalenda ambayo tayari imeundwa.</li>
+<li><strong>Futa</strong> — hufuta ratiba baada ya uthibitisho. Kabla ya kuifuta, angalia kengele na hesabu zozote zilizounganishwa na zamu.</li>
+<li><strong>Fungua takwimu</strong> — hufungua <a href="#statistics">muda wa kufanya kazi, kipindi, mshahara, na takwimu za ripoti</a> za ratiba hii.</li>
+<li><strong>Unda ratiba</strong> — hukuruhusu kuchagua kiolezo kilichotengenezwa tayari au kuunda mzunguko maalum.</li>
+</ol>
+
+<h3 id="shifts-create">4.2. Uundaji wa ratiba ya kuanza</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_create.webp" alt="Panga paneli ya uundaji yenye jina, tarehe ya kuanza, violezo, na ratiba maalum">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Jina la ratiba</strong> — ingiza jina wazi kama vile "Main 2/2," "Night shift," au jina la mahali pako pa kazi.</li>
+<li><strong>Tarehe ya kuanza</strong> — tarehe inayolingana na <strong>siku ya kwanza ya mzunguko unaorudiwa</strong>. Unaweza kuchagua tarehe iliyopita au ijayo;programu huhesabu ratiba ya mbele na nyuma kutoka kwayo.</li>
+<li><strong>Violezo</strong> — mfuatano wa zamu za kawaida zilizotengenezwa tayari. Mfano unatumia kiolezo cha "siku 2/2".</li>
+<li><strong>Ratiba maalum</strong> — huunda mfuatano wako mwenyewe wa siku za kazi na siku za mapumziko.</li>
+<li><strong>Unda ratiba</strong> — hufungua kihariri cha kina cha chaguo lililochaguliwa.</li>
+</ol>
+
+<div class="tip">Kwa kiolezo cha "D · D · O · O", tarehe ya kuanza kwa kawaida huwa ya kwanza kati ya siku mbili za kazi. Katika mzunguko maalum, siku ya 1 inaweza pia kuwa siku ya mapumziko;jambo muhimu ni kwamba tarehe iliyochaguliwa inalingana kabisa na siku ya 1 ya mfuatano uliounda.</div>
+
+<h3 id="shifts-template">4.3. Kuunda ratiba kutoka kwa kiolezo</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_template.webp" alt="Kihariri cha ratiba ya kiolezo chenye jina, mfuatano, tarehe ya kuanza, na muda wa mabadiliko">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Jina la ratiba</strong> — weka jina lililopendekezwa au ulibadilishe na lako mwenyewe.</li>
+<li><strong>Kiolezo</strong> — inaonyesha mfuatano wa herufi na maana yake. Katika mfano, “D · D · O · O” inamaanisha zamu ya siku, zamu ya siku, siku ya mapumziko, siku ya mapumziko.</li>
+<li><strong>Tarehe ya kuanza</strong> — chagua tarehe ya siku ya kwanza katika mfuatano ulioonyeshwa.</li>
+<li><strong>Muda wa zamu</strong> — taja muda wa kuanza na kuisha kwa kila aina ya zamu ya kazi. Programu inaonyesha muda uliohesabiwa.</li>
+<li><strong>Ghairi</strong> — hufunga kihariri bila kuhifadhi.</li>
+<li><strong>Hifadhi</strong> — huhifadhi ratiba na kuanza kuhesabu zamu katika kalenda.</li>
+</ol>
+
+<div class="warning"><strong>Baada ya kuhifadhi kwanza.</strong> Tarehe ya kuanza na muundo wa mzunguko umefungwa ili kulinda data ya kalenda ambayo tayari imehesabiwa. Bado unaweza kuhariri jina na vigezo vingine vya kazi. Ukihitaji mzunguko tofauti wa msingi au tarehe ya marejeleo, ni salama zaidi kuunda ratiba mpya.</div>
+
+<h3 id="shifts-custom">4.4. Kuunda mzunguko maalum</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_custom.webp" alt="Kihariri maalum cha ratiba chenye urefu wa mzunguko, vidhibiti vya siku, tarehe ya kuanza, na mipangilio ya kila siku">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Jina la ratiba</strong> — toa jina la mfuatano wako maalum.</li>
+<li><strong>Urefu wa mzunguko</strong> — inaonyesha ni siku ngapi zimejumuishwa katika mfuatano unaorudiwa.</li>
+<li><strong>Ondoa siku</strong> — hufupisha mzunguko kwa siku moja.</li>
+<li><strong>Ongeza siku</strong> — huongeza siku nyingine inayoweza kusanidiwa hadi mwisho wa mzunguko.</li>
+<li><strong>Tarehe ya kuanza</strong> — tarehe inayolingana na siku ya 1 ya mzunguko maalum.</li>
+<li><strong>Mipangilio ya siku</strong> — gusa “Aina ya mabadiliko”kadi na uchague siku ya mapumziko au aina ya kazi inayohitajika: mchana, usiku, asubuhi, jioni, saa 24, au zamu maalum. Kwa siku ya kazi, taja muda wa kuanza na kuisha. Sanidi siku zilizobaki za mzunguko kwa njia ile ile zaidi chini ya skrini.</li>
+<li><strong>Ghairi</strong> — hufunga kihariri bila kuhifadhi.</li>
+<li><strong>Hifadhi</strong> — huhifadhi mzunguko maalum na kuuhesabu kwenye kalenda.</li>
+</ol>
+
+<div class="notice"><strong>Mzunguko ni nini?</strong> Mzunguko ni idadi ya siku ambazo mfuatano huanza tena. Kwa mfano, mzunguko wa siku nne unaweza kuwa "siku 2 za kazi + siku 2 za mapumziko," huku mzunguko wa siku sita unaweza kuwa "siku 3 za kazi + siku 3 za mapumziko. "Baada ya siku ya mwisho, programu hurudi siku ya 1.</div>
+
+<div class="tip">Usibadilishe mzunguko wa msingi kwa ubaguzi wa ratiba ya mara moja. Bonyeza kwa muda mrefu tarehe ya kalenda na uunde siku ya mapumziko, likizo, likizo ya ugonjwa, zamu ya kubadilisha, au marekebisho ya muda.</div>
+
+
+
+<span id="shift-statistics"></span>
+<h2 id="statistics">5. Takwimu za ratiba</h2>
+
+<p>Fungua "Takwimu" kutoka kwa kadi ya ratiba kwa kutumia kitufe cha <strong>"Fungua takwimu"</strong>. Sehemu hii inachanganya taarifa kuhusu siku za kazi na siku za mapumziko, mabadiliko ya ratiba, muda uliopangwa na halisi wa kazi, mshahara unaokadiriwa, na ripoti.</p>
+
+<div class="notice"><strong>Muhimu:</strong> takwimu huhesabiwa tu kwa ratiba ya zamu iliyochaguliwa. Kipindi kilichochaguliwa kinatumika kwa thamani zote za muda wa kazi, mshahara, na kuripoti chini yake.</div>
+
+<h3 id="statistics-period">5.1. Muhtasari wa ratiba, kipindi, na siku</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_period_overview.webp" alt="Skrini ya takwimu yenye taarifa za ratiba, uteuzi wa kipindi, na jumla ya siku">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Taarifa za ratiba</strong> — inaonyesha jina la ratiba iliyochaguliwa, tarehe ya kuanza kwa mzunguko wa kwanza, na urefu wa mzunguko unaorudiwa. Takwimu kwenye skrini hii zinatumika tu kwa ratiba hii.</li>
+<li><strong>Kadi ya kipindi iliyochaguliwa</strong> — inaonyesha kipindi kinachotumika. Igonge au mshale ulio upande wa kulia ili kuchagua mwezi wa sasa, uliopita, au ujao, mwaka wa sasa, au tarehe maalum.</li>
+<li><strong>Muhtasari wa siku</strong> — inaonyesha idadi ya siku katika kipindi hicho, zamu za kazi, siku za mapumziko, zamu zilizokamilika na zijazo, na siku zilizobadilishwa. Siku zilizobadilishwa ni tofauti na mzunguko wa msingi: likizo, likizo ya ugonjwa, muda wa mapumziko, zamu mbadala au iliyohamishwa, marekebisho ya muda wa kazi, na mabadiliko mengine.</li>
+</ol>
+
+<div class="warning"><strong>Vipindi vya siku zijazo ni utabiri.</strong> Kwa mwezi ujao, programu hutumia ratiba iliyoundwa na data ambayo tayari imeingizwa, lakini haiwezi kujua likizo ya ugonjwa ya siku zijazo, likizo, muda wa mapumziko, muda wa ziada, bonasi, au makato. Unapochagua mwaka wa sasa, jumla zinaweza kuchanganya data halisi ya tarehe zilizopita na utabiri wa mwaka uliobaki.</div>
+
+<h3 id="statistics-work">5.2. Muda wa kazi, mshahara, na ripoti</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_work_salary_reports.webp" alt="Skrini ya takwimu yenye muda wa kazi, maendeleo, mshahara, na ufikiaji wa ripoti">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Muda wa kazi</strong> — kadi ya muhtasari wa saa na maendeleo. Igonge ili kufungua <a href="#statistics-break">mipangilio ya muda wa mapumziko</a>.</li>
+<li><strong>Saa zilizopangwa</strong> — muda wote wa zamu zilizopangwa na mabadiliko wakati wa kipindi kilichochaguliwa.</li>
+<li><strong>Saa zilizofanya kazi</strong> — muda katika zamu zinazochukuliwa kuwa zimekamilika kufikia tarehe ya sasa, huku mipangilio ya mapumziko ikitumika.</li>
+<li><strong>Maendeleo</strong> — inaonyesha ni zamu ngapi za kazi zimekamilika kati ya jumla na ni asilimia ngapi ya kipindi kilichochaguliwa imekamilika.</li>
+<li><strong>Mshahara</strong> — inafungua <a href="#salary">mipangilio ya hesabu ya mshahara</a>. Kadi inaonyesha makadirio ya ratiba na kipindi kilichochaguliwa.</li>
+<li><strong>Jumla</strong> — kiasi kilichokadiriwa kupatikana hadi sasa, ikijumuisha njia ya malipo iliyochaguliwa, bonasi, muda wa ziada, na makato.</li>
+<li><strong>Kiwango au mshahara</strong> — yaliyomo kwenye kadi hii yanategemea njia iliyochaguliwa ya hesabu: malipo kwa saa, kwa zamu, au kwa mwezi. Inaonyesha thamani iliyoingizwa katika mipangilio ya mshahara.</li>
+<li><strong>Maelezo ya hesabu</strong> — muda wa kulipwa, saa za ziada, bonasi, na makato kwa kipindi kilichochaguliwa.</li>
+<li><strong>Ripoti</strong> — hufungua <a href="#reports">ripoti za kina kwa vipindi, muda wa kazi, na mshahara</a>.</li>
+</ol>
+
+<div class="tip">Thamani zote katika sehemu za muda wa kazi na mshahara huhesabiwa upya unapobadilisha kipindi kwenye kadi ya juu.</div>
+
+<h3 id="statistics-break">5.3. Uhesabuji wa mapumziko katika muda wa kazi</h3>
+
+<p>Gonga kadi ya “Muda wa kazi” ili kubainisha kama mapumziko ya mlo au mapumziko mengine yanapaswa kuhesabiwa kama sehemu ya muda halisi wa kazi na kulipwa.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_break_settings.webp" alt="Paneli ya mipangilio ya uhasibu na muda wa mapumziko">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Jumla ya sasa</strong> — inaonyesha saa zilizopangwa na kufanyiwa kazi kwa kipindi kilichochaguliwa kabla ya mipangilio mipya kutumika.</li>
+<li><strong>Hesabu mapumziko kama muda wa kazi</strong> — acha chaguo hili liwashwe ikiwa mapumziko yamelipwa na yamejumuishwa katika muda wa zamu. Zima ikiwa muda uliowekwa lazima uondolewe kutoka kwa muda wa kazi na kulipwa.</li>
+<li><strong>Muda wa mapumziko</strong> — chagua saa na dakika kwa mapumziko moja. Mpangilio huu unatumika wakati wa kuhesabu upya zamu za kazi zinazotumika.</li>
+<li><strong>Pumziko la jumla</strong> — inaonyesha muda uliochaguliwa kabla ya kuhifadhi.</li>
+<li><strong>Hifadhi</strong> — hutumia mpangilio na kuhesabu upya muda wa kazi na thamani zinazohusiana.</li>
+</ol>
+
+<div class="notice">Pumziko linaweza kuwakilisha mapumziko ya mlo, makabidhiano ya zamu, au muda mwingine usiolipwa ndani ya zamu. Ingiza muda unaolingana na sheria mahali pako pa kazi.</div>
+
+<h3 id="reports">5.4. Ripoti: kipindi, hali, na muhtasari</h3>
+
+<p>Fungua "Ripoti" kutoka kwa kadi ya chini kwenye skrini ya takwimu. Sehemu hii inatoa taarifa zaidi kwa kipindi kilichochaguliwa: muda wa kazi, zamu na kutokuwepo, marekebisho ya kalenda, mshahara, bonasi, makato, ulinganisho wa vipindi, maelezo ya siku hadi siku, na usafirishaji.</p>
+
+<div class="warning"><strong>Ripoti hutolewa kwa madhumuni ya taarifa pekee.</strong> Mahesabu yanategemea ratiba iliyochaguliwa, mipangilio ya mishahara, uhasibu wa mapumziko, na mabadiliko ya zamu ya kalenda. Takwimu halisi za mwajiri wako zinaweza kutofautiana kwa sababu ya mfumo tofauti wa utunzaji wa muda, upangaji wa jumla, kodi, posho, au sheria za ndani. Ukipata hitilafu au njia ya hesabu isiyoungwa mkono, wasiliana na wasanidi programu katika anwani iliyoonyeshwa kwenye programu na ujumuishe data ya ingizo na matokeo yanayotarajiwa.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_period_salary.webp" alt="Ripoti skrini yenye uteuzi wa kipindi, hali, muhtasari, na uchanganuzi wa kina wa mshahara">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Kipindi cha ripoti</strong> — gusa kadi ili kuchagua ya sasa, iliyopita, au mwezi ujao, safu iliyowekwa mapema, au tarehe maalum. Taarifa zote hapa chini zinatumika kwa kipindi kilichochaguliwa.</li>
+<li><strong>Hali ya kipindi</strong> — inaonyesha kama kipindi kimekamilika, kwa sasa kinafanya kazi, au bado hakijaanza. Kipindi kilichokamilika huhesabiwa kutoka kwa data halisi iliyohifadhiwa. Kipindi kinachofanya kazi huchanganya data ambayo tayari imefanyiwa kazi na mpango wa sasa, huku kipindi cha baadaye kikiwa utabiri.</li>
+<li><strong>Muhtasari</strong> — muhtasari wa maandishi wa muda halisi wa kazi, kiasi kilichohesabiwa, na muda wa ziada.</li>
+<li><strong>Mshahara</strong> — uchanganuzi wa kina wa malipo ya msingi, malipo ya muda wa ziada, bonasi, makato, na makadirio ya mwisho. Thamani hutegemea <a href="#salary">mipangilio ya mshahara</a> na kipindi kilichochaguliwa.</li>
+</ol>
+
+<h3 id="reports-work">5.5. Muda wa kazi, kutokuwepo, na siku</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_work_absences.webp" alt="Ripoti skrini yenye muda wa kazi, mapumziko, zamu zilizokamilika, na kutokuwepo">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Muda wa kazi</strong> — inaonyesha saa zilizopangwa na halisi za kazi, saa zilizopangwa na halisi kabla ya kupunguzwa kwa mapumziko, idadi ya zamu zilizokamilika, wastani wa muda wa zamu, na jumla ya mapumziko yaliyokatwa. Sanidi mapumziko katika sehemu ya <a href="#statistics-break">wakati wa kazi</a>.</li>
+<li><strong>Kutokuwepo na siku</strong> — inaonyesha idadi ya siku za mapumziko, siku za likizo, siku za likizo ya ugonjwa, siku za mapumziko, na siku zilizobadilishwa wakati wa kipindi kilichochaguliwa.</li>
+</ol>
+
+<h3 id="reports-charts">5.6. Marekebisho na chati</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_corrections_charts.webp" alt="Ripoti skrini yenye marekebisho, muundo wa mshahara, na thamani za muda wa kazi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Marekebisho</strong> — inaonyesha saa za muda wa ziada, mabadiliko ya jumla katika muda wa zamu, na idadi ya siku zilizobadilishwa kutoka kwa ratiba ya msingi.</li>
+<li><strong>Chati</strong> — inaonyesha mshahara na muundo wa muda wa kazi: malipo ya msingi, muda wa ziada, bonasi, makato, jumla, na saa zilizopangwa, zilizofanywa, na kulipwa.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_charts_days.webp" alt="Chati za ripoti za ziada zenye saa na chati ya pai ya aina ya siku">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Saa</strong> — inaendelea kulinganisha kwa kuona kwa zilizopangwa,Saa za kazi, za kulipwa, na za muda wa ziada. Safu mlalo ya "Muda Halisi wa Kazi" inaonyesha matokeo baada ya mipangilio na marekebisho kutumika.</li>
+<li><strong>Aina za siku</strong> — chati ya pai inayosambaza siku katika kipindi kilichochaguliwa kwa aina. Hadithi inategemea ratiba na mabadiliko halisi: mchana, usiku, au zamu zingine, siku za mapumziko, likizo, likizo ya ugonjwa, muda wa mapumziko, na hali zingine.</li>
+</ol>
+
+<h3 id="reports-comparison">5.7. Kulinganisha vipindi</h3>
+
+<p>Sehemu ya kulinganisha inakusaidia kulinganisha mshahara, muda, zamu, na kutokuwepo kwa vipindi kadhaa. Idadi ya vipindi vinavyopatikana inategemea data iliyohifadhiwa.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_chart.webp" alt="Skrini ya kulinganisha vipindi yenye uteuzi wa masafa, chati ya mishahara, na mwanzo wa jedwali la kulinganisha">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Linganisha vipindi</strong> — gusa kadi ili kuchagua vipindi vingapi vya kulinganisha na masafa yake.</li>
+<li><strong>Chati na orodha ya vipindi</strong> — inaonyesha mshahara kwa kila kipindi na kuorodhesha vipindi vilivyojumuishwa katika ulinganisho pamoja na hali yake.</li>
+<li><strong>Jedwali la ulinganisho</strong> — lina thamani za kina kwa kila kipindi. Telezesha jedwali mlalo kuelekea kushoto au kulia ili kuona safu wima zilizobaki.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_table.webp" alt="Muendelezo wa jedwali la kulinganisha na tofauti kati ya vipindi vilivyo karibu">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Thamani za kipindi</strong> — jumla ya mshahara, saa za kazi na kulipwa, muda wa ziada, bonasi, makato, zamu zilizokamilika, kutokuwepo, na siku zilizobadilishwa.</li>
+<li><strong>Tofauti kati ya vipindi</strong> — inaonyesha jinsi kila kipindi kinavyotofautiana na kilichopita. Thamani chanya na hasi zinaonyesha ongezeko au kupungua kwa kipimo kinacholingana. Rangi pekee haimaanishi faida au tatizo kila wakati;kwa mfano, ongezeko la makato linamaanisha kiasi kikubwa kinazuiliwa.</li>
+</ol>
+
+<h3 id="reports-details-export">5.8. Maelezo ya kila siku na usafirishaji</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_details_export.webp" alt="Ripoti kadi kwa maelezo ya kila siku na usafirishaji hadi PDF, HTML, JSON, au CSV">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Maelezo ya kila siku</strong> — hufungua orodha ya kila siku katika kipindi kilichochaguliwa. Unaweza kuangalia aina ya zamu, muda uliopangwa na halisi, marekebisho ya saa, kutokuwepo, na mabadiliko mengine kwa siku maalum.</li>
+<li><strong>Hamisha</strong> — huhifadhi ripoti kama PDF, HTML, JSON, au CSV. Chagua kipindi cha ripoti kabla ya kusafirisha nje;kisha unaweza kuchapisha, kuhifadhi, au kushiriki faili kupitia menyu ya mfumo wa Android.</li>
+</ol>
+
+<div class="tip">Kabla ya kulinganisha au kusafirisha nje, angalia kipindi kilichochaguliwa, ratiba, mabadiliko ya zamu, mapumziko, na mipangilio ya mshahara. Hitilafu katika data chanzo itaathiri kila jumla ya ripoti.</div>
+
+<h2 id="alarms">6. Kengele</h2>
+
+<p>ShiftAlarm hukuruhusu kuunda kengele za mara moja, kuzirudia katika siku zilizochaguliwa za wiki, au kuunganisha muda wake na ratiba ya zamu.</p>
+
+<h3 id="alarms-list">6.1. Orodha ya kengele</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarms_overview.webp" alt="ShiftAlarm kengele skrini yenye tahadhari inayofuata, kupanga, kadi ya kengele, na kitufe cha kuongeza">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Kengele inayofuata</strong> — inaonyesha tarehe na saa ya tahadhari inayofuata inayotumika.</li>
+<li><strong>Kupanga kengele</strong> — hubadilisha mpangilio wa kadi za kengele, kwa mfano kwa kuonyesha kengele zilizowezeshwa kwanza.</li>
+<li><strong>Kadi ya kengele</strong> — ina wakati, tarehe au hali ya kurudia, aina ya ratiba, na muda uliobaki. Gusa kadi ili kuihariri.</li>
+<li><strong>Badilisha</strong> — huwasha au kuzima kengele kwa muda bila kufuta mipangilio yake.</li>
+<li><strong>Futa</strong> — hufuta kengele iliyochaguliwa.</li>
+<li><strong>Ongeza kengele</strong> — hufungua skrini kwa ajili ya kuunda kengele mpya.</li>
+</ol>
+
+<h3 id="alarms-create">6.2. Kuunda na kuhariri kengele</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_time_schedule.webp" alt="Juu ya kihariri cha kengele cha ShiftAlarm: muda, aina ya ratiba, kuahirisha, na uhifadhi vidhibiti">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Muda</strong> — sogeza magurudumu ya saa na dakika ili kuweka muda wa tahadhari.</li>
+<li><strong>Aina ya ratiba</strong> — chagua mojawapo ya njia hizi:
+<ul>
+<li><strong>Mara moja</strong> — kengele huamsha mara moja kwenye tarehe iliyochaguliwa;</li>
+<li><strong>Kwa siku</strong> — hurudia siku zilizochaguliwa za wiki;</li>
+<li><strong>Kwa zamu</strong> — huunganisha kengele kwenye ratiba iliyochaguliwa na aina ya zamu.</li>
+</ul>
+</li>
+<li><strong>Ahirisha</strong> — huweka dakika ngapi tahadharihuahirishwa unapobonyeza kitufe cha kuahirisha kwenye skrini inayolia.</li>
+<li><strong>Ghairi na Hifadhi</strong> — vitufe hivi vimewekwa chini ya skrini na hubaki vinapatikana unaposogeza kupitia kihariri.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_behavior.webp" alt="ShiftAlarm — ShiftMipangilio ya kengele kwa muda wa kengele, tahadhari ya kurudia, ongezeko la sauti polepole, na mtetemo">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Muda wa kengele</strong> — huamua ni muda gani tahadhari inasikika ikiwa mtumiaji hajaizuia.</li>
+<li><strong>Rudia ikiwa kengele haijapuuzwa</strong> — huwezesha tahadhari nyingine wakati kengele haikuondolewa wala kuahirishwa. Weka muda kabla ya arifa ya kurudia chini yake.</li>
+<li><strong>Kuongezeka kwa sauti polepole</strong> — huanza na sauti tulivu na polepole huongeza sauti kwa muda uliochaguliwa.</li>
+<li><strong>Mtetemo</strong> — huwasha au huzima mtetemo wakati wa arifa.</li>
+<li><strong>Ghairi na Hifadhi</strong> — vidhibiti vilivyowekwa kwa ajili ya kihariri.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_sound_name.webp" alt="Chini ya kihariri cha kengele cha ShiftAlarm: vibration, sound, name, and save controls">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Mtetemo</strong> — huwasha au huzima arifa ya mtetemo.</li>
+<li><strong>Sauti</strong> — hukuruhusu kuchagua sauti iliyojengewa ndani, mfumo, au iliyoongezwa na mtumiaji. Unaweza kuongeza hadi sauti tano maalum kwenye programu.</li>
+<li><strong>Jina</strong> — lebo ya hiari inayokusaidia kutofautisha kengele.</li>
+<li><strong>Ghairi na Hifadhi</strong> — tupa mabadiliko au uhifadhi kengele.</li>
+</ol>
+
+<div class="notice">Baada ya kuhifadhi, kengele inaonekana kwenye orodha kuu. Kabla ya tahadhari muhimu, hakikisha kengele imewashwa, programu ina ruhusa za arifa na kengele halisi, na mfumo hauzuii shughuli zake za usuli.</div>
+
+<div class="tip">Ili kuunda kengele inayounganishwa na mabadiliko, kwanza unda ratiba inayofaa ya mabadiliko. Katika kihariri, chagua muda uliowekwa wa kichocheo au kikwazo kinachohusiana na mwanzo wa mabadiliko.</div>
+
+<h2 id="geo">7. Kengele za Geo</h2>
+
+<p>Kengele ya Geo hufuatilia wakati kifaa kinapoingia au kuondoka katika eneo lililochaguliwa. Eneo hilo hufafanuliwa na sehemu kwenye ramani na kipenyo kinachozunguka sehemu hiyo. Kwa mfano, tumia Kengele ya Geo kupokea tahadhari unapokaribia kazi, nyumbani, kituo cha basi, kituo, au mahali pengine.</p>
+
+<h3 id="geo-overview">7.1. Ramani na vidhibiti</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_overview.webp" alt="ShiftAlarm Geo Alarm Skrini kuu yenye ramani na vidhibiti vilivyo na nambari">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Kuza</strong> — huongeza ramani.</li>
+<li><strong>Punguza</strong> — hupunguza kipimo cha ramani.</li>
+<li><strong>Mahali nilipo</strong> — huhamisha ramani hadi mahali pa sasa pa kifaa. Programu inahitaji ufikiaji wa eneo kwa kipengele hiki.</li>
+<li><strong>Maeneo yaliyohifadhiwa</strong> — hufungua orodha ya Kengele za Geo zilizohifadhiwa na sehemu za eneo.</li>
+<li><strong>Rudi</strong> — hurudi kwenye skrini ya programu iliyopita.</li>
+<li><strong>Idadi ya Kengele za Geo</strong> — inaonyesha ni Kengele ngapi za Geo zimeundwa.</li>
+<li><strong>Orodha ya Kengele za Geo</strong> — hufungua orodha tofauti ya Kengele za Geo zilizoundwa.</li>
+</ol>
+
+<div class="tip">Unaweza pia kukuza kwa ishara. Gusa ramani kwa vidole viwili na uvisambaze ili kukuza ndani, au vibanye pamoja ili kukuza nje.</div>
+<div class="notice">Vidhibiti vya pembeni vinaweza kuonekana upande wa pili katika lugha za kulia hadi kushoto. Kazi zao zinabaki vile vile.</div>
+
+<h3 id="geo-saved-places">7.2. Kengele na sehemu za eneo zilizohifadhiwa</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_saved_places.webp" alt="Dirisha la sehemu zilizohifadhiwa lenye Kengele ya Geo na vichupo vya sehemu za eneo">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Kengele</strong> — inaonyesha Kengele za Geo zilizoongezwa kwenye sehemu zilizohifadhiwa.</li>
+<li><strong>Sehemu za eneo</strong> — inaonyesha viwianishi vilivyohifadhiwa bila Kengele ya Geo inayofanya kazi.</li>
+<li><strong>Orodha ya sehemu zilizohifadhiwa</strong> — gusa kadi ili kuhamia mahali hapo kwenye ramani.</li>
+<li><strong>Funga</strong> — hufunga dirisha na kurudi kwenye ramani.</li>
+</ol>
+
+<div class="notice">Ukifuta Kengele ya Geo iliyoalamishwa, viwianishi vyake huhifadhiwa kiotomatiki kwenye kichupo cha "Sehemu za eneo". Unaweza kutumia nukta hiyo tena baadaye kuunda Kengele nyingine ya Geo.</div>
+
+<h3 id="geo-select-point">7.3. Kuchagua nukta na radius</h3>
+
+<p>Gusa na ushikilie mahali panapohitajika kwenye ramani. Programu huweka alama na kufungua paneli ya nukta zilizochaguliwa.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_selected_point.webp" alt="Sehemu ya ramani iliyochaguliwa yenye anwani, radius, alamisho, na kitufe cha kuunda Alarm ya Geo">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Alama ya nukta zilizochaguliwa</strong> — katikati ya geofence ya baadaye. Ramani pia inaonyesha duara kwa radius iliyochaguliwa.</li>
+<li><strong>Anwani na viwianishi</strong> — hukuruhusu kuthibitisha kwamba mahali sahihi palichaguliwa.</li>
+<li><strong>Hifadhi sehemu ya eneo</strong> — huongeza viwianishi vilivyochaguliwa kwenye sehemu zilizohifadhiwa bila kuunda kengele.</li>
+<li><strong>Nusu kipenyo</strong> — huweka ukubwa wa eneo linalozunguka sehemu hiyo. Sogeza kitelezi hadi uchague umbali unaofaa.</li>
+<li><strong>Ghairi</strong> — hughairi uteuzi wa sehemu.</li>
+<li><strong>Unda hapa</strong> — hufungua kihariri kipya cha Alarm ya Geo kwa sehemu iliyochaguliwa.</li>
+</ol>
+
+<div class="warning"><strong>Jinsi ya kuchagua radius.</strong> Simu haifuatilii viwianishi vyake mfululizo. Android, mtengenezaji wa kifaa, hali ya kuokoa betri, GPS, mtandao wa simu na ubora wa mawimbi ya Wi-Fi, na kasi ya mwendo vyote huathiri wakati mpaka unagunduliwa. Kwa hivyo, tahadhari inaweza kusababisha kutoka kwa mstari uliochorwa. Kwa mfano, ukiwa na kipenyo cha mita 800, kuingia kunaweza kugunduliwa baada ya kifaa kuwa tayari ndani ya eneo hilo—labda mita 700, 600, au 500 kutoka sehemu ya mbele.</div>
+
+<ul>
+<li><strong>Jijini</strong>, kwa kawaida inapendekezwa radius ya <strong>mita 1,300–1,500</strong>.</li>
+<li><strong>Nje ya jiji</strong>, ambapo masasisho ya eneo yanaweza kuwa machache, <strong>mita 4,000–5,000</strong> inapendekezwa.</li>
+<li><strong>Kipenyo halisi</strong> kinapaswa kuchaguliwa kulingana na njia yako, kasi, na tabia ya kifaa.</li>
+</ul>
+
+<div class="notice">Mfumo hugundua wakati kifaa kinavuka mpaka pepe wa eneo hilo. Katika hali ya "Wakati wa kuingia", kipenyo kikubwa kwa kawaida huipa simu muda zaidi wa kugundua mbinu yako. Katika hali ya "Wakati wa kutoka", mpaka badala yake huwekwa mbali zaidi na sehemu iliyochaguliwa.</div>
+
+<h3 id="geo-create">7.4. Kuunda Kengele ya Geo</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_location_schedule.webp" alt="Juu ya Kihariri cha Kengele cha Geo: utayari, eneo, na aina ya ratiba">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Utayari wa Kengele ya Geo</strong> — inaonyesha kama ruhusa zinazohitajika zimesanidiwa na kama programu inaweza kusajili geofence.</li>
+<li><strong>Mahali</strong> — ina anwani na viwianishi vilivyochaguliwa. Unaweza kuhariri anwani kama lebo, lakini sehemu halisi imechaguliwa kwenye ramani.</li>
+<li><strong>Aina ya ratiba</strong> — huamua siku na masharti ambayo Kengele ya Geo inafanya kazi.</li>
+<li><strong>Kila wakati</strong> — Kengele ya Geo inafanya kazi kila siku ikiwa imewashwa.</li>
+<li><strong>Mara moja</strong> — hutumika kwa kichocheo kinachofuata cha mara moja wakati sharti lililochaguliwa linatimizwa.</li>
+<li><strong>Kwa siku</strong> — hufanya kazi tu katika siku zilizochaguliwa za wiki.</li>
+<li><strong>Kwa zamu</strong> — huunganisha Kengele ya Geo na ratiba ya zamu inayotumika.</li>
+</ol>
+
+<div class="notice"><strong>ratiba ya "Kwa zamu".</strong> Chagua ikiwa inafanya kazi siku ya zamu, kabla tu ya zamu, au baada yake tu, na ueleze aina ya zamu inayohitajika: mchana, usiku, asubuhi, jioni,Saa 24, maalum, au zamu yoyote ya kazi.</div>
+<div class="tip">Ikiwa tarehe ya kalenda imetiwa alama kama siku ya mapumziko, likizo, likizo ya ugonjwa, au muda wa mapumziko badala ya zamu ya kazi, Kengele ya Geo iliyounganishwa na zamu haitakuwa ikifanya kazi siku hiyo.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_trigger_settings.webp" alt="Chini ya kihariri cha Kengele ya Geo: hali ya kuingia au kutoka, radius, na mipangilio ya tahadhari">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Hali ya kichocheo</strong> — huamua ni kuvuka kwa mpaka gani kunakoanzisha tahadhari.</li>
+<li><strong>Wakati wa kuingia</strong> — huanza tahadhari wakati kifaa kinaingia kwenye radius iliyochaguliwa, kwa mfano wakati unakaribia kazi au kituo kinachohitajika.</li>
+<li><strong>Wakati wa kutoka</strong> — huanza tahadhari wakati kifaa kinaondoka kwenye radius iliyochaguliwa, kwa mfano baada ya kutoka kazini au kituo ili usifanye hivyo. kukosa sehemu inayofuata ya njia.</li>
+<li><strong>Unapoingia au kutoka</strong> — huanza tahadhari wakati wowote mpaka unapovuka katika mwelekeo wowote ule.</li>
+<li><strong>Nusu kipenyo</strong> — ukubwa wa geofence kuzunguka sehemu iliyochaguliwa.</li>
+<li><strong>Muda wa kengele</strong> — huamua muda ambao tahadhari inasikika.</li>
+<li><strong>Ongezeko la sauti polepole</strong> — huweka ongezeko laini la sauti baada ya tahadhari kuanza.</li>
+<li><strong>Ghairi na Hifadhi</strong> — tupa mabadiliko au hifadhi Kengele ya Geo.</li>
+</ol>
+
+<div class="tip">Chaguo zilizobaki hapa chini zinafanana na kengele ya kawaida: sauti, mtetemo, muda wa tahadhari, ongezeko la sauti polepole, na jina.</div>
+
+<h3 id="geo-existing">7.5. Kengele ya Geo kwenye ramani na vidhibiti vyake</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_marker_radius.webp" alt="Imeunda alama ya kengele ya Geo na duara lake la kichocheo kwenye ramani">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Alama ya kengele ya Geo</strong> — inaonyesha sehemu iliyochaguliwa.</li>
+<li><strong>Mpaka wa radius</strong> — inaonyesha eneo ambalo kuingia au kutoka kwake kunafuatiliwa na programu.</li>
+</ol>
+
+<p>Gonga alama ya Kengele ya Geo. Dirisha dogo la taarifa linaonekana kwanza. Gusa dirisha hilo ili kufungua kadi yenye maelezo.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_alarm_card.webp" alt="Kadi ya Kengele ya Geo yenye maelezo, alamisho, swichi, na vidhibiti">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Jina na anwani</strong> — tambua Kengele ya Geo iliyochaguliwa.</li>
+<li><strong>Alamisho</strong> — huongeza kengele kwenye maeneo yaliyohifadhiwa au kuiondoa kutoka kwao.</li>
+<li><strong>Swichi</strong> — huwasha au huzima kwa muda Kengele ya Geo bila kufuta mipangilio yake.</li>
+<li><strong>Mipangilio na hali</strong> — onyesha radius, hali ya kuingia au kutoka, ratiba, utayari wa geofence, na taarifa kuhusu uanzishaji wa awali.</li>
+<li><strong>Hariri</strong> — hufungua mipangilio ya Kengele ya Geo.</li>
+<li><strong>Funga</strong> — hufunga kadi na kuirudisha kwenye ramani.</li>
+<li><strong>Futa</strong> — hufuta Kengele ya Geo baada ya uthibitisho.</li>
+</ol>
+
+<div class="warning">Kwa uendeshaji wa kuaminika, ruhusu eneo sahihi na la usuli, ondoa vikwazo vikali vya betri kwa ShiftAlarm, na angalia mipangilio ya kuanzisha kiotomatiki chinichini ikiwa kifaa chako kinazitoa. Hata kwa mipangilio sahihi, Android haihakikishi utambuzi wa mipaka kuwa sahihi ndani ya mita chache.</div>
+
+<h2 id="notes">8. Vidokezo, matukio, na vikumbusho</h2>
+
+<p>Sehemu ya "Vidokezo" huhifadhi maandishi wazi, orodha, orodha za ukaguzi, rekodi za sauti, maelezo ya usemi-kwa-maandishi, vikumbusho, na matukio.</p>
+
+<h3 id="notes-create">8.1. Kuongeza dokezo</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_type_picker.webp" alt="Kuchagua aina mpya ya dokezo katika ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Kipini cha paneli</strong> — kiburute juu ili kufichua orodha kamili ya aina za dokezo, au chini ili kufunga paneli.</li>
+<li><strong>Aina ya dokezo</strong> — chagua chaguo linalofaa:
+<ul>
+<li><strong>Dokezo la maandishi</strong> — maandishi wazi;</li>
+<li><strong>Orodha hakiki</strong> — orodha ya vitu vyenye visanduku vya ukaguzi vya kukamilisha;</li>
+<li><strong>Orodha</strong> — orodha yenye vitone au nambari;</li>
+<li><strong>Dokezo la sauti</strong> — kurekodi sauti;</li>
+<li><strong>Hotuba kwa maandishi</strong> — huundadokezo linalotumia utambuzi wa usemi;</li>
+<li><strong>Kikumbusho</strong> — ingizo lenye arifa kwa wakati maalum;</li>
+<li><strong>Tukio</strong> — ingizo lililounganishwa na tarehe na saa.</li>
+</ul>
+</li>
+<li><strong>Ghairi</strong> — hufunga kiteuzi bila kuunda dokezo.</li>
+</ol>
+
+<div class="tip">Baada ya kuchagua aina, kihariri kinachofaa hufunguka. Jaza sehemu zinazohitajika na uhifadhi ingizo.</div>
+
+<h3 id="notes-list">8.2. Orodha ya madokezo na vidhibiti</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_overview.webp" alt="ShiftAlarm notes screen with sorting, amilifu na kumbukumbu notes, search, and card actions">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Panga</strong> — hubadilisha mpangilio wa madokezo katika orodha.</li>
+<li><strong>Inayotumika</strong> — inaonyesha madokezo ya kawaida na yaliyopangwa ambayo hayajahamishwa kwenye kumbukumbu.</li>
+<li><strong>Kumbukumbu</strong> — hufungua orodha ya madokezo yaliyohifadhiwa.</li>
+<li><strong>Tafuta</strong> — hupata ulinganifu katika vichwa vya madokezo na yaliyomo.</li>
+<li><strong>Kadi ya madokezo</strong> — inaonyesha kichwa, aina, hali, na taarifa za ziada. Gusa kadi ili kufungua dokezo.</li>
+<li><strong>Bandika</strong> — kubandika dokezo juu ya orodha.</li>
+<li><strong>Kumbukumbu</strong> — huondoa dokezo kutoka kwenye orodha inayotumika na kulihamisha hadi kwenye kumbukumbu.</li>
+<li><strong>Futa</strong> — hufuta dokezo baada ya uthibitisho.</li>
+<li><strong>Ongeza dokezo</strong> — hufungua kichagua aina ya dokezo jipya.</li>
+</ol>
+
+<div class="notice">Tumia kumbukumbu kwa maingizo ambayo hayahitajiki tena kwenye orodha kuu lakini yanapaswa kubaki yamehifadhiwa. Futa dokezo tu wakati halihitajiki tena kabisa.</div>
+
+<h2 id="clock">9. Saa, saa ya kupimia, na kipima muda</h2>
+
+<p>Sehemu hii inachanganya wakati wa ndani na wa dunia, saa ya kupimia, na kipima muda. Ifungue kwa kitufe cha <strong>“Saa”</strong> kwenye skrini kuu.</p>
+
+<div class="notice">Vichupo vitatu vinaonekana chini ya skrini: “Saa,” “Kipima muda,” na “Kipima muda. ”Gusa kichupo ili kubadilisha hali.</div>
+
+<h3 id="clock-world">9.1. Saa na saa ya dunia</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_overview.webp" alt="ShiftAlarm — ShiftSkrini ya saa ya kengele yenye saa ya ndani, saa za dunia, kitufe cha kuongeza, na vichupo vya chini">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Saa ya eneo</strong> — inaonyesha saa za sasa, tarehe, na eneo la saa la mfumo wa kifaa.</li>
+<li><strong>Saa za dunia</strong> — huonyesha miji na maeneo ya saa yaliyoongezwa. Wakati orodha iko tupu, programu inaonyesha kidokezo.</li>
+<li><strong>Kitufe cha Plus</strong> — hufungua kichagua saa ya dunia.</li>
+<li><strong>Vichupo vya sehemu</strong> — badilisha kati ya skrini za “Saa,” “Kipima muda,” na “Kipima muda”.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_add_timezone.webp" alt="Kuongeza jiji au eneo la saa kwenye saa ya dunia ya ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tafuta</strong> — ingiza jina la jiji au eneo la saa ili kuchuja orodha.</li>
+<li><strong>Orodha ya jiji na eneo la saa</strong> — gusa chaguo linalohitajika ili kuiongeza kwenye skrini ya saa ya dunia.</li>
+</ol>
+
+<div class="tip">Ukanda wa saa wa ndani huonyeshwa kwanza. Unaweza kuondoa saa za dunia zilizoongezwa kutoka kwenye orodha, lakini saa ya ndani haiwezi kuondolewa.</div>
+
+<h3 id="clock-stopwatch">9.2. Kipima saa</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_start.webp" alt="ShiftAlarm stopwatch kabla haijaanza">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Historia</strong> — hufungua vipindi vya kipima saa vilivyohifadhiwa.</li>
+<li><strong>Anza</strong> — huanza muda.</li>
+<li><strong>Weka upya</strong> — haipatikani kabla ya kipima saa kuanza. Baada ya kusimama, inarudisha saa ya kupimia hadi sifuri na kuondoa mizunguko ya sasa.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_running.webp" alt="Kuendesha saa ya kupimia ya ShiftAlarm yenye historia, hifadhi, mizunguko, na vidhibiti vya kusitisha">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Historia</strong> — inaonyesha vipindi vilivyohifadhiwa hapo awali.</li>
+<li><strong>Hifadhi</strong> — inauliza jina na kuhifadhi kipindi cha sasa cha saa ya kupimia.</li>
+<li><strong>Mzunguko</strong> — inarekodi matokeo ya kati bila kusimamisha jumla ya kipima muda.</li>
+<li><strong>Sitisha</strong> — inasimamisha saa ya kupimia. Baada ya kusimama, unaweza kuendelea au kuiweka upya.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_laps.webp" alt="ShiftAlarm stopwatch runs na chaguzi zake za kupanga">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Asili, ya haraka zaidi, na ya polepole zaidi</strong> — badilisha mpangilio wa onyesho la rundo: mpangilio wa asili, wa haraka zaidi kwanza, au wa polepole zaidi kwanza.</li>
+<li><strong>Mizunguko</strong> — kila rundo linaonyesha jumla ya muda ambao ilirekodiwa na muda wa rundo moja moja.</li>
+</ol>
+
+<div class="notice">Unapogonga Hifadhi, ingiza jina la kipindi na uthibitishe. Unaweza kufungua kipindi kilichohifadhiwa baadaye kutoka Historia.</div>
+
+<h3 id="clock-timer">9.3. Kipima Muda</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_setup.webp" alt="Kuweka Kipima Muda cha ShiftAlarm chenye magurudumu ya saa, dakika, na sekunde">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Saa</strong> — tembeza gurudumu na uchague idadi ya saa.</li>
+<li><strong>Dakika</strong> — tembeza gurudumu na uchague idadi ya dakika.</li>
+<li><strong>Sekunde</strong> — tembeza gurudumu na uchague idadi ya sekunde.</li>
+<li><strong>Anza</strong> — huanza kipima muda na muda uliochaguliwa.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_running.webp" alt="Kuendesha Kipima Muda cha ShiftAlarm chenye muda uliobaki, sitisha, ongeza dakika, na simamavidhibiti">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Muda uliobaki</strong> — inaonyesha ni muda gani uliobaki kabla ya tahadhari.</li>
+<li><strong>Muda wa kumalizia</strong> — inaonyesha muda unaokadiriwa ambao kipima muda kitakamilika.</li>
+<li><strong>Vipima muda vya hivi karibuni</strong> — imehifadhi muda wa hivi karibuni;gusa moja ili kuitumia tena haraka.</li>
+<li><strong>Sitisha</strong> — husimamisha kuhesabu muda kwa muda. Unaweza kuiendeleza baadaye.</li>
+<li><strong>+1 dk</strong> — huongeza dakika moja kwa muda uliobaki.</li>
+<li><strong>Simamisha</strong> — husimamisha kipima muda kabisa.</li>
+</ol>
+
+<div class="tip">Kipima muda na saa ya kupimia vinaendelea kufanya kazi chinichini. Hali yao inaweza kuonekana kwenye arifa, kwenye skrini kuu, na katika wijeti.</div>
+
+<h2 id="widgets">10. Wijeti</h2>
+
+<p>ShiftAlarm hutoa wijeti kwa skrini ya Nyumbani ya simu.</p>
+<ul>
+<li><strong>Leo 4×2</strong> — paneli ndogo yenye sehemu mbili zinazoweza kusanidiwa.</li>
+<li><strong>Leo 4×3</strong> — paneli yenye saa juu na sehemu mbili chini.</li>
+<li><strong>Kalenda 4×4</strong> — wijeti za kalenda zenye ratiba ya zamu.</li>
+</ul>
+<p>Ongeza wijeti kupitia menyu ya wijeti ya Android kwenye skrini ya Nyumbani ya simu.</p>
+
+<h2 id="salary">11. Hesabu ya mshahara</h2>
+
+<p>Fungua "Hesabu ya mshahara" kutoka kwa kadi ya mshahara katika <a href="#statistics-work">takwimu za ratiba iliyochaguliwa</a>. Hapa unaweza kuweka njia ya malipo, kiwango au mshahara wa kila mwezi, sheria za muda wa ziada, bonasi, na makato. Programu hutumia mipangilio hii pamoja na kipindi kilichochaguliwa, ratiba ya zamu, mabadiliko ya kalenda, na uhasibu wa mapumziko.</p>
+
+<div class="warning"><strong>Hesabu hutolewa kwa madhumuni ya taarifa pekee.</strong> Malipo halisi yanaweza kutofautiana ikiwa mwajiri wako anatumia mfumo mwingine wa kuweka muda, kuzungusha, posho, kodi, bonasi, makato, au malipo kwa aina fulani za zamu. Usitumie matokeo kama hati rasmi ya mishahara;yalinganishe na hati ya malipo ya mwajiri wako. Ukipata njia ya hesabu ambayo programu haishughulikii kwa usahihi, watumie barua pepe watengenezaji kwa anwani iliyoonyeshwa kwenye programu. Eleza sheria, toa data ya kuingiza mfano, na ueleze matokeo yanayotarajiwa. Njia hiyo inaweza kuzingatiwa kwa sasisho la baadaye.</div>
+
+<h3 id="salary-settings">11.1. Kiwango, muda wa ziada, na bonasi</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_settings_overview.webp" alt="Skrini ya hesabu ya mshahara yenye ratiba iliyochaguliwa, aina ya kiwango, muda wa ziada, na bonasi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ratiba iliyochaguliwa</strong> — inaonyesha ratiba gani ya zamu inayotumika. Mshahara huhesabiwa kutoka kwa ratiba hii na kipindi kilichochaguliwa katika takwimu.</li>
+<li><strong>Aina ya kiwango na kiasi cha malipo</strong> — chagua malipo <strong>kwa saa</strong>, <strong>kwa zamu</strong>, au <strong>kwa mwezi</strong>, kisha ingiza kiasi kinacholingana. Jina la sehemu hubadilika na aina ya kiwango kilichochaguliwa.</li>
+<li><strong>Muda wa ziada</strong> — wezesha sehemu hii ikiwa saa za ziada zinalipwa tofauti na muda wa kawaida wa kazi. Kisha taja kizidishi cha malipo ya muda wa ziada. Ongeza saa za ziada kwenye kalenda kupitia <a href="#main-shift-time-adjustment">"Badilisha zamu" → "+ muda"</a>;wezesha "Hesabu muda huu kama muda wa ziada" ili saa zichukuliwe kama muda wa ziada.</li>
+<li><strong>Bonasi</strong> — inaonyesha njia ya sasa ya hesabu na jumla. Gusa kadi ili kufungua <a href="#salary-bonuses">mipangilio ya bonasi</a>.</li>
+</ol>
+
+<div class="notice">Kitufe cha "Hifadhi" huweka mipangilio kwenye ratiba iliyochaguliwa. Baada ya kuhifadhi, jumla katika takwimu na ripoti huhesabiwa upya kwa kutumia data iliyoingizwa.</div>
+
+<h3 id="salary-summary">11.2. Makato na jumla ya hesabu</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions_total.webp" alt="Skrini ya hesabu ya mshahara yenye makato na uchanganuzi wa mwisho">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Makato</strong> — inaonyesha jumla ya kiasi na idadi ya makato yaliyowekwa. Gusa kadi ili kufungua <a href="#salary-deductions">orodha ya makato</a>.</li>
+<li><strong>Jumla</strong> — uchanganuzi wa muhtasari: muda wa kulipwa, saa zilizofanya kazi, muda wa ziada, malipo ya msingi, malipo ya muda wa ziada, bonasi, makato, na matokeo ya mwisho.</li>
+</ol>
+
+<div class="tip">Matokeo hayategemei tu mipangilio ya skrini hii, lakini pia katika kipindi cha takwimu kilichochaguliwa, zamu zilizokamilishwa, mabadiliko ya siku, muda wa ziada, na mipangilio ya mapumziko yasiyolipwa.</div>
+
+<h3 id="salary-bonuses">11.3. Bonasi</h3>
+
+<p>Gonga kadi ya "Bonasi" kwenye skrini ya hesabu ya mshahara. Unaweza kuingiza bonasi mwenyewe au kuihesabu kama asilimia ikiwa inalingana na mfumo wako wa malipo.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_bonuses.webp" alt="Skrini ya mipangilio ya bonasi yenye hesabu na chaguzi za kuingiza kiasi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Taarifa ya muhtasari</strong> — inaonyesha jumla ya bonasi iliyohesabiwa na kiasi cha msingi kinachotumika kwa hesabu.</li>
+<li><strong>Hesabu ya bonasi</strong> — chagua ingizo la mkono au hesabu ya asilimia, kama vile asilimia ya mauzo, ikiwa njia hiyo inatumika mahali pako pa kazi.</li>
+<li><strong>Njia ya kuingia</strong> — "Jumla ya kiasi" inafaa kwa bonasi moja ya mwisho. Safu tofauti ni muhimu wakati kuna bonasi kadhaa ambazo lazima zihesabiwe kwa kujitegemea.</li>
+<li><strong>Kiasi au asilimia</strong> — ingiza thamani inayohitajika na njia iliyochaguliwa ya hesabu.</li>
+<li><strong>Ghairi na Hifadhi</strong> — tupa mabadiliko au uyatumie kwenye hesabu ya mshahara.</li>
+</ol>
+
+<h3 id="salary-deductions">11.4. Orodha ya makato</h3>
+
+<p>Gonga kadi ya "Makato" kwenye skrini kuu ya hesabu. Sehemu hii hukuruhusu kuhifadhi makato kadhaa na kudhibiti kila moja kando.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions.webp" alt="Skrini ya orodha ya makato yenye jumla ya kiasi, safu mlalo za makato, na kitufe cha kuongeza">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Taarifa ya muhtasari</strong> — inaonyesha kiasi na idadi ya makato yote yaliyowezeshwa.</li>
+<li><strong>Safu mlalo ya makato</strong> — inaonyesha jina, thamani, na aina. Gusa safu mlalo ili kufungua <a href="#salary-deduction-editor">mipangilio ya makato</a>. Aikoni ya takataka hufuta safu mlalo.</li>
+<li><strong>Ongeza kato</strong> — kitufe cha "+" huunda safu mlalo mpya ya makato.</li>
+<li><strong>Ghairi na Hifadhi</strong> — tupa mabadiliko au hifadhi orodha nzima.</li>
+</ol>
+
+<h3 id="salary-deduction-editor">11.5. Kusanidi makato ya mtu binafsi</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deduction_editor.webp" alt="Jopo la makato ya mtu binafsi lenye jina, thamani, aina, na msingi wa makato">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Jina la kato</strong> — ingiza jina lililo wazi kama vile "Kodi," "Matunzo ya mtoto," au "Adhabu. "</li>
+<li><strong>Thamani</strong> — ingiza kiasi au asilimia, kulingana na aina ya thamani iliyochaguliwa hapa chini.</li>
+<li><strong>Aina ya thamani</strong> — chagua kiasi au asilimia isiyobadilika.</li>
+<li><strong>Aina ya kato</strong> — makato <strong>yanayobadilika</strong> yanatumika kwa kipindi maalum cha hesabu;makato <strong>yanayojirudia</strong> hutumika mara kwa mara wakati yanabaki kuwezeshwa.</li>
+<li><strong>Kata kutoka</strong> — chagua msingi wa hesabu: mshahara jumla, malipo ya msingi, bonasi, au chaguo jingine linalopatikana.</li>
+<li><strong>Imewezeshwa</strong> — huzima makato kwa muda bila kufuta mipangilio yake.</li>
+<li><strong>Ghairi na Hifadhi</strong> — funga paneli bila mabadiliko au uhifadhi makato.</li>
+</ol>
+
+<div class="notice">Kwa makato ya asilimia, ni muhimu sana kuchagua msingi sahihi wa "Punguza kutoka": asilimia sawa ya jumla ya mshahara, malipo ya msingi, na bonasi hutoa matokeo tofauti.</div>
+
+<h2 id="settings">12. Mipangilio</h2>
+
+<p>Fungua "Mipangilio" ukitumia kitufe kilicho chini ya <a href="#main-overview">skrini kuu</a>. Sehemu hii ina ruhusa za mfumo, mwonekano na lugha ya programu, utambuzi wa usemi nje ya mtandao, hati na mwongozo wa mtumiaji, nakala rudufu, uchunguzi, na chaguo za mawasiliano za msanidi programu.</p>
+
+<h3 id="settings-overview">12.1. Sehemu kuu za mipangilio</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_permissions_language.webp" alt="Juu ya mipangilio ya ShiftAlarm: ruhusa, mandhari, lugha ya programu, na mifumo ya usemi nje ya mtandao">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ruhusa</strong> — hufungua ruhusa za kengele na mipangilio ya uaminifu. Angalia arifa, kengele halisi, shughuli za mandharinyuma, na vikwazo vya betri.<a href="#geo">Kengele za Geo</a> pia zinahitaji ufikiaji wa eneo;ufikiaji wa mandharinyuma au "Ruhusu wakati wote" unahitajika ili kuamsha programu wakati imefungwa. Majina ya bidhaa na njia hutofautiana kulingana na toleo la Android na mtengenezaji wa kifaa.</li>
+<li><strong>Mandhari</strong> — hukuruhusu kuchagua mwonekano mwepesi, mweusi, au mfumo, kuchagua lahaja ya rangi ya kiolesura, na kuwezesha au kuzima maoni ya haptic kwa vitendo katika programu. Mandhari ya mfumo hufuata mwonekano wa sasa wa simu.</li>
+<li><strong>Lugha ya programu</strong> — hukuruhusu kutumia lugha tofauti na lugha ya mfumo wa simu. Katalogi ya ShiftAlarm ina lugha 108: tafuta lugha inayohitajika kwa utafutaji, pakua kifurushi cha lugha, na uitumie.</li>
+<li><strong>Miundo ya usemi bila mtandao</strong> — husakinisha moduli ya <a href="#notes-create">madokezo ya usemi-kwa-maandishi</a>. Utambuzi wa nje ya mtandao unajaribiwa kwa sasa na unapatikana kwa takriban lugha 20. Ubora wake unaweza kuwa chini kuliko utambuzi wa mtandaoni na inategemea lugha, maikrofoni, utendaji wa simu, na hali ya kurekodi.</li>
+</ol>
+
+<div class="warning"><strong>Ruhusa za Android hutofautiana katika vifaa.</strong> Kwenye baadhi ya simu, lazima pia uruhusu kuanzisha kiotomatiki chinichini, chagua "Isiyo na Vizuizi" au hali sawa ya betri, na uruhusu shughuli za chinichini. Mipangilio hii hupunguza uwezekano kwamba mfumo utasimamisha ShiftAlarm, lakini majina yao halisi yanaamuliwa na mtengenezaji wa kifaa.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_help_backup_diagnostics.webp" alt="Chini ya mipangilio ya ShiftAlarm: hati, mwongozo wa mtumiaji, nakala rudufu, uchunguzi, na mawasiliano ya msanidi programu">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Hati na msaada</strong> — inafungua hati za kisheria za programu: Sheria na Masharti ya Matumizi, Sera ya Faragha, Kanusho, na ukurasa mfupi wa usaidizi.</li>
+<li><strong>Mafunzo na mwongozo wa mtumiaji</strong> — inafungua mwongozo huu kamili ulioonyeshwa na maelezo ya kina ya vipengele vya ShiftAlarm.</li>
+<li><strong>Nakala rudufu na urejeshaji</strong> — huunda faili iliyo na mipangilio na data ya programu inayoungwa mkono, au kuirejesha kutoka kwa nakala rudufu ya awali. Hii ni muhimu kabla ya kusakinisha upya programu, kuweka upya simu, au kuhamisha data kwenye kifaa kingine. Tazama <a href="#backup">“Chelezo na urejeshe”</a> kwa maagizo ya kina.</li>
+<li><strong>Kumbukumbu ya utambuzi</strong> — hufungua kumbukumbu tofauti kwa vipengele vya programu. Hurekodi hatua za kiufundi kama vile ratiba ya arifa na urejeshaji, usindikaji wa matukio, hali ya ruhusa, na taarifa nyingine za huduma. Kumbukumbu husaidia kutambua hatua ambayo hitilafu ilitokea. Unaweza kunakili maingizo au kuyaandaa kwa ajili ya kutuma barua pepe kwa wasanidi programu. Tazama <a href="#diagnostics">"Utambuzi na utatuzi wa matatizo"</a> kwa maelezo zaidi.</li>
+<li><strong>Wasiliana na wasanidi programu</strong> — hufungua programu ya barua pepe na kuunda ujumbe unaoelekezwa kwa usaidizi. Itumie kuripoti tatizo, kutuma maoni au pendekezo, au kuuliza swali. Kwa tatizo la kiufundi, jumuisha mfumo wa simu, toleo la Android, wakati wa tatizo, hatua zilizofanywa, na kumbukumbu husika ya uchunguzi ikiwezekana.</li>
+</ol>
+
+<div class="notice">Kumbukumbu za utambuzi hazitumwi kwa wasanidi programu kiotomatiki. Lazima unakili taarifa inayohitajika au ubofye “Tuma kwa watengenezaji,” chagua programu ya barua pepe, uhakiki ujumbe ulioandaliwa, na uthibitishe kuutuma.</div>
+
+<h2 id="backup">13. Hifadhi nakala rudufu na urejeshe</h2>
+
+<p>Nakala rudufu huhifadhi mipangilio ya ShiftAlarm inayotumika na data ya mtumiaji katika faili tofauti. Inasaidia kurejesha data baada ya kusakinisha upya programu, kuweka upya simu, au kuhamia kwenye kifaa kingine.</p>
+<ol class="step-list">
+<li>Fungua “Mipangilio → Hifadhi nakala rudufu na urejeshe. ”</li>
+<li>Unda nakala rudufu na uhifadhi faili inayotokana kwenye simu au uishiriki kupitia menyu ya mfumo.</li>
+<li>Ili kurejesha, fungua sehemu hiyo hiyo na uchague faili rudufu iliyoundwa hapo awali.</li>
+<li>Baada ya kurejesha, angalia kengele muhimu, ratiba, na ruhusa za Android. Baadhi ya ruhusa za usalama wa mfumo zinaweza kuhitaji kutolewa tena kwenye kifaa kipya au baada ya kusakinisha upya.</li>
+</ol>
+<p class="tip">Weka nakala ya sasa mahali salama ambapo simu itapotea, kuharibika, au kuwekwa upya. Faili ya chelezo haibadilishi ruhusa za mfumo wa Android na haiwezi kujumuisha kiotomatiki data ambayo programu hairuhusiwi kufikia.</p>
+
+<h2 id="diagnostics">14. Utambuzi na utatuzi wa matatizo</h2>
+
+<p>ShiftAlarm hutoa kumbukumbu tofauti za uchunguzi kwa vipengele tofauti. Zinahifadhi mfuatano wa matukio ya kiufundi na husaidia kubaini kama arifa ilipangwa, ilirejeshwa baada ya kuwasha upya, ilipitishwa kwa ajili ya kusindika, au ilisitishwa kwa sababu ya mpangilio wa mfumo.</p>
+
+<h3 id="diagnostics-control">14.1. Kudhibiti mkusanyiko wa uchunguzi</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_sections.webp" alt="ShiftAlarm logi ya uchunguzi yenye swichi kuu na kumbukumbu ya kengele ya mtu binafsi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Kusanya uchunguzi</strong> — swichi kuu kwa kila sehemu ya uchunguzi katika programu. Zima ili kuacha kuongeza matukio mapya kwenye kumbukumbu zote kwa wakati mmoja. Mkusanyiko wa matukio mapya unaanza tena baada ya kuiwasha tena.</li>
+<li><strong>Kumbukumbu ya vipengele vya mtu binafsi</strong> — kila moduli ina swichi yake na kitufe cha "Fungua". Kwa mfano, unaweza kuacha uchunguzi wa kimataifa ukiwashwa huku ukizima kengele, saa, au kumbukumbu nyingine ya vipengele pekee. Picha ya skrini inaonyesha kumbukumbu ya kengele, ambayo inarekodi uwasilishaji, ratiba, urejeshaji, ulinzi wa walinzi, na matukio ya skrini ya kengele.</li>
+</ol>
+
+<div class="notice">Swichi hudhibiti tu kurekodi matukio ya kiufundi. Kuzima kengele, saa, au kumbukumbu nyingine ya vipengele hakuzimi kipengele chenyewe. Futa maingizo yaliyohifadhiwa hapo awali kando kwa kutumia kitufe cha "Futa" ndani ya kumbukumbu inayolingana.</div>
+
+<h3 id="diagnostics-log">14.2. Kumbukumbu ya vipengele vya mtu binafsi</h3>
+
+<p>Gonga "Fungua" katika sehemu inayohitajika ya uchunguzi. Mfano ulio hapa chini unaonyesha kumbukumbu ya kengele;kumbukumbu za vipengele vingine hufanya kazi kwa njia sawa.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_alarm_log.webp" alt="ShiftAlarm kengele Kumbukumbu ya uchunguzi yenye idadi ya matukio, vitendo, na maingizo ya kiufundi">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Matukio yaliyohifadhiwa</strong> — inaonyesha idadi ya maingizo yaliyohifadhiwa kwa sasa kwenye kumbukumbu iliyochaguliwa.</li>
+<li><strong>Vitendo vya kumbukumbu</strong>:
+<ul>
+<li><strong>Nakili</strong> — inakili data yote kutoka kwa kumbukumbu ya sasa hadi kwenye ubao wa kunakili. Unaweza kuibandika kwenye barua pepe au programu nyingine.</li>
+<li><strong>Futa</strong> — hufuta maingizo yaliyohifadhiwa kwenye kumbukumbu hii. Baada ya kufuta, ni matukio yaliyorekodiwa baadaye tu wakati uchunguzi umewezeshwa yataonekana.</li>
+<li><strong>Tuma kwa wasanidi</strong> — hufungua kiteuzi cha programu kwa ajili ya kutuma barua pepe. Chagua programu ya barua pepe;Anwani ya msanidi programu na data ya uchunguzi huingizwa kiotomatiki. Kabla ya kutuma, ongeza maelezo ya tatizo, kagua ujumbe, kisha uthibitishe kuutuma.</li>
+</ul>
+</li>
+<li><strong>Matukio ya programu</strong> — maingizo ya kumbukumbu yenyewe. Ingizo kwa kawaida huwa na tarehe na saa, jina la tukio la kiufundi, na vigezo vya ziada kama vile kitambulisho, hali, au sababu. Majina ya kiufundi yanaweza kuonekana kwa Kiingereza;usiyahariri au kuyatafsiri kabla ya kutuma.</li>
+</ol>
+
+<div class="warning">Kabla ya kufuta kumbukumbu, nakili au tuma maingizo yoyote yanayohitajika. Matukio ya uchunguzi yaliyofutwa hayawezi kurejeshwa.</div>
+
+<div class="tip">Ikiwa tatizo linaweza kunakiliwa tena, kwanza wezesha mkusanyiko wa uchunguzi wa kimataifa na kumbukumbu ya vipengele husika, kisha rudia vitendo vilivyosababisha tatizo. Katika ujumbe wako, toa wakati halisi wa tatizo, modeli ya simu, toleo la Android, matokeo yanayotarajiwa, na matokeo halisi. Hii husaidia kulinganisha maelezo yako na matukio ya kumbukumbu.</div>
+
+<h2 id="faq">15. Maswali Yanayoulizwa Mara kwa Mara</h2>
+
+<h3>Kengele haikuanza kwa wakati</h3>
+<p>Angalia arifa, ruhusa kamili ya kengele, shughuli za chinichini, na vikwazo vya betri.</p>
+<h3>Kengele ya Geo ilianza kuchelewa</h3>
+<p>Angalia eneo sahihi na la usuli, vikwazo vya betri, na programu kuanzisha kiotomatiki chinichini. Jaribu radius ya mita 1,300–1,500 katika jiji na mita 4,000–5,000 nje ya jiji. Kichocheo halisi kinaweza kisionekane haswa kwenye mstari wa radius.</p>
+<h3>Wijeti haikusasishwa mara moja</h3>
+<p>Fungua programu au gonga kitufe cha kuonyesha upya kwenye wijeti. Android inaweza kuzuia masasisho ya mara kwa mara ya wijeti.</p>
+<h3>Nilibadilisha lugha, lakini hati au mwongozo bado haujasasishwa</h3>
+<p>Angalia muunganisho wako wa intaneti na uruhusu muda wa kupakua. Ikiwa toleo la mbali halipatikani, programu hutumia njia yake ya kurudi nyuma iliyojengewa ndani.</p>
+
+<div class="footer small">Mwongozo unaweza kusasishwa kupitia GitHub. Ikiwa toleo la mbali halipatikani, programu hutumia toleo lake la nje ya mtandao lililojengewa ndani.</div>
+</main>
+</body>
+</html>

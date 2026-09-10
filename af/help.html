@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="af">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ShiftAlarm Gebruikersgids</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #64748b;
+  --accent: #2563eb;
+  --soft: #e8eef8;
+  --border: #dbe4f0;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.58;
+  margin: 0;
+  padding: 18px;
+  color: var(--text);
+  background: var(--bg);
+}
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+h1 { margin: 0 0 8px; font-size: 28px; line-height: 1.2; }
+h2 { margin: 32px 0 10px; font-size: 21px; line-height: 1.25; }
+h3 { margin: 22px 0 8px; font-size: 17px; }
+p, li { font-size: 16px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul, ol { padding-left: 22px; }
+.notice, .tip, .warning {
+  padding: 14px 16px;
+  border-radius: 16px;
+  margin: 14px 0;
+  border: 1px solid var(--border);
+}
+.notice { background: var(--soft); }
+.tip { background: #ecfdf5; }
+.warning { background: #fff7ed; }
+.small { color: var(--muted); font-size: 14px; }
+.toc {
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 16px;
+  margin: 18px 0 24px;
+}
+.toc ol { margin: 8px 0 0; }
+.step-list li { margin-bottom: 8px; }
+.guide-figure {
+  margin: 18px 0;
+}
+.guide-image {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+}
+.callout-list li {
+  margin-bottom: 10px;
+}
+.guide-caption {
+  max-width: 520px;
+  margin: 10px auto 0;
+  color: var(--text);
+  font-size: 15px;
+}
+.guide-caption strong {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.footer {
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --card: #111827;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --accent: #93c5fd;
+    --soft: #1f2937;
+    --border: #334155;
+  }
+  main { box-shadow: none; }
+  .toc { background: #172033; }
+  .tip { background: #10251f; }
+  .warning { background: #2a1d10; }
+}
+</style>
+</head>
+<body>
+<main>
+<h1>ShiftAlarm Gebruikersgids</h1>
+<p class="small">Weergawe 14. Datum: 2 Augustus 2026.</p>
+<div class="notice">Hierdie bladsy is 'n praktiese gids tot ShiftAlarm. Dit verduidelik wat elke hooffunksie doen, waar om dit te vind, wat om te tik, en wat om te kontroleer as 'n funksie nie soos verwag werk nie.</div>
+<nav class="toc">
+<strong>Inhoud</strong>
+<ol><li><a href="#start">1. Eerste bekendstelling</a></li><li><a href="#permissions">2. Toestemmings en betroubaarheid</a></li><li><a href="#main">3. Hoofskerm</a></li><li><a href="#shifts">4. Skofskedules</a></li><li><a href="#statistics">5. Skedulestatistieke</a></li><li><a href="#alarms">6. Alarms</a></li><li><a href="#geo">7. Geo-alarms</a></li><li><a href="#notes">8. Notas, gebeurtenisse en herinneringe</a></li><li><a href="#clock">9. Klok, timer en stophorlosie</a></li><li><a href="#widgets">10. Widgets</a></li><li><a href="#salary">11. Salarisberekening</a></li><li><a href="#settings">12. Instellings</a></li><li><a href="#backup">13. Rugsteun en herstel</a></li><li><a href="#diagnostics">14. Diagnostiek en probleemoplossing</a></li><li><a href="#faq">15. Gereelde vrae</a></li></ol>
+</nav>
+<h2 id="start">1. Eerste bekendstelling</h2>
+
+<p>Wanneer ShiftAlarm vir die eerste keer begin, vertoon dit 'n kort opstellingsvloei. Die hoofskerm is reeds in die agtergrond beskikbaar, maar dit is die beste om eers die basiese opstelling te voltooi.</p>
+<ol class="step-list">
+<li>Lees die inleidende inligting en tik "Gaan voort. "</li>
+<li>Op die dokumentestap, maak die dokumente oop of aanvaar die vereiste dokumente wanneer jy gereed is om voort te gaan.</li>
+<li>Op die toestemmingsstap, maak die toestemmingsskerm oop en kyk na kennisgewings, presiese alarms, liggingtoegang en batterybeperkings.</li>
+<li>Tik "Voltooi opstelling. "</li>
+</ol>
+<p class="tip">Jy kan toestemmings later instel onder "Instellings → Toestemmings en betroubaarheid. "</p>
+
+<h2 id="permissions">2. Toestemmings en betroubaarheid</h2>
+
+<p>Alarms, herinnerings en Geo-alarms hang af van Android-instellings en die toestelvervaardiger se sagteware.</p>
+<ul>
+<li><strong>Kennisgewings</strong> — vereis vir alarms, herinnerings, die timer en dienskennisgewings.</li>
+<li><strong>Presiese alarms</strong> — help die alarm om op die vereiste tyd te begin.</li>
+<li><strong>Ligging</strong> — vereis vir Geo-alarms.</li>
+<li><strong>Agtergrondligging</strong> — vereis vir 'n Geo-alarm om te werk terwyl die toepassing toe is.</li>
+<li><strong>Battery- en agtergrondaktiwiteit</strong> — kan die betroubaarheid van die sneller op Xiaomi/Redmi en sommige ander toestelle beïnvloed.</li>
+</ul>
+<p class="warning">Android waarborg nie altyd onmiddellike aflewering van kennisgewings, presiese alarms of geofence-gebeurtenisse nie. Vir belangrike waarskuwings, kyk na elke item op die toestemmingskerm.</p>
+
+<h2 id="main">3. Hoofskerm</h2>
+
+<p>Die hoofskerm is jou daaglikse dashboard. Dit bied direkte toegang tot die kalender, klok, Geo-alarms, gereelde alarms, skofskedules, notas en instellings.</p>
+
+<h3 id="main-overview">3.1. Hoofskermelemente</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_screen_overview.png" alt="ShiftAlarm hoofskerm met genommerde kontroles">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Terugpyltjie</strong> — skuif die kalender na die vorige maand.</li>
+<li><strong>Maand en jaar</strong> — wys die oop maand. Tik hierdie area om die <a href="#main-date-picker">stap-vir-stap maand- en jaarkieser</a> te gebruik.</li>
+<li><strong>Voorwaartse pyltjie</strong> — skuif die kalender na die volgende maand.</li>
+<li><strong>Kalender</strong> — die hoofmaandarea. Jy kan die kalender swiep. Elke dag kan die datum, herinneringe, gebeure, geskeduleerde skof en dagveranderinge wys. 'n Gewone tik kies 'n datum;'n Lang druk maak <a href="#main-day-actions">inligting en aksies vir die gekose dag</a> oop.</li>
+<li><strong>Vandag</strong> — stuur die kalender terug na die huidige dag.</li>
+<li><strong>Horlosie</strong> — maak die <a href="#clock">wêreldklok, stophorlosie en timer</a> oop.</li>
+<li><strong>Geo-alarm</strong> — maak die <a href="#geo">kaart, gestoorde plekke en Geo-alarminstellings</a> oop. 'n Waarskuwing kan aktiveer wanneer jy die gekose area binnegaan, dit verlaat, of enige van die twee doen.</li>
+<li><strong>Alarm</strong> — maak <a href="#alarms">gereelde, herhalende en skofgekoppelde alarms</a> oop.</li>
+<li><strong>Rooster</strong> — maak <a href="#shifts">skofskedules, hul skepping en redigering, en statistieke</a> oop.</li>
+<li><strong>Notas</strong> — maak <a href="#notes">notas, gebeurtenisse, herinneringe, oudionotas en spraak-na-teks</a> oop.</li>
+<li><strong>Instellings</strong> — maak <a href="#settings">toestemmings, taal, tema, vanlyn spraakmodelle, rugsteun, diagnostiek, dokumente en opleiding</a> oop.</li>
+</ol>
+
+
+<h3 id="main-date-picker">3.2. Kies 'n maand en jaar</h3>
+
+<p>Tik die maand en jaar bo-aan die hoofskerm om die verlangde kalenderperiode vinnig oop te maak. Keuse vind in fases plaas: <strong>eeu → dekade → jaar → maand</strong>.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_century.webp" alt="Stap 1: kies &#x27;n eeu in die ShiftAlarm-kalender">
+<figcaption class="guide-caption"><strong>1. Kies 'n eeu.</strong> Tik die periode wat die jaar bevat wat jy benodig. Die voorbeeld kies die 2000's.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_decade.webp" alt="Stap 2: kies &#x27;n dekade in die ShiftAlarm-kalender">
+<figcaption class="guide-caption"><strong>2. Kies 'n dekade.</strong> Tik die reeks wat die verlangde jaar bevat. Vir 2026, kies "2020–2029. "</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_year.webp" alt="Stap 3: kies &#x27;n jaar in die ShiftAlarm-kalender">
+<figcaption class="guide-caption"><strong>3. Kies 'n jaar.</strong> Tik die verlangde jaar. Die voorbeeld kies 2026.</figcaption>
+</figure>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/date_picker_month.webp" alt="Stap 4: kies &#x27;n maand in die ShiftAlarm-kalender">
+<figcaption class="guide-caption"><strong>4. Kies 'n maand.</strong> Tik die verlangde maand. Die voorbeeld kies Julie.</figcaption>
+</figure>
+
+<div class="tip">Nadat jy 'n maand gekies het, maak die paneel toe en die hoofkalender maak oop by die gekose maand en jaar.</div>
+<div class="notice">Die "Terug"-knoppie keer terug na die vorige stadium. Op die eeuskerm maak dit die datumkieser toe.</div>
+
+<h3 id="main-day-actions">3.3. Inligting en aksies vir 'n gekose dag</h3>
+
+<p>Raak en hou die verlangde dag in die kalender vas. 'n Paneel met inligting en aksies vir daardie datum sal oopmaak. Sleep die paneel opwaarts om alle beskikbare aksies te sien.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/main_day_actions.webp" alt="ShiftAlarm inligting en aksies paneel vir &#x27;n gekose kalenderdag">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Datum</strong> — wys die dag van die week en gekose datum. Sleep die handvatsel bo-aan opwaarts of afwaarts om die paneel uit te brei of toe te maak.</li>
+<li><strong>Skof</strong> — wys die berekende skof of 'n dagverandering soos 'n dag af, tyd af, vakansie, siekteverlof of 'n ander uitsondering.</li>
+<li><strong>Alarms vir hierdie datum</strong> — wys alarms wat aan die gekose dag toegeken is of rapporteer dat geeneen bestaan ​​nie.</li>
+<li><strong>Gebeure en herinneringe</strong> — wys inskrywings wat aan die gekose datum gekoppel is.</li>
+<li><strong>Voeg alarm by</strong> — maak die skep van 'n eenmalige alarm vir die gekose datum oop.</li>
+<li><strong>Verander skof</strong> — skep 'n uitsondering vir een dag of 'n datumreeks in die aktiewe skedule.</li>
+<li><strong>Voeg nota by</strong> — laat jou toe om 'n gebeurtenis of herinnering te kies om vir die gekose datum te skep.</li>
+</ol>
+
+<div class="notice">Die "Verander skof"-aksie is beskikbaar om dae in die aktiewe skofskedule aan te pas.</div>
+
+<h4 id="main-shift-override">Verandering van een dag of 'n datumreeks</h4>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_types.webp" alt="Kies &#x27;n datumreeks en skofveranderingstipe in ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Begindatum</strong> — die eerste dag van die verandering. Dit gebruik aanvanklik die datum wat in die kalender gekies is.</li>
+<li><strong>Einddatum</strong> — die laaste dag van die verandering. Om slegs een dag te verander, laat dieselfde datum gekies.</li>
+<li><strong>Persoonlike verlof</strong> — vervang die berekende skof met aftyd.</li>
+<li><strong>Vakansie</strong> — merk die gekose dag of reeks as vakansie.</li>
+<li><strong>Siekverlof</strong> — merk die gekose dag of reeks as siekteverlof.</li>
+<li><strong>Stoor verandering</strong> — pas die gekose uitsondering op die kalender toe.</li>
+</ol>
+
+<h4 id="main-shift-time-adjustment">Aanpassing van werktyd</h4>
+
+<p>Blaai af deur die lys van veranderingtipes en kies "Wysig skof" om die duur van die berekende werkskof te verander.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_override_time_adjustment.webp" alt="Aanpassing van skofwerktyd in ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Wysig skof</strong> — aktiveer werktydaanpassing vir die gekose skof.</li>
+<li><strong>+ tyd</strong> — voeg ure of minute by die standaard skofduur.</li>
+<li><strong>− tyd</strong> — verminder die skofduur, byvoorbeeld wanneer werk vroeg geëindig het.</li>
+<li><strong>Tel hierdie tyd as oortyd</strong> — behandel die bygevoegde tyd as oortyd. As die opsie af is, word dit as gewone werktyd getel.</li>
+<li><strong>Stoor verandering</strong> — pas die aanpassing toe op die gekose dag of reeks.</li>
+</ol>
+
+<div class="tip">'n Dagverandering verander nie die oorspronklike skedulesjabloon nie. Dit word as 'n aparte uitsondering gestoor en word ingesluit in die kalender, statistieke, salarisberekening en verslae.</div>
+
+<h2 id="shifts">4. Skofskedules</h2>
+
+<p>'n Skofskedule definieer 'n herhalende werksiklus en bied die basis vir ander ShiftAlarm-funksies. Die toepassing gebruik dit om die kalender te vul, alarms aan skofte te koppel, werktyd te tel, statistieke te genereer, salaris te skat en verslae voor te berei.</p>
+
+<div class="notice"><strong>Basiese beginsel.</strong> Skep eers die basiese herhalende skedule. Voeg vakansie, siekteverlof, tyd af, 'n eenmalige vervangingsskof of 'n werktydaanpassing by as 'n uitsondering vir spesifieke datums deur die <a href="#main-day-actions">geselekteerde-dag-aksies</a>. Dit hou die oorspronklike siklus onveranderd.</div>
+
+<h3 id="shifts-list">4.1. Skedulelys en kontroles</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedules_overview.webp" alt="ShiftAlarm-skeduleskerm met &#x27;n aktiewe skedulekaart en genommerde kontroles">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Skedulebesonderhede</strong> — die naam, begindatum, sikluslengte en 'n kort reeks dae. In die voorbeeld beteken "D · D · O · O" twee dagskofte gevolg deur twee dae af.</li>
+<li><strong>Skakel</strong> — deaktiveer die skedule tydelik sonder om dit te verwyder. Wanneer jy dit weer aktiveer, bly die gestoorde instellings van toepassing.</li>
+<li><strong>Skedulestatus</strong> — dui aan watter skedule tans aktief is.</li>
+<li><strong>Wysig</strong> — maak die parameters oop wat verander kan word. Na die aanvanklike opstelling word 'n deel van die skedulebasis gesluit om toevallige herberekening van kalenderdata wat reeds geskep is, te voorkom.</li>
+<li><strong>Verwyder</strong> — verwyder die skedule na bevestiging. Kontroleer enige skofgekoppelde alarms en berekeninge voordat u dit verwyder.</li>
+<li><strong>Maak statistiek oop</strong> — maak hierdie skedule se <a href="#statistics">werktyd-, periode-, salaris- en verslagstatistieke</a> oop.</li>
+<li><strong>Skep rooster</strong> — laat jou toe om 'n gereedgemaakte sjabloon te kies of 'n persoonlike siklus te skep.</li>
+</ol>
+
+<h3 id="shifts-create">4.2. Begin skedule-skepping</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_create.webp" alt="Skedule-skeppingspaneel met &#x27;n naam, begindatum, sjablone en persoonlike skedule">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Roosternaam</strong> — voer 'n duidelike naam in soos "Hoof 2/2," "Nagskof," of die naam van jou werkplek.</li>
+<li><strong>Begindatum</strong> — die datum wat ooreenstem met die <strong>eerste dag van die herhalende siklus</strong>. Jy kan 'n vorige of toekomstige datum kies;die toepassing bereken die skedule vorentoe en agtertoe daaruit.</li>
+<li><strong>Sjablone</strong> — gereedgemaakte algemene skofrekwensies. Die voorbeeld gebruik die "2/2 dag"-sjabloon.</li>
+<li><strong>Pasgemaakte rooster</strong> — skep jou eie volgorde van werkdae en afdae.</li>
+<li><strong>Skep rooster</strong> — maak die gedetailleerde redigeerder vir die gekose opsie oop.</li>
+</ol>
+
+<div class="tip">Vir die “D · D · O · O”-sjabloon is die begindatum normaalweg die eerste van die twee werkdae. In 'n aangepaste siklus kan dag 1 ook 'n afdag wees;die belangrike punt is dat die gekose datum presies ooreenstem met dag 1 van die volgorde wat jy geskep het.</div>
+
+<h3 id="shifts-template">4.3. Skep 'n skedule vanaf 'n sjabloon</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_template.webp" alt="Sjabloonskedule-redigeerder met &#x27;n naam, volgorde, begindatum en skoftyd">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Roosternaam</strong> — behou die voorgestelde naam of vervang dit met jou eie.</li>
+<li><strong>Sjabloon</strong> — wys die lettervolgorde en die betekenis daarvan. In die voorbeeld beteken “D · D · O · O” dagskof, dagskof, dag af, dag af.</li>
+<li><strong>Begindatum</strong> — kies die datum van die eerste dag in die vertoonde volgorde.</li>
+<li><strong>Skoftyd</strong> — spesifiseer die begin- en eindtyd vir elke werkskoftipe. Die toepassing vertoon die berekende duur.</li>
+<li><strong>Kanselleer</strong> — maak die redigeerder toe sonder om te stoor.</li>
+<li><strong>Stoor</strong> — stoor die skedule en begin skofte in die kalender bereken.</li>
+</ol>
+
+<div class="warning"><strong>Na die eerste stoor.</strong> Die begindatum en siklusstruktuur word gesluit om kalenderdata wat reeds bereken is, te beskerm. Jy kan steeds die naam en sommige werkparameters wysig. As jy 'n ander basissiklus of verwysingsdatum benodig, is dit veiliger om 'n nuwe skedule te skep.</div>
+
+<h3 id="shifts-custom">4.4. Skep 'n persoonlike siklus</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/shift_schedule_custom.webp" alt="Pasgemaakte skedule-redigeerder met sikluslengte, dagkontroles, begindatum en instellings vir elke dag">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Roosternaam</strong> — gee jou persoonlike reeks 'n naam.</li>
+<li><strong>Sikluslengte</strong> — wys hoeveel dae in die herhalende reeks ingesluit is.</li>
+<li><strong>Verwyder dag</strong> — verkort die siklus met een dag.</li>
+<li><strong>Voeg dag by</strong> — voeg nog 'n konfigureerbare dag by die einde van die siklus.</li>
+<li><strong>Begindatum</strong> — die datum wat ooreenstem met dag 1 van die persoonlike siklus.</li>
+<li><strong>Daginstellings</strong> — tik die "Skoof"-knoppie. tipe”-kaart en kies 'n afdag of die vereiste werksoort: dag, nag, oggend, aand, 24-uur of persoonlike skof. Vir 'n werksdag, spesifiseer die begin- en eindtyd. Konfigureer die oorblywende dae van die siklus op dieselfde manier verder af op die skerm.</li>
+<li><strong>Kanselleer</strong> — maak die redigeerder toe sonder om te stoor.</li>
+<li><strong>Stoor</strong> — stoor die persoonlike siklus en bereken dit in die kalender.</li>
+</ol>
+
+<div class="notice"><strong>Wat is 'n siklus?</strong> 'n Siklus is die aantal dae waarna die volgorde weer begin. Byvoorbeeld, 'n vierdaagse siklus kan "2 werkdae + 2 dae af" wees, terwyl 'n sesdaagse siklus "3 werkdae + 3 dae af" kan wees. Na die laaste dag keer die toepassing terug na dag 1.</div>
+
+<div class="tip">Moenie die basissiklus verander vir 'n eenmalige skedule-uitsondering nie. Druk lank op 'n kalenderdatum en skep 'n afdag, vakansie, siekteverlof, vervangingsskof of tydsaanpassing.</div>
+
+
+
+<span id="shift-statistics"></span>
+<h2 id="statistics">5. Skedulestatistieke</h2>
+
+<p>Maak "Statistieke" oop vanaf 'n skedulekaart deur die <strong>"Maak statistieke oop"</strong>-knoppie te gebruik. Hierdie afdeling kombineer inligting oor werkdae en afdae, skeduleveranderinge, beplande en werklike werktyd, beraamde salaris en verslae.</p>
+
+<div class="notice"><strong>Belangrik:</strong> statistieke word slegs vir die gekose skofskedule bereken. Die gekose periode is van toepassing op alle werktyd-, salaris- en verslagdoeningswaardes daaronder.</div>
+
+<h3 id="statistics-period">5.1. Opsomming van skedule, periode en dag</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_period_overview.webp" alt="Statistiekskerm met skedule-inligting, periodekeuse en dagtotale">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Skedulinligting</strong> — toon die naam van die gekose skedule, die begindatum van die eerste siklus en die lengte van die herhalende siklus. Die statistieke op hierdie skerm is slegs van toepassing op hierdie skedule.</li>
+<li><strong>Geselekteerde periodekaart</strong> — toon die periode wat in gebruik is. Tik dit of die pyltjie aan die regterkant om die huidige, vorige of volgende maand, die huidige jaar of 'n persoonlike datumreeks te kies.</li>
+<li><strong>Dagopsomming</strong> — toon die aantal dae in die periode, werkskofte, dae af, voltooide en komende skofte, en veranderde dae. Veranderde dae is uitsonderings op die basissiklus: vakansie, siekteverlof, tyd af, 'n vervanging of verskuifde skof, 'n werktydaanpassing en ander veranderinge.</li>
+</ol>
+
+<div class="warning"><strong>Toekomstige periodes is voorspellings.</strong> Vir 'n toekomstige maand gebruik die toepassing die geskepte skedule en data wat reeds ingevoer is, maar dit kan nie toekomstige siekteverlof, vakansie, tyd af, oortyd, bonusse of aftrekkings ken nie. Wanneer jy die huidige jaar kies, kan totale werklike data vir vorige datums kombineer met 'n voorspelling vir die res van die jaar.</div>
+
+<h3 id="statistics-work">5.2. Werktyd, salaris en verslae</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_work_salary_reports.webp" alt="Statistiekskerm met werktyd, vordering, salaris en verslagtoegang">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Werktyd</strong> — 'n opsommingskaart vir ure en vordering. Tik dit om die <a href="#statistics-break">pouse-tyd instellings</a> oop te maak.</li>
+<li><strong>Beplande ure</strong> — die totale duur van geskeduleerde skofte en veranderinge gedurende die gekose periode.</li>
+<li><strong>Ure gewerk</strong> — die tyd in skofte wat as voltooi beskou word vanaf die huidige datum, met pouse-instellings toegepas.</li>
+<li><strong>Vordering</strong> — wys hoeveel werkskofte voltooi is uit die totaal en watter persentasie van die gekose periode voltooi is.</li>
+<li><strong>Salaris</strong> — maak die <a href="#salary">salarisberekeningsinstellings</a> oop. Die kaart toon 'n skatting vir die gekose skedule en periode.</li>
+<li><strong>Totaal</strong> — die beraamde bedrag wat tot dusver verdien is, insluitend die gekose betaalmetode, bonusse, oortyd en aftrekkings.</li>
+<li><strong>Koers of salaris</strong> — die inhoud van hierdie kaart hang af van die gekose berekeningsmetode: betaling per uur, per skof of per maand. Dit vertoon die waarde wat in salarisinstellings ingevoer is.</li>
+<li><strong>Berekeningsbesonderhede</strong> — betaalde tyd, oortydure, bonusse en aftrekkings vir die gekose periode.</li>
+<li><strong>Verslae</strong> — maak <a href="#reports">gedetailleerde verslae vir periodes, werktyd en salaris</a> oop.</li>
+</ol>
+
+<div class="tip">Alle waardes in die werktyd- en salarisafdelings word herbereken wanneer jy die periode in die boonste kaart verander.</div>
+
+<h3 id="statistics-break">5.3. Rekeningkunde vir pouses in werktyd</h3>
+
+<p>Tik die "Werktyd"-kaart om te spesifiseer of 'n etenspouse of 'n ander pouse as deel van werklike gewerkte en betaalde tyd moet tel.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/statistics_break_settings.webp" alt="Pouserekeningkunde en duurinstellingspaneel">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Huidige totale</strong> — toon beplande en gewerkte ure vir die gekose periode voordat die nuwe instellings toegepas word.</li>
+<li><strong>Tel pouse as werktyd</strong> — los hierdie opsie aan as die pouse betaal is en ingesluit is in die skofduur. Skakel dit af as die gespesifiseerde tyd uitgesluit moet word van gewerkte en betaalde tyd.</li>
+<li><strong>Pouseduur</strong> — kies die ure en minute vir een pouse. Hierdie instelling word gebruik wanneer toepaslike werkskofte herbereken word.</li>
+<li><strong>Totale pouse</strong> — wys die gekose duur voor stoor.</li>
+<li><strong>Stoor</strong> — pas die instelling toe en herbereken werktyd en verwante waardes.</li>
+</ol>
+
+<div class="notice">'n Pouse kan 'n etenspouse, skofoorhandiging of 'n ander onbetaalde interval binne 'n skof verteenwoordig. Voer die duur in wat ooreenstem met die reëls by jou werkplek.</div>
+
+<h3 id="reports">5.4. Verslae: periode, status en opsomming</h3>
+
+<p>Maak "Verslae" oop vanaf die onderste kaart op die statistiekskerm. Hierdie afdeling verskaf meer gedetailleerde inligting vir die gekose periode: werktyd, skofte en afwesighede, kalenderaanpassings, salaris, bonusse, aftrekkings, periodevergelyking, daaglikse besonderhede en uitvoer.</p>
+
+<div class="warning"><strong>Verslae word slegs vir inligtingsdoeleindes verskaf.</strong> Berekeninge is gebaseer op die gekose skedule, salarisinstellings, pouserekeningkunde en kalenderskofveranderinge. Jou werkgewer se werklike syfers kan verskil as gevolg van 'n ander tydhoudingstelsel, afronding, belasting, toelaes of interne reëls. Indien jy 'n fout of 'n nie-ondersteunde berekeningsmetode vind, kontak die ontwikkelaars by die adres wat in die toepassing getoon word en sluit die invoerdata en verwagte resultaat in.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_period_salary.webp" alt="Verslagskerm met periodekeuse, status, opsomming en gedetailleerde salarisverdeling">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Verslagtydperk</strong> — tik die kaart om die huidige, vorige of volgende maand, 'n voorafbepaalde reeks of persoonlike datums te kies. Alle inligting hieronder is van toepassing op die gekose periode.</li>
+<li><strong>Periodestatus</strong> — wys of die periode voltooi is, tans aktief is of nog nie begin het nie. 'n Voltooide periode word bereken uit gestoorde werklike data. 'n Aktiewe periode kombineer data wat reeds met die huidige plan gewerk is, terwyl 'n toekomstige periode 'n voorspelling is.</li>
+<li><strong>Opsomming</strong> — 'n teksopsomming van werklike gewerkte tyd, die berekende bedrag en oortyd.</li>
+<li><strong>Salaris</strong> — 'n gedetailleerde uiteensetting van basiese betaling, oortydbetaling, bonusse, aftrekkings en die finale skatting. Waardes hang af van die <a href="#salary">salarisinstellings</a> en gekose periode.</li>
+</ol>
+
+<h3 id="reports-work">5.5. Werktyd, afwesighede en dae</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_work_absences.webp" alt="Verslagskerm met werktyd, pouses, voltooide skofte en afwesighede">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Werktyd</strong> — toon beplande en werklike gewerkte ure, beplande en werklike ure voor pouse-aftrekking, die aantal voltooide skofte, gemiddelde skofduur en die totale pouse wat afgetrek is. Konfigureer pouses in die <a href="#statistics-break">werktyd-afdeling</a>.</li>
+<li><strong>Afwesighede en dae</strong> — toon die aantal afdae, vakansiedae, siekteverlofdae, tyd-afdae en veranderde dae gedurende die gekose periode.</li>
+</ol>
+
+<h3 id="reports-charts">5.6. Aanpassings en grafieke</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_corrections_charts.webp" alt="Verslagskerm met aanpassings, salarissamestelling en werktydwaardes">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Aanpassings</strong> — toon oortydure, die totale verandering in skofduur en die aantal dae wat van die basisskedule verander is.</li>
+<li><strong>Grafieke</strong> — visualiseer salaris- en werktydsamestelling: basisbetaling, oortyd, bonusse, aftrekkings, totale en beplande, gewerkte en betaalde ure.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_charts_days.webp" alt="Bykomende verslaggrafieke met ure en &#x27;n dagtipe sirkelgrafiek">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ure</strong> — gaan voort met die visuele vergelyking van beplande, gewerkte,betaalde en oortydure. Die ry "Werklike werktyd" wys die resultaat nadat instellings en aanpassings toegepas is.</li>
+<li><strong>Dagsoorte</strong> — 'n sirkelgrafiek wat dae in die gekose periode volgens tipe versprei. Die legende hang af van die skedule en werklike veranderinge: dag, nag of ander skofte, dae af, vakansie, siekteverlof, tyd af en ander toestande.</li>
+</ol>
+
+<h3 id="reports-comparison">5.7. Vergelyking van periodes</h3>
+
+<p>Die vergelykingsafdeling help jou om salaris, tyd, skofte en afwesighede oor verskeie periodes te vergelyk. Die aantal beskikbare periodes hang af van die gestoorde data.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_chart.webp" alt="Periodevergelykingskerm met reekskeuse, salarisgrafiek en die begin van &#x27;n vergelykingstabel">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Vergelyk tydperke</strong> — tik die kaart om te kies hoeveel periodes om te vergelyk en hul reeks.</li>
+<li><strong>Grafiek en periodelys</strong> — toon salaris vir elke periode en lys die intervalle wat in die vergelyking ingesluit is, tesame met hul status.</li>
+<li><strong>Vergelykingstabel</strong> — bevat gedetailleerde waardes vir elke periode. Veeg die tabel horisontaal na links of regs om die oorblywende kolomme te sien.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_comparison_table.webp" alt="Voortsetting van die vergelykingstabel en verskille tussen aangrensende periodes">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Periodewaardes</strong> — totale salaris, gewerkte en betaalde ure, oortyd, bonusse, aftrekkings, voltooide skofte, afwesighede en veranderde dae.</li>
+<li><strong>Verskil tussen tydperke</strong> — wys hoe elke periode van die vorige een verskil. Positiewe en negatiewe waardes dui op 'n toename of afname in die ooreenstemmende maatstaf. Kleur alleen beteken nie altyd 'n voordeel of 'n probleem nie;byvoorbeeld, 'n toename in aftrekkings beteken dat 'n groter bedrag teruggehou word.</li>
+</ol>
+
+<h3 id="reports-details-export">5.8. Daaglikse besonderhede en uitvoer</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/reports_details_export.webp" alt="Verslagkaarte vir daaglikse besonderhede en uitvoer na PDF, HTML, JSON of CSV">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Daaglikse besonderhede</strong> — maak 'n lys oop van elke dag in die gekose periode. Jy kan die skoftipe, beplande en werklike tyd, uuraanpassings, afwesighede en ander veranderinge vir 'n spesifieke dag nagaan.</li>
+<li><strong>Uitvoer</strong> — stoor die verslag as PDF, HTML, JSON of CSV. Kies die verslagperiode voor uitvoer;jy kan dan die lêer druk, stoor of deel deur die Android-stelselkieslys.</li>
+</ol>
+
+<div class="tip">Voordat jy vergelyk of uitvoer, kontroleer die gekose periode, skedule, skofveranderinge, pouses en salarisinstellings. 'n Fout in die brondata sal elke verslagtotaal beïnvloed.</div>
+
+<h2 id="alarms">6. Alarms</h2>
+
+<p>ShiftAlarm laat jou toe om eenmalige alarms te skep, hulle op geselekteerde dae van die week te herhaal, of hul tyd aan 'n skofskedule te koppel.</p>
+
+<h3 id="alarms-list">6.1. Alarmlys</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarms_overview.webp" alt="ShiftAlarm alarmskerm met die volgende waarskuwing, sortering, &#x27;n alarmkaart en die byvoegknoppie">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Volgende alarm</strong> — wys die datum en tyd van die volgende aktiewe waarskuwing.</li>
+<li><strong>Alarmsortering</strong> — verander die volgorde van alarmkaarte, byvoorbeeld deur geaktiveerde alarms eerste te wys.</li>
+<li><strong>Alarmkaart</strong> — bevat die tyd, datum of herhalingsmodus, skeduletipe en oorblywende tyd. Tik die kaart om dit te wysig.</li>
+<li><strong>Skakel</strong> — aktiveer of deaktiveer die alarm tydelik sonder om die instellings daarvan te verwyder.</li>
+<li><strong>Verwyder</strong> — verwyder die gekose alarm.</li>
+<li><strong>Voeg alarm by</strong> — maak die skerm oop vir die skep van 'n nuwe alarm.</li>
+</ol>
+
+<h3 id="alarms-create">6.2. Skep en wysig 'n alarm</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_time_schedule.webp" alt="Bo-aan die ShiftAlarm-alarmredigeerder: tyd, skeduletipe, sluimer en stoorkontroles">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Tyd</strong> — blaai deur die uur- en minuutwiele om die waarskuwingstyd in te stel.</li>
+<li><strong>Tipe skedulering</strong> — kies een van hierdie modusse:
+<ul>
+<li><strong>Een keer</strong> — die alarm word een keer op die gekose datum afgeskakel;</li>
+<li><strong>Volgens dae</strong> — herhaal op gekose dae van die week;</li>
+<li><strong>Volgens skofte</strong> — koppel die alarm aan 'n gekose skedule en skoftipe.</li>
+</ul>
+</li>
+<li><strong>Sluimer</strong> — stel in hoeveel minute die waarskuwing uitgestel word wanneerjy tik die sluimerknoppie op die luiskerm.</li>
+<li><strong>Kanselleer en Stoor</strong> — hierdie knoppies is vas aan die onderkant van die skerm en bly beskikbaar terwyl jy deur die redigeerder blaai.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_behavior.webp" alt="ShiftAlarm-instellings vir alarmduur, herhalingswaarskuwing, geleidelike volumeverhoging en vibrasie">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Alarmduur</strong> — bepaal hoe lank die waarskuwing lui as die gebruiker dit nie stop nie.</li>
+<li><strong>Herhaal as alarm geïgnoreer word</strong> — aktiveer 'n ander waarskuwing wanneer die alarm nie afgeskakel of gesluimer is nie. Stel die interval voor die herhalingswaarskuwing daaronder.</li>
+<li><strong>Geleidelike volumeverhoging</strong> — begin met stiller klank en verhoog die volume geleidelik oor die gekose tyd.</li>
+<li><strong>Vibrasie</strong> — aktiveer of deaktiveer vibrasie tydens die waarskuwing.</li>
+<li><strong>Kanselleer en Stoor</strong> — vaste kontroles vir die redigeerder.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/alarm_editor_sound_name.webp" alt="Onderkant van die ShiftAlarm-alarmredigeerder: vibrasie-, klank-, naam- en stoorkontroles">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Vibrasie</strong> — aktiveer of deaktiveer die vibrasiewaarskuwing.</li>
+<li><strong>Klank</strong> — laat jou toe om 'n ingeboude, stelsel- of gebruikerbygevoegde klank te kies. Jy kan tot vyf persoonlike klanke by die toepassing voeg.</li>
+<li><strong>Naam</strong> — 'n opsionele etiket wat jou help om alarms te onderskei.</li>
+<li><strong>Kanselleer en Stoor</strong> — gooi veranderinge weg of stoor die alarm.</li>
+</ol>
+
+<div class="notice">Nadat dit gestoor is, verskyn die alarm in die hooflys. Maak seker dat die alarm geaktiveer is voor 'n belangrike waarskuwing, dat die toepassing kennisgewing- en presiese alarmtoestemmings het, en dat die stelsel nie sy agtergrondaktiwiteit beperk nie.</div>
+
+<div class="tip">Om 'n skofgekoppelde alarm te skep, skep eers 'n gepaste skofskedule. Kies in die redigeerder 'n vaste snellertyd of 'n verrekening relatief tot die begin van die skof.</div>
+
+<h2 id="geo">7. Geo-alarms</h2>
+
+<p>'n Geo-alarm monitor wanneer die toestel 'n gekose area binnegaan of verlaat. Die area word gedefinieer deur 'n punt op die kaart en 'n radius rondom daardie punt. Gebruik byvoorbeeld 'n Geo-alarm om 'n waarskuwing te ontvang wanneer jy werk, huis, 'n bushalte, 'n stasie of 'n ander plek nader.</p>
+
+<h3 id="geo-overview">7.1. Kaart en kontroles</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_overview.webp" alt="ShiftAlarm Geo Alarm hoofskerm met &#x27;n kaart en genommerde kontroles">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Zoem in</strong> — vergroot die kaart.</li>
+<li><strong>Zoem uit</strong> — verklein die kaartskaal.</li>
+<li><strong>My ligging</strong> — skuif die kaart na die toestel se huidige ligging. Die toepassing benodig liggingtoegang vir hierdie funksie.</li>
+<li><strong>Gestoorde plekke</strong> — maak die lys van gestoorde Geo-alarms en liggingspunte oop.</li>
+<li><strong>Terug</strong> — keer terug na die vorige toepassingskerm.</li>
+<li><strong>Geo-alarmtelling</strong> — wys hoeveel Geo-alarms geskep is.</li>
+<li><strong>Geo-alarmlys</strong> — maak 'n aparte lys van geskepte Geo-alarms oop.</li>
+</ol>
+
+<div class="tip">Jy kan ook met gebare zoem. Raak die kaart met twee vingers aan en sprei hulle uitmekaar om in te zoem, of knyp hulle saam om uit te zoem.</div>
+<div class="notice">Die sykontroles kan aan die teenoorgestelde kant in tale wat van regs na links geskryf word, verskyn. Hul funksies bly dieselfde.</div>
+
+<h3 id="geo-saved-places">7.2. Gestoorde alarms en liggingspunte</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_saved_places.webp" alt="Venster vir gestoorde plekke met Geo-alarm en liggingspunt-oortjies">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Alarms</strong> — wys Geo-alarms wat by gestoorde plekke gevoeg is.</li>
+<li><strong>Liggingspunte</strong> — wys gestoorde koördinate sonder 'n aktiewe Geo-alarm.</li>
+<li><strong>Lys van gestoorde plekke</strong> — tik op 'n kaart om na daardie plek op die kaart te beweeg.</li>
+<li><strong>Sluit</strong> — maak die venster toe en keer terug na die kaart.</li>
+</ol>
+
+<div class="notice">As jy 'n boekmerk-Geo-alarm uitvee, word die koördinate daarvan outomaties in die "Liggingspunte"-oortjie behou. Jy kan die punt later weer gebruik om nog 'n Geo-alarm te skep.</div>
+
+<h3 id="geo-select-point">7.3. Kies 'n punt en radius</h3>
+
+<p>Raak en hou die verlangde plek op die kaart. Die toepassing plaas 'n merker en maak die paneel vir die gekose punt oop.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_selected_point.webp" alt="Geselekteerde kaartpunt met adres, radius, boekmerk en Geo-alarm-skeppingsknoppie">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Geselekteerde puntmerker</strong> — die middelpunt van die toekomstige geofence. Die kaart vertoon ook 'n sirkel vir die gekose radius.</li>
+<li><strong>Adres en koördinate</strong> — laat jou toe om te verifieer dat die korrekte plek gekies is.</li>
+<li><strong>Stoor liggingspunt</strong> — voeg die gekose koördinate by gestoorde plekke sonder om 'n alarm te skep.</li>
+<li><strong>Radius</strong> — stel die grootte van die area rondom die punt. Beweeg die skuifbalk totdat jy 'n gepaste afstand kies.</li>
+<li><strong>Kanselleer</strong> — kanselleer puntkeuse.</li>
+<li><strong>Skep hier</strong> — maak die nuwe Geo Alarm-redigeerder vir die gekose punt oop.</li>
+</ol>
+
+<div class="warning"><strong>Hoe om 'n radius te kies.</strong> 'n Foon hou nie sy koördinate voortdurend dop nie. Android, die toestelvervaardiger, batterybesparingsmodus, GPS, mobiele netwerk- en Wi-Fi-seinkwaliteit, en bewegingspoed beïnvloed alles wanneer die grens bespeur word. Die waarskuwing kan dus weg van die getekende lyn af geaktiveer word. Byvoorbeeld, met 'n radius van 800 m, kan toegang bespeur word nadat die toestel reeds binne die gebied is—miskien 700, 600 of 500 m vanaf die punt.</div>
+
+<ul>
+<li><strong>In 'n stad</strong> word 'n radius van <strong>1 300–1 500 m</strong> oor die algemeen aanbeveel.</li>
+<li><strong>Buite 'n stad</strong>, waar liggingopdaterings minder gereeld kan wees, word <strong>4 000–5 000 m</strong> aanbeveel.</li>
+<li><strong>Die presiese radius</strong> moet gekies word op grond van jou roete, spoed en toestelgedrag.</li>
+</ul>
+
+<div class="notice">Die stelsel bespeur wanneer die toestel die gebied se virtuele grens oorsteek. In die "By toegang"-modus gee 'n groter radius die foon gewoonlik meer tyd om jou nadering te bespeur. In die "By uitgang"-modus word die grens eerder verder van die gekose punt geplaas.</div>
+
+<h3 id="geo-create">7.4. Skep 'n Geo-alarm</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_location_schedule.webp" alt="Bo-aan die Geo-alarmredigeerder: gereedheid, ligging en skeduletipe">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Geo-alarmgereedheid</strong> — wys of die vereiste toestemmings gekonfigureer is en of die toepassing die geofence kan registreer.</li>
+<li><strong>Ligging</strong> — bevat die gekose adres en koördinate. Jy kan die adres as 'n etiket wysig, maar die werklike punt word op die kaart gekies.</li>
+<li><strong>Tipe skedulering</strong> — bepaal die dae en voorwaardes waaronder die Geo-alarm aktief is.</li>
+<li><strong>Altyd</strong> — die Geo-alarm is elke dag aktief terwyl dit geaktiveer is.</li>
+<li><strong>Een keer</strong> — word gebruik vir die volgende eenmalige sneller wanneer aan die gekose voorwaarde voldoen word.</li>
+<li><strong>Volgens dae</strong> — werk slegs op gekose dae van die week.</li>
+<li><strong>Volgens skofte</strong> — koppel die Geo-alarm aan die aktiewe skofskedule.</li>
+</ol>
+
+<div class="notice"><strong>“Volgens skofte” skedule.</strong> Kies of dit op die skofdag werk, slegs voor die skof, of slegs daarna, en spesifiseer die vereiste skoftipe: dag, nag, oggend, aand,24-uur, persoonlike of enige werkskof.</div>
+<div class="tip">As 'n kalenderdatum as 'n afdag, vakansie, siekteverlof of tyd af in plaas van 'n werkskof gemerk is, sal 'n skofgekoppelde Geo-alarm nie daardie dag aktief wees nie.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_editor_trigger_settings.webp" alt="Onderkant van die Geo-alarmredigeerder: ingangs- of uitgangsvoorwaarde, radius en waarskuwingsinstellings">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Snellervoorwaarde</strong> — bepaal watter grenskruising die waarskuwing begin.</li>
+<li><strong>By ingang</strong> — begin die waarskuwing wanneer die toestel die gekose radius binnegaan, byvoorbeeld wanneer werk of die vereiste stop nader.</li>
+<li><strong>By uitgang</strong> — begin die waarskuwing wanneer die toestel die gekose radius verlaat, byvoorbeeld nadat dit werk of 'n stasie verlaat het sodat jy niemis die volgende deel van 'n roete.</li>
+<li><strong>By ingang of uitgang</strong> — begin die waarskuwing wanneer die grens in enige rigting oorgesteek word.</li>
+<li><strong>Radius</strong> — die grootte van die geofence rondom die gekose punt.</li>
+<li><strong>Alarmduur</strong> — bepaal hoe lank die waarskuwing lui.</li>
+<li><strong>Geleidelike volumeverhoging</strong> — stel 'n gladde volumeverhoging in nadat die waarskuwing begin het.</li>
+<li><strong>Kanselleer en Stoor</strong> — gooi veranderinge weg of stoor die Geo-alarm.</li>
+</ol>
+
+<div class="tip">Die oorblywende opsies hieronder is soortgelyk aan 'n gewone alarm: klank, vibrasie, waarskuwingsduur, geleidelike volumeverhoging en naam.</div>
+
+<h3 id="geo-existing">7.5. 'n Geo-alarm op die kaart en sy kontroles</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_marker_radius.webp" alt="Geo-alarmmerker en sy snellerradiussirkel op die kaart geskep">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Geo-alarmmerker</strong> — wys die gekose punt.</li>
+<li><strong>Radiusgrens</strong> — wys die area waarvan die toegang of uitgang deur die toepassing gemonitor word.</li>
+</ol>
+
+<p>Tik die Geo-alarmmerker. 'n Klein inligtingvenster verskyn eers. Tik daardie venster om die gedetailleerde kaart oop te maak.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/geo_alarm_card.webp" alt="Gedetailleerde Geo-alarmkaart met inligting, boekmerk, skakelaar en kontroles">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Naam en adres</strong> — identifiseer die gekose Geo-alarm.</li>
+<li><strong>Boekmerk</strong> — voeg die alarm by gestoorde plekke of verwyder dit van hulle.</li>
+<li><strong>Skakel</strong> — aktiveer of deaktiveer die Geo-alarm tydelik sonder om die instellings daarvan te verwyder.</li>
+<li><strong>Instellings en status</strong> — wys die radius, toegangs- of uitgangstoestand, skedule, geofence-gereedheid en inligting oor vorige aktiverings.</li>
+<li><strong>Wysig</strong> — maak die Geo-alarminstellings oop.</li>
+<li><strong>Sluit</strong>— maak die kaart toe en keer terug na die kaart.</li>
+<li><strong>Verwyder</strong> — verwyder die Geo-alarm na bevestiging.</li>
+</ol>
+
+<div class="warning">Vir betroubare werking, laat presiese en agtergrondligging toe, verwyder streng batterybeperkings vir ShiftAlarm, en kontroleer instellings vir outomatiese agtergrondbegin as jou toestel dit verskaf. Selfs met korrekte instellings, waarborg Android nie grensdeteksie akkuraat tot binne 'n paar meter nie.</div>
+
+<h2 id="notes">8. Notas, gebeure en herinnerings</h2>
+
+<p>Die "Notas"-afdeling stoor gewone teks, lyste, kontrolelyste, klankopnames, spraak-na-teks notas, herinnerings en gebeure.</p>
+
+<h3 id="notes-create">8.1. Voeg 'n nota by</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_type_picker.webp" alt="Kies &#x27;n nuwe notatipe in ShiftAlarm">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Paneelhandvatsel</strong> — sleep dit opwaarts om die volledige lys notatipes te wys, of afwaarts om die paneel toe te maak.</li>
+<li><strong>Notaatipe</strong> — kies die toepaslike opsie:
+<ul>
+<li><strong>Teksnota</strong> — gewone teks;</li>
+<li><strong>Kontrolelys</strong> — 'n lys items met voltooiingsmerkblokkies;</li>
+<li><strong>Lys</strong> — 'n kolpunt- of genommerde lys;</li>
+<li><strong>Oudionota</strong> — 'n stemopname;</li>
+<li><strong>Spraak na teks</strong> —skep 'n nota met behulp van spraakherkenning;</li>
+<li><strong>Herinnering</strong> — 'n inskrywing met 'n kennisgewing op 'n spesifieke tyd;</li>
+<li><strong>Gebeurtenis</strong> — 'n inskrywing gekoppel aan 'n datum en tyd.</li>
+</ul>
+</li>
+<li><strong>Kanselleer</strong> — maak die kieser toe sonder om 'n nota te skep.</li>
+</ol>
+
+<div class="tip">Nadat jy 'n tipe gekies het, maak die toepaslike redigeerder oop. Voltooi die vereiste velde en stoor die inskrywing.</div>
+
+<h3 id="notes-list">8.2. Notalys en kontroles</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/notes_overview.webp" alt="ShiftAlarm notaskerm met sortering, aktiewe en geargiveerde notas, soektog en kaartaksies">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Sorteer</strong> — verander die volgorde van notas in die lys.</li>
+<li><strong>Aktief</strong> — wys gereelde en geskeduleerde notas wat nie na die argief geskuif is nie.</li>
+<li><strong>Argief</strong> — maak die lys van geargiveerde notas oop.</li>
+<li><strong>Soek</strong> — vind ooreenstemmings in notatitels en -inhoud.</li>
+<li><strong>Notakaart</strong> — wys die titel, tipe, status en bykomende inligting. Tik die kaart om die nota oop te maak.</li>
+<li><strong>Veldpen</strong> — pen die nota bo-aan die lys vas.</li>
+<li><strong>Argief</strong> — verwyder die nota van die aktiewe lys en skuif dit na die argief.</li>
+<li><strong>Verwyder</strong> — verwyder die nota na bevestiging.</li>
+<li><strong>Voeg nota by</strong> — maak die nuwe notatipe-kieser oop.</li>
+</ol>
+
+<div class="notice">Gebruik die argief vir inskrywings wat nie meer in die hooflys benodig word nie, maar gestoor moet bly. Vee slegs 'n nota uit wanneer dit glad nie meer nodig is nie.</div>
+
+<h2 id="clock">9. Klok, stophorlosie en timer</h2>
+
+<p>Hierdie afdeling kombineer plaaslike en wêreldtyd, 'n stophorlosie en 'n timer. Maak dit oop met die <strong>“Klok”</strong>-knoppie op die hoofskerm.</p>
+
+<div class="notice">Drie oortjies verskyn onderaan die skerm: “Klok”, “Stophorlosie” en “Timer”. Tik op 'n oortjie om van modus te wissel.</div>
+
+<h3 id="clock-world">9.1. Klok en wêreldklok</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_overview.webp" alt="ShiftAlarm — ShiftWekkerskerm met plaaslike tyd, wêreldklokke, byvoegknoppie en onderste oortjies">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Plaaslike tyd</strong> — wys die huidige tyd, datum en toestelstelsel se tydsone.</li>
+<li><strong>Wêreldhorlosies</strong> — wys bygevoegde stede en tydsones. Terwyl die lys leeg is, wys die toepassing 'n wenk.</li>
+<li><strong>Plusknoppie</strong> — maak die wêreldklokkieser oop.</li>
+<li><strong>Afdelingsoortjies</strong> — wissel tussen die "Klok", "Stophorlosie" en "Timer"-skerms.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/clock_add_timezone.webp" alt="Voeg &#x27;n stad of tydsone by die ShiftAlarm-wêreldklok">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Soek</strong> — voer 'n stad of tydsonenaam in om die lys te filter.</li>
+<li><strong>Stad- en tydsonelys</strong> — tik die verlangde opsie om dit by die wêreldklokskerm te voeg.</li>
+</ol>
+
+<div class="tip">Die plaaslike tydsone word altyd eerste gewys. Jy kan bygevoegde wêreldhorlosies van die lys verwyder, maar plaaslike tyd kan nie verwyder word nie.</div>
+
+<h3 id="clock-stopwatch">9.2. Stophorlosie</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_start.webp" alt="ShiftAlarm stophorlosie voordat dit begin">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Geskiedenis</strong> — maak gestoorde stophorlosiesessies oop.</li>
+<li><strong>Begin</strong> — begin tydsberekening.</li>
+<li><strong>Stel terug</strong> — nie beskikbaar voordat die stophorlosie begin nie. Nadat dit gestop is, stel dit die stophorlosie terug na nul en verwyder die huidige rondtes.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_running.webp" alt="Hardloop ShiftAlarm stophorlosie met geskiedenis, stoor, rondte en pouseerkontroles">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Geskiedenis</strong> — wys voorheen gestoorde sessies.</li>
+<li><strong>Stoor</strong> — vra vir 'n naam en stoor die huidige stophorlosiesessie.</li>
+<li><strong>Rondte</strong> — teken 'n tussentydse resultaat aan sonder om die totale timer te stop.</li>
+<li><strong>Onderbreek</strong> — pouseer die stophorlosie. Nadat jy dit onderbreek het, kan jy dit hervat of terugstel.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/stopwatch_laps.webp" alt="ShiftAlarm stophorlosie rondtes en hul sorteeropsies">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Oorspronklik, vinnigste en stadigste</strong> — verander die rondte-vertoningsvolgorde: oorspronklike volgorde, vinnigste eerste of stadigste eerste.</li>
+<li><strong>Rondtes</strong> — elke rondte wys die totale tyd waarop dit aangeteken is en die individuele rondtetyd.</li>
+</ol>
+
+<div class="notice">Wanneer jy op Stoor tik, voer 'n sessienaam in en bevestig. Jy kan die gestoorde sessie later vanaf Geskiedenis oopmaak.</div>
+
+<h3 id="clock-timer">9.3. Timer</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_setup.webp" alt="Stel &#x27;n ShiftAlarm-timer met uur-, minuut- en sekondewiele">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Ure</strong> — blaai die wiel en kies die aantal ure.</li>
+<li><strong>Minute</strong> — blaai die wiel en kies die aantal minute.</li>
+<li><strong>Sekondes</strong> — blaai met die wiel en kies die aantal sekondes.</li>
+<li><strong>Begin</strong> — begin die timer met die gekose duur.</li>
+</ol>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/timer_running.webp" alt="ShiftAlarm — Lopende SkofAlarm-timer met oorblywende tyd, pouse, byvoeg-minuut en stopkontroles">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Oorblywende tyd</strong> — wys hoeveel tyd oorbly voor die waarskuwing.</li>
+<li><strong>Einde tyd</strong> — wys die benaderde tyd waarop die timer sal eindig.</li>
+<li><strong>Onlangse aftellers</strong> — gestoorde onlangse duur;tik een om dit vinnig te hergebruik.</li>
+<li><strong>Onderbreek</strong> — stop die aftelling tydelik. Jy kan dit daarna hervat.</li>
+<li><strong>+1 min</strong> — voeg een minuut by die oorblywende tyd.</li>
+<li><strong>Stop</strong> — stop die timer heeltemal.</li>
+</ol>
+
+<div class="tip">Die timer en stophorlosie loop steeds in die agtergrond. Hul status kan in 'n kennisgewing, op die hoofskerm en in widgets verskyn.</div>
+
+<h2 id="widgets">10. Widgets</h2>
+
+<p>ShiftAlarm verskaf widgets vir die foon se tuisskerm.</p>
+<ul>
+<li><strong>Vandag 4×2</strong> — 'n kompakte paneel met twee konfigureerbare afdelings.</li>
+<li><strong>Vandag 4×3</strong> — 'n paneel met 'n horlosie bo en twee afdelings onder.</li>
+<li><strong>Kalender 4×4</strong> — kalender-widgets met die skofskedule.</li>
+</ul>
+<p>Voeg 'n widget by deur die Android-widget-kieslys op die foon se tuisskerm.</p>
+
+<h2 id="salary">11. Salarisberekening</h2>
+
+<p>Maak "Salarisberekening" oop vanaf die salariskaart in die <a href="#statistics-work">statistieke van die gekose skedule</a>. Hier kan jy die betaalmetode, tarief of maandelikse salaris, oortydreëls, bonusse en aftrekkings instel. Die toepassing gebruik hierdie instellings saam met die gekose periode, skofskedule, kalenderveranderinge en pouserekeningkunde.</p>
+
+<div class="warning"><strong>Die berekening word slegs vir inligtingsdoeleindes verskaf.</strong> Werklike betaling kan verskil as jou werkgewer 'n ander stelsel vir tydhouding, afronding, toelaes, belasting, bonusse, aftrekkings of betaling vir spesifieke skoftipes gebruik. Moenie die resultaat as 'n amptelike betaalstaatdokument gebruik nie;vergelyk dit met jou werkgewer se betaalstrokie. As jy 'n berekeningsmetode vind wat die toepassing nie akkuraat hanteer nie, stuur 'n e-pos aan die ontwikkelaars by die adres wat in die toepassing getoon word. Beskryf die reëls, verskaf voorbeeldinvoerdata en noem die verwagte resultaat. Die metode kan dan vir 'n toekomstige opdatering oorweeg word.</div>
+
+<h3 id="salary-settings">11.1. Tarief, oortyd en bonusse</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_settings_overview.webp" alt="Salarisberekeningskerm met gekose skedule, tarieftipe, oortyd en bonusse">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Gekose rooster</strong> — wys watter skofskedule gebruik word. Salaris word bereken vanaf hierdie skedule en die periode wat in statistieke gekies is.</li>
+<li><strong>Tarieftipe en betaalbedrag</strong> — kies betaling <strong>per uur</strong>, <strong>per skof</strong> of <strong>per maand</strong>, en voer dan die ooreenstemmende bedrag in. Die veldnaam verander met die gekose tarieftipe.</li>
+<li><strong>Oortyd</strong> — aktiveer hierdie afdeling as ekstra ure anders as gewone werktyd betaal word. Spesifiseer dan die oortydbetalingsvermenigvuldiger. Voeg ekstra ure by die kalender deur <a href="#main-shift-time-adjustment">“Verander skof” → “+ tyd”</a>;aktiveer “Tel hierdie tyd as oortyd” sodat die ure as oortyd behandel word.</li>
+<li><strong>Bonusse</strong> — wys die huidige berekeningsmetode en totale. Tik die kaart om die <a href="#salary-bonuses">bonusinstellings</a> oop te maak.</li>
+</ol>
+
+<div class="notice">Die “Stoor”-knoppie pas die instellings toe op die gekose skedule. Na stoor word totale in statistieke en verslae herbereken met behulp van die ingevoerde data.</div>
+
+<h3 id="salary-summary">11.2. Aftrekkings en berekeningstotaal</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions_total.webp" alt="Salarisberekeningskerm met aftrekkings en &#x27;n finale uiteensetting">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Aftrekkings</strong> — toon die totale bedrag en aantal gekonfigureerde aftrekkings. Tik die kaart om die <a href="#salary-deductions">aftrekkingslys</a> oop te maak.</li>
+<li><strong>Totaal</strong> — 'n opsomming van die uiteensetting: betaalde tyd, gewerkte ure, oortyd, basiese betaling, oortydbetaling, bonusse, aftrekkings en die finale resultaat.</li>
+</ol>
+
+<div class="tip">Die resultaat hang nie net af van hierdie skerm se instellings nie, maar ook van die gekose statistiekperiode, voltooide skofte, dagveranderinge, oortyd en onbetaalde pouse-instellings.</div>
+
+<h3 id="salary-bonuses">11.3. Bonusse</h3>
+
+<p>Tik die "Bonusse"-kaart op die salarisberekeningskerm. Jy kan 'n bonus handmatig invoer of dit as 'n persentasie bereken as dit by jou betaalstelsel pas.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_bonuses.webp" alt="Bonusinstellingsskerm met berekening- en bedraginvoeropsies">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Opsommingsinligting</strong> — toon die berekende bonustotaal en die basisbedrag wat vir die berekening gebruik is.</li>
+<li><strong>Bonusberekening</strong> — kies handmatige invoer of 'n persentasieberekening, soos 'n persentasie van verkope, as daardie metode by jou werkplek gebruik word.</li>
+<li><strong>Invoermetode</strong> — "Totale bedrag" is geskik vir 'n enkele finale bonus. Afsonderlike rye is nuttig wanneer daar verskeie bonusse is wat onafhanklik getel moet word.</li>
+<li><strong>Bedrag of persentasie</strong> — voer die waarde in wat deur die gekose berekeningsmetode vereis word.</li>
+<li><strong>Kanselleer en Stoor</strong> — gooi die veranderinge weg of pas dit toe op die salarisberekening.</li>
+</ol>
+
+<h3 id="salary-deductions">11.4. Aftrekkingslys</h3>
+
+<p>Tik die "Aftrekkings"-kaart op die hoofberekeningskerm. Hierdie afdeling laat jou toe om verskeie aftrekkings te stoor en elkeen afsonderlik te bestuur.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deductions.webp" alt="Aftrekkingslysskerm met totale bedrag, aftrekkingsrye en byvoegknoppie">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Opsommingsinligting</strong> — toon die bedrag en aantal van alle geaktiveerde aftrekkings.</li>
+<li><strong>Aftrekkingsry</strong> — toon die naam, waarde en tipe. Tik die ry om die <a href="#salary-deduction-editor">aftrekkingsinstellings</a> oop te maak. Die asblik-ikoon verwyder die ry.</li>
+<li><strong>Voeg aftrekking by</strong> — die “+”-knoppie skep 'n nuwe aftrekkingsry.</li>
+<li><strong>Kanselleer en stoor</strong> — gooi veranderinge weg of stoor die hele lys.</li>
+</ol>
+
+<h3 id="salary-deduction-editor">11.5. Konfigurasie van 'n individuele aftrekking</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/salary_deduction_editor.webp" alt="Individuele aftrekkingspaneel met naam, waarde, tipe en aftrekkingsbasis">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Naam van aftrekking</strong> — voer 'n duidelike naam in soos "Belasting," "Kinderonderhoud," of "Boete. "</li>
+<li><strong>Waarde</strong> — voer 'n bedrag of persentasie in, afhangende van die waardetipe wat hieronder gekies is.</li>
+<li><strong>Waardetipe</strong> — kies 'n vaste bedrag of persentasie.</li>
+<li><strong>Aftrekkingstipe</strong> — 'n <strong>veranderlike</strong> aftrekking is van toepassing op 'n spesifieke berekeningsperiode;'n <strong>herhalende</strong> aftrekking word gereeld toegepas terwyl dit geaktiveer bly.</li>
+<li><strong>Trek af van</strong> — kies die berekeningsbasis: totale salaris, basisbetaling, bonusse of 'n ander beskikbare opsie.</li>
+<li><strong>Aangeskakel</strong> — deaktiveer die aftrekking tydelik sonder om die instellings daarvan te verwyder.</li>
+<li><strong>Kanselleer en Stoor</strong> — maak die paneel toe sonder veranderinge of stoor die aftrekking.</li>
+</ol>
+
+<div class="notice">Vir 'n persentasie-aftrekking is dit veral belangrik om die korrekte "Trek af van"-basis te kies: dieselfde persentasie van totale salaris, basisbetaling en bonusse lewer verskillende resultate.</div>
+
+<h2 id="settings">12. Instellings</h2>
+
+<p>Maak "Instellings" oop met die knoppie onderaan die <a href="#main-overview">hoofskerm</a>. Hierdie afdeling bevat stelseltoestemmings, voorkoms en programtaal, vanlyn spraakherkenning, dokumente en die gebruikersgids, rugsteun, diagnostiek en ontwikkelaarkontakopsies.</p>
+
+<h3 id="settings-overview">12.1. Hoofinstellingsafdelings</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_permissions_language.webp" alt="Bo-aan ShiftAlarm-instellings: toestemmings, tema, programtaal en vanlyn spraakmodelle">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Toestemmings</strong> — maak alarmtoestemmings en betroubaarheidsinstellings oop. Gaan kennisgewings, presiese alarms, agtergrondaktiwiteit en batterybeperkings na.<a href="#geo">Geo-alarms</a> vereis ook liggingtoegang;agtergrond- of "Laat heeltyd toe"-liggingtoegang is nodig om te aktiveer terwyl die program toe is. Itemname en -paaie wissel volgens Android-weergawe en toestelvervaardiger.</li>
+<li><strong>Tema</strong> — laat jou toe om lig, donker of stelselvoorkoms te kies, 'n koppelvlakkleurvariant te kies, en haptiese terugvoer vir aksies in die program te aktiveer of te deaktiveer. Die stelseltema volg die foon se huidige voorkoms.</li>
+<li><strong>Toepassingstaal</strong> — laat jou toe om 'n taal te gebruik wat verskil van die foon se stelseltaal. Die ShiftAlarm-katalogus bevat 108 tale: vind die verlangde taal met soektog, laai die taalpakket af en pas dit toe.</li>
+<li><strong>Vanlyn spraakmodelle</strong> — installeer 'n module vir <a href="#notes-create">spraak-na-teks notas</a>. Vanlyn herkenning word tans getoets en is beskikbaar vir ongeveer 20 tale. Die kwaliteit daarvan kan laer wees as aanlyn herkenning en hang af van die taal, mikrofoon, foonprestasie en opnametoestande.</li>
+</ol>
+
+<div class="warning"><strong>Android-toestemmings verskil tussen toestelle.</strong> Op sommige fone moet jy ook outomatiese agtergrondbegin toelaat, "Onbeperk" of 'n soortgelyke batterymodus kies, en agtergrondaktiwiteit toelaat. Hierdie instellings verminder die kans dat die stelsel ShiftAlarm sal stop, maar hul presiese name word deur die toestelvervaardiger bepaal.</div>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/settings_help_backup_diagnostics.webp" alt="Onderkant van ShiftAlarm-instellings: dokumente, gebruikersgids, rugsteun, diagnostiek en ontwikkelaarkontak">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Dokumente en hulp</strong> — maak die toepassing se regsdokumente oop: Gebruiksvoorwaardes, Privaatheidsbeleid, Vrywaring en die kort hulpbladsy.</li>
+<li><strong>Opleidings- en gebruikersgids</strong> — maak hierdie volledige geïllustreerde gids oop met gedetailleerde beskrywings van ShiftAlarm-kenmerke.</li>
+<li><strong>Rugsteun en herstel</strong> — skep 'n lêer wat ondersteunde toepassinginstellings en data bevat, of herstel dit vanaf 'n vorige rugsteun. Dit is nuttig voordat die toepassing herinstalleer word, die foon teruggestel word of data na 'n ander toestel oorgedra word. Sien <a href="#backup">“Rugsteun en herstel”</a> vir gedetailleerde instruksies.</li>
+<li><strong>Diagnostiese log</strong> — maak aparte logs oop vir programfunksies. Hulle teken tegniese stadiums aan soos waarskuwingskedulering en -herstel, gebeurtenisverwerking, toestemmingstatus en ander diensinligting. 'n Log help om die stadium te identifiseer waarin 'n fout voorgekom het. Jy kan inskrywings kopieer of voorberei om per e-pos aan die ontwikkelaars te stuur. Sien <a href="#diagnostics">“Diagnostiek en probleemoplossing”</a> vir besonderhede.</li>
+<li><strong>Kontak ontwikkelaars</strong> — maak die e-posprogram oop en skep 'n boodskap gerig aan ondersteuning. Gebruik dit om 'n probleem aan te meld, terugvoer of 'n voorstel te stuur, of 'n vraag te vra. Vir 'n tegniese probleem, sluit die foonmodel, Android-weergawe, tyd van die probleem, stappe wat uitgevoer is, en die relevante diagnostiese log indien moontlik in.</li>
+</ol>
+
+<div class="notice">Diagnostiese logs word nie outomaties aan die ontwikkelaars gestuur nie. Jy moet die vereiste inligting kopieer of op "Stuur na ontwikkelaars" tik, 'n e-posprogram kies, die voorbereide boodskap hersien en die stuur daarvan bevestig.</div>
+
+<h2 id="backup">13. Rugsteun en herstel</h2>
+
+<p>'n Rugsteun stoor ondersteunde ShiftAlarm-instellings en gebruikersdata in 'n aparte lêer. Dit help om data te herstel nadat die program herinstalleer is, die foon teruggestel is of na 'n ander toestel oorgeskakel is.</p>
+<ol class="step-list">
+<li>Maak oop "Instellings → Rugsteun en herstel. "</li>
+<li>Skep 'n rugsteun en stoor die resulterende lêer op die foon of deel dit deur die stelselkieslys.</li>
+<li>Om te herstel, maak dieselfde afdeling oop en kies 'n voorheen geskepte rugsteunlêer.</li>
+<li>Na herstel, kyk na belangrike alarms, skedules en Android-toestemmings. Sommige stelselsekuriteitstoestemmings moet dalk weer op 'n nuwe toestel of na herinstallasie toegestaan ​​word.</li>
+</ol>
+<p class="tip">Hou 'n huidige kopie op 'n veilige plek wat toeganklik bly as die foon verlore, beskadig of teruggestel word. 'n Rugsteunlêer vervang nie Android-stelseltoestemmings nie en kan nie outomaties data insluit waartoe die toepassing nie toegang het nie.</p>
+
+<h2 id="diagnostics">14. Diagnostiek en probleemoplossing</h2>
+
+<p>ShiftAlarm verskaf aparte diagnostiese logboeke vir verskillende kenmerke. Hulle bewaar 'n reeks tegniese gebeurtenisse en help bepaal of 'n waarskuwing geskeduleer, herstel is na 'n herbegin, vir verwerking geslaag het, of gestaak is as gevolg van 'n stelselinstelling.</p>
+
+<h3 id="diagnostics-control">14.1. Beheer van diagnostiese versameling</h3>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_sections.webp" alt="ShiftAlarm diagnostiese logskerm met die hoofskakelaar en &#x27;n individuele alarmlog">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Versamel diagnostiek</strong> — die hoofskakelaar vir elke diagnostiese afdeling in die toepassing. Skakel dit af om te verhoed dat nuwe gebeurtenisse gelyktydig by alle logs gevoeg word. Versameling van nuwe gebeurtenisse hervat nadat jy dit weer geaktiveer het.</li>
+<li><strong>Individuele kenmerklog</strong> — elke module het sy eie skakelaar en "Maak oop"-knoppie. Jy kan byvoorbeeld globale diagnostiek geaktiveer laat terwyl jy slegs die alarm, klok of 'n ander kenmerklog deaktiveer. Die skermkiekie wys die alarmlog, wat aflewering, skedulering, herstel, wagbeskerming en alarmskermgebeurtenisse opteken.</li>
+</ol>
+
+<div class="notice">Die skakelaars beheer slegs die opname van tegniese gebeurtenisse. Die deaktivering van 'n alarm, klok of ander funksielogboek deaktiveer nie die funksie self nie. Vee voorheen gestoorde inskrywings afsonderlik uit met die "Vee uit"-knoppie binne die ooreenstemmende logboek.</div>
+
+<h3 id="diagnostics-log">14.2. Individuele funksielogboek</h3>
+
+<p>Tik "Maak oop" in die vereiste diagnostiese afdeling. Die voorbeeld hieronder toon die alarmlogboek;logs vir ander funksies werk op 'n soortgelyke manier.</p>
+
+<figure class="guide-figure">
+<img class="guide-image" src="../shared/images/diagnostics_alarm_log.webp" alt="ShiftAlarm alarm diagnostiese log met gebeurtenistelling, aksies en tegniese inskrywings">
+</figure>
+
+<ol class="callout-list">
+<li><strong>Gebeurtenisse gestoor</strong> — wys die aantal inskrywings wat tans in die gekose log gestoor is.</li>
+<li><strong>Logaksies</strong>:
+<ul>
+<li><strong>Kopieer</strong> — kopieer alle data van die huidige log na die knipbord. Jy kan dit in 'n e-pos of 'n ander toepassing plak.</li>
+<li><strong>Maak skoon</strong> — verwyder die gestoorde inskrywings in hierdie log. Na die skoonmaak sal slegs gebeurtenisse wat later aangeteken is terwyl diagnostiek geaktiveer is, verskyn.</li>
+<li><strong>Stuur aan ontwikkelaars</strong> — maak die toepassingkieser oop vir die stuur van 'n e-pos. Kies 'n e-postoepassing;Die ontwikkelaar se adres en diagnostiese data word outomaties ingevoeg. Voeg 'n beskrywing van die probleem by, hersien die boodskap en bevestig dan die stuur daarvan voordat u dit stuur.</li>
+</ul>
+</li>
+<li><strong>App-gebeurtenisse</strong> — die logboekinskrywings self. 'n Inskrywing bevat gewoonlik 'n datum en tyd, 'n tegniese gebeurtenisnaam en bykomende parameters soos 'n identifiseerder, status of rede. Tegniese name kan in Engels verskyn;moenie dit wysig of vertaal voordat u dit stuur nie.</li>
+</ol>
+
+<div class="warning">Kopieer of stuur enige vereiste inskrywings voordat u 'n logboek skoonmaak. Geskrapte diagnostiese gebeurtenisse kan nie herstel word nie.</div>
+
+<div class="tip">As die probleem gereproduseer kan word, aktiveer eers globale diagnostiese versameling en die relevante kenmerklogboek, en herhaal dan die aksies wat die probleem veroorsaak het. Verskaf in u boodskap die presiese tyd van die probleem, foonmodel, Android-weergawe, verwagte resultaat en werklike resultaat. Dit help om u beskrywing by logboekgebeurtenisse te pas.</div>
+
+<h2 id="faq">15. Gereelde vrae</h2>
+
+<h3>Die alarm het nie betyds geaktiveer nie</h3>
+<p>Kontroleer kennisgewings, toestemming vir presiese alarms, agtergrondaktiwiteit en batterybeperkings.</p>
+<h3>Die Geo-alarm het laat geaktiveer</h3>
+<p>Kontroleer presiese en agtergrondligging, batterybeperkings en program se outomatiese agtergrondbegin. Probeer 'n radius van 1 300–1 500 m in 'n stad en 4 000–5 000 m buite 'n stad. Die werklike sneller mag dalk nie presies op die radiuslyn plaasvind nie.</p>
+<h3>Die widget het nie onmiddellik opgedateer nie</h3>
+<p>Maak die program oop of tik die verfrisknoppie op die widget. Android mag gereelde widget-opdaterings beperk.</p>
+<h3>Ek het die taal verander, maar 'n dokument of die gids is nog nie opgedateer nie</h3>
+<p>Kontroleer jou internetverbinding en gee tyd vir die aflaai. As die afstandweergawe nie beskikbaar is nie, gebruik die program sy ingeboude terugval.</p>
+
+<div class="footer small">Die gids kan deur GitHub opgedateer word. As die afstandweergawe nie beskikbaar is nie, gebruik die program sy ingeboude vanlynweergawe.</div>
+</main>
+</body>
+</html>
